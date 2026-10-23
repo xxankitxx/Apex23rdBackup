@@ -1,0 +1,76 @@
+{
+ "registered": "2026-10-17",
+ "champion": "spot_dual_lvl",
+ "champion_since": "2026-10-22",
+ "gates": [],
+ "retired": [],
+ "log": [
+  {
+   "day": "2026-10-20",
+   "event": "champion",
+   "from": "m2.0_s0.5",
+   "to": "spot_dc12_t12",
+   "by": "owner (D-124)"
+  },
+  {
+   "day": "2026-10-21",
+   "event": "champion",
+   "from": "spot_dc12_t12",
+   "to": "spot_dual",
+   "by": "owner (D-124)"
+  },
+  {
+   "day": "2026-10-22",
+   "event": "champion",
+   "from": "spot_dual",
+   "to": "spot_dual_lvl",
+   "by": "owner (D-124)"
+  }
+ ],
+ "status": "COLLECTING",
+ "scoreboard": {
+  "n": 5,
+  "sum": 129.17,
+  "go_line": 1004.4,
+  "kill_line": -554.7,
+  "sd_obs": 23.76
+ },
+ "learned_day": "2026-10-23",
+ "candidates": {},
+ "streak": {
+  "m1.5_s0.4": 0,
+  "m1.5_s0.5": 0,
+  "m1.5_s0.6": 0,
+  "m2.0_s0.4": 0,
+  "m2.0_s0.5": 0,
+  "m2.0_s0.6": 0,
+  "m2.5_s0.4": 0,
+  "m2.5_s0.5": 0,
+  "m2.5_s0.6": 0,
+  "gap3_s0.4": 0,
+  "gap5_s0.4": 0,
+  "m2.0_s0.5_bookexit": 0,
+  "straddle_spike": 0,
+  "m2.0_s0.5_ivinterp": 0,
+  "m2.0_s0.5_novol": 0,
+  "m2.0_s0.5_trend": 0,
+  "spot_dc12_t12": 0,
+  "spot_dc12_t12_first": 0,
+  "spot_dc12_t12_1130": 0,
+  "spot_dc12_t12_nolock": 0,
+  "spot_pb45": 0,
+  "spot_dual": 0,
+  "spot_dual_rg": 0,
+  "spot_ft_prem10": 0,
+  "spot_orb45": 0,
+  "m2.0_s0.5_d20": 0,
+  "m2.0_s0.5_tvfast": 0,
+  "fade_switch": 0
+ },
+ "gate_streak": {},
+ "looked_day": "2026-10-23",
+ "owner_champion": [
+  "spot_dual_lvl",
+  "2026-10-22"
+ ]
+}

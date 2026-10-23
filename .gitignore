@@ -1,0 +1,18 @@
+# ── never upload: credentials ───────────────────────────────────────────────
+secrets/
+data/token_cache.json
+**/token_cache.json
+.env
+
+# ── too large for GitHub (100 MB per-file limit) ────────────────────────────
+data/ticks/
+*.jsonl.gz
+*.pkl
+*.npz
+
+# ── generated / noise ───────────────────────────────────────────────────────
+__pycache__/
+*.pyc
+*.tmp
+logs/
+assets/*.mp3

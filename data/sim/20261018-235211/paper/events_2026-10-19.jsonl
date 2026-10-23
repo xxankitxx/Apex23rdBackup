@@ -1,0 +1,76 @@
+{"t": "09:15:06", "k": "SYSTEM", "x": "day 2026-10-19 \u00b7 champion m2.0_s0.5 \u00b7 gates none \u00b7 capital \u20b9100,000", "mkt_t": 1792381506.0}
+{"t": "09:21:08", "k": "SPIKE", "x": "straddle 25200 +7.0 over theta in 5 min \u2014 PE leg carries it (45.6, delta -0.465\u2192-0.552, gamma 0.00407)", "mkt_t": 1792381868.7500002}
+{"t": "09:25:05", "k": "SPIKE", "x": "straddle 25200 +14.3 over theta in 5 min \u2014 PE leg carries it (60.0, delta -0.596\u2192-0.624, gamma 0.00366)", "mkt_t": 1792382105.0}
+{"t": "09:34:06", "k": "SHIFT", "x": "ATM rolled 25200 \u2192 25150: straddle 77.8 \u2192 73.1 (spot settled at the new strike)", "mkt_t": 1792382646.0}
+{"t": "09:39:06", "k": "SPIKE", "x": "straddle 25150 +14.8 over theta in 5 min \u2014 PE leg carries it (46.9, delta -0.435\u2192-0.529, gamma 0.00372)", "mkt_t": 1792382946.2499998}
+{"t": "09:51:58", "k": "SPIKE", "x": "straddle 25150 +10.3 over theta in 5 min \u2014 PE leg carries it (63.4, delta -0.657\u2192-0.658, gamma 0.00369)", "mkt_t": 1792383718.5}
+{"t": "09:53:47", "k": "SPIKE", "x": "straddle 25150 +16.0 over theta in 5 min \u2014 PE leg carries it (64.7, delta -0.598\u2192-0.663, gamma 0.00364)", "mkt_t": 1792383827.2499998}
+{"t": "10:17:56", "k": "ARMED", "x": "Triangle closing: push 124%, together 96%, 100% room left \u2014 CE side", "mkt_t": 1792385276.5}
+{"t": "10:18:18", "k": "SPIKE", "x": "straddle 25150 +8.8 over theta in 5 min \u2014 PE leg carries it (39.1, delta -0.429\u2192-0.51, gamma 0.0042)", "mkt_t": 1792385298.7500002}
+{"t": "10:23:13", "k": "SPIKE", "x": "straddle 25150 +9.5 over theta in 5 min \u2014 PE leg carries it (53.0, delta -0.514\u2192-0.594, gamma 0.00388)", "mkt_t": 1792385593.7500002}
+{"t": "10:33:02", "k": "SHIFT", "x": "ATM rolled 25150 \u2192 25050: straddle 93.5 \u2192 71.2 (spot settled at the new strike)", "mkt_t": 1792386182.5}
+{"t": "10:38:33", "k": "SPIKE", "x": "straddle 25050 +9.4 over theta in 5 min \u2014 PE leg carries it (51.8, delta -0.347\u2192-0.595, gamma 0.00398)", "mkt_t": 1792386513.0}
+{"t": "10:40:39", "k": "SPIKE", "x": "straddle 25050 +17.0 over theta in 5 min \u2014 PE leg carries it (58.0, delta -0.433\u2192-0.637, gamma 0.00388)", "mkt_t": 1792386639.2499998}
+{"t": "10:52:32", "k": "SHIFT", "x": "ATM rolled 25050 \u2192 25000: straddle 83.5 \u2192 74.0 (spot settled at the new strike)", "mkt_t": 1792387352.7500002}
+{"t": "10:58:35", "k": "SPIKE", "x": "straddle 25000 +9.8 over theta in 5 min \u2014 CE leg carries it (72.9, delta 0.532\u21920.774, gamma 0.00363)", "mkt_t": 1792387715.7500002}
+{"t": "11:01:23", "k": "SPIKE", "x": "straddle 25000 +9.9 over theta in 5 min \u2014 CE leg carries it (67.9, delta 0.584\u21920.762, gamma 0.00388)", "mkt_t": 1792387883.0}
+{"t": "11:02:24", "k": "SHIFT", "x": "ATM rolled 25000 \u2192 25100: straddle 90.0 \u2192 65.7 (spot settled at the new strike)", "mkt_t": 1792387944.0}
+{"t": "11:17:01", "k": "SPIKE", "x": "straddle 25100 +10.6 over theta in 5 min \u2014 PE leg carries it (50.4, delta -0.396\u2192-0.62, gamma 0.00432)", "mkt_t": 1792388821.7500002}
+{"t": "11:19:02", "k": "SHIFT", "x": "ATM rolled 25100 \u2192 25000: straddle 99.9 \u2192 79.2 (spot settled at the new strike)", "mkt_t": 1792388942.2499998}
+{"t": "11:37:48", "k": "SPIKE", "x": "straddle 25000 +9.6 over theta in 5 min \u2014 PE leg carries it (37.8, delta -0.421\u2192-0.54, gamma 0.00476)", "mkt_t": 1792390068.7500002}
+{"t": "11:40:06", "k": "SHIFT", "x": "ATM rolled 25000 \u2192 24900: straddle 99.0 \u2192 75.6 (spot settled at the new strike)", "mkt_t": 1792390206.0}
+{"t": "11:51:44", "k": "SPIKE", "x": "straddle 24900 +9.1 over theta in 5 min \u2014 CE leg carries it (58.4, delta 0.616\u21920.754, gamma 0.00449)", "mkt_t": 1792390904.5}
+{"t": "11:54:49", "k": "SPIKE", "x": "straddle 24900 +19.7 over theta in 5 min \u2014 CE leg carries it (54.5, delta 0.589\u21920.651, gamma 0.00422)", "mkt_t": 1792391089.2499998}
+{"t": "12:02:21", "k": "SPIKE", "x": "straddle 24900 +9.2 over theta in 5 min \u2014 CE leg carries it (65.9, delta 0.645\u21920.795, gamma 0.00404)", "mkt_t": 1792391541.0}
+{"t": "12:04:22", "k": "SHIFT", "x": "ATM rolled 24900 \u2192 24950: straddle 72.0 \u2192 55.0 (spot settled at the new strike)", "mkt_t": 1792391662.7500002}
+{"t": "12:17:19", "k": "SPIKE", "x": "straddle 24950 +9.3 over theta in 5 min \u2014 CE leg carries it (43.1, delta 0.586\u21920.62, gamma 0.00502)", "mkt_t": 1792392439.0}
+{"t": "12:21:23", "k": "SHIFT", "x": "ATM rolled 24950 \u2192 25050: straddle 86.7 \u2192 61.8 (spot settled at the new strike)", "mkt_t": 1792392683.7500002}
+{"t": "12:26:24", "k": "SPIKE", "x": "straddle 25050 +21.2 over theta in 5 min \u2014 PE leg carries it (71.6, delta -0.632\u2192-0.79, gamma 0.00373)", "mkt_t": 1792392984.2499998}
+{"t": "12:31:42", "k": "SHIFT", "x": "ATM rolled 25050 \u2192 25000: straddle 65.3 \u2192 52.8 (spot settled at the new strike)", "mkt_t": 1792393302.0}
+{"t": "12:36:44", "k": "SPIKE", "x": "straddle 25000 +19.1 over theta in 5 min \u2014 CE leg carries it (56.7, delta 0.522\u21920.726, gamma 0.00451)", "mkt_t": 1792393604.2499998}
+{"t": "12:40:31", "k": "SPIKE", "x": "straddle 25000 +14.5 over theta in 5 min \u2014 CE leg carries it (68.8, delta 0.615\u21920.83, gamma 0.00383)", "mkt_t": 1792393831.7500002}
+{"t": "12:43:59", "k": "ARMED", "x": "Triangle closing: push 151%, together 146%, 100% room left \u2014 PE side", "mkt_t": 1792394039.5}
+{"t": "12:43:59", "k": "ENTRY", "x": "BUY 28 lots NIFTY 25100 PE (2026-10-19) @ 53.40 \u00b7 forming move DOWN: futures z 3.0, synchrony 73%, first mover \u2014, 0 pts since onset", "mkt_t": 1792394039.5}
+{"t": "12:43:59", "k": "RAW-ENTRY", "x": "BUY 28 lots NIFTY 25100 PE (2026-10-19) @ 53.40 \u00b7 forming move DOWN: futures z 3.0, synchrony 73%, first mover \u2014, 0 pts since onset", "mkt_t": 1792394039.5}
+{"t": "12:50:25", "k": "EXIT", "x": "PE 25100 28 lots \u00b7 53.40 \u2192 127.30 = +73.90 pts / \u20b9+134,498 \u00b7 TRAIL \u00b7 capital \u20b9234,498", "mkt_t": 1792394425.0}
+{"t": "12:50:25", "k": "RAW-EXIT", "x": "PE 25100 28 lots \u00b7 53.40 \u2192 127.30 = +73.90 pts / \u20b9+134,498 \u00b7 TRAIL \u00b7 capital \u20b9234,498", "mkt_t": 1792394425.0}
+{"t": "12:53:28", "k": "SPIKE", "x": "straddle 25000 +9.0 over theta in 5 min \u2014 PE leg carries it (60.8, delta -0.644\u2192-0.809, gamma 0.0044)", "mkt_t": 1792394608.5}
+{"t": "12:59:09", "k": "SPIKE", "x": "straddle 25000 +9.2 over theta in 5 min \u2014 PE leg carries it (53.2, delta -0.703\u2192-0.754, gamma 0.00494)", "mkt_t": 1792394949.0}
+{"t": "13:01:51", "k": "SPIKE", "x": "straddle 25000 +11.2 over theta in 5 min \u2014 PE leg carries it (47.0, delta -0.595\u2192-0.724, gamma 0.00546)", "mkt_t": 1792395111.5}
+{"t": "13:06:04", "k": "SPIKE", "x": "straddle 25000 +8.6 over theta in 5 min \u2014 PE leg carries it (55.1, delta -0.68\u2192-0.8, gamma 0.00485)", "mkt_t": 1792395364.0}
+{"t": "13:07:05", "k": "SHIFT", "x": "ATM rolled 25000 \u2192 24950: straddle 56.9 \u2192 48.5 (spot settled at the new strike)", "mkt_t": 1792395425.5}
+{"t": "13:11:14", "k": "SHIFT", "x": "ATM rolled 24950 \u2192 25050: straddle 83.5 \u2192 54.0 (spot settled at the new strike)", "mkt_t": 1792395674.7500002}
+{"t": "13:16:15", "k": "SPIKE", "x": "straddle 25050 +8.9 over theta in 5 min \u2014 PE leg carries it (54.4, delta -0.635\u2192-0.801, gamma 0.00492)", "mkt_t": 1792395975.5}
+{"t": "13:19:04", "k": "SPIKE", "x": "straddle 25050 +8.9 over theta in 5 min \u2014 PE leg carries it (50.8, delta -0.698\u2192-0.757, gamma 0.00519)", "mkt_t": 1792396144.7500002}
+{"t": "13:31:06", "k": "SPIKE", "x": "straddle 25050 +9.0 over theta in 5 min \u2014 PE leg carries it (41.3, delta -0.532\u2192-0.739, gamma 0.00629)", "mkt_t": 1792396866.2499998}
+{"t": "13:32:52", "k": "SPIKE", "x": "straddle 25050 +28.0 over theta in 5 min \u2014 PE leg carries it (62.5, delta -0.602\u2192-0.814, gamma 0.00427)", "mkt_t": 1792396972.2499998}
+{"t": "13:34:49", "k": "SPIKE", "x": "straddle 25050 +25.7 over theta in 5 min \u2014 PE leg carries it (61.5, delta -0.605\u2192-0.836, gamma 0.00429)", "mkt_t": 1792397089.0}
+{"t": "13:36:14", "k": "SHIFT", "x": "ATM rolled 25050 \u2192 24950: straddle 80.5 \u2192 47.0 (spot settled at the new strike)", "mkt_t": 1792397174.0}
+{"t": "13:42:04", "k": "SPIKE", "x": "straddle 24950 +9.9 over theta in 5 min \u2014 CE leg carries it (43.6, delta 0.536\u21920.771, gamma 0.00606)", "mkt_t": 1792397524.2499998}
+{"t": "13:44:07", "k": "SHIFT", "x": "ATM rolled 24950 \u2192 25050: straddle 78.2 \u2192 43.3 (spot settled at the new strike)", "mkt_t": 1792397647.7500002}
+{"t": "13:49:08", "k": "SPIKE", "x": "straddle 25050 +11.5 over theta in 5 min \u2014 PE leg carries it (39.5, delta -0.679\u2192-0.688, gamma 0.00619)", "mkt_t": 1792397948.5}
+{"t": "14:02:21", "k": "SPIKE", "x": "straddle 25050 +8.6 over theta in 5 min \u2014 CE leg carries it (34.4, delta 0.556\u21920.715, gamma 0.00735)", "mkt_t": 1792398741.5}
+{"t": "14:06:24", "k": "SPIKE", "x": "straddle 25050 +20.7 over theta in 5 min \u2014 CE leg carries it (51.4, delta 0.589\u21920.853, gamma 0.00503)", "mkt_t": 1792398984.5}
+{"t": "14:10:15", "k": "ARMED", "x": "Triangle closing: push 129%, together 94%, 100% room left \u2014 CE side", "mkt_t": 1792399215.2499998}
+{"t": "14:10:16", "k": "ENTRY", "x": "BUY 13 lots NIFTY 25000 CE (2026-10-27) @ 257.70 \u00b7 co-first move UP: futures z 2.8, synchrony 50%, first mover ICICIBANK, 1 pts since onset", "mkt_t": 1792399216.2499998}
+{"t": "14:10:16", "k": "RAW-ENTRY", "x": "BUY 13 lots NIFTY 25000 CE (2026-10-27) @ 257.70 \u00b7 co-first move UP: futures z 2.8, synchrony 50%, first mover ICICIBANK, 1 pts since onset", "mkt_t": 1792399216.2499998}
+{"t": "14:11:17", "k": "SPIKE", "x": "straddle 25050 +8.9 over theta in 5 min \u2014 CE leg carries it (57.5, delta 0.863\u21920.836, gamma 0.00457)", "mkt_t": 1792399277.7500002}
+{"t": "14:13:49", "k": "SPIKE", "x": "straddle 25050 +19.7 over theta in 5 min \u2014 CE leg carries it (52.0, delta 0.684\u21920.845, gamma 0.00502)", "mkt_t": 1792399429.5}
+{"t": "14:14:37", "k": "EXIT", "x": "CE 25000 13 lots \u00b7 257.70 \u2192 277.20 = +19.50 pts / \u20b9+16,478 \u00b7 TRAIL \u00b7 capital \u20b9250,976", "mkt_t": 1792399477.2499998}
+{"t": "14:14:37", "k": "RAW-EXIT", "x": "CE 25000 13 lots \u00b7 257.70 \u2192 277.20 = +19.50 pts / \u20b9+16,478 \u00b7 TRAIL \u00b7 capital \u20b9250,976", "mkt_t": 1792399477.2499998}
+{"t": "14:22:17", "k": "SPIKE", "x": "straddle 25050 +8.9 over theta in 5 min \u2014 CE leg carries it (40.6, delta 0.693\u21920.825, gamma 0.00651)", "mkt_t": 1792399937.2499998}
+{"t": "14:25:39", "k": "SPIKE", "x": "straddle 25050 +9.2 over theta in 5 min \u2014 CE leg carries it (42.6, delta 0.789\u21920.801, gamma 0.00626)", "mkt_t": 1792400139.2499998}
+{"t": "14:44:35", "k": "SPIKE", "x": "straddle 25050 +10.3 over theta in 5 min \u2014 CE leg carries it (40.8, delta 0.721\u21920.877, gamma 0.00609)", "mkt_t": 1792401275.7500002}
+{"t": "14:46:49", "k": "SPIKE", "x": "straddle 25050 +12.7 over theta in 5 min \u2014 CE leg carries it (37.1, delta 0.621\u21920.866, gamma 0.00682)", "mkt_t": 1792401409.2499998}
+{"t": "14:48:39", "k": "SPIKE", "x": "straddle 25050 +9.6 over theta in 5 min \u2014 CE leg carries it (38.8, delta 0.766\u21920.886, gamma 0.00627)", "mkt_t": 1792401519.0}
+{"t": "14:56:42", "k": "SPIKE", "x": "straddle 25050 +11.0 over theta in 5 min \u2014 PE leg carries it (33.9, delta -0.184\u2192-0.805, gamma 0.00789)", "mkt_t": 1792402002.5}
+{"t": "14:59:13", "k": "SPIKE", "x": "straddle 25050 +23.7 over theta in 5 min \u2014 PE leg carries it (52.2, delta -0.224\u2192-0.956, gamma 0.00309)", "mkt_t": 1792402153.5}
+{"t": "15:02:00", "k": "SPIKE", "x": "straddle 25050 +9.8 over theta in 5 min \u2014 PE leg carries it (45.1, delta -0.809\u2192-0.952, gamma 0.00374)", "mkt_t": 1792402320.0}
+{"t": "15:05:44", "k": "SPIKE", "x": "straddle 25050 +29.6 over theta in 5 min \u2014 PE leg carries it (61.2, delta -0.827\u2192-0.99, gamma 0.0)", "mkt_t": 1792402544.5}
+{"t": "15:06:27", "k": "SHIFT", "x": "ATM rolled 25050 \u2192 24950: straddle 76.1 \u2192 28.5 (spot settled at the new strike)", "mkt_t": 1792402587.0}
+{"t": "15:11:55", "k": "SPIKE", "x": "straddle 24950 +11.3 over theta in 5 min \u2014 CE leg carries it (28.7, delta 0.646\u21920.901, gamma 0.0081)", "mkt_t": 1792402915.7500002}
+{"t": "15:15:19", "k": "SPIKE", "x": "straddle 24950 +9.9 over theta in 5 min \u2014 CE leg carries it (24.1, delta 0.66\u21920.891, gamma 0.00993)", "mkt_t": 1792403119.5}
+{"t": "15:22:50", "k": "SPIKE", "x": "straddle 24950 +10.0 over theta in 5 min \u2014 PE leg carries it (22.6, delta -0.19\u2192-0.918, gamma 0.0096)", "mkt_t": 1792403570.5}
+{"t": "15:26:31", "k": "SPIKE", "x": "straddle 24950 +10.2 over theta in 5 min \u2014 PE leg carries it (19.0, delta -0.783\u2192-0.86, gamma 0.0135)", "mkt_t": 1792403791.0}
+{"t": "15:29:04", "k": "SHIFT", "x": "ATM rolled 24950 \u2192 24850: straddle 75.1 \u2192 25.4 (spot settled at the new strike)", "mkt_t": 1792403944.5}
+{"t": "15:30:08", "k": "LEARN", "x": "2026-10-19: champion next session m2.0_s0.5, gates none, status COLLECTING", "mkt_t": 1792404008.0}

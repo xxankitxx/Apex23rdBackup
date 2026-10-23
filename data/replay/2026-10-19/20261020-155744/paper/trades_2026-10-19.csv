@@ -1,0 +1,1 @@
+time_in,time_out,rr,strike,expiry,lots,qty,entry,exit,pnl_pts,ret_pct,pnl_rs,capital_after,reason,ep_type,regime,gap,stale_exit,why,entry_bid,entry_ask,exit_bid,exit_ask,fut_in,fut_out,hold_s,episode,delta_in,iv_in,iv_out,delta_out,trade_age_in,trade_age_out,mid_in,mid_out,ret_pct_mid,stop_fut,peak_pts,exit_quote_age,band_fallback

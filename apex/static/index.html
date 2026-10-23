@@ -1,0 +1,178 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>ApexOptions</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Barlow:wght@400;500;600&family=Chakra+Petch:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+<header class="bar">
+  <div id="stale" class="stale-banner" role="alert" hidden></div>
+  <div class="mark">
+    <div class="brand"><span class="tri" aria-hidden="true"></span>ApexOptions</div>
+    <div class="brand"><em id="mode">paper</em><button id="snd" aria-pressed="false" title="Sound on entries and exits">Sound off</button></div>
+  </div>
+
+  <div class="quote" title="Nifty futures: bid/ask midpoint, what the system fills at">
+    <span class="q-name">Nifty futures</span>
+    <b id="fut" class="q-px">—</b>
+    <span id="futchg" class="q-chg"></span>
+    <span id="dayrange" class="q-rng" title="Today's futures high and low"></span>
+  </div>
+
+  <div class="ht ht-spot nodata" id="t-spot" title="Nifty index (spot). The champion book trades on this number.">
+    <span class="lbl">Spot</span>
+    <b class="val" id="spot">—</b>
+    <span class="sub" id="spotsub"></span>
+  </div>
+
+  <div class="ht ht-vix nodata" id="t-vix" title="India VIX. The tile turns from violet to magenta and pulses as fear rises.">
+    <span class="lbl">VIX</span>
+    <b class="val" id="vix">—</b>
+    <span class="sub" id="vixsub"></span>
+  </div>
+
+  <div class="ht ht-iv nodata" id="t-iv" title="Implied volatility of the at-the-money straddle, this week's expiry.">
+    <span class="lbl">ATM IV <span id="ivk"></span></span>
+    <b class="val" id="atmiv">—</b>
+    <span class="sub" id="ivsub"></span>
+  </div>
+
+  <div class="ht ht-clock ph-PRE" id="t-clock" title="Engine clock (market time) and the session phase">
+    <span class="lbl">Clock</span>
+    <b class="val" id="clock">—</b>
+    <span class="sub"><span id="phase" class="chip" hidden></span><span id="clocksub"></span></span>
+    <svg class="ring" viewBox="0 0 46 46" aria-hidden="true">
+      <circle class="trk" cx="23" cy="23" r="19"></circle>
+      <circle class="arc" id="ringarc" cx="23" cy="23" r="19" stroke-dasharray="119.4" stroke-dashoffset="119.4"></circle>
+      <text id="ringtxt" x="23" y="23"></text>
+    </svg>
+  </div>
+
+  <div class="money">
+    <span class="m-label" id="caplabel">Paper capital</span>
+    <b id="cap">—</b>
+    <span id="daypnl"></span>
+  </div>
+  <div class="health" id="health" title="feed health">
+    <i id="dot"></i>
+    <span id="feed">—</span>
+    <small id="lat">—</small>
+    <small id="dhealth" class="dhealth"></small>
+  </div>
+</header>
+
+<main>
+  <section class="pos is-flat" id="posband" aria-label="Paper position">
+    <div id="pos"></div>
+    <span id="posann" class="sr-only" aria-live="polite"></span>
+  </section>
+
+  <!-- live-trade commentary (T09): hidden when flat, the "cmt" grid row only exists while body.cmt-on -->
+  <section class="cmt" id="cmt" aria-label="Live-trade commentary" hidden>
+    <header class="cmt-head">
+      <span class="cmt-state" id="cmtstate" data-state="HOLD"><i class="cmt-eye" aria-hidden="true"></i><b id="cmtstatetxt">HOLD</b></span>
+      <span class="cmt-reason" id="cmtreason">—</span>
+      <span class="cmt-grade" id="cmtgrade" title="Entry grade, decided once at entry" hidden><small>entry</small><b id="cmtgradeltr">—</b></span>
+      <span class="cmt-clock" id="cmtclock" aria-hidden="true"></span>
+    </header>
+    <div class="cmt-line" id="cmtline" aria-hidden="true">
+      <i class="tl-fill" id="cmtfill"></i>
+      <i class="tl-mk entry" id="cmtmkentry" title="entry"></i>
+      <i class="tl-mk best" id="cmtmkbest" title="best"></i>
+      <i class="tl-now" id="cmtmknow" title="now"></i>
+      <span class="tl-dots" id="cmtdots"></span>
+    </div>
+    <div class="cmt-line-lab" id="cmtlinelab"><span id="cmtlinel">entry</span><span id="cmtliner">now</span></div>
+    <ol class="cmt-feed" id="cmtfeed" aria-live="polite" aria-relevant="additions"></ol>
+    <p class="cmt-more" id="cmtmore" hidden><b id="cmtmoren">0</b> earlier remarks · scroll</p>
+    <div class="cmt-side" id="cmtside">
+      <aside class="cmt-card cmt-entry" id="cmtentry" hidden>
+        <span class="cmt-card-lbl">ENTRY</span>
+        <ul id="cmtentrylines"></ul>
+      </aside>
+      <aside class="cmt-card cmt-vcard" id="cmtvcard" hidden>
+        <span class="cmt-card-lbl">VERDICT</span>
+        <b class="cmt-vcard-state" id="cmtvstate">—</b>
+        <span class="cmt-vcard-since" id="cmtvsince"></span>
+        <div class="cmt-score"><i id="cmtvscore"></i></div>
+        <span class="cmt-vcard-n" id="cmtvn"></span>
+      </aside>
+      <aside class="cmt-card cmt-review" id="cmtreview" hidden>
+        <span class="cmt-card-lbl">LAST TRADE</span>
+        <b class="cmt-review-rs" id="cmtreviewrs">—</b>
+        <span class="cmt-review-ret" id="cmtreviewret"></span>
+        <ul id="cmtreviewlines"></ul>
+      </aside>
+    </div>
+    <span id="cmtann" class="sr-only" aria-live="polite"></span>
+  </section>
+
+  <section class="vortex" aria-label="Trigger">
+    <div class="v-stage"><canvas id="tri"></canvas></div>
+    <p id="verdict" class="verdict" aria-live="polite">Waiting for data</p>
+    <p id="regime" class="regime"></p>
+    <p id="episode" class="episode"></p>
+    <ul id="advisors" class="advisors"></ul>
+    <p class="champ" id="champ"></p>
+  </section>
+
+  <section class="trace" aria-label="Futures trace">
+    <div class="sec-head"><h2>Futures, last 5 minutes</h2><span id="tracehint"></span></div>
+    <canvas id="futline" height="170"></canvas>
+    <p id="futbook" class="small"></p>
+  </section>
+
+  <section class="straddle" aria-label="Straddle watch">
+    <div class="sec-head"><h2>Straddle watch</h2><span id="swhint"></span></div>
+    <div class="sw-top">
+      <div class="sw-chart"><canvas id="swline" height="190"></canvas></div>
+      <div class="sw-legs" id="swlegs"></div>
+    </div>
+    <p id="swstate" class="sw-state"></p>
+    <table id="swt" class="sw-table"><thead><tr><th>Spike</th><th>Leg</th><th class="r">Over theta</th><th class="r">Leg move</th><th class="r">Futures</th><th>Ended</th></tr></thead><tbody></tbody></table>
+  </section>
+
+  <section class="ladder" aria-label="Hero contracts">
+    <div class="sec-head"><h2>Ten hero contracts</h2><span id="expiry"></span></div>
+    <div id="lad" class="lad"></div>
+    <p class="legend">Bar = standing buyers (green, left) against standing sellers (coral, right). A seller side that is <b class="c-DRAIN-FAST">draining</b> or <b class="c-PULLED">pulled</b> is the run you are waiting for.</p>
+  </section>
+
+  <section class="oimap" aria-label="Open interest map">
+    <div class="sec-head"><h2>Where the walls are</h2><span id="pcr"></span></div>
+    <canvas id="oi" height="300"></canvas>
+    <p id="force" class="force"></p>
+    <p id="gex" class="force"></p>
+  </section>
+
+  <section class="heavy" aria-label="Heavyweights">
+    <div class="sec-head"><h2>Heavyweights, last 15 seconds</h2><span id="hwhint">in Nifty points</span></div>
+    <div id="hw" class="hw"></div>
+    <div id="hw2" class="hw2"></div>
+  </section>
+
+  <section class="trades" aria-label="Paper trades">
+    <div class="sec-head"><h2>Today's paper trades</h2><span id="tstats"></span></div>
+    <table id="tt"><thead><tr><th>In → Out</th><th class="r">Held</th><th>Contract</th><th class="r">Lots · Qty</th><th class="r">Deployed</th><th class="r">Entry → Exit</th><th class="r">Rupees · pts · return</th><th>Why it closed</th><th class="r">Capital</th></tr></thead><tbody></tbody></table>
+  </section>
+
+  <section class="books" aria-label="Parallel books">
+    <div class="sec-head"><h2>Ten books, same ticks</h2><span id="lstat"></span></div>
+    <div id="books"></div>
+    <p id="sprt" class="small"></p>
+  </section>
+
+  <section class="tape" aria-label="Event tape">
+    <div class="sec-head"><h2>Event tape</h2></div>
+    <ol id="ev"></ol>
+  </section>
+</main>
+<script src="/static/app.js"></script>
+<script src="/static/commentary.js"></script>
+</body>
+</html>

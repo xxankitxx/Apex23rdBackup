@@ -1,0 +1,8 @@
+{"t": "09:15:08", "k": "SYSTEM", "x": "day 2026-10-19 \u00b7 champion m2.0_s0.5 \u00b7 gates none \u00b7 capital \u20b91,514,972", "mkt_t": 1792381508.7500002}
+{"t": "09:21:08", "k": "SPIKE", "x": "straddle 25200 +6.4 over theta in 5 min \u2014 PE leg carries it (45.1, delta -0.458\u2192-0.55, gamma 0.00409)", "mkt_t": 1792381868.2499998}
+{"t": "09:25:06", "k": "SPIKE", "x": "straddle 25200 +14.4 over theta in 5 min \u2014 PE leg carries it (60.5, delta -0.597\u2192-0.627, gamma 0.00365)", "mkt_t": 1792382106.0}
+{"t": "09:31:23", "k": "SHIFT", "x": "ATM rolled 25200 \u2192 25150: straddle 77.8 \u2192 75.0 (spot settled at the new strike)", "mkt_t": 1792382483.2499998}
+{"t": "09:36:24", "k": "SPIKE", "x": "straddle 25150 +11.5 over theta in 5 min \u2014 PE leg carries it (46.0, delta -0.417\u2192-0.528, gamma 0.00378)", "mkt_t": 1792382784.0}
+{"t": "09:39:38", "k": "SPIKE", "x": "straddle 25150 +13.6 over theta in 5 min \u2014 PE leg carries it (53.1, delta -0.411\u2192-0.578, gamma 0.00374)", "mkt_t": 1792382978.0}
+{"t": "09:51:58", "k": "SPIKE", "x": "straddle 25150 +10.3 over theta in 5 min \u2014 PE leg carries it (63.3, delta -0.656\u2192-0.658, gamma 0.0037)", "mkt_t": 1792383718.2499998}
+{"t": "09:53:47", "k": "SPIKE", "x": "straddle 25150 +15.9 over theta in 5 min \u2014 PE leg carries it (64.7, delta -0.6\u2192-0.663, gamma 0.00365)", "mkt_t": 1792383827.7500002}

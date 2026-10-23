@@ -1,0 +1,970 @@
+{"t": 1792381506.0, "time": "09:15:06", "cls": "outside window", "reason": "outside entry window", "z": 0.0, "S": 0.0, "moved": null, "ep": null, "iv_rise": null, "iv_rise_interp": null}
+{"t": 1792382100.2499998, "time": "09:25:00", "cls": "impulse faded", "reason": "impulse z 0.8 < 2.0", "z": 0.83, "S": 0.221, "moved": 2.6, "ep": 17923820157, "iv_rise": -0.87, "iv_rise_interp": -0.88}
+{"t": 1792382195.5, "time": "09:26:35", "cls": "basket too thin", "reason": "synchrony 0.00 < 0.5", "z": 2.14, "S": 0.0, "moved": 4.8, "ep": 17923820157, "iv_rise": -1.54, "iv_rise_interp": -1.54}
+{"t": 1792382205.5, "time": "09:26:45", "cls": "impulse faded", "reason": "impulse z 2.0 < 2.0", "z": 1.95, "S": 0.0, "moved": 2.9, "ep": 17923820157, "iv_rise": -1.61, "iv_rise_interp": -1.61}
+{"t": 1792382270.5, "time": "09:27:50", "cls": "basket too thin", "reason": "synchrony 0.15 < 0.5", "z": 2.07, "S": 0.147, "moved": 0.4, "ep": 17923820157, "iv_rise": -1.92, "iv_rise_interp": -1.92}
+{"t": 1792382271.2499998, "time": "09:27:51", "cls": "impulse faded", "reason": "impulse z 2.0 < 2.0", "z": 1.95, "S": 0.147, "moved": 0.9, "ep": 17923820157, "iv_rise": -1.93, "iv_rise_interp": -1.93}
+{"t": 1792382292.5, "time": "09:28:12", "cls": "episode ended", "reason": "no episode", "z": 2.05, "S": 0.0, "moved": null, "ep": null, "iv_rise": null, "iv_rise_interp": null}
+{"t": 1792382293.0, "time": "09:28:13", "cls": "basket too thin", "reason": "synchrony 0.00 < 0.5", "z": 2.14, "S": 0.0, "moved": 0.0, "ep": 17923822930, "iv_rise": 0.0, "iv_rise_interp": 0.0}
+{"t": 1792382302.2499998, "time": "09:28:22", "cls": "impulse faded", "reason": "impulse z 1.9 < 2.0", "z": 1.89, "S": 0.0, "moved": 2.1, "ep": 17923822930, "iv_rise": -0.03, "iv_rise_interp": -0.03}
+{"t": 1792382324.5, "time": "09:28:44", "cls": "episode ended", "reason": "no episode", "z": 2.05, "S": 0.0, "moved": null, "ep": null, "iv_rise": null, "iv_rise_interp": null}
+{"t": 1792382325.2499998, "time": "09:28:45", "cls": "basket too thin", "reason": "synchrony 0.00 < 0.5", "z": 2.2, "S": 0.0, "moved": 0.0, "ep": 17923823252, "iv_rise": 0.0, "iv_rise_interp": 0.0}
+{"t": 1792382326.0, "time": "09:28:46", "cls": "impulse faded", "reason": "impulse z 1.9 < 2.0", "z": 1.92, "S": 0.0, "moved": 0.2, "ep": 17923823252, "iv_rise": 0.01, "iv_rise_interp": 0.0}
+{"t": 1792382348.5, "time": "09:29:08", "cls": "episode ended", "reason": "no episode", "z": 2.31, "S": 0.0, "moved": null, "ep": null, "iv_rise": null, "iv_rise_interp": null}
+{"t": 1792382349.0, "time": "09:29:09", "cls": "basket too thin", "reason": "synchrony 0.00 < 0.5", "z": 2.5, "S": 0.0, "moved": 0.0, "ep": 17923823490, "iv_rise": 0.0, "iv_rise_interp": 0.0}
+{"t": 1792382359.7500002, "time": "09:29:19", "cls": "impulse faded", "reason": "impulse z 1.8 < 2.0", "z": 1.82, "S": 0.0, "moved": 0.8, "ep": 17923823490, "iv_rise": -0.03, "iv_rise_interp": -0.03}
+{"t": 1792382408.5, "time": "09:30:08", "cls": "basket too thin", "reason": "synchrony 0.00 < 0.5", "z": 2.07, "S": 0.0, "moved": 4.2, "ep": 17923823490, "iv_rise": -0.16, "iv_rise_interp": -0.16}
+{"t": 1792382418.5, "time": "09:30:18", "cls": "impulse faded", "reason": "impulse z 1.9 < 2.0", "z": 1.88, "S": 0.041, "moved": 4.6, "ep": 17923823490, "iv_rise": -0.18, "iv_rise_interp": -0.18}
+{"t": 1792382475.5, "time": "09:31:15", "cls": "episode ended", "reason": "no episode", "z": 2.02, "S": 0.055, "moved": null, "ep": null, "iv_rise": null, "iv_rise_interp": null}
+{"t": 1792382476.5, "time": "09:31:16", "cls": "impulse faded", "reason": "impulse z 2.0 < 2.0", "z": 1.96, "S": 0.0, "moved": 0.0, "ep": 17923824765, "iv_rise": 0.0, "iv_rise_interp": 0.0}
+{"t": 1792382477.2499998, "time": "09:31:17", "cls": "basket too thin", "reason": "synchrony 0.00 < 0.5", "z": 2.07, "S": 0.0, "moved": 0.4, "ep": 17923824765, "iv_rise": 0.01, "iv_rise_interp": 0.0}
+{"t": 1792382479.5, "time": "09:31:19", "cls": "impulse faded", "reason": "impulse z 1.8 < 2.0", "z": 1.84, "S": 0.0, "moved": 0.5, "ep": 17923824765, "iv_rise": -0.0, "iv_rise_interp": -0.0}
+{"t": 1792382481.2499998, "time": "09:31:21", "cls": "basket too thin", "reason": "synchrony 0.00 < 0.5", "z": 2.09, "S": 0.0, "moved": 1.7, "ep": 17923824765, "iv_rise": 0.0, "iv_rise_interp": -0.0}
+{"t": 1792382482.0, "time": "09:31:22", "cls": "impulse faded", "reason": "impulse z 1.5 < 2.0", "z": 1.5, "S": 0.0, "moved": 1.3, "ep": 17923824765, "iv_rise": -0.01, "iv_rise_interp": -0.01}
+{"t": 1792382559.0, "time": "09:32:39", "cls": "episode ended", "reason": "no episode", "z": 2.36, "S": 0.048, "moved": null, "ep": null, "iv_rise": null, "iv_rise_interp": null}
+{"t": 1792382559.7500002, "time": "09:32:39", "cls": "basket too thin", "reason": "synchrony 0.00 < 0.5", "z": 2.06, "S": 0.0, "moved": 0.0, "ep": 17923825597, "iv_rise": 0.0, "iv_rise_interp": 0.0}
+{"t": 1792382561.5, "time": "09:32:41", "cls": "impulse faded", "reason": "impulse z 1.7 < 2.0", "z": 1.69, "S": 0.0, "moved": 0.2, "ep": 17923825597, "iv_rise": -0.0, "iv_rise_interp": -0.0}
+{"t": 1792382563.0, "time": "09:32:43", "cls": "basket too thin", "reason": "synchrony 0.00 < 0.5", "z": 2.01, "S": 0.0, "moved": 1.5, "ep": 17923825597, "iv_rise": 0.01, "iv_rise_interp": 0.0}
+{"t": 1792382564.7500002, "time": "09:32:44", "cls": "impulse faded", "reason": "impulse z 1.7 < 2.0", "z": 1.73, "S": 0.0, "moved": 1.2, "ep": 17923825597, "iv_rise": -0.0, "iv_rise_interp": -0.0}
+{"t": 1792382567.7500002, "time": "09:32:47", "cls": "basket too thin", "reason": "synchrony 0.00 < 0.5", "z": 2.3, "S": 0.0, "moved": 3.4, "ep": 17923825597, "iv_rise": -0.01, "iv_rise_interp": -0.01}
+{"t": 1792382568.7500002, "time": "09:32:48", "cls": "impulse faded", "reason": "impulse z 2.0 < 2.0", "z": 1.98, "S": 0.0, "moved": 2.8, "ep": 17923825597, "iv_rise": -0.01, "iv_rise_interp": -0.01}
+{"t": 1792382760.2499998, "time": "09:36:00", "cls": "basket too thin", "reason": "synchrony 0.08 < 0.5", "z": 2.1, "S": 0.082, "moved": 6.4, "ep": 17923825597, "iv_rise": 0.91, "iv_rise_interp": 0.91}
+{"t": 1792382782.7500002, "time": "09:36:22", "cls": "impulse faded", "reason": "impulse z 1.7 < 2.0", "z": 1.74, "S": 0.0, "moved": 21.2, "ep": 17923825597, "iv_rise": 2.19, "iv_rise_interp": 2.19}
+{"t": 1792382810.7500002, "time": "09:36:50", "cls": "basket too thin", "reason": "synchrony 0.00 < 0.5", "z": 2.23, "S": 0.0, "moved": 33.5, "ep": 17923825597, "iv_rise": 3.13, "iv_rise_interp": 3.12}
+{"t": 1792382811.7500002, "time": "09:36:51", "cls": "impulse faded", "reason": "impulse z 1.8 < 2.0", "z": 1.81, "S": 0.0, "moved": 34.2, "ep": 17923825597, "iv_rise": 3.16, "iv_rise_interp": 3.15}
+{"t": 1792382814.0, "time": "09:36:54", "cls": "basket too thin", "reason": "synchrony 0.00 < 0.5", "z": 2.01, "S": 0.0, "moved": 35.5, "ep": 17923825597, "iv_rise": 3.21, "iv_rise_interp": 3.19}
+{"t": 1792382815.2499998, "time": "09:36:55", "cls": "impulse faded", "reason": "impulse z 1.9 < 2.0", "z": 1.9, "S": 0.041, "moved": 35.5, "ep": 17923825597, "iv_rise": 3.23, "iv_rise_interp": 3.22}
+{"t": 1792382876.7500002, "time": "09:37:56", "cls": "episode ended", "reason": "no episode", "z": 2.3, "S": 0.279, "moved": null, "ep": null, "iv_rise": null, "iv_rise_interp": null}
+{"t": 1792382877.2499998, "time": "09:37:57", "cls": "impulse faded", "reason": "impulse z 2.0 < 2.0", "z": 1.95, "S": 0.068, "moved": 0.0, "ep": 17923828772, "iv_rise": 0.0, "iv_rise_interp": 0.0}
+{"t": 1792382878.0, "time": "09:37:58", "cls": "basket too thin", "reason": "synchrony 0.00 < 0.5", "z": 2.07, "S": 0.0, "moved": 0.8, "ep": 17923828772, "iv_rise": -0.01, "iv_rise_interp": -0.02}
+{"t": 1792382879.5, "time": "09:37:59", "cls": "impulse faded", "reason": "impulse z 1.9 < 2.0", "z": 1.91, "S": 0.0, "moved": 0.5, "ep": 17923828772, "iv_rise": -0.02, "iv_rise_interp": -0.03}
+{"t": 1792382882.2499998, "time": "09:38:02", "cls": "basket too thin", "reason": "synchrony 0.00 < 0.5", "z": 2.03, "S": 0.0, "moved": 1.5, "ep": 17923828772, "iv_rise": -0.08, "iv_rise_interp": -0.08}
+{"t": 1792382883.7500002, "time": "09:38:03", "cls": "impulse faded", "reason": "impulse z 1.8 < 2.0", "z": 1.8, "S": 0.0, "moved": 2.0, "ep": 17923828772, "iv_rise": -0.1, "iv_rise_interp": -0.1}
+{"t": 1792382885.2499998, "time": "09:38:05", "cls": "basket too thin", "reason": "synchrony 0.00 < 0.5", "z": 2.12, "S": 0.0, "moved": 3.5, "ep": 17923828772, "iv_rise": -0.12, "iv_rise_interp": -0.12}
+{"t": 1792382886.2499998, "time": "09:38:06", "cls": "impulse faded", "reason": "impulse z 1.7 < 2.0", "z": 1.75, "S": 0.169, "moved": 3.4, "ep": 17923828772, "iv_rise": -0.13, "iv_rise_interp": -0.13}
+{"t": 1792382929.5, "time": "09:38:49", "cls": "basket too thin", "reason": "synchrony 0.00 < 0.5", "z": 2.02, "S": 0.0, "moved": 12.5, "ep": 17923828772, "iv_rise": -0.75, "iv_rise_interp": -0.75}
+{"t": 1792382937.2499998, "time": "09:38:57", "cls": "impulse faded", "reason": "impulse z 1.9 < 2.0", "z": 1.86, "S": 0.0, "moved": 13.9, "ep": 17923828772, "iv_rise": -0.84, "iv_rise_interp": -0.84}
+{"t": 1792382977.0, "time": "09:39:37", "cls": "episode ended", "reason": "no episode", "z": 2.05, "S": 0.036, "moved": null, "ep": null, "iv_rise": null, "iv_rise_interp": null}
+{"t": 1792382977.7500002, "time": "09:39:37", "cls": "basket too thin", "reason": "synchrony 0.00 < 0.5", "z": 2.04, "S": 0.0, "moved": 0.0, "ep": 17923829777, "iv_rise": 0.0, "iv_rise_interp": 0.0}
+{"t": 1792382978.7500002, "time": "09:39:38", "cls": "impulse faded", "reason": "impulse z 1.6 < 2.0", "z": 1.65, "S": 0.0, "moved": 0.5, "ep": 17923829777, "iv_rise": -0.01, "iv_rise_interp": -0.01}
+{"t": 1792383016.2499998, "time": "09:40:16", "cls": "basket too thin", "reason": "synchrony 0.04 < 0.5", "z": 2.15, "S": 0.041, "moved": 10.3, "ep": 17923829777, "iv_rise": -0.38, "iv_rise_interp": -0.37}
+{"t": 1792383018.5, "time": "09:40:18", "cls": "impulse faded", "reason": "impulse z 2.0 < 2.0", "z": 1.98, "S": 0.0, "moved": 9.1, "ep": 17923829777, "iv_rise": -0.4, "iv_rise_interp": -0.39}
+{"t": 1792383213.0, "time": "09:43:33", "cls": "basket too thin", "reason": "synchrony 0.15 < 0.5", "z": 2.05, "S": 0.147, "moved": 15.7, "ep": 17923829777, "iv_rise": -1.57, "iv_rise_interp": -1.56}
+{"t": 1792383219.7500002, "time": "09:43:39", "cls": "impulse faded", "reason": "impulse z 1.4 < 2.0", "z": 1.44, "S": 0.0, "moved": 16.8, "ep": 17923829777, "iv_rise": -1.59, "iv_rise_interp": -1.58}
+{"t": 1792383249.7500002, "time": "09:44:09", "cls": "episode ended", "reason": "no episode", "z": 2.14, "S": 0.0, "moved": null, "ep": null, "iv_rise": null, "iv_rise_interp": null}
+{"t": 1792383250.2499998, "time": "09:44:10", "cls": "basket too thin", "reason": "synchrony 0.00 < 0.5", "z": 2.06, "S": 0.0, "moved": 0.0, "ep": 17923832502, "iv_rise": 0.0, "iv_rise_interp": 0.0}
+{"t": 1792383258.2499998, "time": "09:44:18", "cls": "impulse faded", "reason": "impulse z 1.9 < 2.0", "z": 1.91, "S": 0.0, "moved": 2.3, "ep": 17923832502, "iv_rise": -0.0, "iv_rise_interp": -0.02}
+{"t": 1792383328.7500002, "time": "09:45:28", "cls": "episode ended", "reason": "no episode", "z": 2.05, "S": 0.0, "moved": null, "ep": null, "iv_rise": null, "iv_rise_interp": null}
+{"t": 1792383329.5, "time": "09:45:29", "cls": "basket too thin", "reason": "synchrony 0.00 < 0.5", "z": 2.08, "S": 0.0, "moved": 0.0, "ep": 17923833295, "iv_rise": 0.0, "iv_rise_interp": 0.0}
+{"t": 1792383333.5, "time": "09:45:33", "cls": "impulse faded", "reason": "impulse z 2.0 < 2.0", "z": 1.95, "S": 0.0, "moved": 0.2, "ep": 17923833295, "iv_rise": -0.01, "iv_rise_interp": -0.01}
+{"t": 1792383368.7500002, "time": "09:46:08", "cls": "episode ended", "reason": "no episode", "z": 2.1, "S": 0.0, "moved": null, "ep": null, "iv_rise": null, "iv_rise_interp": null}
+{"t": 1792383369.5, "time": "09:46:09", "cls": "basket too thin", "reason": "synchrony 0.00 < 0.5", "z": 2.17, "S": 0.0, "moved": 0.0, "ep": 17923833695, "iv_rise": 0.0, "iv_rise_interp": 0.0}
+{"t": 1792383370.2499998, "time": "09:46:10", "cls": "impulse faded", "reason": "impulse z 1.9 < 2.0", "z": 1.94, "S": 0.0, "moved": 0.8, "ep": 17923833695, "iv_rise": -0.0, "iv_rise_interp": -0.01}
+{"t": 1792383448.0, "time": "09:47:28", "cls": "basket too thin", "reason": "synchrony 0.00 < 0.5", "z": 2.02, "S": 0.0, "moved": 5.4, "ep": 17923833695, "iv_rise": -0.15, "iv_rise_interp": -0.14}
+{"t": 1792383449.0, "time": "09:47:29", "cls": "impulse faded", "reason": "impulse z 1.8 < 2.0", "z": 1.84, "S": 0.0, "moved": 6.0, "ep": 17923833695, "iv_rise": -0.14, "iv_rise_interp": -0.14}
+{"t": 1792383494.7500002, "time": "09:48:14", "cls": "basket too thin", "reason": "synchrony 0.00 < 0.5", "z": 2.35, "S": 0.0, "moved": 18.6, "ep": 17923833695, "iv_rise": -0.2, "iv_rise_interp": -0.2}
+{"t": 1792383502.0, "time": "09:48:22", "cls": "impulse faded", "reason": "impulse z 1.9 < 2.0", "z": 1.86, "S": 0.083, "moved": 20.6, "ep": 17923833695, "iv_rise": -0.21, "iv_rise_interp": -0.21}
+{"t": 1792383527.7500002, "time": "09:48:47", "cls": "episode ended", "reason": "no episode", "z": 2.01, "S": 0.0, "moved": null, "ep": null, "iv_rise": null, "iv_rise_interp": null}
+{"t": 1792383528.2499998, "time": "09:48:48", "cls": "impulse faded", "reason": "impulse z 1.9 < 2.0", "z": 1.85, "S": 0.0, "moved": 0.0, "ep": 17923835282, "iv_rise": 0.0, "iv_rise_interp": 0.0}
+{"t": 1792383529.0, "time": "09:48:49", "cls": "basket too thin", "reason": "synchrony 0.00 < 0.5", "z": 2.08, "S": 0.0, "moved": 0.7, "ep": 17923835282, "iv_rise": -0.01, "iv_rise_interp": -0.01}
+{"t": 1792383529.7500002, "time": "09:48:49", "cls": "impulse faded", "reason": "impulse z 1.9 < 2.0", "z": 1.87, "S": 0.0, "moved": 0.2, "ep": 17923835282, "iv_rise": -0.0, "iv_rise_interp": -0.0}
+{"t": 1792383530.5, "time": "09:48:50", "cls": "basket too thin", "reason": "synchrony 0.00 < 0.5", "z": 2.23, "S": 0.0, "moved": 1.4, "ep": 17923835282, "iv_rise": 0.0, "iv_rise_interp": -0.01}
+{"t": 1792383534.5, "time": "09:48:54", "cls": "impulse faded", "reason": "impulse z 1.9 < 2.0", "z": 1.86, "S": 0.0, "moved": 4.2, "ep": 17923835282, "iv_rise": -0.03, "iv_rise_interp": -0.01}
+{"t": 1792383537.5, "time": "09:48:57", "cls": "basket too thin", "reason": "synchrony 0.05 < 0.5", "z": 2.2, "S": 0.055, "moved": 6.1, "ep": 17923835282, "iv_rise": -0.02, "iv_rise_interp": -0.01}
+{"t": 1792383558.5, "time": "09:49:18", "cls": "impulse faded", "reason": "impulse z 1.7 < 2.0", "z": 1.72, "S": 0.0, "moved": 20.7, "ep": 17923835282, "iv_rise": -0.04, "iv_rise_interp": -0.04}
+{"t": 1792383710.2499998, "time": "09:51:50", "cls": "basket too thin", "reason": "synchrony 0.05 < 0.5", "z": 2.18, "S": 0.048, "moved": 14.8, "ep": 17923835282, "iv_rise": 1.43, "iv_rise_interp": 1.44}
+{"t": 1792383714.5, "time": "09:51:54", "cls": "impulse faded", "reason": "impulse z 1.9 < 2.0", "z": 1.91, "S": 0.103, "moved": 14.1, "ep": 17923835282, "iv_rise": 1.58, "iv_rise_interp": 1.59}
+{"t": 1792383715.2499998, "time": "09:51:55", "cls": "basket too thin", "reason": "synchrony 0.05 < 0.5", "z": 2.2, "S": 0.048, "moved": 14.8, "ep": 17923835282, "iv_rise": 1.61, "iv_rise_interp": 1.61}
+{"t": 1792383722.5, "time": "09:52:02", "cls": "impulse faded", "reason": "impulse z 1.9 < 2.0", "z": 1.92, "S": 0.036, "moved": 20.0, "ep": 17923835282, "iv_rise": 1.83, "iv_rise_interp": 1.84}
+{"t": 1792383831.7500002, "time": "09:53:51", "cls": "episode ended", "reason": "no episode", "z": 2.01, "S": 0.0, "moved": null, "ep": null, "iv_rise": null, "iv_rise_interp": null}
+{"t": 1792383832.5, "time": "09:53:52", "cls": "basket too thin", "reason": "synchrony 0.05 < 0.5", "z": 2.36, "S": 0.055, "moved": 0.0, "ep": 17923838325, "iv_rise": 0.0, "iv_rise_interp": 0.0}
+{"t": 1792383835.7500002, "time": "09:53:55", "cls": "impulse faded", "reason": "impulse z 1.8 < 2.0", "z": 1.76, "S": 0.0, "moved": 1.6, "ep": 17923838325, "iv_rise": -0.06, "iv_rise_interp": -0.06}
+{"t": 1792383836.5, "time": "09:53:56", "cls": "basket too thin", "reason": "synchrony 0.00 < 0.5", "z": 2.03, "S": 0.0, "moved": 0.8, "ep": 17923838325, "iv_rise": -0.06, "iv_rise_interp": -0.06}
+{"t": 1792383837.2499998, "time": "09:53:57", "cls": "impulse faded", "reason": "impulse z 1.9 < 2.0", "z": 1.85, "S": 0.0, "moved": 0.3, "ep": 17923838325, "iv_rise": -0.07, "iv_rise_interp": -0.07}
+{"t": 1792383897.5, "time": "09:54:57", "cls": "basket too thin", "reason": "synchrony 0.00 < 0.5", "z": 2.07, "S": 0.0, "moved": 18.4, "ep": 17923838325, "iv_rise": -0.53, "iv_rise_interp": -0.53}
+{"t": 1792383898.5, "time": "09:54:58", "cls": "impulse faded", "reason": "impulse z 1.8 < 2.0", "z": 1.85, "S": 0.0, "moved": 17.9, "ep": 17923838325, "iv_rise": -0.53, "iv_rise_interp": -0.53}
+{"t": 1792383899.7500002, "time": "09:54:59", "cls": "basket too thin", "reason": "synchrony 0.07 < 0.5", "z": 2.09, "S": 0.068, "moved": 19.4, "ep": 17923838325, "iv_rise": -0.54, "iv_rise_interp": -0.54}
+{"t": 1792383902.5, "time": "09:55:02", "cls": "impulse faded", "reason": "impulse z 1.9 < 2.0", "z": 1.93, "S": 0.041, "moved": 20.0, "ep": 17923838325, "iv_rise": -0.56, "iv_rise_interp": -0.56}
+{"t": 1792383973.0, "time": "09:56:13", "cls": "episode ended", "reason": "no episode", "z": 2.14, "S": 0.0, "moved": null, "ep": null, "iv_rise": null, "iv_rise_interp": null}
+{"t": 1792383973.7500002, "time": "09:56:13", "cls": "basket too thin", "reason": "synchrony 0.00 < 0.5", "z": 2.08, "S": 0.0, "moved": 0.0, "ep": 17923839737, "iv_rise": 0.0, "iv_rise_interp": 0.0}
+{"t": 1792383974.5, "time": "09:56:14", "cls": "impulse faded", "reason": "impulse z 1.9 < 2.0", "z": 1.87, "S": 0.0, "moved": 0.1, "ep": 17923839737, "iv_rise": 0.01, "iv_rise_interp": 0.0}
+{"t": 1792383978.2499998, "time": "09:56:18", "cls": "basket too thin", "reason": "synchrony 0.00 < 0.5", "z": 2.11, "S": 0.0, "moved": 1.8, "ep": 17923839737, "iv_rise": -0.03, "iv_rise_interp": -0.02}
+{"t": 1792383980.0, "time": "09:56:20", "cls": "impulse faded", "reason": "impulse z 1.9 < 2.0", "z": 1.94, "S": 0.0, "moved": 2.9, "ep": 17923839737, "iv_rise": -0.04, "iv_rise_interp": -0.03}
+{"t": 1792383981.7500002, "time": "09:56:21", "cls": "basket too thin", "reason": "synchrony 0.05 < 0.5", "z": 2.3, "S": 0.055, "moved": 5.7, "ep": 17923839737, "iv_rise": -0.04, "iv_rise_interp": -0.03}
+{"t": 1792383988.0, "time": "09:56:28", "cls": "impulse faded", "reason": "impulse z 2.0 < 2.0", "z": 1.98, "S": 0.068, "moved": 8.2, "ep": 17923839737, "iv_rise": -0.07, "iv_rise_interp": -0.07}
+{"t": 1792383989.5, "time": "09:56:29", "cls": "basket too thin", "reason": "synchrony 0.07 < 0.5", "z": 2.2, "S": 0.068, "moved": 9.1, "ep": 17923839737, "iv_rise": -0.07, "iv_rise_interp": -0.07}
+{"t": 1792383992.0, "time": "09:56:32", "cls": "impulse faded", "reason": "impulse z 1.7 < 2.0", "z": 1.69, "S": 0.0, "moved": 7.4, "ep": 17923839737, "iv_rise": -0.1, "iv_rise_interp": -0.09}
+{"t": 1792384091.2499998, "time": "09:58:11", "cls": "episode ended", "reason": "no episode", "z": 2.03, "S": 0.0, "moved": null, "ep": null, "iv_rise": null, "iv_rise_interp": null}
+{"t": 1792384092.0, "time": "09:58:12", "cls": "basket too thin", "reason": "synchrony 0.00 < 0.5", "z": 2.15, "S": 0.0, "moved": 0.0, "ep": 17923840920, "iv_rise": 0.0, "iv_rise_interp": 0.0}
+{"t": 1792384099.2499998, "time": "09:58:19", "cls": "impulse faded", "reason": "impulse z 1.5 < 2.0", "z": 1.47, "S": 0.147, "moved": 2.7, "ep": 17923840920, "iv_rise": -0.02, "iv_rise_interp": -0.01}
+{"t": 1792384175.5, "time": "09:59:35", "cls": "basket too thin", "reason": "synchrony 0.00 < 0.5", "z": 2.19, "S": 0.0, "moved": 13.6, "ep": 17923840920, "iv_rise": -0.21, "iv_rise_interp": -0.2}
+{"t": 1792384181.7500002, "time": "09:59:41", "cls": "impulse faded", "reason": "impulse z 1.8 < 2.0", "z": 1.78, "S": 0.0, "moved": 15.2, "ep": 17923840920, "iv_rise": -0.23, "iv_rise_interp": -0.22}
+{"t": 1792384281.0, "time": "10:01:21", "cls": "basket too thin", "reason": "synchrony 0.15 < 0.5", "z": 2.45, "S": 0.147, "moved": 7.2, "ep": 17923840920, "iv_rise": -0.38, "iv_rise_interp": -0.38}
+{"t": 1792384296.5, "time": "10:01:36", "cls": "impulse faded", "reason": "impulse z 2.0 < 2.0", "z": 1.99, "S": 0.0, "moved": 16.8, "ep": 17923840920, "iv_rise": -0.41, "iv_rise_interp": -0.4}
+{"t": 1792384297.2499998, "time": "10:01:37", "cls": "basket too thin", "reason": "synchrony 0.00 < 0.5", "z": 2.04, "S": 0.0, "moved": 16.9, "ep": 17923840920, "iv_rise": -0.42, "iv_rise_interp": -0.4}
+{"t": 1792384300.5, "time": "10:01:40", "cls": "impulse faded", "reason": "impulse z 2.0 < 2.0", "z": 2.0, "S": 0.0, "moved": 18.1, "ep": 17923840920, "iv_rise": -0.42, "iv_rise_interp": -0.41}
+{"t": 1792384301.0, "time": "10:01:41", "cls": "basket too thin", "reason": "synchrony 0.07 < 0.5", "z": 2.06, "S": 0.068, "moved": 18.3, "ep": 17923840920, "iv_rise": -0.42, "iv_rise_interp": -0.41}
+{"t": 1792384302.0, "time": "10:01:42", "cls": "impulse faded", "reason": "impulse z 1.9 < 2.0", "z": 1.88, "S": 0.055, "moved": 18.0, "ep": 17923840920, "iv_rise": -0.42, "iv_rise_interp": -0.41}
+{"t": 1792384489.5, "time": "10:04:49", "cls": "episode ended", "reason": "no episode", "z": 2.15, "S": 0.0, "moved": null, "ep": null, "iv_rise": null, "iv_rise_interp": null}
+{"t": 1792384490.5, "time": "10:04:50", "cls": "impulse faded", "reason": "impulse z 1.9 < 2.0", "z": 1.92, "S": 0.0, "moved": 0.0, "ep": 17923844905, "iv_rise": 0.0, "iv_rise_interp": 0.0}
+{"t": 1792384585.7500002, "time": "10:06:25", "cls": "basket too thin", "reason": "synchrony 0.15 < 0.5", "z": 2.03, "S": 0.154, "moved": 3.2, "ep": 17923844905, "iv_rise": 0.34, "iv_rise_interp": 0.35}
+{"t": 1792384587.5, "time": "10:06:27", "cls": "impulse faded", "reason": "impulse z 1.8 < 2.0", "z": 1.83, "S": 0.159, "moved": 2.2, "ep": 17923844905, "iv_rise": 0.36, "iv_rise_interp": 0.36}
+{"t": 1792384693.7500002, "time": "10:08:13", "cls": "basket too thin", "reason": "synchrony 0.08 < 0.5", "z": 2.12, "S": 0.078, "moved": 5.0, "ep": 17923844905, "iv_rise": 0.7, "iv_rise_interp": 0.72}
+{"t": 1792384699.2499998, "time": "10:08:19", "cls": "impulse faded", "reason": "impulse z 2.0 < 2.0", "z": 1.99, "S": 0.089, "moved": 5.2, "ep": 17923844905, "iv_rise": 0.68, "iv_rise_interp": 0.69}
+{"t": 1792384713.0, "time": "10:08:33", "cls": "episode ended", "reason": "no episode", "z": 2.03, "S": 0.147, "moved": null, "ep": null, "iv_rise": null, "iv_rise_interp": null}
+{"t": 1792384714.0, "time": "10:08:34", "cls": "basket too thin", "reason": "synchrony 0.20 < 0.5", "z": 2.08, "S": 0.195, "moved": 0.0, "ep": 17923847140, "iv_rise": 0.0, "iv_rise_interp": 0.0}
+{"t": 1792384715.0, "time": "10:08:35", "cls": "impulse faded", "reason": "impulse z 2.0 < 2.0", "z": 1.99, "S": 0.195, "moved": 0.5, "ep": 17923847140, "iv_rise": -0.0, "iv_rise_interp": -0.0}
+{"t": 1792384715.7500002, "time": "10:08:35", "cls": "basket too thin", "reason": "synchrony 0.20 < 0.5", "z": 2.43, "S": 0.195, "moved": 2.4, "ep": 17923847140, "iv_rise": 0.02, "iv_rise_interp": 0.0}
+{"t": 1792384718.2499998, "time": "10:08:38", "cls": "impulse faded", "reason": "impulse z 1.9 < 2.0", "z": 1.86, "S": 0.147, "moved": 2.5, "ep": 17923847140, "iv_rise": -0.01, "iv_rise_interp": -0.02}
+{"t": 1792384719.0, "time": "10:08:39", "cls": "basket too thin", "reason": "synchrony 0.15 < 0.5", "z": 2.12, "S": 0.147, "moved": 3.0, "ep": 17923847140, "iv_rise": -0.02, "iv_rise_interp": -0.02}
+{"t": 1792384720.0, "time": "10:08:40", "cls": "impulse faded", "reason": "impulse z 2.0 < 2.0", "z": 1.99, "S": 0.0, "moved": 3.8, "ep": 17923847140, "iv_rise": -0.01, "iv_rise_interp": -0.02}
+{"t": 1792384746.2499998, "time": "10:09:06", "cls": "episode ended", "reason": "no episode", "z": 2.2, "S": 0.165, "moved": null, "ep": null, "iv_rise": null, "iv_rise_interp": null}
+{"t": 1792384747.0, "time": "10:09:07", "cls": "basket too thin", "reason": "synchrony 0.20 < 0.5", "z": 2.05, "S": 0.2, "moved": 0.0, "ep": 17923847470, "iv_rise": 0.0, "iv_rise_interp": 0.0}
+{"t": 1792384750.2499998, "time": "10:09:10", "cls": "impulse faded", "reason": "impulse z 2.0 < 2.0", "z": 1.98, "S": 0.165, "moved": 0.8, "ep": 17923847470, "iv_rise": -0.02, "iv_rise_interp": -0.01}
+{"t": 1792384820.0, "time": "10:10:20", "cls": "episode ended", "reason": "no episode", "z": 2.01, "S": 0.0, "moved": null, "ep": null, "iv_rise": null, "iv_rise_interp": null}
+{"t": 1792384821.0, "time": "10:10:21", "cls": "basket too thin", "reason": "synchrony 0.05 < 0.5", "z": 2.37, "S": 0.055, "moved": 0.0, "ep": 17923848210, "iv_rise": 0.0, "iv_rise_interp": 0.0}
+{"t": 1792384830.2499998, "time": "10:10:30", "cls": "impulse faded", "reason": "impulse z 1.9 < 2.0", "z": 1.88, "S": 0.0, "moved": 4.3, "ep": 17923848210, "iv_rise": -0.01, "iv_rise_interp": -0.02}
+{"t": 1792384831.7500002, "time": "10:10:31", "cls": "basket too thin", "reason": "synchrony 0.00 < 0.5", "z": 2.69, "S": 0.0, "moved": 6.8, "ep": 17923848210, "iv_rise": -0.03, "iv_rise_interp": -0.03}
+{"t": 1792384836.7500002, "time": "10:10:36", "cls": "impulse faded", "reason": "impulse z 1.8 < 2.0", "z": 1.85, "S": 0.0, "moved": 8.2, "ep": 17923848210, "iv_rise": -0.03, "iv_rise_interp": -0.03}
+{"t": 1792384844.0, "time": "10:10:44", "cls": "basket too thin", "reason": "synchrony 0.00 < 0.5", "z": 2.1, "S": 0.0, "moved": 11.8, "ep": 17923848210, "iv_rise": -0.04, "iv_rise_interp": -0.04}
+{"t": 1792384846.2499998, "time": "10:10:46", "cls": "impulse faded", "reason": "impulse z 1.6 < 2.0", "z": 1.61, "S": 0.0, "moved": 13.3, "ep": 17923848210, "iv_rise": -0.05, "iv_rise_interp": -0.06}
+{"t": 1792384847.2499998, "time": "10:10:47", "cls": "basket too thin", "reason": "synchrony 0.08 < 0.5", "z": 2.14, "S": 0.083, "moved": 15.5, "ep": 17923848210, "iv_rise": -0.04, "iv_rise_interp": -0.05}
+{"t": 1792384858.0, "time": "10:10:58", "cls": "impulse faded", "reason": "impulse z 1.8 < 2.0", "z": 1.79, "S": 0.0, "moved": 18.3, "ep": 17923848210, "iv_rise": -0.07, "iv_rise_interp": -0.07}
+{"t": 1792384901.0, "time": "10:11:41", "cls": "basket too thin", "reason": "synchrony 0.00 < 0.5", "z": 2.16, "S": 0.0, "moved": 20.7, "ep": 17923848210, "iv_rise": -0.13, "iv_rise_interp": -0.14}
+{"t": 1792384911.7500002, "time": "10:11:51", "cls": "impulse faded", "reason": "impulse z 1.8 < 2.0", "z": 1.85, "S": 0.0, "moved": 25.2, "ep": 17923848210, "iv_rise": -0.16, "iv_rise_interp": -0.16}
+{"t": 1792384966.0, "time": "10:12:46", "cls": "basket too thin", "reason": "synchrony 0.00 < 0.5", "z": 2.01, "S": 0.0, "moved": 33.1, "ep": 17923848210, "iv_rise": -0.23, "iv_rise_interp": -0.23}
+{"t": 1792384967.0, "time": "10:12:47", "cls": "impulse faded", "reason": "impulse z 2.0 < 2.0", "z": 2.0, "S": 0.0, "moved": 33.4, "ep": 17923848210, "iv_rise": -0.23, "iv_rise_interp": -0.23}
+{"t": 1792384969.2499998, "time": "10:12:49", "cls": "basket too thin", "reason": "synchrony 0.00 < 0.5", "z": 2.06, "S": 0.0, "moved": 33.5, "ep": 17923848210, "iv_rise": -0.24, "iv_rise_interp": -0.24}
+{"t": 1792384970.5, "time": "10:12:50", "cls": "impulse faded", "reason": "impulse z 1.5 < 2.0", "z": 1.49, "S": 0.0, "moved": 31.9, "ep": 17923848210, "iv_rise": -0.23, "iv_rise_interp": -0.23}
+{"t": 1792385065.7500002, "time": "10:14:25", "cls": "episode ended", "reason": "no episode", "z": 2.11, "S": 0.0, "moved": null, "ep": null, "iv_rise": null, "iv_rise_interp": null}
+{"t": 1792385067.0, "time": "10:14:27", "cls": "basket too thin", "reason": "synchrony 0.00 < 0.5", "z": 2.49, "S": 0.0, "moved": 0.0, "ep": 17923850670, "iv_rise": 0.0, "iv_rise_interp": 0.0}
+{"t": 1792385080.7500002, "time": "10:14:40", "cls": "impulse faded", "reason": "impulse z 1.9 < 2.0", "z": 1.89, "S": 0.0, "moved": 6.6, "ep": 17923850670, "iv_rise": -0.01, "iv_rise_interp": -0.01}
+{"t": 1792385167.5, "time": "10:16:07", "cls": "basket too thin", "reason": "synchrony 0.00 < 0.5", "z": 2.1, "S": 0.0, "moved": 18.1, "ep": 17923850670, "iv_rise": -0.05, "iv_rise_interp": -0.06}
+{"t": 1792385181.5, "time": "10:16:21", "cls": "impulse faded", "reason": "impulse z 2.0 < 2.0", "z": 1.95, "S": 0.083, "moved": 24.5, "ep": 17923850670, "iv_rise": -0.06, "iv_rise_interp": -0.07}
+{"t": 1792385275.2499998, "time": "10:17:55", "cls": "episode ended", "reason": "no episode", "z": 2.01, "S": 0.522, "moved": null, "ep": null, "iv_rise": null, "iv_rise_interp": null}
+{"t": 1792385276.5, "time": "10:17:56", "cls": "basket too thin", "reason": "synchrony 0.48 < 0.5", "z": 2.49, "S": 0.481, "moved": 0.0, "ep": 17923852765, "iv_rise": 0.0, "iv_rise_interp": 0.0}
+{"t": 1792385296.2499998, "time": "10:18:16", "cls": "impulse faded", "reason": "impulse z 1.9 < 2.0", "z": 1.89, "S": 0.0, "moved": 14.0, "ep": 17923852765, "iv_rise": 0.82, "iv_rise_interp": 0.82}
+{"t": 1792385354.5, "time": "10:19:14", "cls": "episode ended", "reason": "no episode", "z": 2.27, "S": 0.169, "moved": null, "ep": null, "iv_rise": null, "iv_rise_interp": null}
+{"t": 1792385355.2499998, "time": "10:19:15", "cls": "impulse faded", "reason": "impulse z 1.8 < 2.0", "z": 1.81, "S": 0.0, "moved": 0.0, "ep": 17923853552, "iv_rise": 0.0, "iv_rise_interp": 0.0}
+{"t": 1792385356.2499998, "time": "10:19:16", "cls": "basket too thin", "reason": "synchrony 0.00 < 0.5", "z": 2.02, "S": 0.0, "moved": 1.2, "ep": 17923853552, "iv_rise": 0.0, "iv_rise_interp": 0.0}
+{"t": 1792385361.7500002, "time": "10:19:21", "cls": "impulse faded", "reason": "impulse z 1.9 < 2.0", "z": 1.94, "S": 0.0, "moved": 3.1, "ep": 17923853552, "iv_rise": -0.04, "iv_rise_interp": -0.05}
+{"t": 1792385363.2499998, "time": "10:19:23", "cls": "basket too thin", "reason": "synchrony 0.00 < 0.5", "z": 2.07, "S": 0.0, "moved": 3.9, "ep": 17923853552, "iv_rise": -0.07, "iv_rise_interp": -0.07}
+{"t": 1792385364.5, "time": "10:19:24", "cls": "impulse faded", "reason": "impulse z 1.5 < 2.0", "z": 1.53, "S": 0.0, "moved": 3.7, "ep": 17923853552, "iv_rise": -0.07, "iv_rise_interp": -0.07}
+{"t": 1792385389.2499998, "time": "10:19:49", "cls": "episode ended", "reason": "no episode", "z": 2.18, "S": 0.0, "moved": null, "ep": null, "iv_rise": null, "iv_rise_interp": null}
+{"t": 1792385390.0, "time": "10:19:50", "cls": "impulse faded", "reason": "impulse z 1.9 < 2.0", "z": 1.89, "S": 0.0, "moved": 0.0, "ep": 17923853900, "iv_rise": 0.0, "iv_rise_interp": 0.0}
+{"t": 1792385390.7500002, "time": "10:19:50", "cls": "basket too thin", "reason": "synchrony 0.04 < 0.5", "z": 2.07, "S": 0.041, "moved": 1.3, "ep": 17923853900, "iv_rise": -0.01, "iv_rise_interp": -0.0}
+{"t": 1792385396.7500002, "time": "10:19:56", "cls": "impulse faded", "reason": "impulse z 1.9 < 2.0", "z": 1.89, "S": 0.0, "moved": 5.0, "ep": 17923853900, "iv_rise": -0.04, "iv_rise_interp": -0.04}
+{"t": 1792385433.2499998, "time": "10:20:33", "cls": "basket too thin", "reason": "synchrony 0.00 < 0.5", "z": 2.3, "S": 0.0, "moved": 6.2, "ep": 17923853900, "iv_rise": -0.26, "iv_rise_interp": -0.26}
+{"t": 1792385437.0, "time": "10:20:37", "cls": "impulse faded", "reason": "impulse z 1.7 < 2.0", "z": 1.7, "S": 0.0, "moved": 7.5, "ep": 17923853900, "iv_rise": -0.28, "iv_rise_interp": -0.28}
+{"t": 1792385455.0, "time": "10:20:55", "cls": "episode ended", "reason": "no episode", "z": 2.54, "S": 0.0, "moved": null, "ep": null, "iv_rise": null, "iv_rise_interp": null}
+{"t": 1792385455.7500002, "time": "10:20:55", "cls": "basket too thin", "reason": "synchrony 0.04 < 0.5", "z": 2.8, "S": 0.041, "moved": 0.0, "ep": 17923854557, "iv_rise": 0.0, "iv_rise_interp": 0.0}
+{"t": 1792385464.7500002, "time": "10:21:04", "cls": "impulse faded", "reason": "impulse z 1.8 < 2.0", "z": 1.79, "S": 0.0, "moved": 2.5, "ep": 17923854557, "iv_rise": -0.04, "iv_rise_interp": -0.04}
+{"t": 1792385467.0, "time": "10:21:07", "cls": "basket too thin", "reason": "synchrony 0.04 < 0.5", "z": 2.05, "S": 0.041, "moved": 4.7, "ep": 17923854557, "iv_rise": -0.05, "iv_rise_interp": -0.05}
+{"t": 1792385470.2499998, "time": "10:21:10", "cls": "impulse faded", "reason": "impulse z 1.8 < 2.0", "z": 1.78, "S": 0.0, "moved": 6.8, "ep": 17923854557, "iv_rise": -0.07, "iv_rise_interp": -0.07}
+{"t": 1792385494.2499998, "time": "10:21:34", "cls": "episode ended", "reason": "no episode", "z": 2.01, "S": 0.0, "moved": null, "ep": null, "iv_rise": null, "iv_rise_interp": null}
+{"t": 1792385495.2499998, "time": "10:21:35", "cls": "impulse faded", "reason": "impulse z 1.6 < 2.0", "z": 1.62, "S": 0.0, "moved": 0.0, "ep": 17923854952, "iv_rise": 0.0, "iv_rise_interp": 0.0}
+{"t": 1792385570.0, "time": "10:22:50", "cls": "episode ended", "reason": "no episode", "z": 2.1, "S": 0.041, "moved": null, "ep": null, "iv_rise": null, "iv_rise_interp": null}
+{"t": 1792385570.7500002, "time": "10:22:50", "cls": "basket too thin", "reason": "synchrony 0.08 < 0.5", "z": 2.17, "S": 0.082, "moved": 0.0, "ep": 17923855707, "iv_rise": 0.0, "iv_rise_interp": 0.0}
+{"t": 1792385600.5, "time": "10:23:20", "cls": "impulse faded", "reason": "impulse z 1.7 < 2.0", "z": 1.72, "S": 0.0, "moved": 24.0, "ep": 17923855707, "iv_rise": 1.41, "iv_rise_interp": 1.42}
+{"t": 1792385710.7500002, "time": "10:25:10", "cls": "basket too thin", "reason": "synchrony 0.00 < 0.5", "z": 2.12, "S": 0.0, "moved": 32.8, "ep": 17923855707, "iv_rise": 3.06, "iv_rise_interp": 3.06}
+{"t": 1792385713.0, "time": "10:25:13", "cls": "impulse faded", "reason": "impulse z 1.9 < 2.0", "z": 1.92, "S": 0.0, "moved": 34.3, "ep": 17923855707, "iv_rise": 3.06, "iv_rise_interp": 3.06}
+{"t": 1792385713.5, "time": "10:25:13", "cls": "basket too thin", "reason": "synchrony 0.00 < 0.5", "z": 2.01, "S": 0.0, "moved": 34.7, "ep": 17923855707, "iv_rise": 3.06, "iv_rise_interp": 3.06}
+{"t": 1792385717.7500002, "time": "10:25:17", "cls": "impulse faded", "reason": "impulse z 1.8 < 2.0", "z": 1.82, "S": 0.0, "moved": 34.4, "ep": 17923855707, "iv_rise": 3.06, "iv_rise_interp": 3.06}
+{"t": 1792385740.2499998, "time": "10:25:40", "cls": "basket too thin", "reason": "synchrony 0.04 < 0.5", "z": 2.24, "S": 0.041, "moved": 44.0, "ep": 17923855707, "iv_rise": 3.0, "iv_rise_interp": 3.0}
+{"t": 1792385747.7500002, "time": "10:25:47", "cls": "impulse faded", "reason": "impulse z 2.0 < 2.0", "z": 1.97, "S": 0.041, "moved": 46.2, "ep": 17923855707, "iv_rise": 2.97, "iv_rise_interp": 2.97}
+{"t": 1792385888.0, "time": "10:28:08", "cls": "basket too thin", "reason": "synchrony 0.04 < 0.5", "z": 2.15, "S": 0.041, "moved": 62.8, "ep": 17923855707, "iv_rise": 0.94, "iv_rise_interp": 0.94}
+{"t": 1792385892.2499998, "time": "10:28:12", "cls": "impulse faded", "reason": "impulse z 2.0 < 2.0", "z": 1.99, "S": 0.0, "moved": 63.3, "ep": 17923855707, "iv_rise": 0.89, "iv_rise_interp": 0.89}
+{"t": 1792385893.0, "time": "10:28:13", "cls": "basket too thin", "reason": "synchrony 0.04 < 0.5", "z": 2.35, "S": 0.041, "moved": 64.7, "ep": 17923855707, "iv_rise": 0.88, "iv_rise_interp": 0.88}
+{"t": 1792385894.5, "time": "10:28:14", "cls": "impulse faded", "reason": "impulse z 1.7 < 2.0", "z": 1.7, "S": 0.0, "moved": 63.8, "ep": 17923855707, "iv_rise": 0.87, "iv_rise_interp": 0.87}
+{"t": 1792385934.5, "time": "10:28:54", "cls": "episode ended", "reason": "no episode", "z": 2.1, "S": 0.0, "moved": null, "ep": null, "iv_rise": null, "iv_rise_interp": null}
+{"t": 1792385935.2499998, "time": "10:28:55", "cls": "basket too thin", "reason": "synchrony 0.00 < 0.5", "z": 2.21, "S": 0.0, "moved": 0.0, "ep": 17923859352, "iv_rise": 0.0, "iv_rise_interp": 0.0}
+{"t": 1792385936.0, "time": "10:28:56", "cls": "impulse faded", "reason": "impulse z 1.7 < 2.0", "z": 1.72, "S": 0.041, "moved": 1.2, "ep": 17923859352, "iv_rise": -0.01, "iv_rise_interp": -0.01}
+{"t": 1792385939.2499998, "time": "10:28:59", "cls": "basket too thin", "reason": "synchrony 0.00 < 0.5", "z": 2.13, "S": 0.0, "moved": 0.8, "ep": 17923859352, "iv_rise": -0.04, "iv_rise_interp": -0.04}
+{"t": 1792385947.0, "time": "10:29:07", "cls": "impulse faded", "reason": "impulse z 2.0 < 2.0", "z": 1.96, "S": 0.152, "moved": 3.5, "ep": 17923859352, "iv_rise": -0.1, "iv_rise_interp": -0.1}
+{"t": 1792386030.7500002, "time": "10:30:30", "cls": "episode ended", "reason": "no episode", "z": 2.02, "S": 0.0, "moved": null, "ep": null, "iv_rise": null, "iv_rise_interp": null}
+{"t": 1792386031.2499998, "time": "10:30:31", "cls": "basket too thin", "reason": "synchrony 0.00 < 0.5", "z": 2.16, "S": 0.0, "moved": 0.0, "ep": 17923860312, "iv_rise": 0.0, "iv_rise_interp": 0.0}
+{"t": 1792386033.2499998, "time": "10:30:33", "cls": "impulse faded", "reason": "impulse z 2.0 < 2.0", "z": 1.97, "S": 0.0, "moved": 1.0, "ep": 17923860312, "iv_rise": -0.02, "iv_rise_interp": -0.02}
+{"t": 1792386153.5, "time": "10:32:33", "cls": "basket too thin", "reason": "synchrony 0.00 < 0.5", "z": 2.33, "S": 0.0, "moved": 8.3, "ep": 17923860312, "iv_rise": -0.58, "iv_rise_interp": -0.58}
+{"t": 1792386156.5, "time": "10:32:36", "cls": "impulse faded", "reason": "impulse z 1.4 < 2.0", "z": 1.4, "S": 0.0, "moved": 8.0, "ep": 17923860312, "iv_rise": -0.59, "iv_rise_interp": -0.59}
+{"t": 1792386195.2499998, "time": "10:33:15", "cls": "episode ended", "reason": "no episode", "z": 2.18, "S": 0.0, "moved": null, "ep": null, "iv_rise": null, "iv_rise_interp": null}
+{"t": 1792386196.5, "time": "10:33:16", "cls": "impulse faded", "reason": "impulse z 1.5 < 2.0", "z": 1.55, "S": 0.0, "moved": 0.0, "ep": 17923861965, "iv_rise": 0.0, "iv_rise_interp": 0.0}
+{"t": 1792386261.2499998, "time": "10:34:21", "cls": "episode ended", "reason": "no episode", "z": 2.09, "S": 0.048, "moved": null, "ep": null, "iv_rise": null, "iv_rise_interp": null}
+{"t": 1792386261.7500002, "time": "10:34:21", "cls": "impulse faded", "reason": "impulse z 1.8 < 2.0", "z": 1.82, "S": 0.048, "moved": 0.0, "ep": 17923862617, "iv_rise": 0.0, "iv_rise_interp": 0.0}
+{"t": 1792386262.5, "time": "10:34:22", "cls": "basket too thin", "reason": "synchrony 0.00 < 0.5", "z": 2.18, "S": 0.0, "moved": 1.0, "ep": 17923862617, "iv_rise": -0.0, "iv_rise_interp": -0.0}
+{"t": 1792386263.5, "time": "10:34:23", "cls": "impulse faded", "reason": "impulse z 1.7 < 2.0", "z": 1.66, "S": 0.0, "moved": 0.3, "ep": 17923862617, "iv_rise": -0.0, "iv_rise_interp": 0.0}
+{"t": 1792386316.0, "time": "10:35:16", "cls": "basket too thin", "reason": "synchrony 0.00 < 0.5", "z": 2.19, "S": 0.0, "moved": 10.2, "ep": 17923862617, "iv_rise": -0.11, "iv_rise_interp": -0.11}
+{"t": 1792386317.0, "time": "10:35:17", "cls": "impulse faded", "reason": "impulse z 1.7 < 2.0", "z": 1.68, "S": 0.0, "moved": 9.3, "ep": 17923862617, "iv_rise": -0.11, "iv_rise_interp": -0.11}
+{"t": 1792386349.7500002, "time": "10:35:49", "cls": "basket too thin", "reason": "synchrony 0.06 < 0.5", "z": 2.13, "S": 0.062, "moved": 9.9, "ep": 17923862617, "iv_rise": -0.17, "iv_rise_interp": -0.17}
+{"t": 1792386350.7500002, "time": "10:35:50", "cls": "impulse faded", "reason": "impulse z 1.9 < 2.0", "z": 1.93, "S": 0.062, "moved": 10.0, "ep": 17923862617, "iv_rise": -0.16, "iv_rise_interp": -0.16}
+{"t": 1792386351.5, "time": "10:35:51", "cls": "basket too thin", "reason": "synchrony 0.00 < 0.5", "z": 2.27, "S": 0.0, "moved": 11.0, "ep": 17923862617, "iv_rise": -0.17, "iv_rise_interp": -0.17}
+{"t": 1792386367.7500002, "time": "10:36:07", "cls": "impulse faded", "reason": "impulse z 1.9 < 2.0", "z": 1.93, "S": 0.0, "moved": 20.6, "ep": 17923862617, "iv_rise": -0.2, "iv_rise_interp": -0.2}
+{"t": 1792386368.7500002, "time": "10:36:08", "cls": "basket too thin", "reason": "synchrony 0.00 < 0.5", "z": 2.14, "S": 0.0, "moved": 22.0, "ep": 17923862617, "iv_rise": -0.19, "iv_rise_interp": -0.2}
+{"t": 1792386370.0, "time": "10:36:10", "cls": "impulse faded", "reason": "impulse z 1.9 < 2.0", "z": 1.93, "S": 0.0, "moved": 22.6, "ep": 17923862617, "iv_rise": -0.19, "iv_rise_interp": -0.19}
+{"t": 1792386475.2499998, "time": "10:37:55", "cls": "basket too thin", "reason": "synchrony 0.27 < 0.5", "z": 2.21, "S": 0.272, "moved": 25.3, "ep": 17923862617, "iv_rise": 1.53, "iv_rise_interp": 1.53}
+{"t": 1792386491.7500002, "time": "10:38:11", "cls": "impulse faded", "reason": "impulse z 1.9 < 2.0", "z": 1.85, "S": 0.062, "moved": 34.2, "ep": 17923862617, "iv_rise": 1.96, "iv_rise_interp": 1.95}
+{"t": 1792386590.5, "time": "10:39:50", "cls": "basket too thin", "reason": "synchrony 0.04 < 0.5", "z": 2.08, "S": 0.041, "moved": 49.0, "ep": 17923862617, "iv_rise": 2.73, "iv_rise_interp": 2.73}
+{"t": 1792386591.2499998, "time": "10:39:51", "cls": "impulse faded", "reason": "impulse z 1.8 < 2.0", "z": 1.76, "S": 0.041, "moved": 48.0, "ep": 17923862617, "iv_rise": 2.72, "iv_rise_interp": 2.73}
+{"t": 1792386591.7500002, "time": "10:39:51", "cls": "basket too thin", "reason": "synchrony 0.04 < 0.5", "z": 2.11, "S": 0.041, "moved": 48.9, "ep": 17923862617, "iv_rise": 2.73, "iv_rise_interp": 2.73}
+{"t": 1792386592.0, "time": "10:39:52", "cls": "impulse faded", "reason": "impulse z 2.0 < 2.0", "z": 1.96, "S": 0.0, "moved": 48.3, "ep": 17923862617, "iv_rise": 2.73, "iv_rise_interp": 2.73}
+{"t": 1792386592.2499998, "time": "10:39:52", "cls": "basket too thin", "reason": "synchrony 0.00 < 0.5", "z": 2.22, "S": 0.0, "moved": 49.4, "ep": 17923862617, "iv_rise": 2.73, "iv_rise_interp": 2.73}
+{"t": 1792386598.7500002, "time": "10:39:58", "cls": "impulse faded", "reason": "impulse z 1.7 < 2.0", "z": 1.74, "S": 0.0, "moved": 51.9, "ep": 17923862617, "iv_rise": 2.72, "iv_rise_interp": 2.72}
+{"t": 1792386601.0, "time": "10:40:01", "cls": "basket too thin", "reason": "synchrony 0.00 < 0.5", "z": 2.38, "S": 0.0, "moved": 54.4, "ep": 17923862617, "iv_rise": 2.72, "iv_rise_interp": 2.72}
+{"t": 1792386604.0, "time": "10:40:04", "cls": "impulse faded", "reason": "impulse z 1.8 < 2.0", "z": 1.78, "S": 0.0, "moved": 54.0, "ep": 17923862617, "iv_rise": 2.71, "iv_rise_interp": 2.71}
+{"t": 1792386635.0, "time": "10:40:35", "cls": "episode ended", "reason": "no episode", "z": 2.04, "S": 0.252, "moved": null, "ep": null, "iv_rise": null, "iv_rise_interp": null}
+{"t": 1792386636.2499998, "time": "10:40:36", "cls": "impulse faded", "reason": "impulse z 1.8 < 2.0", "z": 1.78, "S": 0.083, "moved": 0.0, "ep": 17923866362, "iv_rise": 0.0, "iv_rise_interp": 0.0}
+{"t": 1792386637.0, "time": "10:40:37", "cls": "basket too thin", "reason": "synchrony 0.00 < 0.5", "z": 2.16, "S": 0.0, "moved": 0.4, "ep": 17923866362, "iv_rise": -0.0, "iv_rise_interp": -0.01}
+{"t": 1792386639.2499998, "time": "10:40:39", "cls": "impulse faded", "reason": "impulse z 2.0 < 2.0", "z": 1.96, "S": 0.252, "moved": 0.1, "ep": 17923866362, "iv_rise": -0.03, "iv_rise_interp": -0.03}
+{"t": 1792386724.5, "time": "10:42:04", "cls": "basket too thin", "reason": "synchrony 0.00 < 0.5", "z": 2.15, "S": 0.0, "moved": 13.3, "ep": 17923866362, "iv_rise": -0.87, "iv_rise_interp": -0.88}
+{"t": 1792386725.5, "time": "10:42:05", "cls": "impulse faded", "reason": "impulse z 1.8 < 2.0", "z": 1.82, "S": 0.0, "moved": 12.7, "ep": 17923866362, "iv_rise": -0.88, "iv_rise_interp": -0.89}
+{"t": 1792386794.0, "time": "10:43:14", "cls": "episode ended", "reason": "no episode", "z": 2.19, "S": 0.0, "moved": null, "ep": null, "iv_rise": null, "iv_rise_interp": null}
+{"t": 1792386795.0, "time": "10:43:15", "cls": "impulse faded", "reason": "impulse z 1.9 < 2.0", "z": 1.87, "S": 0.0, "moved": 0.0, "ep": 17923867950, "iv_rise": 0.0, "iv_rise_interp": 0.0}
+{"t": 1792386825.7500002, "time": "10:43:45", "cls": "basket too thin", "reason": "synchrony 0.07 < 0.5", "z": 2.17, "S": 0.068, "moved": 5.8, "ep": 17923867950, "iv_rise": -0.18, "iv_rise_interp": -0.18}
+{"t": 1792386827.2499998, "time": "10:43:47", "cls": "impulse faded", "reason": "impulse z 1.7 < 2.0", "z": 1.74, "S": 0.0, "moved": 4.5, "ep": 17923867950, "iv_rise": -0.19, "iv_rise_interp": -0.19}
+{"t": 1792386840.0, "time": "10:44:00", "cls": "episode ended", "reason": "no episode", "z": 2.01, "S": 0.0, "moved": null, "ep": null, "iv_rise": null, "iv_rise_interp": null}
+{"t": 1792386840.5, "time": "10:44:00", "cls": "impulse faded", "reason": "impulse z 1.9 < 2.0", "z": 1.88, "S": 0.0, "moved": 0.0, "ep": 17923868405, "iv_rise": 0.0, "iv_rise_interp": 0.0}
+{"t": 1792386862.5, "time": "10:44:22", "cls": "episode ended", "reason": "no episode", "z": 2.28, "S": 0.0, "moved": null, "ep": null, "iv_rise": null, "iv_rise_interp": null}
+{"t": 1792386863.0, "time": "10:44:23", "cls": "impulse faded", "reason": "impulse z 2.0 < 2.0", "z": 1.96, "S": 0.0, "moved": 0.0, "ep": 17923868630, "iv_rise": 0.0, "iv_rise_interp": 0.0}
+{"t": 1792386863.5, "time": "10:44:23", "cls": "basket too thin", "reason": "synchrony 0.00 < 0.5", "z": 2.27, "S": 0.0, "moved": 1.2, "ep": 17923868630, "iv_rise": -0.02, "iv_rise_interp": -0.02}
+{"t": 1792386866.5, "time": "10:44:26", "cls": "impulse faded", "reason": "impulse z 1.8 < 2.0", "z": 1.79, "S": 0.0, "moved": 1.1, "ep": 17923868630, "iv_rise": -0.03, "iv_rise_interp": -0.03}
+{"t": 1792386928.5, "time": "10:45:28", "cls": "basket too thin", "reason": "synchrony 0.03 < 0.5", "z": 2.11, "S": 0.03, "moved": 1.3, "ep": 17923868630, "iv_rise": -0.29, "iv_rise_interp": -0.29}
+{"t": 1792386938.7500002, "time": "10:45:38", "cls": "impulse faded", "reason": "impulse z 1.6 < 2.0", "z": 1.62, "S": 0.0, "moved": 5.8, "ep": 17923868630, "iv_rise": -0.32, "iv_rise_interp": -0.31}
+{"t": 1792387035.0, "time": "10:47:15", "cls": "basket too thin", "reason": "synchrony 0.00 < 0.5", "z": 2.27, "S": 0.0, "moved": 16.3, "ep": 17923868630, "iv_rise": -0.58, "iv_rise_interp": -0.58}
+{"t": 1792387036.0, "time": "10:47:16", "cls": "impulse faded", "reason": "impulse z 2.0 < 2.0", "z": 1.98, "S": 0.0, "moved": 16.2, "ep": 17923868630, "iv_rise": -0.59, "iv_rise_interp": -0.59}
+{"t": 1792387038.5, "time": "10:47:18", "cls": "basket too thin", "reason": "synchrony 0.00 < 0.5", "z": 2.06, "S": 0.0, "moved": 17.3, "ep": 17923868630, "iv_rise": -0.59, "iv_rise_interp": -0.59}
+{"t": 1792387041.7500002, "time": "10:47:21", "cls": "impulse faded", "reason": "impulse z 1.9 < 2.0", "z": 1.86, "S": 0.0, "moved": 19.3, "ep": 17923868630, "iv_rise": -0.6, "iv_rise_interp": -0.59}
+{"t": 1792387053.0, "time": "10:47:33", "cls": "episode ended", "reason": "no episode", "z": 2.04, "S": 0.0, "moved": null, "ep": null, "iv_rise": null, "iv_rise_interp": null}
+{"t": 1792387053.7500002, "time": "10:47:33", "cls": "basket too thin", "reason": "synchrony 0.00 < 0.5", "z": 2.28, "S": 0.0, "moved": 0.0, "ep": 17923870537, "iv_rise": 0.0, "iv_rise_interp": 0.0}
+{"t": 1792387062.0, "time": "10:47:42", "cls": "impulse faded", "reason": "impulse z 2.0 < 2.0", "z": 1.96, "S": 0.0, "moved": 0.6, "ep": 17923870537, "iv_rise": -0.01, "iv_rise_interp": -0.01}
+{"t": 1792387132.0, "time": "10:48:52", "cls": "episode ended", "reason": "no episode", "z": 2.1, "S": 0.0, "moved": null, "ep": null, "iv_rise": null, "iv_rise_interp": null}
+{"t": 1792387132.5, "time": "10:48:52", "cls": "basket too thin", "reason": "synchrony 0.00 < 0.5", "z": 2.02, "S": 0.0, "moved": 0.0, "ep": 17923871325, "iv_rise": 0.0, "iv_rise_interp": 0.0}
+{"t": 1792387134.0, "time": "10:48:54", "cls": "impulse faded", "reason": "impulse z 2.0 < 2.0", "z": 1.98, "S": 0.0, "moved": 0.1, "ep": 17923871325, "iv_rise": -0.01, "iv_rise_interp": -0.01}
+{"t": 1792387230.2499998, "time": "10:50:30", "cls": "episode ended", "reason": "no episode", "z": 2.07, "S": 0.0, "moved": null, "ep": null, "iv_rise": null, "iv_rise_interp": null}
+{"t": 1792387231.7500002, "time": "10:50:31", "cls": "basket too thin", "reason": "synchrony 0.00 < 0.5", "z": 2.76, "S": 0.0, "moved": 0.0, "ep": 17923872317, "iv_rise": 0.0, "iv_rise_interp": 0.0}
+{"t": 1792387249.5, "time": "10:50:49", "cls": "impulse faded", "reason": "impulse z 1.9 < 2.0", "z": 1.85, "S": 0.083, "moved": 10.9, "ep": 17923872317, "iv_rise": -0.02, "iv_rise_interp": -0.02}
+{"t": 1792387253.0, "time": "10:50:53", "cls": "basket too thin", "reason": "synchrony 0.08 < 0.5", "z": 2.4, "S": 0.083, "moved": 13.7, "ep": 17923872317, "iv_rise": -0.03, "iv_rise_interp": -0.02}
+{"t": 1792387255.2499998, "time": "10:50:55", "cls": "impulse faded", "reason": "impulse z 1.8 < 2.0", "z": 1.84, "S": 0.083, "moved": 13.5, "ep": 17923872317, "iv_rise": -0.03, "iv_rise_interp": -0.02}
+{"t": 1792387342.2499998, "time": "10:52:22", "cls": "episode ended", "reason": "no episode", "z": 2.14, "S": 0.0, "moved": null, "ep": null, "iv_rise": null, "iv_rise_interp": null}
+{"t": 1792387343.0, "time": "10:52:23", "cls": "basket too thin", "reason": "synchrony 0.04 < 0.5", "z": 2.24, "S": 0.036, "moved": 0.0, "ep": 17923873430, "iv_rise": 0.0, "iv_rise_interp": 0.0}
+{"t": 1792387344.5, "time": "10:52:24", "cls": "impulse faded", "reason": "impulse z 2.0 < 2.0", "z": 1.95, "S": 0.036, "moved": 0.8, "ep": 17923873430, "iv_rise": 0.02, "iv_rise_interp": 0.02}
+{"t": 1792387345.5, "time": "10:52:25", "cls": "basket too thin", "reason": "synchrony 0.04 < 0.5", "z": 2.04, "S": 0.036, "moved": 1.5, "ep": 17923873430, "iv_rise": 0.04, "iv_rise_interp": 0.04}
+{"t": 1792387347.5, "time": "10:52:27", "cls": "impulse faded", "reason": "impulse z 1.8 < 2.0", "z": 1.85, "S": 0.036, "moved": 2.2, "ep": 17923873430, "iv_rise": 0.08, "iv_rise_interp": 0.08}
+{"t": 1792387355.5, "time": "10:52:35", "cls": "basket too thin", "reason": "synchrony 0.04 < 0.5", "z": 2.06, "S": 0.036, "moved": 7.6, "ep": 17923873430, "iv_rise": 0.17, "iv_rise_interp": 0.17}
+{"t": 1792387363.0, "time": "10:52:43", "cls": "impulse faded", "reason": "impulse z 2.0 < 2.0", "z": 1.97, "S": 0.0, "moved": 10.4, "ep": 17923873430, "iv_rise": 0.26, "iv_rise_interp": 0.26}
+{"t": 1792387363.5, "time": "10:52:43", "cls": "basket too thin", "reason": "synchrony 0.00 < 0.5", "z": 2.08, "S": 0.0, "moved": 10.8, "ep": 17923873430, "iv_rise": 0.27, "iv_rise_interp": 0.27}
+{"t": 1792387364.0, "time": "10:52:44", "cls": "impulse faded", "reason": "impulse z 2.0 < 2.0", "z": 2.0, "S": 0.0, "moved": 10.5, "ep": 17923873430, "iv_rise": 0.26, "iv_rise_interp": 0.26}
+{"t": 1792387472.5, "time": "10:54:32", "cls": "episode ended", "reason": "no episode", "z": 2.06, "S": 0.0, "moved": null, "ep": null, "iv_rise": null, "iv_rise_interp": null}
+{"t": 1792387473.0, "time": "10:54:33", "cls": "impulse faded", "reason": "impulse z 1.9 < 2.0", "z": 1.94, "S": 0.0, "moved": 0.0, "ep": 17923874730, "iv_rise": 0.0, "iv_rise_interp": 0.0}
+{"t": 1792387475.0, "time": "10:54:35", "cls": "basket too thin", "reason": "synchrony 0.00 < 0.5", "z": 2.25, "S": 0.0, "moved": 2.2, "ep": 17923874730, "iv_rise": -0.03, "iv_rise_interp": -0.02}
+{"t": 1792387484.0, "time": "10:54:44", "cls": "impulse faded", "reason": "impulse z 2.0 < 2.0", "z": 1.99, "S": 0.0, "moved": 5.8, "ep": 17923874730, "iv_rise": -0.15, "iv_rise_interp": -0.15}
+{"t": 1792387529.5, "time": "10:55:29", "cls": "episode ended", "reason": "no episode", "z": 2.04, "S": 0.0, "moved": null, "ep": null, "iv_rise": null, "iv_rise_interp": null}
+{"t": 1792387530.2499998, "time": "10:55:30", "cls": "basket too thin", "reason": "synchrony 0.00 < 0.5", "z": 2.14, "S": 0.0, "moved": 0.0, "ep": 17923875302, "iv_rise": 0.0, "iv_rise_interp": 0.0}
+{"t": 1792387543.5, "time": "10:55:43", "cls": "impulse faded", "reason": "impulse z 1.9 < 2.0", "z": 1.86, "S": 0.048, "moved": 6.7, "ep": 17923875302, "iv_rise": -0.1, "iv_rise_interp": -0.1}
+{"t": 1792387643.7500002, "time": "10:57:23", "cls": "episode ended", "reason": "no episode", "z": 2.7, "S": 0.0, "moved": null, "ep": null, "iv_rise": null, "iv_rise_interp": null}
+{"t": 1792387644.7500002, "time": "10:57:24", "cls": "basket too thin", "reason": "synchrony 0.00 < 0.5", "z": 2.68, "S": 0.0, "moved": 0.0, "ep": 17923876447, "iv_rise": 0.0, "iv_rise_interp": 0.0}
+{"t": 1792387648.0, "time": "10:57:28", "cls": "impulse faded", "reason": "impulse z 1.9 < 2.0", "z": 1.85, "S": 0.0, "moved": 0.6, "ep": 17923876447, "iv_rise": -0.02, "iv_rise_interp": -0.02}
+{"t": 1792387650.2499998, "time": "10:57:30", "cls": "basket too thin", "reason": "synchrony 0.00 < 0.5", "z": 2.13, "S": 0.0, "moved": 0.3, "ep": 17923876447, "iv_rise": -0.03, "iv_rise_interp": -0.03}
+{"t": 1792387658.2499998, "time": "10:57:38", "cls": "impulse faded", "reason": "impulse z 1.8 < 2.0", "z": 1.84, "S": 0.0, "moved": 6.8, "ep": 17923876447, "iv_rise": -0.06, "iv_rise_interp": -0.06}
+{"t": 1792387659.0, "time": "10:57:39", "cls": "basket too thin", "reason": "synchrony 0.00 < 0.5", "z": 2.01, "S": 0.0, "moved": 7.5, "ep": 17923876447, "iv_rise": -0.07, "iv_rise_interp": -0.07}
+{"t": 1792387666.0, "time": "10:57:46", "cls": "impulse faded", "reason": "impulse z 2.0 < 2.0", "z": 1.96, "S": 0.0, "moved": 9.0, "ep": 17923876447, "iv_rise": -0.11, "iv_rise_interp": -0.1}
+{"t": 1792387666.7500002, "time": "10:57:46", "cls": "basket too thin", "reason": "synchrony 0.00 < 0.5", "z": 2.51, "S": 0.0, "moved": 10.8, "ep": 17923876447, "iv_rise": -0.11, "iv_rise_interp": -0.1}
+{"t": 1792387671.0, "time": "10:57:51", "cls": "impulse faded", "reason": "impulse z 2.0 < 2.0", "z": 1.97, "S": 0.0, "moved": 12.5, "ep": 17923876447, "iv_rise": -0.13, "iv_rise_interp": -0.13}
+{"t": 1792387671.7500002, "time": "10:57:51", "cls": "basket too thin", "reason": "synchrony 0.00 < 0.5", "z": 2.28, "S": 0.0, "moved": 13.7, "ep": 17923876447, "iv_rise": -0.14, "iv_rise_interp": -0.13}
+{"t": 1792387673.5, "time": "10:57:53", "cls": "impulse faded", "reason": "impulse z 1.9 < 2.0", "z": 1.94, "S": 0.0, "moved": 14.7, "ep": 17923876447, "iv_rise": -0.14, "iv_rise_interp": -0.14}
+{"t": 1792387677.0, "time": "10:57:57", "cls": "basket too thin", "reason": "synchrony 0.00 < 0.5", "z": 2.15, "S": 0.0, "moved": 17.3, "ep": 17923876447, "iv_rise": -0.16, "iv_rise_interp": -0.16}
+{"t": 1792387683.0, "time": "10:58:03", "cls": "impulse faded", "reason": "impulse z 1.9 < 2.0", "z": 1.91, "S": 0.0, "moved": 19.3, "ep": 17923876447, "iv_rise": -0.18, "iv_rise_interp": -0.18}
+{"t": 1792387683.7500002, "time": "10:58:03", "cls": "basket too thin", "reason": "synchrony 0.00 < 0.5", "z": 2.27, "S": 0.0, "moved": 20.6, "ep": 17923876447, "iv_rise": -0.18, "iv_rise_interp": -0.18}
+{"t": 1792387685.0, "time": "10:58:05", "cls": "impulse faded", "reason": "impulse z 1.9 < 2.0", "z": 1.87, "S": 0.0, "moved": 20.0, "ep": 17923876447, "iv_rise": -0.2, "iv_rise_interp": -0.2}
+{"t": 1792387713.5, "time": "10:58:33", "cls": "basket too thin", "reason": "synchrony 0.00 < 0.5", "z": 2.22, "S": 0.0, "moved": 28.5, "ep": 17923876447, "iv_rise": -0.32, "iv_rise_interp": -0.31}
+{"t": 1792387720.5, "time": "10:58:40", "cls": "impulse faded", "reason": "impulse z 1.8 < 2.0", "z": 1.84, "S": 0.0, "moved": 30.5, "ep": 17923876447, "iv_rise": -0.34, "iv_rise_interp": -0.34}
+{"t": 1792387758.2499998, "time": "10:59:18", "cls": "basket too thin", "reason": "synchrony 0.00 < 0.5", "z": 2.35, "S": 0.0, "moved": 34.0, "ep": 17923876447, "iv_rise": -0.47, "iv_rise_interp": -0.47}
+{"t": 1792387768.0, "time": "10:59:28", "cls": "impulse faded", "reason": "impulse z 1.8 < 2.0", "z": 1.83, "S": 0.124, "moved": 36.0, "ep": 17923876447, "iv_rise": -0.51, "iv_rise_interp": -0.51}
+{"t": 1792387834.2499998, "time": "11:00:34", "cls": "episode ended", "reason": "no episode", "z": 2.0, "S": 0.0, "moved": null, "ep": null, "iv_rise": null, "iv_rise_interp": null}
+{"t": 1792387834.7500002, "time": "11:00:34", "cls": "basket too thin", "reason": "synchrony 0.00 < 0.5", "z": 2.04, "S": 0.0, "moved": 0.0, "ep": 17923878347, "iv_rise": 0.0, "iv_rise_interp": 0.0}
+{"t": 1792387842.5, "time": "11:00:42", "cls": "impulse faded", "reason": "impulse z 1.9 < 2.0", "z": 1.86, "S": 0.0, "moved": 3.8, "ep": 17923878347, "iv_rise": -0.01, "iv_rise_interp": -0.01}
+{"t": 1792387872.7500002, "time": "11:01:12", "cls": "episode ended", "reason": "no episode", "z": 2.14, "S": 0.0, "moved": null, "ep": null, "iv_rise": null, "iv_rise_interp": null}
+{"t": 1792387873.5, "time": "11:01:13", "cls": "impulse faded", "reason": "impulse z 1.6 < 2.0", "z": 1.64, "S": 0.0, "moved": 0.0, "ep": 17923878735, "iv_rise": 0.0, "iv_rise_interp": 0.0}
+{"t": 1792387914.5, "time": "11:01:54", "cls": "basket too thin", "reason": "synchrony 0.00 < 0.5", "z": 2.0, "S": 0.0, "moved": 7.5, "ep": 17923878735, "iv_rise": -0.09, "iv_rise_interp": -0.08}
+{"t": 1792387930.0, "time": "11:02:10", "cls": "impulse faded", "reason": "impulse z 1.6 < 2.0", "z": 1.64, "S": 0.0, "moved": 14.2, "ep": 17923878735, "iv_rise": -0.11, "iv_rise_interp": -0.1}
+{"t": 1792388017.7500002, "time": "11:03:37", "cls": "basket too thin", "reason": "synchrony 0.08 < 0.5", "z": 2.35, "S": 0.083, "moved": 25.2, "ep": 17923878735, "iv_rise": -0.22, "iv_rise_interp": -0.23}
+{"t": 1792388018.7500002, "time": "11:03:38", "cls": "impulse faded", "reason": "impulse z 1.7 < 2.0", "z": 1.73, "S": 0.0, "moved": 24.3, "ep": 17923878735, "iv_rise": -0.22, "iv_rise_interp": -0.22}
+{"t": 1792388039.5, "time": "11:03:59", "cls": "episode ended", "reason": "no episode", "z": 2.23, "S": 0.041, "moved": null, "ep": null, "iv_rise": null, "iv_rise_interp": null}
+{"t": 1792388040.2499998, "time": "11:04:00", "cls": "impulse faded", "reason": "impulse z 1.6 < 2.0", "z": 1.65, "S": 0.0, "moved": 0.0, "ep": 17923880402, "iv_rise": 0.0, "iv_rise_interp": 0.0}
+{"t": 1792388109.5, "time": "11:05:09", "cls": "episode ended", "reason": "no episode", "z": 2.19, "S": 0.124, "moved": null, "ep": null, "iv_rise": null, "iv_rise_interp": null}
+{"t": 1792388110.2499998, "time": "11:05:10", "cls": "basket too thin", "reason": "synchrony 0.12 < 0.5", "z": 2.14, "S": 0.124, "moved": 0.0, "ep": 17923881102, "iv_rise": 0.0, "iv_rise_interp": 0.0}
+{"t": 1792388115.7500002, "time": "11:05:15", "cls": "impulse faded", "reason": "impulse z 1.9 < 2.0", "z": 1.91, "S": 0.0, "moved": 1.5, "ep": 17923881102, "iv_rise": 0.14, "iv_rise_interp": 0.14}
+{"t": 1792388128.5, "time": "11:05:28", "cls": "basket too thin", "reason": "synchrony 0.04 < 0.5", "z": 2.21, "S": 0.036, "moved": 9.7, "ep": 17923881102, "iv_rise": 0.42, "iv_rise_interp": 0.43}
+{"t": 1792388143.2499998, "time": "11:05:43", "cls": "impulse faded", "reason": "impulse z 1.8 < 2.0", "z": 1.82, "S": 0.0, "moved": 17.1, "ep": 17923881102, "iv_rise": 0.64, "iv_rise_interp": 0.64}
+{"t": 1792388147.2499998, "time": "11:05:47", "cls": "basket too thin", "reason": "synchrony 0.08 < 0.5", "z": 2.25, "S": 0.083, "moved": 20.7, "ep": 17923881102, "iv_rise": 0.68, "iv_rise_interp": 0.69}
+{"t": 1792388161.7500002, "time": "11:06:01", "cls": "impulse faded", "reason": "impulse z 1.4 < 2.0", "z": 1.37, "S": 0.036, "moved": 26.3, "ep": 17923881102, "iv_rise": 0.8, "iv_rise_interp": 0.81}
+{"t": 1792388213.2499998, "time": "11:06:53", "cls": "episode ended", "reason": "no episode", "z": 2.02, "S": 0.0, "moved": null, "ep": null, "iv_rise": null, "iv_rise_interp": null}
+{"t": 1792388213.7500002, "time": "11:06:53", "cls": "impulse faded", "reason": "impulse z 1.6 < 2.0", "z": 1.63, "S": 0.0, "moved": 0.0, "ep": 17923882137, "iv_rise": 0.0, "iv_rise_interp": 0.0}
+{"t": 1792388223.5, "time": "11:07:03", "cls": "basket too thin", "reason": "synchrony 0.00 < 0.5", "z": 2.09, "S": 0.0, "moved": 5.9, "ep": 17923882137, "iv_rise": -0.09, "iv_rise_interp": -0.1}
+{"t": 1792388226.7500002, "time": "11:07:06", "cls": "impulse faded", "reason": "impulse z 2.0 < 2.0", "z": 1.98, "S": 0.0, "moved": 6.9, "ep": 17923882137, "iv_rise": -0.12, "iv_rise_interp": -0.13}
+{"t": 1792388314.5, "time": "11:08:34", "cls": "basket too thin", "reason": "synchrony 0.00 < 0.5", "z": 2.3, "S": 0.0, "moved": 12.2, "ep": 17923882137, "iv_rise": -0.83, "iv_rise_interp": -0.84}
+{"t": 1792388320.5, "time": "11:08:40", "cls": "impulse faded", "reason": "impulse z 1.9 < 2.0", "z": 1.92, "S": 0.0, "moved": 12.3, "ep": 17923882137, "iv_rise": -0.86, "iv_rise_interp": -0.87}
+{"t": 1792388402.2499998, "time": "11:10:02", "cls": "episode ended", "reason": "no episode", "z": 2.05, "S": 0.0, "moved": null, "ep": null, "iv_rise": null, "iv_rise_interp": null}
+{"t": 1792388403.2499998, "time": "11:10:03", "cls": "basket too thin", "reason": "synchrony 0.00 < 0.5", "z": 2.0, "S": 0.0, "moved": 0.0, "ep": 17923884032, "iv_rise": 0.0, "iv_rise_interp": 0.0}
+{"t": 1792388429.2499998, "time": "11:10:29", "cls": "impulse faded", "reason": "impulse z 1.8 < 2.0", "z": 1.8, "S": 0.041, "moved": 15.5, "ep": 17923884032, "iv_rise": -0.12, "iv_rise_interp": -0.11}
+{"t": 1792388455.0, "time": "11:10:55", "cls": "episode ended", "reason": "no episode", "z": 2.02, "S": 0.0, "moved": null, "ep": null, "iv_rise": null, "iv_rise_interp": null}
+{"t": 1792388455.7500002, "time": "11:10:55", "cls": "basket too thin", "reason": "synchrony 0.00 < 0.5", "z": 2.25, "S": 0.0, "moved": 0.0, "ep": 17923884557, "iv_rise": 0.0, "iv_rise_interp": 0.0}
+{"t": 1792388456.5, "time": "11:10:56", "cls": "impulse faded", "reason": "impulse z 1.9 < 2.0", "z": 1.92, "S": 0.0, "moved": 0.2, "ep": 17923884557, "iv_rise": 0.01, "iv_rise_interp": 0.0}
+{"t": 1792388457.0, "time": "11:10:57", "cls": "basket too thin", "reason": "synchrony 0.00 < 0.5", "z": 2.02, "S": 0.0, "moved": 0.5, "ep": 17923884557, "iv_rise": -0.04, "iv_rise_interp": -0.04}
+{"t": 1792388465.5, "time": "11:11:05", "cls": "impulse faded", "reason": "impulse z 1.6 < 2.0", "z": 1.6, "S": 0.0, "moved": 3.3, "ep": 17923884557, "iv_rise": -0.02, "iv_rise_interp": -0.03}
+{"t": 1792388510.5, "time": "11:11:50", "cls": "episode ended", "reason": "no episode", "z": 2.05, "S": 0.0, "moved": null, "ep": null, "iv_rise": null, "iv_rise_interp": null}
+{"t": 1792388511.2499998, "time": "11:11:51", "cls": "basket too thin", "reason": "synchrony 0.00 < 0.5", "z": 2.07, "S": 0.0, "moved": 0.0, "ep": 17923885112, "iv_rise": 0.0, "iv_rise_interp": 0.0}
+{"t": 1792388512.0, "time": "11:11:52", "cls": "impulse faded", "reason": "impulse z 1.9 < 2.0", "z": 1.87, "S": 0.0, "moved": 0.5, "ep": 17923885112, "iv_rise": 0.0, "iv_rise_interp": 0.0}
+{"t": 1792388512.5, "time": "11:11:52", "cls": "basket too thin", "reason": "synchrony 0.00 < 0.5", "z": 2.23, "S": 0.0, "moved": 0.2, "ep": 17923885112, "iv_rise": -0.01, "iv_rise_interp": -0.01}
+{"t": 1792388515.2499998, "time": "11:11:55", "cls": "impulse faded", "reason": "impulse z 2.0 < 2.0", "z": 1.96, "S": 0.0, "moved": 0.3, "ep": 17923885112, "iv_rise": -0.02, "iv_rise_interp": -0.02}
+{"t": 1792388515.7500002, "time": "11:11:55", "cls": "basket too thin", "reason": "synchrony 0.00 < 0.5", "z": 2.03, "S": 0.0, "moved": 0.7, "ep": 17923885112, "iv_rise": -0.02, "iv_rise_interp": -0.01}
+{"t": 1792388516.5, "time": "11:11:56", "cls": "impulse faded", "reason": "impulse z 1.5 < 2.0", "z": 1.46, "S": 0.0, "moved": 0.8, "ep": 17923885112, "iv_rise": -0.01, "iv_rise_interp": -0.01}
+{"t": 1792388535.7500002, "time": "11:12:15", "cls": "episode ended", "reason": "no episode", "z": 2.04, "S": 0.0, "moved": null, "ep": null, "iv_rise": null, "iv_rise_interp": null}
+{"t": 1792388536.2499998, "time": "11:12:16", "cls": "basket too thin", "reason": "synchrony 0.00 < 0.5", "z": 2.02, "S": 0.0, "moved": 0.0, "ep": 17923885362, "iv_rise": 0.0, "iv_rise_interp": 0.0}
+{"t": 1792388536.7500002, "time": "11:12:16", "cls": "impulse faded", "reason": "impulse z 2.0 < 2.0", "z": 1.98, "S": 0.0, "moved": 0.8, "ep": 17923885362, "iv_rise": -0.01, "iv_rise_interp": -0.01}
+{"t": 1792388617.7500002, "time": "11:13:37", "cls": "basket too thin", "reason": "synchrony 0.00 < 0.5", "z": 2.21, "S": 0.0, "moved": 5.1, "ep": 17923885362, "iv_rise": -0.19, "iv_rise_interp": -0.18}
+{"t": 1792388623.0, "time": "11:13:43", "cls": "impulse faded", "reason": "impulse z 1.7 < 2.0", "z": 1.72, "S": 0.0, "moved": 5.2, "ep": 17923885362, "iv_rise": -0.19, "iv_rise_interp": -0.19}
+{"t": 1792388658.2499998, "time": "11:14:18", "cls": "episode ended", "reason": "no episode", "z": 2.26, "S": 0.0, "moved": null, "ep": null, "iv_rise": null, "iv_rise_interp": null}
+{"t": 1792388659.2499998, "time": "11:14:19", "cls": "basket too thin", "reason": "synchrony 0.00 < 0.5", "z": 2.18, "S": 0.0, "moved": 0.0, "ep": 17923886592, "iv_rise": 0.0, "iv_rise_interp": 0.0}
+{"t": 1792388661.7500002, "time": "11:14:21", "cls": "impulse faded", "reason": "impulse z 1.1 < 2.0", "z": 1.07, "S": 0.0, "moved": 1.5, "ep": 17923886592, "iv_rise": -0.01, "iv_rise_interp": -0.01}
+{"t": 1792388694.2499998, "time": "11:14:54", "cls": "episode ended", "reason": "no episode", "z": 2.14, "S": 0.0, "moved": null, "ep": null, "iv_rise": null, "iv_rise_interp": null}
+{"t": 1792388695.0, "time": "11:14:55", "cls": "basket too thin", "reason": "synchrony 0.00 < 0.5", "z": 2.12, "S": 0.0, "moved": 0.0, "ep": 17923886950, "iv_rise": 0.0, "iv_rise_interp": 0.0}
+{"t": 1792388695.7500002, "time": "11:14:55", "cls": "impulse faded", "reason": "impulse z 1.6 < 2.0", "z": 1.6, "S": 0.0, "moved": 1.3, "ep": 17923886950, "iv_rise": -0.0, "iv_rise_interp": -0.0}
+{"t": 1792388792.5, "time": "11:16:32", "cls": "basket too thin", "reason": "synchrony 0.00 < 0.5", "z": 2.14, "S": 0.0, "moved": 11.4, "ep": 17923886950, "iv_rise": -0.11, "iv_rise_interp": -0.11}
+{"t": 1792388793.5, "time": "11:16:33", "cls": "impulse faded", "reason": "impulse z 1.7 < 2.0", "z": 1.72, "S": 0.0, "moved": 10.9, "ep": 17923886950, "iv_rise": -0.11, "iv_rise_interp": -0.11}
+{"t": 1792388794.7500002, "time": "11:16:34", "cls": "basket too thin", "reason": "synchrony 0.00 < 0.5", "z": 2.01, "S": 0.0, "moved": 12.8, "ep": 17923886950, "iv_rise": -0.12, "iv_rise_interp": -0.11}
+{"t": 1792388796.7500002, "time": "11:16:36", "cls": "impulse faded", "reason": "impulse z 1.9 < 2.0", "z": 1.89, "S": 0.0, "moved": 13.4, "ep": 17923886950, "iv_rise": -0.11, "iv_rise_interp": -0.11}
+{"t": 1792388816.2499998, "time": "11:16:56", "cls": "basket too thin", "reason": "synchrony 0.32 < 0.5", "z": 2.08, "S": 0.319, "moved": 23.2, "ep": 17923886950, "iv_rise": 1.57, "iv_rise_interp": 1.57}
+{"t": 1792388819.7500002, "time": "11:16:59", "cls": "late", "reason": "LATE: futures already 27 pts since onset", "z": 2.69, "S": 0.508, "moved": 26.9, "ep": 17923886950, "iv_rise": 1.88, "iv_rise_interp": 1.86}
+{"t": 1792388826.2499998, "time": "11:17:06", "cls": "basket too thin", "reason": "synchrony 0.50 < 0.5", "z": 4.52, "S": 0.497, "moved": 37.0, "ep": 17923886950, "iv_rise": 2.47, "iv_rise_interp": 2.47}
+{"t": 1792388830.7500002, "time": "11:17:10", "cls": "late", "reason": "LATE: futures already 39 pts since onset", "z": 3.88, "S": 0.549, "moved": 39.5, "ep": 17923886950, "iv_rise": 2.82, "iv_rise_interp": 2.82}
+{"t": 1792388832.7500002, "time": "11:17:12", "cls": "basket too thin", "reason": "synchrony 0.35 < 0.5", "z": 3.8, "S": 0.353, "moved": 40.9, "ep": 17923886950, "iv_rise": 2.94, "iv_rise_interp": 2.94}
+{"t": 1792388849.2499998, "time": "11:17:29", "cls": "impulse faded", "reason": "impulse z 1.9 < 2.0", "z": 1.92, "S": 0.0, "moved": 51.3, "ep": 17923886950, "iv_rise": 3.84, "iv_rise_interp": 3.84}
+{"t": 1792388857.0, "time": "11:17:37", "cls": "basket too thin", "reason": "synchrony 0.15 < 0.5", "z": 2.19, "S": 0.147, "moved": 56.5, "ep": 17923886950, "iv_rise": 4.11, "iv_rise_interp": 4.11}
+{"t": 1792388873.2499998, "time": "11:17:53", "cls": "impulse faded", "reason": "impulse z 1.7 < 2.0", "z": 1.67, "S": 0.055, "moved": 67.2, "ep": 17923886950, "iv_rise": 4.5, "iv_rise_interp": 4.5}
+{"t": 1792388874.7500002, "time": "11:17:54", "cls": "basket too thin", "reason": "synchrony 0.00 < 0.5", "z": 2.25, "S": 0.0, "moved": 69.7, "ep": 17923886950, "iv_rise": 4.53, "iv_rise_interp": 4.53}
+{"t": 1792388884.0, "time": "11:18:04", "cls": "impulse faded", "reason": "impulse z 1.9 < 2.0", "z": 1.89, "S": 0.147, "moved": 71.5, "ep": 17923886950, "iv_rise": 4.64, "iv_rise_interp": 4.64}
+{"t": 1792388901.5, "time": "11:18:21", "cls": "basket too thin", "reason": "synchrony 0.00 < 0.5", "z": 2.21, "S": 0.0, "moved": 79.1, "ep": 17923886950, "iv_rise": 4.41, "iv_rise_interp": 4.42}
+{"t": 1792388909.5, "time": "11:18:29", "cls": "impulse faded", "reason": "impulse z 2.0 < 2.0", "z": 1.95, "S": 0.0, "moved": 84.7, "ep": 17923886950, "iv_rise": 4.26, "iv_rise_interp": 4.26}
+{"t": 1792388910.2499998, "time": "11:18:30", "cls": "basket too thin", "reason": "synchrony 0.15 < 0.5", "z": 2.14, "S": 0.147, "moved": 85.5, "ep": 17923886950, "iv_rise": 4.25, "iv_rise_interp": 4.25}
+{"t": 1792388910.5, "time": "11:18:30", "cls": "impulse faded", "reason": "impulse z 1.9 < 2.0", "z": 1.94, "S": 0.0, "moved": 85.8, "ep": 17923886950, "iv_rise": 4.23, "iv_rise_interp": 4.24}
+{"t": 1792388911.7500002, "time": "11:18:31", "cls": "basket too thin", "reason": "synchrony 0.00 < 0.5", "z": 2.15, "S": 0.0, "moved": 86.7, "ep": 17923886950, "iv_rise": 4.22, "iv_rise_interp": 4.22}
+{"t": 1792388912.7500002, "time": "11:18:32", "cls": "impulse faded", "reason": "impulse z 1.9 < 2.0", "z": 1.86, "S": 0.0, "moved": 85.5, "ep": 17923886950, "iv_rise": 4.19, "iv_rise_interp": 4.2}
+{"t": 1792388913.5, "time": "11:18:33", "cls": "basket too thin", "reason": "synchrony 0.00 < 0.5", "z": 2.02, "S": 0.0, "moved": 86.5, "ep": 17923886950, "iv_rise": 4.18, "iv_rise_interp": 4.18}
+{"t": 1792388914.2499998, "time": "11:18:34", "cls": "impulse faded", "reason": "impulse z 1.9 < 2.0", "z": 1.92, "S": 0.0, "moved": 86.0, "ep": 17923886950, "iv_rise": 4.17, "iv_rise_interp": 4.17}
+{"t": 1792388915.0, "time": "11:18:35", "cls": "basket too thin", "reason": "synchrony 0.00 < 0.5", "z": 2.18, "S": 0.0, "moved": 86.5, "ep": 17923886950, "iv_rise": 4.16, "iv_rise_interp": 4.16}
+{"t": 1792388916.0, "time": "11:18:36", "cls": "impulse faded", "reason": "impulse z 1.5 < 2.0", "z": 1.52, "S": 0.0, "moved": 85.7, "ep": 17923886950, "iv_rise": 4.13, "iv_rise_interp": 4.15}
+{"t": 1792388963.2499998, "time": "11:19:23", "cls": "basket too thin", "reason": "synchrony 0.00 < 0.5", "z": 2.02, "S": 0.0, "moved": 89.9, "ep": 17923886950, "iv_rise": 3.34, "iv_rise_interp": 3.34}
+{"t": 1792388967.2499998, "time": "11:19:27", "cls": "impulse faded", "reason": "impulse z 1.9 < 2.0", "z": 1.88, "S": 0.041, "moved": 93.0, "ep": 17923886950, "iv_rise": 3.27, "iv_rise_interp": 3.28}
+{"t": 1792388970.0, "time": "11:19:30", "cls": "basket too thin", "reason": "synchrony 0.00 < 0.5", "z": 2.0, "S": 0.0, "moved": 93.9, "ep": 17923886950, "iv_rise": 3.23, "iv_rise_interp": 3.23}
+{"t": 1792388972.5, "time": "11:19:32", "cls": "impulse faded", "reason": "impulse z 1.8 < 2.0", "z": 1.79, "S": 0.0, "moved": 94.3, "ep": 17923886950, "iv_rise": 3.19, "iv_rise_interp": 3.19}
+{"t": 1792388998.7500002, "time": "11:19:58", "cls": "episode ended", "reason": "no episode", "z": 2.02, "S": 0.0, "moved": null, "ep": null, "iv_rise": null, "iv_rise_interp": null}
+{"t": 1792388999.5, "time": "11:19:59", "cls": "impulse faded", "reason": "impulse z 1.6 < 2.0", "z": 1.63, "S": 0.0, "moved": 0.0, "ep": 17923889995, "iv_rise": 0.0, "iv_rise_interp": 0.0}
+{"t": 1792389006.5, "time": "11:20:06", "cls": "basket too thin", "reason": "synchrony 0.00 < 0.5", "z": 2.04, "S": 0.0, "moved": 4.3, "ep": 17923889995, "iv_rise": -0.09, "iv_rise_interp": -0.09}
+{"t": 1792389008.0, "time": "11:20:08", "cls": "impulse faded", "reason": "impulse z 1.7 < 2.0", "z": 1.67, "S": 0.0, "moved": 2.9, "ep": 17923889995, "iv_rise": -0.11, "iv_rise_interp": -0.11}
+{"t": 1792389049.5, "time": "11:20:49", "cls": "basket too thin", "reason": "synchrony 0.00 < 0.5", "z": 2.19, "S": 0.0, "moved": 11.9, "ep": 17923889995, "iv_rise": -0.54, "iv_rise_interp": -0.57}
+{"t": 1792389051.7500002, "time": "11:20:51", "cls": "impulse faded", "reason": "impulse z 1.9 < 2.0", "z": 1.91, "S": 0.0, "moved": 12.9, "ep": 17923889995, "iv_rise": -0.6, "iv_rise_interp": -0.61}
+{"t": 1792389052.5, "time": "11:20:52", "cls": "basket too thin", "reason": "synchrony 0.00 < 0.5", "z": 2.21, "S": 0.0, "moved": 13.8, "ep": 17923889995, "iv_rise": -0.61, "iv_rise_interp": -0.62}
+{"t": 1792389058.0, "time": "11:20:58", "cls": "impulse faded", "reason": "impulse z 1.8 < 2.0", "z": 1.8, "S": 0.0, "moved": 13.4, "ep": 17923889995, "iv_rise": -0.68, "iv_rise_interp": -0.69}
+{"t": 1792389069.2499998, "time": "11:21:09", "cls": "episode ended", "reason": "no episode", "z": 2.18, "S": 0.0, "moved": null, "ep": null, "iv_rise": null, "iv_rise_interp": null}
+{"t": 1792389070.0, "time": "11:21:10", "cls": "impulse faded", "reason": "impulse z 1.8 < 2.0", "z": 1.83, "S": 0.0, "moved": 0.0, "ep": 17923890700, "iv_rise": 0.0, "iv_rise_interp": 0.0}
+{"t": 1792389071.5, "time": "11:21:11", "cls": "basket too thin", "reason": "synchrony 0.00 < 0.5", "z": 2.08, "S": 0.0, "moved": 0.1, "ep": 17923890700, "iv_rise": 0.0, "iv_rise_interp": 0.0}
+{"t": 1792389072.0, "time": "11:21:12", "cls": "impulse faded", "reason": "impulse z 1.7 < 2.0", "z": 1.66, "S": 0.0, "moved": 0.6, "ep": 17923890700, "iv_rise": -0.02, "iv_rise_interp": -0.01}
+{"t": 1792389133.2499998, "time": "11:22:13", "cls": "basket too thin", "reason": "synchrony 0.00 < 0.5", "z": 2.13, "S": 0.0, "moved": 9.3, "ep": 17923890700, "iv_rise": -0.54, "iv_rise_interp": -0.54}
+{"t": 1792389142.5, "time": "11:22:22", "cls": "impulse faded", "reason": "impulse z 2.0 < 2.0", "z": 1.96, "S": 0.0, "moved": 13.6, "ep": 17923890700, "iv_rise": -0.6, "iv_rise_interp": -0.6}
+{"t": 1792389250.5, "time": "11:24:10", "cls": "basket too thin", "reason": "synchrony 0.06 < 0.5", "z": 2.34, "S": 0.062, "moved": 36.0, "ep": 17923890700, "iv_rise": 0.19, "iv_rise_interp": 0.18}
+{"t": 1792389266.5, "time": "11:24:26", "cls": "impulse faded", "reason": "impulse z 1.8 < 2.0", "z": 1.76, "S": 0.217, "moved": 45.4, "ep": 17923890700, "iv_rise": 0.09, "iv_rise_interp": 0.08}
+{"t": 1792389286.7500002, "time": "11:24:46", "cls": "basket too thin", "reason": "synchrony 0.24 < 0.5", "z": 2.31, "S": 0.24, "moved": 55.5, "ep": 17923890700, "iv_rise": -0.11, "iv_rise_interp": -0.11}
+{"t": 1792389298.0, "time": "11:24:58", "cls": "impulse faded", "reason": "impulse z 2.0 < 2.0", "z": 1.98, "S": 0.11, "moved": 60.2, "ep": 17923890700, "iv_rise": -0.22, "iv_rise_interp": -0.21}
+{"t": 1792389319.2499998, "time": "11:25:19", "cls": "basket too thin", "reason": "synchrony 0.00 < 0.5", "z": 2.41, "S": 0.0, "moved": 67.7, "ep": 17923890700, "iv_rise": -0.39, "iv_rise_interp": -0.39}
+{"t": 1792389320.0, "time": "11:25:20", "cls": "impulse faded", "reason": "impulse z 2.0 < 2.0", "z": 1.99, "S": 0.0, "moved": 66.6, "ep": 17923890700, "iv_rise": -0.4, "iv_rise_interp": -0.4}
+{"t": 1792389321.5, "time": "11:25:21", "cls": "basket too thin", "reason": "synchrony 0.05 < 0.5", "z": 2.3, "S": 0.055, "moved": 67.2, "ep": 17923890700, "iv_rise": -0.41, "iv_rise_interp": -0.42}
+{"t": 1792389328.0, "time": "11:25:28", "cls": "impulse faded", "reason": "impulse z 1.9 < 2.0", "z": 1.86, "S": 0.0, "moved": 68.0, "ep": 17923890700, "iv_rise": -0.46, "iv_rise_interp": -0.46}
+{"t": 1792389451.0, "time": "11:27:31", "cls": "episode ended", "reason": "no episode", "z": 2.05, "S": 0.0, "moved": null, "ep": null, "iv_rise": null, "iv_rise_interp": null}
+{"t": 1792389451.5, "time": "11:27:31", "cls": "basket too thin", "reason": "synchrony 0.00 < 0.5", "z": 2.33, "S": 0.0, "moved": 0.0, "ep": 17923894515, "iv_rise": 0.0, "iv_rise_interp": 0.0}
+{"t": 1792389456.0, "time": "11:27:36", "cls": "impulse faded", "reason": "impulse z 1.9 < 2.0", "z": 1.93, "S": 0.0, "moved": 2.1, "ep": 17923894515, "iv_rise": -0.02, "iv_rise_interp": -0.03}
+{"t": 1792389565.2499998, "time": "11:29:25", "cls": "basket too thin", "reason": "synchrony 0.00 < 0.5", "z": 2.03, "S": 0.0, "moved": 5.4, "ep": 17923894515, "iv_rise": -0.43, "iv_rise_interp": -0.42}
+{"t": 1792389566.2499998, "time": "11:29:26", "cls": "impulse faded", "reason": "impulse z 1.9 < 2.0", "z": 1.9, "S": 0.0, "moved": 4.7, "ep": 17923894515, "iv_rise": -0.43, "iv_rise_interp": -0.43}
+{"t": 1792389568.0, "time": "11:29:28", "cls": "basket too thin", "reason": "synchrony 0.00 < 0.5", "z": 2.32, "S": 0.0, "moved": 6.7, "ep": 17923894515, "iv_rise": -0.44, "iv_rise_interp": -0.44}
+{"t": 1792389578.2499998, "time": "11:29:38", "cls": "impulse faded", "reason": "impulse z 1.4 < 2.0", "z": 1.39, "S": 0.0, "moved": 9.0, "ep": 17923894515, "iv_rise": -0.47, "iv_rise_interp": -0.47}
+{"t": 1792389587.7500002, "time": "11:29:47", "cls": "basket too thin", "reason": "synchrony 0.00 < 0.5", "z": 2.26, "S": 0.0, "moved": 20.0, "ep": 17923894515, "iv_rise": -0.44, "iv_rise_interp": -0.44}
+{"t": 1792389604.0, "time": "11:30:04", "cls": "impulse faded", "reason": "impulse z 1.7 < 2.0", "z": 1.68, "S": 0.0, "moved": 29.0, "ep": 17923894515, "iv_rise": -0.54, "iv_rise_interp": -0.53}
+{"t": 1792389813.2499998, "time": "11:33:33", "cls": "episode ended", "reason": "no episode", "z": 2.18, "S": 0.231, "moved": null, "ep": null, "iv_rise": null, "iv_rise_interp": null}
+{"t": 1792389813.7500002, "time": "11:33:33", "cls": "impulse faded", "reason": "impulse z 1.8 < 2.0", "z": 1.8, "S": 0.062, "moved": 0.0, "ep": 17923898137, "iv_rise": 0.0, "iv_rise_interp": 0.0}
+{"t": 1792389816.0, "time": "11:33:36", "cls": "basket too thin", "reason": "synchrony 0.00 < 0.5", "z": 2.18, "S": 0.0, "moved": 2.0, "ep": 17923898137, "iv_rise": 0.01, "iv_rise_interp": 0.0}
+{"t": 1792389817.0, "time": "11:33:37", "cls": "impulse faded", "reason": "impulse z 1.9 < 2.0", "z": 1.89, "S": 0.124, "moved": 2.5, "ep": 17923898137, "iv_rise": 0.0, "iv_rise_interp": -0.0}
+{"t": 1792389818.0, "time": "11:33:38", "cls": "basket too thin", "reason": "synchrony 0.19 < 0.5", "z": 2.26, "S": 0.185, "moved": 3.7, "ep": 17923898137, "iv_rise": 0.01, "iv_rise_interp": 0.01}
+{"t": 1792389830.2499998, "time": "11:33:50", "cls": "impulse faded", "reason": "impulse z 1.9 < 2.0", "z": 1.89, "S": 0.0, "moved": 8.8, "ep": 17923898137, "iv_rise": -0.01, "iv_rise_interp": -0.01}
+{"t": 1792389842.2499998, "time": "11:34:02", "cls": "episode ended", "reason": "no episode", "z": 2.03, "S": 0.0, "moved": null, "ep": null, "iv_rise": null, "iv_rise_interp": null}
+{"t": 1792389842.7500002, "time": "11:34:02", "cls": "basket too thin", "reason": "synchrony 0.00 < 0.5", "z": 2.1, "S": 0.0, "moved": 0.0, "ep": 17923898427, "iv_rise": 0.0, "iv_rise_interp": 0.0}
+{"t": 1792389848.5, "time": "11:34:08", "cls": "impulse faded", "reason": "impulse z 1.9 < 2.0", "z": 1.88, "S": 0.0, "moved": 1.1, "ep": 17923898427, "iv_rise": -0.01, "iv_rise_interp": -0.0}
+{"t": 1792389850.0, "time": "11:34:10", "cls": "basket too thin", "reason": "synchrony 0.00 < 0.5", "z": 2.12, "S": 0.0, "moved": 3.2, "ep": 17923898427, "iv_rise": -0.0, "iv_rise_interp": 0.01}
+{"t": 1792389850.7500002, "time": "11:34:10", "cls": "impulse faded", "reason": "impulse z 1.7 < 2.0", "z": 1.73, "S": 0.0, "moved": 2.2, "ep": 17923898427, "iv_rise": 0.0, "iv_rise_interp": -0.0}
+{"t": 1792389998.2499998, "time": "11:36:38", "cls": "basket too thin", "reason": "synchrony 0.00 < 0.5", "z": 2.18, "S": 0.0, "moved": 0.2, "ep": 17923898427, "iv_rise": -0.1, "iv_rise_interp": -0.1}
+{"t": 1792390013.2499998, "time": "11:36:53", "cls": "impulse faded", "reason": "impulse z 2.0 < 2.0", "z": 1.98, "S": 0.0, "moved": 8.8, "ep": 17923898427, "iv_rise": -0.11, "iv_rise_interp": -0.1}
+{"t": 1792390014.0, "time": "11:36:54", "cls": "basket too thin", "reason": "synchrony 0.00 < 0.5", "z": 2.16, "S": 0.0, "moved": 10.0, "ep": 17923898427, "iv_rise": -0.11, "iv_rise_interp": -0.11}
+{"t": 1792390015.2499998, "time": "11:36:55", "cls": "impulse faded", "reason": "impulse z 2.0 < 2.0", "z": 1.97, "S": 0.0, "moved": 10.8, "ep": 17923898427, "iv_rise": -0.1, "iv_rise_interp": -0.11}
+{"t": 1792390045.0, "time": "11:37:25", "cls": "episode ended", "reason": "no episode", "z": 2.11, "S": 0.083, "moved": null, "ep": null, "iv_rise": null, "iv_rise_interp": null}
+{"t": 1792390046.0, "time": "11:37:26", "cls": "impulse faded", "reason": "impulse z 1.8 < 2.0", "z": 1.8, "S": 0.0, "moved": 0.0, "ep": 17923900460, "iv_rise": 0.0, "iv_rise_interp": 0.0}
+{"t": 1792390046.7500002, "time": "11:37:26", "cls": "basket too thin", "reason": "synchrony 0.15 < 0.5", "z": 2.07, "S": 0.152, "moved": 1.3, "ep": 17923900460, "iv_rise": -0.01, "iv_rise_interp": -0.01}
+{"t": 1792390047.7500002, "time": "11:37:27", "cls": "impulse faded", "reason": "impulse z 1.8 < 2.0", "z": 1.85, "S": 0.169, "moved": 1.4, "ep": 17923900460, "iv_rise": -0.01, "iv_rise_interp": -0.01}
+{"t": 1792390063.7500002, "time": "11:37:43", "cls": "basket too thin", "reason": "synchrony 0.29 < 0.5", "z": 2.48, "S": 0.288, "moved": 12.5, "ep": 17923900460, "iv_rise": 1.24, "iv_rise_interp": 1.24}
+{"t": 1792390123.5, "time": "11:38:43", "cls": "impulse faded", "reason": "impulse z 2.0 < 2.0", "z": 1.98, "S": 0.068, "moved": 70.6, "ep": 17923900460, "iv_rise": 5.61, "iv_rise_interp": 5.6}
+{"t": 1792390124.5, "time": "11:38:44", "cls": "basket too thin", "reason": "synchrony 0.15 < 0.5", "z": 2.05, "S": 0.152, "moved": 71.0, "ep": 17923900460, "iv_rise": 5.59, "iv_rise_interp": 5.58}
+{"t": 1792390127.2499998, "time": "11:38:47", "cls": "impulse faded", "reason": "impulse z 2.0 < 2.0", "z": 1.99, "S": 0.083, "moved": 73.1, "ep": 17923900460, "iv_rise": 5.52, "iv_rise_interp": 5.52}
+{"t": 1792390128.2499998, "time": "11:38:48", "cls": "basket too thin", "reason": "synchrony 0.15 < 0.5", "z": 2.12, "S": 0.152, "moved": 74.8, "ep": 17923900460, "iv_rise": 5.5, "iv_rise_interp": 5.49}
+{"t": 1792390133.7500002, "time": "11:38:53", "cls": "impulse faded", "reason": "impulse z 2.0 < 2.0", "z": 1.97, "S": 0.0, "moved": 76.8, "ep": 17923900460, "iv_rise": 5.37, "iv_rise_interp": 5.37}
+{"t": 1792390134.5, "time": "11:38:54", "cls": "basket too thin", "reason": "synchrony 0.00 < 0.5", "z": 2.15, "S": 0.0, "moved": 77.7, "ep": 17923900460, "iv_rise": 5.36, "iv_rise_interp": 5.36}
+{"t": 1792390135.0, "time": "11:38:55", "cls": "impulse faded", "reason": "impulse z 1.9 < 2.0", "z": 1.85, "S": 0.0, "moved": 77.8, "ep": 17923900460, "iv_rise": 5.35, "iv_rise_interp": 5.34}
+{"t": 1792390183.2499998, "time": "11:39:43", "cls": "basket too thin", "reason": "synchrony 0.00 < 0.5", "z": 2.04, "S": 0.0, "moved": 94.0, "ep": 17923900460, "iv_rise": 4.35, "iv_rise_interp": 4.35}
+{"t": 1792390186.0, "time": "11:39:46", "cls": "impulse faded", "reason": "impulse z 1.7 < 2.0", "z": 1.65, "S": 0.0, "moved": 94.6, "ep": 17923900460, "iv_rise": 4.29, "iv_rise_interp": 4.29}
+{"t": 1792390496.2499998, "time": "11:44:56", "cls": "episode ended", "reason": "no episode", "z": 2.07, "S": 0.062, "moved": null, "ep": null, "iv_rise": null, "iv_rise_interp": null}
+{"t": 1792390497.0, "time": "11:44:57", "cls": "impulse faded", "reason": "impulse z 1.9 < 2.0", "z": 1.88, "S": 0.0, "moved": 0.0, "ep": 17923904970, "iv_rise": 0.0, "iv_rise_interp": 0.0}
+{"t": 1792390541.7500002, "time": "11:45:41", "cls": "basket too thin", "reason": "synchrony 0.00 < 0.5", "z": 2.45, "S": 0.0, "moved": 4.9, "ep": 17923904970, "iv_rise": -0.2, "iv_rise_interp": -0.2}
+{"t": 1792390546.5, "time": "11:45:46", "cls": "impulse faded", "reason": "impulse z 1.8 < 2.0", "z": 1.77, "S": 0.0, "moved": 4.8, "ep": 17923904970, "iv_rise": -0.22, "iv_rise_interp": -0.22}
+{"t": 1792390590.2499998, "time": "11:46:30", "cls": "basket too thin", "reason": "synchrony 0.00 < 0.5", "z": 2.05, "S": 0.0, "moved": 19.0, "ep": 17923904970, "iv_rise": -0.39, "iv_rise_interp": -0.4}
+{"t": 1792390593.0, "time": "11:46:33", "cls": "impulse faded", "reason": "impulse z 1.8 < 2.0", "z": 1.79, "S": 0.0, "moved": 17.7, "ep": 17923904970, "iv_rise": -0.4, "iv_rise_interp": -0.41}
+{"t": 1792390637.7500002, "time": "11:47:17", "cls": "episode ended", "reason": "no episode", "z": 2.18, "S": 0.0, "moved": null, "ep": null, "iv_rise": null, "iv_rise_interp": null}
+{"t": 1792390638.5, "time": "11:47:18", "cls": "impulse faded", "reason": "impulse z 1.9 < 2.0", "z": 1.88, "S": 0.0, "moved": 0.0, "ep": 17923906385, "iv_rise": 0.0, "iv_rise_interp": 0.0}
+{"t": 1792390643.7500002, "time": "11:47:23", "cls": "basket too thin", "reason": "synchrony 0.00 < 0.5", "z": 2.15, "S": 0.0, "moved": 2.1, "ep": 17923906385, "iv_rise": -0.02, "iv_rise_interp": -0.02}
+{"t": 1792390644.5, "time": "11:47:24", "cls": "impulse faded", "reason": "impulse z 1.9 < 2.0", "z": 1.93, "S": 0.0, "moved": 2.3, "ep": 17923906385, "iv_rise": -0.03, "iv_rise_interp": -0.02}
+{"t": 1792390717.2499998, "time": "11:48:37", "cls": "basket too thin", "reason": "synchrony 0.00 < 0.5", "z": 2.05, "S": 0.0, "moved": 13.1, "ep": 17923906385, "iv_rise": -0.19, "iv_rise_interp": -0.19}
+{"t": 1792390722.2499998, "time": "11:48:42", "cls": "impulse faded", "reason": "impulse z 1.8 < 2.0", "z": 1.76, "S": 0.0, "moved": 11.5, "ep": 17923906385, "iv_rise": -0.2, "iv_rise_interp": -0.2}
+{"t": 1792390818.0, "time": "11:50:18", "cls": "episode ended", "reason": "no episode", "z": 2.39, "S": 0.0, "moved": null, "ep": null, "iv_rise": null, "iv_rise_interp": null}
+{"t": 1792390820.0, "time": "11:50:20", "cls": "impulse faded", "reason": "impulse z 1.9 < 2.0", "z": 1.87, "S": 0.0, "moved": 0.0, "ep": 17923908200, "iv_rise": 0.0, "iv_rise_interp": 0.0}
+{"t": 1792390821.0, "time": "11:50:21", "cls": "basket too thin", "reason": "synchrony 0.00 < 0.5", "z": 2.12, "S": 0.0, "moved": 0.5, "ep": 17923908200, "iv_rise": 0.0, "iv_rise_interp": -0.01}
+{"t": 1792390830.5, "time": "11:50:30", "cls": "impulse faded", "reason": "impulse z 1.9 < 2.0", "z": 1.86, "S": 0.0, "moved": 5.0, "ep": 17923908200, "iv_rise": -0.02, "iv_rise_interp": -0.02}
+{"t": 1792390831.7500002, "time": "11:50:31", "cls": "basket too thin", "reason": "synchrony 0.00 < 0.5", "z": 2.02, "S": 0.0, "moved": 7.1, "ep": 17923908200, "iv_rise": -0.02, "iv_rise_interp": -0.02}
+{"t": 1792390833.2499998, "time": "11:50:33", "cls": "impulse faded", "reason": "impulse z 1.8 < 2.0", "z": 1.76, "S": 0.0, "moved": 7.9, "ep": 17923908200, "iv_rise": -0.0, "iv_rise_interp": -0.01}
+{"t": 1792390887.7500002, "time": "11:51:27", "cls": "basket too thin", "reason": "synchrony 0.00 < 0.5", "z": 2.26, "S": 0.0, "moved": 8.0, "ep": 17923908200, "iv_rise": -0.08, "iv_rise_interp": -0.08}
+{"t": 1792390908.0, "time": "11:51:48", "cls": "impulse faded", "reason": "impulse z 1.9 < 2.0", "z": 1.91, "S": 0.0, "moved": 23.5, "ep": 17923908200, "iv_rise": -0.09, "iv_rise_interp": -0.09}
+{"t": 1792390908.7500002, "time": "11:51:48", "cls": "basket too thin", "reason": "synchrony 0.00 < 0.5", "z": 2.04, "S": 0.0, "moved": 24.2, "ep": 17923908200, "iv_rise": -0.1, "iv_rise_interp": -0.1}
+{"t": 1792390911.5, "time": "11:51:51", "cls": "impulse faded", "reason": "impulse z 1.3 < 2.0", "z": 1.27, "S": 0.0, "moved": 23.0, "ep": 17923908200, "iv_rise": -0.1, "iv_rise_interp": -0.1}
+{"t": 1792391043.7500002, "time": "11:54:03", "cls": "episode ended", "reason": "no episode", "z": 2.63, "S": 0.103, "moved": null, "ep": null, "iv_rise": null, "iv_rise_interp": null}
+{"t": 1792391045.5, "time": "11:54:05", "cls": "basket too thin", "reason": "synchrony 0.14 < 0.5", "z": 3.3, "S": 0.144, "moved": 0.0, "ep": 17923910455, "iv_rise": 0.0, "iv_rise_interp": 0.0}
+{"t": 1792391060.5, "time": "11:54:20", "cls": "impulse faded", "reason": "impulse z 1.4 < 2.0", "z": 1.42, "S": 0.0, "moved": 6.2, "ep": 17923910455, "iv_rise": 0.31, "iv_rise_interp": 0.31}
+{"t": 1792391212.0, "time": "11:56:52", "cls": "basket too thin", "reason": "synchrony 0.05 < 0.5", "z": 2.09, "S": 0.055, "moved": 5.4, "ep": 17923910455, "iv_rise": -1.07, "iv_rise_interp": -1.06}
+{"t": 1792391214.0, "time": "11:56:54", "cls": "impulse faded", "reason": "impulse z 1.9 < 2.0", "z": 1.92, "S": 0.055, "moved": 6.2, "ep": 17923910455, "iv_rise": -1.08, "iv_rise_interp": -1.08}
+{"t": 1792391215.2499998, "time": "11:56:55", "cls": "basket too thin", "reason": "synchrony 0.05 < 0.5", "z": 2.27, "S": 0.055, "moved": 4.2, "ep": 17923910455, "iv_rise": -1.1, "iv_rise_interp": -1.1}
+{"t": 1792391216.7500002, "time": "11:56:56", "cls": "impulse faded", "reason": "impulse z 1.9 < 2.0", "z": 1.92, "S": 0.0, "moved": 5.0, "ep": 17923910455, "iv_rise": -1.11, "iv_rise_interp": -1.11}
+{"t": 1792391237.0, "time": "11:57:17", "cls": "basket too thin", "reason": "synchrony 0.00 < 0.5", "z": 2.09, "S": 0.0, "moved": 1.7, "ep": 17923910455, "iv_rise": -1.29, "iv_rise_interp": -1.29}
+{"t": 1792391238.0, "time": "11:57:18", "cls": "impulse faded", "reason": "impulse z 1.9 < 2.0", "z": 1.93, "S": 0.0, "moved": 2.2, "ep": 17923910455, "iv_rise": -1.3, "iv_rise_interp": -1.31}
+{"t": 1792391267.5, "time": "11:57:47", "cls": "episode ended", "reason": "no episode", "z": 2.07, "S": 0.0, "moved": null, "ep": null, "iv_rise": null, "iv_rise_interp": null}
+{"t": 1792391268.2499998, "time": "11:57:48", "cls": "basket too thin", "reason": "synchrony 0.00 < 0.5", "z": 2.22, "S": 0.0, "moved": 0.0, "ep": 17923912682, "iv_rise": 0.0, "iv_rise_interp": 0.0}
+{"t": 1792391270.2499998, "time": "11:57:50", "cls": "impulse faded", "reason": "impulse z 2.0 < 2.0", "z": 1.96, "S": 0.0, "moved": 0.3, "ep": 17923912682, "iv_rise": -0.0, "iv_rise_interp": -0.01}
+{"t": 1792391271.0, "time": "11:57:51", "cls": "basket too thin", "reason": "synchrony 0.00 < 0.5", "z": 2.18, "S": 0.0, "moved": 1.9, "ep": 17923912682, "iv_rise": -0.01, "iv_rise_interp": -0.01}
+{"t": 1792391271.7500002, "time": "11:57:51", "cls": "impulse faded", "reason": "impulse z 1.9 < 2.0", "z": 1.92, "S": 0.0, "moved": 1.6, "ep": 17923912682, "iv_rise": -0.02, "iv_rise_interp": -0.02}
+{"t": 1792391272.0, "time": "11:57:52", "cls": "basket too thin", "reason": "synchrony 0.00 < 0.5", "z": 2.07, "S": 0.0, "moved": 2.3, "ep": 17923912682, "iv_rise": -0.02, "iv_rise_interp": -0.02}
+{"t": 1792391272.7500002, "time": "11:57:52", "cls": "impulse faded", "reason": "impulse z 1.7 < 2.0", "z": 1.72, "S": 0.0, "moved": 2.6, "ep": 17923912682, "iv_rise": -0.02, "iv_rise_interp": -0.03}
+{"t": 1792391321.0, "time": "11:58:41", "cls": "episode ended", "reason": "no episode", "z": 2.35, "S": 0.0, "moved": null, "ep": null, "iv_rise": null, "iv_rise_interp": null}
+{"t": 1792391322.5, "time": "11:58:42", "cls": "basket too thin", "reason": "synchrony 0.00 < 0.5", "z": 2.78, "S": 0.0, "moved": 0.0, "ep": 17923913225, "iv_rise": 0.0, "iv_rise_interp": 0.0}
+{"t": 1792391328.2499998, "time": "11:58:48", "cls": "impulse faded", "reason": "impulse z 1.9 < 2.0", "z": 1.86, "S": 0.0, "moved": 0.2, "ep": 17923913225, "iv_rise": -0.03, "iv_rise_interp": -0.04}
+{"t": 1792391369.0, "time": "11:59:29", "cls": "episode ended", "reason": "no episode", "z": 2.1, "S": 0.147, "moved": null, "ep": null, "iv_rise": null, "iv_rise_interp": null}
+{"t": 1792391370.0, "time": "11:59:30", "cls": "impulse faded", "reason": "impulse z 1.9 < 2.0", "z": 1.91, "S": 0.147, "moved": 0.0, "ep": 17923913700, "iv_rise": 0.0, "iv_rise_interp": 0.0}
+{"t": 1792391370.5, "time": "11:59:30", "cls": "basket too thin", "reason": "synchrony 0.15 < 0.5", "z": 2.24, "S": 0.147, "moved": 1.1, "ep": 17923913700, "iv_rise": -0.0, "iv_rise_interp": -0.0}
+{"t": 1792391373.5, "time": "11:59:33", "cls": "impulse faded", "reason": "impulse z 1.7 < 2.0", "z": 1.73, "S": 0.0, "moved": 0.6, "ep": 17923913700, "iv_rise": -0.01, "iv_rise_interp": -0.01}
+{"t": 1792391376.5, "time": "11:59:36", "cls": "basket too thin", "reason": "synchrony 0.00 < 0.5", "z": 2.36, "S": 0.0, "moved": 2.7, "ep": 17923913700, "iv_rise": -0.04, "iv_rise_interp": -0.04}
+{"t": 1792391382.5, "time": "11:59:42", "cls": "impulse faded", "reason": "impulse z 1.6 < 2.0", "z": 1.58, "S": 0.0, "moved": 6.0, "ep": 17923913700, "iv_rise": -0.05, "iv_rise_interp": -0.05}
+{"t": 1792391449.5, "time": "12:00:49", "cls": "episode ended", "reason": "no episode", "z": 2.1, "S": 0.0, "moved": null, "ep": null, "iv_rise": null, "iv_rise_interp": null}
+{"t": 1792391450.2499998, "time": "12:00:50", "cls": "basket too thin", "reason": "synchrony 0.00 < 0.5", "z": 2.47, "S": 0.0, "moved": 0.0, "ep": 17923914502, "iv_rise": 0.0, "iv_rise_interp": 0.0}
+{"t": 1792391455.0, "time": "12:00:55", "cls": "impulse faded", "reason": "impulse z 1.9 < 2.0", "z": 1.91, "S": 0.0, "moved": 1.7, "ep": 17923914502, "iv_rise": -0.02, "iv_rise_interp": -0.02}
+{"t": 1792391480.0, "time": "12:01:20", "cls": "episode ended", "reason": "no episode", "z": 2.21, "S": 0.0, "moved": null, "ep": null, "iv_rise": null, "iv_rise_interp": null}
+{"t": 1792391480.7500002, "time": "12:01:20", "cls": "impulse faded", "reason": "impulse z 2.0 < 2.0", "z": 1.99, "S": 0.0, "moved": 0.0, "ep": 17923914807, "iv_rise": 0.0, "iv_rise_interp": 0.0}
+{"t": 1792391662.7500002, "time": "12:04:22", "cls": "episode ended", "reason": "no episode", "z": 2.02, "S": 0.0, "moved": null, "ep": null, "iv_rise": null, "iv_rise_interp": null}
+{"t": 1792391663.7500002, "time": "12:04:23", "cls": "impulse faded", "reason": "impulse z 1.9 < 2.0", "z": 1.94, "S": 0.0, "moved": 0.0, "ep": 17923916637, "iv_rise": 0.0, "iv_rise_interp": 0.0}
+{"t": 1792391666.0, "time": "12:04:26", "cls": "basket too thin", "reason": "synchrony 0.00 < 0.5", "z": 2.17, "S": 0.0, "moved": 0.1, "ep": 17923916637, "iv_rise": -0.01, "iv_rise_interp": -0.01}
+{"t": 1792391668.0, "time": "12:04:28", "cls": "impulse faded", "reason": "impulse z 1.6 < 2.0", "z": 1.6, "S": 0.0, "moved": 1.2, "ep": 17923916637, "iv_rise": -0.01, "iv_rise_interp": -0.01}
+{"t": 1792391995.2499998, "time": "12:09:55", "cls": "episode ended", "reason": "no episode", "z": 2.06, "S": 0.0, "moved": null, "ep": null, "iv_rise": null, "iv_rise_interp": null}
+{"t": 1792391995.7500002, "time": "12:09:55", "cls": "basket too thin", "reason": "synchrony 0.00 < 0.5", "z": 2.11, "S": 0.0, "moved": 0.0, "ep": 17923919957, "iv_rise": 0.0, "iv_rise_interp": 0.0}
+{"t": 1792391996.2499998, "time": "12:09:56", "cls": "impulse faded", "reason": "impulse z 2.0 < 2.0", "z": 2.0, "S": 0.0, "moved": 0.0, "ep": 17923919957, "iv_rise": -0.01, "iv_rise_interp": -0.01}
+{"t": 1792391997.0, "time": "12:09:57", "cls": "basket too thin", "reason": "synchrony 0.00 < 0.5", "z": 2.22, "S": 0.0, "moved": 1.0, "ep": 17923919957, "iv_rise": -0.02, "iv_rise_interp": -0.02}
+{"t": 1792392013.0, "time": "12:10:13", "cls": "impulse faded", "reason": "impulse z 2.0 < 2.0", "z": 1.98, "S": 0.0, "moved": 10.0, "ep": 17923919957, "iv_rise": -0.12, "iv_rise_interp": -0.11}
+{"t": 1792392047.5, "time": "12:10:47", "cls": "basket too thin", "reason": "synchrony 0.00 < 0.5", "z": 2.16, "S": 0.0, "moved": 13.1, "ep": 17923919957, "iv_rise": -0.3, "iv_rise_interp": -0.3}
+{"t": 1792392049.2499998, "time": "12:10:49", "cls": "impulse faded", "reason": "impulse z 1.9 < 2.0", "z": 1.95, "S": 0.0, "moved": 13.3, "ep": 17923919957, "iv_rise": -0.3, "iv_rise_interp": -0.3}
+{"t": 1792392161.2499998, "time": "12:12:41", "cls": "episode ended", "reason": "no episode", "z": 2.04, "S": 0.124, "moved": null, "ep": null, "iv_rise": null, "iv_rise_interp": null}
+{"t": 1792392163.2499998, "time": "12:12:43", "cls": "basket too thin", "reason": "synchrony 0.12 < 0.5", "z": 2.21, "S": 0.124, "moved": 0.0, "ep": 17923921632, "iv_rise": 0.0, "iv_rise_interp": 0.0}
+{"t": 1792392168.7500002, "time": "12:12:48", "cls": "impulse faded", "reason": "impulse z 1.9 < 2.0", "z": 1.92, "S": 0.0, "moved": 0.8, "ep": 17923921632, "iv_rise": -0.03, "iv_rise_interp": -0.03}
+{"t": 1792392175.2499998, "time": "12:12:55", "cls": "basket too thin", "reason": "synchrony 0.08 < 0.5", "z": 2.15, "S": 0.083, "moved": 5.8, "ep": 17923921632, "iv_rise": -0.03, "iv_rise_interp": -0.03}
+{"t": 1792392179.5, "time": "12:12:59", "cls": "impulse faded", "reason": "impulse z 1.6 < 2.0", "z": 1.64, "S": 0.083, "moved": 6.7, "ep": 17923921632, "iv_rise": -0.06, "iv_rise_interp": -0.06}
+{"t": 1792392259.7500002, "time": "12:14:19", "cls": "episode ended", "reason": "no episode", "z": 2.02, "S": 0.0, "moved": null, "ep": null, "iv_rise": null, "iv_rise_interp": null}
+{"t": 1792392261.0, "time": "12:14:21", "cls": "impulse faded", "reason": "impulse z 1.8 < 2.0", "z": 1.85, "S": 0.0, "moved": 0.0, "ep": 17923922610, "iv_rise": 0.0, "iv_rise_interp": 0.0}
+{"t": 1792392262.2499998, "time": "12:14:22", "cls": "basket too thin", "reason": "synchrony 0.00 < 0.5", "z": 2.05, "S": 0.0, "moved": 0.7, "ep": 17923922610, "iv_rise": 0.0, "iv_rise_interp": 0.0}
+{"t": 1792392263.2499998, "time": "12:14:23", "cls": "impulse faded", "reason": "impulse z 1.7 < 2.0", "z": 1.7, "S": 0.0, "moved": 0.1, "ep": 17923922610, "iv_rise": -0.02, "iv_rise_interp": -0.01}
+{"t": 1792392290.7500002, "time": "12:14:50", "cls": "episode ended", "reason": "no episode", "z": 2.14, "S": 0.0, "moved": null, "ep": null, "iv_rise": null, "iv_rise_interp": null}
+{"t": 1792392291.2499998, "time": "12:14:51", "cls": "basket too thin", "reason": "synchrony 0.00 < 0.5", "z": 2.33, "S": 0.0, "moved": 0.0, "ep": 17923922912, "iv_rise": 0.0, "iv_rise_interp": 0.0}
+{"t": 1792392293.5, "time": "12:14:53", "cls": "impulse faded", "reason": "impulse z 2.0 < 2.0", "z": 1.96, "S": 0.0, "moved": 0.1, "ep": 17923922912, "iv_rise": -0.01, "iv_rise_interp": -0.01}
+{"t": 1792392294.0, "time": "12:14:54", "cls": "basket too thin", "reason": "synchrony 0.00 < 0.5", "z": 2.05, "S": 0.0, "moved": 0.7, "ep": 17923922912, "iv_rise": -0.02, "iv_rise_interp": -0.02}
+{"t": 1792392295.5, "time": "12:14:55", "cls": "impulse faded", "reason": "impulse z 1.8 < 2.0", "z": 1.79, "S": 0.0, "moved": 1.0, "ep": 17923922912, "iv_rise": -0.02, "iv_rise_interp": -0.02}
+{"t": 1792392346.5, "time": "12:15:46", "cls": "episode ended", "reason": "no episode", "z": 2.08, "S": 0.147, "moved": null, "ep": null, "iv_rise": null, "iv_rise_interp": null}
+{"t": 1792392347.2499998, "time": "12:15:47", "cls": "impulse faded", "reason": "impulse z 1.7 < 2.0", "z": 1.69, "S": 0.147, "moved": 0.0, "ep": 17923923472, "iv_rise": 0.0, "iv_rise_interp": 0.0}
+{"t": 1792392395.2499998, "time": "12:16:35", "cls": "basket too thin", "reason": "synchrony 0.00 < 0.5", "z": 2.19, "S": 0.0, "moved": 6.0, "ep": 17923923472, "iv_rise": -0.06, "iv_rise_interp": -0.06}
+{"t": 1792392396.2499998, "time": "12:16:36", "cls": "impulse faded", "reason": "impulse z 1.9 < 2.0", "z": 1.93, "S": 0.048, "moved": 5.8, "ep": 17923923472, "iv_rise": -0.06, "iv_rise_interp": -0.06}
+{"t": 1792392397.0, "time": "12:16:37", "cls": "basket too thin", "reason": "synchrony 0.00 < 0.5", "z": 2.02, "S": 0.0, "moved": 6.5, "ep": 17923923472, "iv_rise": -0.06, "iv_rise_interp": -0.06}
+{"t": 1792392397.7500002, "time": "12:16:37", "cls": "impulse faded", "reason": "impulse z 1.7 < 2.0", "z": 1.73, "S": 0.048, "moved": 6.6, "ep": 17923923472, "iv_rise": -0.03, "iv_rise_interp": -0.03}
+{"t": 1792392437.5, "time": "12:17:17", "cls": "basket too thin", "reason": "synchrony 0.20 < 0.5", "z": 2.04, "S": 0.202, "moved": 14.6, "ep": 17923923472, "iv_rise": 1.89, "iv_rise_interp": 1.89}
+{"t": 1792392439.0, "time": "12:17:19", "cls": "impulse faded", "reason": "impulse z 1.9 < 2.0", "z": 1.89, "S": 0.0, "moved": 16.3, "ep": 17923923472, "iv_rise": 1.94, "iv_rise_interp": 1.94}
+{"t": 1792392440.5, "time": "12:17:20", "cls": "basket too thin", "reason": "synchrony 0.00 < 0.5", "z": 2.14, "S": 0.0, "moved": 18.8, "ep": 17923923472, "iv_rise": 2.02, "iv_rise_interp": 2.0}
+{"t": 1792392457.5, "time": "12:17:37", "cls": "impulse faded", "reason": "impulse z 1.8 < 2.0", "z": 1.8, "S": 0.0, "moved": 27.8, "ep": 17923923472, "iv_rise": 2.44, "iv_rise_interp": 2.43}
+{"t": 1792392464.5, "time": "12:17:44", "cls": "basket too thin", "reason": "synchrony 0.08 < 0.5", "z": 2.01, "S": 0.083, "moved": 31.1, "ep": 17923923472, "iv_rise": 2.57, "iv_rise_interp": 2.57}
+{"t": 1792392466.0, "time": "12:17:46", "cls": "impulse faded", "reason": "impulse z 1.5 < 2.0", "z": 1.52, "S": 0.147, "moved": 30.8, "ep": 17923923472, "iv_rise": 2.61, "iv_rise_interp": 2.61}
+{"t": 1792392523.5, "time": "12:18:43", "cls": "basket too thin", "reason": "synchrony 0.05 < 0.5", "z": 2.03, "S": 0.048, "moved": 37.4, "ep": 17923923472, "iv_rise": 3.06, "iv_rise_interp": 3.06}
+{"t": 1792392524.2499998, "time": "12:18:44", "cls": "impulse faded", "reason": "impulse z 2.0 < 2.0", "z": 1.95, "S": 0.048, "moved": 36.6, "ep": 17923923472, "iv_rise": 3.08, "iv_rise_interp": 3.07}
+{"t": 1792392581.5, "time": "12:19:41", "cls": "basket too thin", "reason": "synchrony 0.00 < 0.5", "z": 2.32, "S": 0.0, "moved": 45.1, "ep": 17923923472, "iv_rise": 2.49, "iv_rise_interp": 2.48}
+{"t": 1792392584.0, "time": "12:19:44", "cls": "impulse faded", "reason": "impulse z 1.9 < 2.0", "z": 1.92, "S": 0.0, "moved": 44.8, "ep": 17923923472, "iv_rise": 2.45, "iv_rise_interp": 2.44}
+{"t": 1792392584.5, "time": "12:19:44", "cls": "basket too thin", "reason": "synchrony 0.00 < 0.5", "z": 2.02, "S": 0.0, "moved": 46.0, "ep": 17923923472, "iv_rise": 2.44, "iv_rise_interp": 2.44}
+{"t": 1792392585.7500002, "time": "12:19:45", "cls": "impulse faded", "reason": "impulse z 1.3 < 2.0", "z": 1.35, "S": 0.0, "moved": 43.7, "ep": 17923923472, "iv_rise": 2.43, "iv_rise_interp": 2.42}
+{"t": 1792392628.0, "time": "12:20:28", "cls": "basket too thin", "reason": "synchrony 0.15 < 0.5", "z": 2.15, "S": 0.147, "moved": 55.1, "ep": 17923923472, "iv_rise": 1.99, "iv_rise_interp": 1.99}
+{"t": 1792392633.7500002, "time": "12:20:33", "cls": "impulse faded", "reason": "impulse z 1.9 < 2.0", "z": 1.92, "S": 0.048, "moved": 57.4, "ep": 17923923472, "iv_rise": 1.91, "iv_rise_interp": 1.92}
+{"t": 1792392678.7500002, "time": "12:21:18", "cls": "basket too thin", "reason": "synchrony 0.15 < 0.5", "z": 2.12, "S": 0.147, "moved": 67.9, "ep": 17923923472, "iv_rise": 1.54, "iv_rise_interp": 1.54}
+{"t": 1792392680.2499998, "time": "12:21:20", "cls": "impulse faded", "reason": "impulse z 2.0 < 2.0", "z": 1.96, "S": 0.147, "moved": 67.0, "ep": 17923923472, "iv_rise": 1.53, "iv_rise_interp": 1.53}
+{"t": 1792392682.7500002, "time": "12:21:22", "cls": "basket too thin", "reason": "synchrony 0.00 < 0.5", "z": 2.15, "S": 0.0, "moved": 67.8, "ep": 17923923472, "iv_rise": 1.53, "iv_rise_interp": 1.52}
+{"t": 1792392683.7500002, "time": "12:21:23", "cls": "impulse faded", "reason": "impulse z 1.7 < 2.0", "z": 1.66, "S": 0.0, "moved": 67.3, "ep": 17923923472, "iv_rise": 1.51, "iv_rise_interp": 1.51}
+{"t": 1792392717.7500002, "time": "12:21:57", "cls": "episode ended", "reason": "no episode", "z": 2.11, "S": 0.124, "moved": null, "ep": null, "iv_rise": null, "iv_rise_interp": null}
+{"t": 1792392718.5, "time": "12:21:58", "cls": "basket too thin", "reason": "synchrony 0.00 < 0.5", "z": 2.38, "S": 0.0, "moved": 0.0, "ep": 17923927185, "iv_rise": 0.0, "iv_rise_interp": 0.0}
+{"t": 1792392720.2499998, "time": "12:22:00", "cls": "impulse faded", "reason": "impulse z 1.9 < 2.0", "z": 1.89, "S": 0.0, "moved": 0.7, "ep": 17923927185, "iv_rise": -0.01, "iv_rise_interp": -0.01}
+{"t": 1792392721.0, "time": "12:22:01", "cls": "basket too thin", "reason": "synchrony 0.00 < 0.5", "z": 2.3, "S": 0.0, "moved": 0.5, "ep": 17923927185, "iv_rise": -0.01, "iv_rise_interp": -0.02}
+{"t": 1792392733.0, "time": "12:22:13", "cls": "impulse faded", "reason": "impulse z 1.8 < 2.0", "z": 1.77, "S": 0.0, "moved": 6.6, "ep": 17923927185, "iv_rise": -0.1, "iv_rise_interp": -0.1}
+{"t": 1792392733.7500002, "time": "12:22:13", "cls": "basket too thin", "reason": "synchrony 0.12 < 0.5", "z": 2.07, "S": 0.124, "moved": 8.1, "ep": 17923927185, "iv_rise": -0.1, "iv_rise_interp": -0.1}
+{"t": 1792392745.0, "time": "12:22:25", "cls": "impulse faded", "reason": "impulse z 2.0 < 2.0", "z": 1.98, "S": 0.0, "moved": 13.2, "ep": 17923927185, "iv_rise": -0.17, "iv_rise_interp": -0.17}
+{"t": 1792392748.0, "time": "12:22:28", "cls": "basket too thin", "reason": "synchrony 0.00 < 0.5", "z": 2.36, "S": 0.0, "moved": 15.9, "ep": 17923927185, "iv_rise": -0.18, "iv_rise_interp": -0.18}
+{"t": 1792392753.5, "time": "12:22:33", "cls": "impulse faded", "reason": "impulse z 0.9 < 2.0", "z": 0.92, "S": 0.0, "moved": 15.8, "ep": 17923927185, "iv_rise": -0.2, "iv_rise_interp": -0.21}
+{"t": 1792392856.0, "time": "12:24:16", "cls": "episode ended", "reason": "no episode", "z": 2.01, "S": 0.216, "moved": null, "ep": null, "iv_rise": null, "iv_rise_interp": null}
+{"t": 1792392856.7500002, "time": "12:24:16", "cls": "basket too thin", "reason": "synchrony 0.22 < 0.5", "z": 2.43, "S": 0.216, "moved": 0.0, "ep": 17923928567, "iv_rise": 0.0, "iv_rise_interp": 0.0}
+{"t": 1792392862.0, "time": "12:24:22", "cls": "impulse faded", "reason": "impulse z 2.0 < 2.0", "z": 1.98, "S": 0.216, "moved": 1.0, "ep": 17923928567, "iv_rise": 0.03, "iv_rise_interp": 0.03}
+{"t": 1792392862.5, "time": "12:24:22", "cls": "basket too thin", "reason": "synchrony 0.22 < 0.5", "z": 2.08, "S": 0.216, "moved": 0.9, "ep": 17923928567, "iv_rise": 0.03, "iv_rise_interp": 0.03}
+{"t": 1792392865.2499998, "time": "12:24:25", "cls": "impulse faded", "reason": "impulse z 1.8 < 2.0", "z": 1.76, "S": 0.147, "moved": 0.7, "ep": 17923928567, "iv_rise": 0.04, "iv_rise_interp": 0.04}
+{"t": 1792392928.5, "time": "12:25:28", "cls": "episode ended", "reason": "no episode", "z": 2.03, "S": 0.0, "moved": null, "ep": null, "iv_rise": null, "iv_rise_interp": null}
+{"t": 1792392929.2499998, "time": "12:25:29", "cls": "basket too thin", "reason": "synchrony 0.00 < 0.5", "z": 2.4, "S": 0.0, "moved": 0.0, "ep": 17923929292, "iv_rise": 0.0, "iv_rise_interp": 0.0}
+{"t": 1792392944.0, "time": "12:25:44", "cls": "impulse faded", "reason": "impulse z 1.9 < 2.0", "z": 1.86, "S": 0.03, "moved": 7.3, "ep": 17923929292, "iv_rise": -0.14, "iv_rise_interp": -0.14}
+{"t": 1792393016.2499998, "time": "12:26:56", "cls": "episode ended", "reason": "no episode", "z": 2.06, "S": 0.0, "moved": null, "ep": null, "iv_rise": null, "iv_rise_interp": null}
+{"t": 1792393016.5, "time": "12:26:56", "cls": "impulse faded", "reason": "impulse z 1.8 < 2.0", "z": 1.83, "S": 0.036, "moved": 0.0, "ep": 17923930165, "iv_rise": 0.0, "iv_rise_interp": 0.0}
+{"t": 1792393022.7500002, "time": "12:27:02", "cls": "basket too thin", "reason": "synchrony 0.00 < 0.5", "z": 2.06, "S": 0.0, "moved": 5.2, "ep": 17923930165, "iv_rise": -0.06, "iv_rise_interp": -0.06}
+{"t": 1792393026.7500002, "time": "12:27:06", "cls": "impulse faded", "reason": "impulse z 2.0 < 2.0", "z": 1.96, "S": 0.0, "moved": 6.8, "ep": 17923930165, "iv_rise": -0.1, "iv_rise_interp": -0.1}
+{"t": 1792393027.5, "time": "12:27:07", "cls": "basket too thin", "reason": "synchrony 0.00 < 0.5", "z": 2.03, "S": 0.0, "moved": 7.0, "ep": 17923930165, "iv_rise": -0.12, "iv_rise_interp": -0.12}
+{"t": 1792393028.5, "time": "12:27:08", "cls": "impulse faded", "reason": "impulse z 1.9 < 2.0", "z": 1.89, "S": 0.0, "moved": 6.8, "ep": 17923930165, "iv_rise": -0.13, "iv_rise_interp": -0.13}
+{"t": 1792393056.7500002, "time": "12:27:36", "cls": "basket too thin", "reason": "synchrony 0.00 < 0.5", "z": 2.23, "S": 0.0, "moved": 12.5, "ep": 17923930165, "iv_rise": -0.4, "iv_rise_interp": -0.39}
+{"t": 1792393058.2499998, "time": "12:27:38", "cls": "impulse faded", "reason": "impulse z 1.9 < 2.0", "z": 1.88, "S": 0.0, "moved": 11.5, "ep": 17923930165, "iv_rise": -0.4, "iv_rise_interp": -0.41}
+{"t": 1792393059.2499998, "time": "12:27:39", "cls": "basket too thin", "reason": "synchrony 0.00 < 0.5", "z": 2.07, "S": 0.0, "moved": 11.4, "ep": 17923930165, "iv_rise": -0.42, "iv_rise_interp": -0.41}
+{"t": 1792393060.2499998, "time": "12:27:40", "cls": "impulse faded", "reason": "impulse z 1.7 < 2.0", "z": 1.74, "S": 0.0, "moved": 11.0, "ep": 17923930165, "iv_rise": -0.43, "iv_rise_interp": -0.43}
+{"t": 1792393131.2499998, "time": "12:28:51", "cls": "episode ended", "reason": "no episode", "z": 2.15, "S": 0.0, "moved": null, "ep": null, "iv_rise": null, "iv_rise_interp": null}
+{"t": 1792393132.2499998, "time": "12:28:52", "cls": "basket too thin", "reason": "synchrony 0.00 < 0.5", "z": 2.14, "S": 0.0, "moved": 0.0, "ep": 17923931322, "iv_rise": 0.0, "iv_rise_interp": 0.0}
+{"t": 1792393134.7500002, "time": "12:28:54", "cls": "impulse faded", "reason": "impulse z 1.1 < 2.0", "z": 1.13, "S": 0.0, "moved": 1.0, "ep": 17923931322, "iv_rise": -0.02, "iv_rise_interp": -0.02}
+{"t": 1792393433.7500002, "time": "12:33:53", "cls": "basket too thin", "reason": "synchrony 0.12 < 0.5", "z": 2.1, "S": 0.124, "moved": 0.2, "ep": 17923931322, "iv_rise": -1.11, "iv_rise_interp": -1.11}
+{"t": 1792393435.5, "time": "12:33:55", "cls": "impulse faded", "reason": "impulse z 1.4 < 2.0", "z": 1.41, "S": 0.03, "moved": 0.8, "ep": 17923931322, "iv_rise": -1.13, "iv_rise_interp": -1.13}
+{"t": 1792393479.2499998, "time": "12:34:39", "cls": "episode ended", "reason": "no episode", "z": 2.12, "S": 0.036, "moved": null, "ep": null, "iv_rise": null, "iv_rise_interp": null}
+{"t": 1792393479.5, "time": "12:34:39", "cls": "basket too thin", "reason": "synchrony 0.04 < 0.5", "z": 2.19, "S": 0.036, "moved": 0.0, "ep": 17923934795, "iv_rise": 0.0, "iv_rise_interp": 0.0}
+{"t": 1792393493.5, "time": "12:34:53", "cls": "impulse faded", "reason": "impulse z 1.5 < 2.0", "z": 1.55, "S": 0.036, "moved": 5.5, "ep": 17923934795, "iv_rise": 0.31, "iv_rise_interp": 0.31}
+{"t": 1792393506.2499998, "time": "12:35:06", "cls": "basket too thin", "reason": "synchrony 0.10 < 0.5", "z": 2.01, "S": 0.104, "moved": 13.0, "ep": 17923934795, "iv_rise": 0.52, "iv_rise_interp": 0.52}
+{"t": 1792393507.7500002, "time": "12:35:07", "cls": "impulse faded", "reason": "impulse z 1.9 < 2.0", "z": 1.87, "S": 0.068, "moved": 12.4, "ep": 17923934795, "iv_rise": 0.55, "iv_rise_interp": 0.54}
+{"t": 1792393508.2499998, "time": "12:35:08", "cls": "basket too thin", "reason": "synchrony 0.07 < 0.5", "z": 2.05, "S": 0.068, "moved": 13.4, "ep": 17923934795, "iv_rise": 0.54, "iv_rise_interp": 0.54}
+{"t": 1792393509.5, "time": "12:35:09", "cls": "impulse faded", "reason": "impulse z 1.6 < 2.0", "z": 1.62, "S": 0.068, "moved": 12.2, "ep": 17923934795, "iv_rise": 0.56, "iv_rise_interp": 0.57}
+{"t": 1792393561.2499998, "time": "12:36:01", "cls": "basket too thin", "reason": "synchrony 0.00 < 0.5", "z": 2.05, "S": 0.0, "moved": 18.9, "ep": 17923934795, "iv_rise": 0.91, "iv_rise_interp": 0.9}
+{"t": 1792393562.7500002, "time": "12:36:02", "cls": "impulse faded", "reason": "impulse z 1.7 < 2.0", "z": 1.7, "S": 0.0, "moved": 17.0, "ep": 17923934795, "iv_rise": 0.92, "iv_rise_interp": 0.91}
+{"t": 1792393566.5, "time": "12:36:06", "cls": "basket too thin", "reason": "synchrony 0.00 < 0.5", "z": 2.06, "S": 0.0, "moved": 20.5, "ep": 17923934795, "iv_rise": 0.93, "iv_rise_interp": 0.91}
+{"t": 1792393576.5, "time": "12:36:16", "cls": "impulse faded", "reason": "impulse z 1.9 < 2.0", "z": 1.9, "S": 0.041, "moved": 26.2, "ep": 17923934795, "iv_rise": 0.9, "iv_rise_interp": 0.9}
+{"t": 1792393578.2499998, "time": "12:36:18", "cls": "basket too thin", "reason": "synchrony 0.04 < 0.5", "z": 2.17, "S": 0.041, "moved": 26.5, "ep": 17923934795, "iv_rise": 0.91, "iv_rise_interp": 0.91}
+{"t": 1792393581.2499998, "time": "12:36:21", "cls": "impulse faded", "reason": "impulse z 1.5 < 2.0", "z": 1.51, "S": 0.0, "moved": 26.2, "ep": 17923934795, "iv_rise": 0.9, "iv_rise_interp": 0.9}
+{"t": 1792393632.7500002, "time": "12:37:12", "cls": "basket too thin", "reason": "synchrony 0.05 < 0.5", "z": 2.25, "S": 0.048, "moved": 42.0, "ep": 17923934795, "iv_rise": 0.36, "iv_rise_interp": 0.36}
+{"t": 1792393633.7500002, "time": "12:37:13", "cls": "impulse faded", "reason": "impulse z 1.9 < 2.0", "z": 1.89, "S": 0.048, "moved": 42.2, "ep": 17923934795, "iv_rise": 0.34, "iv_rise_interp": 0.34}
+{"t": 1792393635.5, "time": "12:37:15", "cls": "basket too thin", "reason": "synchrony 0.05 < 0.5", "z": 2.24, "S": 0.048, "moved": 43.2, "ep": 17923934795, "iv_rise": 0.34, "iv_rise_interp": 0.33}
+{"t": 1792393644.7500002, "time": "12:37:24", "cls": "impulse faded", "reason": "impulse z 1.8 < 2.0", "z": 1.77, "S": 0.0, "moved": 46.2, "ep": 17923934795, "iv_rise": 0.24, "iv_rise_interp": 0.24}
+{"t": 1792393759.7500002, "time": "12:39:19", "cls": "basket too thin", "reason": "synchrony 0.00 < 0.5", "z": 2.15, "S": 0.0, "moved": 53.0, "ep": 17923934795, "iv_rise": -0.61, "iv_rise_interp": -0.61}
+{"t": 1792393760.2499998, "time": "12:39:20", "cls": "impulse faded", "reason": "impulse z 2.0 < 2.0", "z": 1.96, "S": 0.0, "moved": 52.7, "ep": 17923934795, "iv_rise": -0.62, "iv_rise_interp": -0.62}
+{"t": 1792393761.0, "time": "12:39:21", "cls": "basket too thin", "reason": "synchrony 0.00 < 0.5", "z": 2.59, "S": 0.0, "moved": 53.8, "ep": 17923934795, "iv_rise": -0.63, "iv_rise_interp": -0.63}
+{"t": 1792393772.0, "time": "12:39:32", "cls": "impulse faded", "reason": "impulse z 1.5 < 2.0", "z": 1.47, "S": 0.0, "moved": 56.0, "ep": 17923934795, "iv_rise": -0.68, "iv_rise_interp": -0.68}
+{"t": 1792393961.5, "time": "12:42:41", "cls": "basket too thin", "reason": "synchrony 0.00 < 0.5", "z": 2.11, "S": 0.0, "moved": 50.4, "ep": 17923934795, "iv_rise": -1.41, "iv_rise_interp": -1.41}
+{"t": 1792393963.7500002, "time": "12:42:43", "cls": "impulse faded", "reason": "impulse z 1.9 < 2.0", "z": 1.95, "S": 0.0, "moved": 51.0, "ep": 17923934795, "iv_rise": -1.41, "iv_rise_interp": -1.41}
+{"t": 1792393964.5, "time": "12:42:44", "cls": "basket too thin", "reason": "synchrony 0.00 < 0.5", "z": 2.08, "S": 0.0, "moved": 50.7, "ep": 17923934795, "iv_rise": -1.41, "iv_rise_interp": -1.42}
+{"t": 1792393970.5, "time": "12:42:50", "cls": "impulse faded", "reason": "impulse z 1.9 < 2.0", "z": 1.92, "S": 0.0, "moved": 53.8, "ep": 17923934795, "iv_rise": -1.44, "iv_rise_interp": -1.44}
+{"t": 1792393971.2499998, "time": "12:42:51", "cls": "basket too thin", "reason": "synchrony 0.00 < 0.5", "z": 2.07, "S": 0.0, "moved": 54.5, "ep": 17923934795, "iv_rise": -1.43, "iv_rise_interp": -1.43}
+{"t": 1792393974.0, "time": "12:42:54", "cls": "impulse faded", "reason": "impulse z 1.4 < 2.0", "z": 1.42, "S": 0.0, "moved": 53.6, "ep": 17923934795, "iv_rise": -1.44, "iv_rise_interp": -1.44}
+{"t": 1792394038.5, "time": "12:43:58", "cls": "episode ended", "reason": "no episode", "z": 2.21, "S": 0.681, "moved": null, "ep": null, "iv_rise": null, "iv_rise_interp": null}
+{"t": 1792394039.5, "time": "12:43:59", "cls": "TAKEN", "reason": "forming move DOWN: futures z 3.0, synchrony 73%, first mover \u2014, 0 pts since onset", "z": 3.03, "S": 0.729, "moved": 0.0, "ep": 17923940395, "iv_rise": 0.0, "iv_rise_interp": 0.0}
+{"t": 1792394041.5, "time": "12:44:01", "cls": "already in a trade", "reason": "in position", "z": 3.57, "S": 0.661, "moved": 2.5, "ep": 17923940395, "iv_rise": 0.26, "iv_rise_interp": 0.25}
+{"t": 1792394425.0, "time": "12:50:25", "cls": "basket too thin", "reason": "synchrony 0.00 < 0.5", "z": 2.3, "S": 0.0, "moved": 0.8, "ep": 17923944237, "iv_rise": 0.01, "iv_rise_interp": 0.0}
+{"t": 1792394428.2499998, "time": "12:50:28", "cls": "impulse faded", "reason": "impulse z 1.5 < 2.0", "z": 1.47, "S": 0.0, "moved": 1.6, "ep": 17923944237, "iv_rise": -0.02, "iv_rise_interp": -0.02}
+{"t": 1792394438.5, "time": "12:50:38", "cls": "episode ended", "reason": "no episode", "z": 2.03, "S": 0.0, "moved": null, "ep": null, "iv_rise": null, "iv_rise_interp": null}
+{"t": 1792394439.2499998, "time": "12:50:39", "cls": "impulse faded", "reason": "impulse z 2.0 < 2.0", "z": 1.99, "S": 0.0, "moved": 0.0, "ep": 17923944392, "iv_rise": 0.0, "iv_rise_interp": 0.0}
+{"t": 1792394440.5, "time": "12:50:40", "cls": "basket too thin", "reason": "synchrony 0.17 < 0.5", "z": 2.86, "S": 0.171, "moved": 2.4, "ep": 17923944392, "iv_rise": -0.02, "iv_rise_interp": -0.01}
+{"t": 1792394456.7500002, "time": "12:50:56", "cls": "impulse faded", "reason": "impulse z 1.9 < 2.0", "z": 1.93, "S": 0.0, "moved": 11.7, "ep": 17923944392, "iv_rise": -0.11, "iv_rise_interp": -0.11}
+{"t": 1792394488.7500002, "time": "12:51:28", "cls": "episode ended", "reason": "no episode", "z": 2.08, "S": 0.0, "moved": null, "ep": null, "iv_rise": null, "iv_rise_interp": null}
+{"t": 1792394489.7500002, "time": "12:51:29", "cls": "impulse faded", "reason": "impulse z 1.8 < 2.0", "z": 1.83, "S": 0.0, "moved": 0.0, "ep": 17923944897, "iv_rise": 0.0, "iv_rise_interp": 0.0}
+{"t": 1792394490.7500002, "time": "12:51:30", "cls": "basket too thin", "reason": "synchrony 0.00 < 0.5", "z": 2.08, "S": 0.0, "moved": 0.6, "ep": 17923944897, "iv_rise": -0.0, "iv_rise_interp": 0.0}
+{"t": 1792394492.5, "time": "12:51:32", "cls": "impulse faded", "reason": "impulse z 2.0 < 2.0", "z": 1.98, "S": 0.0, "moved": 2.0, "ep": 17923944897, "iv_rise": -0.02, "iv_rise_interp": -0.01}
+{"t": 1792394493.2499998, "time": "12:51:33", "cls": "basket too thin", "reason": "synchrony 0.00 < 0.5", "z": 2.1, "S": 0.0, "moved": 2.8, "ep": 17923944897, "iv_rise": -0.03, "iv_rise_interp": -0.02}
+{"t": 1792394497.7500002, "time": "12:51:37", "cls": "impulse faded", "reason": "impulse z 1.8 < 2.0", "z": 1.85, "S": 0.0, "moved": 3.9, "ep": 17923944897, "iv_rise": -0.04, "iv_rise_interp": -0.05}
+{"t": 1792394498.7500002, "time": "12:51:38", "cls": "basket too thin", "reason": "synchrony 0.00 < 0.5", "z": 2.38, "S": 0.0, "moved": 5.3, "ep": 17923944897, "iv_rise": -0.05, "iv_rise_interp": -0.05}
+{"t": 1792394500.7500002, "time": "12:51:40", "cls": "impulse faded", "reason": "impulse z 2.0 < 2.0", "z": 1.95, "S": 0.0, "moved": 4.7, "ep": 17923944897, "iv_rise": -0.05, "iv_rise_interp": -0.04}
+{"t": 1792394535.0, "time": "12:52:15", "cls": "episode ended", "reason": "no episode", "z": 2.04, "S": 0.0, "moved": null, "ep": null, "iv_rise": null, "iv_rise_interp": null}
+{"t": 1792394535.5, "time": "12:52:15", "cls": "impulse faded", "reason": "impulse z 1.9 < 2.0", "z": 1.95, "S": 0.0, "moved": 0.0, "ep": 17923945355, "iv_rise": 0.0, "iv_rise_interp": 0.0}
+{"t": 1792394536.0, "time": "12:52:16", "cls": "basket too thin", "reason": "synchrony 0.00 < 0.5", "z": 2.1, "S": 0.0, "moved": 0.8, "ep": 17923945355, "iv_rise": -0.01, "iv_rise_interp": -0.01}
+{"t": 1792394541.0, "time": "12:52:21", "cls": "impulse faded", "reason": "impulse z 1.6 < 2.0", "z": 1.56, "S": 0.0, "moved": 0.3, "ep": 17923945355, "iv_rise": -0.03, "iv_rise_interp": -0.02}
+{"t": 1792394603.0, "time": "12:53:23", "cls": "basket too thin", "reason": "synchrony 0.00 < 0.5", "z": 2.04, "S": 0.0, "moved": 15.3, "ep": 17923945355, "iv_rise": -0.24, "iv_rise_interp": -0.24}
+{"t": 1792394604.5, "time": "12:53:24", "cls": "impulse faded", "reason": "impulse z 1.6 < 2.0", "z": 1.56, "S": 0.083, "moved": 14.5, "ep": 17923945355, "iv_rise": -0.25, "iv_rise_interp": -0.25}
+{"t": 1792394626.7500002, "time": "12:53:46", "cls": "episode ended", "reason": "no episode", "z": 2.05, "S": 0.0, "moved": null, "ep": null, "iv_rise": null, "iv_rise_interp": null}
+{"t": 1792394627.5, "time": "12:53:47", "cls": "basket too thin", "reason": "synchrony 0.00 < 0.5", "z": 2.0, "S": 0.0, "moved": 0.0, "ep": 17923946275, "iv_rise": 0.0, "iv_rise_interp": 0.0}
+{"t": 1792394628.2499998, "time": "12:53:48", "cls": "impulse faded", "reason": "impulse z 1.8 < 2.0", "z": 1.79, "S": 0.0, "moved": 0.6, "ep": 17923946275, "iv_rise": 0.0, "iv_rise_interp": 0.0}
+{"t": 1792394636.5, "time": "12:53:56", "cls": "basket too thin", "reason": "synchrony 0.00 < 0.5", "z": 2.22, "S": 0.0, "moved": 3.5, "ep": 17923946275, "iv_rise": -0.03, "iv_rise_interp": -0.02}
+{"t": 1792394654.5, "time": "12:54:14", "cls": "impulse faded", "reason": "impulse z 1.8 < 2.0", "z": 1.82, "S": 0.0, "moved": 15.3, "ep": 17923946275, "iv_rise": -0.06, "iv_rise_interp": -0.07}
+{"t": 1792394664.5, "time": "12:54:24", "cls": "episode ended", "reason": "no episode", "z": 2.48, "S": 0.0, "moved": null, "ep": null, "iv_rise": null, "iv_rise_interp": null}
+{"t": 1792394665.5, "time": "12:54:25", "cls": "basket too thin", "reason": "synchrony 0.00 < 0.5", "z": 2.23, "S": 0.0, "moved": 0.0, "ep": 17923946655, "iv_rise": 0.0, "iv_rise_interp": 0.0}
+{"t": 1792394667.7500002, "time": "12:54:27", "cls": "impulse faded", "reason": "impulse z 1.8 < 2.0", "z": 1.82, "S": 0.0, "moved": 0.5, "ep": 17923946655, "iv_rise": 0.02, "iv_rise_interp": 0.01}
+{"t": 1792394668.5, "time": "12:54:28", "cls": "basket too thin", "reason": "synchrony 0.00 < 0.5", "z": 2.29, "S": 0.0, "moved": 1.8, "ep": 17923946655, "iv_rise": 0.01, "iv_rise_interp": -0.0}
+{"t": 1792394671.0, "time": "12:54:31", "cls": "impulse faded", "reason": "impulse z 1.9 < 2.0", "z": 1.87, "S": 0.0, "moved": 1.5, "ep": 17923946655, "iv_rise": -0.0, "iv_rise_interp": -0.01}
+{"t": 1792394720.5, "time": "12:55:20", "cls": "episode ended", "reason": "no episode", "z": 2.01, "S": 0.0, "moved": null, "ep": null, "iv_rise": null, "iv_rise_interp": null}
+{"t": 1792394721.2499998, "time": "12:55:21", "cls": "impulse faded", "reason": "impulse z 1.7 < 2.0", "z": 1.69, "S": 0.0, "moved": 0.0, "ep": 17923947212, "iv_rise": 0.0, "iv_rise_interp": 0.0}
+{"t": 1792394770.2499998, "time": "12:56:10", "cls": "basket too thin", "reason": "synchrony 0.00 < 0.5", "z": 2.05, "S": 0.0, "moved": 9.9, "ep": 17923947212, "iv_rise": -0.07, "iv_rise_interp": -0.07}
+{"t": 1792394775.5, "time": "12:56:15", "cls": "impulse faded", "reason": "impulse z 1.5 < 2.0", "z": 1.45, "S": 0.0, "moved": 11.0, "ep": 17923947212, "iv_rise": -0.08, "iv_rise_interp": -0.08}
+{"t": 1792394794.2499998, "time": "12:56:34", "cls": "basket too thin", "reason": "synchrony 0.05 < 0.5", "z": 2.01, "S": 0.055, "moved": 18.6, "ep": 17923947212, "iv_rise": -0.09, "iv_rise_interp": -0.11}
+{"t": 1792394808.5, "time": "12:56:48", "cls": "impulse faded", "reason": "impulse z 1.6 < 2.0", "z": 1.6, "S": 0.0, "moved": 25.2, "ep": 17923947212, "iv_rise": -0.13, "iv_rise_interp": -0.13}
+{"t": 1792394819.2499998, "time": "12:56:59", "cls": "episode ended", "reason": "no episode", "z": 2.13, "S": 0.0, "moved": null, "ep": null, "iv_rise": null, "iv_rise_interp": null}
+{"t": 1792394820.0, "time": "12:57:00", "cls": "basket too thin", "reason": "synchrony 0.00 < 0.5", "z": 2.19, "S": 0.0, "moved": 0.0, "ep": 17923948200, "iv_rise": 0.0, "iv_rise_interp": 0.0}
+{"t": 1792394832.5, "time": "12:57:12", "cls": "impulse faded", "reason": "impulse z 1.8 < 2.0", "z": 1.78, "S": 0.21, "moved": 3.5, "ep": 17923948200, "iv_rise": 0.0, "iv_rise_interp": 0.01}
+{"t": 1792394996.5, "time": "12:59:56", "cls": "basket too thin", "reason": "synchrony 0.00 < 0.5", "z": 2.5, "S": 0.0, "moved": 28.5, "ep": 17923948200, "iv_rise": 1.14, "iv_rise_interp": 1.14}
+{"t": 1792395003.0, "time": "13:00:03", "cls": "impulse faded", "reason": "impulse z 1.6 < 2.0", "z": 1.55, "S": 0.11, "moved": 28.5, "ep": 17923948200, "iv_rise": 1.13, "iv_rise_interp": 1.13}
+{"t": 1792395024.2499998, "time": "13:00:24", "cls": "episode ended", "reason": "no episode", "z": 2.73, "S": 0.258, "moved": null, "ep": null, "iv_rise": null, "iv_rise_interp": null}
+{"t": 1792395025.5, "time": "13:00:25", "cls": "basket too thin", "reason": "synchrony 0.17 < 0.5", "z": 2.75, "S": 0.169, "moved": 0.0, "ep": 17923950255, "iv_rise": 0.0, "iv_rise_interp": 0.0}
+{"t": 1792395045.2499998, "time": "13:00:45", "cls": "impulse faded", "reason": "impulse z 1.8 < 2.0", "z": 1.79, "S": 0.041, "moved": 11.5, "ep": 17923950255, "iv_rise": -0.11, "iv_rise_interp": -0.11}
+{"t": 1792395269.7500002, "time": "13:04:29", "cls": "episode ended", "reason": "no episode", "z": 2.12, "S": 0.0, "moved": null, "ep": null, "iv_rise": null, "iv_rise_interp": null}
+{"t": 1792395270.5, "time": "13:04:30", "cls": "basket too thin", "reason": "synchrony 0.00 < 0.5", "z": 2.05, "S": 0.0, "moved": 0.0, "ep": 17923952705, "iv_rise": 0.0, "iv_rise_interp": 0.0}
+{"t": 1792395282.5, "time": "13:04:42", "cls": "impulse faded", "reason": "impulse z 2.0 < 2.0", "z": 1.97, "S": 0.0, "moved": 4.7, "ep": 17923952705, "iv_rise": -0.02, "iv_rise_interp": -0.03}
+{"t": 1792395433.5, "time": "13:07:13", "cls": "episode ended", "reason": "no episode", "z": 2.36, "S": 0.358, "moved": null, "ep": null, "iv_rise": null, "iv_rise_interp": null}
+{"t": 1792395434.2499998, "time": "13:07:14", "cls": "basket too thin", "reason": "synchrony 0.36 < 0.5", "z": 2.67, "S": 0.358, "moved": 0.0, "ep": 17923954342, "iv_rise": 0.0, "iv_rise_interp": 0.0}
+{"t": 1792395455.5, "time": "13:07:35", "cls": "impulse faded", "reason": "impulse z 1.9 < 2.0", "z": 1.92, "S": 0.24, "moved": 13.4, "ep": 17923954342, "iv_rise": 0.82, "iv_rise_interp": 0.81}
+{"t": 1792395481.5, "time": "13:08:01", "cls": "basket too thin", "reason": "synchrony 0.24 < 0.5", "z": 2.07, "S": 0.24, "moved": 18.8, "ep": 17923954342, "iv_rise": 1.46, "iv_rise_interp": 1.45}
+{"t": 1792395503.2499998, "time": "13:08:23", "cls": "impulse faded", "reason": "impulse z 1.9 < 2.0", "z": 1.94, "S": 0.169, "moved": 34.8, "ep": 17923954342, "iv_rise": 1.78, "iv_rise_interp": 1.77}
+{"t": 1792395662.5, "time": "13:11:02", "cls": "basket too thin", "reason": "synchrony 0.00 < 0.5", "z": 2.1, "S": 0.0, "moved": 52.5, "ep": 17923954342, "iv_rise": 0.87, "iv_rise_interp": 0.86}
+{"t": 1792395667.7500002, "time": "13:11:07", "cls": "impulse faded", "reason": "impulse z 1.8 < 2.0", "z": 1.8, "S": 0.0, "moved": 54.4, "ep": 17923954342, "iv_rise": 0.82, "iv_rise_interp": 0.82}
+{"t": 1792395754.7500002, "time": "13:12:34", "cls": "episode ended", "reason": "no episode", "z": 2.15, "S": 0.0, "moved": null, "ep": null, "iv_rise": null, "iv_rise_interp": null}
+{"t": 1792395755.0, "time": "13:12:35", "cls": "basket too thin", "reason": "synchrony 0.00 < 0.5", "z": 2.25, "S": 0.0, "moved": 0.0, "ep": 17923957550, "iv_rise": 0.0, "iv_rise_interp": 0.0}
+{"t": 1792395766.5, "time": "13:12:46", "cls": "impulse faded", "reason": "impulse z 1.8 < 2.0", "z": 1.81, "S": 0.0, "moved": 4.1, "ep": 17923957550, "iv_rise": -0.08, "iv_rise_interp": -0.08}
+{"t": 1792395829.5, "time": "13:13:49", "cls": "episode ended", "reason": "no episode", "z": 2.18, "S": 0.0, "moved": null, "ep": null, "iv_rise": null, "iv_rise_interp": null}
+{"t": 1792395830.2499998, "time": "13:13:50", "cls": "basket too thin", "reason": "synchrony 0.00 < 0.5", "z": 2.24, "S": 0.0, "moved": 0.0, "ep": 17923958302, "iv_rise": 0.0, "iv_rise_interp": 0.0}
+{"t": 1792395836.5, "time": "13:13:56", "cls": "impulse faded", "reason": "impulse z 2.0 < 2.0", "z": 1.96, "S": 0.0, "moved": 0.8, "ep": 17923958302, "iv_rise": -0.05, "iv_rise_interp": -0.04}
+{"t": 1792395994.2499998, "time": "13:16:34", "cls": "basket too thin", "reason": "synchrony 0.00 < 0.5", "z": 2.12, "S": 0.0, "moved": 9.4, "ep": 17923958302, "iv_rise": -0.55, "iv_rise_interp": -0.55}
+{"t": 1792395994.7500002, "time": "13:16:34", "cls": "impulse faded", "reason": "impulse z 1.9 < 2.0", "z": 1.88, "S": 0.0, "moved": 9.5, "ep": 17923958302, "iv_rise": -0.53, "iv_rise_interp": -0.53}
+{"t": 1792395996.5, "time": "13:16:36", "cls": "basket too thin", "reason": "synchrony 0.00 < 0.5", "z": 2.02, "S": 0.0, "moved": 8.8, "ep": 17923958302, "iv_rise": -0.56, "iv_rise_interp": -0.55}
+{"t": 1792395997.2499998, "time": "13:16:37", "cls": "impulse faded", "reason": "impulse z 1.8 < 2.0", "z": 1.83, "S": 0.0, "moved": 8.5, "ep": 17923958302, "iv_rise": -0.55, "iv_rise_interp": -0.54}
+{"t": 1792395998.5, "time": "13:16:38", "cls": "basket too thin", "reason": "synchrony 0.00 < 0.5", "z": 2.02, "S": 0.0, "moved": 7.0, "ep": 17923958302, "iv_rise": -0.56, "iv_rise_interp": -0.55}
+{"t": 1792396003.5, "time": "13:16:43", "cls": "impulse faded", "reason": "impulse z 1.8 < 2.0", "z": 1.83, "S": 0.062, "moved": 6.4, "ep": 17923958302, "iv_rise": -0.57, "iv_rise_interp": -0.57}
+{"t": 1792396004.0, "time": "13:16:44", "cls": "basket too thin", "reason": "synchrony 0.06 < 0.5", "z": 2.05, "S": 0.062, "moved": 5.5, "ep": 17923958302, "iv_rise": -0.56, "iv_rise_interp": -0.55}
+{"t": 1792396004.5, "time": "13:16:44", "cls": "impulse faded", "reason": "impulse z 1.6 < 2.0", "z": 1.64, "S": 0.083, "moved": 5.4, "ep": 17923958302, "iv_rise": -0.56, "iv_rise_interp": -0.55}
+{"t": 1792396052.5, "time": "13:17:32", "cls": "episode ended", "reason": "no episode", "z": 2.14, "S": 0.151, "moved": null, "ep": null, "iv_rise": null, "iv_rise_interp": null}
+{"t": 1792396053.5, "time": "13:17:33", "cls": "impulse faded", "reason": "impulse z 1.9 < 2.0", "z": 1.89, "S": 0.151, "moved": 0.0, "ep": 17923960535, "iv_rise": 0.0, "iv_rise_interp": 0.0}
+{"t": 1792396054.0, "time": "13:17:34", "cls": "basket too thin", "reason": "synchrony 0.15 < 0.5", "z": 2.1, "S": 0.151, "moved": 0.8, "ep": 17923960535, "iv_rise": 0.01, "iv_rise_interp": 0.01}
+{"t": 1792396054.7500002, "time": "13:17:34", "cls": "impulse faded", "reason": "impulse z 2.0 < 2.0", "z": 1.98, "S": 0.151, "moved": 0.7, "ep": 17923960535, "iv_rise": 0.04, "iv_rise_interp": 0.04}
+{"t": 1792396181.0, "time": "13:19:41", "cls": "episode ended", "reason": "no episode", "z": 2.36, "S": 0.103, "moved": null, "ep": null, "iv_rise": null, "iv_rise_interp": null}
+{"t": 1792396181.7500002, "time": "13:19:41", "cls": "basket too thin", "reason": "synchrony 0.10 < 0.5", "z": 2.76, "S": 0.103, "moved": 0.0, "ep": 17923961817, "iv_rise": 0.0, "iv_rise_interp": 0.0}
+{"t": 1792396196.7500002, "time": "13:19:56", "cls": "impulse faded", "reason": "impulse z 1.9 < 2.0", "z": 1.89, "S": 0.0, "moved": 7.4, "ep": 17923961817, "iv_rise": -0.04, "iv_rise_interp": -0.05}
+{"t": 1792396214.5, "time": "13:20:14", "cls": "basket too thin", "reason": "synchrony 0.12 < 0.5", "z": 2.0, "S": 0.116, "moved": 15.9, "ep": 17923961817, "iv_rise": -0.11, "iv_rise_interp": -0.12}
+{"t": 1792396225.0, "time": "13:20:25", "cls": "impulse faded", "reason": "impulse z 1.9 < 2.0", "z": 1.88, "S": 0.0, "moved": 19.3, "ep": 17923961817, "iv_rise": -0.18, "iv_rise_interp": -0.19}
+{"t": 1792396308.2499998, "time": "13:21:48", "cls": "basket too thin", "reason": "synchrony 0.00 < 0.5", "z": 2.3, "S": 0.0, "moved": 31.8, "ep": 17923961817, "iv_rise": -0.64, "iv_rise_interp": -0.64}
+{"t": 1792396312.7500002, "time": "13:21:52", "cls": "impulse faded", "reason": "impulse z 1.9 < 2.0", "z": 1.9, "S": 0.0, "moved": 30.5, "ep": 17923961817, "iv_rise": -0.66, "iv_rise_interp": -0.66}
+{"t": 1792396339.5, "time": "13:22:19", "cls": "episode ended", "reason": "no episode", "z": 2.13, "S": 0.0, "moved": null, "ep": null, "iv_rise": null, "iv_rise_interp": null}
+{"t": 1792396340.2499998, "time": "13:22:20", "cls": "basket too thin", "reason": "synchrony 0.00 < 0.5", "z": 2.24, "S": 0.0, "moved": 0.0, "ep": 17923963402, "iv_rise": 0.0, "iv_rise_interp": 0.0}
+{"t": 1792396343.5, "time": "13:22:23", "cls": "impulse faded", "reason": "impulse z 1.9 < 2.0", "z": 1.92, "S": 0.0, "moved": 0.5, "ep": 17923963402, "iv_rise": -0.02, "iv_rise_interp": -0.02}
+{"t": 1792396436.0, "time": "13:23:56", "cls": "episode ended", "reason": "no episode", "z": 2.12, "S": 0.0, "moved": null, "ep": null, "iv_rise": null, "iv_rise_interp": null}
+{"t": 1792396436.5, "time": "13:23:56", "cls": "basket too thin", "reason": "synchrony 0.00 < 0.5", "z": 2.11, "S": 0.0, "moved": 0.0, "ep": 17923964365, "iv_rise": 0.0, "iv_rise_interp": 0.0}
+{"t": 1792396455.0, "time": "13:24:15", "cls": "impulse faded", "reason": "impulse z 1.3 < 2.0", "z": 1.3, "S": 0.0, "moved": 9.1, "ep": 17923964365, "iv_rise": -0.05, "iv_rise_interp": -0.05}
+{"t": 1792396524.7500002, "time": "13:25:24", "cls": "episode ended", "reason": "no episode", "z": 2.54, "S": 0.0, "moved": null, "ep": null, "iv_rise": null, "iv_rise_interp": null}
+{"t": 1792396525.5, "time": "13:25:25", "cls": "basket too thin", "reason": "synchrony 0.00 < 0.5", "z": 2.42, "S": 0.0, "moved": 0.0, "ep": 17923965255, "iv_rise": 0.0, "iv_rise_interp": 0.0}
+{"t": 1792396529.0, "time": "13:25:29", "cls": "impulse faded", "reason": "impulse z 2.0 < 2.0", "z": 1.99, "S": 0.0, "moved": 0.8, "ep": 17923965255, "iv_rise": -0.01, "iv_rise_interp": -0.01}
+{"t": 1792396727.5, "time": "13:28:47", "cls": "episode ended", "reason": "no episode", "z": 2.14, "S": 0.0, "moved": null, "ep": null, "iv_rise": null, "iv_rise_interp": null}
+{"t": 1792396728.2499998, "time": "13:28:48", "cls": "basket too thin", "reason": "synchrony 0.00 < 0.5", "z": 2.17, "S": 0.0, "moved": 0.0, "ep": 17923967282, "iv_rise": 0.0, "iv_rise_interp": 0.0}
+{"t": 1792396730.0, "time": "13:28:50", "cls": "impulse faded", "reason": "impulse z 2.0 < 2.0", "z": 1.99, "S": 0.0, "moved": 0.6, "ep": 17923967282, "iv_rise": -0.03, "iv_rise_interp": -0.02}
+{"t": 1792396730.7500002, "time": "13:28:50", "cls": "basket too thin", "reason": "synchrony 0.00 < 0.5", "z": 2.47, "S": 0.0, "moved": 0.1, "ep": 17923967282, "iv_rise": -0.01, "iv_rise_interp": -0.01}
+{"t": 1792396734.2499998, "time": "13:28:54", "cls": "impulse faded", "reason": "impulse z 1.7 < 2.0", "z": 1.67, "S": 0.0, "moved": 0.0, "ep": 17923967282, "iv_rise": 0.0, "iv_rise_interp": -0.0}
+{"t": 1792396815.2499998, "time": "13:30:15", "cls": "episode ended", "reason": "no episode", "z": 0.3, "S": 0.0, "moved": null, "ep": null, "iv_rise": null, "iv_rise_interp": null}
+{"t": 1792396823.0, "time": "13:30:23", "cls": "impulse faded", "reason": "impulse z 1.1 < 2.0", "z": 1.12, "S": 0.0, "moved": 0.0, "ep": 17923968230, "iv_rise": 0.0, "iv_rise_interp": 0.0}
+{"t": 1792396837.5, "time": "13:30:37", "cls": "basket too thin", "reason": "synchrony 0.00 < 0.5", "z": 2.08, "S": 0.0, "moved": 6.9, "ep": 17923968230, "iv_rise": -0.03, "iv_rise_interp": -0.02}
+{"t": 1792396843.2499998, "time": "13:30:43", "cls": "impulse faded", "reason": "impulse z 1.8 < 2.0", "z": 1.78, "S": 0.0, "moved": 10.6, "ep": 17923968230, "iv_rise": -0.03, "iv_rise_interp": -0.0}
+{"t": 1792396846.2499998, "time": "13:30:46", "cls": "basket too thin", "reason": "synchrony 0.00 < 0.5", "z": 2.21, "S": 0.0, "moved": 10.3, "ep": 17923968230, "iv_rise": -0.01, "iv_rise_interp": -0.01}
+{"t": 1792396846.7500002, "time": "13:30:46", "cls": "impulse faded", "reason": "impulse z 1.8 < 2.0", "z": 1.85, "S": 0.0, "moved": 8.9, "ep": 17923968230, "iv_rise": -0.04, "iv_rise_interp": -0.02}
+{"t": 1792396867.7500002, "time": "13:31:07", "cls": "basket too thin", "reason": "synchrony 0.00 < 0.5", "z": 2.24, "S": 0.0, "moved": 16.1, "ep": 17923968230, "iv_rise": -0.04, "iv_rise_interp": -0.03}
+{"t": 1792396877.7500002, "time": "13:31:17", "cls": "impulse faded", "reason": "impulse z 2.0 < 2.0", "z": 2.0, "S": 0.103, "moved": 17.4, "ep": 17923968230, "iv_rise": 0.45, "iv_rise_interp": 0.46}
+{"t": 1792396887.2499998, "time": "13:31:27", "cls": "episode ended", "reason": "no episode", "z": 2.19, "S": 0.165, "moved": null, "ep": null, "iv_rise": null, "iv_rise_interp": null}
+{"t": 1792396888.0, "time": "13:31:28", "cls": "basket too thin", "reason": "synchrony 0.20 < 0.5", "z": 2.37, "S": 0.2, "moved": 0.0, "ep": 17923968880, "iv_rise": 0.0, "iv_rise_interp": 0.0}
+{"t": 1792396905.7500002, "time": "13:31:45", "cls": "impulse faded", "reason": "impulse z 1.8 < 2.0", "z": 1.81, "S": 0.11, "moved": 9.2, "ep": 17923968880, "iv_rise": 0.77, "iv_rise_interp": 0.74}
+{"t": 1792396917.2499998, "time": "13:31:57", "cls": "episode ended", "reason": "no episode", "z": 2.14, "S": 0.124, "moved": null, "ep": null, "iv_rise": null, "iv_rise_interp": null}
+{"t": 1792396917.5, "time": "13:31:57", "cls": "basket too thin", "reason": "synchrony 0.19 < 0.5", "z": 2.16, "S": 0.185, "moved": 0.0, "ep": 17923969175, "iv_rise": 0.0, "iv_rise_interp": 0.0}
+{"t": 1792396934.0, "time": "13:32:14", "cls": "impulse faded", "reason": "impulse z 1.9 < 2.0", "z": 1.85, "S": 0.041, "moved": 9.4, "ep": 17923969175, "iv_rise": 0.42, "iv_rise_interp": 0.44}
+{"t": 1792396940.2499998, "time": "13:32:20", "cls": "basket too thin", "reason": "synchrony 0.12 < 0.5", "z": 2.21, "S": 0.124, "moved": 14.4, "ep": 17923969175, "iv_rise": 0.57, "iv_rise_interp": 0.58}
+{"t": 1792396959.5, "time": "13:32:39", "cls": "impulse faded", "reason": "impulse z 1.9 < 2.0", "z": 1.92, "S": 0.185, "moved": 26.5, "ep": 17923969175, "iv_rise": 0.8, "iv_rise_interp": 0.8}
+{"t": 1792396961.5, "time": "13:32:41", "cls": "basket too thin", "reason": "synchrony 0.21 < 0.5", "z": 2.19, "S": 0.207, "moved": 28.5, "ep": 17923969175, "iv_rise": 0.81, "iv_rise_interp": 0.82}
+{"t": 1792396963.0, "time": "13:32:43", "cls": "impulse faded", "reason": "impulse z 1.9 < 2.0", "z": 1.93, "S": 0.083, "moved": 28.7, "ep": 17923969175, "iv_rise": 0.8, "iv_rise_interp": 0.8}
+{"t": 1792396968.0, "time": "13:32:48", "cls": "basket too thin", "reason": "synchrony 0.12 < 0.5", "z": 2.23, "S": 0.124, "moved": 31.6, "ep": 17923969175, "iv_rise": 0.73, "iv_rise_interp": 0.74}
+{"t": 1792396972.2499998, "time": "13:32:52", "cls": "impulse faded", "reason": "impulse z 2.0 < 2.0", "z": 2.0, "S": 0.0, "moved": 32.8, "ep": 17923969175, "iv_rise": 0.66, "iv_rise_interp": 0.67}
+{"t": 1792396973.5, "time": "13:32:53", "cls": "basket too thin", "reason": "synchrony 0.00 < 0.5", "z": 2.32, "S": 0.0, "moved": 34.1, "ep": 17923969175, "iv_rise": 0.66, "iv_rise_interp": 0.66}
+{"t": 1792396975.2499998, "time": "13:32:55", "cls": "impulse faded", "reason": "impulse z 1.5 < 2.0", "z": 1.55, "S": 0.0, "moved": 32.7, "ep": 17923969175, "iv_rise": 0.64, "iv_rise_interp": 0.64}
+{"t": 1792397170.5, "time": "13:36:10", "cls": "basket too thin", "reason": "synchrony 0.00 < 0.5", "z": 2.58, "S": 0.0, "moved": 51.9, "ep": 17923969175, "iv_rise": -1.08, "iv_rise_interp": -1.08}
+{"t": 1792397192.5, "time": "13:36:32", "cls": "impulse faded", "reason": "impulse z 1.8 < 2.0", "z": 1.77, "S": 0.0, "moved": 69.9, "ep": 17923969175, "iv_rise": -1.21, "iv_rise_interp": -1.21}
+{"t": 1792397193.0, "time": "13:36:33", "cls": "basket too thin", "reason": "synchrony 0.00 < 0.5", "z": 2.02, "S": 0.0, "moved": 70.9, "ep": 17923969175, "iv_rise": -1.22, "iv_rise_interp": -1.22}
+{"t": 1792397195.7500002, "time": "13:36:35", "cls": "impulse faded", "reason": "impulse z 2.0 < 2.0", "z": 1.97, "S": 0.0, "moved": 72.2, "ep": 17923969175, "iv_rise": -1.23, "iv_rise_interp": -1.23}
+{"t": 1792397231.0, "time": "13:37:11", "cls": "basket too thin", "reason": "synchrony 0.00 < 0.5", "z": 2.25, "S": 0.0, "moved": 78.0, "ep": 17923969175, "iv_rise": -1.39, "iv_rise_interp": -1.39}
+{"t": 1792397240.5, "time": "13:37:20", "cls": "impulse faded", "reason": "impulse z 1.7 < 2.0", "z": 1.72, "S": 0.036, "moved": 81.1, "ep": 17923969175, "iv_rise": -1.44, "iv_rise_interp": -1.43}
+{"t": 1792397362.5, "time": "13:39:22", "cls": "episode ended", "reason": "no episode", "z": 2.14, "S": 0.0, "moved": null, "ep": null, "iv_rise": null, "iv_rise_interp": null}
+{"t": 1792397363.0, "time": "13:39:23", "cls": "basket too thin", "reason": "synchrony 0.00 < 0.5", "z": 2.47, "S": 0.0, "moved": 0.0, "ep": 17923973630, "iv_rise": 0.0, "iv_rise_interp": 0.0}
+{"t": 1792397368.5, "time": "13:39:28", "cls": "impulse faded", "reason": "impulse z 1.9 < 2.0", "z": 1.92, "S": 0.0, "moved": 0.7, "ep": 17923973630, "iv_rise": -0.01, "iv_rise_interp": -0.02}
+{"t": 1792397369.5, "time": "13:39:29", "cls": "basket too thin", "reason": "synchrony 0.00 < 0.5", "z": 2.03, "S": 0.0, "moved": 0.3, "ep": 17923973630, "iv_rise": -0.02, "iv_rise_interp": -0.02}
+{"t": 1792397370.5, "time": "13:39:30", "cls": "impulse faded", "reason": "impulse z 1.7 < 2.0", "z": 1.67, "S": 0.0, "moved": 0.5, "ep": 17923973630, "iv_rise": -0.01, "iv_rise_interp": -0.01}
+{"t": 1792397402.5, "time": "13:40:02", "cls": "basket too thin", "reason": "synchrony 0.00 < 0.5", "z": 2.36, "S": 0.0, "moved": 6.6, "ep": 17923973630, "iv_rise": -0.09, "iv_rise_interp": -0.09}
+{"t": 1792397407.7500002, "time": "13:40:07", "cls": "impulse faded", "reason": "impulse z 1.9 < 2.0", "z": 1.92, "S": 0.0, "moved": 6.2, "ep": 17923973630, "iv_rise": -0.1, "iv_rise_interp": -0.1}
+{"t": 1792397431.2499998, "time": "13:40:31", "cls": "basket too thin", "reason": "synchrony 0.00 < 0.5", "z": 2.2, "S": 0.0, "moved": 12.8, "ep": 17923973630, "iv_rise": -0.14, "iv_rise_interp": -0.15}
+{"t": 1792397432.2499998, "time": "13:40:32", "cls": "impulse faded", "reason": "impulse z 1.4 < 2.0", "z": 1.36, "S": 0.0, "moved": 11.0, "ep": 17923973630, "iv_rise": -0.15, "iv_rise_interp": -0.15}
+{"t": 1792397488.5, "time": "13:41:28", "cls": "basket too thin", "reason": "synchrony 0.00 < 0.5", "z": 2.14, "S": 0.0, "moved": 19.5, "ep": 17923973630, "iv_rise": -0.27, "iv_rise_interp": -0.25}
+{"t": 1792397493.0, "time": "13:41:33", "cls": "impulse faded", "reason": "impulse z 1.7 < 2.0", "z": 1.67, "S": 0.0, "moved": 20.6, "ep": 17923973630, "iv_rise": -0.24, "iv_rise_interp": -0.25}
+{"t": 1792397497.2499998, "time": "13:41:37", "cls": "basket too thin", "reason": "synchrony 0.15 < 0.5", "z": 2.2, "S": 0.147, "moved": 22.6, "ep": 17923973630, "iv_rise": -0.26, "iv_rise_interp": -0.27}
+{"t": 1792397498.7500002, "time": "13:41:38", "cls": "impulse faded", "reason": "impulse z 1.8 < 2.0", "z": 1.76, "S": 0.0, "moved": 22.4, "ep": 17923973630, "iv_rise": -0.26, "iv_rise_interp": -0.26}
+{"t": 1792397501.0, "time": "13:41:41", "cls": "basket too thin", "reason": "synchrony 0.15 < 0.5", "z": 2.34, "S": 0.147, "moved": 24.8, "ep": 17923973630, "iv_rise": -0.28, "iv_rise_interp": -0.28}
+{"t": 1792397502.7500002, "time": "13:41:42", "cls": "impulse faded", "reason": "impulse z 1.6 < 2.0", "z": 1.65, "S": 0.0, "moved": 25.9, "ep": 17923973630, "iv_rise": -0.27, "iv_rise_interp": -0.27}
+{"t": 1792397543.2499998, "time": "13:42:23", "cls": "basket too thin", "reason": "synchrony 0.00 < 0.5", "z": 2.13, "S": 0.0, "moved": 38.2, "ep": 17923973630, "iv_rise": -0.32, "iv_rise_interp": -0.32}
+{"t": 1792397556.0, "time": "13:42:36", "cls": "impulse faded", "reason": "impulse z 1.5 < 2.0", "z": 1.55, "S": 0.0, "moved": 42.6, "ep": 17923973630, "iv_rise": -0.34, "iv_rise_interp": -0.34}
+{"t": 1792397587.7500002, "time": "13:43:07", "cls": "basket too thin", "reason": "synchrony 0.00 < 0.5", "z": 2.16, "S": 0.0, "moved": 53.5, "ep": 17923973630, "iv_rise": -0.38, "iv_rise_interp": -0.38}
+{"t": 1792397602.5, "time": "13:43:22", "cls": "impulse faded", "reason": "impulse z 1.6 < 2.0", "z": 1.63, "S": 0.0, "moved": 60.0, "ep": 17923973630, "iv_rise": -0.38, "iv_rise_interp": -0.38}
+{"t": 1792397603.5, "time": "13:43:23", "cls": "basket too thin", "reason": "synchrony 0.00 < 0.5", "z": 2.0, "S": 0.0, "moved": 61.5, "ep": 17923973630, "iv_rise": -0.4, "iv_rise_interp": -0.36}
+{"t": 1792397604.7500002, "time": "13:43:24", "cls": "impulse faded", "reason": "impulse z 0.8 < 2.0", "z": 0.84, "S": 0.0, "moved": 59.8, "ep": 17923973630, "iv_rise": -0.4, "iv_rise_interp": -0.39}
+{"t": 1792397618.2499998, "time": "13:43:38", "cls": "episode ended", "reason": "no episode", "z": 2.21, "S": 0.0, "moved": null, "ep": null, "iv_rise": null, "iv_rise_interp": null}
+{"t": 1792397619.0, "time": "13:43:39", "cls": "basket too thin", "reason": "synchrony 0.00 < 0.5", "z": 2.23, "S": 0.0, "moved": 0.0, "ep": 17923976190, "iv_rise": 0.0, "iv_rise_interp": 0.0}
+{"t": 1792397621.0, "time": "13:43:41", "cls": "impulse faded", "reason": "impulse z 1.9 < 2.0", "z": 1.93, "S": 0.0, "moved": 0.3, "ep": 17923976190, "iv_rise": 0.0, "iv_rise_interp": 0.0}
+{"t": 1792397622.2499998, "time": "13:43:42", "cls": "basket too thin", "reason": "synchrony 0.00 < 0.5", "z": 2.15, "S": 0.0, "moved": 0.5, "ep": 17923976190, "iv_rise": -0.0, "iv_rise_interp": -0.0}
+{"t": 1792397624.5, "time": "13:43:44", "cls": "impulse faded", "reason": "impulse z 1.1 < 2.0", "z": 1.12, "S": 0.0, "moved": 2.6, "ep": 17923976190, "iv_rise": -0.02, "iv_rise_interp": -0.02}
+{"t": 1792397631.5, "time": "13:43:51", "cls": "episode ended", "reason": "no episode", "z": 2.26, "S": 0.0, "moved": null, "ep": null, "iv_rise": null, "iv_rise_interp": null}
+{"t": 1792397632.7500002, "time": "13:43:52", "cls": "basket too thin", "reason": "synchrony 0.00 < 0.5", "z": 2.72, "S": 0.0, "moved": 0.0, "ep": 17923976327, "iv_rise": 0.0, "iv_rise_interp": 0.0}
+{"t": 1792397647.7500002, "time": "13:44:07", "cls": "impulse faded", "reason": "impulse z 2.0 < 2.0", "z": 2.0, "S": 0.0, "moved": 8.0, "ep": 17923976327, "iv_rise": -0.01, "iv_rise_interp": -0.01}
+{"t": 1792397720.0, "time": "13:45:20", "cls": "episode ended", "reason": "no episode", "z": 2.12, "S": 0.0, "moved": null, "ep": null, "iv_rise": null, "iv_rise_interp": null}
+{"t": 1792397722.0, "time": "13:45:22", "cls": "basket too thin", "reason": "synchrony 0.00 < 0.5", "z": 2.64, "S": 0.0, "moved": 0.0, "ep": 17923977220, "iv_rise": 0.0, "iv_rise_interp": 0.0}
+{"t": 1792397736.7500002, "time": "13:45:36", "cls": "impulse faded", "reason": "impulse z 1.7 < 2.0", "z": 1.72, "S": 0.0, "moved": 6.9, "ep": 17923977220, "iv_rise": -0.03, "iv_rise_interp": -0.03}
+{"t": 1792397781.5, "time": "13:46:21", "cls": "episode ended", "reason": "no episode", "z": 2.36, "S": 0.0, "moved": null, "ep": null, "iv_rise": null, "iv_rise_interp": null}
+{"t": 1792397782.5, "time": "13:46:22", "cls": "basket too thin", "reason": "synchrony 0.08 < 0.5", "z": 2.77, "S": 0.083, "moved": 0.0, "ep": 17923977825, "iv_rise": 0.0, "iv_rise_interp": 0.0}
+{"t": 1792397790.2499998, "time": "13:46:30", "cls": "impulse faded", "reason": "impulse z 1.8 < 2.0", "z": 1.79, "S": 0.083, "moved": 1.4, "ep": 17923977825, "iv_rise": -0.01, "iv_rise_interp": -0.0}
+{"t": 1792397800.0, "time": "13:46:40", "cls": "episode ended", "reason": "no episode", "z": 2.05, "S": 0.0, "moved": null, "ep": null, "iv_rise": null, "iv_rise_interp": null}
+{"t": 1792397800.7500002, "time": "13:46:40", "cls": "impulse faded", "reason": "impulse z 2.0 < 2.0", "z": 1.97, "S": 0.0, "moved": 0.0, "ep": 17923978007, "iv_rise": 0.0, "iv_rise_interp": 0.0}
+{"t": 1792397801.5, "time": "13:46:41", "cls": "basket too thin", "reason": "synchrony 0.00 < 0.5", "z": 2.27, "S": 0.0, "moved": 1.2, "ep": 17923978007, "iv_rise": -0.01, "iv_rise_interp": -0.01}
+{"t": 1792397802.2499998, "time": "13:46:42", "cls": "impulse faded", "reason": "impulse z 1.9 < 2.0", "z": 1.91, "S": 0.0, "moved": 0.9, "ep": 17923978007, "iv_rise": -0.01, "iv_rise_interp": -0.01}
+{"t": 1792397803.0, "time": "13:46:43", "cls": "basket too thin", "reason": "synchrony 0.00 < 0.5", "z": 2.04, "S": 0.0, "moved": 1.4, "ep": 17923978007, "iv_rise": -0.01, "iv_rise_interp": -0.01}
+{"t": 1792397803.7500002, "time": "13:46:43", "cls": "impulse faded", "reason": "impulse z 2.0 < 2.0", "z": 2.0, "S": 0.0, "moved": 2.0, "ep": 17923978007, "iv_rise": 0.0, "iv_rise_interp": 0.0}
+{"t": 1792397856.2499998, "time": "13:47:36", "cls": "episode ended", "reason": "no episode", "z": 2.2, "S": 0.145, "moved": null, "ep": null, "iv_rise": null, "iv_rise_interp": null}
+{"t": 1792397857.5, "time": "13:47:37", "cls": "basket too thin", "reason": "synchrony 0.14 < 0.5", "z": 2.49, "S": 0.145, "moved": 0.0, "ep": 17923978575, "iv_rise": 0.0, "iv_rise_interp": 0.0}
+{"t": 1792397863.7500002, "time": "13:47:43", "cls": "impulse faded", "reason": "impulse z 2.0 < 2.0", "z": 2.0, "S": 0.145, "moved": 3.7, "ep": 17923978575, "iv_rise": 0.19, "iv_rise_interp": 0.19}
+{"t": 1792397864.7500002, "time": "13:47:44", "cls": "basket too thin", "reason": "synchrony 0.10 < 0.5", "z": 2.49, "S": 0.103, "moved": 5.1, "ep": 17923978575, "iv_rise": 0.23, "iv_rise_interp": 0.23}
+{"t": 1792397874.0, "time": "13:47:54", "cls": "impulse faded", "reason": "impulse z 2.0 < 2.0", "z": 1.98, "S": 0.169, "moved": 9.4, "ep": 17923978575, "iv_rise": 0.47, "iv_rise_interp": 0.47}
+{"t": 1792397890.7500002, "time": "13:48:10", "cls": "basket too thin", "reason": "synchrony 0.31 < 0.5", "z": 2.21, "S": 0.314, "moved": 16.7, "ep": 17923978575, "iv_rise": 0.79, "iv_rise_interp": 0.79}
+{"t": 1792397896.0, "time": "13:48:16", "cls": "impulse faded", "reason": "impulse z 1.9 < 2.0", "z": 1.9, "S": 0.145, "moved": 18.1, "ep": 17923978575, "iv_rise": 0.86, "iv_rise_interp": 0.86}
+{"t": 1792397967.5, "time": "13:49:27", "cls": "basket too thin", "reason": "synchrony 0.00 < 0.5", "z": 2.08, "S": 0.0, "moved": 19.7, "ep": 17923978575, "iv_rise": 0.64, "iv_rise_interp": 0.62}
+{"t": 1792397969.2499998, "time": "13:49:29", "cls": "impulse faded", "reason": "impulse z 1.7 < 2.0", "z": 1.74, "S": 0.0, "moved": 18.2, "ep": 17923978575, "iv_rise": 0.59, "iv_rise_interp": 0.59}
+{"t": 1792397990.0, "time": "13:49:50", "cls": "basket too thin", "reason": "synchrony 0.00 < 0.5", "z": 2.05, "S": 0.0, "moved": 26.6, "ep": 17923978575, "iv_rise": 0.4, "iv_rise_interp": 0.39}
+{"t": 1792397993.5, "time": "13:49:53", "cls": "impulse faded", "reason": "impulse z 1.9 < 2.0", "z": 1.92, "S": 0.041, "moved": 27.8, "ep": 17923978575, "iv_rise": 0.33, "iv_rise_interp": 0.33}
+{"t": 1792397995.2499998, "time": "13:49:55", "cls": "basket too thin", "reason": "synchrony 0.04 < 0.5", "z": 2.07, "S": 0.041, "moved": 29.5, "ep": 17923978575, "iv_rise": 0.32, "iv_rise_interp": 0.32}
+{"t": 1792397996.2499998, "time": "13:49:56", "cls": "impulse faded", "reason": "impulse z 1.9 < 2.0", "z": 1.94, "S": 0.041, "moved": 29.2, "ep": 17923978575, "iv_rise": 0.31, "iv_rise_interp": 0.32}
+{"t": 1792397997.7500002, "time": "13:49:57", "cls": "basket too thin", "reason": "synchrony 0.04 < 0.5", "z": 2.0, "S": 0.041, "moved": 30.0, "ep": 17923978575, "iv_rise": 0.32, "iv_rise_interp": 0.31}
+{"t": 1792398002.5, "time": "13:50:02", "cls": "impulse faded", "reason": "impulse z 1.9 < 2.0", "z": 1.91, "S": 0.0, "moved": 33.1, "ep": 17923978575, "iv_rise": 0.25, "iv_rise_interp": 0.25}
+{"t": 1792398003.2499998, "time": "13:50:03", "cls": "basket too thin", "reason": "synchrony 0.05 < 0.5", "z": 2.09, "S": 0.055, "moved": 33.8, "ep": 17923978575, "iv_rise": 0.24, "iv_rise_interp": 0.24}
+{"t": 1792398006.2499998, "time": "13:50:06", "cls": "impulse faded", "reason": "impulse z 2.0 < 2.0", "z": 1.96, "S": 0.0, "moved": 34.5, "ep": 17923978575, "iv_rise": 0.21, "iv_rise_interp": 0.21}
+{"t": 1792398135.7500002, "time": "13:52:15", "cls": "basket too thin", "reason": "synchrony 0.00 < 0.5", "z": 2.67, "S": 0.0, "moved": 44.0, "ep": 17923978575, "iv_rise": -0.72, "iv_rise_interp": -0.71}
+{"t": 1792398138.5, "time": "13:52:18", "cls": "impulse faded", "reason": "impulse z 2.0 < 2.0", "z": 1.99, "S": 0.0, "moved": 43.1, "ep": 17923978575, "iv_rise": -0.73, "iv_rise_interp": -0.73}
+{"t": 1792398177.5, "time": "13:52:57", "cls": "basket too thin", "reason": "synchrony 0.00 < 0.5", "z": 2.13, "S": 0.0, "moved": 44.5, "ep": 17923978575, "iv_rise": -0.92, "iv_rise_interp": -0.91}
+{"t": 1792398190.7500002, "time": "13:53:10", "cls": "impulse faded", "reason": "impulse z 2.0 < 2.0", "z": 2.0, "S": 0.0, "moved": 51.9, "ep": 17923978575, "iv_rise": -0.99, "iv_rise_interp": -0.98}
+{"t": 1792398400.5, "time": "13:56:40", "cls": "episode ended", "reason": "no episode", "z": 2.09, "S": 0.055, "moved": null, "ep": null, "iv_rise": null, "iv_rise_interp": null}
+{"t": 1792398401.2499998, "time": "13:56:41", "cls": "basket too thin", "reason": "synchrony 0.05 < 0.5", "z": 2.01, "S": 0.055, "moved": 0.0, "ep": 17923984012, "iv_rise": 0.0, "iv_rise_interp": 0.0}
+{"t": 1792398403.7500002, "time": "13:56:43", "cls": "impulse faded", "reason": "impulse z 1.7 < 2.0", "z": 1.67, "S": 0.055, "moved": 0.7, "ep": 17923984012, "iv_rise": -0.0, "iv_rise_interp": 0.01}
+{"t": 1792398498.5, "time": "13:58:18", "cls": "basket too thin", "reason": "synchrony 0.00 < 0.5", "z": 2.1, "S": 0.0, "moved": 17.1, "ep": 17923984012, "iv_rise": -0.16, "iv_rise_interp": -0.16}
+{"t": 1792398504.7500002, "time": "13:58:24", "cls": "impulse faded", "reason": "impulse z 2.0 < 2.0", "z": 1.98, "S": 0.0, "moved": 17.5, "ep": 17923984012, "iv_rise": -0.14, "iv_rise_interp": -0.14}
+{"t": 1792398563.2499998, "time": "13:59:23", "cls": "basket too thin", "reason": "synchrony 0.00 < 0.5", "z": 2.6, "S": 0.0, "moved": 26.5, "ep": 17923984012, "iv_rise": -0.21, "iv_rise_interp": -0.2}
+{"t": 1792398573.0, "time": "13:59:33", "cls": "impulse faded", "reason": "impulse z 1.9 < 2.0", "z": 1.92, "S": 0.0, "moved": 28.6, "ep": 17923984012, "iv_rise": -0.23, "iv_rise_interp": -0.22}
+{"t": 1792398582.7500002, "time": "13:59:42", "cls": "episode ended", "reason": "no episode", "z": 2.01, "S": 0.0, "moved": null, "ep": null, "iv_rise": null, "iv_rise_interp": null}
+{"t": 1792398583.5, "time": "13:59:43", "cls": "basket too thin", "reason": "synchrony 0.00 < 0.5", "z": 2.14, "S": 0.0, "moved": 0.0, "ep": 17923985835, "iv_rise": 0.0, "iv_rise_interp": 0.0}
+{"t": 1792398586.2499998, "time": "13:59:46", "cls": "impulse faded", "reason": "impulse z 2.0 < 2.0", "z": 1.99, "S": 0.0, "moved": 0.7, "ep": 17923985835, "iv_rise": -0.02, "iv_rise_interp": -0.02}
+{"t": 1792398604.5, "time": "14:00:04", "cls": "basket too thin", "reason": "synchrony 0.00 < 0.5", "z": 2.13, "S": 0.0, "moved": 5.3, "ep": 17923985835, "iv_rise": -0.02, "iv_rise_interp": -0.02}
+{"t": 1792398612.5, "time": "14:00:12", "cls": "impulse faded", "reason": "impulse z 1.5 < 2.0", "z": 1.52, "S": 0.0, "moved": 4.0, "ep": 17923985835, "iv_rise": -0.03, "iv_rise_interp": -0.03}
+{"t": 1792398647.0, "time": "14:00:47", "cls": "basket too thin", "reason": "synchrony 0.00 < 0.5", "z": 2.07, "S": 0.0, "moved": 14.8, "ep": 17923985835, "iv_rise": -0.06, "iv_rise_interp": -0.05}
+{"t": 1792398650.2499998, "time": "14:00:50", "cls": "impulse faded", "reason": "impulse z 1.4 < 2.0", "z": 1.38, "S": 0.0, "moved": 15.0, "ep": 17923985835, "iv_rise": -0.05, "iv_rise_interp": -0.05}
+{"t": 1792398724.2499998, "time": "14:02:04", "cls": "basket too thin", "reason": "synchrony 0.10 < 0.5", "z": 2.05, "S": 0.096, "moved": 27.6, "ep": 17923985835, "iv_rise": 0.12, "iv_rise_interp": 0.12}
+{"t": 1792398726.0, "time": "14:02:06", "cls": "impulse faded", "reason": "impulse z 2.0 < 2.0", "z": 1.97, "S": 0.096, "moved": 28.0, "ep": 17923985835, "iv_rise": 0.16, "iv_rise_interp": 0.18}
+{"t": 1792398727.7500002, "time": "14:02:07", "cls": "basket too thin", "reason": "synchrony 0.10 < 0.5", "z": 2.1, "S": 0.096, "moved": 28.8, "ep": 17923985835, "iv_rise": 0.2, "iv_rise_interp": 0.21}
+{"t": 1792398729.2499998, "time": "14:02:09", "cls": "impulse faded", "reason": "impulse z 1.7 < 2.0", "z": 1.68, "S": 0.138, "moved": 28.4, "ep": 17923985835, "iv_rise": 0.25, "iv_rise_interp": 0.25}
+{"t": 1792398730.5, "time": "14:02:10", "cls": "basket too thin", "reason": "synchrony 0.14 < 0.5", "z": 2.11, "S": 0.138, "moved": 30.1, "ep": 17923985835, "iv_rise": 0.24, "iv_rise_interp": 0.26}
+{"t": 1792398735.5, "time": "14:02:15", "cls": "impulse faded", "reason": "impulse z 1.9 < 2.0", "z": 1.86, "S": 0.0, "moved": 31.5, "ep": 17923985835, "iv_rise": 0.37, "iv_rise_interp": 0.37}
+{"t": 1792398759.5, "time": "14:02:39", "cls": "basket too thin", "reason": "synchrony 0.28 < 0.5", "z": 2.35, "S": 0.283, "moved": 42.5, "ep": 17923985835, "iv_rise": 0.7, "iv_rise_interp": 0.7}
+{"t": 1792398774.0, "time": "14:02:54", "cls": "impulse faded", "reason": "impulse z 1.3 < 2.0", "z": 1.31, "S": 0.0, "moved": 47.7, "ep": 17923985835, "iv_rise": 0.85, "iv_rise_interp": 0.85}
+{"t": 1792398830.2499998, "time": "14:03:50", "cls": "basket too thin", "reason": "synchrony 0.14 < 0.5", "z": 2.01, "S": 0.138, "moved": 56.6, "ep": 17923985835, "iv_rise": 1.15, "iv_rise_interp": 1.15}
+{"t": 1792398843.0, "time": "14:04:03", "cls": "impulse faded", "reason": "impulse z 1.6 < 2.0", "z": 1.63, "S": 0.055, "moved": 60.7, "ep": 17923985835, "iv_rise": 1.17, "iv_rise_interp": 1.17}
+{"t": 1792398894.2499998, "time": "14:04:54", "cls": "episode ended", "reason": "no episode", "z": 2.07, "S": 0.041, "moved": null, "ep": null, "iv_rise": null, "iv_rise_interp": null}
+{"t": 1792398895.2499998, "time": "14:04:55", "cls": "impulse faded", "reason": "impulse z 1.9 < 2.0", "z": 1.92, "S": 0.0, "moved": 0.0, "ep": 17923988952, "iv_rise": 0.0, "iv_rise_interp": 0.0}
+{"t": 1792398926.2499998, "time": "14:05:26", "cls": "episode ended", "reason": "no episode", "z": 2.01, "S": 0.096, "moved": null, "ep": null, "iv_rise": null, "iv_rise_interp": null}
+{"t": 1792398926.5, "time": "14:05:26", "cls": "basket too thin", "reason": "synchrony 0.10 < 0.5", "z": 2.03, "S": 0.096, "moved": 0.0, "ep": 17923989265, "iv_rise": 0.0, "iv_rise_interp": 0.0}
+{"t": 1792398944.7500002, "time": "14:05:44", "cls": "impulse faded", "reason": "impulse z 2.0 < 2.0", "z": 1.97, "S": 0.068, "moved": 8.7, "ep": 17923989265, "iv_rise": -0.08, "iv_rise_interp": -0.07}
+{"t": 1792398945.5, "time": "14:05:45", "cls": "basket too thin", "reason": "synchrony 0.11 < 0.5", "z": 2.16, "S": 0.11, "moved": 9.4, "ep": 17923989265, "iv_rise": -0.07, "iv_rise_interp": -0.08}
+{"t": 1792398947.7500002, "time": "14:05:47", "cls": "impulse faded", "reason": "impulse z 1.7 < 2.0", "z": 1.68, "S": 0.0, "moved": 8.1, "ep": 17923989265, "iv_rise": -0.12, "iv_rise_interp": -0.11}
+{"t": 1792398998.0, "time": "14:06:38", "cls": "basket too thin", "reason": "synchrony 0.00 < 0.5", "z": 2.25, "S": 0.0, "moved": 7.5, "ep": 17923989265, "iv_rise": -0.29, "iv_rise_interp": -0.29}
+{"t": 1792399008.0, "time": "14:06:48", "cls": "impulse faded", "reason": "impulse z 1.9 < 2.0", "z": 1.89, "S": 0.0, "moved": 9.9, "ep": 17923989265, "iv_rise": -0.33, "iv_rise_interp": -0.33}
+{"t": 1792399071.5, "time": "14:07:51", "cls": "episode ended", "reason": "no episode", "z": 2.09, "S": 0.124, "moved": null, "ep": null, "iv_rise": null, "iv_rise_interp": null}
+{"t": 1792399072.0, "time": "14:07:52", "cls": "basket too thin", "reason": "synchrony 0.12 < 0.5", "z": 2.35, "S": 0.124, "moved": 0.0, "ep": 17923990720, "iv_rise": 0.0, "iv_rise_interp": 0.0}
+{"t": 1792399083.5, "time": "14:08:03", "cls": "impulse faded", "reason": "impulse z 1.9 < 2.0", "z": 1.95, "S": 0.124, "moved": 4.9, "ep": 17923990720, "iv_rise": -0.04, "iv_rise_interp": -0.03}
+{"t": 1792399084.0, "time": "14:08:04", "cls": "basket too thin", "reason": "synchrony 0.15 < 0.5", "z": 2.06, "S": 0.154, "moved": 5.3, "ep": 17923990720, "iv_rise": -0.03, "iv_rise_interp": -0.03}
+{"t": 1792399085.0, "time": "14:08:05", "cls": "impulse faded", "reason": "impulse z 1.5 < 2.0", "z": 1.49, "S": 0.154, "moved": 4.2, "ep": 17923990720, "iv_rise": -0.04, "iv_rise_interp": -0.04}
+{"t": 1792399115.7500002, "time": "14:08:35", "cls": "basket too thin", "reason": "synchrony 0.00 < 0.5", "z": 2.67, "S": 0.0, "moved": 13.3, "ep": 17923990720, "iv_rise": -0.1, "iv_rise_interp": -0.1}
+{"t": 1792399147.5, "time": "14:09:07", "cls": "impulse faded", "reason": "impulse z 1.9 < 2.0", "z": 1.88, "S": 0.147, "moved": 31.7, "ep": 17923990720, "iv_rise": -0.17, "iv_rise_interp": -0.17}
+{"t": 1792399148.0, "time": "14:09:08", "cls": "basket too thin", "reason": "synchrony 0.15 < 0.5", "z": 2.01, "S": 0.147, "moved": 32.2, "ep": 17923990720, "iv_rise": -0.19, "iv_rise_interp": -0.19}
+{"t": 1792399148.7500002, "time": "14:09:08", "cls": "impulse faded", "reason": "impulse z 1.6 < 2.0", "z": 1.55, "S": 0.0, "moved": 30.7, "ep": 17923990720, "iv_rise": -0.16, "iv_rise_interp": -0.16}
+{"t": 1792399188.7500002, "time": "14:09:48", "cls": "basket too thin", "reason": "synchrony 0.00 < 0.5", "z": 2.16, "S": 0.0, "moved": 41.8, "ep": 17923990720, "iv_rise": -0.25, "iv_rise_interp": -0.25}
+{"t": 1792399195.5, "time": "14:09:55", "cls": "impulse faded", "reason": "impulse z 1.8 < 2.0", "z": 1.82, "S": 0.147, "moved": 44.5, "ep": 17923990720, "iv_rise": -0.26, "iv_rise_interp": -0.25}
+{"t": 1792399214.7500002, "time": "14:10:14", "cls": "episode ended", "reason": "no episode", "z": 2.45, "S": 0.472, "moved": null, "ep": null, "iv_rise": null, "iv_rise_interp": null}
+{"t": 1792399215.2499998, "time": "14:10:15", "cls": "basket too thin", "reason": "synchrony 0.47 < 0.5", "z": 2.57, "S": 0.472, "moved": 0.0, "ep": 17923992152, "iv_rise": 0.0, "iv_rise_interp": 0.0}
+{"t": 1792399216.2499998, "time": "14:10:16", "cls": "TAKEN", "reason": "co-first move UP: futures z 2.8, synchrony 50%, first mover ICICIBANK, 1 pts since onset", "z": 2.78, "S": 0.502, "moved": 0.9, "ep": 17923992152, "iv_rise": 0.12, "iv_rise_interp": 0.11}
+{"t": 1792399218.7500002, "time": "14:10:18", "cls": "already in a trade", "reason": "in position", "z": 3.49, "S": 0.513, "moved": 4.2, "ep": 17923992152, "iv_rise": 0.38, "iv_rise_interp": 0.38}
+{"t": 1792399477.2499998, "time": "14:14:37", "cls": "impulse faded", "reason": "impulse z 1.7 < 2.0", "z": 1.69, "S": 0.0, "moved": 2.8, "ep": 17923994140, "iv_rise": -0.53, "iv_rise_interp": -0.54}
+{"t": 1792399556.5, "time": "14:15:56", "cls": "basket too thin", "reason": "synchrony 0.00 < 0.5", "z": 2.1, "S": 0.0, "moved": 10.5, "ep": 17923994140, "iv_rise": -0.98, "iv_rise_interp": -1.0}
+{"t": 1792399558.7500002, "time": "14:15:58", "cls": "impulse faded", "reason": "impulse z 1.7 < 2.0", "z": 1.74, "S": 0.0, "moved": 10.9, "ep": 17923994140, "iv_rise": -1.01, "iv_rise_interp": -1.02}
+{"t": 1792399561.0, "time": "14:16:01", "cls": "basket too thin", "reason": "synchrony 0.00 < 0.5", "z": 2.29, "S": 0.0, "moved": 13.5, "ep": 17923994140, "iv_rise": -1.05, "iv_rise_interp": -1.03}
+{"t": 1792399568.5, "time": "14:16:08", "cls": "impulse faded", "reason": "impulse z 1.9 < 2.0", "z": 1.92, "S": 0.0, "moved": 14.8, "ep": 17923994140, "iv_rise": -1.06, "iv_rise_interp": -1.07}
+{"t": 1792399613.2499998, "time": "14:16:53", "cls": "basket too thin", "reason": "synchrony 0.00 < 0.5", "z": 2.21, "S": 0.0, "moved": 24.0, "ep": 17923994140, "iv_rise": -1.28, "iv_rise_interp": -1.29}
+{"t": 1792399617.2499998, "time": "14:16:57", "cls": "impulse faded", "reason": "impulse z 2.0 < 2.0", "z": 1.98, "S": 0.0, "moved": 24.9, "ep": 17923994140, "iv_rise": -1.3, "iv_rise_interp": -1.3}
+{"t": 1792399618.0, "time": "14:16:58", "cls": "basket too thin", "reason": "synchrony 0.00 < 0.5", "z": 2.09, "S": 0.0, "moved": 24.8, "ep": 17923994140, "iv_rise": -1.28, "iv_rise_interp": -1.28}
+{"t": 1792399618.5, "time": "14:16:58", "cls": "impulse faded", "reason": "impulse z 2.0 < 2.0", "z": 1.96, "S": 0.0, "moved": 24.2, "ep": 17923994140, "iv_rise": -1.26, "iv_rise_interp": -1.27}
+{"t": 1792399738.5, "time": "14:18:58", "cls": "episode ended", "reason": "no episode", "z": 2.14, "S": 0.0, "moved": null, "ep": null, "iv_rise": null, "iv_rise_interp": null}
+{"t": 1792399739.2499998, "time": "14:18:59", "cls": "basket too thin", "reason": "synchrony 0.00 < 0.5", "z": 2.43, "S": 0.0, "moved": 0.0, "ep": 17923997392, "iv_rise": 0.0, "iv_rise_interp": 0.0}
+{"t": 1792399761.2499998, "time": "14:19:21", "cls": "impulse faded", "reason": "impulse z 2.0 < 2.0", "z": 1.97, "S": 0.0, "moved": 10.8, "ep": 17923997392, "iv_rise": -0.05, "iv_rise_interp": -0.04}
+{"t": 1792399825.0, "time": "14:20:25", "cls": "basket too thin", "reason": "synchrony 0.00 < 0.5", "z": 2.08, "S": 0.0, "moved": 15.0, "ep": 17923997392, "iv_rise": -0.19, "iv_rise_interp": -0.18}
+{"t": 1792399833.0, "time": "14:20:33", "cls": "impulse faded", "reason": "impulse z 1.9 < 2.0", "z": 1.93, "S": 0.0, "moved": 15.5, "ep": 17923997392, "iv_rise": -0.19, "iv_rise_interp": -0.18}
+{"t": 1792399833.5, "time": "14:20:33", "cls": "basket too thin", "reason": "synchrony 0.00 < 0.5", "z": 2.26, "S": 0.0, "moved": 15.9, "ep": 17923997392, "iv_rise": -0.17, "iv_rise_interp": -0.18}
+{"t": 1792399834.2499998, "time": "14:20:34", "cls": "impulse faded", "reason": "impulse z 1.9 < 2.0", "z": 1.9, "S": 0.0, "moved": 15.0, "ep": 17923997392, "iv_rise": -0.18, "iv_rise_interp": -0.17}
+{"t": 1792399924.7500002, "time": "14:22:04", "cls": "basket too thin", "reason": "synchrony 0.00 < 0.5", "z": 2.09, "S": 0.0, "moved": 12.0, "ep": 17923997392, "iv_rise": -0.34, "iv_rise_interp": -0.32}
+{"t": 1792399930.2499998, "time": "14:22:10", "cls": "impulse faded", "reason": "impulse z 1.9 < 2.0", "z": 1.95, "S": 0.0, "moved": 14.5, "ep": 17923997392, "iv_rise": -0.31, "iv_rise_interp": -0.3}
+{"t": 1792399933.7500002, "time": "14:22:13", "cls": "basket too thin", "reason": "synchrony 0.00 < 0.5", "z": 2.01, "S": 0.0, "moved": 15.8, "ep": 17923997392, "iv_rise": -0.33, "iv_rise_interp": -0.31}
+{"t": 1792399935.2499998, "time": "14:22:15", "cls": "impulse faded", "reason": "impulse z 1.7 < 2.0", "z": 1.75, "S": 0.0, "moved": 16.7, "ep": 17923997392, "iv_rise": -0.31, "iv_rise_interp": -0.3}
+{"t": 1792399939.2499998, "time": "14:22:19", "cls": "basket too thin", "reason": "synchrony 0.00 < 0.5", "z": 2.01, "S": 0.0, "moved": 20.0, "ep": 17923997392, "iv_rise": -0.31, "iv_rise_interp": -0.3}
+{"t": 1792399941.5, "time": "14:22:21", "cls": "impulse faded", "reason": "impulse z 1.8 < 2.0", "z": 1.79, "S": 0.0, "moved": 20.7, "ep": 17923997392, "iv_rise": -0.36, "iv_rise_interp": -0.34}
+{"t": 1792400095.7500002, "time": "14:24:55", "cls": "episode ended", "reason": "no episode", "z": 2.1, "S": 0.0, "moved": null, "ep": null, "iv_rise": null, "iv_rise_interp": null}
+{"t": 1792400096.5, "time": "14:24:56", "cls": "basket too thin", "reason": "synchrony 0.00 < 0.5", "z": 2.34, "S": 0.0, "moved": 0.0, "ep": 17924000965, "iv_rise": 0.0, "iv_rise_interp": 0.0}
+{"t": 1792400109.0, "time": "14:25:09", "cls": "impulse faded", "reason": "impulse z 1.7 < 2.0", "z": 1.71, "S": 0.0, "moved": 2.7, "ep": 17924000965, "iv_rise": -0.05, "iv_rise_interp": -0.03}
+{"t": 1792400127.5, "time": "14:25:27", "cls": "episode ended", "reason": "no episode", "z": 2.24, "S": 0.0, "moved": null, "ep": null, "iv_rise": null, "iv_rise_interp": null}
+{"t": 1792400128.0, "time": "14:25:28", "cls": "basket too thin", "reason": "synchrony 0.00 < 0.5", "z": 2.35, "S": 0.0, "moved": 0.0, "ep": 17924001280, "iv_rise": 0.0, "iv_rise_interp": 0.0}
+{"t": 1792400144.5, "time": "14:25:44", "cls": "impulse faded", "reason": "impulse z 1.7 < 2.0", "z": 1.66, "S": 0.0, "moved": 8.9, "ep": 17924001280, "iv_rise": 1.21, "iv_rise_interp": 1.21}
+{"t": 1792400195.2499998, "time": "14:26:35", "cls": "basket too thin", "reason": "synchrony 0.05 < 0.5", "z": 2.23, "S": 0.055, "moved": 22.1, "ep": 17924001280, "iv_rise": 2.58, "iv_rise_interp": 2.59}
+{"t": 1792400196.7500002, "time": "14:26:36", "cls": "impulse faded", "reason": "impulse z 1.9 < 2.0", "z": 1.89, "S": 0.055, "moved": 22.2, "ep": 17924001280, "iv_rise": 2.56, "iv_rise_interp": 2.57}
+{"t": 1792400277.7500002, "time": "14:27:57", "cls": "basket too thin", "reason": "synchrony 0.00 < 0.5", "z": 2.48, "S": 0.0, "moved": 29.1, "ep": 17924001280, "iv_rise": 1.37, "iv_rise_interp": 1.38}
+{"t": 1792400288.7500002, "time": "14:28:08", "cls": "impulse faded", "reason": "impulse z 1.5 < 2.0", "z": 1.54, "S": 0.0, "moved": 31.4, "ep": 17924001280, "iv_rise": 1.26, "iv_rise_interp": 1.27}
+{"t": 1792400377.0, "time": "14:29:37", "cls": "basket too thin", "reason": "synchrony 0.07 < 0.5", "z": 2.25, "S": 0.068, "moved": 35.8, "ep": 17924001280, "iv_rise": 0.36, "iv_rise_interp": 0.38}
+{"t": 1792400378.2499998, "time": "14:29:38", "cls": "impulse faded", "reason": "impulse z 1.8 < 2.0", "z": 1.8, "S": 0.068, "moved": 34.9, "ep": 17924001280, "iv_rise": 0.36, "iv_rise_interp": 0.39}
+{"t": 1792400379.2499998, "time": "14:29:39", "cls": "basket too thin", "reason": "synchrony 0.07 < 0.5", "z": 2.2, "S": 0.068, "moved": 36.4, "ep": 17924001280, "iv_rise": 0.37, "iv_rise_interp": 0.38}
+{"t": 1792400380.7500002, "time": "14:29:40", "cls": "impulse faded", "reason": "impulse z 1.7 < 2.0", "z": 1.68, "S": 0.0, "moved": 35.5, "ep": 17924001280, "iv_rise": 0.35, "iv_rise_interp": 0.36}
+{"t": 1792400452.0, "time": "14:30:52", "cls": "episode ended", "reason": "no episode", "z": 2.37, "S": 0.0, "moved": null, "ep": null, "iv_rise": null, "iv_rise_interp": null}
+{"t": 1792400452.2499998, "time": "14:30:52", "cls": "basket too thin", "reason": "synchrony 0.00 < 0.5", "z": 2.43, "S": 0.0, "moved": 0.0, "ep": 17924004522, "iv_rise": 0.0, "iv_rise_interp": 0.0}
+{"t": 1792400464.0, "time": "14:31:04", "cls": "impulse faded", "reason": "impulse z 1.9 < 2.0", "z": 1.86, "S": 0.0, "moved": 3.2, "ep": 17924004522, "iv_rise": -0.07, "iv_rise_interp": -0.08}
+{"t": 1792400497.0, "time": "14:31:37", "cls": "episode ended", "reason": "no episode", "z": 2.01, "S": 0.0, "moved": null, "ep": null, "iv_rise": null, "iv_rise_interp": null}
+{"t": 1792400498.5, "time": "14:31:38", "cls": "impulse faded", "reason": "impulse z 1.4 < 2.0", "z": 1.43, "S": 0.0, "moved": 0.0, "ep": 17924004985, "iv_rise": 0.0, "iv_rise_interp": 0.0}
+{"t": 1792400568.7500002, "time": "14:32:48", "cls": "episode ended", "reason": "no episode", "z": 2.95, "S": 0.0, "moved": null, "ep": null, "iv_rise": null, "iv_rise_interp": null}
+{"t": 1792400570.7500002, "time": "14:32:50", "cls": "basket too thin", "reason": "synchrony 0.00 < 0.5", "z": 3.09, "S": 0.0, "moved": 0.0, "ep": 17924005707, "iv_rise": 0.0, "iv_rise_interp": 0.0}
+{"t": 1792400582.7500002, "time": "14:33:02", "cls": "impulse faded", "reason": "impulse z 1.0 < 2.0", "z": 0.98, "S": 0.0, "moved": 3.5, "ep": 17924005707, "iv_rise": -0.02, "iv_rise_interp": -0.04}
+{"t": 1792400621.2499998, "time": "14:33:41", "cls": "basket too thin", "reason": "synchrony 0.00 < 0.5", "z": 2.22, "S": 0.0, "moved": 13.4, "ep": 17924005707, "iv_rise": -0.12, "iv_rise_interp": -0.14}
+{"t": 1792400626.0, "time": "14:33:46", "cls": "impulse faded", "reason": "impulse z 1.9 < 2.0", "z": 1.92, "S": 0.0, "moved": 12.8, "ep": 17924005707, "iv_rise": -0.19, "iv_rise_interp": -0.21}
+{"t": 1792400724.7500002, "time": "14:35:24", "cls": "basket too thin", "reason": "synchrony 0.00 < 0.5", "z": 2.64, "S": 0.0, "moved": 27.4, "ep": 17924005707, "iv_rise": -0.4, "iv_rise_interp": -0.4}
+{"t": 1792400732.2499998, "time": "14:35:32", "cls": "impulse faded", "reason": "impulse z 1.8 < 2.0", "z": 1.79, "S": 0.0, "moved": 25.3, "ep": 17924005707, "iv_rise": -0.44, "iv_rise_interp": -0.44}
+{"t": 1792400741.0, "time": "14:35:41", "cls": "episode ended", "reason": "no episode", "z": 2.01, "S": 0.0, "moved": null, "ep": null, "iv_rise": null, "iv_rise_interp": null}
+{"t": 1792400742.0, "time": "14:35:42", "cls": "basket too thin", "reason": "synchrony 0.05 < 0.5", "z": 2.14, "S": 0.055, "moved": 0.0, "ep": 17924007420, "iv_rise": 0.0, "iv_rise_interp": 0.0}
+{"t": 1792400746.0, "time": "14:35:46", "cls": "impulse faded", "reason": "impulse z 2.0 < 2.0", "z": 1.98, "S": 0.055, "moved": 0.2, "ep": 17924007420, "iv_rise": 0.02, "iv_rise_interp": 0.0}
+{"t": 1792400813.2499998, "time": "14:36:53", "cls": "episode ended", "reason": "no episode", "z": 2.04, "S": 0.0, "moved": null, "ep": null, "iv_rise": null, "iv_rise_interp": null}
+{"t": 1792400814.0, "time": "14:36:54", "cls": "basket too thin", "reason": "synchrony 0.00 < 0.5", "z": 2.01, "S": 0.0, "moved": 0.0, "ep": 17924008140, "iv_rise": 0.0, "iv_rise_interp": 0.0}
+{"t": 1792400821.2499998, "time": "14:37:01", "cls": "impulse faded", "reason": "impulse z 1.5 < 2.0", "z": 1.51, "S": 0.0, "moved": 1.5, "ep": 17924008140, "iv_rise": -0.01, "iv_rise_interp": -0.0}
+{"t": 1792400855.7500002, "time": "14:37:35", "cls": "episode ended", "reason": "no episode", "z": 2.37, "S": 0.372, "moved": null, "ep": null, "iv_rise": null, "iv_rise_interp": null}
+{"t": 1792400856.7500002, "time": "14:37:36", "cls": "basket too thin", "reason": "synchrony 0.37 < 0.5", "z": 2.59, "S": 0.372, "moved": 0.0, "ep": 17924008567, "iv_rise": 0.0, "iv_rise_interp": 0.0}
+{"t": 1792400867.5, "time": "14:37:47", "cls": "impulse faded", "reason": "impulse z 2.0 < 2.0", "z": 1.99, "S": 0.202, "moved": 3.4, "ep": 17924008567, "iv_rise": 0.19, "iv_rise_interp": 0.21}
+{"t": 1792401183.0, "time": "14:43:03", "cls": "basket too thin", "reason": "synchrony 0.00 < 0.5", "z": 2.03, "S": 0.0, "moved": 1.8, "ep": 17924008567, "iv_rise": -0.08, "iv_rise_interp": -0.06}
+{"t": 1792401186.7500002, "time": "14:43:06", "cls": "impulse faded", "reason": "impulse z 1.9 < 2.0", "z": 1.88, "S": 0.0, "moved": 0.7, "ep": 17924008567, "iv_rise": -0.08, "iv_rise_interp": -0.09}
+{"t": 1792401189.0, "time": "14:43:09", "cls": "basket too thin", "reason": "synchrony 0.00 < 0.5", "z": 2.63, "S": 0.0, "moved": 1.9, "ep": 17924008567, "iv_rise": -0.07, "iv_rise_interp": -0.03}
+{"t": 1792401206.7500002, "time": "14:43:26", "cls": "impulse faded", "reason": "impulse z 1.7 < 2.0", "z": 1.72, "S": 0.0, "moved": 11.8, "ep": 17924008567, "iv_rise": -0.17, "iv_rise_interp": -0.17}
+{"t": 1792401237.2499998, "time": "14:43:57", "cls": "basket too thin", "reason": "synchrony 0.00 < 0.5", "z": 2.05, "S": 0.0, "moved": 19.0, "ep": 17924008567, "iv_rise": -0.22, "iv_rise_interp": -0.23}
+{"t": 1792401246.2499998, "time": "14:44:06", "cls": "impulse faded", "reason": "impulse z 1.6 < 2.0", "z": 1.59, "S": 0.0, "moved": 17.8, "ep": 17924008567, "iv_rise": -0.29, "iv_rise_interp": -0.28}
+{"t": 1792401267.5, "time": "14:44:27", "cls": "basket too thin", "reason": "synchrony 0.00 < 0.5", "z": 2.19, "S": 0.0, "moved": 21.7, "ep": 17924008567, "iv_rise": -0.33, "iv_rise_interp": -0.32}
+{"t": 1792401279.2499998, "time": "14:44:39", "cls": "impulse faded", "reason": "impulse z 1.8 < 2.0", "z": 1.83, "S": 0.0, "moved": 25.3, "ep": 17924008567, "iv_rise": -0.35, "iv_rise_interp": -0.35}
+{"t": 1792401352.5, "time": "14:45:52", "cls": "basket too thin", "reason": "synchrony 0.00 < 0.5", "z": 2.07, "S": 0.0, "moved": 37.1, "ep": 17924008567, "iv_rise": -0.51, "iv_rise_interp": -0.51}
+{"t": 1792401354.5, "time": "14:45:54", "cls": "impulse faded", "reason": "impulse z 1.9 < 2.0", "z": 1.89, "S": 0.0, "moved": 37.4, "ep": 17924008567, "iv_rise": -0.5, "iv_rise_interp": -0.49}
+{"t": 1792401435.2499998, "time": "14:47:15", "cls": "basket too thin", "reason": "synchrony 0.00 < 0.5", "z": 2.37, "S": 0.0, "moved": 28.9, "ep": 17924008567, "iv_rise": -0.65, "iv_rise_interp": -0.63}
+{"t": 1792401439.0, "time": "14:47:19", "cls": "impulse faded", "reason": "impulse z 2.0 < 2.0", "z": 1.96, "S": 0.0, "moved": 28.4, "ep": 17924008567, "iv_rise": -0.6, "iv_rise_interp": -0.61}
+{"t": 1792401439.5, "time": "14:47:19", "cls": "basket too thin", "reason": "synchrony 0.00 < 0.5", "z": 2.44, "S": 0.0, "moved": 29.3, "ep": 17924008567, "iv_rise": -0.62, "iv_rise_interp": -0.61}
+{"t": 1792401444.7500002, "time": "14:47:24", "cls": "impulse faded", "reason": "impulse z 1.6 < 2.0", "z": 1.6, "S": 0.0, "moved": 28.4, "ep": 17924008567, "iv_rise": -0.64, "iv_rise_interp": -0.66}
+{"t": 1792401525.7500002, "time": "14:48:45", "cls": "basket too thin", "reason": "synchrony 0.00 < 0.5", "z": 2.01, "S": 0.0, "moved": 25.9, "ep": 17924008567, "iv_rise": -0.7, "iv_rise_interp": -0.71}
+{"t": 1792401526.5, "time": "14:48:46", "cls": "impulse faded", "reason": "impulse z 1.9 < 2.0", "z": 1.85, "S": 0.0, "moved": 26.1, "ep": 17924008567, "iv_rise": -0.73, "iv_rise_interp": -0.71}
+{"t": 1792401528.0, "time": "14:48:48", "cls": "basket too thin", "reason": "synchrony 0.00 < 0.5", "z": 2.01, "S": 0.0, "moved": 27.5, "ep": 17924008567, "iv_rise": -0.73, "iv_rise_interp": -0.71}
+{"t": 1792401528.7500002, "time": "14:48:48", "cls": "impulse faded", "reason": "impulse z 2.0 < 2.0", "z": 1.97, "S": 0.0, "moved": 27.8, "ep": 17924008567, "iv_rise": -0.72, "iv_rise_interp": -0.71}
+{"t": 1792401530.2499998, "time": "14:48:50", "cls": "basket too thin", "reason": "synchrony 0.00 < 0.5", "z": 2.1, "S": 0.0, "moved": 29.6, "ep": 17924008567, "iv_rise": -0.73, "iv_rise_interp": -0.72}
+{"t": 1792401531.2499998, "time": "14:48:51", "cls": "impulse faded", "reason": "impulse z 1.7 < 2.0", "z": 1.73, "S": 0.0, "moved": 29.4, "ep": 17924008567, "iv_rise": -0.74, "iv_rise_interp": -0.72}
+{"t": 1792401538.0, "time": "14:48:58", "cls": "basket too thin", "reason": "synchrony 0.00 < 0.5", "z": 2.08, "S": 0.0, "moved": 33.0, "ep": 17924008567, "iv_rise": -0.72, "iv_rise_interp": -0.71}
+{"t": 1792401539.5, "time": "14:48:59", "cls": "impulse faded", "reason": "impulse z 1.8 < 2.0", "z": 1.84, "S": 0.0, "moved": 32.0, "ep": 17924008567, "iv_rise": -0.75, "iv_rise_interp": -0.75}
+{"t": 1792401579.5, "time": "14:49:39", "cls": "episode ended", "reason": "no episode", "z": 2.51, "S": 0.0, "moved": null, "ep": null, "iv_rise": null, "iv_rise_interp": null}
+{"t": 1792401580.5, "time": "14:49:40", "cls": "basket too thin", "reason": "synchrony 0.00 < 0.5", "z": 2.46, "S": 0.0, "moved": 0.0, "ep": 17924015805, "iv_rise": 0.0, "iv_rise_interp": 0.0}
+{"t": 1792401596.7500002, "time": "14:49:56", "cls": "impulse faded", "reason": "impulse z 1.4 < 2.0", "z": 1.4, "S": 0.0, "moved": 10.7, "ep": 17924015805, "iv_rise": -0.02, "iv_rise_interp": -0.02}
+{"t": 1792401683.2499998, "time": "14:51:23", "cls": "episode ended", "reason": "no episode", "z": 2.22, "S": 0.0, "moved": null, "ep": null, "iv_rise": null, "iv_rise_interp": null}
+{"t": 1792401684.2499998, "time": "14:51:24", "cls": "basket too thin", "reason": "synchrony 0.00 < 0.5", "z": 2.11, "S": 0.0, "moved": 0.0, "ep": 17924016842, "iv_rise": 0.0, "iv_rise_interp": 0.0}
+{"t": 1792401687.7500002, "time": "14:51:27", "cls": "impulse faded", "reason": "impulse z 1.3 < 2.0", "z": 1.27, "S": 0.0, "moved": 0.9, "ep": 17924016842, "iv_rise": 0.02, "iv_rise_interp": 0.02}
+{"t": 1792401696.0, "time": "14:51:36", "cls": "episode ended", "reason": "no episode", "z": 2.17, "S": 0.0, "moved": null, "ep": null, "iv_rise": null, "iv_rise_interp": null}
+{"t": 1792401697.2499998, "time": "14:51:37", "cls": "basket too thin", "reason": "synchrony 0.00 < 0.5", "z": 2.79, "S": 0.0, "moved": 0.0, "ep": 17924016972, "iv_rise": 0.0, "iv_rise_interp": 0.0}
+{"t": 1792401712.2499998, "time": "14:51:52", "cls": "impulse faded", "reason": "impulse z 1.8 < 2.0", "z": 1.75, "S": 0.0, "moved": 6.7, "ep": 17924016972, "iv_rise": 0.03, "iv_rise_interp": 0.01}
+{"t": 1792401723.2499998, "time": "14:52:03", "cls": "episode ended", "reason": "no episode", "z": 2.06, "S": 0.0, "moved": null, "ep": null, "iv_rise": null, "iv_rise_interp": null}
+{"t": 1792401724.0, "time": "14:52:04", "cls": "impulse faded", "reason": "impulse z 1.7 < 2.0", "z": 1.71, "S": 0.0, "moved": 0.0, "ep": 17924017240, "iv_rise": 0.0, "iv_rise_interp": 0.0}
+{"t": 1792401742.7500002, "time": "14:52:22", "cls": "episode ended", "reason": "no episode", "z": 2.46, "S": 0.0, "moved": null, "ep": null, "iv_rise": null, "iv_rise_interp": null}
+{"t": 1792401744.5, "time": "14:52:24", "cls": "basket too thin", "reason": "synchrony 0.00 < 0.5", "z": 2.61, "S": 0.0, "moved": 0.0, "ep": 17924017445, "iv_rise": 0.0, "iv_rise_interp": 0.0}
+{"t": 1792401753.2499998, "time": "14:52:33", "cls": "impulse faded", "reason": "impulse z 1.6 < 2.0", "z": 1.6, "S": 0.0, "moved": 0.5, "ep": 17924017445, "iv_rise": -0.01, "iv_rise_interp": -0.01}
+{"t": 1792401765.5, "time": "14:52:45", "cls": "episode ended", "reason": "no episode", "z": 2.15, "S": 0.0, "moved": null, "ep": null, "iv_rise": null, "iv_rise_interp": null}
+{"t": 1792401766.2499998, "time": "14:52:46", "cls": "basket too thin", "reason": "synchrony 0.00 < 0.5", "z": 2.52, "S": 0.0, "moved": 0.0, "ep": 17924017662, "iv_rise": 0.0, "iv_rise_interp": 0.0}
+{"t": 1792401768.7500002, "time": "14:52:48", "cls": "impulse faded", "reason": "impulse z 1.9 < 2.0", "z": 1.87, "S": 0.0, "moved": 0.4, "ep": 17924017662, "iv_rise": -0.02, "iv_rise_interp": 0.0}
+{"t": 1792401866.5, "time": "14:54:26", "cls": "episode ended", "reason": "no episode", "z": 2.14, "S": 0.147, "moved": null, "ep": null, "iv_rise": null, "iv_rise_interp": null}
+{"t": 1792401869.5, "time": "14:54:29", "cls": "basket too thin", "reason": "synchrony 0.15 < 0.5", "z": 2.04, "S": 0.147, "moved": 0.0, "ep": 17924018695, "iv_rise": 0.0, "iv_rise_interp": 0.0}
+{"t": 1792401873.0, "time": "14:54:33", "cls": "impulse faded", "reason": "impulse z 1.3 < 2.0", "z": 1.31, "S": 0.147, "moved": 1.9, "ep": 17924018695, "iv_rise": 0.16, "iv_rise_interp": 0.15}
+{"t": 1792401877.5, "time": "14:54:37", "cls": "basket too thin", "reason": "synchrony 0.18 < 0.5", "z": 2.14, "S": 0.183, "moved": 6.1, "ep": 17924018695, "iv_rise": 0.31, "iv_rise_interp": 0.32}
+{"t": 1792401907.0, "time": "14:55:07", "cls": "impulse faded", "reason": "impulse z 1.8 < 2.0", "z": 1.76, "S": 0.083, "moved": 23.8, "ep": 17924018695, "iv_rise": 1.25, "iv_rise_interp": 1.27}
+{"t": 1792401949.0, "time": "14:55:49", "cls": "basket too thin", "reason": "synchrony 0.15 < 0.5", "z": 2.15, "S": 0.147, "moved": 38.5, "ep": 17924018695, "iv_rise": 1.88, "iv_rise_interp": 1.93}
+{"t": 1792401951.7500002, "time": "14:55:51", "cls": "impulse faded", "reason": "impulse z 1.6 < 2.0", "z": 1.6, "S": 0.0, "moved": 37.4, "ep": 17924018695, "iv_rise": 1.97, "iv_rise_interp": 1.97}
+{"t": 1792401980.0, "time": "14:56:20", "cls": "basket too thin", "reason": "synchrony 0.23 < 0.5", "z": 2.06, "S": 0.231, "moved": 45.4, "ep": 17924018695, "iv_rise": 2.14, "iv_rise_interp": 2.15}
+{"t": 1792401981.5, "time": "14:56:21", "cls": "impulse faded", "reason": "impulse z 1.8 < 2.0", "z": 1.8, "S": 0.231, "moved": 45.4, "ep": 17924018695, "iv_rise": 2.1, "iv_rise_interp": 2.12}
+{"t": 1792402029.5, "time": "14:57:09", "cls": "episode ended", "reason": "no episode", "z": 2.12, "S": 0.0, "moved": null, "ep": null, "iv_rise": null, "iv_rise_interp": null}
+{"t": 1792402031.7500002, "time": "14:57:11", "cls": "basket too thin", "reason": "synchrony 0.00 < 0.5", "z": 2.58, "S": 0.0, "moved": 0.0, "ep": 17924020317, "iv_rise": 0.0, "iv_rise_interp": 0.0}
+{"t": 1792402042.7500002, "time": "14:57:22", "cls": "impulse faded", "reason": "impulse z 1.6 < 2.0", "z": 1.65, "S": 0.0, "moved": 1.8, "ep": 17924020317, "iv_rise": -0.21, "iv_rise_interp": -0.21}
+{"t": 1792402079.7500002, "time": "14:57:59", "cls": "episode ended", "reason": "no episode", "z": 2.0, "S": 0.0, "moved": null, "ep": null, "iv_rise": null, "iv_rise_interp": null}
+{"t": 1792402080.0, "time": "14:58:00", "cls": "basket too thin", "reason": "synchrony 0.00 < 0.5", "z": 2.12, "S": 0.0, "moved": 0.0, "ep": 17924020800, "iv_rise": 0.0, "iv_rise_interp": 0.0}
+{"t": 1792402080.2499998, "time": "14:58:00", "cls": "impulse faded", "reason": "impulse z 2.0 < 2.0", "z": 1.98, "S": 0.083, "moved": 0.5, "ep": 17924020800, "iv_rise": 0.03, "iv_rise_interp": -0.01}
+{"t": 1792402081.7500002, "time": "14:58:01", "cls": "basket too thin", "reason": "synchrony 0.08 < 0.5", "z": 2.08, "S": 0.083, "moved": 0.6, "ep": 17924020800, "iv_rise": -0.0, "iv_rise_interp": -0.01}
+{"t": 1792402082.2499998, "time": "14:58:02", "cls": "impulse faded", "reason": "impulse z 2.0 < 2.0", "z": 1.98, "S": 0.0, "moved": 0.1, "ep": 17924020800, "iv_rise": 0.04, "iv_rise_interp": -0.03}
+{"t": 1792402101.5, "time": "14:58:21", "cls": "basket too thin", "reason": "synchrony 0.00 < 0.5", "z": 2.03, "S": 0.0, "moved": 6.1, "ep": 17924020800, "iv_rise": -0.22, "iv_rise_interp": -0.25}
+{"t": 1792402120.5, "time": "14:58:40", "cls": "impulse faded", "reason": "impulse z 1.9 < 2.0", "z": 1.85, "S": 0.0, "moved": 20.0, "ep": 17924020800, "iv_rise": -0.4, "iv_rise_interp": -0.43}
+{"t": 1792402121.5, "time": "14:58:41", "cls": "basket too thin", "reason": "synchrony 0.00 < 0.5", "z": 2.26, "S": 0.0, "moved": 21.6, "ep": 17924020800, "iv_rise": -0.47, "iv_rise_interp": -0.51}
+{"t": 1792402124.0, "time": "14:58:44", "cls": "impulse faded", "reason": "impulse z 1.9 < 2.0", "z": 1.9, "S": 0.0, "moved": 21.6, "ep": 17924020800, "iv_rise": -0.49, "iv_rise_interp": -0.52}
+{"t": 1792402124.7500002, "time": "14:58:44", "cls": "basket too thin", "reason": "synchrony 0.00 < 0.5", "z": 2.34, "S": 0.0, "moved": 23.3, "ep": 17924020800, "iv_rise": -0.49, "iv_rise_interp": -0.52}
+{"t": 1792402137.7500002, "time": "14:58:57", "cls": "impulse faded", "reason": "impulse z 1.4 < 2.0", "z": 1.44, "S": 0.0, "moved": 27.3, "ep": 17924020800, "iv_rise": -0.6, "iv_rise_interp": -0.63}
+{"t": 1792402224.7500002, "time": "15:00:24", "cls": "episode ended", "reason": "no episode", "z": 2.11, "S": 0.0, "moved": null, "ep": null, "iv_rise": null, "iv_rise_interp": null}
+{"t": 1792402225.7500002, "time": "15:00:25", "cls": "basket too thin", "reason": "synchrony 0.00 < 0.5", "z": 2.34, "S": 0.0, "moved": 0.0, "ep": 17924022257, "iv_rise": 0.0, "iv_rise_interp": 0.0}
+{"t": 1792402233.2499998, "time": "15:00:33", "cls": "impulse faded", "reason": "impulse z 1.9 < 2.0", "z": 1.88, "S": 0.0, "moved": 1.6, "ep": 17924022257, "iv_rise": 0.01, "iv_rise_interp": -0.01}
+{"t": 1792402280.0, "time": "15:01:20", "cls": "episode ended", "reason": "no episode", "z": 2.06, "S": 0.0, "moved": null, "ep": null, "iv_rise": null, "iv_rise_interp": null}
+{"t": 1792402280.7500002, "time": "15:01:20", "cls": "impulse faded", "reason": "impulse z 1.9 < 2.0", "z": 1.95, "S": 0.0, "moved": 0.0, "ep": 17924022807, "iv_rise": 0.0, "iv_rise_interp": 0.0}
+{"t": 1792402281.5, "time": "15:01:21", "cls": "basket too thin", "reason": "synchrony 0.00 < 0.5", "z": 2.19, "S": 0.0, "moved": 0.1, "ep": 17924022807, "iv_rise": 0.07, "iv_rise_interp": 0.01}
+{"t": 1792402285.2499998, "time": "15:01:25", "cls": "impulse faded", "reason": "impulse z 1.9 < 2.0", "z": 1.89, "S": 0.0, "moved": 1.0, "ep": 17924022807, "iv_rise": -0.01, "iv_rise_interp": -0.06}
+{"t": 1792402286.0, "time": "15:01:26", "cls": "basket too thin", "reason": "synchrony 0.00 < 0.5", "z": 2.04, "S": 0.0, "moved": 1.9, "ep": 17924022807, "iv_rise": 0.06, "iv_rise_interp": -0.01}
+{"t": 1792402286.7500002, "time": "15:01:26", "cls": "impulse faded", "reason": "impulse z 2.0 < 2.0", "z": 1.98, "S": 0.0, "moved": 2.9, "ep": 17924022807, "iv_rise": 0.0, "iv_rise_interp": -0.04}
+{"t": 1792402305.5, "time": "15:01:45", "cls": "basket too thin", "reason": "synchrony 0.00 < 0.5", "z": 2.12, "S": 0.0, "moved": 12.0, "ep": 17924022807, "iv_rise": -0.05, "iv_rise_interp": -0.09}
+{"t": 1792402307.0, "time": "15:01:47", "cls": "impulse faded", "reason": "impulse z 1.8 < 2.0", "z": 1.78, "S": 0.0, "moved": 11.6, "ep": 17924022807, "iv_rise": -0.13, "iv_rise_interp": -0.16}
+{"t": 1792402307.7500002, "time": "15:01:47", "cls": "basket too thin", "reason": "synchrony 0.00 < 0.5", "z": 2.09, "S": 0.0, "moved": 12.8, "ep": 17924022807, "iv_rise": -0.12, "iv_rise_interp": -0.14}
+{"t": 1792402310.7500002, "time": "15:01:50", "cls": "impulse faded", "reason": "impulse z 1.8 < 2.0", "z": 1.76, "S": 0.0, "moved": 13.0, "ep": 17924022807, "iv_rise": -0.14, "iv_rise_interp": -0.19}
+{"t": 1792402499.0, "time": "15:04:59", "cls": "episode ended", "reason": "no episode", "z": 2.01, "S": 0.11, "moved": null, "ep": null, "iv_rise": null, "iv_rise_interp": null}
+{"t": 1792402499.7500002, "time": "15:04:59", "cls": "impulse faded", "reason": "impulse z 1.9 < 2.0", "z": 1.93, "S": 0.041, "moved": 0.0, "ep": 17924024997, "iv_rise": 0.0, "iv_rise_interp": 0.0}
+{"t": 1792402513.7500002, "time": "15:05:13", "cls": "episode ended", "reason": "no episode", "z": 2.09, "S": 0.0, "moved": null, "ep": null, "iv_rise": null, "iv_rise_interp": null}
+{"t": 1792402514.5, "time": "15:05:14", "cls": "basket too thin", "reason": "synchrony 0.00 < 0.5", "z": 2.13, "S": 0.0, "moved": 0.0, "ep": 17924025145, "iv_rise": 0.0, "iv_rise_interp": 0.0}
+{"t": 1792402526.0, "time": "15:05:26", "cls": "impulse faded", "reason": "impulse z 1.8 < 2.0", "z": 1.84, "S": 0.0, "moved": 5.8, "ep": 17924025145, "iv_rise": -0.02, "iv_rise_interp": -0.03}
+{"t": 1792402610.2499998, "time": "15:06:50", "cls": "basket too thin", "reason": "synchrony 0.12 < 0.5", "z": 2.06, "S": 0.124, "moved": 32.6, "ep": 17924025145, "iv_rise": 1.8, "iv_rise_interp": 1.79}
+{"t": 1792402631.2499998, "time": "15:07:11", "cls": "impulse faded", "reason": "impulse z 1.9 < 2.0", "z": 1.9, "S": 0.068, "moved": 45.1, "ep": 17924025145, "iv_rise": 1.84, "iv_rise_interp": 1.84}
+{"t": 1792402751.5, "time": "15:09:11", "cls": "episode ended", "reason": "no episode", "z": 2.1, "S": 0.0, "moved": null, "ep": null, "iv_rise": null, "iv_rise_interp": null}
+{"t": 1792402752.2499998, "time": "15:09:12", "cls": "basket too thin", "reason": "synchrony 0.00 < 0.5", "z": 2.17, "S": 0.0, "moved": 0.0, "ep": 17924027522, "iv_rise": 0.0, "iv_rise_interp": 0.0}
+{"t": 1792402771.7500002, "time": "15:09:31", "cls": "impulse faded", "reason": "impulse z 1.2 < 2.0", "z": 1.19, "S": 0.0, "moved": 11.6, "ep": 17924027522, "iv_rise": -0.08, "iv_rise_interp": -0.12}
+{"t": 1792402828.7500002, "time": "15:10:28", "cls": "basket too thin", "reason": "synchrony 0.00 < 0.5", "z": 2.24, "S": 0.0, "moved": 9.1, "ep": 17924027522, "iv_rise": -0.46, "iv_rise_interp": -0.47}
+{"t": 1792402843.2499998, "time": "15:10:43", "cls": "impulse faded", "reason": "impulse z 1.5 < 2.0", "z": 1.48, "S": 0.0, "moved": 14.8, "ep": 17924027522, "iv_rise": -0.46, "iv_rise_interp": -0.5}
+{"t": 1792402925.2499998, "time": "15:12:05", "cls": "basket too thin", "reason": "synchrony 0.00 < 0.5", "z": 2.17, "S": 0.0, "moved": 21.0, "ep": 17924027522, "iv_rise": -0.93, "iv_rise_interp": -0.86}
+{"t": 1792402926.7500002, "time": "15:12:06", "cls": "impulse faded", "reason": "impulse z 1.9 < 2.0", "z": 1.9, "S": 0.0, "moved": 20.9, "ep": 17924027522, "iv_rise": -0.84, "iv_rise_interp": -0.83}
+{"t": 1792402967.2499998, "time": "15:12:47", "cls": "basket too thin", "reason": "synchrony 0.00 < 0.5", "z": 2.1, "S": 0.0, "moved": 22.0, "ep": 17924027522, "iv_rise": -1.01, "iv_rise_interp": -0.93}
+{"t": 1792402970.5, "time": "15:12:50", "cls": "impulse faded", "reason": "impulse z 1.9 < 2.0", "z": 1.94, "S": 0.068, "moved": 23.5, "ep": 17924027522, "iv_rise": -0.87, "iv_rise_interp": -0.82}
+{"t": 1792402972.5, "time": "15:12:52", "cls": "basket too thin", "reason": "synchrony 0.07 < 0.5", "z": 2.21, "S": 0.068, "moved": 24.2, "ep": 17924027522, "iv_rise": -0.93, "iv_rise_interp": -0.96}
+{"t": 1792402974.0, "time": "15:12:54", "cls": "impulse faded", "reason": "impulse z 1.9 < 2.0", "z": 1.87, "S": 0.068, "moved": 24.5, "ep": 17924027522, "iv_rise": -1.0, "iv_rise_interp": -0.99}
+{"t": 1792403026.7500002, "time": "15:13:46", "cls": "episode ended", "reason": "no episode", "z": 2.0, "S": 0.0, "moved": null, "ep": null, "iv_rise": null, "iv_rise_interp": null}
+{"t": 1792403027.7500002, "time": "15:13:47", "cls": "basket too thin", "reason": "synchrony 0.00 < 0.5", "z": 2.07, "S": 0.0, "moved": 0.0, "ep": 17924030277, "iv_rise": 0.0, "iv_rise_interp": 0.0}
+{"t": 1792403029.7500002, "time": "15:13:49", "cls": "impulse faded", "reason": "impulse z 1.8 < 2.0", "z": 1.81, "S": 0.0, "moved": 0.0, "ep": 17924030277, "iv_rise": 0.05, "iv_rise_interp": -0.06}
+{"t": 1792403030.2499998, "time": "15:13:50", "cls": "basket too thin", "reason": "synchrony 0.00 < 0.5", "z": 2.06, "S": 0.0, "moved": 1.0, "ep": 17924030277, "iv_rise": -0.49, "iv_rise_interp": -0.32}
+{"t": 1792403036.2499998, "time": "15:13:56", "cls": "impulse faded", "reason": "impulse z 1.7 < 2.0", "z": 1.68, "S": 0.0, "moved": 2.5, "ep": 17924030277, "iv_rise": 0.28, "iv_rise_interp": 0.23}
+{"t": 1792403050.0, "time": "15:14:10", "cls": "basket too thin", "reason": "synchrony 0.00 < 0.5", "z": 2.04, "S": 0.0, "moved": 10.8, "ep": 17924030277, "iv_rise": 0.09, "iv_rise_interp": -0.16}
+{"t": 1792403051.5, "time": "15:14:11", "cls": "impulse faded", "reason": "impulse z 1.8 < 2.0", "z": 1.83, "S": 0.0, "moved": 10.0, "ep": 17924030277, "iv_rise": -0.07, "iv_rise_interp": -0.13}
+{"t": 1792403100.5, "time": "15:15:00", "cls": "outside window", "reason": "outside entry window", "z": 0.01, "S": 0.0, "moved": 11.0, "ep": 17924030277, "iv_rise": -0.05, "iv_rise_interp": -0.26}

@@ -1,0 +1,4 @@
+[
+  {"day": "2026-10-19", "from": "09:15:00", "to": "15:40:00", "ref": "D-095",
+   "reason": "Call quotes frozen at Friday's close until the 10:57 restart (feed ordering guard), then three code changes mid-session (D-095/096, D-097..106). The whole session is kept on file but not counted as evidence."}
+]

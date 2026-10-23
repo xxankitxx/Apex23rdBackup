@@ -1,0 +1,42 @@
+{
+ "registered": "2026-10-17",
+ "champion": "m2.0_s0.5",
+ "champion_since": "2026-10-17",
+ "gates": [],
+ "retired": [],
+ "log": [],
+ "status": "COLLECTING",
+ "candidates": {},
+ "streak": {
+  "m1.5_s0.4": 0,
+  "m1.5_s0.5": 0,
+  "m1.5_s0.6": 0,
+  "m2.0_s0.4": 0,
+  "m2.0_s0.6": 0,
+  "m2.5_s0.4": 0,
+  "m2.5_s0.5": 0,
+  "m2.5_s0.6": 0,
+  "gap3_s0.4": 0,
+  "gap5_s0.4": 0,
+  "m2.0_s0.5_bookexit": 0,
+  "straddle_spike": 0,
+  "m2.0_s0.5_ivinterp": 0,
+  "m2.0_s0.5_novol": 0,
+  "m2.0_s0.5_trend": 0,
+  "spot_dc12_t12": 0,
+  "spot_dc12_t12_1130": 0,
+  "m2.0_s0.5_d20": 0,
+  "m2.0_s0.5_tvfast": 0,
+  "fade_switch": 0
+ },
+ "gate_streak": {},
+ "looked_day": "2026-10-19",
+ "scoreboard": {
+  "n": 0,
+  "sum": 0,
+  "go_line": 998.1,
+  "kill_line": -560.9,
+  "sd_obs": null
+ },
+ "learned_day": "2026-10-19"
+}

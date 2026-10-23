@@ -1,0 +1,35 @@
+{
+ "registered": "2026-10-17",
+ "champion": "m2.0_s0.5",
+ "champion_since": "2026-10-17",
+ "gates": [],
+ "retired": [],
+ "log": [],
+ "status": "COLLECTING",
+ "candidates": {},
+ "streak": {
+  "m1.5_s0.4": 0,
+  "m1.5_s0.5": 0,
+  "m1.5_s0.6": 0,
+  "m2.0_s0.4": 0,
+  "m2.0_s0.6": 0,
+  "m2.5_s0.4": 0,
+  "m2.5_s0.5": 0,
+  "m2.5_s0.6": 0,
+  "gap3_s0.4": 0,
+  "gap5_s0.4": 0,
+  "m2.0_s0.5_bookexit": 0,
+  "straddle_spike": 0,
+  "m2.0_s0.5_ivinterp": 0
+ },
+ "gate_streak": {},
+ "looked_day": "2026-10-19",
+ "scoreboard": {
+  "n": 2,
+  "sum": 145.96,
+  "go_line": 1000.6,
+  "kill_line": -558.4,
+  "sd_obs": 92.51
+ },
+ "learned_day": "2026-10-19"
+}

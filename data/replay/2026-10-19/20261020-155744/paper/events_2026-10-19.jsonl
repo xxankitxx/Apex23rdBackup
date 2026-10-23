@@ -1,0 +1,13 @@
+{"t": "07:45:34", "k": "SYSTEM", "x": "day 2026-10-19 \u00b7 champion m2.0_s0.5 \u00b7 gates none \u00b7 capital \u20b9100,000", "mkt_t": 1792376134.3}
+{"t": "09:15:00", "k": "DATA", "x": "no trade for 120 s on hero contract(s): 23150 PE, 23200 PE, 23250 CE, 23250 PE, 23300 PE", "mkt_t": 1792381500.1}
+{"t": "09:15:01", "k": "DATA", "x": "no trade for 120 s on hero contract(s): 23050 CE", "mkt_t": 1792381501.6}
+{"t": "09:25:10", "k": "SPIKE", "x": "straddle 23150 +12.5 over theta in 5 min \u2014 PE leg carries it (103.3, delta -0.506\u2192-0.635, gamma 0.00218)", "mkt_t": 1792382110.9}
+{"t": "09:25:44", "k": "SHIFT", "x": "ATM rolled 23150 \u2192 23050: straddle 151.9 \u2192 136.6 (spot settled at the new strike)", "mkt_t": 1792382144.0}
+{"t": "09:28:28", "k": "SHIFT", "x": "ATM rolled 23050 \u2192 22950: straddle 174.0 \u2192 164.1 (spot settled at the new strike)", "mkt_t": 1792382308.7}
+{"t": "09:33:10", "k": "SHIFT", "x": "ATM rolled 22950 \u2192 23050: straddle 192.5 \u2192 167.0 (spot settled at the new strike)", "mkt_t": 1792382590.4}
+{"t": "09:36:21", "k": "SHIFT", "x": "ATM rolled 23050 \u2192 23150: straddle 167.2 \u2192 153.3 (spot settled at the new strike)", "mkt_t": 1792382781.8}
+{"t": "09:44:07", "k": "ARMED", "x": "Triangle closing: push 90%, together 86%, 100% room left \u2014 CE side", "mkt_t": 1792383247.9}
+{"t": "09:44:16", "k": "RAW-ENTRY", "x": "BUY 11 lots NIFTY 23050 CE (2026-10-19) @ 137.40 \u00b7 basket-led move UP: futures z 2.4, synchrony 54%, first mover SBIN, 8 pts since onset", "mkt_t": 1792383256.1}
+{"t": "09:44:38", "k": "RAW-EXIT", "x": "CE 23050 11 lots \u00b7 137.40 \u2192 126.90 = -10.50 pts / \u20b9-7,508 \u00b7 STOP \u00b7 capital \u20b992,492", "mkt_t": 1792383278.7}
+{"t": "09:55:05", "k": "SPIKE", "x": "straddle 23150 +8.7 over theta in 5 min \u2014 PE leg carries it (98.8, delta -0.546\u2192-0.626, gamma 0.00223)", "mkt_t": 1792383905.9}
+{"t": "09:55:31", "k": "LEARN", "x": "2026-10-19: champion next session m2.0_s0.5, gates none, status COLLECTING", "mkt_t": 1792383931.8}

@@ -1,0 +1,435 @@
+{"t": "07:45:09", "k": "SYSTEM", "x": "day 2026-10-19 \u00b7 champion m2.0_s0.5 \u00b7 gates none \u00b7 capital \u20b9100,000", "mkt_t": 1792376109.27241}
+{"t": "07:45:29", "k": "GAP", "x": "data back after 20 s (feed not live); entries resume", "mkt_t": 1792376129.7537503}
+{"t": "09:23:23", "k": "SPIKE", "x": "straddle 23150 +16.4 over theta in 5 min \u2014 PE leg carries it (76.6, delta -0.496\u2192-0.536, gamma 0.00232)", "mkt_t": 1792382003.3187997}
+{"t": "09:24:56", "k": "SPIKE", "x": "straddle 23150 +31.3 over theta in 5 min \u2014 PE leg carries it (94.4, delta -0.504\u2192-0.562, gamma 0.00202)", "mkt_t": 1792382096.4413352}
+{"t": "09:26:23", "k": "SHIFT", "x": "ATM rolled 23150 \u2192 23050: straddle 217.4 \u2192 198.3 (spot settled at the new strike)", "mkt_t": 1792382183.6187153}
+{"t": "09:31:24", "k": "SPIKE", "x": "straddle 23050 +17.9 over theta in 5 min \u2014 PE leg carries it (106.3, delta -0.466\u2192-0.483, gamma 0.00143)", "mkt_t": 1792382484.6509738}
+{"t": "09:36:19", "k": "SHIFT", "x": "ATM rolled 23050 \u2192 23150: straddle 155.2 \u2192 147.8 (spot settled at the new strike)", "mkt_t": 1792382779.1771746}
+{"t": "09:37:09", "k": "ARMED", "x": "Triangle closing: push 130%, together 85%, 46% room left \u2014 CE side", "mkt_t": 1792382829.1948018}
+{"t": "09:42:10", "k": "SPIKE", "x": "straddle 23150 +16.0 over theta in 5 min \u2014 PE leg carries it (86.0, delta -0.52\u2192-0.555, gamma 0.00218)", "mkt_t": 1792383130.4645007}
+{"t": "09:44:07", "k": "ARMED", "x": "Triangle closing: push 110%, together 85%, 82% room left \u2014 CE side", "mkt_t": 1792383247.8486745}
+{"t": "09:44:11", "k": "ENTRY", "x": "BUY 13 lots NIFTY 23050 CE (2026-10-19) @ 112.20 \u00b7 co-first move UP: futures z 2.2, synchrony 58%, first mover LT, 10 pts since onset", "mkt_t": 1792383251.4950979}
+{"t": "09:44:11", "k": "RAW-ENTRY", "x": "BUY 13 lots NIFTY 23050 CE (2026-10-19) @ 112.20 \u00b7 co-first move UP: futures z 2.2, synchrony 58%, first mover LT, 10 pts since onset", "mkt_t": 1792383251.4950979}
+{"t": "09:44:34", "k": "EXIT", "x": "CE 23050 13 lots \u00b7 112.20 \u2192 112.20 = +0.00 pts / \u20b9+0 \u00b7 STOP \u00b7 capital \u20b9100,000", "mkt_t": 1792383274.965065}
+{"t": "09:44:34", "k": "RAW-EXIT", "x": "CE 23050 13 lots \u00b7 112.20 \u2192 112.20 = +0.00 pts / \u20b9+0 \u00b7 STOP \u00b7 capital \u20b9100,000", "mkt_t": 1792383274.965065}
+{"t": "09:49:23", "k": "SPIKE", "x": "straddle 23150 +16.6 over theta in 5 min \u2014 PE leg carries it (82.0, delta -0.509\u2192-0.545, gamma 0.00223)", "mkt_t": 1792383563.2954025}
+{"t": "09:49:33", "k": "GAP", "x": "data gap: feed stale: futures quote 3 s old \u2014 entries paused until 20 s of fresh data", "mkt_t": 1792383573.2890174}
+{"t": "09:50:04", "k": "GAP", "x": "data back after 31 s (feed stale: futures quote 3 s old); entries resume", "mkt_t": 1792383604.0493338}
+{"t": "09:52:09", "k": "SPIKE", "x": "straddle 23150 +17.1 over theta in 5 min \u2014 PE leg carries it (92.4, delta -0.543\u2192-0.562, gamma 0.00206)", "mkt_t": 1792383729.1328378}
+{"t": "09:53:49", "k": "GAP", "x": "data gap: feed stale: futures quote 3 s old \u2014 entries paused until 20 s of fresh data", "mkt_t": 1792383829.55866}
+{"t": "09:54:10", "k": "GAP", "x": "data back after 21 s (feed stale: futures quote 4 s old); entries resume", "mkt_t": 1792383850.3114526}
+{"t": "09:54:46", "k": "SPIKE", "x": "straddle 23150 +17.7 over theta in 5 min \u2014 PE leg carries it (90.4, delta -0.538\u2192-0.558, gamma 0.00209)", "mkt_t": 1792383886.664362}
+{"t": "09:56:49", "k": "SPIKE", "x": "straddle 23150 +34.5 over theta in 5 min \u2014 PE leg carries it (111.0, delta -0.546\u2192-0.58, gamma 0.0018)", "mkt_t": 1792384009.3966265}
+{"t": "09:59:21", "k": "SPIKE", "x": "straddle 23150 +78.0 over theta in 5 min \u2014 PE leg carries it (152.3, delta -0.544\u2192-0.599, gamma 0.00137)", "mkt_t": 1792384161.8222995}
+{"t": "10:04:06", "k": "GAP", "x": "data gap: feed stale: futures quote 3 s old \u2014 entries paused until 20 s of fresh data", "mkt_t": 1792384446.355238}
+{"t": "10:04:26", "k": "GAP", "x": "data back after 20 s (feed stale: futures quote 3 s old); entries resume", "mkt_t": 1792384466.5074124}
+{"t": "10:04:41", "k": "SHIFT", "x": "ATM rolled 23150 \u2192 23100: straddle 182.0 \u2192 173.9 (spot settled at the new strike)", "mkt_t": 1792384481.9319794}
+{"t": "10:11:45", "k": "GAP", "x": "data gap: feed stale: futures quote 3 s old \u2014 entries paused until 20 s of fresh data", "mkt_t": 1792384905.7154331}
+{"t": "10:12:07", "k": "GAP", "x": "data back after 22 s (feed stale: futures quote 5 s old); entries resume", "mkt_t": 1792384927.5587158}
+{"t": "10:12:18", "k": "GAP", "x": "data gap: feed stale: futures quote 3 s old \u2014 entries paused until 20 s of fresh data", "mkt_t": 1792384938.001811}
+{"t": "10:12:54", "k": "GAP", "x": "data back after 36 s (feed stale: futures quote 3 s old); entries resume", "mkt_t": 1792384974.0215356}
+{"t": "10:13:00", "k": "GAP", "x": "data gap: feed stale: futures quote 3 s old \u2014 entries paused until 20 s of fresh data", "mkt_t": 1792384980.61536}
+{"t": "10:13:43", "k": "GAP", "x": "data back after 43 s (feed stale: futures quote 6 s old); entries resume", "mkt_t": 1792385023.9627836}
+{"t": "10:15:28", "k": "GAP", "x": "data gap: feed stale: futures quote 3 s old \u2014 entries paused until 20 s of fresh data", "mkt_t": 1792385128.0427518}
+{"t": "10:15:50", "k": "GAP", "x": "data back after 22 s (feed stale: futures quote 5 s old); entries resume", "mkt_t": 1792385150.3083506}
+{"t": "10:15:59", "k": "GAP", "x": "data gap: feed stale: futures quote 3 s old \u2014 entries paused until 20 s of fresh data", "mkt_t": 1792385159.4070525}
+{"t": "10:16:20", "k": "GAP", "x": "data back after 21 s (feed stale: futures quote 3 s old); entries resume", "mkt_t": 1792385180.4285543}
+{"t": "10:17:10", "k": "SPIKE", "x": "straddle 23100 +17.8 over theta in 5 min \u2014 PE leg carries it (94.5, delta -0.491\u2192-0.51, gamma 0.00175)", "mkt_t": 1792385230.833035}
+{"t": "10:17:32", "k": "GAP", "x": "data gap: feed stale: futures quote 3 s old \u2014 entries paused until 20 s of fresh data", "mkt_t": 1792385252.6789503}
+{"t": "10:17:53", "k": "GAP", "x": "data back after 20 s (feed stale: futures quote 3 s old); entries resume", "mkt_t": 1792385273.1490417}
+{"t": "10:18:05", "k": "GAP", "x": "data gap: feed stale: futures quote 3 s old \u2014 entries paused until 20 s of fresh data", "mkt_t": 1792385285.0428152}
+{"t": "10:18:25", "k": "GAP", "x": "data back after 21 s (feed stale: futures quote 3 s old); entries resume", "mkt_t": 1792385305.6489124}
+{"t": "10:18:36", "k": "GAP", "x": "data gap: feed stale: futures quote 3 s old \u2014 entries paused until 20 s of fresh data", "mkt_t": 1792385316.2096772}
+{"t": "10:18:56", "k": "GAP", "x": "data back after 21 s (feed stale: futures quote 3 s old); entries resume", "mkt_t": 1792385336.8558393}
+{"t": "10:19:36", "k": "GAP", "x": "data gap: feed stale: futures quote 3 s old \u2014 entries paused until 20 s of fresh data", "mkt_t": 1792385376.5302022}
+{"t": "10:19:56", "k": "GAP", "x": "data back after 20 s (feed stale: futures quote 3 s old); entries resume", "mkt_t": 1792385396.6519866}
+{"t": "10:20:38", "k": "GAP", "x": "data gap: feed stale: futures quote 3 s old \u2014 entries paused until 20 s of fresh data", "mkt_t": 1792385438.9748793}
+{"t": "10:21:00", "k": "GAP", "x": "data back after 21 s (feed stale: futures quote 4 s old); entries resume", "mkt_t": 1792385460.2320914}
+{"t": "10:21:43", "k": "GAP", "x": "data gap: feed stale: futures quote 3 s old \u2014 entries paused until 20 s of fresh data", "mkt_t": 1792385503.3888617}
+{"t": "10:22:04", "k": "GAP", "x": "data back after 21 s (feed stale: futures quote 4 s old); entries resume", "mkt_t": 1792385524.0273364}
+{"t": "10:22:14", "k": "GAP", "x": "data gap: feed stale: futures quote 3 s old \u2014 entries paused until 20 s of fresh data", "mkt_t": 1792385534.4008636}
+{"t": "10:22:34", "k": "GAP", "x": "data back after 20 s (feed stale: futures quote 3 s old); entries resume", "mkt_t": 1792385554.7738073}
+{"t": "10:22:36", "k": "GAP", "x": "data gap: feed stale: futures quote 3 s old \u2014 entries paused until 20 s of fresh data", "mkt_t": 1792385556.9430103}
+{"t": "10:22:58", "k": "GAP", "x": "data back after 21 s (feed stale: futures quote 4 s old); entries resume", "mkt_t": 1792385578.0106478}
+{"t": "10:23:46", "k": "GAP", "x": "data gap: feed stale: futures quote 3 s old \u2014 entries paused until 20 s of fresh data", "mkt_t": 1792385626.5819678}
+{"t": "10:24:07", "k": "GAP", "x": "data back after 21 s (feed stale: futures quote 3 s old); entries resume", "mkt_t": 1792385647.1059866}
+{"t": "10:24:44", "k": "GAP", "x": "data gap: feed stale: futures quote 3 s old \u2014 entries paused until 20 s of fresh data", "mkt_t": 1792385684.8377557}
+{"t": "10:25:05", "k": "GAP", "x": "data back after 21 s (feed stale: futures quote 3 s old); entries resume", "mkt_t": 1792385705.510229}
+{"t": "10:25:44", "k": "GAP", "x": "data gap: feed stale: futures quote 3 s old \u2014 entries paused until 20 s of fresh data", "mkt_t": 1792385744.516677}
+{"t": "10:26:05", "k": "GAP", "x": "data back after 21 s (feed stale: futures quote 4 s old); entries resume", "mkt_t": 1792385765.9059746}
+{"t": "10:26:17", "k": "GAP", "x": "data gap: feed stale: futures quote 3 s old \u2014 entries paused until 20 s of fresh data", "mkt_t": 1792385777.6932101}
+{"t": "10:26:45", "k": "GAP", "x": "data back after 28 s (feed stale: futures quote 3 s old); entries resume", "mkt_t": 1792385805.7793152}
+{"t": "10:26:49", "k": "GAP", "x": "data gap: feed stale: futures quote 3 s old \u2014 entries paused until 20 s of fresh data", "mkt_t": 1792385809.7421305}
+{"t": "10:27:10", "k": "GAP", "x": "data back after 21 s (feed stale: futures quote 4 s old); entries resume", "mkt_t": 1792385830.7148638}
+{"t": "10:27:20", "k": "GAP", "x": "data gap: feed stale: futures quote 3 s old \u2014 entries paused until 20 s of fresh data", "mkt_t": 1792385840.3369324}
+{"t": "10:28:00", "k": "GAP", "x": "data back after 41 s (feed stale: futures quote 3 s old); entries resume", "mkt_t": 1792385880.8458943}
+{"t": "10:28:25", "k": "GAP", "x": "data gap: feed stale: futures quote 3 s old \u2014 entries paused until 20 s of fresh data", "mkt_t": 1792385905.2777724}
+{"t": "10:29:20", "k": "GAP", "x": "data back after 56 s (feed stale: futures quote 6 s old); entries resume", "mkt_t": 1792385960.846439}
+{"t": "10:30:34", "k": "GAP", "x": "data gap: feed stale: futures quote 3 s old \u2014 entries paused until 20 s of fresh data", "mkt_t": 1792386034.958733}
+{"t": "10:30:42", "k": "ARMED", "x": "Triangle closing: push 84%, together 84%, 100% room left \u2014 PE side", "mkt_t": 1792386042.4768028}
+{"t": "10:30:55", "k": "GAP", "x": "data back after 21 s (feed stale: futures quote 3 s old); entries resume", "mkt_t": 1792386055.9569342}
+{"t": "10:31:04", "k": "GAP", "x": "data gap: feed stale: futures quote 3 s old \u2014 entries paused until 20 s of fresh data", "mkt_t": 1792386064.2053387}
+{"t": "10:31:28", "k": "GAP", "x": "data back after 24 s (feed stale: futures quote 6 s old); entries resume", "mkt_t": 1792386088.061687}
+{"t": "10:31:30", "k": "GAP", "x": "data gap: feed stale: futures quote 3 s old \u2014 entries paused until 20 s of fresh data", "mkt_t": 1792386090.2696102}
+{"t": "10:31:50", "k": "GAP", "x": "data back after 20 s (feed stale: futures quote 3 s old); entries resume", "mkt_t": 1792386110.6797082}
+{"t": "10:32:10", "k": "GAP", "x": "data gap: feed stale: futures quote 3 s old \u2014 entries paused until 20 s of fresh data", "mkt_t": 1792386130.2962549}
+{"t": "10:32:30", "k": "GAP", "x": "data back after 20 s (feed stale: futures quote 3 s old); entries resume", "mkt_t": 1792386150.6928482}
+{"t": "10:32:39", "k": "GAP", "x": "data gap: feed stale: futures quote 3 s old \u2014 entries paused until 20 s of fresh data", "mkt_t": 1792386159.2741675}
+{"t": "10:33:02", "k": "GAP", "x": "data back after 23 s (feed stale: futures quote 5 s old); entries resume", "mkt_t": 1792386182.2417417}
+{"t": "10:33:12", "k": "GAP", "x": "data gap: feed stale: futures quote 3 s old \u2014 entries paused until 20 s of fresh data", "mkt_t": 1792386192.5429165}
+{"t": "10:33:33", "k": "GAP", "x": "data back after 21 s (feed stale: futures quote 4 s old); entries resume", "mkt_t": 1792386213.3229785}
+{"t": "10:33:44", "k": "GAP", "x": "data gap: feed stale: futures quote 3 s old \u2014 entries paused until 20 s of fresh data", "mkt_t": 1792386224.8193023}
+{"t": "10:34:07", "k": "GAP", "x": "data back after 23 s (feed stale: futures quote 6 s old); entries resume", "mkt_t": 1792386247.5635235}
+{"t": "10:34:16", "k": "GAP", "x": "data gap: feed stale: futures quote 3 s old \u2014 entries paused until 20 s of fresh data", "mkt_t": 1792386256.239406}
+{"t": "10:34:36", "k": "SPIKE", "x": "straddle 23100 +17.9 over theta in 5 min \u2014 PE leg carries it (76.4, delta -0.455\u2192-0.478, gamma 0.00195)", "mkt_t": 1792386276.4127038}
+{"t": "10:34:38", "k": "GAP", "x": "data back after 23 s (feed stale: futures quote 5 s old); entries resume", "mkt_t": 1792386278.7884748}
+{"t": "10:34:49", "k": "GAP", "x": "data gap: feed stale: futures quote 3 s old \u2014 entries paused until 20 s of fresh data", "mkt_t": 1792386289.7961795}
+{"t": "10:35:10", "k": "GAP", "x": "data back after 21 s (feed stale: futures quote 4 s old); entries resume", "mkt_t": 1792386310.6405249}
+{"t": "10:35:12", "k": "GAP", "x": "data gap: feed stale: futures quote 3 s old \u2014 entries paused until 20 s of fresh data", "mkt_t": 1792386312.2407122}
+{"t": "10:36:45", "k": "GAP", "x": "data back after 94 s (feed stale: futures quote 3 s old); entries resume", "mkt_t": 1792386405.74985}
+{"t": "10:36:56", "k": "GAP", "x": "data gap: feed stale: futures quote 3 s old \u2014 entries paused until 20 s of fresh data", "mkt_t": 1792386416.9945967}
+{"t": "10:37:08", "k": "SPIKE", "x": "straddle 23100 +27.2 over theta in 5 min \u2014 PE leg carries it (84.3, delta -0.453\u2192-0.494, gamma 0.00186)", "mkt_t": 1792386428.1616945}
+{"t": "10:37:19", "k": "GAP", "x": "data back after 22 s (feed stale: futures quote 5 s old); entries resume", "mkt_t": 1792386439.2393177}
+{"t": "10:37:28", "k": "GAP", "x": "data gap: feed stale: futures quote 3 s old \u2014 entries paused until 20 s of fresh data", "mkt_t": 1792386448.763694}
+{"t": "10:37:50", "k": "GAP", "x": "data back after 22 s (feed stale: futures quote 4 s old); entries resume", "mkt_t": 1792386470.4800034}
+{"t": "10:38:01", "k": "GAP", "x": "data gap: feed stale: futures quote 3 s old \u2014 entries paused until 20 s of fresh data", "mkt_t": 1792386481.47313}
+{"t": "10:38:22", "k": "GAP", "x": "data back after 21 s (feed stale: futures quote 4 s old); entries resume", "mkt_t": 1792386502.4871285}
+{"t": "10:38:31", "k": "GAP", "x": "data gap: feed stale: futures quote 3 s old \u2014 entries paused until 20 s of fresh data", "mkt_t": 1792386511.6279922}
+{"t": "10:38:53", "k": "GAP", "x": "data back after 21 s (feed stale: futures quote 4 s old); entries resume", "mkt_t": 1792386533.0609078}
+{"t": "10:39:04", "k": "GAP", "x": "data gap: feed stale: futures quote 3 s old \u2014 entries paused until 20 s of fresh data", "mkt_t": 1792386544.773488}
+{"t": "10:39:25", "k": "GAP", "x": "data back after 21 s (feed stale: futures quote 3 s old); entries resume", "mkt_t": 1792386565.4588146}
+{"t": "10:39:38", "k": "SPIKE", "x": "straddle 23100 +26.1 over theta in 5 min \u2014 PE leg carries it (95.7, delta -0.479\u2192-0.512, gamma 0.00174)", "mkt_t": 1792386578.8804567}
+{"t": "10:40:06", "k": "GAP", "x": "data gap: feed stale: futures quote 3 s old \u2014 entries paused until 20 s of fresh data", "mkt_t": 1792386606.2296746}
+{"t": "10:40:27", "k": "GAP", "x": "data back after 21 s (feed stale: futures quote 3 s old); entries resume", "mkt_t": 1792386627.0712032}
+{"t": "10:40:38", "k": "GAP", "x": "data gap: feed stale: futures quote 3 s old \u2014 entries paused until 20 s of fresh data", "mkt_t": 1792386638.497972}
+{"t": "10:40:58", "k": "GAP", "x": "data back after 20 s (feed stale: futures quote 3 s old); entries resume", "mkt_t": 1792386658.9395282}
+{"t": "10:41:40", "k": "GAP", "x": "data gap: feed stale: futures quote 3 s old \u2014 entries paused until 20 s of fresh data", "mkt_t": 1792386700.9901624}
+{"t": "10:42:01", "k": "GAP", "x": "data back after 21 s (feed stale: futures quote 4 s old); entries resume", "mkt_t": 1792386721.9333696}
+{"t": "10:42:10", "k": "SPIKE", "x": "straddle 23100 +35.4 over theta in 5 min \u2014 PE leg carries it (113.6, delta -0.494\u2192-0.526, gamma 0.00153)", "mkt_t": 1792386730.7724142}
+{"t": "10:43:00", "k": "GAP", "x": "data gap: feed stale: futures quote 3 s old \u2014 entries paused until 20 s of fresh data", "mkt_t": 1792386780.1448886}
+{"t": "10:43:37", "k": "GAP", "x": "data back after 37 s (feed stale: futures quote 5 s old); entries resume", "mkt_t": 1792386817.2777345}
+{"t": "10:43:47", "k": "GAP", "x": "data gap: feed stale: futures quote 3 s old \u2014 entries paused until 20 s of fresh data", "mkt_t": 1792386827.1206574}
+{"t": "10:44:08", "k": "GAP", "x": "data back after 22 s (feed stale: futures quote 4 s old); entries resume", "mkt_t": 1792386848.8341703}
+{"t": "10:44:19", "k": "GAP", "x": "data gap: feed stale: futures quote 3 s old \u2014 entries paused until 20 s of fresh data", "mkt_t": 1792386859.16634}
+{"t": "10:44:40", "k": "GAP", "x": "data back after 21 s (feed stale: futures quote 4 s old); entries resume", "mkt_t": 1792386880.0621061}
+{"t": "10:45:06", "k": "SPIKE", "x": "straddle 23100 +17.6 over theta in 5 min \u2014 PE leg carries it (102.2, delta -0.505\u2192-0.507, gamma 0.0016)", "mkt_t": 1792386906.838486}
+{"t": "10:46:19", "k": "GAP", "x": "data gap: feed stale: futures quote 3 s old \u2014 entries paused until 20 s of fresh data", "mkt_t": 1792386979.6454973}
+{"t": "10:47:14", "k": "GAP", "x": "data back after 55 s (feed stale: futures quote 4 s old); entries resume", "mkt_t": 1792387034.7886405}
+{"t": "10:47:55", "k": "GAP", "x": "data gap: feed stale: futures quote 3 s old \u2014 entries paused until 20 s of fresh data", "mkt_t": 1792387075.4649894}
+{"t": "10:48:17", "k": "GAP", "x": "data back after 22 s (feed stale: futures quote 5 s old); entries resume", "mkt_t": 1792387097.3399966}
+{"t": "10:48:27", "k": "GAP", "x": "data gap: feed stale: futures quote 3 s old \u2014 entries paused until 20 s of fresh data", "mkt_t": 1792387107.7159548}
+{"t": "10:48:42", "k": "SPIKE", "x": "straddle 23100 +17.9 over theta in 5 min \u2014 PE leg carries it (113.9, delta -0.512\u2192-0.522, gamma 0.0015)", "mkt_t": 1792387122.1830313}
+{"t": "10:48:48", "k": "GAP", "x": "data back after 21 s (feed stale: futures quote 3 s old); entries resume", "mkt_t": 1792387128.266518}
+{"t": "10:51:13", "k": "SPIKE", "x": "straddle 23100 +18.0 over theta in 5 min \u2014 PE leg carries it (106.2, delta -0.51\u2192-0.515, gamma 0.00158)", "mkt_t": 1792387273.5368721}
+{"t": "10:51:42", "k": "GAP", "x": "data gap: feed stale: futures quote 3 s old \u2014 entries paused until 20 s of fresh data", "mkt_t": 1792387302.8836627}
+{"t": "10:52:04", "k": "GAP", "x": "data back after 21 s (feed stale: futures quote 4 s old); entries resume", "mkt_t": 1792387324.0289466}
+{"t": "10:52:13", "k": "GAP", "x": "data gap: feed stale: futures quote 3 s old \u2014 entries paused until 20 s of fresh data", "mkt_t": 1792387333.7042687}
+{"t": "10:52:35", "k": "GAP", "x": "data back after 22 s (feed stale: futures quote 5 s old); entries resume", "mkt_t": 1792387355.2979455}
+{"t": "10:52:45", "k": "GAP", "x": "data gap: feed stale: futures quote 3 s old \u2014 entries paused until 20 s of fresh data", "mkt_t": 1792387365.098563}
+{"t": "10:53:07", "k": "GAP", "x": "data back after 22 s (feed stale: futures quote 5 s old); entries resume", "mkt_t": 1792387387.1252646}
+{"t": "10:54:14", "k": "GAP", "x": "data gap: feed stale: futures quote 3 s old \u2014 entries paused until 20 s of fresh data", "mkt_t": 1792387454.7373984}
+{"t": "10:54:35", "k": "GAP", "x": "data back after 20 s (feed stale: futures quote 3 s old); entries resume", "mkt_t": 1792387475.1104891}
+{"t": "10:56:42", "k": "GAP", "x": "data gap: feed stale: futures quote 3 s old \u2014 entries paused until 20 s of fresh data", "mkt_t": 1792387602.7098234}
+{"t": "10:57:04", "k": "GAP", "x": "data back after 21 s (feed stale: futures quote 4 s old); entries resume", "mkt_t": 1792387624.1759892}
+{"t": "10:57:13", "k": "GAP", "x": "data gap: feed stale: futures quote 3 s old \u2014 entries paused until 20 s of fresh data", "mkt_t": 1792387633.7737544}
+{"t": "10:57:34", "k": "GAP", "x": "data back after 21 s (feed stale: futures quote 3 s old); entries resume", "mkt_t": 1792387654.3952549}
+{"t": "10:57:44", "k": "GAP", "x": "data gap: feed stale: futures quote 3 s old \u2014 entries paused until 20 s of fresh data", "mkt_t": 1792387664.8848329}
+{"t": "10:58:07", "k": "GAP", "x": "data back after 23 s (feed stale: futures quote 5 s old); entries resume", "mkt_t": 1792387687.4627998}
+{"t": "10:58:17", "k": "GAP", "x": "data gap: feed stale: futures quote 3 s old \u2014 entries paused until 20 s of fresh data", "mkt_t": 1792387697.971378}
+{"t": "10:58:38", "k": "GAP", "x": "data back after 21 s (feed stale: futures quote 3 s old); entries resume", "mkt_t": 1792387718.5277214}
+{"t": "10:58:48", "k": "GAP", "x": "data gap: feed stale: futures quote 3 s old \u2014 entries paused until 20 s of fresh data", "mkt_t": 1792387728.3830304}
+{"t": "10:59:09", "k": "GAP", "x": "data back after 21 s (feed stale: futures quote 4 s old); entries resume", "mkt_t": 1792387749.8189166}
+{"t": "10:59:51", "k": "GAP", "x": "data gap: feed stale: futures quote 3 s old \u2014 entries paused until 20 s of fresh data", "mkt_t": 1792387791.1640315}
+{"t": "11:00:12", "k": "GAP", "x": "data back after 21 s (feed stale: futures quote 4 s old); entries resume", "mkt_t": 1792387812.1880834}
+{"t": "11:00:26", "k": "ARMED", "x": "Triangle closing: push 114%, together 81%, 91% room left \u2014 PE side", "mkt_t": 1792387826.7779284}
+{"t": "11:00:34", "k": "GAP", "x": "data gap: feed stale: futures quote 3 s old \u2014 entries paused until 20 s of fresh data", "mkt_t": 1792387834.599793}
+{"t": "11:01:14", "k": "GAP", "x": "data back after 40 s (feed stale: futures quote 4 s old); entries resume", "mkt_t": 1792387874.7288568}
+{"t": "11:01:54", "k": "GAP", "x": "data gap: feed stale: futures quote 3 s old \u2014 entries paused until 20 s of fresh data", "mkt_t": 1792387914.3145733}
+{"t": "11:02:16", "k": "GAP", "x": "data back after 22 s (feed stale: futures quote 5 s old); entries resume", "mkt_t": 1792387936.6550415}
+{"t": "11:02:25", "k": "GAP", "x": "data gap: feed stale: futures quote 3 s old \u2014 entries paused until 20 s of fresh data", "mkt_t": 1792387945.3320007}
+{"t": "11:02:57", "k": "GAP", "x": "data back after 32 s (feed stale: futures quote 3 s old); entries resume", "mkt_t": 1792387977.0230384}
+{"t": "11:02:58", "k": "GAP", "x": "data gap: feed stale: futures quote 3 s old \u2014 entries paused until 20 s of fresh data", "mkt_t": 1792387978.5701902}
+{"t": "11:03:19", "k": "GAP", "x": "data back after 21 s (feed stale: futures quote 3 s old); entries resume", "mkt_t": 1792387999.6901524}
+{"t": "11:03:31", "k": "GAP", "x": "data gap: feed stale: futures quote 3 s old \u2014 entries paused until 20 s of fresh data", "mkt_t": 1792388011.3019333}
+{"t": "11:03:52", "k": "GAP", "x": "data back after 22 s (feed stale: futures quote 4 s old); entries resume", "mkt_t": 1792388032.8161292}
+{"t": "11:05:33", "k": "GAP", "x": "data gap: feed stale: futures quote 3 s old \u2014 entries paused until 20 s of fresh data", "mkt_t": 1792388133.7475965}
+{"t": "11:05:54", "k": "GAP", "x": "data back after 21 s (feed stale: futures quote 4 s old); entries resume", "mkt_t": 1792388154.3997157}
+{"t": "11:07:02", "k": "GAP", "x": "data gap: feed stale: futures quote 3 s old \u2014 entries paused until 20 s of fresh data", "mkt_t": 1792388222.1262581}
+{"t": "11:07:22", "k": "GAP", "x": "data back after 21 s (feed stale: futures quote 3 s old); entries resume", "mkt_t": 1792388242.8302853}
+{"t": "11:08:40", "k": "GAP", "x": "data gap: feed stale: futures quote 3 s old \u2014 entries paused until 20 s of fresh data", "mkt_t": 1792388320.5811026}
+{"t": "11:09:04", "k": "GAP", "x": "data back after 24 s (feed stale: futures quote 3 s old); entries resume", "mkt_t": 1792388344.43369}
+{"t": "11:10:26", "k": "GAP", "x": "data gap: feed stale: futures quote 3 s old \u2014 entries paused until 20 s of fresh data", "mkt_t": 1792388426.37088}
+{"t": "11:11:04", "k": "GAP", "x": "data back after 39 s (feed stale: futures quote 3 s old); entries resume", "mkt_t": 1792388464.8836515}
+{"t": "11:12:26", "k": "GAP", "x": "data gap: feed stale: futures quote 3 s old \u2014 entries paused until 20 s of fresh data", "mkt_t": 1792388546.6594086}
+{"t": "11:12:47", "k": "GAP", "x": "data back after 21 s (feed stale: futures quote 4 s old); entries resume", "mkt_t": 1792388567.4244668}
+{"t": "11:13:59", "k": "GAP", "x": "data gap: feed stale: futures quote 3 s old \u2014 entries paused until 20 s of fresh data", "mkt_t": 1792388639.2017317}
+{"t": "11:14:19", "k": "GAP", "x": "data back after 21 s (feed stale: futures quote 4 s old); entries resume", "mkt_t": 1792388659.9599798}
+{"t": "11:14:25", "k": "GAP", "x": "data gap: feed stale: futures quote 3 s old \u2014 entries paused until 20 s of fresh data", "mkt_t": 1792388665.1419523}
+{"t": "11:14:45", "k": "GAP", "x": "data back after 20 s (feed stale: futures quote 3 s old); entries resume", "mkt_t": 1792388685.3433514}
+{"t": "11:15:10", "k": "GAP", "x": "data gap: feed stale: futures quote 3 s old \u2014 entries paused until 20 s of fresh data", "mkt_t": 1792388710.9928741}
+{"t": "11:15:32", "k": "GAP", "x": "data back after 21 s (feed stale: futures quote 4 s old); entries resume", "mkt_t": 1792388732.2049787}
+{"t": "11:15:42", "k": "GAP", "x": "data gap: feed stale: futures quote 3 s old \u2014 entries paused until 20 s of fresh data", "mkt_t": 1792388742.7490299}
+{"t": "11:16:10", "k": "GAP", "x": "data back after 28 s (feed stale: futures quote 3 s old); entries resume", "mkt_t": 1792388770.367151}
+{"t": "11:16:27", "k": "ARMED", "x": "Triangle closing: push 157%, together 81%, 79% room left \u2014 CE side", "mkt_t": 1792388787.1012492}
+{"t": "11:16:51", "k": "GAP", "x": "data gap: feed stale: futures quote 3 s old \u2014 entries paused until 20 s of fresh data", "mkt_t": 1792388811.4776242}
+{"t": "11:17:12", "k": "GAP", "x": "data back after 21 s (feed stale: futures quote 3 s old); entries resume", "mkt_t": 1792388832.2255719}
+{"t": "11:19:54", "k": "GAP", "x": "data gap: feed stale: futures quote 3 s old \u2014 entries paused until 20 s of fresh data", "mkt_t": 1792388994.308359}
+{"t": "11:20:14", "k": "GAP", "x": "data back after 21 s (feed stale: futures quote 4 s old); entries resume", "mkt_t": 1792389014.9674163}
+{"t": "11:20:48", "k": "GAP", "x": "data gap: feed stale: futures quote 3 s old \u2014 entries paused until 20 s of fresh data", "mkt_t": 1792389048.287263}
+{"t": "11:21:09", "k": "GAP", "x": "data back after 21 s (feed stale: futures quote 3 s old); entries resume", "mkt_t": 1792389069.2159255}
+{"t": "11:21:46", "k": "GAP", "x": "data gap: feed stale: futures quote 3 s old \u2014 entries paused until 20 s of fresh data", "mkt_t": 1792389106.5510957}
+{"t": "11:22:07", "k": "GAP", "x": "data back after 21 s (feed stale: futures quote 4 s old); entries resume", "mkt_t": 1792389127.4241784}
+{"t": "11:22:40", "k": "GAP", "x": "data gap: feed stale: futures quote 3 s old \u2014 entries paused until 20 s of fresh data", "mkt_t": 1792389160.7350447}
+{"t": "11:24:13", "k": "GAP", "x": "data back after 93 s (feed stale: futures quote 8 s old); entries resume", "mkt_t": 1792389253.6424782}
+{"t": "11:24:18", "k": "GAP", "x": "data gap: feed stale: futures quote 3 s old \u2014 entries paused until 20 s of fresh data", "mkt_t": 1792389258.6892035}
+{"t": "11:24:21", "k": "SPIKE", "x": "straddle 23100 +16.5 over theta in 5 min \u2014 PE leg carries it (76.1, delta -0.458\u2192-0.475, gamma 0.00194)", "mkt_t": 1792389261.8570886}
+{"t": "11:26:18", "k": "GAP", "x": "data back after 120 s (feed stale: futures quote 4 s old); entries resume", "mkt_t": 1792389378.837424}
+{"t": "11:26:22", "k": "GAP", "x": "data gap: feed stale: futures quote 3 s old \u2014 entries paused until 20 s of fresh data", "mkt_t": 1792389382.3843176}
+{"t": "11:27:24", "k": "GAP", "x": "data back after 62 s (feed stale: futures quote 6 s old); entries resume", "mkt_t": 1792389444.5339713}
+{"t": "11:27:34", "k": "GAP", "x": "data gap: feed stale: futures quote 3 s old \u2014 entries paused until 20 s of fresh data", "mkt_t": 1792389454.6652975}
+{"t": "11:28:08", "k": "GAP", "x": "data back after 34 s (feed stale: futures quote 4 s old); entries resume", "mkt_t": 1792389488.5287826}
+{"t": "11:28:33", "k": "SPIKE", "x": "straddle 23100 +20.0 over theta in 5 min \u2014 PE leg carries it (85.5, delta -0.471\u2192-0.494, gamma 0.00184)", "mkt_t": 1792389513.5545187}
+{"t": "11:28:37", "k": "GAP", "x": "data gap: feed stale: futures quote 3 s old \u2014 entries paused until 20 s of fresh data", "mkt_t": 1792389517.3754766}
+{"t": "11:29:00", "k": "GAP", "x": "data back after 23 s (feed stale: futures quote 6 s old); entries resume", "mkt_t": 1792389540.2486506}
+{"t": "11:29:05", "k": "GAP", "x": "data gap: feed stale: futures quote 3 s old \u2014 entries paused until 20 s of fresh data", "mkt_t": 1792389545.432}
+{"t": "11:30:05", "k": "GAP", "x": "data back after 61 s (feed stale: futures quote 4 s old); entries resume", "mkt_t": 1792389605.9349415}
+{"t": "11:30:07", "k": "GAP", "x": "data gap: feed stale: futures quote 3 s old \u2014 entries paused until 20 s of fresh data", "mkt_t": 1792389607.1702619}
+{"t": "11:30:27", "k": "GAP", "x": "data back after 20 s (feed stale: futures quote 3 s old); entries resume", "mkt_t": 1792389627.6566937}
+{"t": "11:30:29", "k": "ARMED", "x": "Triangle closing: push 193%, together 113%, 42% room left \u2014 PE side", "mkt_t": 1792389629.068782}
+{"t": "11:30:39", "k": "GAP", "x": "data gap: feed stale: futures quote 3 s old \u2014 entries paused until 20 s of fresh data", "mkt_t": 1792389639.754664}
+{"t": "11:31:53", "k": "SPIKE", "x": "straddle 23100 +20.7 over theta in 5 min \u2014 PE leg carries it (95.7, delta -0.488\u2192-0.499, gamma 0.00167)", "mkt_t": 1792389713.6477065}
+{"t": "11:32:17", "k": "GAP", "x": "data back after 98 s (feed stale: futures quote 3 s old); entries resume", "mkt_t": 1792389737.7225938}
+{"t": "11:32:38", "k": "GAP", "x": "data gap: feed stale: futures quote 3 s old \u2014 entries paused until 20 s of fresh data", "mkt_t": 1792389758.2289581}
+{"t": "11:35:07", "k": "SPIKE", "x": "straddle 23100 +42.0 over theta in 5 min \u2014 PE leg carries it (116.9, delta -0.49\u2192-0.522, gamma 0.00146)", "mkt_t": 1792389907.7891}
+{"t": "11:35:27", "k": "GAP", "x": "data back after 170 s (feed stale: futures quote 6 s old); entries resume", "mkt_t": 1792389927.856853}
+{"t": "11:35:38", "k": "GAP", "x": "data gap: feed stale: futures quote 3 s old \u2014 entries paused until 20 s of fresh data", "mkt_t": 1792389938.3487606}
+{"t": "11:36:57", "k": "SPIKE", "x": "straddle 23100 +24.7 over theta in 5 min \u2014 PE leg carries it (112.5, delta -0.499\u2192-0.516, gamma 0.0015)", "mkt_t": 1792390017.598122}
+{"t": "11:37:52", "k": "ARMED", "x": "Triangle closing: push 123%, together 83%, 100% room left \u2014 PE side", "mkt_t": 1792390072.676191}
+{"t": "11:39:17", "k": "GAP", "x": "data back after 219 s (feed stale: futures quote 5 s old); entries resume", "mkt_t": 1792390157.821675}
+{"t": "11:39:34", "k": "GAP", "x": "data gap: feed stale: futures quote 3 s old \u2014 entries paused until 20 s of fresh data", "mkt_t": 1792390174.6988842}
+{"t": "11:39:55", "k": "GAP", "x": "data back after 21 s (feed stale: futures quote 3 s old); entries resume", "mkt_t": 1792390195.264177}
+{"t": "11:39:56", "k": "GAP", "x": "data gap: feed stale: futures quote 3 s old \u2014 entries paused until 20 s of fresh data", "mkt_t": 1792390196.9913044}
+{"t": "11:40:28", "k": "GAP", "x": "data back after 31 s (feed stale: futures quote 3 s old); entries resume", "mkt_t": 1792390228.285745}
+{"t": "11:40:31", "k": "GAP", "x": "data gap: feed stale: futures quote 3 s old \u2014 entries paused until 20 s of fresh data", "mkt_t": 1792390231.546878}
+{"t": "11:41:06", "k": "ARMED", "x": "Triangle closing: push 128%, together 81%, 100% room left \u2014 CE side", "mkt_t": 1792390266.7498834}
+{"t": "11:42:34", "k": "SPIKE", "x": "straddle 23100 +25.4 over theta in 5 min \u2014 PE leg carries it (131.0, delta -0.591\u2192-0.609, gamma 0.00163)", "mkt_t": 1792390354.4722762}
+{"t": "11:43:01", "k": "GAP", "x": "data back after 150 s (feed stale: futures quote 5 s old); entries resume", "mkt_t": 1792390381.9734101}
+{"t": "11:43:13", "k": "GAP", "x": "data gap: feed stale: futures quote 3 s old \u2014 entries paused until 20 s of fresh data", "mkt_t": 1792390393.2345803}
+{"t": "11:45:44", "k": "GAP", "x": "data back after 152 s (feed stale: futures quote 5 s old); entries resume", "mkt_t": 1792390544.832522}
+{"t": "11:45:54", "k": "GAP", "x": "data gap: feed stale: futures quote 3 s old \u2014 entries paused until 20 s of fresh data", "mkt_t": 1792390554.7551792}
+{"t": "11:46:21", "k": "GAP", "x": "data back after 27 s (feed stale: futures quote 3 s old); entries resume", "mkt_t": 1792390581.73257}
+{"t": "11:46:26", "k": "GAP", "x": "data gap: feed stale: futures quote 3 s old \u2014 entries paused until 20 s of fresh data", "mkt_t": 1792390586.987102}
+{"t": "11:46:28", "k": "SPIKE", "x": "straddle 23100 +20.3 over theta in 5 min \u2014 PE leg carries it (135.9, delta -0.603\u2192-0.517, gamma 0.00125)", "mkt_t": 1792390588.6647103}
+{"t": "11:47:02", "k": "GAP", "x": "data back after 35 s (feed stale: futures quote 3 s old); entries resume", "mkt_t": 1792390622.4754262}
+{"t": "11:47:10", "k": "GAP", "x": "data gap: feed stale: futures quote 3 s old \u2014 entries paused until 20 s of fresh data", "mkt_t": 1792390630.4526658}
+{"t": "11:49:16", "k": "ARMED", "x": "Triangle closing: push 167%, together 102%, 100% room left \u2014 PE side", "mkt_t": 1792390756.393404}
+{"t": "11:50:53", "k": "SPIKE", "x": "straddle 23100 +18.7 over theta in 5 min \u2014 PE leg carries it (133.6, delta -0.603\u2192-0.517, gamma 0.00127)", "mkt_t": 1792390853.3205464}
+{"t": "11:52:48", "k": "SPIKE", "x": "straddle 23100 +25.1 over theta in 5 min \u2014 PE leg carries it (140.7, delta -0.603\u2192-0.522, gamma 0.00122)", "mkt_t": 1792390968.7377477}
+{"t": "11:55:16", "k": "ARMED", "x": "Triangle closing: push 103%, together 85%, 100% room left \u2014 PE side", "mkt_t": 1792391116.6739922}
+{"t": "11:56:43", "k": "SPIKE", "x": "straddle 23100 +21.5 over theta in 5 min \u2014 PE leg carries it (144.8, delta -0.518\u2192-0.524, gamma 0.00119)", "mkt_t": 1792391203.5292354}
+{"t": "11:59:14", "k": "SPIKE", "x": "straddle 23100 +28.6 over theta in 5 min \u2014 PE leg carries it (140.3, delta -0.598\u2192-0.521, gamma 0.00122)", "mkt_t": 1792391354.1865187}
+{"t": "11:59:46", "k": "GAP", "x": "data back after 756 s (feed stale: futures quote 5 s old); entries resume", "mkt_t": 1792391386.3378696}
+{"t": "11:59:57", "k": "GAP", "x": "data gap: feed stale: futures quote 3 s old \u2014 entries paused until 20 s of fresh data", "mkt_t": 1792391397.192356}
+{"t": "12:00:17", "k": "GAP", "x": "data back after 21 s (feed stale: futures quote 3 s old); entries resume", "mkt_t": 1792391417.9168394}
+{"t": "12:00:18", "k": "GAP", "x": "data gap: feed stale: futures quote 3 s old \u2014 entries paused until 20 s of fresh data", "mkt_t": 1792391418.3142748}
+{"t": "12:00:50", "k": "GAP", "x": "data back after 32 s (feed stale: futures quote 5 s old); entries resume", "mkt_t": 1792391450.7236896}
+{"t": "12:00:55", "k": "GAP", "x": "data gap: feed stale: futures quote 3 s old \u2014 entries paused until 20 s of fresh data", "mkt_t": 1792391455.7057462}
+{"t": "12:01:23", "k": "GAP", "x": "data back after 27 s (feed stale: futures quote 4 s old); entries resume", "mkt_t": 1792391483.0265596}
+{"t": "12:01:24", "k": "GAP", "x": "data gap: feed stale: futures quote 3 s old \u2014 entries paused until 20 s of fresh data", "mkt_t": 1792391484.5827985}
+{"t": "12:02:16", "k": "SPIKE", "x": "straddle 23100 +20.4 over theta in 5 min \u2014 PE leg carries it (146.8, delta -0.52\u2192-0.526, gamma 0.00118)", "mkt_t": 1792391536.300461}
+{"t": "12:02:27", "k": "GAP", "x": "data back after 63 s (feed stale: futures quote 5 s old); entries resume", "mkt_t": 1792391547.7840755}
+{"t": "12:02:28", "k": "GAP", "x": "data gap: feed stale: futures quote 3 s old \u2014 entries paused until 20 s of fresh data", "mkt_t": 1792391548.5518389}
+{"t": "12:04:11", "k": "SPIKE", "x": "straddle 23100 +22.4 over theta in 5 min \u2014 PE leg carries it (152.8, delta -0.521\u2192-0.528, gamma 0.00114)", "mkt_t": 1792391651.0021396}
+{"t": "12:05:46", "k": "GAP", "x": "data back after 198 s (feed stale: futures quote 10 s old); entries resume", "mkt_t": 1792391746.9467824}
+{"t": "12:05:51", "k": "GAP", "x": "data gap: feed stale: futures quote 3 s old \u2014 entries paused until 20 s of fresh data", "mkt_t": 1792391751.5598178}
+{"t": "12:05:53", "k": "ARMED", "x": "Triangle closing: push 170%, together 113%, 100% room left \u2014 CE side", "mkt_t": 1792391753.8559186}
+{"t": "12:06:50", "k": "GAP", "x": "data back after 59 s (feed stale: futures quote 10 s old); entries resume", "mkt_t": 1792391810.2943869}
+{"t": "12:06:53", "k": "GAP", "x": "data gap: feed stale: futures quote 3 s old \u2014 entries paused until 20 s of fresh data", "mkt_t": 1792391813.3981094}
+{"t": "12:07:20", "k": "GAP", "x": "data back after 27 s (feed stale: futures quote 5 s old); entries resume", "mkt_t": 1792391840.350601}
+{"t": "12:07:26", "k": "GAP", "x": "data gap: feed stale: futures quote 3 s old \u2014 entries paused until 20 s of fresh data", "mkt_t": 1792391846.285152}
+{"t": "12:09:04", "k": "GAP", "x": "data back after 98 s (feed stale: futures quote 3 s old); entries resume", "mkt_t": 1792391944.2285633}
+{"t": "12:09:06", "k": "GAP", "x": "data gap: feed stale: futures quote 3 s old \u2014 entries paused until 20 s of fresh data", "mkt_t": 1792391946.293566}
+{"t": "12:09:29", "k": "GAP", "x": "data back after 23 s (feed stale: futures quote 6 s old); entries resume", "mkt_t": 1792391969.4826853}
+{"t": "12:09:34", "k": "GAP", "x": "data gap: feed stale: futures quote 3 s old \u2014 entries paused until 20 s of fresh data", "mkt_t": 1792391974.2819653}
+{"t": "12:12:54", "k": "SPIKE", "x": "straddle 23100 +29.2 over theta in 5 min \u2014 PE leg carries it (177.4, delta -0.529\u2192-0.521, gamma 0.00097)", "mkt_t": 1792392174.9504628}
+{"t": "12:13:17", "k": "GAP", "x": "data back after 223 s (feed stale: futures quote 8 s old); entries resume", "mkt_t": 1792392197.3629491}
+{"t": "12:13:26", "k": "GAP", "x": "data gap: feed stale: futures quote 3 s old \u2014 entries paused until 20 s of fresh data", "mkt_t": 1792392206.6558177}
+{"t": "12:14:24", "k": "GAP", "x": "data back after 58 s (feed stale: futures quote 8 s old); entries resume", "mkt_t": 1792392264.62137}
+{"t": "12:14:32", "k": "GAP", "x": "data gap: feed stale: futures quote 3 s old \u2014 entries paused until 20 s of fresh data", "mkt_t": 1792392272.6351402}
+{"t": "12:15:47", "k": "SPIKE", "x": "straddle 23100 +23.0 over theta in 5 min \u2014 PE leg carries it (186.6, delta -0.537\u2192-0.526, gamma 0.00093)", "mkt_t": 1792392347.62536}
+{"t": "12:16:16", "k": "ARMED", "x": "Triangle closing: push 97%, together 157%, 71% room left \u2014 PE side", "mkt_t": 1792392376.0167143}
+{"t": "12:16:55", "k": "ARMED", "x": "Triangle closing: push 136%, together 101%, 100% room left \u2014 CE side", "mkt_t": 1792392415.0758605}
+{"t": "12:18:07", "k": "SHIFT", "x": "ATM rolled 23100 \u2192 23050: straddle 188.7 \u2192 152.6 (spot settled at the new strike)", "mkt_t": 1792392487.1751869}
+{"t": "12:21:07", "k": "ARMED", "x": "Triangle closing: push 131%, together 124%, 100% room left \u2014 PE side", "mkt_t": 1792392667.9037957}
+{"t": "12:22:14", "k": "ARMED", "x": "Triangle closing: push 110%, together 80%, 70% room left \u2014 CE side", "mkt_t": 1792392734.9113507}
+{"t": "12:23:10", "k": "GAP", "x": "data back after 518 s (feed stale: futures quote 3 s old); entries resume", "mkt_t": 1792392790.1562357}
+{"t": "12:23:15", "k": "GAP", "x": "data gap: feed stale: futures quote 3 s old \u2014 entries paused until 20 s of fresh data", "mkt_t": 1792392795.059137}
+{"t": "12:23:25", "k": "SPIKE", "x": "straddle 23050 +25.3 over theta in 5 min \u2014 PE leg carries it (155.8, delta -0.49\u2192-0.485, gamma 0.00099)", "mkt_t": 1792392805.5480213}
+{"t": "12:23:36", "k": "GAP", "x": "data back after 22 s (feed stale: futures quote 4 s old); entries resume", "mkt_t": 1792392816.841726}
+{"t": "12:23:38", "k": "GAP", "x": "data gap: feed stale: futures quote 3 s old \u2014 entries paused until 20 s of fresh data", "mkt_t": 1792392818.9649885}
+{"t": "12:24:08", "k": "GAP", "x": "data back after 30 s (feed stale: futures quote 4 s old); entries resume", "mkt_t": 1792392848.5185769}
+{"t": "12:24:18", "k": "GAP", "x": "data gap: feed stale: futures quote 3 s old \u2014 entries paused until 20 s of fresh data", "mkt_t": 1792392858.8569005}
+{"t": "12:24:40", "k": "GAP", "x": "data back after 21 s (feed stale: futures quote 4 s old); entries resume", "mkt_t": 1792392880.1577423}
+{"t": "12:24:51", "k": "GAP", "x": "data gap: feed stale: futures quote 3 s old \u2014 entries paused until 20 s of fresh data", "mkt_t": 1792392891.3734362}
+{"t": "12:25:12", "k": "GAP", "x": "data back after 21 s (feed stale: futures quote 4 s old); entries resume", "mkt_t": 1792392912.4513874}
+{"t": "12:25:23", "k": "GAP", "x": "data gap: feed stale: futures quote 3 s old \u2014 entries paused until 20 s of fresh data", "mkt_t": 1792392923.5163188}
+{"t": "12:25:44", "k": "GAP", "x": "data back after 21 s (feed stale: futures quote 4 s old); entries resume", "mkt_t": 1792392944.0442305}
+{"t": "12:27:31", "k": "GAP", "x": "data gap: feed stale: futures quote 3 s old \u2014 entries paused until 20 s of fresh data", "mkt_t": 1792393051.9225783}
+{"t": "12:27:53", "k": "GAP", "x": "data back after 22 s (feed stale: futures quote 4 s old); entries resume", "mkt_t": 1792393073.458722}
+{"t": "12:28:01", "k": "GAP", "x": "data gap: feed stale: futures quote 3 s old \u2014 entries paused until 20 s of fresh data", "mkt_t": 1792393081.6678495}
+{"t": "12:28:21", "k": "GAP", "x": "data back after 20 s (feed stale: futures quote 3 s old); entries resume", "mkt_t": 1792393101.95483}
+{"t": "12:28:30", "k": "ARMED", "x": "Triangle closing: push 93%, together 94%, 84% room left \u2014 PE side", "mkt_t": 1792393110.7336495}
+{"t": "12:30:17", "k": "GAP", "x": "data gap: feed stale: futures quote 3 s old \u2014 entries paused until 20 s of fresh data", "mkt_t": 1792393217.681587}
+{"t": "12:30:38", "k": "GAP", "x": "data back after 20 s (feed stale: futures quote 3 s old); entries resume", "mkt_t": 1792393238.1148803}
+{"t": "12:32:05", "k": "SHIFT", "x": "ATM rolled 23050 \u2192 22950: straddle 149.7 \u2192 107.0 (spot settled at the new strike)", "mkt_t": 1792393325.2464292}
+{"t": "12:32:50", "k": "GAP", "x": "data gap: feed stale: futures quote 3 s old \u2014 entries paused until 20 s of fresh data", "mkt_t": 1792393370.9107523}
+{"t": "12:33:16", "k": "GAP", "x": "data back after 26 s (feed stale: futures quote 3 s old); entries resume", "mkt_t": 1792393396.5699112}
+{"t": "12:36:41", "k": "GAP", "x": "data gap: feed stale: futures quote 3 s old \u2014 entries paused until 20 s of fresh data", "mkt_t": 1792393601.833296}
+{"t": "12:37:07", "k": "GAP", "x": "data back after 25 s (feed stale: futures quote 3 s old); entries resume", "mkt_t": 1792393627.1386738}
+{"t": "12:37:14", "k": "GAP", "x": "data gap: feed stale: futures quote 3 s old \u2014 entries paused until 20 s of fresh data", "mkt_t": 1792393634.4513986}
+{"t": "12:37:34", "k": "GAP", "x": "data back after 20 s (feed stale: futures quote 3 s old); entries resume", "mkt_t": 1792393654.9438214}
+{"t": "12:41:23", "k": "GAP", "x": "data gap: feed stale: futures quote 3 s old \u2014 entries paused until 20 s of fresh data", "mkt_t": 1792393883.24343}
+{"t": "12:41:43", "k": "GAP", "x": "data back after 20 s (feed stale: futures quote 3 s old); entries resume", "mkt_t": 1792393903.5565484}
+{"t": "12:44:34", "k": "GAP", "x": "data gap: feed stale: futures quote 3 s old \u2014 entries paused until 20 s of fresh data", "mkt_t": 1792394074.363381}
+{"t": "12:44:58", "k": "GAP", "x": "data back after 24 s (feed stale: futures quote 7 s old); entries resume", "mkt_t": 1792394098.0690277}
+{"t": "12:47:40", "k": "SYSTEM", "x": "day 2026-10-19 \u00b7 champion m2.0_s0.5 \u00b7 gates none \u00b7 capital \u20b9100,000", "mkt_t": 1792394260.2941847}
+{"t": "12:48:00", "k": "GAP", "x": "data back after 21 s (feed has no futures quote); entries resume", "mkt_t": 1792394280.9557621}
+{"t": "12:52:20", "k": "ARMED", "x": "Triangle closing: push 107%, together 81%, 59% room left \u2014 CE side", "mkt_t": 1792394540.8769505}
+{"t": "12:52:54", "k": "ARMED", "x": "Triangle closing: push 107%, together 81%, 100% room left \u2014 PE side", "mkt_t": 1792394574.081412}
+{"t": "12:53:10", "k": "ENTRY", "x": "BUY 14 lots NIFTY 23000 PE (2026-10-19) @ 105.30 \u00b7 co-first move DOWN: futures z 2.7, synchrony 56%, first mover RELIANCE, 1 pts since onset", "mkt_t": 1792394590.126768}
+{"t": "12:53:10", "k": "RAW-ENTRY", "x": "BUY 14 lots NIFTY 23000 PE (2026-10-19) @ 105.30 \u00b7 co-first move DOWN: futures z 2.7, synchrony 56%, first mover RELIANCE, 1 pts since onset", "mkt_t": 1792394590.126768}
+{"t": "12:53:40", "k": "EXIT", "x": "PE 23000 14 lots \u00b7 105.30 \u2192 101.95 = -3.35 pts / \u20b9-3,048 \u00b7 THESIS-VOID (synchrony flipped) \u00b7 capital \u20b996,952", "mkt_t": 1792394620.2758603}
+{"t": "12:53:40", "k": "RAW-EXIT", "x": "PE 23000 14 lots \u00b7 105.30 \u2192 101.95 = -3.35 pts / \u20b9-3,048 \u00b7 THESIS-VOID (synchrony flipped) \u00b7 capital \u20b996,952", "mkt_t": 1792394620.2758603}
+{"t": "12:53:40", "k": "ARMED", "x": "Triangle closing: push 87%, together 128%, 84% room left \u2014 CE side", "mkt_t": 1792394620.9786348}
+{"t": "12:53:41", "k": "ENTRY", "x": "BUY 16 lots NIFTY 22850 CE (2026-10-19) @ 92.25 \u00b7 co-first move UP: futures z 2.0, synchrony 50%, first mover SBIN, 3 pts since onset", "mkt_t": 1792394621.8819394}
+{"t": "12:53:41", "k": "RAW-ENTRY", "x": "BUY 16 lots NIFTY 22850 CE (2026-10-19) @ 92.25 \u00b7 co-first move UP: futures z 2.0, synchrony 50%, first mover SBIN, 3 pts since onset", "mkt_t": 1792394621.8819394}
+{"t": "12:54:10", "k": "EXIT", "x": "CE 22850 16 lots \u00b7 92.25 \u2192 86.85 = -5.40 pts / \u20b9-5,616 \u00b7 STOP \u00b7 capital \u20b991,336", "mkt_t": 1792394650.0243676}
+{"t": "12:54:10", "k": "RAW-EXIT", "x": "CE 22850 16 lots \u00b7 92.25 \u2192 86.85 = -5.40 pts / \u20b9-5,616 \u00b7 STOP \u00b7 capital \u20b991,336", "mkt_t": 1792394650.0243676}
+{"t": "12:54:22", "k": "ARMED", "x": "Triangle closing: push 107%, together 151%, 100% room left \u2014 PE side", "mkt_t": 1792394662.9899194}
+{"t": "12:54:22", "k": "ENTRY", "x": "BUY 12 lots NIFTY 23000 PE (2026-10-19) @ 112.35 \u00b7 forming move DOWN: futures z 2.1, synchrony 75%, first mover \u2014, 0 pts since onset", "mkt_t": 1792394662.9899194}
+{"t": "12:54:22", "k": "RAW-ENTRY", "x": "BUY 12 lots NIFTY 23000 PE (2026-10-19) @ 112.35 \u00b7 forming move DOWN: futures z 2.1, synchrony 75%, first mover \u2014, 0 pts since onset", "mkt_t": 1792394662.9899194}
+{"t": "12:54:42", "k": "EXIT", "x": "PE 23000 12 lots \u00b7 112.35 \u2192 110.35 = -2.00 pts / \u20b9-1,560 \u00b7 THESIS-VOID (synchrony flipped) \u00b7 capital \u20b989,776", "mkt_t": 1792394682.2559524}
+{"t": "12:54:42", "k": "RAW-EXIT", "x": "PE 23000 12 lots \u00b7 112.35 \u2192 110.35 = -2.00 pts / \u20b9-1,560 \u00b7 THESIS-VOID (synchrony flipped) \u00b7 capital \u20b989,776", "mkt_t": 1792394682.2559524}
+{"t": "12:57:45", "k": "ARMED", "x": "Triangle closing: push 129%, together 99%, 95% room left \u2014 CE side", "mkt_t": 1792394865.7831557}
+{"t": "13:02:07", "k": "ARMED", "x": "Triangle closing: push 85%, together 88%, 71% room left \u2014 CE side", "mkt_t": 1792395127.5662866}
+{"t": "13:03:29", "k": "SPIKE", "x": "straddle 22900 +9.8 over theta in 5 min \u2014 CE leg carries it (69.3, delta 0.513\u21920.625, gamma 0.00329)", "mkt_t": 1792395209.668292}
+{"t": "13:04:37", "k": "ARMED", "x": "Triangle closing: push 122%, together 95%, 100% room left \u2014 PE side", "mkt_t": 1792395277.1938906}
+{"t": "13:04:38", "k": "ENTRY", "x": "BUY 7 lots NIFTY 23000 PE (2026-10-27) @ 195.60 \u00b7 co-first move DOWN: futures z 2.7, synchrony 62%, first mover HDFCBANK, 1 pts since onset", "mkt_t": 1792395278.297909}
+{"t": "13:04:38", "k": "RAW-ENTRY", "x": "BUY 7 lots NIFTY 23000 PE (2026-10-27) @ 195.60 \u00b7 co-first move DOWN: futures z 2.7, synchrony 62%, first mover HDFCBANK, 1 pts since onset", "mkt_t": 1792395278.297909}
+{"t": "13:04:55", "k": "EXIT", "x": "PE 23000 7 lots \u00b7 195.60 \u2192 199.50 = +3.90 pts / \u20b9+1,774 \u00b7 TRAIL \u00b7 capital \u20b991,550", "mkt_t": 1792395295.8847332}
+{"t": "13:04:55", "k": "RAW-EXIT", "x": "PE 23000 7 lots \u00b7 195.60 \u2192 199.50 = +3.90 pts / \u20b9+1,774 \u00b7 TRAIL \u00b7 capital \u20b991,550", "mkt_t": 1792395295.8847332}
+{"t": "13:05:29", "k": "ARMED", "x": "Triangle closing: push 131%, together 88%, 92% room left \u2014 PE side", "mkt_t": 1792395329.0988545}
+{"t": "13:05:29", "k": "ENTRY", "x": "BUY 6 lots NIFTY 23000 PE (2026-10-27) @ 203.85 \u00b7 co-first move DOWN: futures z 2.9, synchrony 50%, first mover KOTAKBANK, 0 pts since onset", "mkt_t": 1792395329.9673278}
+{"t": "13:05:29", "k": "RAW-ENTRY", "x": "BUY 6 lots NIFTY 23000 PE (2026-10-27) @ 203.85 \u00b7 co-first move DOWN: futures z 2.9, synchrony 50%, first mover KOTAKBANK, 0 pts since onset", "mkt_t": 1792395329.9673278}
+{"t": "13:07:16", "k": "EXIT", "x": "PE 23000 6 lots \u00b7 203.85 \u2192 198.60 = -5.25 pts / \u20b9-2,048 \u00b7 STOP \u00b7 capital \u20b989,502", "mkt_t": 1792395436.1349592}
+{"t": "13:07:16", "k": "RAW-EXIT", "x": "PE 23000 6 lots \u00b7 203.85 \u2192 198.60 = -5.25 pts / \u20b9-2,048 \u00b7 STOP \u00b7 capital \u20b989,502", "mkt_t": 1792395436.1349592}
+{"t": "13:12:11", "k": "SYSTEM", "x": "day 2026-10-19 \u00b7 champion m2.0_s0.5 \u00b7 gates none \u00b7 capital \u20b989,502", "mkt_t": 1792395731.8351386}
+{"t": "13:12:33", "k": "GAP", "x": "data back after 22 s (feed has no futures quote); entries resume", "mkt_t": 1792395753.3882082}
+{"t": "13:12:54", "k": "ARMED", "x": "Triangle closing: push 120%, together 85%, 79% room left \u2014 CE side", "mkt_t": 1792395774.4677937}
+{"t": "13:12:54", "k": "ENTRY", "x": "BUY 16 lots NIFTY 22850 CE (2026-10-19) @ 81.55 \u00b7 co-first move UP: futures z 2.3, synchrony 53%, first mover SBIN, 0 pts since onset", "mkt_t": 1792395774.8544962}
+{"t": "13:12:54", "k": "RAW-ENTRY", "x": "BUY 16 lots NIFTY 22850 CE (2026-10-19) @ 81.55 \u00b7 co-first move UP: futures z 2.3, synchrony 53%, first mover SBIN, 0 pts since onset", "mkt_t": 1792395774.8544962}
+{"t": "13:13:34", "k": "EXIT", "x": "CE 22850 16 lots \u00b7 81.55 \u2192 80.00 = -1.55 pts / \u20b9-1,612 \u00b7 THESIS-VOID (synchrony flipped) \u00b7 capital \u20b987,890", "mkt_t": 1792395814.4288983}
+{"t": "13:13:34", "k": "RAW-EXIT", "x": "CE 22850 16 lots \u00b7 81.55 \u2192 80.00 = -1.55 pts / \u20b9-1,612 \u00b7 THESIS-VOID (synchrony flipped) \u00b7 capital \u20b987,890", "mkt_t": 1792395814.4288983}
+{"t": "13:15:04", "k": "ARMED", "x": "Triangle closing: push 114%, together 87%, 88% room left \u2014 PE side", "mkt_t": 1792395904.3456917}
+{"t": "13:17:10", "k": "ENTRY", "x": "BUY 17 lots NIFTY 22950 PE (2026-10-19) @ 75.15 \u00b7 co-first move DOWN: futures z 2.4, synchrony 70%, first mover INFY, 3 pts since onset", "mkt_t": 1792396030.841348}
+{"t": "13:17:10", "k": "RAW-ENTRY", "x": "BUY 17 lots NIFTY 22950 PE (2026-10-19) @ 75.15 \u00b7 co-first move DOWN: futures z 2.4, synchrony 70%, first mover INFY, 3 pts since onset", "mkt_t": 1792396030.841348}
+{"t": "13:17:13", "k": "SPIKE", "x": "straddle 22900 +5.6 over theta in 5 min \u2014 PE leg carries it (46.5, delta None\u2192-0.507, gamma 0.00351)", "mkt_t": 1792396033.3539832}
+{"t": "13:17:43", "k": "EXIT", "x": "PE 22950 17 lots \u00b7 75.15 \u2192 73.00 = -2.15 pts / \u20b9-2,376 \u00b7 THESIS-VOID (synchrony flipped) \u00b7 capital \u20b985,515", "mkt_t": 1792396063.3990097}
+{"t": "13:17:43", "k": "RAW-EXIT", "x": "PE 22950 17 lots \u00b7 75.15 \u2192 73.00 = -2.15 pts / \u20b9-2,376 \u00b7 THESIS-VOID (synchrony flipped) \u00b7 capital \u20b985,515", "mkt_t": 1792396063.3990097}
+{"t": "13:17:44", "k": "ARMED", "x": "Triangle closing: push 115%, together 119%, 100% room left \u2014 CE side", "mkt_t": 1792396064.0462997}
+{"t": "13:17:44", "k": "ENTRY", "x": "BUY 16 lots NIFTY 22850 CE (2026-10-19) @ 78.30 \u00b7 forming move UP: futures z 2.3, synchrony 60%, first mover \u2014, 0 pts since onset", "mkt_t": 1792396064.0462997}
+{"t": "13:17:44", "k": "RAW-ENTRY", "x": "BUY 16 lots NIFTY 22850 CE (2026-10-19) @ 78.30 \u00b7 forming move UP: futures z 2.3, synchrony 60%, first mover \u2014, 0 pts since onset", "mkt_t": 1792396064.0462997}
+{"t": "13:17:52", "k": "EXIT", "x": "CE 22850 16 lots \u00b7 78.30 \u2192 72.55 = -5.75 pts / \u20b9-5,980 \u00b7 THESIS-VOID (synchrony flipped) \u00b7 capital \u20b979,535", "mkt_t": 1792396072.9433756}
+{"t": "13:17:52", "k": "RAW-EXIT", "x": "CE 22850 16 lots \u00b7 78.30 \u2192 72.55 = -5.75 pts / \u20b9-5,980 \u00b7 THESIS-VOID (synchrony flipped) \u00b7 capital \u20b979,535", "mkt_t": 1792396072.9433756}
+{"t": "13:17:57", "k": "ARMED", "x": "Triangle closing: push 119%, together 147%, 100% room left \u2014 PE side", "mkt_t": 1792396077.7786403}
+{"t": "13:17:57", "k": "ENTRY", "x": "BUY 15 lots NIFTY 22950 PE (2026-10-19) @ 81.10 \u00b7 forming move DOWN: futures z 2.4, synchrony 73%, first mover \u2014, 0 pts since onset", "mkt_t": 1792396077.7786403}
+{"t": "13:17:57", "k": "RAW-ENTRY", "x": "BUY 15 lots NIFTY 22950 PE (2026-10-19) @ 81.10 \u00b7 forming move DOWN: futures z 2.4, synchrony 73%, first mover \u2014, 0 pts since onset", "mkt_t": 1792396077.7786403}
+{"t": "13:20:47", "k": "EXIT", "x": "PE 22950 15 lots \u00b7 81.10 \u2192 88.30 = +7.20 pts / \u20b9+7,020 \u00b7 THESIS-VOID (synchrony flipped) \u00b7 capital \u20b986,555", "mkt_t": 1792396247.4519553}
+{"t": "13:20:47", "k": "ENTRY", "x": "BUY 13 lots NIFTY 22800 CE (2026-10-19) @ 98.70 \u00b7 co-first move UP: futures z 2.2, synchrony 56%, first mover LT, 0 pts since onset", "mkt_t": 1792396247.4519553}
+{"t": "13:20:47", "k": "RAW-EXIT", "x": "PE 22950 15 lots \u00b7 81.10 \u2192 88.30 = +7.20 pts / \u20b9+7,020 \u00b7 THESIS-VOID (synchrony flipped) \u00b7 capital \u20b986,555", "mkt_t": 1792396247.4519553}
+{"t": "13:20:47", "k": "RAW-ENTRY", "x": "BUY 13 lots NIFTY 22800 CE (2026-10-19) @ 98.70 \u00b7 co-first move UP: futures z 2.2, synchrony 56%, first mover LT, 0 pts since onset", "mkt_t": 1792396247.4519553}
+{"t": "13:22:56", "k": "EXIT", "x": "CE 22800 13 lots \u00b7 98.70 \u2192 91.50 = -7.20 pts / \u20b9-6,084 \u00b7 STOP \u00b7 capital \u20b980,471", "mkt_t": 1792396376.0812263}
+{"t": "13:22:56", "k": "RAW-EXIT", "x": "CE 22800 13 lots \u00b7 98.70 \u2192 91.50 = -7.20 pts / \u20b9-6,084 \u00b7 STOP \u00b7 capital \u20b980,471", "mkt_t": 1792396376.0812263}
+{"t": "13:24:22", "k": "ARMED", "x": "Triangle closing: push 136%, together 86%, 100% room left \u2014 CE side", "mkt_t": 1792396462.5899558}
+{"t": "13:25:02", "k": "ARMED", "x": "Triangle closing: push 108%, together 102%, 77% room left \u2014 PE side", "mkt_t": 1792396502.1777349}
+{"t": "13:25:02", "k": "ENTRY", "x": "BUY 16 lots NIFTY 22900 PE (2026-10-19) @ 75.25 \u00b7 co-first move DOWN: futures z 2.2, synchrony 51%, first mover ICICIBANK, 3 pts since onset", "mkt_t": 1792396502.1777349}
+{"t": "13:25:02", "k": "RAW-ENTRY", "x": "BUY 16 lots NIFTY 22900 PE (2026-10-19) @ 75.25 \u00b7 co-first move DOWN: futures z 2.2, synchrony 51%, first mover ICICIBANK, 3 pts since onset", "mkt_t": 1792396502.1777349}
+{"t": "13:25:57", "k": "EXIT", "x": "PE 22900 16 lots \u00b7 75.25 \u2192 64.50 = -10.75 pts / \u20b9-11,180 \u00b7 THESIS-VOID (synchrony flipped) \u00b7 capital \u20b969,291", "mkt_t": 1792396557.3992069}
+{"t": "13:25:57", "k": "RAW-EXIT", "x": "PE 22900 16 lots \u00b7 75.25 \u2192 64.50 = -10.75 pts / \u20b9-11,180 \u00b7 THESIS-VOID (synchrony flipped) \u00b7 capital \u20b969,291", "mkt_t": 1792396557.3992069}
+{"t": "13:25:57", "k": "ARMED", "x": "Triangle closing: push 104%, together 107%, 67% room left \u2014 CE side", "mkt_t": 1792396557.5788393}
+{"t": "13:25:57", "k": "ENTRY", "x": "BUY 12 lots NIFTY 22800 CE (2026-10-19) @ 85.20 \u00b7 co-first move UP: futures z 2.1, synchrony 54%, first mover BAJFINANCE, 4 pts since onset", "mkt_t": 1792396557.5788393}
+{"t": "13:25:57", "k": "RAW-ENTRY", "x": "BUY 12 lots NIFTY 22800 CE (2026-10-19) @ 85.20 \u00b7 co-first move UP: futures z 2.1, synchrony 54%, first mover BAJFINANCE, 4 pts since onset", "mkt_t": 1792396557.5788393}
+{"t": "13:27:18", "k": "EXIT", "x": "CE 22800 12 lots \u00b7 85.20 \u2192 79.00 = -6.20 pts / \u20b9-4,836 \u00b7 THESIS-VOID (synchrony flipped) \u00b7 capital \u20b964,455", "mkt_t": 1792396638.2955701}
+{"t": "13:27:18", "k": "RAW-EXIT", "x": "CE 22800 12 lots \u00b7 85.20 \u2192 79.00 = -6.20 pts / \u20b9-4,836 \u00b7 THESIS-VOID (synchrony flipped) \u00b7 capital \u20b964,455", "mkt_t": 1792396638.2955701}
+{"t": "13:27:19", "k": "ARMED", "x": "Triangle closing: push 136%, together 122%, 100% room left \u2014 PE side", "mkt_t": 1792396639.399564}
+{"t": "13:27:19", "k": "ENTRY", "x": "BUY 13 lots NIFTY 22900 PE (2026-10-19) @ 72.60 \u00b7 forming move DOWN: futures z 2.7, synchrony 61%, first mover \u2014, 0 pts since onset", "mkt_t": 1792396639.399564}
+{"t": "13:27:19", "k": "RAW-ENTRY", "x": "BUY 13 lots NIFTY 22900 PE (2026-10-19) @ 72.60 \u00b7 forming move DOWN: futures z 2.7, synchrony 61%, first mover \u2014, 0 pts since onset", "mkt_t": 1792396639.399564}
+{"t": "13:32:43", "k": "SHIFT", "x": "ATM rolled 22900 \u2192 22850: straddle 97.6 \u2192 90.0 (spot settled at the new strike)", "mkt_t": 1792396963.89763}
+{"t": "13:35:15", "k": "EXIT", "x": "PE 22900 13 lots \u00b7 72.60 \u2192 64.65 = -7.95 pts / \u20b9-6,718 \u00b7 STOP \u00b7 capital \u20b957,737", "mkt_t": 1792397115.376043}
+{"t": "13:35:15", "k": "RAW-EXIT", "x": "PE 22900 13 lots \u00b7 72.60 \u2192 64.65 = -7.95 pts / \u20b9-6,718 \u00b7 STOP \u00b7 capital \u20b957,737", "mkt_t": 1792397115.376043}
+{"t": "13:41:27", "k": "ARMED", "x": "Triangle closing: push 190%, together 85%, 46% room left \u2014 CE side", "mkt_t": 1792397487.9738767}
+{"t": "13:42:11", "k": "ARMED", "x": "Triangle closing: push 114%, together 122%, 100% room left \u2014 CE side", "mkt_t": 1792397531.646599}
+{"t": "13:42:11", "k": "ENTRY", "x": "BUY 8 lots NIFTY 22800 CE (2026-10-19) @ 98.80 \u00b7 forming move UP: futures z 2.3, synchrony 61%, first mover \u2014, 0 pts since onset", "mkt_t": 1792397531.646599}
+{"t": "13:42:11", "k": "RAW-ENTRY", "x": "BUY 8 lots NIFTY 22800 CE (2026-10-19) @ 98.80 \u00b7 forming move UP: futures z 2.3, synchrony 61%, first mover \u2014, 0 pts since onset", "mkt_t": 1792397531.646599}
+{"t": "13:42:23", "k": "EXIT", "x": "CE 22800 8 lots \u00b7 98.80 \u2192 93.15 = -5.65 pts / \u20b9-2,938 \u00b7 THESIS-VOID (synchrony flipped) \u00b7 capital \u20b954,799", "mkt_t": 1792397543.7895741}
+{"t": "13:42:23", "k": "ENTRY", "x": "BUY 9 lots NIFTY 22950 PE (2026-10-19) @ 89.25 \u00b7 co-first move DOWN: futures z 2.9, synchrony 53%, first mover RELIANCE, 0 pts since onset", "mkt_t": 1792397543.7895741}
+{"t": "13:42:23", "k": "RAW-EXIT", "x": "CE 22800 8 lots \u00b7 98.80 \u2192 93.15 = -5.65 pts / \u20b9-2,938 \u00b7 THESIS-VOID (synchrony flipped) \u00b7 capital \u20b954,799", "mkt_t": 1792397543.7895741}
+{"t": "13:42:23", "k": "RAW-ENTRY", "x": "BUY 9 lots NIFTY 22950 PE (2026-10-19) @ 89.25 \u00b7 co-first move DOWN: futures z 2.9, synchrony 53%, first mover RELIANCE, 0 pts since onset", "mkt_t": 1792397543.7895741}
+{"t": "13:42:31", "k": "EXIT", "x": "PE 22950 9 lots \u00b7 89.25 \u2192 90.00 = +0.75 pts / \u20b9+439 \u00b7 STOP \u00b7 capital \u20b955,238", "mkt_t": 1792397551.832864}
+{"t": "13:42:31", "k": "RAW-EXIT", "x": "PE 22950 9 lots \u00b7 89.25 \u2192 90.00 = +0.75 pts / \u20b9+439 \u00b7 STOP \u00b7 capital \u20b955,238", "mkt_t": 1792397551.832864}
+{"t": "13:42:43", "k": "ARMED", "x": "Triangle closing: push 102%, together 96%, 90% room left \u2014 CE side", "mkt_t": 1792397563.6772513}
+{"t": "13:42:44", "k": "ENTRY", "x": "BUY 9 lots NIFTY 22800 CE (2026-10-19) @ 93.25 \u00b7 co-first move UP: futures z 2.0, synchrony 53%, first mover ICICIBANK, 0 pts since onset", "mkt_t": 1792397564.5151446}
+{"t": "13:42:44", "k": "RAW-ENTRY", "x": "BUY 9 lots NIFTY 22800 CE (2026-10-19) @ 93.25 \u00b7 co-first move UP: futures z 2.0, synchrony 53%, first mover ICICIBANK, 0 pts since onset", "mkt_t": 1792397564.5151446}
+{"t": "13:42:49", "k": "EXIT", "x": "CE 22800 9 lots \u00b7 93.25 \u2192 90.15 = -3.10 pts / \u20b9-1,814 \u00b7 THESIS-VOID (synchrony flipped) \u00b7 capital \u20b953,424", "mkt_t": 1792397569.2107913}
+{"t": "13:42:49", "k": "ENTRY", "x": "BUY 8 lots NIFTY 22950 PE (2026-10-19) @ 93.10 \u00b7 co-first move DOWN: futures z 2.2, synchrony 52%, first mover BHARTIARTL, 0 pts since onset", "mkt_t": 1792397569.2107913}
+{"t": "13:42:49", "k": "RAW-EXIT", "x": "CE 22800 9 lots \u00b7 93.25 \u2192 90.15 = -3.10 pts / \u20b9-1,814 \u00b7 THESIS-VOID (synchrony flipped) \u00b7 capital \u20b953,424", "mkt_t": 1792397569.2107913}
+{"t": "13:42:49", "k": "RAW-ENTRY", "x": "BUY 8 lots NIFTY 22950 PE (2026-10-19) @ 93.10 \u00b7 co-first move DOWN: futures z 2.2, synchrony 52%, first mover BHARTIARTL, 0 pts since onset", "mkt_t": 1792397569.2107913}
+{"t": "13:45:10", "k": "EXIT", "x": "PE 22950 8 lots \u00b7 93.10 \u2192 108.25 = +15.15 pts / \u20b9+7,878 \u00b7 THESIS-VOID (synchrony flipped) \u00b7 capital \u20b961,302", "mkt_t": 1792397710.2816586}
+{"t": "13:45:10", "k": "RAW-EXIT", "x": "PE 22950 8 lots \u00b7 93.10 \u2192 108.25 = +15.15 pts / \u20b9+7,878 \u00b7 THESIS-VOID (synchrony flipped) \u00b7 capital \u20b961,302", "mkt_t": 1792397710.2816586}
+{"t": "13:46:20", "k": "SYSTEM", "x": "day 2026-10-19 \u00b7 champion m2.0_s0.5 \u00b7 gates none \u00b7 capital \u20b961,302", "mkt_t": 1792397780.042438}
+{"t": "13:46:41", "k": "GAP", "x": "data back after 21 s (feed has no futures quote); entries resume", "mkt_t": 1792397801.013596}
+{"t": "13:46:49", "k": "ARMED", "x": "Triangle closing: push 125%, together 85%, 70% room left \u2014 PE side", "mkt_t": 1792397809.893113}
+{"t": "13:47:58", "k": "ARMED", "x": "Triangle closing: push 136%, together 128%, 100% room left \u2014 CE side", "mkt_t": 1792397878.5525103}
+{"t": "13:49:29", "k": "ARMED", "x": "Triangle closing: push 153%, together 93%, 100% room left \u2014 PE side", "mkt_t": 1792397969.1119676}
+{"t": "13:49:40", "k": "ARMED", "x": "Triangle closing: push 87%, together 85%, 85% room left \u2014 CE side", "mkt_t": 1792397980.2206852}
+{"t": "13:49:43", "k": "ENTRY", "x": "BUY 11 lots NIFTY 22800 CE (2026-10-19) @ 83.45 \u00b7 co-first move UP: futures z 4.4, synchrony 53%, first mover BAJFINANCE, 1 pts since onset", "mkt_t": 1792397983.055781}
+{"t": "13:49:43", "k": "RAW-ENTRY", "x": "BUY 11 lots NIFTY 22800 CE (2026-10-19) @ 83.45 \u00b7 co-first move UP: futures z 4.4, synchrony 53%, first mover BAJFINANCE, 1 pts since onset", "mkt_t": 1792397983.055781}
+{"t": "13:50:29", "k": "EXIT", "x": "CE 22800 11 lots \u00b7 83.45 \u2192 75.65 = -7.80 pts / \u20b9-5,577 \u00b7 STOP \u00b7 capital \u20b955,725", "mkt_t": 1792398029.2390318}
+{"t": "13:50:29", "k": "RAW-EXIT", "x": "CE 22800 11 lots \u00b7 83.45 \u2192 75.65 = -7.80 pts / \u20b9-5,577 \u00b7 STOP \u00b7 capital \u20b955,725", "mkt_t": 1792398029.2390318}
+{"t": "13:50:30", "k": "ARMED", "x": "Triangle closing: push 127%, together 108%, 58% room left \u2014 PE side", "mkt_t": 1792398030.976907}
+{"t": "13:51:21", "k": "SPIKE", "x": "straddle 22850 +6.4 over theta in 5 min \u2014 CE leg carries it (49.0, delta 0.517\u21920.556, gamma 0.00381)", "mkt_t": 1792398081.774817}
+{"t": "13:53:17", "k": "ARMED", "x": "Triangle closing: push 111%, together 83%, 99% room left \u2014 PE side", "mkt_t": 1792398197.9622338}
+{"t": "13:53:37", "k": "ARMED", "x": "Triangle closing: push 97%, together 105%, 96% room left \u2014 CE side", "mkt_t": 1792398217.142504}
+{"t": "13:54:17", "k": "SPIKE", "x": "straddle 22850 +9.2 over theta in 5 min \u2014 CE leg carries it (48.3, delta 0.546\u21920.557, gamma 0.00387)", "mkt_t": 1792398257.0918696}
+{"t": "13:56:55", "k": "SPIKE", "x": "straddle 22850 +5.6 over theta in 5 min \u2014 CE leg carries it (48.8, delta 0.553\u21920.567, gamma 0.00393)", "mkt_t": 1792398415.1125581}
+{"t": "13:59:32", "k": "SPIKE", "x": "straddle 22850 +6.6 over theta in 5 min \u2014 CE leg carries it (48.3, delta 0.555\u21920.562, gamma 0.00391)", "mkt_t": 1792398572.9348557}
+{"t": "14:10:17", "k": "ARMED", "x": "Triangle closing: push 190%, together 81%, 100% room left \u2014 CE side", "mkt_t": 1792399217.3965511}
+{"t": "14:18:29", "k": "ARMED", "x": "Triangle closing: push 120%, together 86%, 91% room left \u2014 CE side", "mkt_t": 1792399709.835486}
+{"t": "14:20:36", "k": "ARMED", "x": "Triangle closing: push 94%, together 102%, 92% room left \u2014 PE side", "mkt_t": 1792399836.1308925}
+{"t": "14:22:13", "k": "ARMED", "x": "Triangle closing: push 232%, together 119%, 76% room left \u2014 CE side", "mkt_t": 1792399933.969366}
+{"t": "14:22:13", "k": "ENTRY", "x": "BUY 11 lots NIFTY 22800 CE (2026-10-19) @ 73.30 \u00b7 co-first move UP: futures z 4.6, synchrony 59%, first mover RELIANCE, 1 pts since onset", "mkt_t": 1792399933.969366}
+{"t": "14:22:13", "k": "RAW-ENTRY", "x": "BUY 11 lots NIFTY 22800 CE (2026-10-19) @ 73.30 \u00b7 co-first move UP: futures z 4.6, synchrony 59%, first mover RELIANCE, 1 pts since onset", "mkt_t": 1792399933.969366}
+{"t": "14:24:43", "k": "EXIT", "x": "CE 22800 11 lots \u00b7 73.30 \u2192 62.70 = -10.60 pts / \u20b9-7,579 \u00b7 THESIS-VOID (synchrony flipped) \u00b7 capital \u20b948,146", "mkt_t": 1792400083.3468983}
+{"t": "14:24:43", "k": "RAW-EXIT", "x": "CE 22800 11 lots \u00b7 73.30 \u2192 62.70 = -10.60 pts / \u20b9-7,579 \u00b7 THESIS-VOID (synchrony flipped) \u00b7 capital \u20b948,146", "mkt_t": 1792400083.3468983}
+{"t": "14:24:44", "k": "ARMED", "x": "Triangle closing: push 86%, together 161%, 100% room left \u2014 PE side", "mkt_t": 1792400084.3540044}
+{"t": "14:43:16", "k": "ARMED", "x": "Triangle closing: push 80%, together 133%, 46% room left \u2014 CE side", "mkt_t": 1792401196.4075432}
+{"t": "14:44:35", "k": "SPIKE", "x": "straddle 22850 +21.2 over theta in 5 min \u2014 CE leg carries it (54.8, delta 0.503\u21920.676, gamma 0.00437)", "mkt_t": 1792401275.0452893}
+{"t": "14:45:05", "k": "ARMED", "x": "Triangle closing: push 123%, together 91%, 100% room left \u2014 PE side", "mkt_t": 1792401305.8942857}
+{"t": "14:50:50", "k": "ARMED", "x": "Triangle closing: push 115%, together 88%, 92% room left \u2014 CE side", "mkt_t": 1792401650.1931546}
+{"t": "14:52:44", "k": "ARMED", "x": "Triangle closing: push 128%, together 116%, 100% room left \u2014 PE side", "mkt_t": 1792401764.9771738}
+{"t": "14:55:03", "k": "ARMED", "x": "Triangle closing: push 101%, together 88%, 38% room left \u2014 CE side", "mkt_t": 1792401903.2975476}
+{"t": "14:55:31", "k": "ARMED", "x": "Triangle closing: push 126%, together 86%, 100% room left \u2014 PE side", "mkt_t": 1792401931.2141445}
+{"t": "14:55:40", "k": "ARMED", "x": "Triangle closing: push 107%, together 101%, 100% room left \u2014 PE side", "mkt_t": 1792401940.8908856}
+{"t": "14:56:29", "k": "ARMED", "x": "Triangle closing: push 149%, together 116%, 100% room left \u2014 CE side", "mkt_t": 1792401989.8454003}
+{"t": "14:57:14", "k": "SPIKE", "x": "straddle 22850 +25.7 over theta in 5 min \u2014 CE leg carries it (58.8, delta 0.562\u21920.735, gamma 0.00438)", "mkt_t": 1792402034.31514}
+{"t": "14:57:18", "k": "ARMED", "x": "Triangle closing: push 188%, together 116%, 100% room left \u2014 CE side", "mkt_t": 1792402038.7764142}
+{"t": "15:02:42", "k": "ARMED", "x": "Triangle closing: push 128%, together 80%, 94% room left \u2014 CE side", "mkt_t": 1792402362.4029336}
+{"t": "15:10:19", "k": "ARMED", "x": "Triangle closing: push 125%, together 87%, 83% room left \u2014 PE side", "mkt_t": 1792402819.832013}
+{"t": "15:12:18", "k": "ARMED", "x": "Triangle closing: push 114%, together 91%, 81% room left \u2014 PE side", "mkt_t": 1792402938.9242945}
+{"t": "15:13:34", "k": "ARMED", "x": "Triangle closing: push 106%, together 143%, 100% room left \u2014 CE side", "mkt_t": 1792403014.1251652}
+{"t": "15:16:12", "k": "SPIKE", "x": "straddle 22850 +37.3 over theta in 5 min \u2014 CE leg carries it (47.0, delta 0.549\u21920.702, gamma 0.00529)", "mkt_t": 1792403172.987545}
+{"t": "15:18:41", "k": "SPIKE", "x": "straddle 22850 +39.6 over theta in 5 min \u2014 CE leg carries it (43.7, delta 0.675\u21920.704, gamma 0.00571)", "mkt_t": 1792403321.575133}
+{"t": "15:20:33", "k": "SHIFT", "x": "ATM rolled 22850 \u2192 23100: straddle 73.0 \u2192 188.0 (spot settled at the new strike)", "mkt_t": 1792403433.2047825}
+{"t": "15:22:51", "k": "SHIFT", "x": "ATM rolled 23100 \u2192 22950: straddle 165.7 \u2192 32.5 (spot settled at the new strike)", "mkt_t": 1792403571.8487954}
+{"t": "15:36:00", "k": "SHIFT", "x": "ATM rolled 22950 \u2192 22900: straddle 61.0 \u2192 11.1 (spot settled at the new strike)", "mkt_t": 1792404360.100746}
+{"t": "15:40:36", "k": "LEARN", "x": "2026-10-19: champion next session m2.0_s0.5, gates none, status COLLECTING", "mkt_t": 1792404636.9853723}

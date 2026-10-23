@@ -1,0 +1,143 @@
+{"t": "09:15:10", "k": "SYSTEM", "x": "day 2026-10-19 \u00b7 champion m2.0_s0.5 \u00b7 gates none \u00b7 capital \u20b9100,000", "mkt_t": 1792381510.0}
+{"t": "09:21:11", "k": "SPIKE", "x": "straddle 25200 +5.8 over theta in 5 min \u2014 CE leg carries it (40.8, delta 0.513\u21920.52, gamma 0.00415)", "mkt_t": 1792381871.7500002}
+{"t": "09:25:02", "k": "ARMED", "x": "Triangle closing: push 86%, together 82%, 75% room left \u2014 PE side", "mkt_t": 1792382102.5}
+{"t": "09:37:12", "k": "ENTRY", "x": "BUY 25 lots NIFTY 25250 PE (2026-10-19) @ 60.10 \u00b7 co-first move DOWN: futures z 2.4, synchrony 87%, first mover HDFCBANK, 8 pts since onset", "mkt_t": 1792382832.2499998}
+{"t": "09:37:12", "k": "RAW-ENTRY", "x": "BUY 25 lots NIFTY 25250 PE (2026-10-19) @ 60.10 \u00b7 co-first move DOWN: futures z 2.4, synchrony 87%, first mover HDFCBANK, 8 pts since onset", "mkt_t": 1792382832.2499998}
+{"t": "09:37:25", "k": "SPIKE", "x": "straddle 25200 +6.5 over theta in 5 min \u2014 PE leg carries it (39.2, delta -0.4\u2192-0.494, gamma 0.00399)", "mkt_t": 1792382845.0}
+{"t": "09:39:32", "k": "EXIT", "x": "PE 25250 25 lots \u00b7 60.10 \u2192 93.45 = +33.35 pts / \u20b9+54,194 \u00b7 TRAIL \u00b7 capital \u20b9154,194", "mkt_t": 1792382972.7500002}
+{"t": "09:39:32", "k": "RAW-EXIT", "x": "PE 25250 25 lots \u00b7 60.10 \u2192 93.45 = +33.35 pts / \u20b9+54,194 \u00b7 TRAIL \u00b7 capital \u20b9154,194", "mkt_t": 1792382972.7500002}
+{"t": "09:48:21", "k": "ARMED", "x": "Triangle closing: push 118%, together 171%, 100% room left \u2014 PE side", "mkt_t": 1792383501.7500002}
+{"t": "09:48:21", "k": "ENTRY", "x": "BUY 40 lots NIFTY 25200 PE (2026-10-19) @ 58.40 \u00b7 forming move DOWN: futures z 2.4, synchrony 85%, first mover \u2014, 0 pts since onset", "mkt_t": 1792383501.7500002}
+{"t": "09:48:21", "k": "RAW-ENTRY", "x": "BUY 40 lots NIFTY 25200 PE (2026-10-19) @ 58.40 \u00b7 forming move DOWN: futures z 2.4, synchrony 85%, first mover \u2014, 0 pts since onset", "mkt_t": 1792383501.7500002}
+{"t": "09:48:57", "k": "SPIKE", "x": "straddle 25200 +8.8 over theta in 5 min \u2014 PE leg carries it (65.4, delta -0.618\u2192-0.682, gamma 0.00372)", "mkt_t": 1792383537.2499998}
+{"t": "09:49:40", "k": "EXIT", "x": "PE 25200 40 lots \u00b7 58.40 \u2192 63.40 = +5.00 pts / \u20b9+13,000 \u00b7 TRAIL \u00b7 capital \u20b9167,194", "mkt_t": 1792383580.0}
+{"t": "09:49:40", "k": "RAW-EXIT", "x": "PE 25200 40 lots \u00b7 58.40 \u2192 63.40 = +5.00 pts / \u20b9+13,000 \u00b7 TRAIL \u00b7 capital \u20b9167,194", "mkt_t": 1792383580.0}
+{"t": "09:50:49", "k": "SPIKE", "x": "straddle 25200 +12.2 over theta in 5 min \u2014 PE leg carries it (58.9, delta -0.589\u2192-0.627, gamma 0.00375)", "mkt_t": 1792383649.7500002}
+{"t": "09:54:58", "k": "SPIKE", "x": "straddle 25200 +9.0 over theta in 5 min \u2014 PE leg carries it (74.1, delta -0.654\u2192-0.704, gamma 0.00338)", "mkt_t": 1792383898.2499998}
+{"t": "09:55:24", "k": "SHIFT", "x": "ATM rolled 25200 \u2192 25100: straddle 107.9 \u2192 90.0 (spot settled at the new strike)", "mkt_t": 1792383924.7500002}
+{"t": "10:05:10", "k": "SPIKE", "x": "straddle 25100 +9.6 over theta in 5 min \u2014 CE leg carries it (53.2, delta 0.451\u21920.565, gamma 0.00358)", "mkt_t": 1792384510.5}
+{"t": "10:08:53", "k": "SPIKE", "x": "straddle 25100 +15.9 over theta in 5 min \u2014 CE leg carries it (55.5, delta 0.432\u21920.588, gamma 0.00364)", "mkt_t": 1792384733.5}
+{"t": "10:15:58", "k": "ARMED", "x": "Triangle closing: push 83%, together 93%, 24% room left \u2014 CE side", "mkt_t": 1792385158.5}
+{"t": "10:17:32", "k": "SPIKE", "x": "straddle 25100 +10.2 over theta in 5 min \u2014 CE leg carries it (63.3, delta 0.572\u21920.675, gamma 0.00378)", "mkt_t": 1792385252.5}
+{"t": "10:19:45", "k": "SPIKE", "x": "straddle 25100 +12.4 over theta in 5 min \u2014 CE leg carries it (64.0, delta 0.505\u21920.698, gamma 0.00386)", "mkt_t": 1792385385.0}
+{"t": "10:26:29", "k": "SHIFT", "x": "ATM rolled 25100 \u2192 25150: straddle 76.5 \u2192 66.7 (spot settled at the new strike)", "mkt_t": 1792385789.2499998}
+{"t": "10:31:29", "k": "SPIKE", "x": "straddle 25150 +11.3 over theta in 5 min \u2014 PE leg carries it (56.8, delta -0.517\u2192-0.664, gamma 0.00416)", "mkt_t": 1792386089.7500002}
+{"t": "10:38:21", "k": "SHIFT", "x": "ATM rolled 25150 \u2192 25100: straddle 81.2 \u2192 69.5 (spot settled at the new strike)", "mkt_t": 1792386501.5}
+{"t": "10:47:47", "k": "ARMED", "x": "Triangle closing: push 80%, together 146%, 47% room left \u2014 PE side", "mkt_t": 1792387067.0}
+{"t": "10:47:48", "k": "ENTRY", "x": "BUY 47 lots NIFTY 25100 PE (2026-10-19) @ 54.10 \u00b7 co-first move DOWN: futures z 2.0, synchrony 70%, first mover LT, 3 pts since onset", "mkt_t": 1792387068.0}
+{"t": "10:47:48", "k": "RAW-ENTRY", "x": "BUY 47 lots NIFTY 25100 PE (2026-10-19) @ 54.10 \u00b7 co-first move DOWN: futures z 2.0, synchrony 70%, first mover LT, 3 pts since onset", "mkt_t": 1792387068.0}
+{"t": "10:47:59", "k": "SPIKE", "x": "straddle 25100 +9.5 over theta in 5 min \u2014 PE leg carries it (60.7, delta -0.636\u2192-0.691, gamma 0.00405)", "mkt_t": 1792387079.7500002}
+{"t": "10:51:50", "k": "EXIT", "x": "PE 25100 47 lots \u00b7 54.10 \u2192 69.90 = +15.80 pts / \u20b9+48,269 \u00b7 TRAIL \u00b7 capital \u20b9215,463", "mkt_t": 1792387310.5}
+{"t": "10:51:50", "k": "RAW-EXIT", "x": "PE 25100 47 lots \u00b7 54.10 \u2192 69.90 = +15.80 pts / \u20b9+48,269 \u00b7 TRAIL \u00b7 capital \u20b9215,463", "mkt_t": 1792387310.5}
+{"t": "10:53:13", "k": "ARMED", "x": "Triangle closing: push 136%, together 127%, 88% room left \u2014 PE side", "mkt_t": 1792387393.0}
+{"t": "10:53:13", "k": "ENTRY", "x": "BUY 41 lots NIFTY 25100 PE (2026-10-19) @ 79.30 \u00b7 co-first move DOWN: futures z 2.7, synchrony 63%, first mover BHARTIARTL, 1 pts since onset", "mkt_t": 1792387393.0}
+{"t": "10:53:13", "k": "RAW-ENTRY", "x": "BUY 41 lots NIFTY 25100 PE (2026-10-19) @ 79.30 \u00b7 co-first move DOWN: futures z 2.7, synchrony 63%, first mover BHARTIARTL, 1 pts since onset", "mkt_t": 1792387393.0}
+{"t": "10:53:21", "k": "SHIFT", "x": "ATM rolled 25100 \u2192 25000: straddle 95.5 \u2192 73.5 (spot settled at the new strike)", "mkt_t": 1792387401.7500002}
+{"t": "10:58:57", "k": "EXIT", "x": "PE 25100 41 lots \u00b7 79.30 \u2192 125.20 = +45.90 pts / \u20b9+122,324 \u00b7 TRAIL \u00b7 capital \u20b9337,786", "mkt_t": 1792387737.2499998}
+{"t": "10:58:57", "k": "RAW-EXIT", "x": "PE 25100 41 lots \u00b7 79.30 \u2192 125.20 = +45.90 pts / \u20b9+122,324 \u00b7 TRAIL \u00b7 capital \u20b9337,786", "mkt_t": 1792387737.2499998}
+{"t": "11:04:45", "k": "SPIKE", "x": "straddle 25000 +9.3 over theta in 5 min \u2014 PE leg carries it (55.7, delta -0.566\u2192-0.64, gamma 0.00407)", "mkt_t": 1792388085.5}
+{"t": "11:11:40", "k": "SHIFT", "x": "ATM rolled 25000 \u2192 24900: straddle 90.7 \u2192 67.3 (spot settled at the new strike)", "mkt_t": 1792388500.2499998}
+{"t": "11:21:20", "k": "SPIKE", "x": "straddle 24900 +9.7 over theta in 5 min \u2014 CE leg carries it (38.4, delta 0.494\u21920.542, gamma 0.00469)", "mkt_t": 1792389080.0}
+{"t": "11:28:43", "k": "SPIKE", "x": "straddle 24900 +10.0 over theta in 5 min \u2014 PE leg carries it (54.5, delta -0.535\u2192-0.673, gamma 0.00439)", "mkt_t": 1792389523.5}
+{"t": "11:32:46", "k": "ARMED", "x": "Triangle closing: push 137%, together 109%, 88% room left \u2014 CE side", "mkt_t": 1792389766.2499998}
+{"t": "11:32:46", "k": "ENTRY", "x": "BUY 59 lots NIFTY 24800 CE (2026-10-19) @ 86.75 \u00b7 co-first move UP: futures z 2.7, synchrony 54%, first mover KOTAKBANK, 1 pts since onset", "mkt_t": 1792389766.2499998}
+{"t": "11:32:46", "k": "RAW-ENTRY", "x": "BUY 59 lots NIFTY 24800 CE (2026-10-19) @ 86.75 \u00b7 co-first move UP: futures z 2.7, synchrony 54%, first mover KOTAKBANK, 1 pts since onset", "mkt_t": 1792389766.2499998}
+{"t": "11:37:43", "k": "EXIT", "x": "CE 24800 59 lots \u00b7 86.75 \u2192 113.80 = +27.05 pts / \u20b9+103,737 \u00b7 TRAIL \u00b7 capital \u20b9441,523", "mkt_t": 1792390063.7500002}
+{"t": "11:37:43", "k": "RAW-EXIT", "x": "CE 24800 59 lots \u00b7 86.75 \u2192 113.80 = +27.05 pts / \u20b9+103,737 \u00b7 TRAIL \u00b7 capital \u20b9441,523", "mkt_t": 1792390063.7500002}
+{"t": "11:39:07", "k": "ARMED", "x": "Triangle closing: push 126%, together 112%, 100% room left \u2014 PE side", "mkt_t": 1792390147.5}
+{"t": "11:39:07", "k": "ENTRY", "x": "BUY 114 lots NIFTY 24950 PE (2026-10-19) @ 59.40 \u00b7 forming move DOWN: futures z 2.5, synchrony 56%, first mover \u2014, 0 pts since onset", "mkt_t": 1792390147.5}
+{"t": "11:39:07", "k": "RAW-ENTRY", "x": "BUY 114 lots NIFTY 24950 PE (2026-10-19) @ 59.40 \u00b7 forming move DOWN: futures z 2.5, synchrony 56%, first mover \u2014, 0 pts since onset", "mkt_t": 1792390147.5}
+{"t": "11:42:42", "k": "EXIT", "x": "PE 24950 114 lots \u00b7 59.40 \u2192 60.15 = +0.75 pts / \u20b9+5,558 \u00b7 TRAIL \u00b7 capital \u20b9447,080", "mkt_t": 1792390362.0}
+{"t": "11:42:42", "k": "RAW-EXIT", "x": "PE 24950 114 lots \u00b7 59.40 \u2192 60.15 = +0.75 pts / \u20b9+5,558 \u00b7 TRAIL \u00b7 capital \u20b9447,080", "mkt_t": 1792390362.0}
+{"t": "11:49:14", "k": "SPIKE", "x": "straddle 24900 +9.0 over theta in 5 min \u2014 CE leg carries it (56.8, delta 0.575\u21920.741, gamma 0.00457)", "mkt_t": 1792390754.0}
+{"t": "11:50:58", "k": "SHIFT", "x": "ATM rolled 24900 \u2192 25000: straddle 90.8 \u2192 67.7 (spot settled at the new strike)", "mkt_t": 1792390858.2499998}
+{"t": "12:00:56", "k": "ARMED", "x": "Triangle closing: push 130%, together 96%, 100% room left \u2014 PE side", "mkt_t": 1792391456.7500002}
+{"t": "12:01:00", "k": "ENTRY", "x": "BUY 144 lots NIFTY 25050 PE (2026-10-19) @ 47.50 \u00b7 co-first move DOWN: futures z 3.3, synchrony 53%, first mover ICICIBANK, 2 pts since onset", "mkt_t": 1792391460.2499998}
+{"t": "12:01:00", "k": "RAW-ENTRY", "x": "BUY 144 lots NIFTY 25050 PE (2026-10-19) @ 47.50 \u00b7 co-first move DOWN: futures z 3.3, synchrony 53%, first mover ICICIBANK, 2 pts since onset", "mkt_t": 1792391460.2499998}
+{"t": "12:05:22", "k": "EXIT", "x": "PE 25050 144 lots \u00b7 47.50 \u2192 82.20 = +34.70 pts / \u20b9+324,792 \u00b7 THESIS-VOID (synchrony flipped) \u00b7 capital \u20b9771,872", "mkt_t": 1792391722.2499998}
+{"t": "12:05:22", "k": "RAW-EXIT", "x": "PE 25050 144 lots \u00b7 47.50 \u2192 82.20 = +34.70 pts / \u20b9+324,792 \u00b7 THESIS-VOID (synchrony flipped) \u00b7 capital \u20b9771,872", "mkt_t": 1792391722.2499998}
+{"t": "12:05:30", "k": "ARMED", "x": "Triangle closing: push 114%, together 131%, 100% room left \u2014 CE side", "mkt_t": 1792391730.5}
+{"t": "12:05:30", "k": "ENTRY", "x": "BUY 139 lots NIFTY 24900 CE (2026-10-19) @ 85.15 \u00b7 forming move UP: futures z 2.3, synchrony 66%, first mover \u2014, 0 pts since onset", "mkt_t": 1792391730.5}
+{"t": "12:05:30", "k": "RAW-ENTRY", "x": "BUY 139 lots NIFTY 24900 CE (2026-10-19) @ 85.15 \u00b7 forming move UP: futures z 2.3, synchrony 66%, first mover \u2014, 0 pts since onset", "mkt_t": 1792391730.5}
+{"t": "12:10:07", "k": "EXIT", "x": "CE 24900 139 lots \u00b7 85.15 \u2192 114.35 = +29.20 pts / \u20b9+263,822 \u00b7 TRAIL \u00b7 capital \u20b91,035,694", "mkt_t": 1792392007.2499998}
+{"t": "12:10:07", "k": "RAW-EXIT", "x": "CE 24900 139 lots \u00b7 85.15 \u2192 114.35 = +29.20 pts / \u20b9+263,822 \u00b7 TRAIL \u00b7 capital \u20b91,035,694", "mkt_t": 1792392007.2499998}
+{"t": "12:22:13", "k": "ARMED", "x": "Triangle closing: push 319%, together 98%, 22% room left \u2014 CE side", "mkt_t": 1792392733.5}
+{"t": "12:22:16", "k": "SPIKE", "x": "straddle 25000 +10.0 over theta in 5 min \u2014 CE leg carries it (38.0, delta 0.421\u21920.575, gamma 0.00516)", "mkt_t": 1792392736.7500002}
+{"t": "12:26:43", "k": "ARMED", "x": "Triangle closing: push 132%, together 126%, 100% room left \u2014 CE side", "mkt_t": 1792393003.2499998}
+{"t": "12:26:43", "k": "ENTRY", "x": "BUY 261 lots NIFTY 25000 CE (2026-10-19) @ 60.90 \u00b7 forming move UP: futures z 2.6, synchrony 63%, first mover \u2014, 0 pts since onset", "mkt_t": 1792393003.2499998}
+{"t": "12:26:43", "k": "RAW-ENTRY", "x": "BUY 261 lots NIFTY 25000 CE (2026-10-19) @ 60.90 \u00b7 forming move UP: futures z 2.6, synchrony 63%, first mover \u2014, 0 pts since onset", "mkt_t": 1792393003.2499998}
+{"t": "12:27:26", "k": "SPIKE", "x": "straddle 25000 +20.7 over theta in 5 min \u2014 CE leg carries it (73.8, delta 0.619\u21920.778, gamma 0.00359)", "mkt_t": 1792393046.0}
+{"t": "12:30:31", "k": "SHIFT", "x": "ATM rolled 25000 \u2192 25100: straddle 87.9 \u2192 63.4 (spot settled at the new strike)", "mkt_t": 1792393231.2499998}
+{"t": "12:36:56", "k": "EXIT", "x": "CE 25000 261 lots \u00b7 60.90 \u2192 72.45 = +11.55 pts / \u20b9+195,946 \u00b7 TRAIL \u00b7 capital \u20b91,231,640", "mkt_t": 1792393616.0}
+{"t": "12:36:56", "k": "RAW-EXIT", "x": "CE 25000 261 lots \u00b7 60.90 \u2192 72.45 = +11.55 pts / \u20b9+195,946 \u00b7 TRAIL \u00b7 capital \u20b91,231,640", "mkt_t": 1792393616.0}
+{"t": "12:40:27", "k": "SPIKE", "x": "straddle 25100 +10.0 over theta in 5 min \u2014 PE leg carries it (55.9, delta -0.639\u2192-0.778, gamma 0.00477)", "mkt_t": 1792393827.0}
+{"t": "12:42:22", "k": "SHIFT", "x": "ATM rolled 25100 \u2192 25000: straddle 87.0 \u2192 59.1 (spot settled at the new strike)", "mkt_t": 1792393942.5}
+{"t": "12:53:14", "k": "SPIKE", "x": "straddle 25000 +10.5 over theta in 5 min \u2014 PE leg carries it (54.9, delta -0.659\u2192-0.748, gamma 0.00477)", "mkt_t": 1792394594.2499998}
+{"t": "12:57:17", "k": "SPIKE", "x": "straddle 25000 +9.9 over theta in 5 min \u2014 PE leg carries it (54.0, delta -0.702\u2192-0.762, gamma 0.00489)", "mkt_t": 1792394837.7500002}
+{"t": "12:58:11", "k": "ARMED", "x": "Triangle closing: push 87%, together 151%, 35% room left \u2014 CE side", "mkt_t": 1792394891.5}
+{"t": "12:58:14", "k": "ENTRY", "x": "BUY 266 lots NIFTY 24900 CE (2026-10-19) @ 71.20 \u00b7 co-first move UP: futures z 2.7, synchrony 81%, first mover HDFCBANK, 9 pts since onset", "mkt_t": 1792394894.0}
+{"t": "12:58:14", "k": "RAW-ENTRY", "x": "BUY 266 lots NIFTY 24900 CE (2026-10-19) @ 71.20 \u00b7 co-first move UP: futures z 2.7, synchrony 81%, first mover HDFCBANK, 9 pts since onset", "mkt_t": 1792394894.0}
+{"t": "13:07:50", "k": "EXIT", "x": "CE 24900 266 lots \u00b7 71.20 \u2192 132.95 = +61.75 pts / \u20b9+1,067,658 \u00b7 THESIS-VOID (synchrony flipped) \u00b7 capital \u20b92,299,298", "mkt_t": 1792395470.2499998}
+{"t": "13:07:50", "k": "RAW-EXIT", "x": "CE 24900 266 lots \u00b7 71.20 \u2192 132.95 = +61.75 pts / \u20b9+1,067,658 \u00b7 THESIS-VOID (synchrony flipped) \u00b7 capital \u20b92,299,298", "mkt_t": 1792395470.2499998}
+{"t": "13:07:53", "k": "ARMED", "x": "Triangle closing: push 162%, together 200%, 100% room left \u2014 PE side", "mkt_t": 1792395473.2499998}
+{"t": "13:07:53", "k": "ENTRY", "x": "BUY 129 lots NIFTY 25100 PE (2026-10-27) @ 272.85 \u00b7 forming move DOWN: futures z 3.2, synchrony 100%, first mover \u2014, 0 pts since onset", "mkt_t": 1792395473.2499998}
+{"t": "13:07:53", "k": "RAW-ENTRY", "x": "BUY 129 lots NIFTY 25100 PE (2026-10-27) @ 272.85 \u00b7 forming move DOWN: futures z 3.2, synchrony 100%, first mover \u2014, 0 pts since onset", "mkt_t": 1792395473.2499998}
+{"t": "13:08:39", "k": "SPIKE", "x": "straddle 25000 +9.7 over theta in 5 min \u2014 PE leg carries it (42.0, delta -0.342\u2192-0.61, gamma 0.00506)", "mkt_t": 1792395519.5}
+{"t": "13:10:54", "k": "SPIKE", "x": "straddle 25000 +11.5 over theta in 5 min \u2014 PE leg carries it (53.0, delta -0.302\u2192-0.731, gamma 0.00487)", "mkt_t": 1792395654.7500002}
+{"t": "13:15:02", "k": "EXIT", "x": "PE 25100 129 lots \u00b7 272.85 \u2192 310.05 = +37.20 pts / \u20b9+311,922 \u00b7 TRAIL \u00b7 capital \u20b92,611,220", "mkt_t": 1792395902.2499998}
+{"t": "13:15:02", "k": "RAW-EXIT", "x": "PE 25100 129 lots \u00b7 272.85 \u2192 310.05 = +37.20 pts / \u20b9+311,922 \u00b7 TRAIL \u00b7 capital \u20b92,611,220", "mkt_t": 1792395902.2499998}
+{"t": "13:22:35", "k": "ARMED", "x": "Triangle closing: push 110%, together 200%, 100% room left \u2014 CE side", "mkt_t": 1792396355.0}
+{"t": "13:22:35", "k": "ENTRY", "x": "BUY 159 lots NIFTY 24950 CE (2026-10-27) @ 251.90 \u00b7 forming move UP: futures z 2.2, synchrony 100%, first mover \u2014, 0 pts since onset", "mkt_t": 1792396355.0}
+{"t": "13:22:35", "k": "RAW-ENTRY", "x": "BUY 159 lots NIFTY 24950 CE (2026-10-27) @ 251.90 \u00b7 forming move UP: futures z 2.2, synchrony 100%, first mover \u2014, 0 pts since onset", "mkt_t": 1792396355.0}
+{"t": "13:23:16", "k": "SPIKE", "x": "straddle 25000 +10.3 over theta in 5 min \u2014 CE leg carries it (43.2, delta 0.515\u21920.653, gamma 0.00534)", "mkt_t": 1792396396.2499998}
+{"t": "13:26:29", "k": "SPIKE", "x": "straddle 25000 +12.2 over theta in 5 min \u2014 CE leg carries it (47.2, delta 0.402\u21920.729, gamma 0.00543)", "mkt_t": 1792396589.0}
+{"t": "13:27:36", "k": "EXIT", "x": "CE 24950 159 lots \u00b7 251.90 \u2192 275.75 = +23.85 pts / \u20b9+246,490 \u00b7 TRAIL \u00b7 capital \u20b92,857,710", "mkt_t": 1792396656.0}
+{"t": "13:27:36", "k": "RAW-EXIT", "x": "CE 24950 159 lots \u00b7 251.90 \u2192 275.75 = +23.85 pts / \u20b9+246,490 \u00b7 TRAIL \u00b7 capital \u20b92,857,710", "mkt_t": 1792396656.0}
+{"t": "13:27:40", "k": "ARMED", "x": "Triangle closing: push 141%, together 152%, 100% room left \u2014 PE side", "mkt_t": 1792396660.0}
+{"t": "13:27:40", "k": "ENTRY", "x": "BUY 156 lots NIFTY 25100 PE (2026-10-27) @ 281.20 \u00b7 forming move DOWN: futures z 2.8, synchrony 76%, first mover \u2014, 0 pts since onset", "mkt_t": 1792396660.0}
+{"t": "13:27:40", "k": "RAW-ENTRY", "x": "BUY 156 lots NIFTY 25100 PE (2026-10-27) @ 281.20 \u00b7 forming move DOWN: futures z 2.8, synchrony 76%, first mover \u2014, 0 pts since onset", "mkt_t": 1792396660.0}
+{"t": "13:30:43", "k": "SPIKE", "x": "straddle 25000 +10.5 over theta in 5 min \u2014 PE leg carries it (53.7, delta -0.301\u2192-0.742, gamma 0.00485)", "mkt_t": 1792396843.7500002}
+{"t": "13:32:46", "k": "EXIT", "x": "PE 25100 156 lots \u00b7 281.20 \u2192 312.25 = +31.05 pts / \u20b9+314,847 \u00b7 TRAIL \u00b7 capital \u20b93,172,556", "mkt_t": 1792396966.2499998}
+{"t": "13:32:46", "k": "RAW-EXIT", "x": "PE 25100 156 lots \u00b7 281.20 \u2192 312.25 = +31.05 pts / \u20b9+314,847 \u00b7 TRAIL \u00b7 capital \u20b93,172,556", "mkt_t": 1792396966.2499998}
+{"t": "13:37:49", "k": "SPIKE", "x": "straddle 25000 +11.2 over theta in 5 min \u2014 PE leg carries it (59.3, delta -0.697\u2192-0.854, gamma 0.00437)", "mkt_t": 1792397269.7500002}
+{"t": "13:38:47", "k": "SHIFT", "x": "ATM rolled 25000 \u2192 24950: straddle 69.1 \u2192 43.1 (spot settled at the new strike)", "mkt_t": 1792397327.7500002}
+{"t": "13:58:33", "k": "SPIKE", "x": "straddle 24950 +9.9 over theta in 5 min \u2014 PE leg carries it (38.7, delta -0.63\u2192-0.747, gamma 0.00676)", "mkt_t": 1792398513.2499998}
+{"t": "14:00:43", "k": "SPIKE", "x": "straddle 24950 +19.5 over theta in 5 min \u2014 PE leg carries it (48.4, delta -0.564\u2192-0.808, gamma 0.00553)", "mkt_t": 1792398643.7500002}
+{"t": "14:07:12", "k": "ARMED", "x": "Triangle closing: push 124%, together 157%, 93% room left \u2014 CE side", "mkt_t": 1792399032.7500002}
+{"t": "14:07:18", "k": "SHIFT", "x": "ATM rolled 24950 \u2192 24900: straddle 43.6 \u2192 41.4 (spot settled at the new strike)", "mkt_t": 1792399038.5}
+{"t": "14:09:22", "k": "SHIFT", "x": "ATM rolled 24900 \u2192 25000: straddle 87.6 \u2192 43.7 (spot settled at the new strike)", "mkt_t": 1792399162.7500002}
+{"t": "14:19:23", "k": "ARMED", "x": "Triangle closing: push 84%, together 101%, 22% room left \u2014 PE side", "mkt_t": 1792399763.5}
+{"t": "14:19:29", "k": "ENTRY", "x": "BUY 192 lots NIFTY 25050 PE (2026-10-27) @ 253.30 \u00b7 co-first move DOWN: futures z 2.9, synchrony 67%, first mover RELIANCE, 4 pts since onset", "mkt_t": 1792399769.0}
+{"t": "14:19:29", "k": "RAW-ENTRY", "x": "BUY 192 lots NIFTY 25050 PE (2026-10-27) @ 253.30 \u00b7 co-first move DOWN: futures z 2.9, synchrony 67%, first mover RELIANCE, 4 pts since onset", "mkt_t": 1792399769.0}
+{"t": "14:19:50", "k": "SPIKE", "x": "straddle 25000 +9.1 over theta in 5 min \u2014 PE leg carries it (34.7, delta -0.672\u2192-0.714, gamma 0.0073)", "mkt_t": 1792399790.2499998}
+{"t": "14:21:29", "k": "EXIT", "x": "PE 25050 192 lots \u00b7 253.30 \u2192 296.60 = +43.30 pts / \u20b9+540,384 \u00b7 TRAIL \u00b7 capital \u20b93,712,940", "mkt_t": 1792399889.2499998}
+{"t": "14:21:29", "k": "RAW-EXIT", "x": "PE 25050 192 lots \u00b7 253.30 \u2192 296.60 = +43.30 pts / \u20b9+540,384 \u00b7 TRAIL \u00b7 capital \u20b93,712,940", "mkt_t": 1792399889.2499998}
+{"t": "14:23:02", "k": "SPIKE", "x": "straddle 25000 +26.2 over theta in 5 min \u2014 PE leg carries it (55.5, delta -0.629\u2192-0.878, gamma 0.00448)", "mkt_t": 1792399982.2499998}
+{"t": "14:27:24", "k": "ARMED", "x": "Triangle closing: push 136%, together 120%, 100% room left \u2014 PE side", "mkt_t": 1792400244.7500002}
+{"t": "14:27:24", "k": "ENTRY", "x": "BUY 226 lots NIFTY 25000 PE (2026-10-27) @ 252.70 \u00b7 forming move DOWN: futures z 2.7, synchrony 60%, first mover \u2014, 0 pts since onset", "mkt_t": 1792400244.7500002}
+{"t": "14:27:24", "k": "RAW-ENTRY", "x": "BUY 226 lots NIFTY 25000 PE (2026-10-27) @ 252.70 \u00b7 forming move DOWN: futures z 2.7, synchrony 60%, first mover \u2014, 0 pts since onset", "mkt_t": 1792400244.7500002}
+{"t": "14:27:56", "k": "SPIKE", "x": "straddle 25000 +10.9 over theta in 5 min \u2014 PE leg carries it (66.7, delta -0.882\u2192-0.952, gamma 0.00252)", "mkt_t": 1792400276.7500002}
+{"t": "14:28:21", "k": "SHIFT", "x": "ATM rolled 25000 \u2192 24900: straddle 76.8 \u2192 39.2 (spot settled at the new strike)", "mkt_t": 1792400301.2499998}
+{"t": "14:30:02", "k": "EXIT", "x": "PE 25000 226 lots \u00b7 252.70 \u2192 259.30 = +6.60 pts / \u20b9+96,954 \u00b7 TRAIL \u00b7 capital \u20b93,809,894", "mkt_t": 1792400402.2499998}
+{"t": "14:30:02", "k": "RAW-EXIT", "x": "PE 25000 226 lots \u00b7 252.70 \u2192 259.30 = +6.60 pts / \u20b9+96,954 \u00b7 TRAIL \u00b7 capital \u20b93,809,894", "mkt_t": 1792400402.2499998}
+{"t": "14:37:49", "k": "SPIKE", "x": "straddle 24900 +10.1 over theta in 5 min \u2014 CE leg carries it (35.0, delta 0.671\u21920.805, gamma 0.00762)", "mkt_t": 1792400869.2499998}
+{"t": "14:46:17", "k": "ARMED", "x": "Triangle closing: push 120%, together 170%, 100% room left \u2014 PE side", "mkt_t": 1792401377.0}
+{"t": "14:46:17", "k": "ENTRY", "x": "BUY 238 lots NIFTY 25000 PE (2026-10-27) @ 245.30 \u00b7 forming move DOWN: futures z 2.4, synchrony 85%, first mover \u2014, 0 pts since onset", "mkt_t": 1792401377.0}
+{"t": "14:46:17", "k": "RAW-ENTRY", "x": "BUY 238 lots NIFTY 25000 PE (2026-10-27) @ 245.30 \u00b7 forming move DOWN: futures z 2.4, synchrony 85%, first mover \u2014, 0 pts since onset", "mkt_t": 1792401377.0}
+{"t": "14:46:37", "k": "SHIFT", "x": "ATM rolled 24900 \u2192 24950: straddle 53.4 \u2192 28.9 (spot settled at the new strike)", "mkt_t": 1792401397.2499998}
+{"t": "14:48:55", "k": "EXIT", "x": "PE 25000 238 lots \u00b7 245.30 \u2192 265.60 = +20.30 pts / \u20b9+314,041 \u00b7 TRAIL \u00b7 capital \u20b94,123,936", "mkt_t": 1792401535.2499998}
+{"t": "14:48:55", "k": "RAW-EXIT", "x": "PE 25000 238 lots \u00b7 245.30 \u2192 265.60 = +20.30 pts / \u20b9+314,041 \u00b7 TRAIL \u00b7 capital \u20b94,123,936", "mkt_t": 1792401535.2499998}
+{"t": "14:53:43", "k": "ARMED", "x": "Triangle closing: push 121%, together 168%, 100% room left \u2014 CE side", "mkt_t": 1792401823.7500002}
+{"t": "14:54:18", "k": "SPIKE", "x": "straddle 24950 +9.3 over theta in 5 min \u2014 CE leg carries it (25.4, delta 0.348\u21920.706, gamma 0.00983)", "mkt_t": 1792401858.5}
+{"t": "15:04:31", "k": "SHIFT", "x": "ATM rolled 24950 \u2192 25000: straddle 65.7 \u2192 27.6 (spot settled at the new strike)", "mkt_t": 1792402471.5}
+{"t": "15:09:32", "k": "SPIKE", "x": "straddle 25000 +38.6 over theta in 5 min \u2014 CE leg carries it (65.4, delta 0.71\u21920.991, gamma 0.0009)", "mkt_t": 1792402772.0}
+{"t": "15:14:22", "k": "ARMED", "x": "Triangle closing: push 115%, together 114%, 95% room left \u2014 PE side", "mkt_t": 1792403062.5}
+{"t": "15:14:22", "k": "ENTRY", "x": "BUY 262 lots NIFTY 25100 PE (2026-10-27) @ 241.30 \u00b7 futures-led move DOWN: futures z 2.3, synchrony 57%, first mover HDFCBANK, 0 pts since onset", "mkt_t": 1792403062.5}
+{"t": "15:14:22", "k": "RAW-ENTRY", "x": "BUY 262 lots NIFTY 25100 PE (2026-10-27) @ 241.30 \u00b7 futures-led move DOWN: futures z 2.3, synchrony 57%, first mover HDFCBANK, 0 pts since onset", "mkt_t": 1792403062.5}
+{"t": "15:15:00", "k": "SHIFT", "x": "ATM rolled 25000 \u2192 25050: straddle 30.6 \u2192 25.0 (spot settled at the new strike)", "mkt_t": 1792403100.2499998}
+{"t": "15:20:01", "k": "SPIKE", "x": "straddle 25050 +24.7 over theta in 5 min \u2014 PE leg carries it (49.0, delta -0.854\u2192-0.99, gamma 0.0)", "mkt_t": 1792403401.7500002}
+{"t": "15:20:48", "k": "EXIT", "x": "PE 25100 262 lots \u00b7 241.30 \u2192 265.80 = +24.50 pts / \u20b9+417,235 \u00b7 TRAIL \u00b7 capital \u20b94,541,170", "mkt_t": 1792403448.2499998}
+{"t": "15:20:48", "k": "RAW-EXIT", "x": "PE 25100 262 lots \u00b7 241.30 \u2192 265.80 = +24.50 pts / \u20b9+417,235 \u00b7 TRAIL \u00b7 capital \u20b94,541,170", "mkt_t": 1792403448.2499998}
+{"t": "15:25:12", "k": "SHIFT", "x": "ATM rolled 25050 \u2192 25000: straddle 43.1 \u2192 14.0 (spot settled at the new strike)", "mkt_t": 1792403712.7500002}
+{"t": "15:30:08", "k": "GAP", "x": "data gap: feed not live \u2014 entries paused until 20 s of fresh data", "mkt_t": 1792404008.0}
+{"t": "15:30:08", "k": "LEARN", "x": "2026-10-19: champion next session m2.0_s0.5, gates none, status COLLECTING", "mkt_t": 1792404008.0}

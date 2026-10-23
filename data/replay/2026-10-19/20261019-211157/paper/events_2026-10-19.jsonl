@@ -1,0 +1,43 @@
+{"t": "07:45:34", "k": "SYSTEM", "x": "day 2026-10-19 \u00b7 champion m2.0_s0.5 \u00b7 gates none \u00b7 capital \u20b9100,000", "mkt_t": 1792376134.3}
+{"t": "09:15:00", "k": "DATA", "x": "no trade for 120 s on hero contract(s): 23150 PE, 23300 PE", "mkt_t": 1792381500.5}
+{"t": "09:25:10", "k": "SPIKE", "x": "straddle 23150 +12.5 over theta in 5 min \u2014 PE leg carries it (103.3, delta -0.506\u2192-0.635, gamma 0.00218)", "mkt_t": 1792382110.9}
+{"t": "09:25:44", "k": "SHIFT", "x": "ATM rolled 23150 \u2192 23050: straddle 151.9 \u2192 136.6 (spot settled at the new strike)", "mkt_t": 1792382144.0}
+{"t": "09:28:28", "k": "SHIFT", "x": "ATM rolled 23050 \u2192 22950: straddle 174.0 \u2192 164.1 (spot settled at the new strike)", "mkt_t": 1792382308.7}
+{"t": "09:33:10", "k": "SHIFT", "x": "ATM rolled 22950 \u2192 23050: straddle 192.5 \u2192 167.0 (spot settled at the new strike)", "mkt_t": 1792382590.4}
+{"t": "09:36:21", "k": "SHIFT", "x": "ATM rolled 23050 \u2192 23150: straddle 167.2 \u2192 153.3 (spot settled at the new strike)", "mkt_t": 1792382781.8}
+{"t": "09:44:07", "k": "ARMED", "x": "Triangle closing: push 90%, together 86%, 100% room left \u2014 CE side", "mkt_t": 1792383247.9}
+{"t": "09:44:16", "k": "RAW-ENTRY", "x": "BUY 11 lots NIFTY 23050 CE (2026-10-19) @ 137.40 \u00b7 basket-led move UP: futures z 2.4, synchrony 54%, first mover SBIN, 8 pts since onset", "mkt_t": 1792383256.1}
+{"t": "09:44:38", "k": "RAW-EXIT", "x": "CE 23050 11 lots \u00b7 137.40 \u2192 126.90 = -10.50 pts / \u20b9-7,508 \u00b7 STOP \u00b7 capital \u20b992,492", "mkt_t": 1792383278.7}
+{"t": "09:55:05", "k": "SPIKE", "x": "straddle 23150 +8.7 over theta in 5 min \u2014 PE leg carries it (98.8, delta -0.546\u2192-0.626, gamma 0.00223)", "mkt_t": 1792383905.9}
+{"t": "09:56:27", "k": "SHIFT", "x": "ATM rolled 23150 \u2192 23050: straddle 153.2 \u2192 144.1 (spot settled at the new strike)", "mkt_t": 1792383987.5}
+{"t": "10:19:46", "k": "ARMED", "x": "Triangle closing: push 107%, together 82%, 93% room left \u2014 CE side", "mkt_t": 1792385386.0}
+{"t": "10:23:28", "k": "SPIKE", "x": "straddle 23050 +8.1 over theta in 5 min \u2014 CE leg carries it (88.8, delta 0.542\u21920.603, gamma 0.00235)", "mkt_t": 1792385608.9}
+{"t": "10:29:53", "k": "SPIKE", "x": "straddle 23050 +9.0 over theta in 5 min \u2014 CE leg carries it (97.2, delta 0.591\u21920.628, gamma 0.00226)", "mkt_t": 1792385993.9}
+{"t": "10:30:12", "k": "ARMED", "x": "Triangle closing: push 118%, together 122%, 21% room left \u2014 CE side", "mkt_t": 1792386012.7}
+{"t": "10:30:20", "k": "SHIFT", "x": "ATM rolled 23050 \u2192 23150: straddle 144.3 \u2192 130.4 (spot settled at the new strike)", "mkt_t": 1792386020.6}
+{"t": "10:30:36", "k": "ARMED", "x": "Triangle closing: push 162%, together 112%, 100% room left \u2014 PE side", "mkt_t": 1792386036.1}
+{"t": "10:30:36", "k": "RAW-ENTRY", "x": "BUY 11 lots NIFTY 23200 PE (2026-10-19) @ 122.35 \u00b7 forming move DOWN: futures z 3.2, synchrony 56%, first mover \u2014, 0 pts since onset", "mkt_t": 1792386036.1}
+{"t": "10:34:12", "k": "SHIFT", "x": "ATM rolled 23150 \u2192 23050: straddle 138.7 \u2192 126.7 (spot settled at the new strike)", "mkt_t": 1792386252.8}
+{"t": "10:38:20", "k": "RAW-EXIT", "x": "PE 23200 11 lots \u00b7 122.35 \u2192 143.80 = +21.45 pts / \u20b9+15,337 \u00b7 TRAIL \u00b7 capital \u20b9107,829", "mkt_t": 1792386500.3}
+{"t": "10:40:17", "k": "SPIKE", "x": "straddle 23050 +7.6 over theta in 5 min \u2014 PE leg carries it (67.7, delta -0.435\u2192-0.517, gamma 0.00249)", "mkt_t": 1792386617.9}
+{"t": "10:42:10", "k": "SPIKE", "x": "straddle 23050 +14.4 over theta in 5 min \u2014 PE leg carries it (82.4, delta -0.472\u2192-0.568, gamma 0.00235)", "mkt_t": 1792386730.9}
+{"t": "10:46:25", "k": "ARMED", "x": "Triangle closing: push 91%, together 88%, 92% room left \u2014 PE side", "mkt_t": 1792386985.7}
+{"t": "10:49:19", "k": "SPIKE", "x": "straddle 23050 +8.7 over theta in 5 min \u2014 PE leg carries it (78.5, delta -0.503\u2192-0.56, gamma 0.00242)", "mkt_t": 1792387159.9}
+{"t": "10:56:11", "k": "ARMED", "x": "Triangle closing: push 88%, together 86%, 100% room left \u2014 CE side", "mkt_t": 1792387571.0}
+{"t": "11:00:24", "k": "ARMED", "x": "Triangle closing: push 115%, together 81%, 76% room left \u2014 PE side", "mkt_t": 1792387824.1}
+{"t": "11:10:15", "k": "SPIKE", "x": "straddle 23050 +7.5 over theta in 5 min \u2014 CE leg carries it (78.3, delta 0.494\u21920.575, gamma 0.00249)", "mkt_t": 1792388415.9}
+{"t": "11:16:24", "k": "ARMED", "x": "Triangle closing: push 144%, together 102%, 57% room left \u2014 CE side", "mkt_t": 1792388784.1}
+{"t": "11:16:27", "k": "RAW-ENTRY", "x": "BUY 16 lots NIFTY 23000 CE (2026-10-19) @ 101.15 \u00b7 co-first move UP: futures z 3.2, synchrony 55%, first mover INFY, 8 pts since onset", "mkt_t": 1792388787.0}
+{"t": "11:22:10", "k": "RAW-EXIT", "x": "CE 23000 16 lots \u00b7 101.15 \u2192 96.15 = -5.00 pts / \u20b9-5,200 \u00b7 STOP \u00b7 capital \u20b9102,629", "mkt_t": 1792389130.6}
+{"t": "11:23:22", "k": "ARMED", "x": "Triangle closing: push 94%, together 107%, 90% room left \u2014 CE side", "mkt_t": 1792389202.3}
+{"t": "11:33:22", "k": "SPIKE", "x": "straddle 23050 +7.3 over theta in 5 min \u2014 PE leg carries it (70.4, delta -0.508\u2192-0.578, gamma 0.00282)", "mkt_t": 1792389802.9}
+{"t": "11:35:12", "k": "ARMED", "x": "Triangle closing: push 112%, together 81%, 82% room left \u2014 PE side", "mkt_t": 1792389912.6}
+{"t": "11:36:11", "k": "GAP", "x": "data gap: feed silent: no quote on any instrument for 3 s \u2014 entries paused until 20 s of fresh data", "mkt_t": 1792389971.0}
+{"t": "11:36:36", "k": "GAP", "x": "data back after 26 s (feed stale: futures quote 12 s old); entries resume", "mkt_t": 1792389996.6}
+{"t": "11:37:19", "k": "GAP", "x": "data gap: feed stale: futures quote 10 s old \u2014 entries paused until 20 s of fresh data", "mkt_t": 1792390039.6}
+{"t": "11:37:20", "k": "SPIKE", "x": "straddle 23050 +11.5 over theta in 5 min \u2014 PE leg carries it (78.6, delta -0.547\u2192-0.61, gamma 0.00271)", "mkt_t": 1792390040.9}
+{"t": "11:37:40", "k": "GAP", "x": "data back after 21 s (feed stale: futures quote 11 s old); entries resume", "mkt_t": 1792390060.2}
+{"t": "11:37:52", "k": "ARMED", "x": "Triangle closing: push 87%, together 83%, 100% room left \u2014 PE side", "mkt_t": 1792390072.3}
+{"t": "11:39:14", "k": "SHIFT", "x": "ATM rolled 23050 \u2192 22950: straddle 136.1 \u2192 124.4 (spot settled at the new strike)", "mkt_t": 1792390154.0}
+{"t": "11:40:02", "k": "ARMED", "x": "Triangle closing: push 115%, together 85%, 100% room left \u2014 CE side", "mkt_t": 1792390202.0}
+{"t": "11:42:41", "k": "ARMED", "x": "Triangle closing: push 148%, together 97%, 100% room left \u2014 PE side", "mkt_t": 1792390361.7}

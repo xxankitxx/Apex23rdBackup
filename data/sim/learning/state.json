@@ -1,0 +1,16 @@
+{
+ "registered": "2026-10-17",
+ "champion": "m2.0_s0.5",
+ "champion_since": "2026-10-17",
+ "gates": [],
+ "retired": [],
+ "log": [],
+ "status": "GO",
+ "scoreboard": {
+  "n": 5,
+  "sum": 168.3,
+  "go_line": 70.2,
+  "kill_line": -33.6
+ },
+ "learned_day": "2026-10-19"
+}
