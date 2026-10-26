@@ -1,0 +1,24 @@
+{
+ "registered": "2026-10-17",
+ "champion": "spot_dual_lvl",
+ "champion_since": "2026-10-22",
+ "gates": [],
+ "retired": [],
+ "log": [
+  {
+   "day": "2026-10-22",
+   "event": "champion",
+   "from": "spot_dual_lvl",
+   "to": "spot_dual_lvl",
+   "by": "owner (D-124)"
+  }
+ ],
+ "status": "COLLECTING",
+ "candidates": {},
+ "streak": {},
+ "gate_streak": {},
+ "owner_champion": [
+  "spot_dual_lvl",
+  "2026-10-22"
+ ]
+}

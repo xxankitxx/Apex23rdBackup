@@ -1,5 +1,4 @@
 # ── never upload: credentials ───────────────────────────────────────────────
-secrets/
 data/token_cache.json
 **/token_cache.json
 .env
