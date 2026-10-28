@@ -868,7 +868,8 @@ def request_entry(book, ctx, opt, reason):
     ENTRY_FILL_MAX_S. Returns None (nothing opened yet); try_fill_entry completes or lapses it."""
     book.ctl["pending_entry"] = {"t": ctx["now_s"], "time": ctx["now_dt"].strftime("%H:%M:%S"), "key": opt["key"],
                                  "id": opt["id"], "why": reason, "trigger_ltp": opt.get("ltp"),
-                                 "ctl": {k: book.ctl.get(k) for k in ("fire_id", "ep_type", "dir", "leg", "pb_trade", "orb_trade")}}
+                                 "ctl": {k: book.ctl.get(k) for k in ("fire_id", "ep_type", "dir", "leg", "pb_trade", "orb_trade",
+                                                                       "trig_str", "trig_unit")}}   # 28 Oct: strength too
     return None
 
 
@@ -884,7 +885,7 @@ def try_fill_entry(book, ctx):
     if bo.get("on") or waited > config.ENTRY_FILL_MAX_S or (ctx.get("now_dt") is not None and
                                                              config.hm(ctx["now_dt"]) >= config.mins(config.LAST_ENTRY)):
         book.ctl.pop("pending_entry", None)
-        for k in ("fire_id", "ep_type", "dir", "leg", "pb_trade", "orb_trade"):
+        for k in ("fire_id", "ep_type", "dir", "leg", "pb_trade", "orb_trade", "trig_str", "trig_unit"):
             book.ctl.pop(k, None)
         why = "data gap" if bo.get("on") else f"no print on {pe['key'].split('|')[-2]} {pe['key'].split('|')[-1]} within {config.ENTRY_FILL_MAX_S:.0f} s"
         book.blocked = f"entry lapsed: {why}"
