@@ -32,11 +32,13 @@ AUDIO = True               # speaker alerts from the engine (armed / entry / win
 
 # ── web ──────────────────────────────────────────────────────────────────────
 HOST = "127.0.0.1"
-PORT = 8780                # MYTHOS uses 8765 — both can run side by side
+PORT = int(os.environ.get("APEX_PORT") or 8780)   # MYTHOS uses 8765. run_apex.py --port N sets APEX_PORT, so several
+                                                  # replays / sims can each show a dashboard at the same time
 
 # ── shared memory names ──────────────────────────────────────────────────────
-SHM_TABLE = "apex_table_v1"
-SHM_STATE = "apex_state_v1"
+# a run on another port gets its own shared memory, so runs on different ports never collide
+SHM_TABLE = "apex_table_v1" + ("" if PORT == 8780 else f"_p{PORT}")
+SHM_STATE = "apex_state_v1" + ("" if PORT == 8780 else f"_p{PORT}")
 MAX_ROWS = 512
 STATE_BYTES = 2 * 1024 * 1024
 
@@ -285,12 +287,63 @@ VARIANTS["fade_switch"] = {"m_star": 2.0, "s_star": 0.5, "L_star": 3.0, "d_star"
                            "tp_pts": 12.0, "sl_pts": 12.0, "max_hold_s": 180, "cooldown_s": 60,
                            "no_streak_pause": True, "no_trade_cap": True, "expiry_window_exempt": True}
 RANDOM_ENTRIES_PER_DAY = 6.0     # Poisson mean; ~ the expected champion rate (re-check after 10 sessions)
-CHAMPION_DEFAULT = "spot_dual_lvl"   # D-142 (owner, 22 Oct): range mode + booking at levels the trade cannot break
+# ── 27 Oct: BUYER EDGE (docs/18_BUYER_EDGE.md) ───────────────────────────────────────────────────────────────────────
+# Six live sessions (19-27 Oct, 106 trades) showed: (1) the entries have NO directional edge — option mid-to-mid moves
+# summed to ~0 over all 106 trades; (2) the 12-pt spot trail exits inside the option's own noise (median 30-min
+# excursion +-13 % of premium), so winners were cut at +5-7 % and losers ran to the trail; (3) the losing days were
+# the days the option was dear against Nifty's own movement (27 Oct: ATM IV 28-36 % vs realised 8-12 %).
+# Three changes, each from options theory first and then checked leave-one-day-out on the 104 recorded entries:
+#   gt_min      buy only when 0.5 x gamma x realised variance/min >= gt_min x |theta/min| (theta is the rent for gamma)
+#   bracket     premium stop -prem_stop %, target +prem_tgt %, out after max_hold_s (no spot trail, no lock, no level book)
+#   day stop    stop entries at -day_stop_pct % on the day (shadow books only). Sizing is always all-in (owner's rule).
+# Same 104 entries: actual exits -0.6 %/trade, 1 green day of 6; gate + bracket +3.5 %/trade, 5 green of 6, worst
+# leave-one-day-out +3.0 %. IN-SAMPLE, 6 DAYS: a hypothesis to confirm on unseen sessions, not a proven edge.
+EDGE_GT_MIN = 0.5
+EDGE_STOP_PCT = 10.0
+EDGE_TGT_PCT = 20.0
+EDGE_MAX_HOLD_S = 1800
+EDGE_DAY_STOP_PCT = 20.0     # no new entries once the book is down this much on the day
+_EDGE_EXIT = dict(prem_stop=EDGE_STOP_PCT, prem_tgt=EDGE_TGT_PCT, max_hold_s=EDGE_MAX_HOLD_S, lock_pct=0.0,
+                  lock_trail_pct=0.0, lvl_book=False)
+_EDGE_RISK = dict(day_stop_pct=EDGE_DAY_STOP_PCT)
+VARIANTS["apex_edge"] = dict(VARIANTS["spot_dual_lvl"], gt_min=EDGE_GT_MIN, **_EDGE_EXIT, **_EDGE_RISK)
+# shadows that separate the three effects (all-in, like the books they are compared with):
+VARIANTS["edge_gate_only"] = dict(VARIANTS["spot_dual_lvl"], gt_min=EDGE_GT_MIN)
+VARIANTS["edge_bracket_only"] = dict(VARIANTS["spot_dual_lvl"], **_EDGE_EXIT)
+VARIANTS["edge_breakout"] = dict(VARIANTS["spot_dc12_t12"], gt_min=EDGE_GT_MIN, **_EDGE_EXIT, **_EDGE_RISK)
+# 27 Oct evening (owner: "you are giving away way too much from the peak"): a hard premium stop and a gain trail on
+# the 30-s average premium, on top of edge_gate_only's exits. Tested on the replay's 55 real entries walked over the
+# recorded option prices (~900 rules): tight trails on raw prints LOST (+103 % vs +303 % summed: they cut the +70 %
+# runners on noise); a -10 % hard stop gave +323 % (22 Oct turns green); + this trail +331 %. Time exits lost.
+GT_HARD_STOP = 10.0
+GT_ARM_PCT, GT_KEEP, GT_SMOOTH_S = 20.0, 0.8, 30.0
+VARIANTS["edge_gate_trail"] = dict(VARIANTS["edge_gate_only"], prem_hard_stop=GT_HARD_STOP, gt_arm_pct=GT_ARM_PCT,
+                                   gt_keep=GT_KEEP, gt_smooth_s=GT_SMOOTH_S)
+VARIANTS["lvl_trail"] = dict(VARIANTS["spot_dual_lvl"], prem_hard_stop=GT_HARD_STOP, gt_arm_pct=GT_ARM_PCT,
+                             gt_keep=GT_KEEP, gt_smooth_s=GT_SMOOTH_S)      # the same exits without the gate
+# 27 Oct night (owner): no entry gate; re-enter after a trailing exit only cheaper (or one strike further OTM), and only
+# on a stronger trigger within 10 min; on expiry day hold at most 10 min (recorded prices: +5 k over the two expiries).
+VARIANTS["lvl_trail_re"] = dict(VARIANTS["lvl_trail"], reentry=True, reentry_fast_s=600, reentry_cheap_s=1800,
+                                dte0_max_hold_s=600, reentry_stop=True)
+# reentry_stop (28 Oct): the stronger-trigger rule also for 10 min after a STOP (no price rule). Replay 20261027-221837:
+# the only same-direction re-entry within 10 min of a stop had the stronger trigger (19 Oct 12:08, +28 %), so the six
+# days are unchanged; the rule after ANY exit (lvl_trail_rx) blocked two winners after profit bookings (-17 k).
+# 27 Oct night (owner): the stronger-trigger rule after ANY exit, not only a trailing one; and a breakeven guard:
+# 26 Oct lost two trades that had been +14-15 % to the -10 % stop. Twins isolate each change.
+VARIANTS["lvl_trail_rx"] = dict(VARIANTS["lvl_trail_re"], reentry_any=True)
+VARIANTS["lvl_trail_rx_c10"] = dict(VARIANTS["lvl_trail_rx"], reentry_cheap_s=600)      # cheaper rule for 10 min only
+VARIANTS["lvl_trail_rx_be"] = dict(VARIANTS["lvl_trail_rx"], be_arm_pct=10.0, be_floor_pct=1.0)
+VARIANTS["lvl_trail_be"] = dict(VARIANTS["lvl_trail"], be_arm_pct=10.0, be_floor_pct=1.0)
+# 28 Oct (owner: "do whatever it takes to make every day more profitable"): lvl_trail_re, the only book green on all six
+# replayed days 19-27 Oct (+3.87 L; lvl_trail +3.71 L 5/6; spot_dual_lvl +3.48 L 4/6; edge_gate_trail +2.41 L).
+CHAMPION_DEFAULT = "lvl_trail_re"  # before: edge_gate_trail and edge_gate_only (27 Oct), spot_dual_lvl (D-142)
 # D-124 (owner, 20 Oct 16:16: "Apply spot_dc12_t12 thoroughly on my code"): the champion is the owner's choice.
 # learning.load_state applies it ONCE to an existing state (the champion lives in data/learning/state.json,
 # which the learning loop may later change on evidence); trades from the day after this date count for its
 # scoreboard. Bump the date to force the owner's champion again.
-CHAMPION_OWNER = ("spot_dual_lvl", "2026-10-22")   # D-142; before: spot_dual (D-140), spot_pb45 (D-134), spot_dc12_t12 (D-124)
+CHAMPION_OWNER = ("lvl_trail_re", "2026-10-28")   # 28 Oct; before: edge_gate_trail (27 Oct), spot_dual_lvl (D-142), spot_dual (D-140), spot_pb45 (D-134), spot_dc12_t12 (D-124)
+# 27 Oct: FREEZE. Four champions in six sessions, each picked on 1-3 days of in-sample replay, each lost on its first
+# unseen day. lvl_trail_re (28 Oct) is not to be swapped or re-tuned before 15 sessions (or the SPRT) have judged it.
 SPOT_STALE_S = 5.0         # D-124: the spot books neither enter nor extend their range on a Nifty quote older than this
 SPOT_FROZEN_EXIT_S = 60.0  # D-124: in a position, if the index is older than this the stop is taken on the futures mid instead
 
@@ -504,7 +557,11 @@ VARIANT_KEYS = frozenset(("m_star", "s_star", "L_star", "d_star", "s_exit", "iv_
                           "lock_pct", "lock_trail_pct", "retest_ext", "retest_tol", "retest_fail", "retest_window_s",
                           "entry_mode", "pb_min_range", "pb_zone_lo", "pb_zone_hi", "pb_zone_slack", "pb_ext",
                           "pb_min_age_s", "pb_entry_end", "pb_flatten", "dte0_retest",
-                          "range_gate", "lvl_book", "lvl_near", "lvl_rej", "lvl_brk", "prem_tgt", "prem_stop", "orb_gap"))
+                          "range_gate", "lvl_book", "lvl_near", "lvl_rej", "lvl_brk", "prem_tgt", "prem_stop", "orb_gap",
+                          "gt_min", "day_stop_pct",
+                          "prem_hard_stop", "gt_arm_pct", "gt_keep", "gt_smooth_s",
+                          "reentry", "reentry_fast_s", "reentry_cheap_s", "dte0_max_hold_s",
+                          "reentry_any", "reentry_stop", "be_arm_pct", "be_floor_pct"))   # 27 Oct: buyer edge
 VARIANT_MODES = ("gap_star", "exit_book", "spike", "random", "momentum", "spot_dc", "fade_switch")   # at most one per variant
 
 

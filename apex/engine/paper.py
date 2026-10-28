@@ -54,7 +54,8 @@ class Book:
         return {"name": self.name, "p": self.p, "day": self.day, "capital": self.capital,
                 "pos": self.pos, "trades": self.trades, "fired": sorted(self.fired_episodes),
                 "last_exit_s": getattr(self, "last_exit_s", None), "swing_last": self.ctl.get("swing_last"),
-                "pb_done": self.ctl.get("pb_done"), "orb_done": self.ctl.get("orb_done")}
+                "pb_done": self.ctl.get("pb_done"), "orb_done": self.ctl.get("orb_done"),
+                "reentry": self.ctl.get("reentry")}
 
     @classmethod
     def from_json(cls, d):
@@ -69,6 +70,8 @@ class Book:
             b.ctl["pb_done"] = d["pb_done"]
         if d.get("orb_done"):
             b.ctl["orb_done"] = d["orb_done"]
+        if d.get("reentry"):
+            b.ctl["reentry"] = d["reentry"]
         return b
 
     # ── stats ──────────────────────────────────────────────────────────────
@@ -210,6 +213,7 @@ def evaluate_spot_breakout(book, ctx):
     note = ""
     if rt:                                                   # D-131: a break is ARMED at its level; judge it first
         rel = (sp - rt["L"]) * rt["d"]
+        rt["run"] = max(rt.get("run") or 0.0, rel)            # 27 Oct: how far it ran beyond the level (trigger strength)
         side = "CE" if rt["d"] > 0 else "PE"
         if rel < -fail:
             book.ctl.pop("rt", None)
@@ -225,7 +229,8 @@ def evaluate_spot_breakout(book, ctx):
             return False, f"{side} armed: waiting for spot to run {ext:.0f} pts beyond {rt['L']:.1f} (now {rel:+.1f})"
         elif rel <= tol:
             book.ctl.pop("rt", None)
-            book.ctl.update({"dir": rt["d"], "fire_id": -(SPOT_ID0 + int(ctx["now_s"])), "ep_type": "SPOT-RETEST"})
+            book.ctl.update({"dir": rt["d"], "fire_id": -(SPOT_ID0 + int(ctx["now_s"])), "ep_type": "SPOT-RETEST",
+                             "trig_str": round(rt.get("run") or 0.0, 1), "trig_unit": "pt run beyond the level"})
             return True, (f"spot {sp:.1f} came back to the broken {p['spot_dc'] // 60}-min "
                           f"{'high' if rt['d'] > 0 else 'low'} {rt['L']:.1f} and held ({rel:+.1f} pts) after running {ext:.0f}+")
         else:
@@ -289,7 +294,8 @@ def evaluate_pullback(book, ctx):
                        f"{100 * z0:.0f}-{100 * z1:.0f} % (now {100 * f:.0f} %)")
     book.ctl["pb_done"] = key
     book.ctl["pb_trade"] = {"d": d, "origin": origin, "ext_px": ext_px, "rng": rng, "pbx": v["pbx"], "f": round(f, 3)}
-    book.ctl.update({"dir": d, "fire_id": -(SPOT_ID0 + int(ctx["now_s"])), "ep_type": "SPOT-PULLBACK"})
+    book.ctl.update({"dir": d, "fire_id": -(SPOT_ID0 + int(ctx["now_s"])), "ep_type": "SPOT-PULLBACK",
+                     "trig_str": round(rng, 1), "trig_unit": "pt impulse"})
     return True, (f"{side}: {rng:.0f}-pt impulse {origin:.1f} -> {ext_px:.1f} pulled back {100 * f:.0f} % to {sp:.1f}; "
                   f"stop {origin:.1f}, target {ext_px + d * p['pb_ext'] * rng:.1f}")
 
@@ -349,6 +355,30 @@ def _level_book_exit(book, ctx, pos):
     return None
 
 
+def buyer_edge_gate(book, ctx, opt):
+    """27 Oct (6-day study, docs/18_BUYER_EDGE.md): THETA IS THE RENT FOR GAMMA. A long option earns about
+    0.5 x gamma x (spot move)^2 and pays |theta| every minute. Over the next minutes Nifty's movement is best
+    forecast by its own recent movement, so the option is worth buying only when
+        ratio = 0.5 x gamma x v_min30 / |theta_min|   >=   gt_min
+    where v_min30 is spot's realised variance per minute over the last 30 min (edge snapshot). Below that the
+    trade needs a large directional move just to stand still. Evidence (104 real entries, 19-27 Oct): ratio >= 0.5
+    kept 69 entries at +3.5 % mean under the bracket exit (leave-one-day-out >= +3.0 %), the rest lost; the
+    ATM-straddle study over every 2 minutes of the 6 days agrees in sign. Returns a reason to skip, or ''."""
+    gmin = book.p.get("gt_min") or 0.0
+    if gmin <= 0:
+        return ""
+    v = (ctx.get("edge") or {}).get("v_min30")
+    g, th = opt.get("gamma"), opt.get("theta_min")
+    if v is None or not g or not th:
+        return "buyer edge: realised-vol history or greeks not ready"
+    ratio = 0.5 * float(g) * float(v) / abs(float(th))
+    book.ctl["gt_ratio"] = round(ratio, 3)
+    if ratio < gmin:
+        return (f"buyer edge: gamma pays {ratio:.2f} x the theta rent (needs {gmin:.2f}) — "
+                f"Nifty is moving {float(v) ** 0.5:.1f} pts/min, too little for this premium")
+    return ""
+
+
 def _premium_book_exit(book, pos, px, o):
     """D-141 (council 9 T06): a fixed premium target / stop (prem_tgt / prem_stop %), on fresh prints only."""
     p = book.p
@@ -359,6 +389,89 @@ def _premium_book_exit(book, pos, px, o):
         return f"TARGET (premium +{r:.1f} %)"
     if r <= -p["prem_stop"]:
         return f"STOP (premium {r:.1f} %)"
+    return None
+
+
+def reentry_check(book, ctx, d, opt):
+    """27 Oct (owner): "when we get trailed hard, we may re-enter but at cheaper prices. We may also enter the next OTM
+    strike, which is about to become ATM, at a cheaper price. If the second trigger comes within 10 minutes of the
+    trailing exit, it had better be stronger than the previous one."
+    After a TRAIL / LOCK exit, a setup in the SAME direction within reentry_cheap_s:
+      * within reentry_fast_s it must be stronger than the trailed trade's trigger (a bigger impulse for a pullback,
+        a longer run beyond the level for a retest), else it is skipped;
+      * the premium must be below the exit price: the chosen contract if it is, else the next OTM strike if that is,
+        else the setup is skipped.
+    Returns (option or None, reason)."""
+    p, re_ = book.p, book.ctl.get("reentry")
+    if not p.get("reentry") or not re_ or re_.get("d") != d or not opt:
+        return opt, ""
+    dt = ctx["now_s"] - re_["t"]
+    trailed = re_.get("trail", True)
+    fast = p.get("reentry_fast_s") or 600
+    if dt > (p.get("reentry_cheap_s") or 1800) or (not trailed and dt >= fast):
+        book.ctl.pop("reentry", None)
+        return opt, ""
+    if dt < fast:
+        s0, s1 = re_.get("str"), book.ctl.get("trig_str")
+        if s0 is not None and (s1 is None or s1 <= s0):
+            what = "trailing" if trailed else (re_.get("why") or "last").lower()
+            return None, (f"re-entry {dt / 60:.1f} min after the {re_['time']} {what} exit needs a stronger trigger: "
+                          f"{s1 if s1 is not None else '?'} vs {s0} {re_.get('unit') or ''}".rstrip())
+    if not trailed:
+        return opt, ""                                # stronger, after a non-trailing exit: no price rule
+    cap = float(re_["exit_px"])
+    if opt.get("ltp") and opt["ltp"] < cap:
+        return opt, ""
+    k = int(round(float(opt["strike"]))) + d * config.STRIKE_STEP              # one strike further out of the money
+    o2 = (ctx.get("by_key") or {}).get(f"NIFTY|OPT|{opt['expiry']}|{k}|{opt['rr']}")
+    if o2 and o2.get("ltp") and o2.get("age", 99) < 15 and config.MIN_PREMIUM <= o2["ltp"] < cap:
+        return dict(o2, _reentry_otm=True), ""
+    return None, (f"re-entry must be cheaper than the {cap:.2f} exit: {opt['strike']:.0f} {opt['rr']} is "
+                  f"{opt.get('ltp') or 0:.2f}" + (f", {k} {opt['rr']} {o2['ltp']:.2f}" if o2 and o2.get("ltp") else ""))
+
+
+_GT_BUF = {}          # (book, t_in) -> [(t, px)]: the smoothing window of the gain trail (rebuilt after a restart)
+
+
+def _hard_stop_gain_trail(book, ctx, pos, px, o):
+    """27 Oct (owner: "giving away way too much from the peak"). Two premium exits on top of the spot book's own:
+    prem_hard_stop  out when the premium is this % under entry (the impulse-origin stop had let losers run to -27 %)
+    gt_arm_pct / gt_keep / gt_smooth_s   once the premium's gt_smooth_s-second average has gained gt_arm_pct, out when
+                    that average falls back to gt_keep of its best gain. The average, not the last print: on recorded
+                    prices a trail on raw prints fired on one-second noise and cut the +70 % runners.
+    Fresh prints only. Returns a reason or None."""
+    p = book.p
+    hs, arm = p.get("prem_hard_stop") or 0.0, p.get("gt_arm_pct") or 0.0
+    if (hs <= 0 and arm <= 0) or px is None or not pos.get("entry"):
+        return None
+    age = (o or {}).get("age")
+    if age is None or age > config.EXIT_QUOTE_STALE_S:
+        return None
+    r = 100.0 * (px / pos["entry"] - 1.0)
+    if hs > 0 and r <= -hs:
+        return f"STOP (premium {r:.1f} %, hard stop -{hs:.0f} %)"
+    if arm <= 0:
+        return None
+    w = float(p.get("gt_smooth_s") or 30.0)
+    now = ctx["now_s"]
+    k = (book.name, id(pos), pos["t_in"])            # this very position (a new trade is a new dict)
+    buf = _GT_BUF.get(k)
+    if buf is None:
+        for old in [x for x in _GT_BUF if x[0] == book.name]:
+            del _GT_BUF[old]                          # one open position per book: drop the last trade's window
+        buf = _GT_BUF[k] = []
+    buf.append((now, px))
+    while buf and buf[0][0] < now - w:
+        buf.pop(0)
+    g = 100.0 * (sum(b[1] for b in buf) / len(buf) / pos["entry"] - 1.0)
+    pk = max(pos.get("gt_peak") or 0.0, g)
+    pos["gt_peak"] = round(pk, 2)
+    be = p.get("be_arm_pct") or 0.0                   # 27 Oct night: a trade that was well up must not become a loss
+    if be > 0 and pk >= be and g <= (p.get("be_floor_pct") or 0.0):
+        return f"BREAKEVEN (was {pk:+.1f} %, now {g:+.1f} %, {w:.0f}-s average)"
+    keep = p.get("gt_keep") or 0.8
+    if pk >= arm and g <= pk * keep:
+        return f"TRAIL (kept {g:+.1f} % of a {pk:+.1f} % peak gain, {w:.0f}-s average)"
     return None
 
 
@@ -498,11 +611,12 @@ def _daily_brake(book, ctx):
         return "KILL switch: no new entries (delete data/KILL to resume)"
     if book.name in config.CONTROLS:
         return ""
-    if config.DAILY_LOSS_STOP_PCT > 0:
+    lim = book.p.get("day_stop_pct") or config.DAILY_LOSS_STOP_PCT   # 27 Oct: a book may carry its own daily stop
+    if lim > 0:
         dd = 100.0 * (book.capital / config.START_CAPITAL - 1.0)
-        if dd <= -config.DAILY_LOSS_STOP_PCT:
+        if dd <= -lim:
             book.blocked = f"daily stop: {dd:+.1f} % on the day"
-            return f"DAILY STOP: book is {dd:+.1f} % on the day (limit -{config.DAILY_LOSS_STOP_PCT:.0f} %)"
+            return f"DAILY STOP: book is {dd:+.1f} % on the day (limit -{lim:.0f} %)"
     n = 0 if book.p.get("no_streak_pause") else config.LOSS_STREAK_N
     if n > 0 and len(book.trades) >= n and all(t["ret_pct"] <= 0 for t in book.trades[-n:]):
         if config.LOSS_STREAK_PAUSE_S <= 0:          # D-117: 0 = stopped for the rest of the day
@@ -794,7 +908,7 @@ def try_fill_entry(book, ctx):
 
 def open_trade(book, ctx, opt, reason):
     px = opt["ltp"]
-    lots = int(book.capital // (px * config.LOT_SIZE))
+    lots = int(book.capital // (px * config.LOT_SIZE))   # owner's rule: all-in on every trade, no position sizing
     if lots < 1:
         book.blocked = f"premium ₹{px:.1f} unaffordable"
         return None
@@ -835,9 +949,19 @@ def open_trade(book, ctx, opt, reason):
             book.pos["lv_ahead"] = [[round(a, 2), b] for a, b in ds.ahead(sp0, d)] if (ds is not None and sp0) else []
         except Exception:
             book.pos["lv_ahead"] = []
+    try:                                             # 27 Oct: the held premium's own support / resistance (evidence)
+        sl = ctx.get("strike_lv")
+        if sl is not None:
+            book.pos["sr_in"] = sl.view(opt["key"], px, ctx["now_s"])
+    except Exception:
+        pass
     if ep_id is not None:
         book.fired_episodes.add(ep_id)
-    for k in ("fire_id", "ep_type", "dir", "leg", "pb_trade", "orb_trade"):
+    if book.ctl.get("trig_str") is not None:          # 27 Oct: trigger strength (re-entry rule)
+        book.pos["trig_str"] = book.ctl["trig_str"]
+        book.pos["trig_unit"] = book.ctl.get("trig_unit")
+    book.ctl.pop("reentry", None)                    # a new trade starts a new chain
+    for k in ("fire_id", "ep_type", "dir", "leg", "pb_trade", "orb_trade", "trig_str", "trig_unit"):
         book.ctl.pop(k, None)
     return book.pos
 
@@ -879,6 +1003,9 @@ def check_exit(book, ctx):
         if reason is None and not blackout and p.get("lvl_book"):
             reason = _level_book_exit(book, ctx, pos)
         lock_reason = None if blackout else _premium_lock_exit(book, ctx, pos, px, o)
+        gt_reason = None if blackout else _hard_stop_gain_trail(book, ctx, pos, px, o)   # 27 Oct
+        if reason is None and gt_reason:
+            reason = gt_reason
         if reason is None and lock_reason:
             reason = lock_reason
         elif reason and pos.get("lock_armed"):
@@ -920,6 +1047,12 @@ def check_exit(book, ctx):
     now = ctx["now_dt"]
     hmn = config.hm(now)
     zero_dte = pos["expiry"] == now.date().isoformat()
+    mh = 0 if p.get("fade_switch") else (p.get("max_hold_s") or 0)   # fade_switch keeps its own bracket clock
+    mh0 = p.get("dte0_max_hold_s") or 0                # 27 Oct (owner): do not hold long on expiry day (theta)
+    if reason is None and mh0 > 0 and zero_dte and ctx["now_s"] - pos["t_in"] >= mh0:
+        reason = "TIME (expiry day, max hold %d min)" % (mh0 // 60)
+    if reason is None and mh > 0 and ctx["now_s"] - pos["t_in"] >= mh:
+        reason = "TIME (max hold %d min)" % (mh // 60)   # 27 Oct: the move did not come in time; theta wins from here
     if reason is None and p.get("pb_flatten") and hmn >= config.mins(tuple(p["pb_flatten"])):
         reason = "TIME (%02d:%02d book flatten)" % tuple(p["pb_flatten"])
     if reason is None and hmn >= config.mins(config.FLATTEN_AT):
@@ -987,6 +1120,18 @@ def close_trade(book, ctx, px, reason, o=None):
     book.last_exit_s = ctx["now_s"]          # D-109 cool-down
     if book.p.get("spot_dc") and pos.get("best_spot") is not None:   # D-116 one trade per swing
         book.ctl["swing_last"] = {"d": pos["dir"], "best": pos["best_spot"]}
+    book.ctl.pop("reentry", None)
+    trailed = str(reason).startswith(("TRAIL", "LOCK"))
+    stopped = str(reason).startswith("STOP") and book.p.get("reentry_stop")
+    if book.p.get("reentry") and (trailed or stopped or book.p.get("reentry_any")):
+        # 27 Oct (owner): trailed out -> a re-entry is welcome, but cheaper, and stronger if within 10 min.
+        # reentry_any (owner, 27 Oct night): ANY exit -> a same-direction re-entry within 10 min must be stronger
+        # ("if it was not a stronger trigger than before, you may end up losing more often"); the cheaper-price
+        # rule stays for trailing exits only (after a stop the premium is already below the entry).
+        book.ctl["reentry"] = {"t": ctx["now_s"], "d": pos["dir"], "exit_px": px, "str": pos.get("trig_str"),
+                               "unit": pos.get("trig_unit"), "strike": pos["strike"], "rr": pos["rr"],
+                               "time": ctx["now_dt"].strftime("%H:%M:%S"), "trail": trailed,
+                               "why": str(reason).split(" ")[0]}
     return t
 
 

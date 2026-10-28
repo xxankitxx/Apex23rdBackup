@@ -253,7 +253,7 @@ def test_validate_rejects_unknown_and_conflicting_keys():
 def test_registry_values_unchanged():
     """WP-6 must not move a number (D-033): the registry is exactly the baseline one."""
     assert config.TRIGGER == {"m_star": 2.0, "s_star": 0.50, "L_star": 3.0, "d_star": 12.0}
-    assert len(config.VARIANTS) == 32 and config.IV_RISE_CAP == 1.5      # +ivinterp +novol +trend +2 spot (D-116) +d20 +tvfast (D-118) +fade_switch (D-121) +spot nolock (D-127) +spot first-touch twin (D-131) +pullback book (D-134) +dual shadow (D-137) +4 council-9 books (D-141)
+    assert len(config.VARIANTS) == 43 and config.IV_RISE_CAP == 1.5      # +ivinterp +novol +trend +2 spot (D-116) +d20 +tvfast (D-118) +fade_switch (D-121) +spot nolock (D-127) +spot first-touch twin (D-131) +pullback book (D-134) +dual shadow (D-137) +4 council-9 books (D-141) +4 buyer-edge books +3 gain-trail books (27 Oct) +4 re-entry/breakeven twins (27 Oct night)
     assert config.VARIANTS["m2.0_s0.5_bookexit"]["exit_book"] is True
     assert config.CONTROLS == ("futures_only", "random_entry", "premium_momentum")
 

@@ -36,7 +36,7 @@ def test_config_and_twin():
     p, q = config.VARIANTS["spot_dc12_t12"], config.VARIANTS["spot_dc12_t12_first"]
     assert (p["retest_ext"], p["retest_tol"], p["retest_fail"], p["retest_window_s"]) == (5.0, 2.0, 3.0, 300)
     assert q["retest_ext"] == 0.0 and q["lock_pct"] == p["lock_pct"] and q["spot_trail"] == p["spot_trail"]
-    assert config.CHAMPION_DEFAULT == "spot_dual_lvl" and config.validate() == []   # D-142: dual + range mode + level booking
+    assert config.CHAMPION_DEFAULT == "lvl_trail_re" and config.validate() == []   # D-142: dual + range mode + level booking
     bad = dict(p, retest_tol=6.0)
     old = config.VARIANTS["_x"] = bad
     try:

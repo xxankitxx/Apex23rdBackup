@@ -76,7 +76,12 @@ class Rig:
         assert getattr(self.eng, "atm", None) is not None
 
     def champ(self):
-        return self.eng.books[self.eng.champion]
+        # 27 Oct: the champion is edge_gate_only (spot_dual_lvl + a gate); these exit tests were written for the spot-trail book,
+        # unless a test names its own champion
+        b = self.eng.books.get(self.eng.champion)
+        if self.eng.champion == config.CHAMPION_DEFAULT and "spot_dual_lvl" in self.eng.books:
+            b = self.eng.books["spot_dual_lvl"]
+        return b
 
     def open_ce(self, strike=25200):
         o = self.eng.ctx["by_key"][f"NIFTY|OPT|{EXP}|{strike}|CE"]

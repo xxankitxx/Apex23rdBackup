@@ -538,7 +538,11 @@ def main():
     ap.add_argument("--mode", default="live", help="for learn/report: live | sim | replay")
     ap.add_argument("--dir", default="", help="for learn/report: a run folder, e.g. data/replay/<day>/<stamp>")
     ap.add_argument("--no-browser", action="store_true")
+    ap.add_argument("--port", type=int, default=0, help="dashboard port (default 8780); each port gets its own "
+                    "shared memory, so several replays/sims can run with dashboards at once")
     a = ap.parse_args()
+    if a.port:
+        os.environ["APEX_PORT"] = str(a.port)       # read by apex.config here and in every child process
     if a.cmd == "session":
         cmd_session(a.profile)
     elif a.cmd == "preflight":

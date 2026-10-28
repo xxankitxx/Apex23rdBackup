@@ -17,6 +17,7 @@ Features (all from data available at that second; None when not available):
   syn_dev     the options-implied (put-call parity) forward minus spot, minus its slow average: a sweep through the
               options book shows here before the index moves                                             (review: Gemini)
   fut_micro   the future's micro-price (size-weighted) minus its mid, in points                          (review: Gemini)
+  v_min30     realised variance of spot per minute over 30 min (pts^2) — the buyer-edge gate's gamma income (27 Oct)
 """
 import json
 import math
@@ -25,7 +26,7 @@ import os
 import numpy as np
 
 KEYS = ("basis_dev", "iv_atm", "iv_chg5", "rv15", "iv_rv", "fut_imb5", "fut_tot_imb", "wall_up", "wall_dn", "pcr",
-        "imp_rng", "imp_d", "imp_f", "fut_ofi60", "syn_dev", "fut_micro")
+        "imp_rng", "imp_d", "imp_f", "fut_ofi60", "syn_dev", "fut_micro", "v_min30")
 
 
 def _r(x, n=3):
@@ -78,6 +79,7 @@ def snapshot(eng, snap, spot, fut):
                 out["rv15"] = _r(rv, 2)
                 if out["iv_atm"]:
                     out["iv_rv"] = _r(out["iv_atm"] / rv, 2)
+        out["v_min30"] = _r(var_per_min(imp.samples, 1800), 3)
     pv = getattr(eng, "_pb_view", None) or {}
     if pv.get("ok") and sp is not None and pv.get("rng"):
         out["imp_rng"] = _r(pv["rng"], 1)
@@ -95,6 +97,28 @@ def snapshot(eng, snap, spot, fut):
         except Exception:
             pass
     return out
+
+
+def var_per_min(samples, window_s=1800, min_bars=5):
+    """Realised variance of spot per minute (points^2) from 1-minute changes over the last window_s seconds.
+    samples: (t, px) at ~1 Hz, oldest first. None until min_bars minutes are held.
+    This is the 'gamma income' side of the buyer's ledger: a long option earns 0.5 x gamma x this per minute
+    and pays |theta_min| per minute (theta is the rent for gamma — see buyer_edge in paper.py)."""
+    if not samples:
+        return None
+    t_end = samples[-1][0]
+    bars, nxt = [], t_end - window_s
+    for t, p in samples:
+        if t >= nxt:
+            bars.append(p)
+            nxt = t + 60.0
+    if len(bars) < min_bars + 1:
+        return None
+    d = np.diff(np.asarray(bars, dtype=float))
+    d = d[np.isfinite(d)]
+    if len(d) < min_bars:
+        return None
+    return float(np.mean(d * d))
 
 
 def _ofi(eng, out, snap, fid):

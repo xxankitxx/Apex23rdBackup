@@ -32,6 +32,7 @@ from .engine.commentary import Commentary
 from .engine.regime import Regime
 from .engine.impulse import ImpulseWindow
 from .engine.daystate import DayState, load_prior, save_day
+from .engine import strike_levels as sl_mod
 from .engine import edge as edge_mod
 from .engine.domino import Domino
 from .engine.flow import CLS, REFILL, Flow
@@ -265,6 +266,8 @@ class Engine:
         self.impulse = ImpulseWindow(config.PB_WINDOW_S)   # D-134: a new day starts a new impulse window
         self._pb_view = {"ok": False}
         self.day_state = DayState(day, load_prior(day))     # D-141
+        self.strike_lv = self._safe("strike levels", lambda: sl_mod.StrikeLevels(day, sl_mod.load_prior(day)), None)
+        self._sl_last = 0.0                                  # 27 Oct: each strike's own support / resistance
         self._restore_warm(day)                  # D-120: a same-day restart keeps the regime and the price histories
         if getattr(self, "ledger", None) is not None:
             self.ledger.close()
@@ -334,6 +337,7 @@ class Engine:
         paper.save_books(self.books, self.day)
         paper.write_trades_csv(self.books[self.champion], self.day)
         save_day(self.day_state)                 # D-141: tomorrow's prior-day levels
+        self._safe("strike levels save", lambda: sl_mod.save_day(getattr(self, "strike_lv", None)))
         self.ledger.close()                      # unresolved candidates are written before learning reads them
         learning.record_day(self.day, self.books)   # always: the day's record must never be lost
         if learning.already_learned(self.day):
@@ -507,6 +511,10 @@ class Engine:
         # C-07: from here on ctx exists, so nothing may stop run_books (the exits) from running
         ctx["book_state"] = self._safe("book_state", self.book_state, {})
         ctx["straddle_watch"] = self._safe("straddle watch view", lambda: self.watch.view(series=False), {})
+        if getattr(self, "strike_lv", None) is not None and now_s - self._sl_last >= 1.0:
+            self._sl_last = now_s
+            self._safe("strike levels", lambda: self._strike_levels(ctx))
+        ctx["strike_lv"] = getattr(self, "strike_lv", None)
         self._safe("straddle watch events", self._drain_watch_events)
         if ctx["episode"]:
             ctx["advisors"] = self._safe("advise", lambda: self.advise(ctx, ctx["episode"]["dir"]), {})
@@ -521,6 +529,28 @@ class Engine:
                 log("ledger: " + traceback.format_exc().strip().splitlines()[-1])
         if self.eplog:
             self._safe("episode log", lambda: self.eplog.update(ctx, self))
+
+    def _strike_levels(self, ctx):
+        """27 Oct: feed every fresh option print to the per-strike levels; tape the breaks of near-ATM strikes and of
+        any contract a book holds. Evidence only."""
+        if not in_session(self.now_dt):
+            return
+        now_s, hm, sp = ctx["now_s"], config.hm(self.now_dt), ctx.get("spot")
+        held = {}
+        for name, b in (self.books or {}).items():
+            if b.pos:
+                held.setdefault(b.pos["key"], []).append(b)
+        for o in ctx["options"]:
+            if not o.get("ltp") or o.get("age", 9e9) > 5.0:
+                continue
+            for e in self.strike_lv.add(now_s, o["key"], float(o["ltp"]), hm):
+                rec = dict(e, time=self.now_dt.strftime("%H:%M:%S"), strike=o.get("strike"), rr=o.get("rr"))
+                if (sp and abs(float(o["strike"]) - sp) <= 150) or o["key"] in held:
+                    _append_jsonl(os.path.join(config.PAPER_DIR, f"strikes_{self.day}.jsonl"), rec)
+                for b in held.get(o["key"], []):
+                    br = b.pos.setdefault("sr_breaks", [])
+                    if len(br) < 12:
+                        br.append([rec["time"], e["dir"], e["label"], e["level"]])
 
     def _drain_watch_events(self):
         for kind, text in self.watch.drain_events():
@@ -860,6 +890,7 @@ class Engine:
                  "ltp": ltp if ltp > 0 else None,
                  "bid": rnd(b, 2) if isf(b) else None, "ask": rnd(a, 2) if isf(a) else None,
                  "delta": g.get("delta"), "iv": g.get("iv"),
+                 "gamma": g.get("gamma"), "theta_min": g.get("theta_min"),   # 27 Oct: buyer-edge gate (paper.py)
                  "age": age, "ltt": ltt}
             rows[i] = (ck, d, today)
             out.append(d.copy())
@@ -1128,6 +1159,18 @@ class Engine:
                 return False
             d = paper.entry_dir(b, ctx)
             opt, msg = paper.choose_contract(ctx, d, b)
+            if opt and b.p.get("gt_min"):
+                msg = paper.buyer_edge_gate(b, ctx, opt)   # 27 Oct: is gamma worth its theta rent right now?
+                if msg:
+                    opt = None
+                    for k in ("fire_id", "ep_type", "dir", "leg", "pb_trade", "orb_trade", "trig_str", "trig_unit"):
+                        b.ctl.pop(k, None)              # the setup is skipped, not queued
+            if opt and b.p.get("reentry"):
+                opt, rmsg = paper.reentry_check(b, ctx, d, opt)   # 27 Oct: after a trailing exit: cheaper / stronger
+                if not opt:
+                    msg = rmsg
+                    for k in ("fire_id", "ep_type", "dir", "leg", "pb_trade", "orb_trade", "trig_str", "trig_unit"):
+                        b.ctl.pop(k, None)
             if not opt:
                 if name == self.champion:
                     self.last_reason = msg

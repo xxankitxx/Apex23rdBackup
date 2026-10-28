@@ -1,5 +1,33 @@
 # Changelog
 
+## 1.10.1 — 28 Oct 2026 (trail, strike levels, re-entry; docs/18 §6b)
+
+- **Champion `lvl_trail_re`:** `spot_dual_lvl` entries (no entry gate) + hard premium stop −10 % + gain trail on the
+  30-s average premium (arm +20 %, keep 80 %) + expiry-day max hold 10 min + the owner's re-entry rules (after a
+  trailing exit: cheaper or the next OTM strike for 30 min, stronger trigger within 10 min; after a stop: stronger
+  trigger within 10 min). Six-day engine replay: +₹3.87 L, **6/6 days green** (old champion +₹3.48 L, 4/6).
+- **Each strike's premium support / resistance** (`apex/engine/strike_levels.py`): taped and carried on trades,
+  evidence only.
+- **Shadow books:** `edge_gate_trail`, `lvl_trail`, `lvl_trail_rx`, `lvl_trail_rx_c10`, `lvl_trail_rx_be`,
+  `lvl_trail_be` (43 variants). Breakeven guard and the opening-range wait were rejected on the replay.
+- **Sizing:** all-in on every trade, no position sizing (owner's rule). `run_apex.py --port` runs replays in parallel.
+
+## 1.10.0 — 27 Oct 2026 evening (buyer edge; docs/18_BUYER_EDGE.md)
+
+- **Diagnosis, six live sessions (106 trades):** the entries carry no directional edge (option mid moves summed to +3
+  pts over all trades); the 12-pt spot trail exits inside the option's ±13 % noise; options were bought when dear
+  (27 Oct: IV 28–36 % vs realised 8–12 %); four champions in six sessions, each chosen on 1–3 days of replay.
+- **Research files tested on the six days' ticks:** order-flow imbalance, book imbalance, micro-price, put-call-parity
+  synthetic forward, Bank Nifty lead and momentum show no edge for an option buyer. The theta-vs-gamma test does.
+- **Champion `edge_gate_only`:** `spot_dual_lvl` unchanged + **buyer-edge gate** (½·Γ·realised variance/min ≥ 0.5 ×
+  |Θ/min|). Engine replay, six days: +₹2.50 L, 21 trades, 76 % winners, +10.5 %/trade (old champion +₹3.48 L, 55 trades,
+  +5.5 %/trade; the difference is 19 Oct, in-sample for the old champion). The first pick, `apex_edge` (gate + premium
+  bracket −10/+20/30 min + −20 % day stop; replayed at 50 % capital, now all-in like every book — owner's rule), made only +₹46 k on the replay — the bracket caps trend days —
+  and is a shadow with `edge_bracket_only`, `edge_breakout` and `spot_dual_lvl`.
+- **Freeze rule:** no champion swap or re-tune for 15 sessions or until the SPRT decides.
+- New `edge.v_min30`; option rows carry gamma and theta; `max_hold_s`, `day_stop_pct`, `gt_min` variant
+  keys. `tests/test_c11_buyer_edge.py`.
+
 ## 1.9.0 — 22 Oct 2026 evening (council 9: read the day, book at levels)
 
 - **Day state** (D-141): session high/low, **range mode**, opening range, prior-day levels (`learning/day_levels.json`), round hundreds.
