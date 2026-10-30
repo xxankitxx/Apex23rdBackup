@@ -210,7 +210,7 @@ def test_e_value_sanity():
     assert learning.e_value_mean_le0([-5.0] * 40) < 1.0
     assert learning.e_value_mean_le0([-100.0] * 3 + [1000.0] * 3) < 1e6     # clipped, finite
     # the report carries every observer, and GO / KILL / promotion are exactly today's
-    for i, d in enumerate(_trading_days("2026-10-28", 12)):     # 28 Oct: the owner's champion date moved to 28 Oct (was 27 Oct, 22 Oct D-141)
+    for i, d in enumerate(_trading_days("2026-10-30", 12)):     # 30 Oct: owner date moved to 30 Oct (was 28 Oct); 28 Oct: the owner's champion date moved to 28 Oct (was 27 Oct, 22 Oct D-141)
         learning.record_day(d, _books(d, i))
         s = learning.learn(d)
     rep = _report()

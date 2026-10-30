@@ -26,7 +26,7 @@ def _feed(ds, path, t0=0.0):
 
 
 def test_champion_and_registry():
-    assert config.CHAMPION_DEFAULT == "lvl_trail_re" and config.CHAMPION_OWNER == ("lvl_trail_re", "2026-10-28")   # 27 Oct (was spot_dual_lvl)
+    assert config.CHAMPION_DEFAULT == "c20_9x" and config.CHAMPION_OWNER == ("c20_9x", "2026-10-30")   # 27 Oct (was spot_dual_lvl)
     p = config.VARIANTS["spot_dual_rg"]
     assert p["range_gate"] and p["dte0_retest"] and p["entry_mode"] == "pullback"
     for n in ("spot_dual_lvl", "spot_ft_prem10", "spot_orb45"):

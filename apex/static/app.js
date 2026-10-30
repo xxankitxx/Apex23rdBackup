@@ -61,7 +61,7 @@ function onTick([id, ltp, bid, ask, bq, aq, ttq, oi, age]) {
   if (ltp === null) return;
   const prev = last[id]; last[id] = ltp;
   const it = INST[id];
-  if (it && it.key === "NIFTY|FUT") paintPx($("fut"), ltp, prev);
+  if (it && it.key === "NIFTY|FUT" && ltp > 0) paintPx($("fut"), ltp, prev);   // 29 Oct: never paint a 0 / missing print
   if (it && it.key === "NIFTY|SPOT") hdrNum("spot", ltp);           // the Spot tile flashes on its own ticks
   const L = legs[id];
   if (L) {
@@ -268,8 +268,15 @@ function render(s) {
   $("feed").classList.toggle("gap", !!bo.on);
   $("feed").title = $("feed").textContent;
   $("dayrange").textContent = (nil(s.fut_hi) || nil(s.fut_lo)) ? "" : `H ${fmt(s.fut_hi, 2)}  ·  L ${fmt(s.fut_lo, 2)}`;
-  if (!nil(s.fut) && last[idOf("NIFTY|FUT")] === undefined) $("fut").textContent = fmt(s.fut);
-  if (!nil(s.fut_prev) && !nil(s.fut)) { const c = s.fut - s.fut_prev; $("futchg").textContent = `${sgn(c)} (${sgn(c / s.fut_prev * 100)}%)`; $("futchg").className = "q-chg " + tone(c); }
+  // 29 Oct: before the first futures trade (pre-open) the engine falls back to Nifty spot for its own use; the
+  // header must not show that spot number as "Nifty futures".
+  const futTraded = s.fut_ltp > 0 || last[idOf("NIFTY|FUT")] > 0;
+  if (!futTraded) {
+    $("fut").textContent = "—";
+    $("fut").title = "No Nifty futures trade yet today (futures open at 09:15). Until then the engine uses Nifty spot internally.";
+    $("futchg").textContent = "no futures trade yet"; $("futchg").className = "q-chg";
+  } else if (!nil(s.fut) && !(last[idOf("NIFTY|FUT")] > 0)) $("fut").textContent = fmt(s.fut);
+  if (futTraded && !nil(s.fut_prev) && !nil(s.fut)) { const c = s.fut - s.fut_prev; $("futchg").textContent = `${sgn(c)} (${sgn(c / s.fut_prev * 100)}%)`; $("futchg").className = "q-chg " + tone(c); }
   if (s.book && !s.pos) {
     $("caplabel").textContent = "Paper capital";
     $("cap").textContent = inr(s.book.capital);
@@ -279,7 +286,7 @@ function render(s) {
   renderVerdict(s); renderLadder(s); renderPos(s, now);
   if (typeof renderCommentary === "function") renderCommentary(s, now);   // commentary.js (T09)
   drawTrace(s); drawOI(s);
-  renderStraddle(s, now); renderHeavy(s); renderTrades(s); renderBooks(s); renderTape(s);
+  renderIdeas(s); renderStraddle(s, now); renderHeavy(s); renderTrades(s); renderBooks(s); renderTape(s);
 }
 
 const idOf = (key) => { for (const id in INST) if (INST[id].key === key) return +id; return -1; };
@@ -1072,3 +1079,33 @@ async function primeState() {
   } catch (e) { /* the socket will bring the state */ }
 }
 loadInstruments().then(() => { connectTicks(); connectState(); primeState(); requestAnimationFrame(frame); });
+
+
+// ── Ideas board (29 Oct): the owner's ideas and the rejected ones, live. Observers only: nothing here trades. ──
+const idEsc = (x) => String(x ?? "").replace(/[&<>"]/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]));
+function renderIdeas(s) {
+  const b = s.ideas, grid = $("idgrid");
+  if (!grid) return;
+  if (!b || !b.ideas || !b.ideas.length) {
+    setHTML(grid, `<p class="small">${b ? "No idea cards loaded." : "Ideas board off."}</p>`);
+    $("idhint").textContent = ""; $("idfoot").textContent = ""; return;
+  }
+  const nowS = clockSecs(s.now);
+  const html = b.ideas.map((c) => {
+    const age = c.since ? nowS - hms(c.since) : NaN;
+    const fresh = !Number.isNaN(age) && age >= 0 && age < 30;
+    const val = nil(c.value) ? "" : `${fmt(c.value, Math.abs(c.value) >= 100 ? 0 : Math.abs(c.value) >= 10 ? 1 : 2)}${c.unit ? " " + idEsc(c.unit) : ""}`;
+    const flips = (c.flips || []).slice(1, 4).map((f) => `<i class="${f[2] || ""}">${idEsc(f[0].slice(0, 5))} ${idEsc(f[1])}</i>`).join(" · ");
+    return `<div class="id-card ${c.side || ""}${c.off ? " off" : ""}${fresh ? " fresh" : ""}" title="${idEsc(c.idea)}&#10;Research: ${idEsc(c.verdict)}">
+      <div class="id-t"><span>${idEsc(c.title)}</span><span>${c.since ? "since " + idEsc(c.since) : ""}</span></div>
+      <div class="id-s"><b>${idEsc(c.off ? "OFF" : c.state || "—")}</b><em>${val}</em></div>
+      <div class="id-x">${idEsc(c.off || c.text || "")}</div>
+      ${c.plan ? `<div class="id-p">${idEsc(c.plan)}</div>` : ""}
+      ${flips ? `<div class="id-f">before: ${flips}</div>` : ""}
+    </div>`;
+  }).join("");
+  setHTML(grid, html);
+  $("idhint").textContent = `${b.ideas.length} cards · each one on its own, no combined score`;
+  $("idfoot").textContent = `Hover a card for the idea and what the research found. Every change is taped to ${b.file || "ideas_<day>.jsonl"} for later testing. The champion trades on its own rules.`
+    + (b.bad && b.bad.length ? ` Not loaded: ${b.bad.map((x) => x[0]).join(", ")}.` : "");
+}

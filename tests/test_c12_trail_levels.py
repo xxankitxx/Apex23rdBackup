@@ -37,7 +37,7 @@ def _book(name="edge_gate_trail"):
 
 def test_champion_and_params():
     p = config.VARIANTS["edge_gate_trail"]
-    assert config.CHAMPION_DEFAULT == "lvl_trail_re" and config.validate() == []
+    assert config.CHAMPION_DEFAULT == "c20_9x" and config.validate() == []
     q = config.VARIANTS["lvl_trail_re"]
     assert q["reentry"] and q["reentry_stop"] and not q.get("reentry_any") and "gt_min" not in q and "alloc_pct" not in q
     assert (p["prem_hard_stop"], p["gt_arm_pct"], p["gt_keep"], p["gt_smooth_s"]) == (10.0, 20.0, 0.8, 30.0)

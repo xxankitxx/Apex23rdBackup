@@ -33,6 +33,7 @@ from .engine.regime import Regime
 from .engine.impulse import ImpulseWindow
 from .engine.daystate import DayState, load_prior, save_day
 from .engine import strike_levels as sl_mod
+from .engine import ideas as ideas_mod
 from .engine import edge as edge_mod
 from .engine.domino import Domino
 from .engine.flow import CLS, REFILL, Flow
@@ -159,6 +160,15 @@ class Engine:
         self.day_state = None                 # D-141: session extremes, range mode, opening range, prior-day levels
         self.spot_hist = deque()              # D-116: (t, Nifty spot) at 1 Hz, in session, SPOT_DC_S long
         self.oi_hist = deque(maxlen=400)     # (t, {id: oi}) at 1 Hz (heroes + futures)
+        self._ohist = {}                     # 28 Oct night: option id -> deque of (t, iv, tbq) at 1 Hz (paper.flow_veto)
+        self._ohist_t = -1e9
+        self._ohist_on = any(v.get("iv_fall_rel15") is not None or v.get("skip_bid_pile")
+                             or v.get("entry_hi5_veto_pct") or v.get("req_move_veto") or v.get("cheap_strike")
+                             for v in config.VARIANTS.values())
+        # 29 Oct midday: books with spot_src="fwd" read a spot-unit put-call-parity forward instead of Nifty spot
+        self._fwd_on = any(v.get("spot_src") == "fwd" for v in config.VARIANTS.values())
+        self._reset_fwd()
+        self._fwd_t = None
         self.last_greeks = self.last_publish = self.last_1hz = 0.0
         self.day = None
         self.books = {}
@@ -180,6 +190,7 @@ class Engine:
         self._dec_cls = None                 # C-34: last champion reason class written to the tape
         self._dec_n = 0
         self.atm_iv_interp = None            # O-1 observer: ATM IV interpolated at F (never a trigger input)
+        self.ideas = None                    # 29 Oct: the Ideas board (observers only, never read by a book)
 
     # ── fault isolation (C-07) ─────────────────────────────────────────────
     def _safe(self, name, fn, default=None):
@@ -242,6 +253,10 @@ class Engine:
         if getattr(self, "watch", None) is not None:
             self.watch.close()
         self.watch = StraddleWatch(day)
+        if getattr(self, "ideas", None) is not None:
+            self._safe("ideas close", self.ideas.close)
+        self.ideas = (self._safe("ideas board", lambda: ideas_mod.Board(day, log=log), None)
+                      if getattr(config, "IDEAS_ON", False) else None)
         self.lstate = learning.load_state()
         loaded = paper.load_books(day)
         champ = self.lstate["champion"]
@@ -265,6 +280,7 @@ class Engine:
         self.regime = Regime()                   # D-069: market state, session-aware, no look-ahead
         self.impulse = ImpulseWindow(config.PB_WINDOW_S)   # D-134: a new day starts a new impulse window
         self._pb_view = {"ok": False}
+        self._reset_fwd()
         self.day_state = DayState(day, load_prior(day))     # D-141
         self.strike_lv = self._safe("strike levels", lambda: sl_mod.StrikeLevels(day, sl_mod.load_prior(day)), None)
         self._sl_last = 0.0                                  # 27 Oct: each strike's own support / resistance
@@ -293,6 +309,8 @@ class Engine:
             st = {"t": self.now_s, "regime": self.regime, "fut_hist": list(self.fut_hist),
                   "spot_hist": list(self.spot_hist), "day_hi": self._day_hi, "day_lo": self._day_lo,
                   "impulse": self.impulse.dump(),
+                  "fspot_hist": list(self.fspot_hist), "impulse_f": self.impulse_f.dump(),
+                  "basis_f": list(self._basis_f), "basis_med": self._basis_med,
                   "day_state": self.day_state.dump() if self.day_state is not None else None}
             tmp = self._warm_path(self.day) + ".tmp"
             with open(tmp, "wb") as f:
@@ -324,6 +342,12 @@ class Engine:
                 self._pb_view = self.impulse.view()
             if st.get("day_state") and st["day_state"].get("day") == day:
                 self.day_state = DayState.load(st["day_state"])
+            if st.get("impulse_f"):
+                self.fspot_hist = deque(st.get("fspot_hist") or [])
+                self.impulse_f = ImpulseWindow.load(st["impulse_f"], config.PB_WINDOW_S)
+                self._pb_view_f = self.impulse_f.view()
+                self._basis_f = deque(st.get("basis_f") or [])
+                self._basis_med = st.get("basis_med")
             self._day_hi, self._day_lo = st.get("day_hi"), st.get("day_lo")
             self._hist_cols = None
             self.ev("SYSTEM", f"restart: regime and price histories restored ({age:.0f} s old)")
@@ -403,6 +427,8 @@ class Engine:
                 self.fut_hist.append((now_s, float(fut)))
                 while self.fut_hist and now_s - self.fut_hist[0][0] > 2100:
                     self.fut_hist.popleft()
+            if self._fwd_on:
+                self._safe("forward history", lambda: self._feed_fwd(now_s, spot, snap))
             self._edge = self._safe("edge snapshot", lambda: edge_mod.snapshot(self, snap, spot, fut), {})   # D-136
             self._hist_cols = None                               # T02: the 1-Hz histories changed
             self.oi_hist.append((now_s, {it["id"]: float(snap["oi"][it["id"]])
@@ -506,8 +532,12 @@ class Engine:
             "fut_ltp": float(snap["ltp"][fid]) if fid is not None else None,   # the raw last print (D-110 keeps the mid in "fut")
             "kill": bool(config.KILL_FILE and os.path.exists(config.KILL_FILE)),   # T02: one stat per step, not one per book
         }
+        if self._fwd_on:
+            ctx["fwd_over"] = self._safe("forward view", lambda: self._fwd_view(now_s), None)
         ctx["by_id"] = {o["id"]: o for o in ctx["options"]}
         ctx["by_key"] = {o["key"]: o for o in ctx["options"]}
+        if self._ohist_on:
+            self._safe("option history", lambda: self._feed_ohist(snap, ctx), None)
         # C-07: from here on ctx exists, so nothing may stop run_books (the exits) from running
         ctx["book_state"] = self._safe("book_state", self.book_state, {})
         ctx["straddle_watch"] = self._safe("straddle watch view", lambda: self.watch.view(series=False), {})
@@ -529,6 +559,8 @@ class Engine:
                 log("ledger: " + traceback.format_exc().strip().splitlines()[-1])
         if self.eplog:
             self._safe("episode log", lambda: self.eplog.update(ctx, self))
+        if self.ideas is not None:                 # 29 Oct: after the books, observers only
+            self._safe("ideas", lambda: self.ideas.step(self, ctx, snap))
 
     def _strike_levels(self, ctx):
         """27 Oct: feed every fresh option print to the per-strike levels; tape the breaks of near-ATM strikes and of
@@ -682,6 +714,7 @@ class Engine:
                 v = v[np.isfinite(v)]
                 self.atm_iv = float(v.mean()) if v.size else self.atm_iv
                 self.fwd = F
+                self._fwd_t = self.now_s
                 self.atm = atm
                 # O-1 observer: IV at F, linear in strike between the bracketing strikes (CE/PE mean)
                 cj, pj = (ex["ce_j"], ex["pe_j"]) if ex["unique"] else (None, None)
@@ -784,6 +817,54 @@ class Engine:
         if c is None or c[0] != key:
             c = self._hist_cols = (key, [t for t, _ in sh], [px for _, px in sh], [t for t, _ in fh], [px for _, px in fh])
         return c[1:]
+
+    # ── 29 Oct midday: the put-call-parity forward as a second "spot" (shadow books with spot_src="fwd") ──
+    def _reset_fwd(self):
+        self.fspot_hist = deque()                 # (t, spot-unit forward) at 1 Hz, in session
+        self.impulse_f = ImpulseWindow(config.PB_WINDOW_S)
+        self._pb_view_f = {"ok": False}
+        self._basis_f = deque()                   # (t, forward - spot) while spot is trusted, 30 min
+        self._basis_med = None
+
+    def _fwd_fresh(self, now_s):
+        F = getattr(self, "fwd", None)
+        return (F is not None and np.isfinite(F) and self._fwd_t is not None and now_s - self._fwd_t <= 2.0)
+
+    def _feed_fwd(self, now_s, spot, snap):
+        if not in_session(self.now_dt) or not self._fwd_fresh(now_s):
+            return
+        F = float(self.fwd)
+        sa = self._spot_age(snap)
+        if np.isfinite(spot) and not self._spot_bad and sa is not None and sa <= config.SPOT_STALE_S:
+            self._basis_f.append((now_s, F - float(spot)))
+            while self._basis_f and now_s - self._basis_f[0][0] > 1800:
+                self._basis_f.popleft()
+            if len(self._basis_f) >= 30:
+                self._basis_med = float(np.median([b for _, b in self._basis_f]))
+        if self._basis_med is None:
+            return
+        fa = F - self._basis_med
+        h = self.fspot_hist
+        if h and now_s - h[-1][0] > 60:
+            h.clear()                                 # as D-124: a > 60-s hole restarts the range
+        h.append((now_s, fa))
+        while h and now_s - h[0][0] > config.SPOT_DC_S + 5:
+            h.popleft()
+        self.impulse_f.add(now_s, fa)
+        self._pb_view_f = self.impulse_f.view(now_s)
+
+    def _fwd_view(self, now_s):
+        """The ctx keys a spot book reads, rebuilt on the forward. None until the forward and its gap are known."""
+        if self._basis_med is None or not self._fwd_fresh(now_s):
+            return {"spot": None, "spot_hi": None, "spot_lo": None, "spot_age": None, "pb": {"ok": False}}
+        h = self.fspot_hist
+        hi = lo = None
+        if h and h[-1][0] - h[0][0] >= config.SPOT_DC_S - 5:
+            xs = [px for t, px in h if now_s - config.SPOT_DC_S <= t < now_s - 0.5]
+            if len(xs) >= 0.8 * config.SPOT_DC_S:
+                hi, lo = max(xs), min(xs)
+        return {"spot": float(self.fwd) - self._basis_med, "spot_hi": hi, "spot_lo": lo,
+                "spot_age": now_s - self._fwd_t, "pb": self._pb_view_f}
 
     def _spot_range(self):
         """D-116: (high, low) of Nifty spot over the previous SPOT_DC_S seconds, excluding the current second,
@@ -1105,9 +1186,23 @@ class Engine:
     # ── books ──────────────────────────────────────────────────────────────
     def run_books(self, ctx):
         changed = False
+        fctx = None
         for name, b in self.books.items():
+            bctx = ctx
+            if b.p.get("spot_src") == "fwd":           # 29 Oct midday: this shadow reads the forward as its spot
+                if fctx is None:
+                    fo = ctx.get("fwd_over") or {"spot": None, "spot_hi": None, "spot_lo": None, "spot_age": None,
+                                                 "pb": {"ok": False}}
+                    fctx = dict(ctx, **fo)
+                bctx = fctx
+            if b.p.get("council"):                     # 30 Oct (D-145): council strategy books (apex/engine/council)
+                try:
+                    changed = self._council(name, b, bctx) or changed
+                except Exception:
+                    self._fault(f"council {name}")
+                continue
             try:                                       # C-07: one book's fault must not skip the others' exits
-                t = paper.check_exit(b, ctx)
+                t = paper.check_exit(b, bctx)
             except Exception:
                 self._fault(f"exit {name}")
                 continue                               # no entry decision on a book whose exit check faulted
@@ -1120,7 +1215,7 @@ class Engine:
                     self.ev(tag, f"{t['rr']} {t['strike']:.0f} {t['lots']} lots · {t['entry']:.2f} → {t['exit']:.2f} "
                                  f"= {t['pnl_pts']:+.2f} pts / ₹{t['pnl_rs']:+,.0f} · {t['reason']} · capital ₹{b.capital:,.0f}")
             try:
-                changed = self._entry(name, b, ctx) or changed
+                changed = self._entry(name, b, bctx) or changed
             except Exception:
                 self._fault(f"entry {name}")
         sig = self._exit_signature()
@@ -1136,6 +1231,34 @@ class Engine:
         self._safe("decision tape", lambda: self._tape_decision(ctx))
         if getattr(self, "commentary", None) is not None:
             self._safe("commentary", lambda: self.commentary.update(ctx, self))   # observer: never a decision
+
+    def _feed_ohist(self, snap, ctx):
+        """1 Hz (t, iv, tbq) per option row for paper.flow_veto; 16 min kept."""
+        now = ctx["now_s"]
+        if now - self._ohist_t >= 1.0:
+            self._ohist_t = now
+            tbq = snap["tbq"]
+            for o in ctx["options"]:
+                i = o["id"]
+                q = float(tbq[i]) if tbq is not None else float("nan")
+                h = self._ohist.get(i)
+                if h is None:
+                    h = self._ohist[i] = deque(maxlen=1000)
+                b_, a_ = o.get("bid"), o.get("ask")
+                mid = (b_ + a_) / 2.0 if (b_ and a_ and a_ >= b_ > 0) else o.get("ltp")
+                h.append((now, o.get("iv"), q if q == q and q > 0 else None, mid,
+                          o.get("delta"), o.get("gamma"), o.get("theta_min")))
+            if ctx.get("spot"):
+                sh = self._ohist.get("spot")
+                if sh is None:
+                    sh = self._ohist["spot"] = deque(maxlen=1000)
+                sh.append((now, float(ctx["spot"])))
+            if ctx.get("fut"):
+                fh = self._ohist.get("fwd")
+                if fh is None:
+                    fh = self._ohist["fwd"] = deque(maxlen=1000)
+                fh.append((now, float(ctx["fut"])))
+        ctx["ohist"] = self._ohist
 
     def _entry(self, name, b, ctx):
         """The entry decision for one book (unchanged logic). True if a position was opened."""
@@ -1159,6 +1282,10 @@ class Engine:
                 return False
             d = paper.entry_dir(b, ctx)
             opt, msg = paper.choose_contract(ctx, d, b)
+            if opt and b.p.get("cheap_strike"):
+                opt, cnote = paper.cheap_strike(b, ctx, opt)   # 29 Oct night (R4-01): expiry-day lag-cheapest strike
+                if cnote:
+                    why = f"{why} · {cnote}"
             if opt and b.p.get("gt_min"):
                 msg = paper.buyer_edge_gate(b, ctx, opt)   # 27 Oct: is gamma worth its theta rent right now?
                 if msg:
@@ -1169,6 +1296,13 @@ class Engine:
                 opt, rmsg = paper.reentry_check(b, ctx, d, opt)   # 27 Oct: after a trailing exit: cheaper / stronger
                 if not opt:
                     msg = rmsg
+                    for k in ("fire_id", "ep_type", "dir", "leg", "pb_trade", "orb_trade", "trig_str", "trig_unit"):
+                        b.ctl.pop(k, None)
+            if opt and (b.p.get("iv_fall_rel15") is not None or b.p.get("skip_bid_pile")
+                        or b.p.get("entry_hi5_veto_pct") or b.p.get("req_move_veto")):
+                vmsg = paper.flow_veto(b, ctx, opt)     # 28 Oct night (round 2): IV fall / late bid pile
+                if vmsg:
+                    opt, msg = None, vmsg
                     for k in ("fire_id", "ep_type", "dir", "leg", "pb_trade", "orb_trade", "trig_str", "trig_unit"):
                         b.ctl.pop(k, None)
             if not opt:
@@ -1192,6 +1326,37 @@ class Engine:
             self.ev(tag, f"BUY {pos['lots']} lots NIFTY {pos['strike']:.0f} {pos['rr']} "
                          f"({pos['expiry']}) @ {pos['entry']:.2f} · {why}")
         return True
+
+    def _council(self, name, b, ctx):
+        """One second of a council book: the strategy class decides, paper.open_trade / close_trade fill."""
+        from .engine import council
+        ad = getattr(self, "_council_ad", None)
+        if ad is None:
+            ad = self._council_ad = {}
+        a = ad.get(name)
+        if a is None or a.day != self.day:
+            a = ad[name] = council.Adapter(b.p["council"], self.day, self.w0)
+        n0, had = len(b.trades), b.pos
+        traded = a.step(self, b, ctx)
+        if not traded or name not in (self.champion, "RAW"):
+            return traded
+        champ = name == self.champion
+        if len(b.trades) > n0:                         # closed a position
+            t = b.trades[-1]
+            if champ:
+                audio.play("win" if t["pnl_pts"] > 0 else "loss")
+            self.ev("EXIT" if champ else "RAW-EXIT",
+                    f"{t['rr']} {t['strike']:.0f} {t['lots']} lots · {t['entry']:.2f} → {t['exit']:.2f} "
+                    f"= {t['pnl_pts']:+.2f} pts / ₹{t['pnl_rs']:+,.0f} · {t['reason']} · capital ₹{b.capital:,.0f}")
+        if b.pos and b.pos is not had:                 # opened a position
+            pos = b.pos
+            if champ:
+                audio.play("entry")
+                self.last_reason = pos.get("why") or "council entry"
+            self.ev("ENTRY" if champ else "RAW-ENTRY",
+                    f"BUY {pos['lots']} lots NIFTY {pos['strike']:.0f} {pos['rr']} "
+                    f"({pos['expiry']}) @ {pos['entry']:.2f} · {pos.get('why', 'COUNCIL')}")
+        return traded
 
     def _exit_signature(self):
         """What a restart must not forget about each open position (C-11)."""
@@ -1327,6 +1492,7 @@ class Engine:
             "late": self.lateness(ctx),
             "straddle": self.straddle.view(), "bank": self.bank.view(), "lag": self.lag.view(),
             "straddle_watch": self.watch.view(series=True),
+            "ideas": self._safe("ideas view", self.ideas.view, None) if getattr(self, "ideas", None) else None,
             "gex": self.gex.v,
             "event": event_today(self.day),
             "fut_book": self.fut_book(),
@@ -1398,6 +1564,8 @@ class Engine:
             if self.eplog:
                 self._safe("stop: episode log", self.eplog.close)
             self._safe("stop: straddle watch", self.watch.close)
+            if getattr(self, "ideas", None) is not None:
+                self._safe("stop: ideas", self.ideas.close)
             if getattr(self, "ledger", None) is not None:
                 self._safe("stop: ledger", self.ledger.close)
             if self.mode != "live" or config.hm(self.now_dt) >= config.mins(config.MARKET_CLOSE):

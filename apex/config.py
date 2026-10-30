@@ -336,14 +336,65 @@ VARIANTS["lvl_trail_rx_be"] = dict(VARIANTS["lvl_trail_rx"], be_arm_pct=10.0, be
 VARIANTS["lvl_trail_be"] = dict(VARIANTS["lvl_trail"], be_arm_pct=10.0, be_floor_pct=1.0)
 # 28 Oct (owner: "do whatever it takes to make every day more profitable"): lvl_trail_re, the only book green on all six
 # replayed days 19-27 Oct (+3.87 L; lvl_trail +3.71 L 5/6; spot_dual_lvl +3.48 L 4/6; edge_gate_trail +2.41 L).
-CHAMPION_DEFAULT = "lvl_trail_re"  # before: edge_gate_trail and edge_gate_only (27 Oct), spot_dual_lvl (D-142)
+# 28 Oct evening (15-member review, scratchpad team/NN/verdict.md): one test book per surviving idea, and combinations.
+_T28 = VARIANTS["lvl_trail_re"]
+VARIANTS["t28_d46"] = dict(_T28, delta_target=0.46)                 # 04: strike |delta| ~0.46 on non-expiry days
+VARIANTS["t28_gap"] = dict(_T28, pb_gap_block_s=120)                # 01: no pullback measured across a data gap
+VARIANTS["t28_dur20"] = dict(_T28, pb_min_impulse_s=1200)           # 05: impulse must take >= 20 min
+VARIANTS["t28_ts"] = dict(_T28, ts_min_s=240, ts_prog_pct=2.0)      # 06: out at 4 min if never +2 %
+VARIANTS["t28_fill"] = dict(_T28, rt_fill=True, fill_tgt=10.0, fill_stop=7.0)   # 15: retest filler +10/-7
+VARIANTS["t28_core"] = dict(_T28, delta_target=0.46, pb_gap_block_s=120, pb_min_impulse_s=1200)
+VARIANTS["t28_core_fill"] = dict(VARIANTS["t28_core"], rt_fill=True, fill_tgt=10.0, fill_stop=7.0)
+VARIANTS["t28_all"] = dict(VARIANTS["t28_core_fill"], ts_min_s=240, ts_prog_pct=2.0)
+VARIANTS["t28_d46_fill"] = dict(_T28, delta_target=0.46, rt_fill=True, fill_tgt=10.0, fill_stop=7.0)
+VARIANTS["t28_gap_ts"] = dict(_T28, pb_gap_block_s=120, ts_min_s=240, ts_prog_pct=2.0)   # owner 28 Oct: gap + time stop
+# 28 Oct night, round 2 (owner's burst / order-flow / OI / greeks ideas; scratchpad team/R2_NN/verdict.md). Shadows only:
+_G = dict(_T28, pb_gap_block_s=120)                                  # = t28_gap
+VARIANTS["t28_ivfall"] = dict(_G, iv_fall_rel15=-2.0)               # R2-03: skip if the contract's IV fell >= 2 % in 15 min
+VARIANTS["t28_bidpile"] = dict(_G, skip_bid_pile=True, bid_pile_lookback_s=30, bid_pile_max=0.007)   # R2-06: late chase
+VARIANTS["t28_st20"] = dict(_G, spot_trail=20.0)                    # R2-05: wider spot trail (expiry-day retest trades)
+# 29 Oct night, round 3 (owner: keep the champion's entries, buy only when a little cheap and not about to break down;
+# no scoring). Two hard checks survived (scratchpad team/R3_NN/verdict.md):
+VARIANTS["t28_nohigh"] = dict(_G, entry_hi5_veto_pct=2.0)           # R3-01: pullback didn't cheapen the option
+VARIANTS["t28_req"] = dict(_G, req_move_veto=True, req_move_k=1.0)  # R3-03 / PCE 11.3: +10 % needs > 15-min range
+VARIANTS["t28_cheap"] = dict(_G, entry_hi5_veto_pct=2.0, req_move_veto=True, req_move_k=1.0)   # both
+# R4-01 (owner's CHEAPNESS spec A7 + A10.2): on expiry day buy the eligible strike (ATM .. 2 ITM, |delta| >= 0.52)
+# whose premium lags the forward's move of the last 60 s most. A chooser, never a ban.
+VARIANTS["t28_cheapK"] = dict(_G, cheap_strike="lag", cheap_anchor_s=60, cheap_dte0_only=True)
+# 29 Oct midday (owner: "add the three shadow books ... champion unchanged"). Shadows only, for live evidence:
+# t28_fwd   the champion's rules on the put-call-parity forward of the nearest weekly instead of Nifty spot (19 Oct
+#           study: R^2 for option moves -- future 0.45, spot 0.66, parity forward 0.94). The forward is shifted by its
+#           30-min median gap to spot so the spot-unit levels (prior day, round 100s) stay valid.
+# t28_mh15  the champion + out after 15 min (owner: "big moves last 10-15 minutes"; R2-05: -Rs 1.42 L on 7 days)
+# t28_tt8   the champion + a tight trail: arms at +8 % (30-s average), keeps 70 % of the best gain (R2-05: tighter trails lost)
+VARIANTS["t28_fwd"] = dict(_G, spot_src="fwd")
+VARIANTS["t28_mh15"] = dict(_G, max_hold_s=900)
+VARIANTS["t28_tt8"] = dict(_G, gt_arm_pct=8.0, gt_keep=0.7)
+# 29 Oct (owner: "Yes, promote t28_cheap to champion"): t28_gap + the two entry checks (not at the 5-min high on
+# pullback/retest entries; the +10 % move must fit the 15-min spot range). Replay batch 20261029-0109*, real fills:
+# +Rs 4.59 L vs t28_gap +3.73 L over 7 days, no day worse (19 Oct +47k, 27 Oct +21k, 28 Oct +18k), 55 trades vs 62.
+# 28 Oct evening (owner: "Promote t28_gap to champion"): the only book >= lvl_trail_re on all 7 replayed days at real
+# fills (+Rs 34k: 23 Oct +26k, 28 Oct +8k, the rest identical).
+# 29 Oct 11:40 (owner: "Switch the champion back to t28_gap now and keep t28_cheap running as a shadow book"):
+# live, t28_cheap skipped both of the day's signals (10:58 CE, 11:14 PE) on the required-move check by ~3 pts each.
+# 30 Oct (D-145): council strategy books — the exact class tested in the kit, run by apex/engine/council.Adapter
+VARIANTS["c20_8x"] = dict(_G, council="c20_8x")      # c20_08 + round-8 autopsy (docs/19_C20_8X_STRATEGY_SPEC.md)
+VARIANTS["c20_9x"] = dict(_G, council="c20_9x")      # c20_8x + round-9 fixes and gains (docs/20_C20_9X_STRATEGY_SPEC.md)
+
+CHAMPION_DEFAULT = "c20_9x"  # before: t28_gap (29 Oct 11:40), t28_cheap (29 Oct morning), t28_gap (28 Oct evening), lvl_trail_re (28 Oct), edge_gate_trail and edge_gate_only (27 Oct), spot_dual_lvl (D-142), edge_gate_trail and edge_gate_only (27 Oct), spot_dual_lvl (D-142)
 # D-124 (owner, 20 Oct 16:16: "Apply spot_dc12_t12 thoroughly on my code"): the champion is the owner's choice.
 # learning.load_state applies it ONCE to an existing state (the champion lives in data/learning/state.json,
 # which the learning loop may later change on evidence); trades from the day after this date count for its
 # scoreboard. Bump the date to force the owner's champion again.
-CHAMPION_OWNER = ("lvl_trail_re", "2026-10-28")   # 28 Oct; before: edge_gate_trail (27 Oct), spot_dual_lvl (D-142), spot_dual (D-140), spot_pb45 (D-134), spot_dc12_t12 (D-124)
+CHAMPION_OWNER = ("c20_9x", "2026-10-30")   # 30 Oct pre-open (owner: "c20_9x as champion"); before: t28_gap (29 Oct 11:40), t28_cheap (29 Oct morning), t28_gap (28 Oct evening), lvl_trail_re (28 Oct), edge_gate_trail (27 Oct), spot_dual_lvl (D-142), spot_dual (D-140), spot_pb45 (D-134), spot_dc12_t12 (D-124)
 # 27 Oct: FREEZE. Four champions in six sessions, each picked on 1-3 days of in-sample replay, each lost on its first
-# unseen day. lvl_trail_re (28 Oct) is not to be swapped or re-tuned before 15 sessions (or the SPRT) have judged it.
+# unseen day. t28_gap (owner's pick again 29 Oct 11:40, = lvl_trail_re + data-gap guard) is not to be swapped or re-tuned before 15 sessions (or the SPRT) have judged it.
+# 29 Oct (owner: "I want to test my ideas later ... somewhere in the UI"): the Ideas board (apex/engine/ideas/).
+# Observers only -- no book reads them. Shown on the dashboard, taped to <PAPER_DIR>/ideas_<day>.jsonl.
+IDEAS_ON = True
+IDEAS_STRIKES = 10         # nearest weekly, ATM +- 10 strikes
+IDEAS_HIST_S = 3600        # 1-Hz history kept for the ideas (60 min)
+IDEAS_SLOW_MS = 40.0       # an idea averaging more than this per call is switched off for the day
 SPOT_STALE_S = 5.0         # D-124: the spot books neither enter nor extend their range on a Nifty quote older than this
 SPOT_FROZEN_EXIT_S = 60.0  # D-124: in a position, if the index is older than this the stop is taken on the futures mid instead
 
@@ -561,7 +612,12 @@ VARIANT_KEYS = frozenset(("m_star", "s_star", "L_star", "d_star", "s_exit", "iv_
                           "gt_min", "day_stop_pct",
                           "prem_hard_stop", "gt_arm_pct", "gt_keep", "gt_smooth_s",
                           "reentry", "reentry_fast_s", "reentry_cheap_s", "dte0_max_hold_s",
-                          "reentry_any", "reentry_stop", "be_arm_pct", "be_floor_pct"))   # 27 Oct: buyer edge
+                          "reentry_any", "reentry_stop", "be_arm_pct", "be_floor_pct",
+                          "delta_target", "pb_gap_block_s", "pb_min_impulse_s", "ts_min_s", "ts_prog_pct",
+                          "rt_fill", "fill_tgt", "fill_stop",
+                          "iv_fall_rel15", "skip_bid_pile", "bid_pile_lookback_s", "bid_pile_max",
+                          "entry_hi5_veto_pct", "req_move_veto", "req_move_k",
+                          "cheap_strike", "cheap_anchor_s", "cheap_dte0_only", "spot_src", "council"))   # 27 Oct: buyer edge; 30 Oct: council books
 VARIANT_MODES = ("gap_star", "exit_book", "spike", "random", "momentum", "spot_dc", "fade_switch")   # at most one per variant
 
 

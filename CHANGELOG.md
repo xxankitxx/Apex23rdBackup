@@ -1,5 +1,51 @@
 # Changelog
 
+## Unreleased — 30 Oct 2026 (champion c20_9x)
+
+- **Champion `c20_9x`** (owner, 30 Oct pre-open: "c20_9x as champion"; "I want them to run today"). The round-9
+  strategy (docs/20_C20_9X_STRATEGY_SPEC.md) runs as a **council book**: `apex/engine/council/` holds the exact
+  classes tested in the offline kit (`c20_08` → `c20_20` → `c20_8x` → `c20_9x`), and `council.Adapter` feeds them a
+  live per-second `D` (forward, quotes, Greeks, OI of the nearest weekly) and trades through `paper.open_trade` /
+  `close_trade` (all-in, |delta| ≥ 0.5 at the signal, forced flat 15:00 expiry / 15:20 otherwise). Champion and RAW
+  council books raise ENTRY / EXIT events and the entry / win / loss sounds like any champion.
+- **Shadows:** `c20_8x` (council) and yesterday's champion `t28_gap`; every other book unchanged (65 variants).
+- Engine replay (test copy, real fills, cut at ~14:30 on most days): c20_9x +₹10.32 L over 7 days, 29 Oct +₹26.4k;
+  c20_8x +₹8.06 L / +₹7.9k; t28_gap +₹3.47 L / +₹4.0k. Honest leave-one-day-out of the round-9 gains ≈ +₹1.6 L.
+- New test file `tests/test_c15_council.py`; champion asserts moved to `c20_9x` / 30 Oct.
+
+## Unreleased — 29 Oct 2026 (entry checks: "a little cheap, won't break down")
+
+- **Three shadow books** (owner, 29 Oct midday; champion unchanged, 63 variants): `t28_fwd` (the champion's rules on
+  the put-call-parity forward of the nearest weekly, shifted by its 30-min median gap to spot; 19 Oct study R² for
+  option moves: future 0.45, spot 0.66, forward 0.94), `t28_mh15` (out after 15 min), `t28_tt8` (gain trail arms at
+  +8 %, keeps 70 %). Short 23 Oct engine check: all three trade, no faults. The forward's histories survive a warm
+  restart.
+- **Champion back to `t28_gap`** (owner, 29 Oct 11:40: "Switch the champion back to t28_gap now and keep t28_cheap
+  running as a shadow book"). Live, `t28_cheap` skipped both of the day's signals on the required-move check by ~3 pts
+  (10:58 CE: needed 33 vs 30 moved; 11:14 PE: 32 vs 29), and a skipped signal marks its whole impulse as used.
+  `t28_gap` took the 10:58 CE. Engine-only restart; the open trade carried over.
+- **Champion `t28_cheap`** (owner, 29 Oct morning, replaced the same day: "Yes, promote t28_cheap to champion"): `t28_gap` entries and exits unchanged
+  + two yes/no entry checks, no score:
+  - **not at the high:** on pullback / retest entries, skip if the option's mid is within 2 % of its 5-min high
+    (`entry_hi5_veto_pct=2.0`);
+  - **move must be realistic:** skip if the spot move needed for +10 % (delta, gamma, theta over 15 min) is larger
+    than the last 15-min spot range (`req_move_veto`, `req_move_k=1.0`).
+  Engine replay, 7 days, real fills (ask in, bid out): **+₹4.59 L vs `t28_gap` +₹3.73 L**, no day worse
+  (19 Oct +₹47 k, 27 Oct +₹21 k, 28 Oct +₹18 k), 55 trades vs 62. Caveat: the gain rests on 7 skipped trades; the
+  second check is sensitive to ±30 s timing in research.
+- **Ideas board** (owner, 29 Oct: "I want to test my ideas later ... somewhere in the UI"): `apex/engine/ideas/`, 16
+  observer cards (move clock, OI writers, writer squeeze, OI walls, fresh-OI PCR, queue speed, aggressors, gamma vs
+  theta, IV pulse, cheapest strike, regime, arm → fire, room to run, straddle pulse, peak watch, premium
+  continuation), written by a 15-member council. Shown on the dashboard, every state change taped to
+  `<paper dir>/ideas_<day>.jsonl` with the champion's position. **No book reads them**; a card that faults 5 times
+  or runs slow is switched off for the day. `tests/test_c14_ideas.py`.
+- **Champion `t28_gap`** (owner, 28 Oct evening): `lvl_trail_re` + no pullback measured across a data gap (120 s).
+- **Shadow books:** `t28_nohigh`, `t28_req` (each check alone), `t28_cheapK` (expiry-day lag-cheapest strike, ATM–2
+  ITM; +₹10 k on 19 + 27 Oct), `t28_ivfall`, `t28_bidpile`, `t28_st20`, `t28_gap_ts` (60 variants). Engine keeps a
+  1-Hz per-option history (`ctx["ohist"]`) for these checks.
+- **Rejected on the replay / research:** OI quadrants, walls, PCR, OI-acceleration + VWAP (−₹1.04 L as a trigger),
+  buyers-vs-sellers queues, greek timing filters, regime gates, waiting for a dip, tighter trails, time stop.
+
 ## 1.10.1 — 28 Oct 2026 (trail, strike levels, re-entry; docs/18 §6b)
 
 - **Champion `lvl_trail_re`:** `spot_dual_lvl` entries (no entry gate) + hard premium stop −10 % + gain trail on the

@@ -37,7 +37,7 @@ def _held(b, s, ltp):
 
 def test_registered_and_champion():
     p = config.VARIANTS["apex_edge"]
-    assert config.CHAMPION_DEFAULT == "lvl_trail_re" and config.validate() == []
+    assert config.CHAMPION_DEFAULT == "c20_9x" and config.validate() == []
     assert p["gt_min"] == 0.5 and (p["prem_stop"], p["prem_tgt"], p["max_hold_s"]) == (10.0, 20.0, 1800)
     assert p["lock_pct"] == 0.0 and not p["lvl_book"] and "alloc_pct" not in p and p["day_stop_pct"] == 20.0
     assert p["entry_mode"] == "pullback" and p["dte0_retest"]              # same entries as spot_dual_lvl

@@ -47,7 +47,7 @@ def _down_impulse_then(pull):
 def test_champion_and_the_owner_switch_from_the_old_state():
     from apex.engine import learning
     import json
-    assert config.CHAMPION_DEFAULT == "lvl_trail_re" and config.CHAMPION_OWNER == ("lvl_trail_re", "2026-10-28")
+    assert config.CHAMPION_DEFAULT == "c20_9x" and config.CHAMPION_OWNER == ("c20_9x", "2026-10-30")
     st = learning._default_state()                   # what the PC holds today: the 20-Oct owner switch already applied
     st["champion"], st["champion_since"] = "spot_dc12_t12", "2026-10-20"
     st["owner_champion"] = ["spot_dc12_t12", "2026-10-20"]
@@ -55,7 +55,7 @@ def test_champion_and_the_owner_switch_from_the_old_state():
     with open(learning.STATE, "w", encoding="utf-8") as f:
         json.dump(st, f)
     s1 = learning.load_state()
-    assert s1["champion"] == "lvl_trail_re" and s1["champion_since"] == "2026-10-28"
+    assert s1["champion"] == "c20_9x" and s1["champion_since"] == "2026-10-30"
     os.remove(learning.STATE)
 
 

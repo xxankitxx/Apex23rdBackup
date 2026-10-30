@@ -156,6 +156,13 @@ def choose_contract(ctx, d, book=None):
     lo, hi = band
     cands = [o for o in opts if o["rr"] == rr and o["week"] == week and o.get("delta") is not None
              and o["ltp"] and config.MIN_PREMIUM <= o["ltp"] <= config.MAX_PREMIUM and o["age"] < 15]
+    dt = (book.p.get("delta_target") if book is not None else None) or 0.0
+    if dt > 0 and not zero_dte:
+        # 28 Oct (team 04): all-in, the -10 % stop caps the loss at any strike but the win scales with delta/premium;
+        # the band's lowest |delta| >= 0.52 is one step ITM. Nearest |delta| 0.46 within 0.42-0.52 instead.
+        near = [o for o in cands if 0.42 <= abs(o["delta"]) <= 0.52]
+        if near:
+            return min(near, key=lambda o: abs(abs(o["delta"]) - dt)), ""
     inband = [o for o in cands if lo <= abs(o["delta"]) <= hi]
     if inband:
         return min(inband, key=lambda o: abs(o["delta"])), ""
@@ -188,12 +195,16 @@ def evaluate_spot_breakout(book, ctx):
     'One trade per swing' (no parameter): after a trade, the same direction needs spot beyond that
     trade's best spot. Optional expiry-day entry end (spot_expiry_end)."""
     p = book.p
+    fill = False
     if p.get("entry_mode") == "orb":                         # D-141 (council 9 T08): opening-range breakout
         return evaluate_orb(book, ctx)
     if p.get("entry_mode") == "pullback":                    # D-134: the pullback book has its own entry
         expiry_day = ctx["now_dt"].date().isoformat() == ctx.get("w0")
         if not (p.get("dte0_retest") and expiry_day):         # D-137: the dual book uses the retest on expiry day
-            return evaluate_pullback(book, ctx)
+            fire, why = evaluate_pullback(book, ctx)
+            if fire or not p.get("rt_fill"):
+                return fire, why
+            fill = True                                       # 28 Oct (team 15): flat -> a retest filler may trade
     hi, lo, sp = ctx.get("spot_hi"), ctx.get("spot_lo"), ctx.get("spot")
     if hi is None or lo is None or sp is None:
         book.ctl.pop("rt", None)                              # D-131: an armed break does not survive a data hole
@@ -231,6 +242,9 @@ def evaluate_spot_breakout(book, ctx):
             book.ctl.pop("rt", None)
             book.ctl.update({"dir": rt["d"], "fire_id": -(SPOT_ID0 + int(ctx["now_s"])), "ep_type": "SPOT-RETEST",
                              "trig_str": round(rt.get("run") or 0.0, 1), "trig_unit": "pt run beyond the level"})
+            if fill:
+                book.ctl.update({"fill": True, "ep_type": "SPOT-RETEST-FILL"})
+                book.ctl.pop("trig_str", None)
             return True, (f"spot {sp:.1f} came back to the broken {p['spot_dc'] // 60}-min "
                           f"{'high' if rt['d'] > 0 else 'low'} {rt['L']:.1f} and held ({rel:+.1f} pts) after running {ext:.0f}+")
         else:
@@ -251,6 +265,21 @@ def evaluate_spot_breakout(book, ctx):
     book.ctl.update({"dir": d, "fire_id": -(SPOT_ID0 + int(ctx["now_s"])), "ep_type": "SPOT-BREAKOUT"})
     return True, (f"spot {sp:.1f} broke its {p['spot_dc'] // 60}-min {'high' if d > 0 else 'low'} "
                   f"{lvl:.1f}")
+
+
+def _track_gap(book, ctx):
+    """28 Oct (team 01): remember the last data gap (engine blackout or a stale spot quote) of pb_gap_block_s or more.
+    On 28 Oct the feed froze 10:31-10:38 and the 10:47 pullback was measured on prices that never traded."""
+    bo = ctx.get("blackout") or {}
+    sa = ctx.get("spot_age")
+    stale = bool(bo.get("on")) or (sa is not None and sa > config.SPOT_STALE_S)
+    now = ctx["now_s"]
+    if stale:
+        book.ctl.setdefault("gap_s", now - (sa if (sa is not None and sa < 3600) else 0.0))
+    elif book.ctl.get("gap_s") is not None:
+        g0 = book.ctl.pop("gap_s")
+        if now - g0 >= book.p["pb_gap_block_s"]:
+            book.ctl["gap_last"] = {"s": round(g0, 1), "e": round(now, 1)}
 
 
 def evaluate_pullback(book, ctx):
@@ -281,6 +310,14 @@ def evaluate_pullback(book, ctx):
     side = "CE" if d > 0 else "PE"
     if ctx["now_s"] - v["ext_t"] < p.get("pb_min_age_s", 0):
         return False, f"{side} impulse {rng:.0f} pts still extending (extreme {ext_px:.1f})"
+    gl = book.ctl.get("gap_last") if p.get("pb_gap_block_s") else None
+    if gl and gl["e"] > ctx["now_s"] - 2700:           # 28 Oct (team 01): the 45-min window held a data gap
+        return False, f"{side} impulse measured across a {gl['e'] - gl['s']:.0f}-s data gap; not traded"
+    mi = p.get("pb_min_impulse_s") or 0
+    if mi > 0:                                         # 28 Oct (team 05): fast spikes reverse; slow impulses continue
+        t0 = v.get("t_lo") if d > 0 else v.get("t_hi")
+        if t0 is not None and v["ext_t"] - t0 < mi:
+            return False, f"{side} impulse took {(v['ext_t'] - t0) / 60:.0f} min (< {mi / 60:.0f}); a spike, not traded"
     key = [d, round(float(v["ext_t"]), 1)]
     if book.ctl.get("pb_done") == key:
         return False, f"{side} impulse to {ext_px:.1f} already traded; waiting for a new impulse"
@@ -353,6 +390,122 @@ def _level_book_exit(book, ctx, pos):
         if g < -p.get("lvl_near", 5.0):
             return None                        # the next level is not reached yet; nothing beyond it matters
     return None
+
+
+def _hist_at(h, t):
+    """The newest (t, iv, tbq) sample at or before t, or None."""
+    best = None
+    for s in h:
+        if s[0] <= t:
+            best = s
+        else:
+            break
+    return best
+
+
+def lag_cheapness(ctx, o, anchor_s=60):
+    """CHEAPNESS spec A7: % by which the option's ASK is below what the forward's move since `anchor_s` ago already
+    justifies: V = mid0 + delta0 dF + 1/2 gamma0 dF^2 + theta0 dt/60. None when the history is missing."""
+    oh = ctx.get("ohist") or {}
+    h, fw = oh.get(o.get("id")), oh.get("fwd")
+    ask = o.get("ask")
+    if not h or not fw or not ask or (o.get("age") or 0) > config.EXIT_QUOTE_STALE_S:
+        return None
+    now = ctx["now_s"]
+    s0, f0 = _hist_at(h, now - anchor_s), _hist_at(fw, now - anchor_s)
+    if s0 is None or f0 is None or len(s0) < 7 or now - s0[0] > anchor_s + 5 or now - f0[0] > anchor_s + 5:
+        return None
+    mid0, d0, g0, th0 = s0[3], s0[4], s0[5], s0[6]
+    if not mid0 or d0 is None or g0 is None or th0 is None:
+        return None
+    dF = fw[-1][1] - f0[1]
+    v = mid0 + d0 * dF + 0.5 * g0 * dF * dF + th0 * (now - s0[0]) / 60.0
+    return 100.0 * (v - ask) / ask
+
+
+def cheap_strike(book, ctx, opt):
+    """R4-01: among same-side, same-expiry strikes from ATM to 2 ITM with |delta| >= 0.52 (plus the band's pick),
+    switch to the one with the highest lag cheapness when it beats the band's pick. Returns (opt, note)."""
+    p = book.p
+    if p.get("cheap_dte0_only") and ctx["now_dt"].date().isoformat() != ctx["w0"]:
+        return opt, ""
+    spot = ctx.get("spot") or ctx.get("fut")
+    if not spot:
+        return opt, ""
+    rr, ex = opt["rr"], opt["expiry"]
+    side = [o for o in ctx["options"] if o.get("rr") == rr and o.get("expiry") == ex and o.get("ask")]
+    if not side:
+        return opt, ""
+    ks = sorted({o["strike"] for o in side})
+    atm = min(ks, key=lambda k: abs(k - spot))
+    i = ks.index(atm)
+    elig_k = ks[max(0, i - 2): i + 1] if rr == "CE" else ks[i: i + 3]
+    cands = [o for o in side if (o["strike"] in elig_k and abs(o.get("delta") or 0) >= 0.52) or o["id"] == opt["id"]]
+    a = p.get("cheap_anchor_s", 60)
+    base = lag_cheapness(ctx, opt, a)
+    if base is None:
+        return opt, ""
+    best, bl = opt, base
+    for o in cands:
+        lg = lag_cheapness(ctx, o, a)
+        if lg is not None and lg > bl:
+            best, bl = o, lg
+    if best is opt:
+        return opt, ""
+    return best, f"cheaper strike {best['strike']:.0f} (lag {bl:+.1f} % vs {opt['strike']:.0f} {base:+.1f} %)"
+
+
+def flow_veto(book, ctx, opt):
+    """28 Oct night (round 2). A skip reason for the chosen contract, or "". Needs ctx["ohist"]: id -> deque of
+    (t, iv, tbq) at 1 Hz, fed by the engine.
+    iv_fall_rel15 (R2-03): the contract's IV fell by this % (relative) or more over the last 15 min -> skip.
+    skip_bid_pile (R2-06): the contract's total bid qty rose by bid_pile_max (fraction) or more in the last
+    bid_pile_lookback_s s -> skip (a late chase, not fuel)."""
+    p = book.p
+    h = (ctx.get("ohist") or {}).get(opt.get("id"))
+    if not h:
+        if p.get("req_move_veto") or p.get("entry_hi5_veto_pct"):
+            h = [(ctx["now_s"], None, None, None)]
+        else:
+            return ""
+    now = ctx["now_s"]
+    cur = h[-1]
+    lim = p.get("iv_fall_rel15")
+    if lim is not None and cur[1]:
+        old = _hist_at(h, now - 900)
+        if old is not None and old[1] and now - old[0] <= 960:
+            r = 100.0 * (cur[1] / old[1] - 1.0)
+            if r <= lim:
+                return f"{opt['strike']:.0f} {opt['rr']}: IV {r:+.1f} % in 15 min (<= {lim:+.1f} %); not bought"
+    hp = p.get("entry_hi5_veto_pct")
+    if hp and book.ctl.get("ep_type") in ("SPOT-PULLBACK", "SPOT-RETEST") and len(cur) > 3 and cur[3]:
+        mids = [s[3] for s in h if s[0] >= now - 300 and len(s) > 3 and s[3]]
+        if h[0][0] <= now - 240 and mids:           # R3-01: the pullback did not make the option cheaper
+            hi = max(mids)
+            if cur[3] >= hi * (1 - hp / 100.0):
+                return (f"{opt['strike']:.0f} {opt['rr']}: premium {cur[3]:.1f} within {hp:.0f} % of its 5-min high "
+                        f"{hi:.1f}; not cheap, not bought")
+    if p.get("req_move_veto"):
+        sp = [s[1] for s in (ctx.get("ohist") or {}).get("spot", ()) if s[0] >= now - 900]
+        sh = (ctx.get("ohist") or {}).get("spot")
+        ask = opt.get("ask") or opt.get("ltp")
+        dl, gm, th = opt.get("delta"), opt.get("gamma"), opt.get("theta_min")
+        if sh and sh[0][0] <= now - 840 and len(sp) >= 60 and ask and dl and gm is not None and th is not None:
+            need = 0.10 * ask - th * 15.0                 # R3-03 / PCE 11.3: +10 % of the ask in 15 min, after theta
+            a, b = 0.5 * max(gm, 0.0), abs(dl)
+            req = (-b + (b * b + 4 * a * need) ** 0.5) / (2 * a) if a > 0 else need / max(b, 1e-6)
+            rng = max(sp) - min(sp)
+            if req > p.get("req_move_k", 1.0) * max(rng, 1.0):
+                return (f"{opt['strike']:.0f} {opt['rr']}: +10 % needs {req:.0f} pts in 15 min, the last 15 min "
+                        f"moved {rng:.0f}; not bought")
+    if p.get("skip_bid_pile") and cur[2]:
+        lb = p.get("bid_pile_lookback_s", 30)
+        old = _hist_at(h, now - lb)
+        if old is not None and old[2] and now - old[0] <= lb + 5:
+            g = cur[2] / old[2] - 1.0
+            if g >= p.get("bid_pile_max", 0.007):
+                return f"{opt['strike']:.0f} {opt['rr']}: bid qty +{100 * g:.1f} % in {lb:.0f} s (a late chase); not bought"
+    return ""
 
 
 def buyer_edge_gate(book, ctx, opt):
@@ -450,6 +603,11 @@ def _hard_stop_gain_trail(book, ctx, pos, px, o):
     r = 100.0 * (px / pos["entry"] - 1.0)
     if hs > 0 and r <= -hs:
         return f"STOP (premium {r:.1f} %, hard stop -{hs:.0f} %)"
+    ts = p.get("ts_min_s") or 0                       # 28 Oct (team 06): never got going -> out
+    if ts > 0:
+        pos["ts_best"] = max(pos.get("ts_best") or -1e9, r)
+        if ctx["now_s"] - pos["t_in"] >= ts and pos["ts_best"] < (p.get("ts_prog_pct") or 2.0):
+            return f"TIME (no progress: best {pos['ts_best']:+.1f} % in {ts / 60:.0f} min)"
     if arm <= 0:
         return None
     w = float(p.get("gt_smooth_s") or 30.0)
@@ -660,6 +818,8 @@ def evaluate_entry(book, ctx, gates):
     hmn = config.hm(now)
     if p.get("momentum"):
         _momentum_rearm(book, ctx)
+    if p.get("pb_gap_block_s"):
+        _track_gap(book, ctx)
     if book.pos is not None:
         return False, "in position"
     if book.ctl.get("pending_entry"):
@@ -961,6 +1121,8 @@ def open_trade(book, ctx, opt, reason):
     if book.ctl.get("trig_str") is not None:          # 27 Oct: trigger strength (re-entry rule)
         book.pos["trig_str"] = book.ctl["trig_str"]
         book.pos["trig_unit"] = book.ctl.get("trig_unit")
+    if book.ctl.pop("fill", None):                    # 28 Oct (team 15): a filler exits on its own premium bracket
+        book.pos["fill"] = True
     book.ctl.pop("reentry", None)                    # a new trade starts a new chain
     for k in ("fire_id", "ep_type", "dir", "leg", "pb_trade", "orb_trade", "trig_str", "trig_unit"):
         book.ctl.pop(k, None)
@@ -997,7 +1159,16 @@ def check_exit(book, ctx):
     best_fav = (pos["best"] - pos["fut_in"]) * d
     reason = None
     dom = ctx["domino"]
-    if p.get("spot_trail"):                       # D-116: spot books exit on the spot trail only
+    if p.get("spot_trail") and pos.get("fill"):   # 28 Oct (team 15): retest filler, premium bracket only
+        reason = None
+        if not blackout and px and o and o.get("age") is not None and o["age"] <= config.EXIT_QUOTE_STALE_S:
+            r = 100.0 * (px / pos["entry"] - 1.0)
+            if r >= p.get("fill_tgt", 10.0):
+                reason = f"TARGET (filler premium +{r:.1f} %)"
+            elif r <= -p.get("fill_stop", 7.0):
+                reason = f"STOP (filler premium {r:.1f} %)"
+        S_opp = -1.0
+    elif p.get("spot_trail"):                     # D-116: spot books exit on the spot trail only
         reason = None if blackout else _spot_trail_exit(book, ctx, pos)
         if p.get("prem_tgt") and not blackout:       # D-141: premium-booking books exit on the premium only
             reason = _premium_book_exit(book, pos, px, o)
@@ -1124,7 +1295,7 @@ def close_trade(book, ctx, px, reason, o=None):
     book.ctl.pop("reentry", None)
     trailed = str(reason).startswith(("TRAIL", "LOCK"))
     stopped = str(reason).startswith("STOP") and book.p.get("reentry_stop")
-    if book.p.get("reentry") and (trailed or stopped or book.p.get("reentry_any")):
+    if book.p.get("reentry") and not pos.get("fill") and (trailed or stopped or book.p.get("reentry_any")):
         # 27 Oct (owner): trailed out -> a re-entry is welcome, but cheaper, and stronger if within 10 min.
         # reentry_any (owner, 27 Oct night): ANY exit -> a same-direction re-entry within 10 min must be stronger
         # ("if it was not a stronger trigger than before, you may end up losing more often"); the cheaper-price
