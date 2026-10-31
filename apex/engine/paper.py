@@ -1272,6 +1272,54 @@ def check_exit(book, ctx):
     return None
 
 
+def request_exit(book, ctx, reason, o=None):
+    """D-126 for the council books (30 Oct): the strategy's exit is committed now and filled on the first print of the
+    held option that arrives AFTER the trigger (at most EXIT_DEFER_MAX_S, then the last price, tagged stale_exit).
+    Clock exits ("TIME ...") fill at once. Returns the closed trade, or None while the fill is still pending."""
+    pos = book.pos
+    if pos is None:
+        return None
+    if not pos.get("pending"):
+        pos["pending"] = {"reason": reason, "since": ctx["now_s"], "trigger_px": (o or {}).get("ltp")}
+    return try_fill_exit(book, ctx)
+
+
+def try_fill_exit(book, ctx):
+    """Complete a pending council exit (request_exit) with the same rules as check_exit's deferred fill."""
+    pos = book.pos
+    pend = pos.get("pending") if pos else None
+    if not pend:
+        return None
+    o = (ctx.get("by_key") or {}).get(pos["key"])
+    reason = pend["reason"]
+    timed = reason.startswith("TIME")
+    waited = ctx["now_s"] - pend["since"]
+    bo = ctx.get("blackout") or {}
+    blackout = bool(bo.get("on")) and not bo.get("exits_ok", False)
+    px = o["ltp"] if o and o.get("ltp") else None
+    if px and not blackout:
+        pos["last"] = px
+    if not timed:
+        age = o.get("age") if o else None
+        if config.FILL_NEXT_PRINT:
+            fresh = age is not None and age < waited and not blackout
+        else:
+            fresh = age is not None and age <= config.EXIT_QUOTE_STALE_S and not blackout
+        if not fresh:
+            if waited < config.EXIT_DEFER_MAX_S:
+                return None
+            pos["stale_exit"] = True
+        pos["fill_delay_s"] = round(waited, 2)
+        pos["exit_trigger_px"] = pend.get("trigger_px")
+    if px is None:
+        px = pos.get("last", pos["entry"])
+        pos["stale_exit"] = True
+    if timed and (not o or o.get("age") is None or o["age"] > config.EXIT_QUOTE_STALE_S):
+        pos["stale_exit"] = True
+    pos.pop("pending", None)
+    return close_trade(book, ctx, float(px), reason, o)
+
+
 def close_trade(book, ctx, px, reason, o=None):
     pos = book.pos
     pnl_pts = round(px - pos["entry"], 2)

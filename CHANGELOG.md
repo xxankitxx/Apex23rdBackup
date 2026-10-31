@@ -12,6 +12,17 @@
 - Engine replay (test copy, real fills, cut at ~14:30 on most days): c20_9x +₹10.32 L over 7 days, 29 Oct +₹26.4k;
   c20_8x +₹8.06 L / +₹7.9k; t28_gap +₹3.47 L / +₹4.0k. Honest leave-one-day-out of the round-9 gains ≈ +₹1.6 L.
 - New test file `tests/test_c15_council.py`; champion asserts moved to `c20_9x` / 30 Oct.
+- **Code review of the port (30 Oct evening).** All nine round-9 parts match their members' code parameter for
+  parameter (`l2`, `ffirst`, `seqcal`, `catch`, `dtr`, `ramp`, `ivz`, `ptre`, `tie`). Two adapter defects fixed:
+  - council books filled at the print on the screen at the trigger second, bypassing D-126 (every other book waits
+    for the first print AFTER the trigger: ≤ 3 s in, ≤ 10 s out). Now `paper.request_entry` / `try_fill_entry` on the
+    way in and new `paper.request_exit` / `try_fill_exit` on the way out, with the same deferral, blackout and
+    `stale_exit` rules. The strategy is not stepped while a fill is pending (the kit skipped its 2-s lag the same way;
+    `catch` bridges the smoothed forward). **Every earlier engine figure for c20_8x / c20_9x is optimistic by the
+    fill-timing bias D-126 removed for the other books.**
+  - a held contract missing from the adapter's table fell back to column 0 (another contract's quote for the stop and
+    floors); the strategy is now skipped for that second and a line is logged. The position's `peak_bid` is saved
+    with the book so an armed floor survives a restart.
 
 ## Unreleased — 29 Oct 2026 (entry checks: "a little cheap, won't break down")
 

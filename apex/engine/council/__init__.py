@@ -122,27 +122,45 @@ class Adapter:
         self.last_i = i
         D.put(i, eng, ctx, ctx.get("w0"), getattr(eng.m, "snap", None) if getattr(eng, "m", None) else None)
         w0 = ctx.get("w0")
+        # D-126 (30 Oct review): fills wait for the first print AFTER the trigger, like every other book. While a fill
+        # is pending the strategy is not stepped — the kit skipped its 2-s fill lag the same way ("catch" bridges the
+        # smoothed forward through the skipped seconds).
+        if book.pos and book.pos.get("pending"):
+            return paper.try_fill_exit(book, ctx) is not None
+        if book.ctl.get("pending_entry"):
+            pos, _why = paper.try_fill_entry(book, ctx)
+            if pos:
+                pos["ep_type"] = "COUNCIL"
+            return bool(pos)
         spos = None
         if book.pos:
             p = book.pos
             o = ctx["by_key"].get(p["key"])
             bid = (o or {}).get("bid")
             pk = (p["key"], p["t_in"])
-            if getattr(self, "_pk", None) != pk:            # a new position: its peak bid starts at the current bid
-                self._pk, self._peak = pk, bid if bid else p["entry"]
+            if getattr(self, "_pk", None) != pk:            # a new position (or a restart): resume the saved peak bid
+                self._pk = pk
+                self._peak = p.get("peak_bid") or (bid if bid else p["entry"])
             elif bid:
                 self._peak = max(self._peak, bid)
-            spos = {"rr": p["rr"], "strike": p["strike"], "j": D.col.get((int(p["strike"]), p["rr"]), 0),
-                    "i_in": int(p["t_in"] - D.t_open), "entry": p["entry"], "qty": p["qty"],
-                    "peak_bid": self._peak}                    # the kit's pos field (the premium exits read it)
+            p["peak_bid"] = self._peak                       # saved with the book: an armed floor survives a restart
             flat = (15 * 60) if D.dte0 else (15 * 60 + 20)
             if D.hm[i] >= flat:
-                return self._close(book, ctx, "TIME (council forced flat)")
+                return paper.request_exit(book, ctx, "TIME (council forced flat)", o) is not None
+            j = D.col.get((int(p["strike"]), p["rr"]))
+            if j is None:                                    # never read another contract's quote for the stop
+                self._warn(f"council {book.name}: held {p['key']} has no column this second; strategy not stepped")
+                return False
+            spos = {"rr": p["rr"], "strike": p["strike"], "j": j,
+                    "i_in": int(p["t_in"] - D.t_open), "entry": p["entry"], "qty": p["qty"],
+                    "peak_bid": self._peak}                    # the kit's pos field (the premium exits read it)
         act = self.strat.on_second(i, D, spos)
         if not act:
             return False
         if act[0] == "SELL" and book.pos:
-            return self._close(book, ctx, f"COUNCIL {act[1] if len(act) > 1 else ''}".strip())
+            o = ctx["by_key"].get(book.pos["key"])
+            why = f"COUNCIL {act[1] if len(act) > 1 else ''}".strip()
+            return paper.request_exit(book, ctx, why, o) is not None
         if act[0] == "BUY" and not book.pos:
             if (ctx.get("blackout") or {}).get("on") or ctx.get("kill"):
                 return False
@@ -152,15 +170,23 @@ class Adapter:
                 return False
             if abs(opt.get("delta") or 0) < 0.5:          # owner's ATM/ITM rule (|delta| >= 0.52 at the signal)
                 return False
-            pos = paper.open_trade(book, ctx, opt, f"COUNCIL {act[3] if len(act) > 3 else ''}".strip())
+            why = f"COUNCIL {act[3] if len(act) > 3 else ''}".strip()
+            if config.FILL_NEXT_PRINT:
+                paper.request_entry(book, ctx, opt, why)   # filled by try_fill_entry on a later second
+                return False
+            pos = paper.open_trade(book, ctx, opt, why)
             if pos:
                 pos["ep_type"] = "COUNCIL"
             return bool(pos)
         return False
 
-    def _close(self, book, ctx, reason):
-        p = book.pos
-        o = ctx["by_key"].get(p["key"])
-        px = (o or {}).get("ltp") or p.get("last") or p["entry"]
-        paper.close_trade(book, ctx, float(px), reason, o)
-        return True
+    _warned = 0
+
+    def _warn(self, msg):
+        self._warned += 1
+        if self._warned <= 3:                                # at most three lines a day per book
+            try:
+                from ...engine_main import log
+                log(msg)
+            except Exception:
+                pass
