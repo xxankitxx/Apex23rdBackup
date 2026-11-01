@@ -272,3 +272,117 @@ def test_c20_9v_registered_as_shadow():
     assert issubclass(c20_9v.Strategy, c20_9x.LiveStrategy) and issubclass(c20_9v.KitStrategy, c20_9x.KitStrategy)
     assert c20_9v.Strategy().parts == c20_9x.Strategy().parts       # same c20_9x switches; only the two exits added
     assert c20_9v.LVP["CAP"] == 0.20 and c20_9v.GBP["ARM"] == 0.15 and c20_9v.GBP["KEEP"] == 0.6
+
+
+def _v9(D):
+    s = c20_9v.Strategy()
+    s._reset(D)
+    s.p = s.pn
+    return s
+
+
+def _hold_ce(D, s, i0, i1, entry=150.0, st=None):
+    """step a held 23000 CE from i0 to i1; returns (i, sig) at the first SELL, else (i1, None)"""
+    pos = {"rr": "CE", "strike": 23000, "j": 0, "i_in": i0, "entry": entry, "qty": 65, "peak_bid": entry}
+    if st is not None:
+        pos["st"] = st
+    for i in range(i0, i1):
+        pos["peak_bid"] = max(pos["peak_bid"], float(D.bid[i, 0]))
+        sig = s.on_second(i, D, pos)
+        if sig is not None and sig[0] == "SELL":
+            return i, sig
+    return i1, None
+
+
+def _level_path(D, i0, rise=100, hold=60, fwd_follows=True):
+    """Nifty 22966 -> 22997 (3 pts short of 23000) over `rise` s, flat `hold` s, then 1 pt/s back; bid +10 % at the top"""
+    n = len(D.T)
+    sp = np.full(n, 22966.0)
+    for k in range(rise):
+        sp[i0 + k] = 22966.0 + 31.0 * k / (rise - 1)
+    top = i0 + rise
+    sp[top:top + hold] = 22997.0
+    for k in range(40):
+        sp[top + hold + k] = 22997.0 - k
+    sp[top + hold + 40:] = 22957.0
+    D.spot[:] = sp
+    if fwd_follows:
+        D.fwd[:] = sp
+    bid = np.where(np.arange(n) < i0, 150.0, 150.0 + 16.0 * np.clip((np.arange(n) - i0) / (rise - 1), 0, 1))
+    bid[top + hold:] = 162.0
+    D.bid[:, 0] = bid
+    D.ask[:, 0] = bid + 0.5
+    return top + hold
+
+
+def test_lvl_book_fires_on_a_rejection_at_the_next_50pt_level():
+    D = _D(n=8000)
+    i0 = D.i_at(10, 0)
+    t_fall = _level_path(D, i0)
+    i, sig = _hold_ce(D, _v9(D), i0, i0 + 400)
+    assert sig == ("SELL", "LVL_BOOK")
+    assert t_fall + 10 <= i <= t_fall + 11, i                  # exactly when Nifty is 10 pts off its best
+
+
+def test_lvl_book_is_off_on_expiry_days():
+    D = _D(dte0=True, n=8000)
+    i0 = D.i_at(10, 0)
+    _level_path(D, i0)
+    s = c20_9v.Strategy()
+    s._reset(D)
+    i, sig = _hold_ce(D, s, i0, i0 + 400)
+    assert sig is None or sig[1] != "LVL_BOOK"
+
+
+def test_lvl_book_uses_the_forward_when_the_nifty_print_is_frozen():
+    D = _D(n=8000)
+    i0 = D.i_at(10, 0)
+    t_fall = _level_path(D, i0, rise=200)                      # the freeze is recognised after 120 s
+    D.spot[:] = 22966.0                                        # the index print never moves (D-132 case)
+    i, sig = _hold_ce(D, _v9(D), i0, i0 + 500)
+    assert sig == ("SELL", "LVL_BOOK")
+    assert t_fall + 10 <= i <= t_fall + 11, i
+
+
+def test_lvl_state_rebases_when_the_reference_changes_source():
+    """Nifty returns after a gap 12 pts away from the forward-based reference: that jump is not a rejection"""
+    D = _D(n=8000)
+    i0 = D.i_at(10, 0)
+    n = len(D.T)
+    D.fwd[:] = 23020.0                                         # basis +20 while the print is live
+    D.spot[:] = 23000.0
+    D.spot[i0 + 50:i0 + 300] = 0.0                             # feed gap: reference = forward - 20 = 23000
+    D.fwd[i0 + 60:i0 + 300] = 23032.0                          # forward drifts 12 pts up during the gap (basis change)
+    D.bid[:, 0] = 165.0                                        # the option is up 10 %
+    D.ask[:, 0] = 165.5
+    # on return the print is 23000 while the reference had been 23012: without re-basing that is a 12-pt rejection
+    i, sig = _hold_ce(D, _v9(D), i0, i0 + 400)
+    assert sig is None or sig[1] != "LVL_BOOK", (i, sig)
+
+
+def test_pgb_fires_and_its_state_survives_a_restart():
+    D = _D(n=8000)
+    i0 = D.i_at(10, 0)
+    n = len(D.T)
+    bid = np.full(n, 150.0)
+    for k in range(100):                                       # +20 % over 100 s, then 1 pt per 4 s back down
+        bid[i0 + k] = 150.0 + 30.0 * k / 99
+    for k in range(400):
+        bid[i0 + 100 + k] = 180.0 - k / 4.0
+    D.bid[:, 0] = bid
+    D.ask[:, 0] = bid + 0.5
+    D.fwd[:] = 23000.0 + 0.3 * (np.arange(n) % 2)            # a live, barely moving forward: no trail, no stale exit
+    D.spot[:] = D.fwd
+    i_a, sig_a = _hold_ce(D, _v9(D), i0, i0 + 500)
+    assert sig_a == ("SELL", "PGB"), (i_a, sig_a)
+    assert D.bid[i_a, 0] > 150.0 * 1.05                        # booked above entry (c20_9x alone locks only the entry)
+    # restart 20 s after the arm: a fresh strategy continues from the state saved on the position
+    st = {}
+    s1 = _v9(D)
+    i_arm = i0 + 100
+    for i in range(i0, i_arm + 20):
+        pos = {"rr": "CE", "strike": 23000, "j": 0, "i_in": i0, "entry": 150.0, "qty": 65, "peak_bid": float(D.bid[:i + 1, 0].max()), "st": st}
+        assert s1.on_second(i, D, pos) is None
+    assert st["gspk"] > 150.0 * 1.15
+    i_b, sig_b = _hold_ce(D, _v9(D), i_arm + 20, i0 + 500, st=st)
+    assert sig_b == ("SELL", "PGB") and i_b == i_a, (i_b, i_a)

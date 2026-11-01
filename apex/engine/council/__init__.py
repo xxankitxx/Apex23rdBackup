@@ -159,7 +159,9 @@ class Adapter:
                 return False
             spos = {"rr": p["rr"], "strike": p["strike"], "j": j,
                     "i_in": int(p["t_in"] - D.t_open), "entry": p["entry"], "qty": p["qty"],
-                    "peak_bid": self._peak}                    # the kit's pos field (the premium exits read it)
+                    "peak_bid": self._peak,                    # the kit's pos field (the premium exits read it)
+                    "st": p.setdefault("st", {})}              # 1 Nov (c20_9v): a strategy's own per-position state,
+                                                               # saved with the book so it survives a restart
         act = self.strat.on_second(i, D, spos)
         if not act:
             return False

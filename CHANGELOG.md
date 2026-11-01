@@ -13,6 +13,16 @@
   five days trade for trade identical. Kit: +₹12.48 L vs +₹11.49 L. Other council angles (switch permutations, earlier
   floor, swing-sized trail, box detector, entry vetoes, Greek/IV exits, stall/time exits) did not beat c20_9x robustly.
   67 variants.
+- **c20_9v review fixes** (same day, from an eight-angle code review of the new book). (1) A frozen Nifty print
+  (the D-132 guard withholds it and the adapter carries the last value forward) no longer disables LVL_BOOK: a print
+  unchanged for 120 s counts as stale and the reference falls back to forward − basis, with the basis measured only
+  against new prints. (2) The exits' state (smoothed bid and its peak, the level list and the best) now lives in
+  `pos["st"]`, which the council adapter keeps on the book position and saves with it, so a mid-trade engine restart
+  keeps the PGB arm and the levels fixed at entry, like c20_9x's own `peak_bid`. (3) When the reference changes source
+  (print ↔ forward) the best-since-entry is re-based, so a basis jump is never a rejection. Five behavioural tests
+  (LVL_BOOK fires on a 10-pt rejection at the next 50-pt level, is off on expiry days, works through a frozen print,
+  ignores a source jump; PGB fires and survives a restart). Not changed: the LVL_BOOK label, shared with c20_8x's unused
+  `lvl` layer; PGB's own smoothed bid beside c20_9x's `ptr` one; the exits sit in a mixin rather than `parts` switches.
 
 ## Unreleased — 31 Oct 2026 (rent trail)
 
