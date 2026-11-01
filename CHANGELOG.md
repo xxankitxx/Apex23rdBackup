@@ -1,5 +1,19 @@
 # Changelog
 
+## Unreleased — 1 Nov 2026 (C9 council: c20_9v shadow)
+
+- **`c20_9v` (shadow)** (owner, 1 Nov: "Yes, add as shadow"), from the 10-member C9 council on c20_9x variants
+  (owner: "make each day more profitable and especially friday 30th october profitable"). c20_9x plus two exits on
+  normal days only (expiry days are pure c20_9x; `apex/engine/council/c20_9v.py`):
+  **LVL_BOOK** — the 50-pt round numbers of Nifty ahead of the trade are fixed at entry; sell when the bid is ≥ +6 %,
+  the peak is still < +20 %, spot came within 13 pts of the next level (not broken by > 8) and gave back ≥ 10 pts;
+  **PGB** — once the 20-s average of the bid has been +15 %, sell when it falls below entry + 60 % of its best gain.
+  9-day engine replay (real fills, gross): c20_9v +₹9.74 L vs c20_9x +₹9.30 L; 30 Oct +₹11,622 vs −₹5,558; 21 Oct
+  +₹23k, 28 Oct +₹27k; 23 Oct −₹22k (LVL_BOOK sold the 09:41 22800 PE at +9.8 % that c20_9x rode to +77 %); the other
+  five days trade for trade identical. Kit: +₹12.48 L vs +₹11.49 L. Other council angles (switch permutations, earlier
+  floor, swing-sized trail, box detector, entry vetoes, Greek/IV exits, stall/time exits) did not beat c20_9x robustly.
+  67 variants.
+
 ## Unreleased — 31 Oct 2026 (rent trail)
 
 - **Champion stays `c20_9x`; `c20_9t` is a shadow** (owner, 1 Nov: "Yes, revert to c20_9x"). The 8-day replay (19–29

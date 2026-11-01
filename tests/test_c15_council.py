@@ -261,3 +261,14 @@ def test_rent_trail_reentry_needs_a_stronger_trigger_and_a_trend():
     assert s._r8_veto(i, D, ("BUY", 23000, "PE", "x")) is None     # other side: free
     s._rtx = ("CE", i - 1000, 30.0)                     # window over: free
     assert s._r8_veto(i, D, sig) is None
+
+
+# ── 1 Nov: c20_9v = c20_9x + LVL_BOOK + PGB (C9 council V2), shadow ─────────────────────────────────────────────────
+from apex.engine.council import c20_9v  # noqa: E402
+
+
+def test_c20_9v_registered_as_shadow():
+    assert config.VARIANTS["c20_9v"]["council"] == "c20_9v" and config.CHAMPION_DEFAULT == "c20_9x"
+    assert issubclass(c20_9v.Strategy, c20_9x.LiveStrategy) and issubclass(c20_9v.KitStrategy, c20_9x.KitStrategy)
+    assert c20_9v.Strategy().parts == c20_9x.Strategy().parts       # same c20_9x switches; only the two exits added
+    assert c20_9v.LVP["CAP"] == 0.20 and c20_9v.GBP["ARM"] == 0.15 and c20_9v.GBP["KEEP"] == 0.6

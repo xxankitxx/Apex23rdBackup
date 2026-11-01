@@ -381,6 +381,7 @@ VARIANTS["t28_tt8"] = dict(_G, gt_arm_pct=8.0, gt_keep=0.7)
 VARIANTS["c20_8x"] = dict(_G, council="c20_8x")      # c20_08 + round-8 autopsy (docs/19_C20_8X_STRATEGY_SPEC.md)
 VARIANTS["c20_9x"] = dict(_G, council="c20_9x")      # c20_8x + round-9 fixes and gains (docs/20_C20_9X_STRATEGY_SPEC.md)
 VARIANTS["c20_9t"] = dict(_G, council="c20_9t")      # 31 Oct (owner): c20_9x + rent trail; shadow only (1 Nov: 8-day replay +3.89 L vs c20_9x +9.30 L)
+VARIANTS["c20_9v"] = dict(_G, council="c20_9v")      # 1 Nov (owner): C9 council V2 = c20_9x + LVL_BOOK + PGB on normal days; shadow (D-148)
 
 CHAMPION_DEFAULT = "c20_9x"  # 1 Nov (owner): back from c20_9t after its 8-day replay; before: c20_9t (31 Oct, never live), t28_gap (29 Oct 11:40), t28_cheap (29 Oct morning), t28_gap (28 Oct evening), lvl_trail_re (28 Oct), edge_gate_trail and edge_gate_only (27 Oct), spot_dual_lvl (D-142), edge_gate_trail and edge_gate_only (27 Oct), spot_dual_lvl (D-142)
 # D-124 (owner, 20 Oct 16:16: "Apply spot_dc12_t12 thoroughly on my code"): the champion is the owner's choice.

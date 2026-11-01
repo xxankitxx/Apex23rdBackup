@@ -39,7 +39,7 @@ def _chain(*deltas):
 
 
 def test_registered():
-    assert config.validate() == [] and len(config.VARIANTS) == 66
+    assert config.validate() == [] and len(config.VARIANTS) == 67
     assert config.VARIANTS["t28_core"]["delta_target"] == 0.46 and config.CHAMPION_DEFAULT == "c20_9x"
     for k in ("t28_d46", "t28_gap", "t28_dur20", "t28_ts", "t28_fill", "t28_core", "t28_core_fill", "t28_all"):
         assert "alloc_pct" not in config.VARIANTS[k]                         # all-in, owner's rule
