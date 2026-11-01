@@ -1,5 +1,31 @@
 # Changelog
 
+## Unreleased — 31 Oct 2026 (rent trail)
+
+- **Champion stays `c20_9x`; `c20_9t` is a shadow** (owner, 1 Nov: "Yes, revert to c20_9x"). The 8-day replay (19–29
+  Oct, real fills, + 30 Oct) gave c20_9t +₹3.89 L vs c20_9x +₹9.30 L (t28_gap +₹3.76 L); it won only 30 Oct. The trail
+  armed on nearly every trade, trend days included, booking ≈ +5 % where c20_9x ran +77 % (23 Oct), +81 % (21 Oct),
+  +45 % (29 Oct), +18–23 % (26 Oct). Likely cause: trend efficiency < 0.35 is the normal state (30 Oct median 0.25),
+  not a chop signal. Kept for live measurement; any new chop test is replayed on all taped days first.
+- **`c20_9t` (shadow)**, built 31 Oct (owner: "I want a stronger trailing system on days which are not
+  trending and the greeks also do not support holding for too long"). 30 Oct live: c20_9x's three trades peaked
+  +15.1 %, +13.2 %, +17.6 % and exited +0.7 %, −4.6 %, 0.0 % — the normal-day floor only arms at +15 % and protects
+  only the entry until +25 %. `c20_9t` = c20_9x + **rent trail** (`apex/engine/council/c20_9t.py`, switch `rt` in
+  c20_9x.py): once the peak bid is ≥ +8 % and the market is choppy for the trade — the held contract's gamma rent
+  (realised ÷ implied variance of the forward, last 10 min, calendar theta) has fallen to half its value at entry (the
+  move went quiet) OR the forward's 10-min trend efficiency (|net move| ÷ sum of |1-min moves|) is below 0.35 (two-way
+  chop) — the trail arms for the rest of the trade: exit when the bid falls below entry + 60 % of the peak gain
+  (`RENT_TRAIL`). Neither condition (trending) leaves c20_9x's exits alone. Both day types: the market decides. A
+  same-side re-entry within 15 min of a rent-trail exit needs a faster forward trigger than the booked trade's and
+  trend efficiency ≥ 0.35 (owner: "a stronger reason than why the trade got trailed"). Calibration on the 30 Oct tape:
+  the first version (absolute rent < 1) never fired — rent sat at 1.1–10 through all three trades, so c20_9t traded
+  exactly like c20_9x in the replay; rent-halved catches trades 2 and 3 (~10 min in), efficiency < 0.35 catches trade 1
+  (the whole day's median efficiency was 0.25). 8 % / 60 % / 0.5 / 0.35 / 15 min are the owner's picks of 31 Oct.
+  66 variants.
+- **Peak display fix.** The dashboard's "Best" tile is `entry + peak_pts`, which only `check_exit` maintained, so for
+  council books it followed the price down and never showed the real peak. The adapter now updates `last` and
+  `peak_pts` every second (not in a blackout), so the tile, the trade record and the CSV carry the true peak.
+
 ## Unreleased — 30 Oct 2026 (champion c20_9x)
 
 - **Champion `c20_9x`** (owner, 30 Oct pre-open: "c20_9x as champion"; "I want them to run today"). The round-9

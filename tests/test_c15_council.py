@@ -105,12 +105,14 @@ def test_entry_and_exit_wait_for_the_first_print_after_the_trigger():
         eng._fwd_t = c["now_s"]
         a.step(eng, b, c)
     assert b.pos["peak_bid"] == 169.5                  # saved on the position
+    assert b.pos["peak_pts"] == 170.0 - 152.0 and b.pos["last"] == 170.0   # 31 Oct: the dashboard's "Best" tile reads these
     c = _ctx(400, ltp=165.0, age=0.2)
     eng._fwd_t = c["now_s"]
     assert a.step(eng, b, c) is False and b.pos and b.pos["pending"]["reason"] == "COUNCIL FWD_TRAIL"
     c = _ctx(401, ltp=163.0, age=5.0)                 # stale print: wait
     eng._fwd_t = c["now_s"]
     assert a.step(eng, b, c) is False and b.pos
+    assert b.pos["peak_pts"] == 18.0 and b.pos["last"] == 163.0   # the peak is kept while the price falls
     c = _ctx(402, ltp=161.0, age=0.3)                 # first print after the exit trigger
     eng._fwd_t = c["now_s"]
     assert a.step(eng, b, c) is True and b.pos is None
@@ -160,3 +162,102 @@ def test_peak_bid_survives_a_new_adapter():
     a2.strat = _Script(10 ** 9, 10 ** 9)
     c = _ctx(13, ltp=150.0, age=0.2); eng._fwd_t = c["now_s"]; a2.step(eng, b, c)
     assert a2.strat.seen[-1][1]["peak_bid"] == 199.5
+
+
+# ── 31 Oct: c20_9t = c20_9x + the rent trail ─────────────────────────────────────────────────────────────────────
+import numpy as np
+from apex.engine.council import c20_9t, c20_9x
+
+
+class _D:
+    """the smallest kit-like day the strategy classes accept: one CE column, flat Greeks, a forward path"""
+    def __init__(self, dte0=False, n=4000):
+        self.day, self.expiry, self.dte0 = "2026-10-30", "2026-11-03", dte0
+        self.T = 1793331900.0 + np.arange(n, dtype=float)
+        self.hm = 555.0 + np.arange(n) / 60.0
+        self.K = np.array([23000.0]); self.rr = np.array(["CE"]); self.col = {(23000, "CE"): 0}
+        self.fwd = np.full(n, 23000.0); self.spot = self.fwd.copy(); self.fut = self.fwd.copy()
+        for f in ("bid", "ask", "ltp", "mid", "age", "iv", "delta", "gamma", "theta", "vega", "oi", "ttq", "tbq", "tsq"):
+            setattr(self, f, np.full((n, 1), np.nan))
+        self.gamma[:] = 0.002; self.theta[:] = -0.5; self.delta[:] = 0.55; self.bid[:] = 150.0; self.ask[:] = 150.5
+        self.age[:] = 0.0
+
+    def i_at(self, h, m, s=0):
+        return (h * 60 + m - 555) * 60 + s
+
+    def atm(self, i, ref=None):
+        return 23000.0
+
+
+def _strat(D):
+    s = c20_9t.Strategy()
+    s._reset(D)
+    s.p = s.pn
+    return s
+
+
+def _noisy(D, i, pts):
+    """60-s forward changes of +-pts over the rent window ending at i"""
+    for r in range(i - 700, i + 1):
+        D.fwd[r] = 23000.0 + (pts if (r // 60) % 2 else 0.0)
+
+
+def test_c20_9t_registered_as_shadow():
+    assert config.VARIANTS["c20_9t"]["council"] == "c20_9t" and config.CHAMPION_DEFAULT == "c20_9x"
+    assert "rt" in c20_9t.Strategy().parts and "rt" not in c20_9x.Strategy().parts
+
+
+def _trend(D, i, up_pts):
+    """a straight 10-min forward run (efficiency 1) ending at i"""
+    for r in range(i - 700, i + 1):
+        D.fwd[r] = 23000.0 + up_pts * (r - (i - 700)) / 700.0
+
+
+def test_rent_trail_arms_on_quiet_or_chop_not_on_a_trend():
+    pos = {"rr": "CE", "strike": 23000, "j": 0, "i_in": 1500, "entry": 100.0, "qty": 65, "peak_bid": 110.0}
+    # 1) chop: two-way forward, rent unchanged -> arms by trend efficiency
+    D = _D(); s = _strat(D); i = 2000
+    _noisy(D, i, 20.0)
+    s._rt_update(i, D, dict(pos, peak_bid=100.0))       # first call records the rent at entry
+    assert not s._rt_on and np.isfinite(s._rt_rent0)
+    s._rt_update(i, D, pos)
+    assert s._rt_on and s.log[-1][-1] == "chop" and s._trend_eff(i, D) < 0.35
+    fl, kind = s._floor(100.0, 0.10, False)
+    assert kind == "RENT_TRAIL" and abs(fl - 106.0) < 1e-9       # keep 60 % of a +10 % peak
+    assert s._floor(100.0, 0.16, False)[1] == "RENT_TRAIL"       # beats the ramp's break-even floor
+    # 2) trend: straight run, rent steady -> nothing arms, the old floors stand
+    D2 = _D(); s2 = _strat(D2)
+    _trend(D2, i, 60.0)
+    s2._rt_update(i, D2, dict(pos, peak_bid=100.0)); s2._rt_update(i, D2, pos)
+    assert not s2._rt_on and s2._trend_eff(i, D2) > 0.9
+    assert s2._floor(100.0, 0.10, False) == (None, None)
+    assert s2._floor(100.0, 0.16, False)[1] == "BE_LOCK"
+    # 3) quiet: trending at entry, then the realised variance halves -> arms by rent
+    D3 = _D(); s3 = _strat(D3)
+    _trend(D3, i, 60.0); s3._rt_update(i, D3, dict(pos, peak_bid=100.0))
+    r0 = s3._rt_rent0
+    _trend(D3, i + 100, 30.0)                              # same shape, half the amplitude -> a quarter of the variance
+    s3._rt_update(i + 100, D3, pos)
+    assert s3._rt_on and s3.log[-1][-1] == "quiet" and s3._rt_rent <= 0.5 * r0
+    # 4) below +8 % nothing arms even in chop
+    D4 = _D(); s4 = _strat(D4); _noisy(D4, i, 20.0)
+    s4._rt_update(i, D4, dict(pos, peak_bid=107.0))
+    assert not s4._rt_on
+
+
+def test_rent_trail_reentry_needs_a_stronger_trigger_and_a_trend():
+    D = _D(); i = 3000
+    s = _strat(D)
+    s.fs[:] = 23000.0
+    s._rtx = ("CE", i - 300, 30.0)                      # trailed out 5 min ago on a +30-pt trigger
+    sig = ("BUY", 23000, "CE", "NORM pb v=+20")
+    _trend(D, i, 60.0)
+    s.fs[i] = 23020.0                                   # weaker trigger -> vetoed
+    assert s._r8_veto(i, D, sig) == "rt_reentry"
+    s.fs[i] = 23040.0                                   # stronger trigger in a trend -> allowed
+    assert s._r8_veto(i, D, sig) is None
+    _noisy(D, i, 20.0)                                  # stronger trigger but chop -> vetoed
+    assert s._r8_veto(i, D, sig) == "rt_reentry"
+    assert s._r8_veto(i, D, ("BUY", 23000, "PE", "x")) is None     # other side: free
+    s._rtx = ("CE", i - 1000, 30.0)                     # window over: free
+    assert s._r8_veto(i, D, sig) is None

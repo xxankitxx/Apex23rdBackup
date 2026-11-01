@@ -380,13 +380,14 @@ VARIANTS["t28_tt8"] = dict(_G, gt_arm_pct=8.0, gt_keep=0.7)
 # 30 Oct (D-145): council strategy books — the exact class tested in the kit, run by apex/engine/council.Adapter
 VARIANTS["c20_8x"] = dict(_G, council="c20_8x")      # c20_08 + round-8 autopsy (docs/19_C20_8X_STRATEGY_SPEC.md)
 VARIANTS["c20_9x"] = dict(_G, council="c20_9x")      # c20_8x + round-9 fixes and gains (docs/20_C20_9X_STRATEGY_SPEC.md)
+VARIANTS["c20_9t"] = dict(_G, council="c20_9t")      # 31 Oct (owner): c20_9x + rent trail; shadow only (1 Nov: 8-day replay +3.89 L vs c20_9x +9.30 L)
 
-CHAMPION_DEFAULT = "c20_9x"  # before: t28_gap (29 Oct 11:40), t28_cheap (29 Oct morning), t28_gap (28 Oct evening), lvl_trail_re (28 Oct), edge_gate_trail and edge_gate_only (27 Oct), spot_dual_lvl (D-142), edge_gate_trail and edge_gate_only (27 Oct), spot_dual_lvl (D-142)
+CHAMPION_DEFAULT = "c20_9x"  # 1 Nov (owner): back from c20_9t after its 8-day replay; before: c20_9t (31 Oct, never live), t28_gap (29 Oct 11:40), t28_cheap (29 Oct morning), t28_gap (28 Oct evening), lvl_trail_re (28 Oct), edge_gate_trail and edge_gate_only (27 Oct), spot_dual_lvl (D-142), edge_gate_trail and edge_gate_only (27 Oct), spot_dual_lvl (D-142)
 # D-124 (owner, 20 Oct 16:16: "Apply spot_dc12_t12 thoroughly on my code"): the champion is the owner's choice.
 # learning.load_state applies it ONCE to an existing state (the champion lives in data/learning/state.json,
 # which the learning loop may later change on evidence); trades from the day after this date count for its
 # scoreboard. Bump the date to force the owner's champion again.
-CHAMPION_OWNER = ("c20_9x", "2026-10-30")   # 30 Oct pre-open (owner: "c20_9x as champion"); before: t28_gap (29 Oct 11:40), t28_cheap (29 Oct morning), t28_gap (28 Oct evening), lvl_trail_re (28 Oct), edge_gate_trail (27 Oct), spot_dual_lvl (D-142), spot_dual (D-140), spot_pb45 (D-134), spot_dc12_t12 (D-124)
+CHAMPION_OWNER = ("c20_9x", "2026-10-30")   # 30 Oct pre-open (owner: "c20_9x as champion"); kept 1 Nov after c20_9t (31 Oct) lost the 8-day replay; before: t28_gap (29 Oct 11:40), t28_cheap (29 Oct morning), t28_gap (28 Oct evening), lvl_trail_re (28 Oct), edge_gate_trail (27 Oct), spot_dual_lvl (D-142), spot_dual (D-140), spot_pb45 (D-134), spot_dc12_t12 (D-124)
 # 27 Oct: FREEZE. Four champions in six sessions, each picked on 1-3 days of in-sample replay, each lost on its first
 # unseen day. t28_gap (owner's pick again 29 Oct 11:40, = lvl_trail_re + data-gap guard) is not to be swapped or re-tuned before 15 sessions (or the SPRT) have judged it.
 # 29 Oct (owner: "I want to test my ideas later ... somewhere in the UI"): the Ideas board (apex/engine/ideas/).

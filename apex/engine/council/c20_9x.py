@@ -52,9 +52,20 @@ R9P = dict(FS=5, TRAIL_MODE="prem",
            FY_LOSS=-0.03, FY_FLIP=0.12, FY_RVI=1.0,
            UW_T=300, UW_NM=180, UW_PK=0.30, UW_CUR=-0.05, UW_C=0.8,
            TIE_LAM=5.0, TIE_THM=0.26,
-           PT_PA=0.7, PT_PQ=0.08, PT_TAU=1.0)
+           PT_PA=0.7, PT_PQ=0.08, PT_TAU=1.0,
+           RT_ARM=0.08, RT_KEEP=0.60, RT_HALF=0.5, RT_ER=0.35, RT_ERW=600, RT_W=900)
 FIXES = ("l2", "ffirst", "seqcal", "catch")
-GAINS = ("dtr", "ramp", "gbw", "ivz", "fy", "uw", "tie", "ptr", "ptre")
+GAINS = ("dtr", "ramp", "gbw", "ivz", "fy", "uw", "tie", "ptr", "ptre", "rt")
+# "rt" (owner, 31 Oct, after the 30 Oct live session gave back +13..18 % peaks to 0): the RENT TRAIL. While holding,
+# once the peak bid is >= RT_ARM over entry AND the market is choppy for this trade — EITHER the held contract's
+# gamma rent (realised / implied variance of the forward, last 600 s, calendar theta) has fallen to <= RT_HALF x its
+# value at entry (the move went quiet) OR the forward's trend efficiency over RT_ERW s (|net move| / sum of |1-min
+# moves|) is < RT_ER (two-way chop) — the trail arms for the rest of the trade: exit when the bid falls below
+# entry + RT_KEEP x peak gain (RENT_TRAIL). Neither condition (trending) leaves the normal trail alone. Both day
+# types. Re-entry on the booked side within RT_W s needs a faster forward move than the booked trade's trigger AND
+# trend efficiency >= RT_ER ("a stronger reason than why the trade got trailed").
+# 31 Oct calibration on the 30 Oct tape: an absolute rent floor (< 1) never fires intraday (rent sat at 1.1-10 through
+# all three trades); rent halved catches trades 2 and 3, efficiency < 0.35 catches trade 1 (day median 0.25).
 FINAL_R9 = FINAL + FIXES + ("dtr", "ramp", "ivz", "ptre", "tie")   # chosen combination (R9_30)
 
 _SER = {}
@@ -103,6 +114,9 @@ class _R9Mixin:
         self._pin = None
         self._fac = 1.0
         self.pb = self.pb_i = None
+        self._rt_pin, self._rt_on, self._rt_rent = None, False, np.nan   # rt: armed state of the held trade
+        self._rt_rent0 = np.nan                                         # rt: gamma rent at (or soonest after) entry
+        self._rtx, self._buy_v = None, None                             # rt: (side, i, |v|) of the last RENT_TRAIL exit
         if "ivz" in self.parts and D.dte0:
             W = int(self.r["IZ_W"])
             s = atm_iv_series(D, int(self.r["IZ_AVG"]))
@@ -148,6 +162,14 @@ class _R9Mixin:
 
     # ------------------------------------------------------------------ floors (pex / ramp / ffirst / gbw)
     def _floor(self, e, g, dte0):
+        fl, kind = self._floor0(e, g, dte0)
+        if "rt" in self.parts and self._rt_on and g >= self.r["RT_ARM"]:
+            rf = e * (1 + self.r["RT_KEEP"] * g)
+            if fl is None or rf > fl:
+                fl, kind = rf, "RENT_TRAIL"
+        return fl, kind
+
+    def _floor0(self, e, g, dte0):
         x, r = self.x, self.r
         if "ramp" in self.parts and not dte0:
             if g < r["R_ARM"]:
@@ -164,9 +186,42 @@ class _R9Mixin:
             return e * (1 + x["BE_LOCK"]), "BE_LOCK"
         return None, None
 
+    def _trend_eff(self, i, D):
+        """|net forward move| / sum of |1-min moves| over the last RT_ERW s (1 = straight line, 0 = pure chop)"""
+        W = int(self.r["RT_ERW"])
+        if i < W:
+            return np.nan
+        seg = np.asarray(D.fwd[i - W:i + 1:60], float)
+        seg = seg[np.isfinite(seg)]
+        if len(seg) < 4:
+            return np.nan
+        s = float(np.sum(np.abs(np.diff(seg))))
+        return abs(float(seg[-1] - seg[0])) / s if s > 0 else np.nan
+
+    def _rt_update(self, i, D, pos):
+        """rt: arm the rent trail once the trade has peaked >= RT_ARM while the market is choppy for it."""
+        if self._rt_pin != pos["i_in"]:
+            self._rt_pin, self._rt_on, self._rt_rent, self._rt_rent0 = pos["i_in"], False, np.nan, np.nan
+        rc = self._rent(i, D, pos["j"]) / CAL                 # realised / implied variance (calendar theta)
+        self._rt_rent = rc
+        if not np.isfinite(self._rt_rent0) and np.isfinite(rc):
+            self._rt_rent0 = rc                              # the rent the trade was entered at
+        if self._rt_on:
+            return
+        g = pos["peak_bid"] / pos["entry"] - 1
+        if g < self.r["RT_ARM"]:
+            return
+        quiet = np.isfinite(rc) and np.isfinite(self._rt_rent0) and rc <= self.r["RT_HALF"] * self._rt_rent0
+        er = self._trend_eff(i, D)
+        chop = np.isfinite(er) and er < self.r["RT_ER"]
+        if quiet or chop:
+            self._rt_on = True
+            self.log.append((D.day, int(i), "rt_arm", float(g), float(rc), float(self._rt_rent0),
+                             float(er) if np.isfinite(er) else None, "quiet" if quiet else "chop"))
+
     def _inner(self, i, D, pos):
         P = self.parts
-        if pos is None or "pex" not in P or not ({"ffirst", "ramp", "gbw"} & P):
+        if pos is None or "pex" not in P or not ({"ffirst", "ramp", "gbw", "rt"} & P):
             return super()._inner(i, D, pos)
         best0, last0 = self.best, self.last_exit
         self.parts = set(P) - {"pex"}
@@ -199,6 +254,22 @@ class _R9Mixin:
 
     # ------------------------------------------------------------------ entry vetoes (seqcal / fy)
     def _r8_veto(self, i, D, sig):
+        v = self._r8_veto_seq(i, D, sig)
+        if v or "rt" not in self.parts or self._rtx is None:
+            return v
+        _, k, rr, _w = sig
+        side, ix, v0 = self._rtx
+        if rr != side or i - ix >= self.r["RT_W"]:
+            return None
+        L = self.p["L"]
+        vn = abs(float(self.fs[i] - self.fs[i - L])) if i >= L else np.nan
+        er = self._trend_eff(i, D)
+        if np.isfinite(vn) and vn > v0 and np.isfinite(er) and er >= self.r["RT_ER"]:
+            return None                                       # a stronger reason than the one that trailed us out
+        self.log.append((D.day, int(i), "rt_reentry", rr, float(vn) if np.isfinite(vn) else None, float(er) if np.isfinite(er) else None))
+        return "rt_reentry"
+
+    def _r8_veto_seq(self, i, D, sig):
         P = self.parts
         if not ({"seqcal", "fy"} & P):
             return super()._r8_veto(i, D, sig)
@@ -284,6 +355,8 @@ class _R9Mixin:
                 self.sb = float(b) if self.sb is None else self.sb + (float(b) - self.sb) / r["PT_TAU"]
                 self.spk = self.sb if self.spk is None else max(self.spk, self.sb)
             pt_arm = self.spk is not None and self.spk >= pos["entry"] * (1 + r["PT_PA"])
+        if "rt" in P and pos is not None:
+            self._rt_update(i, D, pos)                   # before the core runs: _floor reads the armed state
         tn0 = getattr(self, "trail_now", None)          # R9_28 unit core: trail frozen at entry
         fac = 1.0
         if "dtr" in P and pos is not None and not D.dte0:
@@ -314,8 +387,12 @@ class _R9Mixin:
                     if np.isfinite(s) and s > 0 and np.isfinite(d) and d / s > r["IZ_Z"]:
                         self.log.append((D.day, int(i), "ivz", sig[2], float(d / s)))
                         return self._veto("ivz")
+                L = self.p["L"]
+                self._buy_v = abs(float(self.fs[i] - self.fs[i - L])) if i >= L and np.isfinite(self.fs[i - L]) else 0.0
             return sig
         # ---- holding ----
+        if "rt" in P and sig is not None and sig[0] == "SELL" and sig[1] == "RENT_TRAIL":
+            self._rtx = (pos["rr"], int(i), float(self._buy_v or 0.0))
         if self.pb is None or self.pb_i is None or self._pin_uw != pos["i_in"]:
             self._pin_uw, self.pb, self.pb_i = pos["i_in"], pos["peak_bid"], i
         if pos["peak_bid"] > self.pb:

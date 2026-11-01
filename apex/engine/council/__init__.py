@@ -125,6 +125,12 @@ class Adapter:
         # D-126 (30 Oct review): fills wait for the first print AFTER the trigger, like every other book. While a fill
         # is pending the strategy is not stepped — the kit skipped its 2-s fill lag the same way ("catch" bridges the
         # smoothed forward through the skipped seconds).
+        if book.pos:                                        # 31 Oct: the dashboard's "Best" tile and the trade record read
+            o = ctx["by_key"].get(book.pos["key"])          # last / peak_pts, which only check_exit used to maintain
+            ltp = (o or {}).get("ltp")
+            if ltp and not (ctx.get("blackout") or {}).get("on"):
+                book.pos["last"] = ltp
+                book.pos["peak_pts"] = max(book.pos.get("peak_pts") or 0.0, ltp - book.pos["entry"])
         if book.pos and book.pos.get("pending"):
             return paper.try_fill_exit(book, ctx) is not None
         if book.ctl.get("pending_entry"):
