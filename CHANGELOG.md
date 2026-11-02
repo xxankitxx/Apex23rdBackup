@@ -1,5 +1,19 @@
 # Changelog
 
+## Unreleased — 2 Nov 2026 (sounds)
+
+- **Sound only for trades** (owner: "no unnecessary sound if there was no event like an entry"). The engine speaker
+  plays a cue only when the champion buys, sells (win / loss) and once when the day is learned. Gone: the Triangle
+  "armed" chime, the straddle-spike chime (every spike, 60-s throttle), the browser's oscillator beeps on ARMED and
+  SPIKE, its commentary warning beep and the EXIT-SOON double beep. `apex/audio.py` no longer looks for mp3 files
+  (the MYTHOS project's alerts were playing); the four cues are synthesised at start (numpy, 44.1 kHz, peak-normalised
+  and soft-clipped, so loud without distortion) and opened on a mono mixer with `allowedchanges=0` (SDL otherwise
+  opens stereo and a mono buffer plays at double speed). `static/app.js` plays the same four recipes through Web Audio
+  (`sfx()`), remembers the Sound toggle across reloads, and treats the tape as first seen as history (no sound on load).
+  Cues: entry = rising power-up arpeggio; win = fanfare into a sustained major chord; loss = four falling notes, the
+  last sagging and wobbling; learn = two bells with a sparkle. Original chiptune-style synthesis, nothing copied from
+  any game. Tests: `tests/test_audio.py`.
+
 ## Unreleased — 1 Nov 2026 (C9 council: c20_9v shadow)
 
 - **`c20_9v` (shadow)** (owner, 1 Nov: "Yes, add as shadow"), from the 10-member C9 council on c20_9x variants

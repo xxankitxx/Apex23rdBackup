@@ -586,9 +586,7 @@ class Engine:
 
     def _drain_watch_events(self):
         for kind, text in self.watch.drain_events():
-            self.ev(kind, text)
-            if kind == "SPIKE":
-                audio.play("armed", self.now_s, min_gap_s=60.0)     # the same "look up" chime as the Triangle
+            self.ev(kind, text)                  # 2 Nov: tape only — a spike is not a trade, so no sound
 
     def book_state(self):
         """Opposing-side classes for every hero contract (used by the book exit and the book advisor).
@@ -616,8 +614,7 @@ class Engine:
         crowd = (dom.get("S_up", 0.0) if d > 0 else dom.get("S_dn", 0.0)) / champ.p["s_star"]
         late = self.lateness(ctx)
         if push >= 0.8 and crowd >= 0.8 and late is not None and late < 0.8:
-            self.armed_ep = ep["id"]
-            audio.play("armed", ctx["now_s"], min_gap_s=20.0)
+            self.armed_ep = ep["id"]             # 2 Nov: tape only — arming is not a trade, so no sound
             self.ev("ARMED", f"Triangle closing: push {push:.0%}, together {crowd:.0%}, "
                              f"{(1 - late):.0%} room left — {'CE' if d > 0 else 'PE'} side")
 

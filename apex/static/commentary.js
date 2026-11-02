@@ -1,6 +1,7 @@
 // ApexOptions — the live-trade commentary panel (council 5: T05 data contract, T09 visual design).
 // Loaded after app.js; render() calls renderCommentary(s, now) right after renderPos(s, now).
-// Uses app.js helpers: $, nil, fmt, sgn, sinr, tone, clamp, clockSecs, dur, RM, sound, beep, pnlBuf, isStale.
+// Uses app.js helpers: $, nil, fmt, sgn, sinr, tone, clamp, clockSecs, dur, RM, pnlBuf, isStale.
+// Silent by design (2 Nov): verdicts and warnings are not trades; sound belongs to the tape (app.js sfx).
 //
 // State-blob contract (engine → gateway → page), everything optional, absent ⇒ panel hidden:
 //   s.commentary = {trade_id, verdict: {level, state, score, reason, since}, items: [...], review: item|null,
@@ -74,7 +75,6 @@ function setVerdict(v) {
       head.classList.remove("sweep"); void head.offsetWidth; head.classList.add("sweep");
       clearTimeout(head._sw); head._sw = setTimeout(() => head.classList.remove("sweep"), 600);
     }
-    if (!first && state === "EXIT-SOON" && sound) { beep(520); setTimeout(() => beep(440), 220); }
     $("cmtann").textContent = `Verdict ${state}. ${(v && v.reason) || ""}`;
   }
   setH($("cmtreason"), decorate((v && v.reason) || "Waiting for the first remark.", null));
@@ -98,7 +98,7 @@ function renderFeed(list) {
       li.innerHTML = `<i class="rmk-glyph" aria-hidden="true"></i><time class="rmk-time">${esc(x.time || "")}</time><p class="rmk-text"></p>`;
       cmt.nodes.set(k, li);
       if (!bulk && !RM.matches) { li.classList.add("new"); setTimeout(() => li.classList.remove("new"), CMT.ANIM_MS); }
-      if (tn === "warning" && !bulk && k !== cmt.lastWarnKey) { cmt.lastWarnKey = k; flashWarn(); if (sound) beep(520); }
+      if (tn === "warning" && !bulk && k !== cmt.lastWarnKey) { cmt.lastWarnKey = k; flashWarn(); }
       newest = newest || x;
     } else if (!li.classList.contains(`tone-${tn}`)) { li.className = `rmk tone-${tn}`; }
     const p = li.lastElementChild; setH(p, decorate(x.text, x.slots));

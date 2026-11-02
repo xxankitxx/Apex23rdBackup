@@ -22,7 +22,8 @@ const last = {};            // id -> last ltp
 const legs = {};            // id -> {el, px}
 let heroSig = "";
 const ages = [];
-let sound = false, actx = null, lastEvKey = "", flashAt = -1e9, flashDir = 1;
+let sound = false, actx = null, master = null, lastEvKey = "", tapePrimed = false, flashAt = -1e9, flashDir = 1;
+const SOUND_KEY = "apex.sound";   // the toggle survives a reload
 const futBuf = [];          // [t_s, fut] from state, virtual clock
 const pnlBuf = [];          // [t_s, pts] for the open position
 let posKey = "";
@@ -1040,32 +1041,81 @@ function renderTape(s) {
   const names = { ENTRY: "Bought", EXIT: "Sold", "RAW-ENTRY": "RAW bought", "RAW-EXIT": "RAW sold", SYSTEM: "System", LEARN: "Learned", ARMED: "Armed",
                   SPIKE: "Straddle spike", SHIFT: "ATM rolled", GAP: "Data gap" };
   $("ev").innerHTML = ev.map(e => `<li class="${e.k}"><span class="t">${e.t}</span><span class="k">${names[e.k] || e.k}</span><span>${e.x}</span></li>`).join("");
-  const top = ev.find(e => e.k === "ENTRY" || e.k === "EXIT" || e.k === "ARMED" || e.k === "SPIKE");
+  // Sound only for a trade of the champion (ENTRY, EXIT) and the day's learning — never for ARMED, SPIKE or
+  // anything the commentary says (2 Nov, owner: "no unnecessary sound if there was no event like an entry").
+  const top = ev.find(e => e.k === "ENTRY" || e.k === "EXIT" || e.k === "LEARN");
   const key = top ? top.t + top.k + top.x : "";
-  if (key && key !== lastEvKey) {
-    if (lastEvKey) {
-      // the entry moment now belongs to the position band (pulseBand), not the triangle
-      if (sound) beep(top.k === "ENTRY" ? 880 : (top.k === "ARMED" || top.k === "SPIKE") ? 660 : 440);
-    }
-    lastEvKey = key;
+  if (tapePrimed && key && key !== lastEvKey) {
+    if (top.k === "ENTRY") sfx("entry");
+    else if (top.k === "LEARN") sfx("learn");
+    else { const m = /= ([+-])([\d.]+) pts/.exec(top.x); sfx(m && m[1] === "+" && +m[2] > 0 ? "win" : "loss"); }
   }
+  lastEvKey = key; tapePrimed = true;           // the tape as first seen is history, not news
 }
 
-function beep(freq) {
-  try {
-    actx = actx || new AudioContext();
-    const o = actx.createOscillator(), g = actx.createGain();
-    o.frequency.value = freq; o.connect(g); g.connect(actx.destination);
-    g.gain.setValueAtTime(.15, actx.currentTime); g.gain.exponentialRampToValueAtTime(.001, actx.currentTime + .4);
-    o.start(); o.stop(actx.currentTime + .42);
-  } catch (e) { }
+// ---- Sound: four chiptune-style cues, the same recipes the engine plays on the speaker (apex/audio.py) ----
+const NOTE = { C: -9, "C#": -8, D: -7, "D#": -6, E: -5, F: -4, "F#": -3, G: -2, "G#": -1, A: 0, "A#": 1, B: 2 };
+const hz = (n) => 440 * 2 ** ((NOTE[n.slice(0, -1)] + 12 * (+n.slice(-1) - 4)) / 12);
+function audioCtx() {
+  if (!actx) {
+    actx = new AudioContext();
+    const lp = actx.createBiquadFilter(); lp.type = "lowpass"; lp.frequency.value = 7000;     // takes the edge off square waves
+    const comp = actx.createDynamicsCompressor(); comp.threshold.value = -10; comp.knee.value = 8; comp.ratio.value = 8;
+    master = actx.createGain(); master.gain.value = 1.0;
+    master.connect(lp); lp.connect(comp); comp.connect(actx.destination);
+  }
+  if (actx.state === "suspended") actx.resume();
+  return actx;
 }
-
-$("snd").onclick = () => {
-  sound = !sound; const b = $("snd");
-  b.setAttribute("aria-pressed", sound); b.textContent = sound ? "Sound on" : "Sound off";
-  if (sound) beep(660);
+// One note: t0 ms from now, freq Hz (gliding to freq*(1+slide)), ms long; decay 0 = sustain, 1 = fades out by the end.
+function voice(t0, freq, ms, type = "square", gain = .5, { decay = 1, slide = 0, vibHz = 0, vib = 0 } = {}) {
+  const c = audioCtx(), o = c.createOscillator(), g = c.createGain(), T = ms / 1000, t = c.currentTime + t0 / 1000;
+  o.type = type; o.frequency.setValueAtTime(freq, t);
+  if (slide) o.frequency.linearRampToValueAtTime(freq * (1 + slide), t + T);
+  if (vib && vibHz) {
+    const l = c.createOscillator(), lg = c.createGain(); l.frequency.value = vibHz; lg.gain.value = freq * vib;
+    l.connect(lg); lg.connect(o.frequency); l.start(t); l.stop(t + T + .01);
+  }
+  g.gain.setValueAtTime(1e-4, t); g.gain.exponentialRampToValueAtTime(gain, t + .004);
+  g.gain.exponentialRampToValueAtTime(Math.max(1e-4, gain * Math.exp(-5 * decay)), t + T);
+  g.gain.linearRampToValueAtTime(0, t + T + .004);
+  o.connect(g); g.connect(master); o.start(t); o.stop(t + T + .01);
+}
+const SFX = {
+  entry() {                                     // power-up: rising major arpeggio landing on a held top note
+    let t = 0;
+    for (const n of ["C5", "E5", "G5", "C6", "E6", "G6"]) { voice(t, hz(n), 60, "square", .55, { decay: .4 }); voice(t, hz(n) / 2, 60, "triangle", .25, { decay: .4 }); t += 48; }
+    voice(t, hz("C7"), 320, "square", .6, { vibHz: 18, vib: .006 }); voice(t, hz("C6"), 320, "triangle", .3);
+  },
+  win() {                                       // fanfare: three hits, a long fifth, a sustained major chord
+    for (const s of [0, 130, 260]) { voice(s, hz("C5"), 110, "square", .5, { decay: .6 }); voice(s, hz("C4"), 110, "triangle", .3, { decay: .6 }); }
+    voice(420, hz("G5"), 380, "square", .55, { decay: .35 }); voice(420, hz("G4"), 380, "triangle", .3, { decay: .35 });
+    for (const [n, g] of [["C5", .32], ["E5", .28], ["G5", .28], ["C6", .34]]) voice(800, hz(n), 700, "square", g, { decay: .9, vibHz: 6, vib: .004 });
+    voice(800, hz("C4"), 700, "triangle", .35, { decay: .9 }); voice(860, hz("E6"), 500, "sine", .22);
+  },
+  loss() {                                      // game over: descending notes, the last one sagging and wobbling
+    let t = 0;
+    for (const n of ["E5", "C5", "A4"]) { voice(t, hz(n), 200, "sawtooth", .5, { decay: .5 }); voice(t, hz(n) / 2, 200, "square", .3, { decay: .5 }); t += 210; }
+    voice(t, hz("F#4"), 560, "sawtooth", .55, { decay: .8, slide: -.18, vibHz: 7, vib: .02 });
+    voice(t, hz("F#3"), 560, "square", .35, { decay: .8, slide: -.18 }); voice(t, hz("F#2"), 560, "sine", .4, { decay: .8, slide: -.18 });
+  },
+  learn() {                                     // stage clear: two bells with a sparkle on top
+    for (const [s, n, g] of [[0, "A5", .5], [160, "D6", .5], [320, "E6", .3], [400, "A6", .3]]) { voice(s, hz(n), 520, "sine", g); voice(s, hz(n) * 2, 260, "sine", g * .35); voice(s, hz(n) * 3, 160, "sine", g * .15); }
+  },
+  ui() { voice(0, hz("E6"), 45, "square", .3, { decay: .8 }); },   // the toggle's own click
 };
+function sfx(kind) { if (!sound || !SFX[kind]) return; try { SFX[kind](); } catch (e) { } }
+
+function setSound(on, click) {
+  sound = on; const b = $("snd");
+  b.setAttribute("aria-pressed", on); b.textContent = on ? "Sound on" : "Sound off";
+  try { localStorage.setItem(SOUND_KEY, on ? "1" : "0"); } catch (e) { }
+  if (on && click) sfx("ui");
+}
+$("snd").onclick = () => setSound(!sound, true);
+try { if (localStorage.getItem(SOUND_KEY) === "1") setSound(true, false); } catch (e) { }
+// a restored "on" needs one gesture anywhere before the browser lets audio play
+window.addEventListener("pointerdown", () => { if (sound) try { audioCtx(); } catch (e) { } }, { once: true });
 window.addEventListener("resize", () => S && render(S));
 
 // One-time snapshot from /api/state so the page is painted before the first /ws/state frame lands

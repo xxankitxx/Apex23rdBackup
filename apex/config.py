@@ -28,7 +28,7 @@ for _d in (DATA_DIR, TICKS_DIR, PAPER_DIR, LEARN_DIR, LOG_DIR, SECRETS_DIR):
 
 # ── mode ─────────────────────────────────────────────────────────────────────
 PAPER_ONLY = True          # v1 never places a broker order. Owner decision 17 Oct 2026.
-AUDIO = True               # speaker alerts from the engine (armed / entry / win / loss), as in MYTHOS
+AUDIO = True               # speaker cues from the engine: champion entry / win / loss, day learned (apex/audio.py)
 
 # ── web ──────────────────────────────────────────────────────────────────────
 HOST = "127.0.0.1"
