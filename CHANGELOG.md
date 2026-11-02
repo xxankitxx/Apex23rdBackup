@@ -1,5 +1,21 @@
 # Changelog
 
+## Unreleased — 2 Nov 2026 (tests fenced off the live data)
+
+- **`tests/conftest.py`: every test runs against a throw-away data tree (D-149).** A `pytest` run at 07:51 on
+  2 Nov deleted `data/learning/days.jsonl` and `defects.json`, overwrote `state.json` with a synthetic scoreboard
+  (shown on the dashboard all day as "10 trades, +4000 %"), rewrote the 21–23 Oct paper files and left 45 report
+  files for dates up to Feb 2027: tests wrote through `config.PAPER_DIR` / `LEARN_DIR` and through the paths that
+  `learning.py` and `defects.py` fix at import. The session-wide autouse fixture now redirects `DATA_DIR`,
+  `TICKS_DIR`, `PAPER_DIR`, `LEARN_DIR`, `LOG_DIR`, `KILL_FILE`, `learning.STATE/DAYS/REPORT` and
+  `defects.DEFECTS_FILE` to a temporary directory, and fails the session if anything under the live `data/`
+  changed. Repair the same evening: tracked files restored from git (`days.jsonl` to 23 Oct, `defects.json`,
+  `state.json` to 23 Oct with the owner champion re-applied, the 21–23 Oct paper files); 26 Oct – 2 Nov rebuilt
+  from the paper records by the learning module itself; the evening look for 2 Nov run (the engine had been killed
+  at 15:28 before recording the day); 2 Nov high / low / close written from trusted prints only (the index feed
+  printed 23769 at 15:20 after a credential error). Not recoverable: the champion-change log between 23 and
+  30 Oct, the 24–30 Oct strike levels, any defect windows declared after 23 Oct.
+
 ## Unreleased — 2 Nov 2026 (sounds)
 
 - **Sound only for trades** (owner: "no unnecessary sound if there was no event like an entry"). The engine speaker
