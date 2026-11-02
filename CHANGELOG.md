@@ -1,5 +1,18 @@
 # Changelog
 
+## Unreleased — 2 Nov 2026 (ATM CE / PE in the header)
+
+- **Two new header tiles, ATM CE (green) and ATM PE (coral), between Spot and VIX**, the same size and style as
+  the Spot numeral. Each shows this week's at-the-money contract (the engine's `atm` strike and `w0` expiry),
+  its last traded price painted on the tick like Spot is, and a sub-line with bid / ask plus delta and IV from
+  the hero list. A tile the champion is holding gets an ink border and a HELD badge. Before the chain exists
+  the tiles say so; after an ATM roll they switch to the new strike and wait for its first print. Fed entirely
+  in the browser from the tick stream and the existing state frame: no engine or gateway change.
+- **Header grid re-flowed for ten cells**: one row from 1760 px, two rows of five below that (futures, ATM CE,
+  ATM PE and capital on the first; Spot, VIX, ATM IV, Clock and feed health on the second), two columns on
+  phones. `tests/test_header_atm.py` checks every `grid-template-areas` in the stylesheet is rectangular and
+  every header layout places every cell.
+
 ## Unreleased — 2 Nov 2026 (tests fenced off the live data)
 
 - **`tests/conftest.py`: every test runs against a throw-away data tree (D-149).** A `pytest` run at 07:51 on

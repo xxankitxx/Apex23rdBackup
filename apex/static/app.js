@@ -20,6 +20,7 @@ let INST = {}, REGV = -1, loading = false;
 let S = null;
 const last = {};            // id -> last ltp
 const legs = {};            // id -> {el, px}
+const ATM = { ce: -1, pe: -1, ba: {} };   // ids of this week's ATM call / put and their last bid / ask (header tiles)
 let heroSig = "";
 const ages = [];
 let sound = false, actx = null, master = null, lastEvKey = "", tapePrimed = false, flashAt = -1e9, flashDir = 1;
@@ -64,6 +65,10 @@ function onTick([id, ltp, bid, ask, bq, aq, ttq, oi, age]) {
   const it = INST[id];
   if (it && it.key === "NIFTY|FUT" && ltp > 0) paintPx($("fut"), ltp, prev);   // 29 Oct: never paint a 0 / missing print
   if (it && it.key === "NIFTY|SPOT") hdrNum("spot", ltp);           // the Spot tile flashes on its own ticks
+  if (id === ATM.ce || id === ATM.pe) {                             // the ATM CE / PE tiles likewise
+    ATM.ba[id] = [bid, ask];
+    hdrNum(id === ATM.ce ? "atmce" : "atmpe", ltp);
+  }
   const L = legs[id];
   if (L) {
     paintPx(L.px, ltp, prev, !!(S && S.pos && S.pos.id !== id));   // while holding, only the held leg flashes
@@ -150,7 +155,7 @@ function renderHealth(h) {
 }
 
 // ── T03 header: four tiles, one accent each ─────────────────────────────────
-// Spot (gold), VIX (violet→magenta ladder), ATM IV (cyan), Clock (white on ink + phase ring).
+// Spot (gold), ATM CE (green), ATM PE (coral), VIX (violet→magenta ladder), ATM IV (cyan), Clock (white on ink + phase ring).
 // Display thresholds only (nothing here decides a trade): VIX_HOT, IV_JUMP, LATE = last 15 min.
 const H = {
   vixBuf: [],              // [t_s, vix] last 5 min of engine time, for the VIX 5-min arrow
@@ -190,6 +195,30 @@ function renderHeader(s, now) {
   setHTML($("spotsub"), nil(spot) ? (nil(spotRef) ? (s.phase === "PRE" ? "waiting for the open" : "no index quote") : `<span class="mist">prev close</span> <b>${fmt(spotRef)}</b>`) :
     `${delta(spot, spotRef, 2, true)}<span class="mist">${!nil(s.spot_prev) ? "vs close" : "vs first"}</span>` +
     (nil(r.hi) || nil(r.lo) ? "" : `<span class="mist rng">12-min range ${fmt(r.lo, 0)} – ${fmt(r.hi, 0)}</span>`));
+
+  // ── ATM CE / PE: this week's at-the-money call and put, the last print from the tick stream ──
+  // (the engine's "atm" strike and "w0" expiry pick the contract; the numeral is painted by onTick)
+  const K = s.atm, hs = s.heroes || [];
+  for (const rr of ["CE", "PE"]) {
+    const lc = rr.toLowerCase();
+    const id = nil(K) || !s.w0 ? -1 : idOf(`NIFTY|OPT|${s.w0}|${Math.round(K)}|${rr}`);
+    ATM[lc] = id;
+    const px = id >= 0 ? last[id] : undefined, h = id >= 0 ? hs.find(x => x.id === id) : undefined;
+    const held = !!(s.pos && id >= 0 && s.pos.id === id), tile = $(`t-${lc}`);
+    tile.classList.toggle("nodata", nil(px));
+    tile.classList.toggle("held", held);
+    $(`${lc}held`).hidden = !held;
+    hdrNum(`atm${lc}`, px);
+    const kTxt = nil(K) ? "" : `· ${fmt(K, 0)}`;
+    if ($(`${lc}k`).textContent !== kTxt) $(`${lc}k`).textContent = kTxt;
+    const ba = ATM.ba[id];
+    setHTML($(`${lc}sub`), nil(px) ? `<span class="mist">${nil(K) ? (s.phase === "PRE" ? "chain after the open" : "no chain yet") : id < 0 ? "contract not in the feed" : "waiting for a print"}</span>` :
+      (ba ? `<b class="ba">${fmt(ba[0])} / ${fmt(ba[1])}</b>` : "") +
+      (h ? `<span class="mist">Δ <b>${fmt(h.delta, 2)}</b> IV <b>${fmt(h.iv, 1)}</b></span>` : ""));
+    const ttl = nil(K) ? `This week's at-the-money ${rr === "CE" ? "call" : "put"}: last traded price, straight from the tick stream.` :
+      `NIFTY ${Math.round(K)} ${rr}, expiry ${s.w0} (this week's at-the-money ${rr === "CE" ? "call" : "put"}). Last traded price from the tick stream; below it the bid / ask, delta and IV.`;
+    if (tile.title !== ttl) tile.title = ttl;
+  }
 
   // ── VIX: violet → magenta by level; sub-line = day change and 5-min arrow in the tile hue ──
   const vix = s.vix;
@@ -261,7 +290,7 @@ function render(s) {
   if (!nil(s.fut_ltp)) $("fut").title = `Bid/ask midpoint (what the system trades on). Last traded: ${fmt(s.fut_ltp, 2)}`;
   renderHealth(s.health);
   if (s.entry_window) ENTRY_WINDOW = s.entry_window;
-  renderHeader(s, now);                            // T03: spot / vix / atm iv / clock tiles
+  renderHeader(s, now);                            // T03: spot / atm ce / atm pe / vix / atm iv / clock tiles
   const bo = s.blackout || {};
   $("feed").textContent = ({ LIVE: "Live", SIM: "Simulated", REPLAY: "Replay", RECONNECTING: "Reconnecting", DEAD: "Feed down", CONNECTING: "Connecting", DONE: "Session over" }[s.feed] || s.feed)
     + (bo.on ? ` · entries paused (${bo.why || "data gap"}${nil(bo.resume_in) ? "" : `, resume in ${fmt(bo.resume_in, 0)} s`})` : "")

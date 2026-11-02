@@ -14,6 +14,10 @@
   /* T03 header tiles: one accent per tile */
   --c-spot: #ffbe3d;        /* Spot: warm gold (the price the champion trades on)        */
   --c-spot-tint: rgba(255, 190, 61, .10);
+  --c-ce: #3ddc97;          /* ATM call: the calls green                                     */
+  --c-ce-tint: rgba(61, 220, 151, .10);
+  --c-pe: #ff6b5e;          /* ATM put: the puts coral                                       */
+  --c-pe-tint: rgba(255, 107, 94, .10);
   --c-vix-1: #b9a6ff;       /* VIX < 13  lavender (sleepy)                                  */
   --c-vix-2: #b07cff;       /* VIX 13–18 violet  (normal)                                   */
   --c-vix-3: #e04fd0;       /* VIX 18–24 magenta (nervous)                                  */
@@ -54,8 +58,8 @@ h2 { font: 600 15px/1.2 var(--num); margin: 0; letter-spacing: .01em; }
 
 /* ── T03 header: one accent per tile, numerals ≥ 28 px ─────────────────── */
 .bar { position: sticky; top: 0; z-index: 10; display: grid; align-items: stretch; gap: 8px 10px;
-  grid-template-columns: max-content max-content auto auto auto auto max-content max-content;
-  grid-template-areas: "stale stale stale stale stale stale stale stale" "mark fut spot vix iv clock money health";
+  grid-template-columns: max-content max-content auto auto auto auto auto auto max-content max-content;
+  grid-template-areas: "stale stale stale stale stale stale stale stale stale stale" "mark fut spot ce pe vix iv clock money health";
   padding: 8px 16px; background: rgba(5, 24, 33, .94); backdrop-filter: blur(6px); border-bottom: 1px solid var(--line); }
 .stale-banner { grid-area: stale; margin: -8px -16px 0; padding: 8px 16px; background: #b3261e; color: #fff;
   font: 700 16px var(--num); letter-spacing: .04em; }
@@ -75,7 +79,7 @@ h2 { font: 600 15px/1.2 var(--num); margin: 0; letter-spacing: .01em; }
 .q-chg { font: 600 14px var(--num); }
 .q-rng { font: 500 12px var(--num); color: var(--mist); letter-spacing: .02em; white-space: nowrap; }
 
-/* the four tiles */
+/* the six tiles */
 .ht { position: relative; display: flex; flex-direction: column; justify-content: center; gap: 2px;
   padding: 6px 10px 6px 12px; border-radius: 10px; border: 1px solid transparent; background: var(--deep); overflow: hidden;
   transition: box-shadow .4s, border-color .4s; }
@@ -92,6 +96,14 @@ h2 { font: 600 15px/1.2 var(--num); margin: 0; letter-spacing: .01em; }
 .ht-spot .sub { white-space: normal; line-height: 1.3; }
 .ht-spot .sub .rng { display: block; margin-left: 0; }
 .ht-spot { grid-area: spot; min-width: 176px; --acc: var(--c-spot); background: linear-gradient(var(--c-spot-tint), var(--c-spot-tint)), var(--deep); }
+.ht-ce   { grid-area: ce; min-width: 158px; --acc: var(--c-ce); background: linear-gradient(var(--c-ce-tint), var(--c-ce-tint)), var(--deep); }
+.ht-pe   { grid-area: pe; min-width: 158px; --acc: var(--c-pe); background: linear-gradient(var(--c-pe-tint), var(--c-pe-tint)), var(--deep); }
+.ht-opt .lbl span { color: var(--ink); letter-spacing: .04em; }
+.ht-opt .sub .ba { color: var(--ink); }
+.ht-opt.held { border-color: var(--ink); }
+.ht-opt .held-tag { position: absolute; top: 5px; right: 6px; font: 700 9px/14px var(--num); letter-spacing: .12em; padding: 0 5px; border-radius: 3px; color: var(--abyss); background: var(--ink); }
+.ht-opt .held-tag[hidden], body.stale .ht-opt .held-tag { display: none; }
+.ht-opt.held .lbl { padding-right: 44px; }
 .ht-vix  { grid-area: vix; min-width: 132px; --acc: var(--c-vix-2); background: linear-gradient(var(--c-vix-tint), var(--c-vix-tint)), var(--deep); }
 .ht-vix.lv1 { --acc: var(--c-vix-1); } .ht-vix.lv2 { --acc: var(--c-vix-2); } .ht-vix.lv3 { --acc: var(--c-vix-3); }
 .ht-vix.lv4 { --acc: var(--c-vix-4); border-color: var(--c-vix-4); animation: vix-pulse 2.4s ease-in-out infinite; }
@@ -611,13 +623,13 @@ body.stale .cmt-state b::after { content: " · FROZEN"; }
     grid-template-areas: "id pnl" "rail path" "size size" "greeks clock"; }
   .pb-big { font-size: 48px; }
 }
-@media (max-width: 1439px) {
-  :root { --hn: 30px; }
-  .bar { grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 6px 10px;
-    grid-template-areas: "stale stale stale stale" "mark fut money health" "spot vix iv clock"; }
-  .bar > .ht { min-width: 0; }   /* two-row layout: four equal columns, minima off */
+@media (max-width: 1759px) {
+  .bar { grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 6px 10px;
+    grid-template-areas: "stale stale stale stale stale" "mark fut ce pe money" "spot vix iv clock health"; }
+  .bar > .ht { min-width: 0; }   /* two-row layout: five equal columns, minima off */
   .health { max-width: none; }
 }
+@media (max-width: 1439px) { :root { --hn: 30px; } }
 @media (max-width: 1280px) {
   main { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
     grid-template-areas: "pos pos" "trades trades" "vortex trace" "ideas ideas" "straddle straddle" "ladder ladder" "oimap heavy" "books tape"; }
@@ -626,9 +638,11 @@ body.stale .cmt-state b::after { content: " · FROZEN"; }
 @media (max-width: 820px) {
   :root { --hn: 28px; }
   .bar { grid-template-columns: 1fr 1fr; padding: 8px 12px;
-    grid-template-areas: "stale stale" "mark health" "fut money" "spot vix" "iv clock"; }
+    grid-template-areas: "stale stale" "mark health" "fut money" "ce pe" "spot vix" "iv clock"; }
   .stale-banner { margin: -8px -12px 0; padding: 8px 12px; }
   .money { text-align: left; }
+  .ht-opt .sub { white-space: normal; line-height: 1.3; }          /* bid / ask on one line, Δ and IV on the next */
+  .ht-opt .sub .ba + span { display: block; margin-left: 0; }
   main { grid-template-columns: minmax(0, 1fr); padding: 12px 16px 32px;
     grid-template-areas: "pos" "trades" "vortex" "trace" "ideas" "straddle" "ladder" "oimap" "heavy" "books" "tape"; }
   body.cmt-on main { grid-template-areas: "pos" "cmt" "trades" "vortex" "trace" "ideas" "straddle" "ladder" "oimap" "heavy" "books" "tape"; }
