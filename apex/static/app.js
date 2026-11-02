@@ -27,6 +27,14 @@ let sound = false, actx = null, master = null, lastEvKey = "", tapePrimed = fals
 const SOUND_KEY = "apex.sound";   // the toggle survives a reload
 const futBuf = [];          // [t_s, fut] from state, virtual clock
 const pnlBuf = [];          // [t_s, pts] for the open position
+function pushPnl(t, v) {    // past 3000 points, thin the older half to every other point (its highest point kept)
+  pnlBuf.push([t, v]);
+  if (pnlBuf.length <= 3000) return;
+  const half = pnlBuf.length >> 1; let hi = 0;
+  for (let i = 1; i < half; i++) if (pnlBuf[i][1] > pnlBuf[hi][1]) hi = i;
+  const old = pnlBuf.slice(0, half).filter((_, i) => i % 2 === 0 || i === hi);
+  pnlBuf.splice(0, half, ...old);
+}
 let posKey = "";
 const RM = window.matchMedia ? window.matchMedia("(prefers-reduced-motion: reduce)") : { matches: false };
 
@@ -475,7 +483,7 @@ let futId = -1, receipt = null, prevHad = null, bandMode = "";
 const tz = { cur: "", cand: "", since: 0 };          // P&L tone with hysteresis (D4): 3 s beyond ±0.5 pt
 const LOT = 65;                                      // config.LOT_SIZE (display only; qty from the blob wins)
 const E = {};                                        // cached element refs of the open template (bindBand)
-const st = { state: "", nearSince: 0, nearOff: 0, peakSeen: -1e9, bestSeen: -1e9, rail: null };   // band state machine (view only)
+const st = { state: "", nearSince: 0, nearOff: 0, peakSeen: -1e9, bestSeen: -1e9, bestPx: -1e9, rail: null };   // band state machine (view only)
 const hm = (s) => { const t = (s || "").split(":").map(Number); return t.length >= 2 ? t[0] * 3600 + t[1] * 60 + (t[2] || 0) : 0; };
 const mmss = (s) => s <= 0 ? "now" : s < 3600 ? `${Math.floor(s / 60)}m ${String(Math.floor(s % 60)).padStart(2, "0")}s` : `${Math.floor(s / 3600)}h ${String(Math.floor(s % 3600 / 60)).padStart(2, "0")}m`;
 const put = (el, txt) => { if (el && el.textContent !== txt) el.textContent = txt; };
@@ -582,7 +590,7 @@ function renderPos(s, now) {
   if (key !== posKey) {
     const fresh = prevHad === false;               // we saw it flat, then saw it open: a real entry
     posKey = key; pnlBuf.length = 0; receipt = null; tz.cur = tz.cand = ""; bandMode = "";
-    st.state = "fresh"; st.nearSince = 0; st.nearOff = 0; st.peakSeen = -1e9; st.bestSeen = -1e9; st.rail = null;
+    st.state = "fresh"; st.nearSince = 0; st.nearOff = 0; st.peakSeen = -1e9; st.bestSeen = -1e9; st.bestPx = -1e9; st.rail = null;
     setBand("open", bandTemplate(p, s.book || {}));
     bindBand();
     $("posband").dataset.state = "fresh";
@@ -590,12 +598,12 @@ function renderPos(s, now) {
   }
   prevHad = true;
   if (isStale()) { $("posband").dataset.state = "stale"; return; }     // frozen: keep the last good picture (D4)
-  pnlBuf.push([now, ltp - p.entry]);
-  if (pnlBuf.length > 3000) pnlBuf.splice(0, pnlBuf.length - 3000);
-  // best premium since entry (peak_pts from the engine; pop the tile when it improves)
-  const best = Math.max(p.entry + (p.peak_pts || 0), p.best_prem || 0, ltp);
-  put(E.pospeak, fmt(best));
-  if ((p.peak_pts || 0) > st.peakSeen + 1e-9) { if (st.peakSeen > -1e9) pop(E.pospeak); st.peakSeen = p.peak_pts || 0; }
+  if (Number.isFinite(ltp)) pushPnl(now, ltp - p.entry);
+  // best premium since entry: never falls. The engine samples one print a second (peak_pts, best_prem) while the
+  // tick stream shows every print, so a tick high between samples would otherwise show and then vanish.
+  const bestNow = Math.max(st.bestPx, p.entry + (p.peak_pts || 0), p.best_prem || 0, Number.isFinite(ltp) ? ltp : -1e9);
+  if (bestNow > st.bestPx + 1e-9) { if (st.bestPx > -1e9 && bestNow - st.bestPx >= 0.05) pop(E.pospeak); st.bestPx = bestNow; }
+  put(E.pospeak, fmt(st.bestPx));
   put(E.poshold, dur(p.hold_s));
   // exit clock: seconds to time_exit on the engine's clock
   const tx = hm(p.time_exit || s.flatten_at || "15:35"), left = tx - now;
@@ -785,6 +793,10 @@ function drawPosLine(p) {
   let mx = 1, bi = 0; pnlBuf.forEach((x, i) => { if (Math.abs(x[1]) > mx) mx = Math.abs(x[1]); if (x[1] > pnlBuf[bi][1]) bi = i; });
   const floor = p && p.lock_armed && !nil(p.lock_floor) ? p.lock_floor - p.entry : null;
   if (floor !== null && Math.abs(floor) > mx) mx = Math.abs(floor);
+  // the best label reads the same never-falling best as the tile (the buffer misses ticks between frames, and
+  // starts empty after a page reload)
+  const bt = pnlBuf[bi][0], bv = Math.max(pnlBuf[bi][1], p && st.bestPx > -1e9 ? st.bestPx - p.entry : -1e9);
+  if (bv > mx) mx = bv;
   const X = (t) => (t - t0) / Math.max(t1 - t0, 1) * (w - 70) + 2, Y = (v) => h / 2 - v / mx * (h / 2 - 8);
   const lastV = pnlBuf[pnlBuf.length - 1][1], col = lastV >= 0 ? C.up : C.down, PW = w - 66, z = h / 2;
   // quiet half-range guides, then the entry (zero) line
@@ -800,7 +812,6 @@ function drawPosLine(p) {
     hline(g, 0, PW, Y(floor), C.gold, [5, 4], 1.5);
     g.fillStyle = C.gold; g.font = `600 13px ${NUMF}`; g.fillText(`floor ${sgn(floor, 2)}`, w - 62, Y(floor) + 5);
   }
-  const [bt, bv] = pnlBuf[bi];
   if (bv > 0.5) {
     g.beginPath(); g.arc(X(bt), Y(bv), 3.5, 0, 7); g.fillStyle = C.gold; g.fill(); g.strokeStyle = alpha(C.deep, .9); g.lineWidth = 1.25; g.stroke();
     g.font = `600 13px ${NUMF}`; const lx = X(bt) > w - 150; g.textAlign = lx ? "right" : "left";

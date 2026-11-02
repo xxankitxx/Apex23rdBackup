@@ -1,5 +1,16 @@
 # Changelog
 
+## Unreleased — 2 Nov 2026 (fix: the Best tile could fall during a live trade)
+
+- **Best never falls now.** The engine records its peak from one print a second, but the tile also took the
+  current tick, so a tick high between engine samples showed as Best and then vanished on the next tick. The tile
+  now keeps the highest value it has seen for the trade (engine peak, profit-lock best, or a fresh tick).
+- **The premium chart's "best" label reads the same value.** It used to read only the browser's own buffer, which
+  dropped its oldest points after about 12 minutes (so a long trade lost its peak) and starts empty on a reload.
+  The buffer now thins its older half instead of dropping it, always keeping its highest point.
+- View only: the engine, its peak and the trade records are unchanged. A page reload during a trade restarts the
+  tile from the engine's own peak. Tests: `tests/test_best_tile.py`.
+
 ## Unreleased — 2 Nov 2026 (dashboard redesign: "night instrument panel")
 
 - **Whole dashboard restyled by a ten-member design team** (director, eight section designers, integrator). Deep
