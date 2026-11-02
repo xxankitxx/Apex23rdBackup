@@ -1,5 +1,21 @@
 # Changelog
 
+## Unreleased — 2 Nov 2026 (dashboard redesign: "night instrument panel")
+
+- **Whole dashboard restyled by a ten-member design team** (director, eight section designers, integrator). Deep
+  layered glass surfaces, 1 px hairlines, luminous tabular Chakra Petch numerals; glow only where it means
+  something (green calls, coral puts, gold trigger). Design system recorded in `docs/UI_DESIGN.md`.
+- `style.css` rebuilt section by section on one token set (surfaces, lines, radii, spacing, type scale, motion).
+  Every state keeps a distinct look: stale (FROZEN, dashed, desaturated, canvases too), nodata, held, hot, flash,
+  clock phases, VIX levels, band states, commentary states. Reduced motion switches all animation off.
+- Canvases (trigger, futures trace, OI map, straddle, position path) redrawn sharp at any devicePixelRatio, with
+  pixel-snapped gridlines, label chips and meaning-only glow. Drawing code only; no data or threshold changes.
+- Small markup hooks: the verdict gets a `near` look when all three corners are at 80 % or more; the position band
+  carries `data-rr` so its CALLS / PUTS pill takes the side colour; the trades table scrolls inside its panel; a held
+  ATM tile drops the word "ATM" so the strike stays readable beside HELD.
+- Phones: the header is no longer sticky below 820 px (it is six rows tall there). The futures chart grows with the
+  trigger column above 1280 px, capped at 440 px.
+
 ## Unreleased — 2 Nov 2026 (ATM CE / PE in the header)
 
 - **Two new header tiles, ATM CE (green) and ATM PE (coral), between Spot and VIX**, the same size and style as

@@ -395,7 +395,7 @@ function renderVerdict(s) {
     v.className = "verdict quiet";
   } else {
     v.textContent = humanReason(s.reason, s);
-    v.className = "verdict" + (c.closed ? " fire" : "");
+    v.className = "verdict" + (c.closed ? " fire" : c.ep && Math.min(c.push, c.crowd, c.fresh) >= 0.8 ? " near" : "");
   }
   const ep = s.episode;
   $("episode").innerHTML = ep
@@ -506,7 +506,7 @@ function bandTemplate(p, b) {
   const mid = (!nil(p.entry_bid) && !nil(p.entry_ask)) ? (p.entry_bid + p.entry_ask) / 2 : null;
   const fill = mid === null ? "" : `paid <b>${fmt(p.entry)}</b> vs mid ${fmt(mid)} (<b>${sgn(p.entry - mid)}</b> over mid, spread ${fmt(p.entry_ask - p.entry_bid)}) · `;
   const more = Math.max(0, Math.floor((cap - dep) / (p.entry * LOT)));
-  return `<div class="pb-open">
+  return `<div class="pb-open" data-rr="${p.rr}">
   <div class="pb-id">
     <div class="row"><span class="side">LONG</span><span class="k">${p.strike} ${p.rr}</span><span class="rr">${p.rr === "CE" ? "CALLS ▲" : "PUTS ▼"}</span></div>
     <div class="row"><span class="pb-tag" id="pbtag">FRESH ●</span><span class="exp">expiry <b>${dmy(p.expiry)}</b>${p.expiry === (S && S.now || "").slice(0, 10) ? " · <b>0DTE</b>" : ""}</span><span class="pb-frozen" id="pbfrozen"></span></div>
@@ -718,12 +718,64 @@ function livePos(ltp, force) {
 }
 
 // ── canvases ───────────────────────────────────────────────────────────────
-function fit(cv) {
-  const r = window.devicePixelRatio || 1, w = cv.clientWidth, h = cv.clientHeight || +cv.getAttribute("height");
+// Night-instrument drawing kit. Every canvas is laid out in CSS pixels and backed at devicePixelRatio, so
+// hairlines and numerals stay sharp on any screen. Glow is used only where it carries meaning
+// (calls / puts / the trigger) and never while the feed is FROZEN.
+const hex6 = (v, d) => { const x = css(v); return /^#[0-9a-f]{6}$/i.test(x) ? x : d; };
+Object.assign(C, { ink2: hex6("--ink-2", "#b9cdd8"), dim: hex6("--ink-dim", "#5d7888"), gold: hex6("--gold", "#ffd166"),
+                   card: hex6("--s2", "#0f2130"), strong: hex6("--line-strong", "#2a4a60") });
+let DPR = 1;
+// cssH: an explicit CSS height for canvases whose height is set from data (the OI map). Setting the style, not the
+// backing store, keeps the drawn height equal to the laid-out height at any devicePixelRatio.
+function fit(cv, cssH) {
+  if (cssH && cv.style.height !== cssH + "px") cv.style.height = cssH + "px";
+  const r = window.devicePixelRatio || 1, w = cv.clientWidth, h = cv.clientHeight || cssH || +cv.getAttribute("height");
   if (cv.width !== Math.round(w * r) || cv.height !== Math.round(h * r)) { cv.width = Math.round(w * r); cv.height = Math.round(h * r); }
-  const g = cv.getContext("2d"); g.setTransform(r, 0, 0, r, 0, 0); return [g, w, h];
+  const g = cv.getContext("2d"); g.setTransform(r, 0, 0, r, 0, 0); DPR = r;
+  g.globalAlpha = 1; g.shadowBlur = 0; g.shadowColor = "transparent"; g.setLineDash([]); g.lineCap = "butt"; g.lineJoin = "round";
+  g.textAlign = "left"; g.textBaseline = "alphabetic";
+  return [g, w, h];
 }
 function alpha(hex, a) { const n = parseInt(hex.slice(1), 16); return `rgba(${n >> 16},${(n >> 8) & 255},${n & 255},${a})`; }
+// snap a 1 px line onto the device pixel grid (no blurry half-pixel hairlines)
+const cr = (v) => (Math.round(v * DPR) + (Math.round(DPR) % 2 ? .5 : 0)) / DPR;
+function hline(g, x0, x1, y, col, dash, lw = 1) {
+  const yy = cr(y); g.save(); g.strokeStyle = col; g.lineWidth = lw; if (dash) g.setLineDash(dash);
+  g.beginPath(); g.moveTo(x0, yy); g.lineTo(x1, yy); g.stroke(); g.restore();
+}
+function vline(g, x, y0, y1, col, dash, lw = 1) {
+  const xx = cr(x); g.save(); g.strokeStyle = col; g.lineWidth = lw; if (dash) g.setLineDash(dash);
+  g.beginPath(); g.moveTo(xx, y0); g.lineTo(xx, y1); g.stroke(); g.restore();
+}
+function rrect(g, x, y, w, h, r) {
+  r = Math.max(0, Math.min(r, w / 2, h / 2)); g.beginPath(); g.moveTo(x + r, y);
+  g.arcTo(x + w, y, x + w, y + h, r); g.arcTo(x + w, y + h, x, y + h, r); g.arcTo(x, y + h, x, y, r); g.arcTo(x, y, x + w, y, r); g.closePath();
+}
+// meaning glow (off while FROZEN); shadowBlur is in device pixels, so scale it
+function lit(g, col, b, a = .55) { if (isStale()) return; g.shadowColor = alpha(col, a); g.shadowBlur = b * DPR; }
+function unlit(g) { g.shadowBlur = 0; g.shadowColor = "transparent"; }
+// a quiet dark halo behind a label drawn over busy strokes (legibility, not glow)
+function halo(g) { g.shadowColor = alpha(C.deep, .95); g.shadowBlur = 5 * DPR; }
+// a label chip: dark glass, a 12 % tint and a 42 % hairline in the label's own colour. y = text baseline (12 px font).
+function tag(g, text, x, y, col, align = "left", maxX = Infinity) {
+  const pw = g.measureText(text).width + 10, ph = 16;
+  let x0 = align === "right" ? x - pw : x; if (x0 + pw > maxX) x0 = maxX - pw; if (x0 < 1) x0 = 1;
+  g.save(); unlit(g); g.textAlign = "left"; g.setLineDash([]);
+  rrect(g, Math.round(x0) + .5, Math.round(y - 12) + .5, Math.round(pw) - 1, ph - 1, 4);
+  g.fillStyle = alpha(C.deep, .92); g.fill(); g.fillStyle = alpha(col, .12); g.fill();
+  g.strokeStyle = alpha(col, .42); g.lineWidth = 1; g.stroke();
+  g.fillStyle = col; g.fillText(text, Math.round(x0) + 5, y); g.restore();
+}
+// first free label row near y (labels in a gutter never sit on top of each other)
+function slot(taken, y, lo, hi, gap) {
+  for (const d of [0, 1, -1, 2, -2, 3, -3]) { const yy = clamp(y + d * gap, lo, hi); if (taken.every(t => Math.abs(t - yy) >= gap)) { taken.push(yy); return yy; } }
+  const yy = clamp(y, lo, hi); taken.push(yy); return yy;
+}
+// a lit end point: soft ring, solid dot, dark rim so it reads over any line
+function dot(g, x, y, col, r = 3.5) {
+  g.beginPath(); g.arc(x, y, r + 3.5, 0, 7); g.fillStyle = alpha(col, .16); g.fill();
+  g.beginPath(); g.arc(x, y, r, 0, 7); g.fillStyle = col; g.fill(); g.strokeStyle = alpha(C.deep, .9); g.lineWidth = 1.25; g.stroke();
+}
 
 // premium path since entry: dashed zero line = entry, best marked gold, lock floor (if armed) dashed gold, last point lit
 function drawPosLine(p) {
@@ -734,23 +786,33 @@ function drawPosLine(p) {
   const floor = p && p.lock_armed && !nil(p.lock_floor) ? p.lock_floor - p.entry : null;
   if (floor !== null && Math.abs(floor) > mx) mx = Math.abs(floor);
   const X = (t) => (t - t0) / Math.max(t1 - t0, 1) * (w - 70) + 2, Y = (v) => h / 2 - v / mx * (h / 2 - 8);
-  const lastV = pnlBuf[pnlBuf.length - 1][1], col = lastV >= 0 ? C.up : C.down;
-  g.strokeStyle = C.line; g.setLineDash([3, 3]); g.beginPath(); g.moveTo(0, h / 2); g.lineTo(w - 66, h / 2); g.stroke(); g.setLineDash([]);
-  g.beginPath(); pnlBuf.forEach(([t, v], i) => i ? g.lineTo(X(t), Y(v)) : g.moveTo(X(t), Y(v)));
-  g.strokeStyle = col; g.lineWidth = 2.5; g.stroke();
-  g.lineTo(X(t1), h / 2); g.lineTo(X(t0), h / 2); g.closePath();
-  const grad = g.createLinearGradient(0, 0, 0, h); grad.addColorStop(0, alpha(col, .35)); grad.addColorStop(1, alpha(col, .02)); g.fillStyle = grad; g.fill();
+  const lastV = pnlBuf[pnlBuf.length - 1][1], col = lastV >= 0 ? C.up : C.down, PW = w - 66, z = h / 2;
+  // quiet half-range guides, then the entry (zero) line
+  hline(g, 0, PW, Y(mx / 2), alpha(C.line, .5)); hline(g, 0, PW, Y(-mx / 2), alpha(C.line, .5));
+  hline(g, 0, PW, z, C.strong, [3, 4]);
+  // the path: a soft fill back to the entry line, then the line itself (direction glow, subtle)
+  const path = () => { g.beginPath(); pnlBuf.forEach(([t, v], i) => i ? g.lineTo(X(t), Y(v)) : g.moveTo(X(t), Y(v))); };
+  path(); g.lineTo(X(t1), z); g.lineTo(X(t0), z); g.closePath();
+  const grad = g.createLinearGradient(0, 8, 0, h - 8);
+  grad.addColorStop(0, alpha(col, .30)); grad.addColorStop(.5, alpha(col, .02)); grad.addColorStop(1, alpha(col, .30)); g.fillStyle = grad; g.fill();
+  path(); g.strokeStyle = col; g.lineWidth = 2.25; g.lineCap = "round"; lit(g, col, 8, .45); g.stroke(); unlit(g);
   if (floor !== null) {                             // the locked floor: a gold dashed line at lock_floor − entry
-    g.strokeStyle = "#ffd166"; g.setLineDash([5, 4]); g.lineWidth = 1.5; g.beginPath(); g.moveTo(0, Y(floor)); g.lineTo(w - 66, Y(floor)); g.stroke(); g.setLineDash([]);
-    g.fillStyle = "#ffd166"; g.font = `600 13px ${NUMF}`; g.fillText(`floor ${sgn(floor, 2)}`, w - 62, Y(floor) + 5);
+    hline(g, 0, PW, Y(floor), C.gold, [5, 4], 1.5);
+    g.fillStyle = C.gold; g.font = `600 13px ${NUMF}`; g.fillText(`floor ${sgn(floor, 2)}`, w - 62, Y(floor) + 5);
   }
   const [bt, bv] = pnlBuf[bi];
-  if (bv > 0.5) { g.fillStyle = "#ffd166"; g.beginPath(); g.arc(X(bt), Y(bv), 4, 0, 7); g.fill(); g.font = `600 13px ${NUMF}`; const lx = X(bt) > w - 150; g.textAlign = lx ? "right" : "left"; g.fillText(`best ${sgn(bv, 2)}`, X(bt) + (lx ? -7 : 7), Math.max(12, Y(bv) - 6)); g.textAlign = "left"; }
-  g.fillStyle = col; g.beginPath(); g.arc(X(t1), Y(lastV), 4, 0, 7); g.fill();
+  if (bv > 0.5) {
+    g.beginPath(); g.arc(X(bt), Y(bv), 3.5, 0, 7); g.fillStyle = C.gold; g.fill(); g.strokeStyle = alpha(C.deep, .9); g.lineWidth = 1.25; g.stroke();
+    g.font = `600 13px ${NUMF}`; const lx = X(bt) > w - 150; g.textAlign = lx ? "right" : "left";
+    halo(g); g.fillStyle = C.gold; g.fillText(`best ${sgn(bv, 2)}`, X(bt) + (lx ? -7 : 7), Math.max(12, Y(bv) - 6)); unlit(g); g.textAlign = "left";
+  }
+  dot(g, X(t1), Y(lastV), col);
   let ly = clamp(Y(lastV) + 5, 13, h - 4);
   if (floor !== null && Math.abs(Y(floor) + 5 - ly) < 14) ly = Y(floor) + 5 + (Y(lastV) <= Y(floor) ? -14 : 14);   // never on top of the floor label
-  g.fillStyle = col; g.font = `700 14px ${NUMF}`; g.fillText(sgn(lastV, 2), w - 62, clamp(ly, 13, h - 4));
-  g.fillStyle = C.mist; g.font = `500 13px ${NUMF}`; g.fillText("entry", w - 62, h / 2 + 16);
+  ly = clamp(ly, 13, h - 4);
+  g.fillStyle = col; g.font = `700 14px ${NUMF}`; g.fillText(sgn(lastV, 2), w - 62, ly);
+  const ey = Math.abs(ly - (h / 2 + 16)) < 14 ? h / 2 - 5 : h / 2 + 16;   // the "entry" tag never sits on the value label
+  if (Math.abs(ly - ey) >= 13) { g.fillStyle = C.mist; g.font = `500 13px ${NUMF}`; g.fillText("entry", w - 62, ey); }
 }
 
 function drawTrace(s) {
@@ -768,17 +830,31 @@ function drawTrace(s) {
   const ys = futBuf.map(x => x[1]).concat(lv.map(x => x[0]));
   let lo = Math.min(...ys), hi = Math.max(...ys); const pad = Math.max(2, (hi - lo) * .12); lo -= pad; hi += pad;
   const X = (t) => (t - t0) / 300 * (w - 84), Y = (v) => h - 14 - (v - lo) / (hi - lo) * (h - 24);
-  if (s.episode) { const ta = t1 - s.episode.age; g.fillStyle = alpha(s.episode.dir > 0 ? C.up : C.down, .08); g.fillRect(X(ta), 0, X(t1) - X(ta), h - 12); }
-  g.font = `12px ${NUMF}`;
-  for (const [v, col, name] of lv) {
-    g.strokeStyle = col; g.setLineDash([4, 4]); g.beginPath(); g.moveTo(0, Y(v)); g.lineTo(w - 84, Y(v)); g.stroke(); g.setLineDash([]);
-    g.fillStyle = col; g.fillText(name, w - 80, Y(v) + 4);
+  const PW = w - 84, B = h - 14;
+  // instrument grid: four quiet bands, a minute tick every 60 s, a hairline fencing off the label gutter
+  for (let i = 0; i <= 4; i++) hline(g, 0, PW, 10 + i * (B - 10) / 4, alpha(C.line, i === 4 ? .9 : .42));
+  g.font = `500 10px ${NUMF}`; g.fillStyle = C.dim;
+  for (let m = 1; m <= 4; m++) { const x = X(t1 - m * 60); vline(g, x, 10, B, alpha(C.line, .32)); g.textAlign = "center"; g.fillText(`−${m}m`, x, h - 2); }
+  g.textAlign = "left"; vline(g, PW + 2, 6, B, alpha(C.line, .7));
+  if (s.episode) {                                  // the live move: a band that brightens toward now, edged where it began
+    const ta = t1 - s.episode.age, ec = s.episode.dir > 0 ? C.up : C.down, xa = X(ta), xb = X(t1);
+    const eg = g.createLinearGradient(xa, 0, Math.max(xa + 1, xb), 0); eg.addColorStop(0, alpha(ec, .03)); eg.addColorStop(1, alpha(ec, .13));
+    g.fillStyle = eg; g.fillRect(xa, 0, xb - xa, h - 12); if (xa > 0) vline(g, xa, 0, B, alpha(ec, .45));
   }
-  g.beginPath(); futBuf.forEach(([t, v], i) => i ? g.lineTo(X(t), Y(v)) : g.moveTo(X(t), Y(v)));
-  g.strokeStyle = C.ink; g.lineWidth = 1.6; g.stroke();
+  g.font = `600 12px ${NUMF}`;
+  const taken = [12, h - 16];                       // the hi / lo scale labels own these rows
+  for (const [v, col, name] of lv) {
+    hline(g, 0, PW, Y(v), alpha(col, .85), [4, 4]);
+    tag(g, name, w - 80, slot(taken, Y(v) + 4, 26, h - 30, 17), col, "left", w - 1);
+  }
+  // the futures line: ink, with a faint wash beneath it (neutral: no glow)
+  const path = () => { g.beginPath(); futBuf.forEach(([t, v], i) => i ? g.lineTo(X(t), Y(v)) : g.moveTo(X(t), Y(v))); };
+  path(); g.lineTo(X(futBuf[futBuf.length - 1][0]), B); g.lineTo(X(futBuf[0][0]), B); g.closePath();
+  const fg = g.createLinearGradient(0, 10, 0, B); fg.addColorStop(0, alpha(C.ink, .10)); fg.addColorStop(1, alpha(C.ink, 0)); g.fillStyle = fg; g.fill();
+  path(); g.strokeStyle = C.ink; g.lineWidth = 1.75; g.lineCap = "round"; g.stroke();
   const [tl, vl] = futBuf[futBuf.length - 1];
-  g.fillStyle = C.ink; g.beginPath(); g.arc(X(tl), Y(vl), 3, 0, 7); g.fill();
-  g.fillStyle = C.mist; g.fillText(fmt(hi, 0), w - 80, 12); g.fillText(fmt(lo, 0), w - 80, h - 16);
+  dot(g, X(tl), Y(vl), C.ink, 3);
+  g.font = `500 12px ${NUMF}`; g.fillStyle = C.mist; g.fillText(fmt(hi, 0), w - 80, 12); g.fillText(fmt(lo, 0), w - 80, h - 16);
   const d = s.domino || {}, fb = s.fut_book || {}, lg = s.lag || {}, bk = s.bank || {};
   const rg = s.regime || {}, ld = s.ledger || {};
   const RW = { DIRECTIONAL: "a clean move the basket confirms", BREAKOUT: "escaping the recent range", EXHAUSTION: "stretched from VWAP and stalling — don't chase",
@@ -790,11 +866,10 @@ function drawTrace(s) {
 
 function drawOI(s) {
   const cv = $("oi"); const rows = (s.chain || []).slice().sort((a, b) => b[0] - a[0]);
-  cv.height = Math.max(220, rows.length * 22 + 20);
-  const [g, w, h] = fit(cv); g.clearRect(0, 0, w, h);
+  const [g, w, h] = fit(cv, Math.max(220, rows.length * 22 + 20)); g.clearRect(0, 0, w, h);
   const pr = s.pressure || {};
   $("pcr").textContent = nil(pr.pcr) ? "" : `put/call ${fmt(pr.pcr, 2)}, chain ${fmt(pr.chain_age, 0)} s old`;
-  if (!rows.length) { g.fillStyle = C.mist; g.font = `14px ${NUMF}`; g.fillText("Waiting for the option chain", 10, 24); return; }
+  if (!rows.length) { g.fillStyle = C.mist; g.font = `500 14px ${NUMF}`; g.fillText("Waiting for the option chain", 10, 24); return; }
   const mid = w / 2, half = mid - 34, mx = Math.max(...rows.map(r => Math.max(r[1], r[2])), 1);
   const rowH = (h - 20) / rows.length, top = 10;
   const walls = new Set([...(pr.walls_up || []), ...(pr.walls_dn || [])].map(x => x[0]));
@@ -802,28 +877,46 @@ function drawOI(s) {
     if (k >= rows[0][0]) return top + rowH / 2; if (k <= rows[rows.length - 1][0]) return top + rowH * (rows.length - .5);
     for (let i = 0; i < rows.length - 1; i++) if (k <= rows[i][0] && k >= rows[i + 1][0]) return top + rowH * (i + .5 + (rows[i][0] - k) / (rows[i][0] - rows[i + 1][0]));
     return top; };
-  g.font = `12px ${NUMF}`; g.textAlign = "center";
+  // the strike spine: a quiet well down the middle the bars grow out of, and faint full-length tracks per row
+  rrect(g, mid - 27, top, 54, rowH * rows.length, 6); g.fillStyle = alpha(C.card, .95); g.fill(); g.strokeStyle = alpha(C.line, .8); g.lineWidth = 1; g.stroke();
+  g.textAlign = "center";
   rows.forEach(([k, ce, pe, cec, pec], i) => {
-    const y = top + i * rowH, bh = Math.max(4, rowH - 7), isW = walls.has(k);
-    g.fillStyle = alpha(C.down, isW ? .95 : .45); const pw = pe / mx * half; g.fillRect(mid - 30 - pw, y + 3, pw, bh);   // puts: PE colour
-    g.fillStyle = alpha(C.up, isW ? .95 : .45); const cw = ce / mx * half; g.fillRect(mid + 30, y + 3, cw, bh);           // calls: CE colour
-    g.fillStyle = C.ink; if (pec) { g.fillRect(mid - 30 - Math.abs(pec) / mx * half, y + rowH - 4, Math.abs(pec) / mx * half, 2); }
+    const y = top + i * rowH, bh = Math.max(4, rowH - 7), isW = walls.has(k), rr = Math.min(3, bh / 2);
+    g.fillStyle = alpha(C.shelf, .28);
+    rrect(g, mid - 30 - half, y + 3, half, bh, rr); g.fill(); rrect(g, mid + 30, y + 3, half, bh, rr); g.fill();
+    const pEnd = alpha(C.down, isW ? 1 : .62); const pw = pe / mx * half;      // puts: PE colour
+    const cEnd = alpha(C.up, isW ? 1 : .62); const cw = ce / mx * half;        // calls: CE colour
+    if (pw >= .5) {                                 // puts: PE colour, brightening toward the bar's end; walls solid and lit
+      const pg = g.createLinearGradient(mid - 30, 0, mid - 30 - pw, 0);
+      pg.addColorStop(0, alpha(C.down, isW ? .78 : .28)); pg.addColorStop(1, pEnd);
+      g.fillStyle = pg; if (isW) lit(g, C.down, 8, .5); rrect(g, mid - 30 - pw, y + 3, pw, bh, rr); g.fill(); unlit(g);
+    }
+    if (cw >= .5) {                                 // calls: CE colour
+      const cg = g.createLinearGradient(mid + 30, 0, mid + 30 + cw, 0);
+      cg.addColorStop(0, alpha(C.up, isW ? .78 : .28)); cg.addColorStop(1, cEnd);
+      g.fillStyle = cg; if (isW) lit(g, C.up, 8, .5); rrect(g, mid + 30, y + 3, cw, bh, rr); g.fill(); unlit(g);
+    }
+    g.fillStyle = alpha(C.ink, .9); if (pec) { g.fillRect(mid - 30 - Math.abs(pec) / mx * half, y + rowH - 4, Math.abs(pec) / mx * half, 2); }
     if (cec) { g.fillRect(mid + 30, y + rowH - 4, Math.abs(cec) / mx * half, 2); }
-    g.fillStyle = isW ? C.ink : C.mist; g.fillText(k, mid, y + rowH / 2 + 4);
+    g.font = `${isW ? 700 : 500} 12px ${NUMF}`; g.fillStyle = isW ? C.ink : C.mist; g.fillText(k, mid, y + rowH / 2 + 4);
   });
+  g.font = `600 12px ${NUMF}`;
   const spot = s.spot || s.fut;
   if (!nil(spot)) {
-    const y = Y(spot); g.strokeStyle = C.beacon; g.lineWidth = 1.5; g.beginPath(); g.moveTo(4, y); g.lineTo(w - 4, y); g.stroke();
-    g.fillStyle = C.beacon; g.textAlign = "left"; g.fillText(`spot ${fmt(spot, 1)}`, 6, y - 4);
+    const y = Y(spot); hline(g, 4, w - 4, y, C.beacon, null, 1.5);
+    tag(g, `spot ${fmt(spot, 1)}`, 6, Math.max(14, y - 5), C.beacon, "left", w - 2);
   }
   const gx = s.gex || {};
   if (gx.ok) {                                   // dealer-gamma markers: flip (dashed) and max pain (dotted)
     const mark = (k, dash, label, al) => { if (nil(k) || !rows.length) return; const y = Y(k);
-      g.save(); g.setLineDash(dash); g.strokeStyle = C.ink; g.lineWidth = 1; g.beginPath(); g.moveTo(4, y); g.lineTo(w - 4, y); g.stroke(); g.restore();
-      g.fillStyle = C.ink; g.textAlign = al; g.fillText(label, al === "right" ? w - 6 : 6, y - 3); };
+      hline(g, 4, w - 4, y, alpha(C.ink, .8), dash);
+      tag(g, label, al === "right" ? w - 6 : 6, Math.max(14, y - 4), C.ink2, al, w - 2); };
     mark(gx.flip, [6, 4], `gamma flip ${fmt(gx.flip, 0)}`, "right"); mark(gx.max_pain, [2, 3], `max pain ${fmt(gx.max_pain, 0)}`, "left");
   }
-  g.textAlign = "left"; g.fillStyle = C.mist; g.fillText("put OI: support", 4, h - 2); g.textAlign = "right"; g.fillText("call OI: resistance", w - 4, h - 2);
+  g.font = `500 12px ${NUMF}`;                    // the key: a side swatch beside each caption
+  g.textAlign = "left"; g.fillStyle = C.down; rrect(g, 4, h - 10, 8, 8, 2); g.fill(); g.fillStyle = C.mist; g.fillText("put OI: support", 17, h - 2);
+  g.textAlign = "right"; g.fillStyle = C.up; rrect(g, w - 12, h - 10, 8, 8, 2); g.fill(); g.fillStyle = C.mist; g.fillText("call OI: resistance", w - 17, h - 2);
+  g.textAlign = "left";
   const gw = { DAMPEN: "dealer hedging leans against moves, so spikes tend to fade", AMPLIFY: "dealer hedging leans with moves, so spikes can run", MIXED: "dealer hedging is balanced" };
   $("gex").innerHTML = gx.ok
     ? `Dealer gamma: <b class="${gx.regime === "AMPLIFY" ? "up" : gx.regime === "DAMPEN" ? "down" : ""}">${gx.regime.toLowerCase()}</b> (balance ${sgn(gx.balance, 2)}), ${gw[gx.regime]}. Flip ${nil(gx.flip) ? "none within 3%" : fmt(gx.flip, 0)}, call gamma wall ${nil(gx.call_wall) ? "—" : fmt(gx.call_wall, 0)}, put gamma wall ${nil(gx.put_wall) ? "—" : fmt(gx.put_wall, 0)}, max pain ${fmt(gx.max_pain, 0)}. <span class="c-0">Assumes dealers are long calls and short puts; shown as evidence only.</span>`
@@ -847,36 +940,54 @@ function frame(tms) {
 
 function drawTriangle(dt, tms) {
   const cv = $("tri"); const [g, w, h] = fit(cv); g.clearRect(0, 0, w, h);
-  const c = corners(S), k = 1 - Math.exp(-dt * 6);
+  const still = RM.matches;                          // reduced motion: values snap, nothing turns
+  const c = corners(S), k = still ? 1 : 1 - Math.exp(-dt * 6);
   for (const n of ["push", "crowd", "fresh"]) anim[n] += (clamp(c[n], 0, 1.35) - anim[n]) * k;
   const near = clamp(Math.min(anim.push, anim.crowd, c.ep ? anim.fresh : 0), 0, 1.2);
   anim.glow += ((S.pos ? 0.1 : c.closed ? 1 : near * near) - anim.glow) * k;   // holding: the triangle is background
-  anim.rot += dt * (0.04 + 0.9 * near * near);
+  if (!still) anim.rot += dt * (0.04 + 0.9 * near * near);
   const col = c.dir > 0 ? C.up : C.down;
   const cx = w / 2, cy = h * .52, R = Math.min(w, h) * .21;
   const ang = [-Math.PI / 2, Math.PI * 5 / 6, Math.PI / 6];
   const P = (a, r) => [cx + Math.cos(a) * r, cy + Math.sin(a) * r];
+  const fr = [anim.push, anim.crowd, anim.fresh];
+  const ok = fr.map((v, i) => v >= 1 && (i < 2 || c.ep));
 
-  // the current: spiral arms that turn faster as the corners converge
-  g.lineWidth = 1;
+  // the current: spiral arms that turn faster as the corners converge (one radial wash: bright mid-field, fading out)
+  const armCol = anim.glow > .6 ? C.beacon : C.refill, aA = .05 + .1 * near;
+  const sg = g.createRadialGradient(cx, cy, R * .12, cx, cy, R * 2.3);
+  sg.addColorStop(0, alpha(armCol, 0)); sg.addColorStop(.3, alpha(armCol, Math.min(1, aA * 1.7))); sg.addColorStop(1, alpha(armCol, aA * .3));
+  g.lineWidth = 1; g.lineCap = "round"; g.strokeStyle = sg;
   for (let arm = 0; arm < 5; arm++) {
     g.beginPath();
     for (let i = 0; i <= 70; i++) {
       const r = R * 2.3 * Math.exp(-i * .035), a = anim.rot + arm * Math.PI * 2 / 5 + i * .085;
       const [x, y] = P(a, r); i ? g.lineTo(x, y) : g.moveTo(x, y);
     }
-    g.strokeStyle = alpha(anim.glow > .6 ? C.beacon : C.refill, .05 + .1 * near); g.stroke();
+    g.stroke();
   }
-  // sonar rings
-  for (let i = 1; i <= 3; i++) { g.beginPath(); g.arc(cx, cy, R * (.55 * i), 0, 7); g.strokeStyle = alpha(C.line, .5); g.stroke(); }
+  // sonar rings and a fixed bezel of ticks: the instrument's face
+  for (let i = 1; i <= 3; i++) { g.beginPath(); g.arc(cx, cy, R * (.55 * i), 0, 7); g.strokeStyle = alpha(i === 3 ? C.strong : C.line, i === 3 ? .7 : .5); g.lineWidth = 1; g.stroke(); }
+  g.strokeStyle = alpha(C.line, .9); g.lineWidth = 1;
+  g.beginPath();
+  for (let i = 0; i < 48; i++) {
+    const a = i * Math.PI / 24, r0 = R * 1.65, len = i % 12 === 0 ? 7 : i % 4 === 0 ? 4.5 : 2.5;
+    const [x0, y0] = P(a, r0), [x1, y1] = P(a, r0 + len); g.moveTo(x0, y0); g.lineTo(x1, y1);
+  }
+  g.stroke();
 
-  // the threshold triangle (dashed) and the market's triangle (filled)
+  // the threshold triangle (dashed, with its three set-points) and the market's triangle (filled)
   g.setLineDash([6, 6]); g.beginPath(); ang.forEach((a, i) => { const [x, y] = P(a, R); i ? g.lineTo(x, y) : g.moveTo(x, y); }); g.closePath();
   g.strokeStyle = alpha(C.ink, .45); g.lineWidth = 1.2; g.stroke(); g.setLineDash([]);
-  const fr = [anim.push, anim.crowd, anim.fresh];
+  ang.forEach((a, i) => { const [x, y] = P(a, R); g.beginPath(); g.arc(x, y, 3, 0, 7); g.fillStyle = C.deep; g.fill(); g.strokeStyle = ok[i] ? C.beacon : alpha(C.ink, .55); g.lineWidth = 1.2; g.stroke(); });
   g.beginPath(); ang.forEach((a, i) => { const [x, y] = P(a, R * Math.max(.04, fr[i])); i ? g.lineTo(x, y) : g.moveTo(x, y); }); g.closePath();
-  const fillCol = anim.glow > .85 ? C.beacon : col;
-  g.fillStyle = alpha(fillCol, .14 + .22 * near); g.fill(); g.strokeStyle = alpha(fillCol, .9); g.lineWidth = 2; g.stroke();
+  const fillCol = anim.glow > .85 ? C.beacon : col, fa = .14 + .22 * near;
+  const tg = g.createRadialGradient(cx, cy, 0, cx, cy, R * 1.2);
+  tg.addColorStop(0, alpha(fillCol, fa * .45)); tg.addColorStop(1, alpha(fillCol, Math.min(1, fa * 1.25)));
+  g.fillStyle = tg; g.fill();
+  if (near > .5) lit(g, fillCol, 6 + 12 * clamp((near - .5) / .5, 0, 1), .6);    // glow only as the trigger nears
+  g.strokeStyle = alpha(fillCol, .9); g.lineWidth = 2; g.lineJoin = "round"; g.stroke(); unlit(g);
+  ang.forEach((a, i) => { const [x, y] = P(a, R * Math.max(.04, fr[i])); g.beginPath(); g.arc(x, y, 2.6, 0, 7); g.fillStyle = ok[i] ? C.beacon : fillCol; g.fill(); });
 
   // the eye
   const er = R * (.12 + .32 * anim.glow);
@@ -901,9 +1012,12 @@ function drawTriangle(dt, tms) {
   ];
   g.textAlign = "center";
   ang.forEach((a, i) => {
-    const [x, y] = P(a, R + 30), ok = fr[i] >= 1 && (i < 2 || c.ep);
-    g.font = `700 ${Math.max(14, R * .085)}px ${NUMF}`; g.fillStyle = ok ? C.beacon : C.ink; g.fillText(lab[i][0], x, y + (i === 0 ? -10 : 6));
-    g.font = `500 ${Math.max(12, R * .06)}px ${NUMF}`; g.fillStyle = ok ? C.beacon : C.mist; g.fillText(lab[i][1], x, y + (i === 0 ? 8 : 24));
+    const [x, y] = P(a, R + 30);
+    if (ok[i]) lit(g, C.beacon, 10, .5); else halo(g);       // a met corner glows gold; the rest get a dark legibility halo
+    g.font = `700 ${Math.max(14, R * .085)}px ${NUMF}`; g.fillStyle = ok[i] ? C.beacon : C.ink; g.fillText(lab[i][0], x, y + (i === 0 ? -10 : 6));
+    if (!ok[i]) halo(g);
+    g.font = `500 ${Math.max(12, R * .06)}px ${NUMF}`; g.fillStyle = ok[i] ? C.beacon : C.mist; g.fillText(lab[i][1], x, y + (i === 0 ? 8 : 24));
+    unlit(g);
   });
 
   // the heavyweights orbit and are pulled in when they join the move
@@ -918,10 +1032,11 @@ function drawTriangle(dt, tms) {
     const rad = Math.max(3, Math.sqrt(t.w) * R * .032);
     const mv = t.m || 0, bc = mv > 0 ? C.up : mv < 0 ? C.down : C.mist;
     const strength = clamp(Math.abs(t.z || 0) / 2, .2, 1);
-    if (b.pull > .3) { g.beginPath(); g.moveTo(x, y); const [x2, y2] = P(a, R * (2.02 - .52 * b.pull) + rad * 3); g.lineTo(x2, y2); g.strokeStyle = alpha(bc, .4 * b.pull); g.lineWidth = rad * .9; g.stroke(); }
+    if (b.pull > .3) { g.beginPath(); g.moveTo(x, y); const [x2, y2] = P(a, R * (2.02 - .52 * b.pull) + rad * 3); g.lineTo(x2, y2); g.strokeStyle = alpha(bc, .4 * b.pull); g.lineWidth = rad * .9; g.lineCap = "round"; g.stroke(); }
     g.beginPath(); g.arc(x, y, rad, 0, 7); g.fillStyle = alpha(bc, .25 + .7 * strength); g.fill();
-    if (t.sym === first) { g.strokeStyle = C.beacon; g.lineWidth = 2; g.stroke(); }
-    if (t.w >= 3.3 || t.sym === first) { g.font = `600 ${Math.max(11, R * .05)}px ${NUMF}`; g.fillStyle = t.sym === first ? C.beacon : C.ink; g.fillText(t.sym, x, y - rad - 5); }
+    g.strokeStyle = alpha(bc, .35 + .6 * strength); g.lineWidth = 1; g.stroke();
+    if (t.sym === first) { g.beginPath(); g.arc(x, y, rad + 2.5, 0, 7); lit(g, C.beacon, 8, .5); g.strokeStyle = C.beacon; g.lineWidth = 1.75; g.stroke(); unlit(g); }
+    if (t.w >= 3.3 || t.sym === first) { g.font = `600 ${Math.max(11, R * .05)}px ${NUMF}`; halo(g); g.fillStyle = t.sym === first ? C.beacon : C.ink; g.fillText(t.sym, x, y - rad - 5); unlit(g); }
   });
   g.textAlign = "left";
 }
@@ -973,7 +1088,7 @@ function renderStraddle(s, now) {
 function drawStraddle(w, now) {
   const cv = $("swline"); const [g, wd, h] = fit(cv); g.clearRect(0, 0, wd, h);
   const ser = (w && w.series) || [];
-  if (ser.length < 2) { g.fillStyle = C.mist; g.font = `13px ${NUMF}`; g.fillText("Collecting the straddle's path", 10, 24); return; }
+  if (ser.length < 2) { g.fillStyle = C.mist; g.font = `500 13px ${NUMF}`; g.fillText("Collecting the straddle's path", 10, 24); return; }
   const t1 = ser[ser.length - 1][0], span = Math.max(900, Math.min(7200, t1 - ser[0][0])), t0 = t1 - span;
   const pts = ser.filter(p => p[0] >= t0);
   const ys = [];
@@ -981,37 +1096,52 @@ function drawStraddle(w, now) {
   if (w.vwap) ys.push(w.vwap);
   let lo = Math.min(...ys), hi = Math.max(...ys); const pad = Math.max(1, (hi - lo) * .15); lo -= pad; hi += pad;
   const RW = 56, X = (t) => (t - t0) / span * (wd - RW), Y = (v) => h - 16 - (v - lo) / (hi - lo) * (h - 28);
-  g.font = `12px ${NUMF}`;
-  // spike windows (engine clock, seconds — same clock as the series)
+  const PW = wd - RW, B = h - 16;
+  // instrument grid: four quiet bands and the gutter hairline
+  for (let i = 0; i <= 4; i++) hline(g, 0, PW, 12 + i * (B - 12) / 4, alpha(C.line, i === 4 ? .9 : .42));
+  vline(g, PW + 1, 4, B, alpha(C.line, .7));
+  g.font = `600 12px ${NUMF}`;
+  // spike windows (engine clock, seconds — same clock as the series): a gold wash, capped with a gold rule
   for (const x of w.spikes || []) {
     if (nil(x.t_s)) continue;
     const xa = X(x.t_s), xb = X(nil(x.end_s) ? t1 : x.end_s);
-    if (xb > 0 && xa < wd - RW) { g.fillStyle = alpha(C.beacon, .10); g.fillRect(Math.max(0, xa), 0, Math.min(wd - RW, xb) - Math.max(0, xa), h - 14); }
+    if (xb > 0 && xa < PW) {
+      const x0 = Math.max(0, xa), x1 = Math.min(PW, xb);
+      const bg = g.createLinearGradient(0, 0, 0, h - 14); bg.addColorStop(0, alpha(C.beacon, .16)); bg.addColorStop(1, alpha(C.beacon, .04));
+      g.fillStyle = bg; g.fillRect(x0, 0, x1 - x0, h - 14); g.fillStyle = alpha(C.beacon, .7); g.fillRect(x0, 0, x1 - x0, 2);
+    }
   }
   // ATM rolls
   for (const x of w.shifts || []) {
     if (nil(x.t_s) || x.t_s < t0) continue;
-    g.strokeStyle = alpha(C.refill, .7); g.setLineDash([3, 4]); g.beginPath(); g.moveTo(X(x.t_s), 0); g.lineTo(X(x.t_s), h - 14); g.stroke(); g.setLineDash([]);
-    g.fillStyle = C.refill; g.fillText(`${x.from}→${x.to}`, X(x.t_s) + 4, 12);
+    vline(g, X(x.t_s), 0, h - 14, alpha(C.refill, .7), [3, 4]);
+    tag(g, `${x.from}→${x.to}`, X(x.t_s) + 4, 14, C.refill, "left", PW);
   }
   // theta-only path
-  g.strokeStyle = alpha(C.mist, .8); g.setLineDash([5, 5]); g.lineWidth = 1; g.beginPath();
+  g.strokeStyle = alpha(C.mist, .8); g.setLineDash([4, 5]); g.lineWidth = 1.2; g.beginPath();
   let started = false;
   for (const p of pts) { if (nil(p[4])) continue; started ? g.lineTo(X(p[0]), Y(p[4])) : g.moveTo(X(p[0]), Y(p[4])); started = true; }
   g.stroke(); g.setLineDash([]);
   // VWAP
-  if (w.vwap) { g.strokeStyle = alpha(C.refill, .55); g.beginPath(); g.moveTo(0, Y(w.vwap)); g.lineTo(wd - RW, Y(w.vwap)); g.stroke(); g.fillStyle = C.refill; g.fillText("vwap " + fmt(w.vwap, 1), wd - RW + 4, Y(w.vwap) + 4); }
-  // the straddle
-  g.strokeStyle = w.spike ? C.beacon : C.ink; g.lineWidth = 1.8; g.beginPath(); started = false;
-  for (const p of pts) { if (nil(p[1])) continue; started ? g.lineTo(X(p[0]), Y(p[1])) : g.moveTo(X(p[0]), Y(p[1])); started = true; }
-  g.stroke();
+  if (w.vwap) hline(g, 0, PW, Y(w.vwap), alpha(C.refill, .55));
+  // the straddle: a faint wash beneath, then the line (gold and lit only during a spike)
+  const sc = w.spike ? C.beacon : C.ink;
+  const trace = () => { g.beginPath(); let st = false, xf = 0, xl = 0;
+    for (const p of pts) { if (nil(p[1])) continue; const x = X(p[0]); st ? g.lineTo(x, Y(p[1])) : (g.moveTo(x, Y(p[1])), xf = x); st = true; xl = x; }
+    return [st, xf, xl]; };
+  const [any, xf, xl] = trace();
+  if (any) {
+    g.lineTo(xl, B); g.lineTo(xf, B); g.closePath();
+    const fg = g.createLinearGradient(0, 12, 0, B); fg.addColorStop(0, alpha(sc, w.spike ? .16 : .10)); fg.addColorStop(1, alpha(sc, 0)); g.fillStyle = fg; g.fill();
+    trace(); g.strokeStyle = sc; g.lineWidth = 1.8; g.lineCap = "round"; if (w.spike) lit(g, C.beacon, 8, .5); g.stroke(); unlit(g);
+  }
   const lp = pts[pts.length - 1];
   const taken = [];                                   // label rows already used on the right margin
-  const place = (y) => { let yy = Math.min(h - 18, Math.max(14, y)); for (let i = 0; i < 4; i++) { if (taken.every(t => Math.abs(t - yy) >= 13)) break; yy += 13; } taken.push(yy); return yy; };
-  if (w.vwap) taken.push(Y(w.vwap) + 4);
-  if (!nil(lp[1])) { g.fillStyle = w.spike ? C.beacon : C.ink; g.beginPath(); g.arc(X(lp[0]), Y(lp[1]), 3, 0, 7); g.fill(); g.fillText(fmt(lp[1], 1), wd - RW + 4, place(Y(lp[1]) + 4)); }
-  if (!nil(lp[4])) { g.fillStyle = C.mist; g.fillText("theta " + fmt(lp[4], 1), wd - RW + 4, place(Y(lp[4]) + 4)); }
-  g.fillStyle = C.mist; g.fillText(`${Math.round(span / 60)} min`, 4, h - 3);
+  const place = (y) => slot(taken, y, 14, h - 20, 17);
+  if (w.vwap) tag(g, "vwap " + fmt(w.vwap, 1), wd - 1, place(Y(w.vwap) + 4), C.refill, "right", wd - 1);
+  if (!nil(lp[1])) { dot(g, X(lp[0]), Y(lp[1]), sc, 3); g.font = `700 12px ${NUMF}`; tag(g, fmt(lp[1], 1), wd - 1, place(Y(lp[1]) + 4), sc, "right", wd - 1); g.font = `600 12px ${NUMF}`; }
+  if (!nil(lp[4])) tag(g, "theta " + fmt(lp[4], 1), wd - 1, place(Y(lp[4]) + 4), C.mist, "right", wd - 1);
+  g.font = `500 11px ${NUMF}`; g.fillStyle = C.mist; g.fillText(`${Math.round(span / 60)} min`, 4, h - 3);
 }
 
 // ── lower panels ───────────────────────────────────────────────────────────

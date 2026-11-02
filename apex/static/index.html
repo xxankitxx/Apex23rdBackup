@@ -31,14 +31,14 @@
   </div>
 
   <div class="ht ht-opt ht-ce nodata" id="t-ce" title="This week's at-the-money call: last traded price, straight from the tick stream. Below it the bid / ask, delta and IV.">
-    <span class="lbl">ATM CE <span id="cek"></span></span>
+    <span class="lbl"><span class="atmw">ATM </span>CE <span id="cek"></span></span>
     <b class="val" id="atmce">—</b>
     <span class="sub" id="cesub"></span>
     <span class="held-tag" id="ceheld" hidden>HELD</span>
   </div>
 
   <div class="ht ht-opt ht-pe nodata" id="t-pe" title="This week's at-the-money put: last traded price, straight from the tick stream. Below it the bid / ask, delta and IV.">
-    <span class="lbl">ATM PE <span id="pek"></span></span>
+    <span class="lbl"><span class="atmw">ATM </span>PE <span id="pek"></span></span>
     <b class="val" id="atmpe">—</b>
     <span class="sub" id="pesub"></span>
     <span class="held-tag" id="peheld" hidden>HELD</span>
@@ -178,7 +178,7 @@
 
   <section class="trades" aria-label="Paper trades">
     <div class="sec-head"><h2>Today's paper trades</h2><span id="tstats"></span></div>
-    <table id="tt"><thead><tr><th>In → Out</th><th class="r">Held</th><th>Contract</th><th class="r">Lots · Qty</th><th class="r">Deployed</th><th class="r">Entry → Exit</th><th class="r">Rupees · pts · return</th><th>Why it closed</th><th class="r">Capital</th></tr></thead><tbody></tbody></table>
+    <div class="tt-scroll"><table id="tt"><thead><tr><th>In → Out</th><th class="r">Held</th><th>Contract</th><th class="r">Lots · Qty</th><th class="r">Deployed</th><th class="r">Entry → Exit</th><th class="r">Rupees · pts · return</th><th>Why it closed</th><th class="r">Capital</th></tr></thead><tbody></tbody></table></div>
   </section>
 
   <section class="books" aria-label="Parallel books">
