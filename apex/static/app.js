@@ -361,7 +361,7 @@ function corners(s) {
 
 // council books (c20_9x and family): their exit codes and entry reasons, in words
 const COUNCIL_WHY = { BE_LOCK: "Break-even floor (peaked +15 %, sold at entry)", SL: "Premium stop −15 %", TIME: "Hold clock ran out",
-  FWD_TRAIL: "Forward trail", GIVEBACK: "Give-back floor (keeps 70 % of the peak)", RAMP_LOCK: "Ramp floor", RENT_TRAIL: "Rent trail",
+  FWD_TRAIL: "Forward trail", GIVEBACK: "Give-back floor (keeps 70 % of the peak)", RAMP_LOCK: "Ramp floor", RENT_TRAIL: "Rent trail", EXP_TRAIL: "Expiry give-back trail (6 pts off the peak bid)", HALF_LOCK: "Half-of-peak floor",
   PREM_TRAIL: "Premium trail (8 % off the peak bid)", STALE_PTRAIL: "Premium trail (forward stale)", LVL_BOOK: "Booked at a level",
   PGB: "Premium give-back", EXH: "Exhaustion", RENT: "Rent too low", TP: "Take profit", COUNCIL: "Council exit" };
 function councilWhy(r) {

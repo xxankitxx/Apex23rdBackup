@@ -1,5 +1,10 @@
 # Changelog
 
+## 3 Nov 2026 (evening) — expiry trail tested, not promoted
+- Shadow council books c20_9e (expiry give-back trail: arm +5 pts, give 6 pts) and c20_9h (half-of-peak floor from
+  +15 % on expiry days). Replayed on 19 Oct, 27 Oct, 3 Nov: c20_9x +5.17 L, c20_9e +1.10 L, c20_9h +0.21 L
+  (docs/21 §8). c20_9x stays champion. Dashboard names EXP_TRAIL / HALF_LOCK exits; tests/test_c20_9e.py.
+
 ## Unreleased — 3 Nov 2026 (dashboard: a council position shows its real exit rules)
 
 - **Why.** The ten-member live-vs-tape review (docs/21_LIVE_VS_TAPE_3NOV.md) found the band showing the t28 books'

@@ -118,3 +118,26 @@ the floor nine minutes earlier (+572 vs −1,404), and trade 2 left on the forwa
 stop at 94.90 (−12,591 vs −14,112). The other council books agree (c20_9t −20,673 vs −29,390; c20_8x −55,149 vs
 −60,340); across all 68 books the replay lost ₹11.84 L against ₹13.16 L live, with identical trades in 20. The tape
 does not make today profitable: the loss is the strategy's, not the live path's.
+
+## 8. The expiry trail on the three expiry tapes (replayed 3 Nov evening, runs `20261103-205612`)
+
+Owner: "Yes, run the tapes." Two shadow books were added beside c20_9x and the three expiry tapes replayed with the
+same engine: **c20_9e** (expiry days: once the peak bid is +5 pts the floor is peak − 6 pts, exit EXP_TRAIL) and
+**c20_9h** (expiry days: half-of-peak floor from +15 %, exit HALF_LOCK). Normal days are c20_9x in both.
+
+| Book | 19 Oct | 27 Oct | 3 Nov | Three days |
+|---|---|---|---|---|
+| c20_9x (champion) | +39,904 | +5,18,352 | −40,986 | **+5,17,270** |
+| c20_9e (5-pt arm / 6-pt give) | +29,412 | +92,268 | −12,152 | +1,09,528 |
+| c20_9h (half of peak from +15 %) | +9,444 | +51,750 | −39,744 | +21,450 |
+| c20_9t (rent trail, shadow) | +9,539 | +1,71,239 | −20,673 | +1,60,105 |
+
+**Both fail the test set in §4.** The trail does what it did on 3 Nov (−12,152 against −40,986, 10 of 14 exits
+EXP_TRAIL) but on the two profitable expiry tapes it sells every runner 6 pts off its first peak: the 27 Oct 22700 CE
+40.60 → 72.95 (+2.73 L) leaves at 55.55 (+2.1 k), the 10:17 PE 123.60 → 187 (+64 pts) leaves at 122.50, and 21 of 26
+exits on 19 Oct are the trail at +2..+12 pts. The half-of-peak floor loses on all three. The rent trail (c20_9t)
+is the best of the three alternatives and still gives up 69 % of the champion's three-day total.
+
+So the 3 Nov loss is the price of the expiry mode that paid +5.58 L on the other two expiry days; a tight premium
+trail removes both. The books stay registered as shadows (no champion change). What is left for the owner to decide
+is §5 item 2: trade expiry days with c20_9x as it is, or keep it out of them.
