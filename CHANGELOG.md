@@ -1,5 +1,11 @@
 # Changelog
 
+## 3 Nov 2026 (night) — stuck-trade panel; c20_9s shadow
+- Ten-member panel on trades held 10+ min that never perform (docs/22_STUCK_TRADES_PANEL_3NOV.md). Six exit/entry
+  rules failed (cliffs or losses); the stale-impulse pullback veto passed: on normal days refuse a pullback whose
+  breakout is > 660 s old. Kit, 11 days: +12.26 L vs c20_9x +11.50 L; stuck trades 15 / -77.8k -> 10 / -31.3k;
+  expiry days unchanged. Registered as shadow c20_9s; c20_9x stays champion. tests/test_c20_9s.py.
+
 ## 3 Nov 2026 (evening) — expiry trail tested, not promoted
 - Shadow council books c20_9e (expiry give-back trail: arm +5 pts, give 6 pts) and c20_9h (half-of-peak floor from
   +15 % on expiry days). Replayed on 19 Oct, 27 Oct, 3 Nov: c20_9x +5.17 L, c20_9e +1.10 L, c20_9h +0.21 L
