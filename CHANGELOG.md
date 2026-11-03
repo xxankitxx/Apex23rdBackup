@@ -1,5 +1,30 @@
 # Changelog
 
+## Unreleased — 3 Nov 2026 (dashboard: a council position shows its real exit rules)
+
+- **Why.** The ten-member live-vs-tape review (docs/21_LIVE_VS_TAPE_3NOV.md) found the band showing the t28 books'
+  12-pt spot trail and +18 % profit lock for the c20_9x champion, which inherits those parameters but never runs
+  them: "Stop not set yet" and "LOCK ARMS AT +18 %" all day, an exit chip that only said "COUNCIL", and 158
+  commentary lines of "[giveback: TypeError]" (the give-back warning formatted a None stop distance).
+- **The council adapter publishes the strategy's own rules** in `pos["rules"]` every second it holds: the −15 %
+  premium stop level, the forward trail (best smoothed forward since entry, the trail size, the exit level, the
+  give-back so far), the hold clock (15 min expiry / 90 min normal) and time left, the premium floor that is armed
+  (break-even / give-back / ramp / rent) or the peak gain that arms the next one, and the +70 % premium trail once it
+  is on. Display only; nothing feeds a decision (`apex/engine/council/__init__.py` `Adapter._rules`).
+- **The publish** no longer sends `on_spot` / `d_star` / `lock_pct` / `lock_trail_pct` for a council book, and
+  `time_exit` is the council's own flat time (15:00 expiry, 15:20 otherwise).
+- **The band**: a council rail in forward points ("FWD PTS TO TRAIL", forward / best / trail size / % left, NEAR
+  TRAIL at a quarter of the trail), the floor row ("FLOOR ARMS AT +15 %" with the peak bid, or "BE LOCK 100.00 ·
+  at break-even"), the stop and the clock on one line; once the premium trail arms the rail switches to the bid.
+  The exit chip and the trades table read the council code ("BE_LOCK" → "Break-even floor (peaked +15 %, sold at
+  entry)", "SL" → "Premium stop −15 %", "TIME" → "Hold clock ran out", …), the trigger panel explains "COUNCIL EXP
+  brk v=+21", and the lead-book sentence describes the council rules instead of the spot range.
+- **Commentary**: the give-back warning takes its guard sentence from the rules when there is no spot stop
+  (`commentary.guard_text`); the hold commentary's trail size is the council's forward trail.
+- **Records**: the exit's wait is `exit_fill_delay_s` (a new CSV column); `fill_delay_s` stays the entry's. The
+  engine logs its tick time (p50 / p95 / max) once a minute whenever a tick in that minute took over 300 ms.
+- Not changed: any trading rule. Tests: `tests/test_council_view.py`.
+
 ## Unreleased — 2 Nov 2026 (fix: the Best tile could fall during a live trade)
 
 - **Best never falls now.** The engine records its peak from one print a second, but the tile also took the

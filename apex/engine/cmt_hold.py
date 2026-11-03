@@ -125,7 +125,8 @@ def extend_facts(f, ctx, eng, book, memo):
     entry = f.get("entry") or p.get("entry") or 0.0
     qty = f.get("qty") or 0
     bp = book.p or {}
-    trail = _n(bp.get("spot_trail")) or _n(bp.get("d_star")) or 12.0
+    rules = f.get("rules") or {}
+    trail = (_n(rules.get("trail_pts")) if bp.get("council") else None) or _n(bp.get("spot_trail")) or _n(bp.get("d_star")) or 12.0
     f["hold_trail_pts"] = trail
     # the stall clock: seconds since the best spot last improved (kept here; the book only keeps the level)
     bf = f.get("best_spot_fav")

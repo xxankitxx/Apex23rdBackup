@@ -1367,6 +1367,21 @@ class Engine:
 
     DEC_MAX_LINES = 3000                         # hard cap per day: a flip-flopping reason cannot fill the disk
 
+    _lp = None
+
+    def _loop_stat(self, ms):
+        """3 Nov: once a minute, log the tick time (p50 / p95 / max) when any tick in the minute took over 300 ms.
+        Live ticks that run late (book saves, audio) shift fills by a print; the fast replay never has them."""
+        lp = self._lp
+        now = time.perf_counter()
+        if lp is None or now - lp["t0"] >= 60.0:
+            if lp and lp["xs"] and max(lp["xs"]) > 300.0:
+                xs = sorted(lp["xs"])
+                log(f"ENGINE tick time last minute: p50 {xs[len(xs) // 2]:.0f} ms, p95 {xs[int(len(xs) * 0.95)]:.0f} ms, "
+                    f"max {xs[-1]:.0f} ms over {len(xs)} ticks (over 300 ms: {sum(1 for x in xs if x > 300.0)})")
+            self._lp = lp = {"t0": now, "xs": []}
+        lp["xs"].append(ms)
+
     def _tape_decision(self, ctx):
         """C-34: the champion's reason path, one line whenever its reason class changes."""
         champ = self.books.get(self.champion)
@@ -1451,14 +1466,20 @@ class Engine:
             zero_dte = p.get("expiry") == self.now_dt.date().isoformat()
             if (champ.p or {}).get("spot_trail"):           # D-124: the spot book's stop is on spot
                 fut_now, stop = ctx.get("spot"), p.get("stop_spot")
-            pos.update(d_star=(champ.p or {}).get("spot_trail") or (champ.p or {}).get("d_star"), fut_now=fnum(fut_now, 2),
-                       on_spot=bool((champ.p or {}).get("spot_trail")),
-                       lock_pct=(champ.p or {}).get("lock_pct"), lock_trail_pct=(champ.p or {}).get("lock_trail_pct"),
+            council = bool((champ.p or {}).get("council"))
+            if council:                                     # 3 Nov: a council book never runs the spot trail or the
+                fut_now, stop = ctx.get("fut"), None        # profit lock; its real rules are in pos["rules"]
+            pos.update(d_star=None if council else ((champ.p or {}).get("spot_trail") or (champ.p or {}).get("d_star")),
+                       fut_now=fnum(fut_now, 2),
+                       on_spot=bool((champ.p or {}).get("spot_trail")) and not council,
+                       lock_pct=None if council else (champ.p or {}).get("lock_pct"),
+                       lock_trail_pct=None if council else (champ.p or {}).get("lock_trail_pct"),
                        spot_now=fnum(ctx.get("spot"), 2),
                        stop_pts=fnum((fut_now - stop) * p["dir"], 2) if fut_now is not None and stop is not None else None,
                        hold_s=fnum(self.now_s - p["t_in"], 0),
                        ret_pct=fnum(100.0 * (last - p["entry"]) / p["entry"], 2) if p["entry"] else None,
-                       time_exit="%02d:%02d" % (config.ZERO_DTE_FLATTEN if zero_dte else config.FLATTEN_AT))
+                       time_exit=(p.get("rules") or {}).get("flat_at") if council else
+                                 "%02d:%02d" % (config.ZERO_DTE_FLATTEN if zero_dte else config.FLATTEN_AT))
         state = {
             "mode": self.mode, "now": self.now_dt.strftime("%Y-%m-%d %H:%M:%S"),
             "phase": config.session_phase(self.now_dt), "cas_test": bool(getattr(config, "CAS_TEST", False)),
@@ -1550,6 +1571,7 @@ class Engine:
                     continue
                 time.sleep(0.5)
             self.loop_ms = (time.perf_counter() - t0) * 1000
+            self._loop_stat(self.loop_ms)
             if int(self.t.c("feed_state")) == 7 and self.mode != "live":   # replay finished
                 break
             if lock:

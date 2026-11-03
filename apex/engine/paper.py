@@ -1259,7 +1259,7 @@ def check_exit(book, ctx):
             if waited < config.EXIT_DEFER_MAX_S:
                 return None
             pos["stale_exit"] = True
-        pos["fill_delay_s"] = round(waited, 2)
+        pos["exit_fill_delay_s"] = round(waited, 2)      # 3 Nov: fill_delay_s stays the entry's wait
         pos["exit_trigger_px"] = pend.get("trigger_px")
     if reason and px is None:
         px = pos.get("last", pos["entry"])
@@ -1309,7 +1309,7 @@ def try_fill_exit(book, ctx):
             if waited < config.EXIT_DEFER_MAX_S:
                 return None
             pos["stale_exit"] = True
-        pos["fill_delay_s"] = round(waited, 2)
+        pos["exit_fill_delay_s"] = round(waited, 2)      # 3 Nov: fill_delay_s stays the entry's wait
         pos["exit_trigger_px"] = pend.get("trigger_px")
     if px is None:
         px = pos.get("last", pos["entry"])
@@ -1470,7 +1470,8 @@ def write_trades_csv(book, day):
             "mid_in", "mid_out", "ret_pct_mid", "stop_fut", "peak_pts", "exit_quote_age", "band_fallback",
             "spot_in", "best_spot", "stop_spot",                   # D-124: the spot books' stop path
             "lock_armed", "lock_armed_at", "lock_floor", "best_prem",            # D-127: the profit lock
-            "trigger_ltp", "fill_delay_s", "fill_slip", "exit_trigger_px"]       # D-126: next-print fills
+            "trigger_ltp", "fill_delay_s", "fill_slip", "exit_trigger_px",      # D-126: next-print fills
+            "exit_fill_delay_s"]                                                 # 3 Nov: the exit's own wait
     with open(path, "w", newline="", encoding="utf-8") as f:
         w = csv.DictWriter(f, fieldnames=cols, extrasaction="ignore")
         w.writeheader()

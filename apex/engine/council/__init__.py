@@ -163,6 +163,11 @@ class Adapter:
                     "st": p.setdefault("st", {})}              # 1 Nov (c20_9v): a strategy's own per-position state,
                                                                # saved with the book so it survives a restart
         act = self.strat.on_second(i, D, spos)
+        if spos is not None and book.pos:
+            try:
+                book.pos["rules"] = self._rules(i, D, book.pos, spos)   # dashboard only (3 Nov): the real exit rules
+            except Exception:
+                book.pos.pop("rules", None)
         if not act:
             return False
         if act[0] == "SELL" and book.pos:
@@ -187,6 +192,62 @@ class Adapter:
                 pos["ep_type"] = "COUNCIL"
             return bool(pos)
         return False
+
+    def _rules(self, i, D, p, spos):
+        """What the strategy will do with this position, for the dashboard (nothing here feeds a decision).
+
+        3 Nov 2026: the band used to show the spot-trail / profit-lock story of the t28 books, which council books
+        inherit as parameters but never run. This reads the strategy's own state: premium stop, forward trail from
+        its best, the hold clock, the premium floors (break-even / give-back / rent) and the premium trail."""
+        s = self.strat
+        e, ce = float(p["entry"]), p["rr"] == "CE"
+        sp = getattr(s, "p", None) or {}
+        parts = getattr(s, "parts", ()) or ()
+        x, r = getattr(s, "x", None) or {}, getattr(s, "r", None) or {}
+        pk = float(spos["peak_bid"])
+        g = pk / e - 1.0
+        held = float(D.T[i] - D.T[spos["i_in"]])
+        v = {"book": "council", "mode": "expiry" if D.dte0 else "normal",
+             "sl_pct": 100.0 * sp["sl"] if sp.get("sl") else None,
+             "sl_px": e * (1.0 - sp["sl"]) if sp.get("sl") else None,
+             "hold_s": sp.get("hold"), "held_s": held,
+             "clock_left_s": (sp["hold"] - held) if sp.get("hold") else None,
+             "flat_at": "15:00" if D.dte0 else "15:20",
+             "peak_bid": pk, "peak_pct": 100.0 * g}
+        # the forward trail: give-back from the best smoothed forward since entry
+        best = getattr(s, "best", None)
+        fs = getattr(s, "fs", None)
+        fnow = None
+        if fs is not None and 0 <= i < len(fs) and np.isfinite(fs[i]):
+            fnow = float(fs[i])
+        tr = getattr(s, "trail_now", None) or sp.get("trail")
+        if tr and "dtr" in parts and not D.dte0 and hasattr(s, "_fac") and hasattr(s, "_dfac"):
+            tr = tr * float(getattr(s, "_fac", 1.0) or 1.0)      # the delta-scaled trail (already computed this second)
+        pt_on = ("ptr" in parts) or ("ptre" in parts and D.dte0)
+        spk = getattr(s, "spk", None)
+        pt_arm = bool(pt_on and spk is not None and r.get("PT_PA") is not None and spk >= e * (1.0 + r["PT_PA"]))
+        v.update(fwd_best=best, fwd_now=fnow, trail_pts=(tr if (tr and not pt_arm) else None),
+                 trail_px=((best - tr) if ce else (best + tr)) if (best is not None and tr and not pt_arm) else None,
+                 trail_give=((best - fnow) if ce else (fnow - best)) if (best is not None and fnow is not None) else None)
+        # premium floors (exit when the bid is at or below the floor)
+        fl = kind = None
+        if hasattr(s, "_floor"):
+            fl, kind = s._floor(e, g, D.dte0)
+        elif x.get("GB_ARM") is not None and x.get("BE_ARM") is not None:
+            if g >= x["GB_ARM"]:
+                fl, kind = e * (1.0 + x["GB_KEEP"] * g), "GIVEBACK"
+            elif g >= x["BE_ARM"]:
+                fl, kind = e * (1.0 + x["BE_LOCK"]), "BE_LOCK"
+        ramp = "ramp" in parts and not D.dte0 and r.get("R_ARM") is not None
+        v.update(floor_px=fl, floor_kind=kind,
+                 be_arm_pct=(100.0 * r["R_ARM"]) if ramp else ((100.0 * x["BE_ARM"]) if x.get("BE_ARM") is not None else None),
+                 gb_arm_pct=None if ramp else ((100.0 * x["GB_ARM"]) if x.get("GB_ARM") is not None else None),
+                 pt_arm_pct=(100.0 * r["PT_PA"]) if (pt_on and r.get("PT_PA") is not None) else None,
+                 pt_armed=pt_arm,
+                 pt_peak=float(spk) if pt_arm else None,
+                 pt_trail_px=(float(spk) * (1.0 - r["PT_PQ"])) if (pt_arm and r.get("PT_PQ") is not None) else None,
+                 pt_give_pct=(100.0 * r["PT_PQ"]) if (pt_arm and r.get("PT_PQ") is not None) else None)
+        return {k: (round(val, 2) if isinstance(val, float) else val) for k, val in v.items()}
 
     _warned = 0
 

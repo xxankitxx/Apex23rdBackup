@@ -164,6 +164,27 @@ class _TradeMemo:
         self.prem_sum = 0.0
 
 
+def guard_text(f):
+    """What stands between the position and an exit, in words: the spot trail for the spot books, the council
+    book's own floor / stop / clock otherwise (3 Nov: never a None into a format spec)."""
+    sd = f.get("stop_dist")
+    if sd is not None:
+        return f"the trail sits {sd:.0f} spot pts away"
+    r = f.get("rules") or {}
+    bits = []
+    if r.get("floor_px") is not None:
+        bits.append(f"the {str(r.get('floor_kind') or 'floor').replace('_', ' ').lower()} floor at {r['floor_px']:.2f}")
+    elif r.get("be_arm_pct") is not None:
+        bits.append(f"no floor yet (break-even arms at +{r['be_arm_pct']:.0f} %)")
+    if r.get("sl_px") is not None:
+        bits.append(f"the {r.get('sl_pct') or 15:.0f} % stop at {r['sl_px']:.2f}")
+    if r.get("trail_px") is not None and r.get("fwd_now") is not None:
+        bits.append(f"the forward trail {abs(r['fwd_now'] - r['trail_px']):.0f} pts away")
+    if r.get("clock_left_s") is not None:
+        bits.append(f"{mins(max(r['clock_left_s'], 0))} on the clock")
+    return ", ".join(bits) if bits else "no stop level is set"
+
+
 def build_facts(ctx, eng, book, memo: _TradeMemo) -> dict:
     """~70 facts, every one of them from ctx / the engine's own objects. Missing data -> None, never a guess."""
     import numpy as np
@@ -210,6 +231,7 @@ def build_facts(ctx, eng, book, memo: _TradeMemo) -> dict:
     locked = (stop - sp_in) * d if (stop is not None and sp_in is not None) else None
     g = eng.greek.get(p["id"], {}) or {}
     delta = _n(g.get("delta")); adelta = abs(delta) if delta is not None else None
+    f["rules"] = p.get("rules") if isinstance(p.get("rules"), dict) else None     # 3 Nov: a council book's own exits
     f.update(spot=sp, spot_in=sp_in, spot_fav=spot_fav, best_spot_fav=best_fav, stop_spot=stop, stop_dist=stop_dist,
              trail_armed=bool(locked is not None and locked > 0), locked_pts=locked,
              locked_rs_est=(locked * adelta * qty) if (locked is not None and adelta) else None,
@@ -697,9 +719,10 @@ TEMPLATES: List[Template] = [
     Template(
         key="giveback", kind="premium", tone="warning", prio=88, cooldown_s=30, step={"giveback_frac": 0.1},
         when=lambda f: (f.get("best_pts") or 0) >= 6 and (f.get("giveback_frac") or 0) >= 0.35,
-        phrasings=["You have given back {giveback_pct:.0f} % of a {best_pct:+.0f} % best — the premium is {ltp:.2f} against a peak of {peak:.2f}; the trail sits {stop_dist:.0f} spot pts away.",
-                   "Peak was {best_pct:+.0f} %, now {ret_pct:+.0f} %: {giveback_frac:.0%} of the gain is gone. The stop at {stop_spot:.0f} is the only thing deciding, {stop_dist:.0f} pts away."],
-        slots=lambda f: {"peak": (f.get("entry") or 0.0) + (f.get("best_pts") or 0.0)},
+        phrasings=["You have given back {giveback_pct:.0f} % of a {best_pct:+.0f} % best — the premium is {ltp:.2f} against a peak of {peak:.2f}; {guard}.",
+                   "Peak was {best_pct:+.0f} %, now {ret_pct:+.0f} %: {giveback_frac:.0%} of the gain is gone. {guard_cap} is the only thing deciding."],
+        slots=lambda f: {"peak": (f.get("entry") or 0.0) + (f.get("best_pts") or 0.0), "guard": guard_text(f),
+                         "guard_cap": guard_text(f)[0].upper() + guard_text(f)[1:]},
         note="warning: the honesty rule — the panel must say when the gain is leaving, with the numbers."),
     Template(
         key="flatten_soon", kind="time", tone="warning", prio=95, cooldown_s=60, step={"min_to_flatten": 1.0},

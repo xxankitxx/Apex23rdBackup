@@ -359,7 +359,33 @@ function corners(s) {
   return { dir, push, crowd, fresh, ep: !!ep, closed: push >= 1 && crowd >= 1 && ep && fresh >= 1 };
 }
 
+// council books (c20_9x and family): their exit codes and entry reasons, in words
+const COUNCIL_WHY = { BE_LOCK: "Break-even floor (peaked +15 %, sold at entry)", SL: "Premium stop −15 %", TIME: "Hold clock ran out",
+  FWD_TRAIL: "Forward trail", GIVEBACK: "Give-back floor (keeps 70 % of the peak)", RAMP_LOCK: "Ramp floor", RENT_TRAIL: "Rent trail",
+  PREM_TRAIL: "Premium trail (8 % off the peak bid)", STALE_PTRAIL: "Premium trail (forward stale)", LVL_BOOK: "Booked at a level",
+  PGB: "Premium give-back", EXH: "Exhaustion", RENT: "Rent too low", TP: "Take profit", COUNCIL: "Council exit" };
+function councilWhy(r) {
+  if (/^TIME \(council forced flat\)/.test(r || "")) return "Forced flat (council clock)";
+  const w = (r || "").split(" ");
+  if (w[0] !== "COUNCIL") return null;
+  return COUNCIL_WHY[w[1]] || COUNCIL_WHY[(w[1] || "").split("_")[0]] || `Council: ${w.slice(1).join(" ")}`;
+}
+function councilEntry(r) {
+  const m = /^COUNCIL (EXP|NORM) (brk|pb) v=([+-]?\d+)/.exec(r || "");
+  if (!m) return null;
+  const mode = m[1] === "EXP" ? "expiry mode" : "normal mode", how = m[2] === "brk" ? "broke out of its range" : "pulled back and resumed";
+  return `Council book, ${mode}: the parity forward ${how} with velocity ${m[3]} pts. Entering.`;
+}
+function councilText(s) {
+  const p = s.params || {}, r = (s.pos && s.pos.rules) || null;
+  const exp = r ? r.mode === "expiry" : (s.now || "").slice(0, 10) === s.w0;
+  const nums = r ? `−${fmt(r.sl_pct, 0)} % premium stop, ${fmt(r.trail_pts || 25, 0)}-pt forward trail, ${Math.round((r.hold_s || 900) / 60)}-min clock` :
+    exp ? "−15 % premium stop, 25-pt forward trail, 15-min clock" : "−15 % premium stop, 40-pt forward trail (delta-scaled), 90-min clock";
+  const floors = exp ? "break-even floor after +15 %, keep 70 % after +60 %, premium trail after +70 %" : "ramp floor from +15 %";
+  return `Lead book ${s.champion} (council, ${exp ? "expiry" : "normal"} mode): buys the ATM/ITM option when the parity forward ${exp ? "breaks out of its 10-min range with 20 pts of velocity" : "pulls back after a 40-pt impulse and resumes"}; exits on a ${nums}; floors: ${floors}. Flat at ${exp ? "15:00" : "15:20"}.`;
+}
 function humanReason(r, s) {
+  const ce = councilEntry(r); if (ce) return ce;
   const p = s.params || {};
   let m;
   if (!r) return "Waiting for data";
@@ -416,7 +442,8 @@ function renderVerdict(s) {
     return `<li class="${cls}${gates.includes(k) ? " gate" : ""}" title="${x ? x.why.replace(/"/g, "'") : "waits for a move"}">${ADV[k]}${gates.includes(k) ? " (rule)" : ""}${x && x.veto ? ": no" : ""}</li>`;
   }).join("");
   const p = s.params || {};
-  if (isSpotMode(s)) {
+  if (p.council) $("champ").textContent = councilText(s);
+  else if (isSpotMode(s)) {
     const r = s.spot_range || {}, c2 = c;
     $("champ").textContent = `Lead book ${s.champion}: buys a CE when Nifty spot breaks above its ${Math.round(p.spot_dc / 60)}-minute high, a PE below its low; exits ${p.spot_trail} spot points off the best. ` +
       (c2.warming ? "Range not ready yet." : `Range now ${fmt(r.lo, 1)} – ${fmt(r.hi, 1)}${c2.free ? "" : " · same swing as the last trade"}${!nil(r.age) && r.age > 5 ? ` · spot quote ${fmt(r.age, 0)} s old` : ""}.`) +
@@ -477,7 +504,7 @@ const sinr = (x) => nil(x) ? "—" : (x > 0 ? "+" : "") + inr(x);
 const MON = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
 const dmy = (d) => { const m = /^(\d{4})-(\d\d)-(\d\d)/.exec(d || ""); return m ? `${+m[3]} ${MON[+m[2] - 1]}` : (d || "—"); };
 const dur = (s) => nil(s) ? "—" : s < 60 ? `${Math.round(s)}s` : s < 3600 ? `${Math.floor(s / 60)}m ${String(Math.round(s % 60)).padStart(2, "0")}s` : `${Math.floor(s / 3600)}h ${String(Math.floor(s % 3600 / 60)).padStart(2, "0")}m`;
-const code = (r) => (r || "").split(" ")[0];
+const code = (r) => { const w = (r || "").split(" "); return w[0] === "COUNCIL" && w[1] ? w[1] : w[0]; };
 const isStale = () => document.body.classList.contains("stale");
 let futId = -1, receipt = null, prevHad = null, bandMode = "";
 const tz = { cur: "", cand: "", since: 0 };          // P&L tone with hysteresis (D4): 3 s beyond ±0.5 pt
@@ -623,7 +650,11 @@ function renderPos(s, now) {
   const rl = renderRail(s, p);                   // {near, locked, lock}
   // the profit lock (engine lock_* fields): one gold row under the rail
   let lk = "";
-  if (p.lock_armed) {
+  const cr = p.rules && p.rules.book === "council" ? p.rules : null;
+  if (cr) {
+    if (!nil(cr.floor_px)) lk = `<span class="lk">${(cr.floor_kind || "FLOOR").replace("_", " ")} ${fmt(cr.floor_px)}</span><span>exit if the bid touches it · peak bid ${fmt(cr.peak_bid)} (${sgn(cr.peak_pct, 1)} %)${nil(cr.gb_arm_pct) ? "" : ` · give-back floor at +${fmt(cr.gb_arm_pct, 0)} %`}${nil(cr.pt_arm_pct) || cr.pt_armed ? "" : ` · premium trail at +${fmt(cr.pt_arm_pct, 0)} %`}</span>`;
+    else if (!nil(cr.be_arm_pct)) lk = `<span class="lk armed-not">FLOOR ARMS AT +${fmt(cr.be_arm_pct, 0)} %</span><span>peak bid ${fmt(cr.peak_bid)} (${sgn(cr.peak_pct, 1)} %) · until then only the −${fmt(cr.sl_pct, 0)} % stop, the forward trail and the clock</span>`;
+  } else if (p.lock_armed) {
     lk = `<span class="lk">LOCK ${sgn(p.lock_pct, 0)} %${nil(p.lock_floor) ? "" : ` <small>· floor ${fmt(p.lock_floor)}</small>`}</span>` +
       `<span>${nil(p.lock_trail_pct) ? "" : `trails ${fmt(p.lock_trail_pct, 0)} % off the best`}${nil(p.best_prem) ? "" : ` ${fmt(p.best_prem)}`}${p.lock_armed_at ? ` · armed ${p.lock_armed_at}` : ""}</span>`;
   } else if (!nil(p.lock_pct)) {
@@ -664,7 +695,39 @@ function renderSpotRail(s, p) {
   if (E.railcap.dataset.h !== h) { E.railcap.innerHTML = h; E.railcap.dataset.h = h; }
   return { near, locked, lock };
 }
+function renderCouncilRail(s, p) {
+  const r = p.rules, dir = p.dir || (p.rr === "CE" ? 1 : -1), rail = E.rail;
+  const prem = r.pt_armed && !nil(r.pt_trail_px) && !nil(r.pt_peak);
+  const now = prem ? (p.last ?? p.entry) : r.fwd_now, stop = prem ? r.pt_trail_px : r.trail_px, best = prem ? r.pt_peak : r.fwd_best;
+  const d = prem ? (r.pt_peak - r.pt_trail_px) : r.trail_pts;
+  const clock = nil(r.clock_left_s) ? "" : ` · clock ${mmss(Math.max(0, r.clock_left_s))} of ${Math.round((r.hold_s || 0) / 60)} min`;
+  const stopTxt = nil(r.sl_px) ? "" : `stop ${fmt(r.sl_px)} (−${fmt(r.sl_pct, 0)} %)`;
+  if (nil(stop) || nil(d) || nil(now) || d <= 0 || nil(best)) {
+    const h = `<span class="lv">Forward trail not armed yet</span><span class="lv">${stopTxt}${clock}</span>`;
+    if (E.railcap.dataset.h !== h) { E.railcap.innerHTML = h; E.railcap.dataset.h = h; }
+    put(E.raill, ""); put(E.railm, ""); put(E.railr, "");
+    return { near: false, locked: false, lock: null };
+  }
+  const u = prem ? (now - stop) : (now - stop) * dir, q = u / d, span = Math.max(d, prem ? best - stop : (best - stop) * dir);
+  put(E.raill, `TRAIL ${fmt(stop, prem ? 2 : 1)}`); put(E.railm, ""); put(E.railr, `best ${prem ? "bid" : "fwd"} ${fmt(best, prem ? 2 : 1)}`);
+  const x = clamp(u / span, 0, 1) * 100;
+  E.railseg.style.width = x + "%"; E.railnow.style.left = x + "%";
+  E.railmid.style.display = "none"; E.railarm.style.display = "none";
+  const nowMs = Date.now();
+  if (q <= 0.25) { st.nearSince = st.nearSince || nowMs; st.nearOff = 0; }
+  else if (q >= 0.35) { st.nearOff = st.nearOff || nowMs; if (nowMs - st.nearOff >= 1000) st.nearSince = 0; }
+  const near = !!st.nearSince;
+  rail.classList.toggle("warn", q <= 0.5);
+  const lock = nil(r.floor_px) ? null : r.floor_px - p.entry, locked = lock !== null && lock >= -1e-9;
+  const floor = nil(r.floor_px) ? `<span class="lv">no floor yet · break-even floor arms at +${fmt(r.be_arm_pct, 0)} % (peak ${sgn(r.peak_pct, 1)} %)</span>`
+    : `<span class="lock">${(r.floor_kind || "floor").replace("_", " ")} floor ${fmt(r.floor_px)} · ${Math.abs(lock) < 0.005 ? "at break-even" : `locks ${sgn(lock, 2)} pts`}</span>`;
+  const h = `${near ? `<span class="near-w">NEAR TRAIL ⚠</span>` : ""}<b>${fmt(Math.max(0, u), prem ? 2 : 1)}</b><span class="to">${prem ? "PREMIUM" : "FWD PTS"} TO TRAIL</span>
+    <span class="lv">${prem ? `bid trail · ${fmt(r.pt_give_pct, 0)} % off the peak bid ${fmt(best)}` : `forward ${fmt(now, 1)} · best ${fmt(best, 1)} · ${fmt(d, 0)}-pt trail`}${q < 1 ? ` · ${Math.round(Math.max(0, q) * 100)}% left` : ""}</span>${floor}<span class="lv">${stopTxt}${clock}</span>`;
+  if (E.railcap.dataset.h !== h) { E.railcap.innerHTML = h; E.railcap.dataset.h = h; }
+  return { near, locked, lock };
+}
 function renderRail(s, p) {
+  if (p.rules && p.rules.book === "council") return renderCouncilRail(s, p);
   if (p.on_spot) return renderSpotRail(s, p);
   // futures-stop books: same picture, futures points
   const d = !nil(p.d_star) ? p.d_star : (s.params || {}).d_star, stop = p.stop_fut, dir = p.dir || (p.rr === "CE" ? 1 : -1);
@@ -1178,7 +1241,7 @@ function renderTrades(s) {
   const b = s.book || {};
   const ts = b.trades ? `<span class="tsum">${b.trades} trades · ${b.wins} won · <span class="${tone(b.pnl_rs)}">${sinr(b.pnl_rs)}</span> · ${sgn(b.pnl_pts)} pts</span>` : "";
   if ($("tstats").dataset.h !== ts) { $("tstats").innerHTML = ts; $("tstats").dataset.h = ts; }
-  const why = (r) => ({ TRAIL: "Trailing stop", STOP: "Stop loss" }[r] || (r || "").replace(/^TRAIL \(locked ([+\d]+) % at (\d\d:\d\d):\d\d\)/, "Trailing stop · locked $1 % at $2").replace(/^STOP \(locked ([+\d]+) % at (\d\d:\d\d):\d\d\)/, "Stop · locked $1 % at $2").replace(/^LOCK \(([\d.]+) fell ([\d.]+) % from best ([\d.]+); armed ([+\d]+) % at (\d\d:\d\d):\d\d\)/, "Profit lock · $2 % off the best $3").replace(/^STOP \(futures: spot quote (\d+) s old\)/, "Stop on futures · index frozen $1 s").replace("THESIS-VOID (synchrony flipped)", "Heavyweights turned against it").replace(/TIME \((\d\d:\d\d) flatten\)/, "$1 close").replace("TIME (0DTE 15:00)", "Expiry-day 15:00 close").replace(/^BOOK .*/, "Sellers refilled"));
+  const why = (r) => councilWhy(r) || ({ TRAIL: "Trailing stop", STOP: "Stop loss" }[r] || (r || "").replace(/^TRAIL \(locked ([+\d]+) % at (\d\d:\d\d):\d\d\)/, "Trailing stop · locked $1 % at $2").replace(/^STOP \(locked ([+\d]+) % at (\d\d:\d\d):\d\d\)/, "Stop · locked $1 % at $2").replace(/^LOCK \(([\d.]+) fell ([\d.]+) % from best ([\d.]+); armed ([+\d]+) % at (\d\d:\d\d):\d\d\)/, "Profit lock · $2 % off the best $3").replace(/^STOP \(futures: spot quote (\d+) s old\)/, "Stop on futures · index frozen $1 s").replace("THESIS-VOID (synchrony flipped)", "Heavyweights turned against it").replace(/TIME \((\d\d:\d\d) flatten\)/, "$1 close").replace("TIME (0DTE 15:00)", "Expiry-day 15:00 close").replace(/^BOOK .*/, "Sellers refilled"));
   const html = (s.trades || []).length ? s.trades.map(t => {
     const qty = t.qty || t.lots * LOT, dep = t.entry * qty, hold = nil(t.hold_s) ? hm(t.time_out) - hm(t.time_in) : t.hold_s, ret = nil(t.ret_pct) ? t.pnl_pts / t.entry * 100 : t.ret_pct;
     return `<tr class="t r-${code(t.reason).replace(/[^A-Z-]/g, "")} ${t.pnl_rs > 0 ? "win" : t.pnl_rs < 0 ? "loss" : ""} ${(t.rr || "").toLowerCase()}">

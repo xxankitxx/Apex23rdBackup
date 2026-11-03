@@ -172,7 +172,8 @@ def test_trades_csv_columns():
     new = ["episode", "delta_in", "iv_in", "iv_out", "delta_out", "trade_age_in", "trade_age_out", "mid_in",
            "mid_out", "ret_pct_mid", "stop_fut", "peak_pts", "exit_quote_age", "band_fallback",
            "spot_in", "best_spot", "stop_spot", "lock_armed", "lock_armed_at", "lock_floor", "best_prem",
-           "trigger_ltp", "fill_delay_s", "fill_slip", "exit_trigger_px"]
+           "trigger_ltp", "fill_delay_s", "fill_slip", "exit_trigger_px",
+           "exit_fill_delay_s"]                           # 3 Nov: the exit's own wait
     assert head == old + new                              # existing columns keep their order
     r = dict(zip(head, rows[1]))
     assert r["episode"] == "9" and r["mid_out"] == "155.0" and r["band_fallback"] == "False"
