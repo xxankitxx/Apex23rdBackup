@@ -1,0 +1,11 @@
+{"t": "08:25:35", "k": "SYSTEM", "x": "day 2026-10-22 \u00b7 champion edge_gate_trail \u00b7 gates none \u00b7 capital \u20b9100,000", "mkt_t": 1792637735.6}
+{"t": "09:16:59", "k": "SHIFT", "x": "ATM rolled 22700 \u2192 22600: straddle 358.7 \u2192 353.0 (spot settled at the new strike)", "mkt_t": 1792640819.7}
+{"t": "09:30:09", "k": "ENTRY", "x": "BUY 7 lots NIFTY 22700 PE (2026-10-27) @ 206.75 \u00b7 PE: 124-pt impulse 22682.9 -> 22559.0 pulled back 51 % to 22621.8; stop 22682.9, target 22435.0", "mkt_t": 1792641609.3}
+{"t": "09:30:09", "k": "RAW-ENTRY", "x": "BUY 7 lots NIFTY 22700 PE (2026-10-27) @ 206.75 \u00b7 PE: 124-pt impulse 22682.9 -> 22559.0 pulled back 51 % to 22621.8; stop 22682.9, target 22435.0", "mkt_t": 1792641609.3}
+{"t": "09:35:48", "k": "EXIT", "x": "PE 22700 7 lots \u00b7 206.75 \u2192 240.35 = +33.60 pts / \u20b9+15,288 \u00b7 BOOK at DAY LOW 22559.0 (best 22555.1 could not break it) (locked +18 % at 09:34:32) \u00b7 capital \u20b9115,288", "mkt_t": 1792641948.7}
+{"t": "09:35:48", "k": "RAW-EXIT", "x": "PE 22700 7 lots \u00b7 206.75 \u2192 240.35 = +33.60 pts / \u20b9+15,288 \u00b7 BOOK at DAY LOW 22559.0 (best 22555.1 could not break it) (locked +18 % at 09:34:32) \u00b7 capital \u20b9115,288", "mkt_t": 1792641948.7}
+{"t": "09:39:44", "k": "ENTRY", "x": "BUY 8 lots NIFTY 22700 PE (2026-10-27) @ 205.60 \u00b7 PE: 127-pt impulse 22682.9 -> 22555.5 pulled back 52 % to 22621.3; stop 22682.9, target 22428.0", "mkt_t": 1792642184.8}
+{"t": "09:39:44", "k": "RAW-ENTRY", "x": "BUY 8 lots NIFTY 22700 PE (2026-10-27) @ 205.60 \u00b7 PE: 127-pt impulse 22682.9 -> 22555.5 pulled back 52 % to 22621.3; stop 22682.9, target 22428.0", "mkt_t": 1792642184.8}
+{"t": "09:43:15", "k": "EXIT", "x": "PE 22700 8 lots \u00b7 205.60 \u2192 185.15 = -20.45 pts / \u20b9-10,634 \u00b7 STOP (premium -10.2 %, hard stop -10 %) \u00b7 capital \u20b9104,654", "mkt_t": 1792642395.8}
+{"t": "09:43:15", "k": "RAW-EXIT", "x": "PE 22700 8 lots \u00b7 205.60 \u2192 185.15 = -20.45 pts / \u20b9-10,634 \u00b7 STOP (premium -10.2 %, hard stop -10 %) \u00b7 capital \u20b9104,654", "mkt_t": 1792642395.8}
+{"t": "09:43:29", "k": "SHIFT", "x": "ATM rolled 22600 \u2192 22700: straddle 347.0 \u2192 339.9 (spot settled at the new strike)", "mkt_t": 1792642409.7}

@@ -1,0 +1,121 @@
+**Thorough teardown of the proposed `c20_8x` strategy**
+
+The document is one of the cleaner, more honest strategy specs I have seen. It separates fixed owner constraints from tunable logic, documents every formula, flags sample-size and path-dependence problems itself, and reports both in-sample and leave-one-day-out (LODO) numbers with real fills (ask-in / bid-out). That transparency is a strength.
+
+### Fixed constraints (untouchable)
+- Nifty weekly index options only, buy-only, never write.
+- ₹1,00,000 fresh capital every day; all-in every trade; profits/losses compound only within the day.
+- One position at a time.
+- Absolute delta ≥ 0.52 at entry (ATM or ITM).
+- Expiry-day vs non-expiry mode split; forced flat 15:00 (expiry) / 15:20 (normal).
+- Paper trading only.
+
+All analysis and suggestions below respect these exactly.
+
+### Strengths (what is already good)
+
+1. **Clean underlying signal**: Put-call-parity forward \(F = K + (C - P)\) is superior to spot or futures for option premium dynamics. Smoothed EMA (\( \tau = 5 \) s) + monotonic-queue range + velocity is a solid, low-latency causal filter.
+
+2. **Mode separation**: Breakout + velocity on expiry (high gamma, high theta) vs impulse → pullback → resumption on normal days is directionally correct. The autopsy correctly identified that pure breakouts are near coin-flips outside expiry.
+
+3. **Four targeted changes from systematic autopsy**:
+   - Sequence rent gate (A) attacks the exact afternoon expiry whipsaw pattern.
+   - Premium exits (B: BE lock at +15 % / give-back keep 70 % after +60 %) are among the better practical solutions to the “delta expands, trail is in points” problem.
+   - Pullback geometry (C: max 75 % retrace + 15 min arm age) removes pure reversals without killing winners.
+   - Shallower delta 0.52 on normal days (D) is rational when theta is ~0.03 % of premium per minute.
+
+4. **Exit stack order is sensible**: Premium stop first, then forward trail, time, then the two premium locks. Forced flat is outside the strategy (correct).
+
+5. **Testing hygiene**: Real-fill kit calibrated to engine (corr 0.988–1.0), LODO, one-step robustness, trade-by-trade autopsy of all 56 parent trades, catalogue of 112 big moves. Far better than most retail or even many prop research processes.
+
+6. **Greeks awareness**: Rent ratio (0.5 γ RV / |θ|) is a principled attempt to measure whether realised movement is paying the option’s carry. Delta dominates returns (R² ≈ 0.988) is correctly diagnosed.
+
+Headline kit numbers (+₹8.47 L, 7/7 green, LODO +₹6.58 L) look excellent relative to champion `t28_gap` (+₹3.73 L).
+
+### Critical holes and weaknesses (ranked by severity)
+
+**1. Catastrophic sample-size and path-dependence risk (Sections 19.1, 19.3)**  
+Only 7 days, 2 expiry days. 27 Oct alone is ~48 % of total P&L via compounding. LODO for expiry parameters is essentially “train on one expiry day, test on the other.” All-in + one-position means the exact sequence of winners/losers determines later capital and therefore later position size. Autopsy itself notes winners appear in only 7–40 % of nearby parameter settings while losers recur at 50–100 %. This is not a robust edge; it is a high-variance path that happened to work on these 7 tapes. Expect live performance closer to (or worse than) the parent’s LODO than the headline.
+
+**2. Fragile core parameters of the parent (Section 19.4)**  
+Expiry \(W=600\), \(L=150\), \(v_{\min}=20\) and normal \(L=1200\) are sharp peaks. Neighbouring values collapse results. The “market-unit” re-expression that flattened the surface was left out because it needs online scaling—exactly the kind of thing that should have been prioritised.
+
+**3. Theta convention inconsistency (Section 19.2)**  
+Engine θ spreads daily decay over 375 trading minutes; actual model decay is calendar. Rent threshold 0.25 is therefore ~0.96 in calendar terms. Taylor residual is better with calendar θ. Using the wrong scale systematically mis-ranks which contracts have “enough rent.”
+
+**4. Entry structure on expiry still buys mid-spike losers**  
+Autopsy: losers bought in 10–30 s spikes with high short-term acceleration, peak ~1 min later. The breakout + 150 s velocity filter does not reject these. Sequence rent helps after a loss but does nothing for the first bad breakout of a quiet afternoon.
+
+**5. Exit timing vs observed MFE**  
+Winners peak median ~7 min after entry on expiry, yet hard time stop is 15 min and forward trail is fixed points. On large winners delta has already expanded, so a 25-pt give-back hurts more in premium terms precisely when you want to protect.
+
+**6. Kit vs live engine discrepancies (Section 19.5)**  
+Forward construction, fill model (LTP vs delayed ask/bid), and 10 Hz vs 1 Hz evaluation already produced a 28 s / one-strike difference on 19 Oct. The running full-engine replay is the only number that matters; kit numbers are optimistic.
+
+**7. Missed opportunity cost is structural**  
+16 normal-day impulses never pulled back; 10–11 large expiry moves after 14:40; 29 big moves while holding the opposite side. Attempts to catch them lost money out-of-sample—correctly rejected—but this means the strategy systematically sits out a large fraction of the distribution it claims to harvest.
+
+**8. No explicit handling of quote quality, micro-structure, or regime**  
+5 s quote age is weak. No spread filter, no volume/OI confirmation, no IV rank or term-structure filter, no detection of low-liquidity strikes near expiry. Delta ≥ 0.52 is enforced, but the surface can still be stale or crossed.
+
+**9. Compounding + all-in amplifies any residual bias**  
+A single large winner early in the day turns every subsequent trade into a higher-stakes bet. A sequence of small losses shrinks capital before the big move. This is not a bug given the rules, but it makes statistical claims about “win rate” almost meaningless.
+
+### Suggested improvements that stay inside the fixed rules
+
+All ideas below are additive filters, state machines, or exit refinements that can be evaluated every second on the existing data stream (forward, greeks, quotes, time). None change capital, sizing, direction, or instrument rules.
+
+**A. Improved rent / carry filter (fixines change A)**
+- Switch to calendar-minute θ (or compute both and take the more conservative).
+- Compute rent on a rolling multi-horizon basis: 60 s, 180 s, 600 s realised variance.
+- Require rent > threshold **and** short-term acceleration not extreme (reject the mid-spike pattern). Acceleration = second difference of \(fs\) or of velocity.
+- Apply a softer version on normal days as well (even if it rarely fires).
+
+**B. Spike / microstructure rejection (attacks the mid-spike losers)**
+- Before entry, require that the last 10–20 s move is not > X % of the last 150 s move (or absolute points).
+- Reject if bid-ask spread of the candidate > Y % of mid (or > fixed points).
+- Reject if the chosen strike’s quote age > 2–3 s or if the two neighbouring strikes are stale.
+- Optional: simple order-flow proxy if the tape contains it—aggressive buy/sell imbalance on the underlying or on the option itself in the last 5–15 s.
+
+**C. Dynamic / adaptive trail and time stops (improves B and the fixed trails)**
+- Make forward trail a function of current |delta| or of peak gain: trail_points = base / max(current_delta, 0.5) or scale with realised volatility of the last 5–10 min.
+- Time stop that starts short (e.g. 6–8 min) and extends only while peak gain is still rising or while rent remains high.
+- Give-back keep percentage that tightens further after +100 % or after a time threshold.
+
+**D. Greeks-driven position management while holding**
+- Track instantaneous delta, gamma, theta of the held contract every second.
+- Exit early if theta has become extreme relative to remaining expected move (or if gamma has collapsed after a large move).
+- Soft delta target: if |delta| drifts far outside [0.45, 0.85] because of a big move, consider the position “mature” and tighten the premium locks.
+- Vega filter at entry on non-expiry days: avoid buying when IV is already elevated relative to the recent range of IV (simple percentile or z-score of the last 30–60 min).
+
+**E. Better contract selection inside the delta ≥ 0.52 band**
+- Among eligible strikes, maximise a simple score: expected_move_capture ≈ |delta| × expected_forward_move – |theta| × expected_hold_minutes, using a short-horizon realised vol estimate for expected_forward_move.
+- Prefer the strike with the tightest relative spread or highest recent volume/OI if the data exist.
+- On expiry, bias slightly deeper ITM when the morning range has already been large (higher realised vol → higher chance of finishing ITM).
+
+**F. Regime / context filters (still causal)**
+- Opening-range or first-30-min realised vol as a multiplier on \(v_{\min}\) and on trail distance.
+- Time-of-day prior: tighter rent threshold or higher \(v_{\min}\) after 12:00 / 13:00 on expiry (the autopsy already showed afternoon is toxic).
+- Simple trend filter on a longer EMA of \(fs\) (e.g. 30–60 min) so that counter-trend breakouts require higher velocity/rent.
+
+**G. State-machine hardening for the normal-day pullback logic**
+- Require the impulse itself to have been “clean” (limited opposing velocity during the impulse window).
+- Add a minimum impulse size in vol-adjusted terms, not just absolute points.
+- Allow a second, shallower pullback attempt if the first arm expires without a fill (still inside the 15 min age limit).
+
+**H. Data-quality and safety layers**
+- Explicit blackout / gap detection already exists; extend it to “forward jump > Z points in 1 s → pause entries for 30–60 s.”
+- Kill any entry if the synthetic forward and the nearest futures (if available) diverge by more than a few points.
+- Log every veto reason with the full greeks snapshot so future autopsies are even richer.
+
+### Expected impact ranking (qualitative)
+Highest expected value: spike/acceleration rejection + corrected calendar rent + adaptive trail/time.  
+Medium: better strike scoring and regime scaling of thresholds.  
+Lower but still useful: vega/IV context and longer-horizon state.
+
+### Final assessment
+The strategy is a competent, well-documented evolution of a pure price-action breakout/pullback system that happens to sit on options. Its edge, if any, comes from (a) trading only when short-term realised movement is likely to overcome theta and (b) not giving back the entire premium expansion on the good trades. Both of those can be sharpened with the greeks and microstructure already available in the data stream.
+
+However, the current performance numbers are not trustworthy as a forecast. Seven days with extreme path dependence and two expiry days is not a statistical sample; it is a single lucky path. The running engine replay on the same seven days is the minimum next gate. After that, the only honest way forward is a much longer out-of-sample tape (or live paper with strict no-peek) before any capital is risked.
+
+The architecture is modular enough that the four changes and the additional filters above can be A/B tested inside the same factorial / LODO framework the autopsy team already used. Prioritise anything that reduces the afternoon expiry losers and the mid-spike entries first—those are the clearest, most repeated failure modes in the existing 56-trade autopsy.

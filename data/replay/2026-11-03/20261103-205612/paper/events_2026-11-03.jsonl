@@ -1,0 +1,109 @@
+{"t": "08:15:11", "k": "SYSTEM", "x": "day 2026-11-03 \u00b7 champion c20_9x \u00b7 gates none \u00b7 capital \u20b9100,000", "mkt_t": 1793673911.3}
+{"t": "09:15:00", "k": "GAP", "x": "data gap: feed stale: futures quote 410 s old \u2014 entries paused until 20 s of fresh data", "mkt_t": 1793677500.0}
+{"t": "09:15:20", "k": "GAP", "x": "data back after 20 s (feed stale: futures quote 410 s old); entries resume", "mkt_t": 1793677520.3}
+{"t": "09:17:16", "k": "SHIFT", "x": "ATM rolled 23450 \u2192 23550: straddle 159.3 \u2192 132.7 (spot settled at the new strike)", "mkt_t": 1793677636.5}
+{"t": "09:25:25", "k": "SPIKE", "x": "straddle 23550 +7.8 over theta in 5 min \u2014 CE leg carries it (83.9, delta 0.524\u21920.579, gamma 0.00235)", "mkt_t": 1793678125.3}
+{"t": "09:26:00", "k": "ENTRY", "x": "BUY 16 lots NIFTY 23550 CE (2026-11-03) @ 94.45 \u00b7 COUNCIL EXP brk v=+20", "mkt_t": 1793678160.0}
+{"t": "09:26:00", "k": "RAW-ENTRY", "x": "BUY 16 lots NIFTY 23550 CE (2026-11-03) @ 94.45 \u00b7 COUNCIL EXP brk v=+20", "mkt_t": 1793678160.0}
+{"t": "09:28:56", "k": "GAP", "x": "data gap: feed silent: no quote on any instrument for 3 s \u2014 entries paused until 20 s of fresh data", "mkt_t": 1793678336.6}
+{"t": "09:29:24", "k": "GAP", "x": "data back after 28 s (feed stale: futures quote 11 s old); entries resume", "mkt_t": 1793678364.3}
+{"t": "09:31:20", "k": "EXIT", "x": "CE 23550 16 lots \u00b7 94.45 \u2192 95.00 = +0.55 pts / \u20b9+572 \u00b7 COUNCIL BE_LOCK \u00b7 capital \u20b9100,572", "mkt_t": 1793678480.0}
+{"t": "09:31:20", "k": "RAW-EXIT", "x": "CE 23550 16 lots \u00b7 94.45 \u2192 95.00 = +0.55 pts / \u20b9+572 \u00b7 COUNCIL BE_LOCK \u00b7 capital \u20b9100,572", "mkt_t": 1793678480.0}
+{"t": "09:34:54", "k": "SHIFT", "x": "ATM rolled 23550 \u2192 23600: straddle 141.6 \u2192 133.5 (spot settled at the new strike)", "mkt_t": 1793678694.3}
+{"t": "09:45:05", "k": "GAP", "x": "data gap: feed silent: no quote on any instrument for 3 s \u2014 entries paused until 20 s of fresh data", "mkt_t": 1793679305.7}
+{"t": "09:45:26", "k": "GAP", "x": "data back after 21 s (feed silent: no quote on any instrument for 4 s); entries resume", "mkt_t": 1793679326.8}
+{"t": "09:48:05", "k": "ENTRY", "x": "BUY 13 lots NIFTY 23550 CE (2026-11-03) @ 110.55 \u00b7 COUNCIL EXP brk v=+22", "mkt_t": 1793679485.0}
+{"t": "09:48:05", "k": "RAW-ENTRY", "x": "BUY 13 lots NIFTY 23550 CE (2026-11-03) @ 110.55 \u00b7 COUNCIL EXP brk v=+22", "mkt_t": 1793679485.0}
+{"t": "10:02:30", "k": "EXIT", "x": "CE 23550 13 lots \u00b7 110.55 \u2192 95.65 = -14.90 pts / \u20b9-12,590 \u00b7 COUNCIL FWD_TRAIL \u00b7 capital \u20b987,982", "mkt_t": 1793680350.0}
+{"t": "10:02:30", "k": "RAW-EXIT", "x": "CE 23550 13 lots \u00b7 110.55 \u2192 95.65 = -14.90 pts / \u20b9-12,590 \u00b7 COUNCIL FWD_TRAIL \u00b7 capital \u20b987,982", "mkt_t": 1793680350.0}
+{"t": "10:14:32", "k": "ENTRY", "x": "BUY 12 lots NIFTY 23550 CE (2026-11-03) @ 105.80 \u00b7 COUNCIL EXP brk v=+20", "mkt_t": 1793681072.0}
+{"t": "10:14:32", "k": "RAW-ENTRY", "x": "BUY 12 lots NIFTY 23550 CE (2026-11-03) @ 105.80 \u00b7 COUNCIL EXP brk v=+20", "mkt_t": 1793681072.0}
+{"t": "10:28:34", "k": "SHIFT", "x": "ATM rolled 23600 \u2192 23650: straddle 123.6 \u2192 116.0 (spot settled at the new strike)", "mkt_t": 1793681914.2}
+{"t": "10:29:33", "k": "EXIT", "x": "CE 23550 12 lots \u00b7 105.80 \u2192 117.55 = +11.75 pts / \u20b9+9,165 \u00b7 COUNCIL TIME \u00b7 capital \u20b997,146", "mkt_t": 1793681973.0}
+{"t": "10:29:33", "k": "RAW-EXIT", "x": "CE 23550 12 lots \u00b7 105.80 \u2192 117.55 = +11.75 pts / \u20b9+9,165 \u00b7 COUNCIL TIME \u00b7 capital \u20b997,146", "mkt_t": 1793681973.0}
+{"t": "11:04:32", "k": "ENTRY", "x": "BUY 15 lots NIFTY 23700 PE (2026-11-03) @ 93.70 \u00b7 COUNCIL EXP brk v=-20", "mkt_t": 1793684072.0}
+{"t": "11:04:32", "k": "RAW-ENTRY", "x": "BUY 15 lots NIFTY 23700 PE (2026-11-03) @ 93.70 \u00b7 COUNCIL EXP brk v=-20", "mkt_t": 1793684072.0}
+{"t": "11:05:37", "k": "SPIKE", "x": "straddle 23650 +8.6 over theta in 5 min \u2014 PE leg carries it (75.2, delta -0.498\u2192-0.59, gamma 0.00272)", "mkt_t": 1793684137.3}
+{"t": "11:06:41", "k": "EXIT", "x": "PE 23700 15 lots \u00b7 93.70 \u2192 94.10 = +0.40 pts / \u20b9+390 \u00b7 COUNCIL BE_LOCK \u00b7 capital \u20b997,536", "mkt_t": 1793684201.0}
+{"t": "11:06:41", "k": "RAW-EXIT", "x": "PE 23700 15 lots \u00b7 93.70 \u2192 94.10 = +0.40 pts / \u20b9+390 \u00b7 COUNCIL BE_LOCK \u00b7 capital \u20b997,536", "mkt_t": 1793684201.0}
+{"t": "11:08:23", "k": "SPIKE", "x": "straddle 23650 +9.3 over theta in 5 min \u2014 PE leg carries it (73.9, delta -0.5\u2192-0.582, gamma 0.00271)", "mkt_t": 1793684303.3}
+{"t": "11:32:02", "k": "SPIKE", "x": "straddle 23650 +9.1 over theta in 5 min \u2014 PE leg carries it (74.7, delta -0.493\u2192-0.601, gamma 0.0028)", "mkt_t": 1793685722.3}
+{"t": "11:37:00", "k": "ENTRY", "x": "BUY 17 lots NIFTY 23600 CE (2026-11-03) @ 86.00 \u00b7 COUNCIL EXP brk v=+23", "mkt_t": 1793686020.0}
+{"t": "11:37:00", "k": "RAW-ENTRY", "x": "BUY 17 lots NIFTY 23600 CE (2026-11-03) @ 86.00 \u00b7 COUNCIL EXP brk v=+23", "mkt_t": 1793686020.0}
+{"t": "11:52:01", "k": "EXIT", "x": "CE 23600 17 lots \u00b7 86.00 \u2192 92.90 = +6.90 pts / \u20b9+7,624 \u00b7 COUNCIL TIME \u00b7 capital \u20b9105,161", "mkt_t": 1793686921.0}
+{"t": "11:52:01", "k": "RAW-EXIT", "x": "CE 23600 17 lots \u00b7 86.00 \u2192 92.90 = +6.90 pts / \u20b9+7,624 \u00b7 COUNCIL TIME \u00b7 capital \u20b9105,161", "mkt_t": 1793686921.0}
+{"t": "11:56:18", "k": "SPIKE", "x": "straddle 23650 +9.9 over theta in 5 min \u2014 CE leg carries it (73.3, delta 0.529\u21920.617, gamma 0.00293)", "mkt_t": 1793687178.3}
+{"t": "12:00:15", "k": "SPIKE", "x": "straddle 23650 +10.8 over theta in 5 min \u2014 CE leg carries it (76.7, delta 0.594\u21920.629, gamma 0.00287)", "mkt_t": 1793687415.3}
+{"t": "12:04:47", "k": "SHIFT", "x": "ATM rolled 23650 \u2192 23700: straddle 110.3 \u2192 103.8 (spot settled at the new strike)", "mkt_t": 1793687687.1}
+{"t": "12:10:34", "k": "ENTRY", "x": "BUY 19 lots NIFTY 23700 PE (2026-11-03) @ 80.95 \u00b7 COUNCIL EXP brk v=-21", "mkt_t": 1793688034.0}
+{"t": "12:10:34", "k": "RAW-ENTRY", "x": "BUY 19 lots NIFTY 23700 PE (2026-11-03) @ 80.95 \u00b7 COUNCIL EXP brk v=-21", "mkt_t": 1793688034.0}
+{"t": "12:10:41", "k": "SPIKE", "x": "straddle 23700 +13.1 over theta in 5 min \u2014 PE leg carries it (86.8, delta -0.531\u2192-0.68, gamma 0.00279)", "mkt_t": 1793688041.3}
+{"t": "12:12:29", "k": "SPIKE", "x": "straddle 23700 +13.1 over theta in 5 min \u2014 PE leg carries it (84.0, delta -0.539\u2192-0.667, gamma 0.00283)", "mkt_t": 1793688149.3}
+{"t": "12:12:42", "k": "EXIT", "x": "PE 23700 19 lots \u00b7 80.95 \u2192 80.50 = -0.45 pts / \u20b9-556 \u00b7 COUNCIL BE_LOCK \u00b7 capital \u20b9104,605", "mkt_t": 1793688162.0}
+{"t": "12:12:42", "k": "RAW-EXIT", "x": "PE 23700 19 lots \u00b7 80.95 \u2192 80.50 = -0.45 pts / \u20b9-556 \u00b7 COUNCIL BE_LOCK \u00b7 capital \u20b9104,605", "mkt_t": 1793688162.0}
+{"t": "12:13:37", "k": "GAP", "x": "data gap: feed silent: no quote on any instrument for 3 s \u2014 entries paused until 20 s of fresh data", "mkt_t": 1793688217.3}
+{"t": "12:14:05", "k": "GAP", "x": "data back after 28 s (feed stale: futures quote 11 s old); entries resume", "mkt_t": 1793688245.1}
+{"t": "12:18:35", "k": "SPIKE", "x": "straddle 23700 +13.6 over theta in 5 min \u2014 PE leg carries it (91.3, delta -0.646\u2192-0.682, gamma 0.00267)", "mkt_t": 1793688515.3}
+{"t": "12:20:17", "k": "SHIFT", "x": "ATM rolled 23700 \u2192 23650: straddle 118.2 \u2192 105.1 (spot settled at the new strike)", "mkt_t": 1793688617.4}
+{"t": "12:29:01", "k": "ENTRY", "x": "BUY 17 lots NIFTY 23600 CE (2026-11-03) @ 90.90 \u00b7 COUNCIL EXP brk v=+20", "mkt_t": 1793689141.0}
+{"t": "12:29:01", "k": "RAW-ENTRY", "x": "BUY 17 lots NIFTY 23600 CE (2026-11-03) @ 90.90 \u00b7 COUNCIL EXP brk v=+20", "mkt_t": 1793689141.0}
+{"t": "12:36:37", "k": "EXIT", "x": "CE 23600 17 lots \u00b7 90.90 \u2192 76.30 = -14.60 pts / \u20b9-16,133 \u00b7 COUNCIL SL \u00b7 capital \u20b988,472", "mkt_t": 1793689597.0}
+{"t": "12:36:37", "k": "RAW-EXIT", "x": "CE 23600 17 lots \u00b7 90.90 \u2192 76.30 = -14.60 pts / \u20b9-16,133 \u00b7 COUNCIL SL \u00b7 capital \u20b988,472", "mkt_t": 1793689597.0}
+{"t": "12:49:49", "k": "ENTRY", "x": "BUY 15 lots NIFTY 23600 CE (2026-11-03) @ 90.45 \u00b7 COUNCIL EXP brk v=+20", "mkt_t": 1793690389.0}
+{"t": "12:49:49", "k": "RAW-ENTRY", "x": "BUY 15 lots NIFTY 23600 CE (2026-11-03) @ 90.45 \u00b7 COUNCIL EXP brk v=+20", "mkt_t": 1793690389.0}
+{"t": "12:50:04", "k": "GAP", "x": "data gap: feed silent: no quote on any instrument for 3 s \u2014 entries paused until 20 s of fresh data", "mkt_t": 1793690404.2}
+{"t": "12:50:35", "k": "GAP", "x": "data back after 31 s (feed stale: futures quote 15 s old); entries resume", "mkt_t": 1793690435.0}
+{"t": "13:04:50", "k": "EXIT", "x": "CE 23600 15 lots \u00b7 90.45 \u2192 96.80 = +6.35 pts / \u20b9+6,191 \u00b7 COUNCIL TIME \u00b7 capital \u20b994,664", "mkt_t": 1793691290.0}
+{"t": "13:04:50", "k": "RAW-EXIT", "x": "CE 23600 15 lots \u00b7 90.45 \u2192 96.80 = +6.35 pts / \u20b9+6,191 \u00b7 COUNCIL TIME \u00b7 capital \u20b994,664", "mkt_t": 1793691290.0}
+{"t": "13:06:45", "k": "SHIFT", "x": "ATM rolled 23650 \u2192 23700: straddle 93.4 \u2192 89.8 (spot settled at the new strike)", "mkt_t": 1793691405.6}
+{"t": "13:16:51", "k": "ENTRY", "x": "BUY 17 lots NIFTY 23650 CE (2026-11-03) @ 84.20 \u00b7 COUNCIL EXP brk v=+20", "mkt_t": 1793692011.0}
+{"t": "13:16:51", "k": "RAW-ENTRY", "x": "BUY 17 lots NIFTY 23650 CE (2026-11-03) @ 84.20 \u00b7 COUNCIL EXP brk v=+20", "mkt_t": 1793692011.0}
+{"t": "13:31:52", "k": "EXIT", "x": "CE 23650 17 lots \u00b7 84.20 \u2192 89.10 = +4.90 pts / \u20b9+5,414 \u00b7 COUNCIL TIME \u00b7 capital \u20b9100,078", "mkt_t": 1793692912.0}
+{"t": "13:31:52", "k": "RAW-EXIT", "x": "CE 23650 17 lots \u00b7 84.20 \u2192 89.10 = +4.90 pts / \u20b9+5,414 \u00b7 COUNCIL TIME \u00b7 capital \u20b9100,078", "mkt_t": 1793692912.0}
+{"t": "13:44:08", "k": "SHIFT", "x": "ATM rolled 23700 \u2192 23750: straddle 83.5 \u2192 79.0 (spot settled at the new strike)", "mkt_t": 1793693648.4}
+{"t": "13:54:06", "k": "ENTRY", "x": "BUY 24 lots NIFTY 23750 PE (2026-11-03) @ 63.30 \u00b7 COUNCIL EXP brk v=-25", "mkt_t": 1793694246.0}
+{"t": "13:54:06", "k": "RAW-ENTRY", "x": "BUY 24 lots NIFTY 23750 PE (2026-11-03) @ 63.30 \u00b7 COUNCIL EXP brk v=-25", "mkt_t": 1793694246.0}
+{"t": "13:54:59", "k": "EXIT", "x": "PE 23750 24 lots \u00b7 63.30 \u2192 54.50 = -8.80 pts / \u20b9-13,728 \u00b7 COUNCIL SL \u00b7 capital \u20b986,350", "mkt_t": 1793694299.0}
+{"t": "13:54:59", "k": "RAW-EXIT", "x": "PE 23750 24 lots \u00b7 63.30 \u2192 54.50 = -8.80 pts / \u20b9-13,728 \u00b7 COUNCIL SL \u00b7 capital \u20b986,350", "mkt_t": 1793694299.0}
+{"t": "13:56:59", "k": "SPIKE", "x": "straddle 23750 +18.1 over theta in 5 min \u2014 PE leg carries it (62.0, delta -0.588\u2192-0.654, gamma 0.00374)", "mkt_t": 1793694419.3}
+{"t": "14:05:23", "k": "SHIFT", "x": "ATM rolled 23750 \u2192 23700: straddle 84.5 \u2192 77.8 (spot settled at the new strike)", "mkt_t": 1793694923.1}
+{"t": "14:18:35", "k": "ENTRY", "x": "BUY 27 lots NIFTY 23700 PE (2026-11-03) @ 48.25 \u00b7 COUNCIL EXP brk v=-29", "mkt_t": 1793695715.0}
+{"t": "14:18:35", "k": "RAW-ENTRY", "x": "BUY 27 lots NIFTY 23700 PE (2026-11-03) @ 48.25 \u00b7 COUNCIL EXP brk v=-29", "mkt_t": 1793695715.0}
+{"t": "14:20:53", "k": "EXIT", "x": "PE 23700 27 lots \u00b7 48.25 \u2192 38.50 = -9.75 pts / \u20b9-17,111 \u00b7 COUNCIL SL \u00b7 capital \u20b969,239", "mkt_t": 1793695853.0}
+{"t": "14:20:53", "k": "RAW-EXIT", "x": "PE 23700 27 lots \u00b7 48.25 \u2192 38.50 = -9.75 pts / \u20b9-17,111 \u00b7 COUNCIL SL \u00b7 capital \u20b969,239", "mkt_t": 1793695853.0}
+{"t": "14:24:49", "k": "ENTRY", "x": "BUY 22 lots NIFTY 23700 PE (2026-11-03) @ 47.35 \u00b7 COUNCIL EXP brk v=-28", "mkt_t": 1793696089.0}
+{"t": "14:24:49", "k": "RAW-ENTRY", "x": "BUY 22 lots NIFTY 23700 PE (2026-11-03) @ 47.35 \u00b7 COUNCIL EXP brk v=-28", "mkt_t": 1793696089.0}
+{"t": "14:30:20", "k": "EXIT", "x": "PE 23700 22 lots \u00b7 47.35 \u2192 40.20 = -7.15 pts / \u20b9-10,224 \u00b7 COUNCIL SL \u00b7 capital \u20b959,014", "mkt_t": 1793696420.0}
+{"t": "14:30:20", "k": "RAW-EXIT", "x": "PE 23700 22 lots \u00b7 47.35 \u2192 40.20 = -7.15 pts / \u20b9-10,224 \u00b7 COUNCIL SL \u00b7 capital \u20b959,014", "mkt_t": 1793696420.0}
+{"t": "15:15:53", "k": "DATA", "x": "NIFTY index not trusted: spot unchanged for 53 s while the future moved -7", "mkt_t": 1793699153.3}
+{"t": "15:16:00", "k": "DATA", "x": "NIFTY index trusted again", "mkt_t": 1793699160.1}
+{"t": "15:16:21", "k": "DATA", "x": "NIFTY index not trusted: spot unchanged for 81 s while the future moved -6", "mkt_t": 1793699181.5}
+{"t": "15:16:23", "k": "DATA", "x": "NIFTY index trusted again", "mkt_t": 1793699183.2}
+{"t": "15:16:26", "k": "DATA", "x": "NIFTY index not trusted: spot unchanged for 86 s while the future moved -6", "mkt_t": 1793699186.5}
+{"t": "15:16:31", "k": "DATA", "x": "NIFTY index trusted again", "mkt_t": 1793699191.6}
+{"t": "15:16:33", "k": "DATA", "x": "NIFTY index not trusted: spot unchanged for 93 s while the future moved -6", "mkt_t": 1793699193.2}
+{"t": "15:16:43", "k": "DATA", "x": "NIFTY index trusted again", "mkt_t": 1793699203.2}
+{"t": "15:18:24", "k": "DATA", "x": "NIFTY index not trusted: spot unchanged for 204 s while the future moved -7", "mkt_t": 1793699304.4}
+{"t": "15:18:31", "k": "DATA", "x": "NIFTY index trusted again", "mkt_t": 1793699311.0}
+{"t": "15:19:14", "k": "DATA", "x": "NIFTY index not trusted: spot unchanged for 254 s while the future moved -7", "mkt_t": 1793699354.0}
+{"t": "15:19:17", "k": "DATA", "x": "NIFTY index trusted again", "mkt_t": 1793699357.4}
+{"t": "15:20:02", "k": "DATA", "x": "NIFTY index not trusted: spot 23872.0 is -151 pts off its usual spread to the future", "mkt_t": 1793699402.3}
+{"t": "15:20:03", "k": "SHIFT", "x": "ATM rolled 23700 \u2192 23950: straddle 60.4 \u2192 205.5 (spot settled at the new strike)", "mkt_t": 1793699403.0}
+{"t": "15:27:04", "k": "SHIFT", "x": "ATM rolled 23950 \u2192 23800: straddle 155.2 \u2192 21.0 (spot settled at the new strike)", "mkt_t": 1793699824.8}
+{"t": "15:27:58", "k": "DATA", "x": "NIFTY index trusted again", "mkt_t": 1793699878.5}
+{"t": "15:30:04", "k": "DATA", "x": "NIFTY index not trusted: spot unchanged for 26 s while the future moved +8", "mkt_t": 1793700004.3}
+{"t": "15:30:49", "k": "DATA", "x": "NIFTY index trusted again", "mkt_t": 1793700049.1}
+{"t": "15:30:50", "k": "DATA", "x": "NIFTY index not trusted: spot unchanged for 72 s while the future moved +8", "mkt_t": 1793700050.8}
+{"t": "15:30:55", "k": "DATA", "x": "NIFTY index trusted again", "mkt_t": 1793700055.8}
+{"t": "15:33:25", "k": "DATA", "x": "NIFTY index not trusted: spot unchanged for 226 s while the future moved +6", "mkt_t": 1793700205.0}
+{"t": "15:33:26", "k": "DATA", "x": "NIFTY index trusted again", "mkt_t": 1793700206.6}
+{"t": "15:33:54", "k": "DATA", "x": "NIFTY index not trusted: spot unchanged for 256 s while the future moved +7", "mkt_t": 1793700234.8}
+{"t": "15:35:22", "k": "DATA", "x": "NIFTY index trusted again", "mkt_t": 1793700322.4}
+{"t": "15:37:44", "k": "DATA", "x": "NIFTY index not trusted: spot unchanged for 486 s while the future moved -7", "mkt_t": 1793700464.4}
+{"t": "15:37:46", "k": "DATA", "x": "NIFTY index trusted again", "mkt_t": 1793700466.0}
+{"t": "15:39:36", "k": "DATA", "x": "NIFTY index not trusted: spot unchanged for 598 s while the future moved -6", "mkt_t": 1793700576.4}
+{"t": "15:39:39", "k": "DATA", "x": "NIFTY index trusted again", "mkt_t": 1793700579.8}
+{"t": "15:39:53", "k": "DATA", "x": "NIFTY index not trusted: spot unchanged for 614 s while the future moved -6", "mkt_t": 1793700593.0}
+{"t": "15:39:54", "k": "DATA", "x": "NIFTY index trusted again", "mkt_t": 1793700594.6}
+{"t": "15:41:00", "k": "LEARN", "x": "2026-11-03: champion next session c20_9x, gates none, status COLLECTING", "mkt_t": 1793700660.0}
+{"t": "15:41:20", "k": "GAP", "x": "data gap: feed not live \u2014 entries paused until 20 s of fresh data", "mkt_t": 1793700680.0}

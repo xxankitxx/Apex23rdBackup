@@ -1,0 +1,24 @@
+{
+ "registered": "2026-10-17",
+ "champion": "t28_cheap",
+ "champion_since": "2026-10-29",
+ "gates": [],
+ "retired": [],
+ "log": [
+  {
+   "day": "2026-10-29",
+   "event": "champion",
+   "from": "t28_cheap",
+   "to": "t28_cheap",
+   "by": "owner (D-124)"
+  }
+ ],
+ "status": "COLLECTING",
+ "candidates": {},
+ "streak": {},
+ "gate_streak": {},
+ "owner_champion": [
+  "t28_cheap",
+  "2026-10-29"
+ ]
+}

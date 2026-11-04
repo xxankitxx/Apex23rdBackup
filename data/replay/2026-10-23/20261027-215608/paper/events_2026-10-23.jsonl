@@ -1,0 +1,11 @@
+{"t": "08:39:26", "k": "SYSTEM", "x": "day 2026-10-23 \u00b7 champion edge_gate_trail \u00b7 gates none \u00b7 capital \u20b9100,000", "mkt_t": 1792724966.9}
+{"t": "09:20:01", "k": "SPIKE", "x": "straddle 22800 +25.5 over theta in 5 min \u2014 PE leg carries it (168.2, delta -0.491\u2192-0.507, gamma 0.00098)", "mkt_t": 1792727401.8}
+{"t": "09:26:00", "k": "ENTRY", "x": "BUY 8 lots NIFTY 22850 PE (2026-10-27) @ 179.15 \u00b7 PE: 85-pt impulse 22785.3 -> 22700.2 pulled back 53 % to 22745.0; stop 22785.3, target 22615.0", "mkt_t": 1792727760.5}
+{"t": "09:26:00", "k": "RAW-ENTRY", "x": "BUY 8 lots NIFTY 22850 PE (2026-10-27) @ 179.15 \u00b7 PE: 85-pt impulse 22785.3 -> 22700.2 pulled back 53 % to 22745.0; stop 22785.3, target 22615.0", "mkt_t": 1792727760.5}
+{"t": "09:34:29", "k": "EXIT", "x": "PE 22850 8 lots \u00b7 179.15 \u2192 210.00 = +30.85 pts / \u20b9+16,042 \u00b7 TRAIL (kept +16.4 % of a +20.7 % peak gain, 30-s average) (locked +18 % at 09:31:38) \u00b7 capital \u20b9116,042", "mkt_t": 1792728269.4}
+{"t": "09:34:29", "k": "RAW-EXIT", "x": "PE 22850 8 lots \u00b7 179.15 \u2192 210.00 = +30.85 pts / \u20b9+16,042 \u00b7 TRAIL (kept +16.4 % of a +20.7 % peak gain, 30-s average) (locked +18 % at 09:31:38) \u00b7 capital \u20b9116,042", "mkt_t": 1792728269.4}
+{"t": "09:37:24", "k": "SHIFT", "x": "ATM rolled 22800 \u2192 22700: straddle 316.8 \u2192 318.1 (spot settled at the new strike)", "mkt_t": 1792728444.3}
+{"t": "09:43:01", "k": "SHIFT", "x": "ATM rolled 22700 \u2192 22800: straddle 316.2 \u2192 304.7 (spot settled at the new strike)", "mkt_t": 1792728781.2}
+{"t": "09:43:02", "k": "ENTRY", "x": "BUY 9 lots NIFTY 22850 PE (2026-10-27) @ 186.20 \u00b7 PE: 121-pt impulse 22785.3 -> 22664.0 pulled back 51 % to 22725.7; stop 22785.3, target 22542.7", "mkt_t": 1792728782.8}
+{"t": "09:43:02", "k": "RAW-ENTRY", "x": "BUY 9 lots NIFTY 22850 PE (2026-10-27) @ 186.20 \u00b7 PE: 121-pt impulse 22785.3 -> 22664.0 pulled back 51 % to 22725.7; stop 22785.3, target 22542.7", "mkt_t": 1792728782.8}
+{"t": "09:45:49", "k": "SHIFT", "x": "ATM rolled 22800 \u2192 22700: straddle 311.8 \u2192 312.6 (spot settled at the new strike)", "mkt_t": 1792728949.5}

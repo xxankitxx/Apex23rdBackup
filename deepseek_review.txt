@@ -1,0 +1,246 @@
+## Bottom line
+
+The document is unusually candid and technically detailed. The core idea — a two-mode NIFTY weekly options buyer using a parity forward, an expiry breakout mode, a normal-day impulse→pullback→resumption mode, and premium-protecting exits — is coherent and worth testing. The autopsy work and rejected-add-on log are genuine strengths.
+
+But as specified, **`c20_8x` is not yet a validated edge**. It is a 7-day, 2-expiry-day, heavily selected backtest with one dominant day, no full cost model, and an engine replay still pending. The “7/7 green” headline should be treated as a hypothesis, not evidence. Also: **no strategy can guarantee “never take a losing trade.”** With buy-only, all-in, one-position, weekly options, losses are unavoidable from direction, gamma, theta, IV, spreads, gaps and fills. The realistic goal is positive expectancy after costs with controlled loss frequency and severity.
+
+All suggestions below stay inside your fixed rules: NIFTY weekly options only, buy-only, one position, all-in, delta ≥ 0.52, paper. They are overlays, filters, contract-selection rules and exit rules — not changes to instrument, direction or sizing.
+
+---
+
+## 1. What is genuinely good
+
+1. **Clear causal design.** Once-per-second decisions, smoothed forward, rolling ranges excluding the current second, quote-age checks, stale-forward handling — the intent is no look-ahead.
+2. **Two-mode structure is sensible.** Expiry day is a different market from normal days; a breakout mode on expiry and a pullback mode on normal days is more defensible than one universal trigger.
+3. **The normal-day pullback logic is better than pure breakout chasing.** Requiring 50–75% retrace, disarming above 75%, and disarming old arms are reasonable anti-reversal rules.
+4. **Change B is economically sound.** A break-even lock after +15% and a give-back cap after +60% directly target the “gave back a winner” problem.
+5. **Change A is a good idea in principle.** Rent = expected gamma P&L vs theta cost is the right kind of question: “is the market moving enough to pay for time decay?”
+6. **The rejected-add-on list is valuable.** Exhaustion exits, profit caps, gamma-rent on every normal entry, opening-range locks, IV guards, theta caps, stacking guards — documenting these reduces future overfitting.
+7. **The autopsy is the strongest part.** Delta explains R² = 0.988 of trade returns; losers are mostly direction failures, not IV crush; expiry losers were bought mid-spike; whipsaw flips and over-retraced normal pullbacks are real problems.
+8. **The calibration to the champion is a good check.** Correlation 0.988–1.000 and ±0.7 pp mean difference per day is a meaningful sanity test.
+9. **The document openly flags small sample, theta convention, path dependence and fragile parameters.** That honesty is rare and should be preserved.
+
+---
+
+## 2. Major holes and teardown
+
+### 2.1 Statistical evidence is thin and selected
+
+- **7 days, 2 expiry days.** The expiry half of the strategy is effectively fitted on 19 and 27 Oct. Change A, change B, expiry `W/L/vmin`, target delta 0.65 and the 14:40 cutoff all depend on two days.
+- **27 Oct dominates.** It contributes +4.07 L of +8.47 L, about 48%. A single day can create the “7/7 green” impression.
+- **LODO is not true out-of-sample.** With 7 days, every day influences model selection somewhere. With only two expiry days, each expiry “fold” is chosen on the only other expiry day. The +6.58 L LODO is still optimistic.
+- **Multiple testing / garden of forking paths.** 20 council members, 10 autopsy members, factorial combinations, one-step robustness checks. The final `c20_8x` is the survivor of many tests. No multiple-testing penalty or deflated Sharpe is reported.
+- **`c20_8x` catches fewer big moves than `c20_08`** (34/112 vs 38/112) but makes more money. That means the improvement comes more from strike/exits/path than from a better signal. That is not automatically bad, but it weakens the “signal edge” story.
+- **Path dependence is acknowledged but not solved.** All-in, one position, daily compounding: adding or removing one trade changes every later trade. The edge may be partly the exact sequence on these 7 days.
+- **Per-day rounded values do not sum exactly** to the total (846,500 vs 846,648). Minor, but the reporting should be exact.
+- **No true future OOS.** 29 Oct is excluded, but the strategy has not been paper-forward-tested on unseen days.
+
+### 2.2 Costs and execution are under-modelled
+
+- **No brokerage, STT, exchange charges, GST, SEBI fees, stamp duty or slippage beyond bid-ask.** The kit buys at ask 2 s later and sells at bid 2 s later, which captures spread, but not fees. With ~49 trades in 7 days and all-in size, costs matter.
+- **No market impact/liquidity model.** All-in can mean 7–30+ lots. ITM weekly strikes may be less liquid than ATM. Quote age ≤5 s is not the same as depth.
+- **Engine fills at LTP; kit fills at ask/bid 2 s later.** The document says engine trades are scored ask-in/bid-out, but the engine opens at LTP. That is an execution-model inconsistency that the engine replay must resolve.
+- **No exit stale-quote rule.** Entry requires quote age ≤5 s; exits do not. In a fast market or data gap, the bid used for SL/BE/giveback may be stale.
+- **Forced flat at 15:00/15:20 can realise a loss.** No rule prevents a last-minute forced exit at a bad bid.
+- **Data blackout exits at last price.** That is a paper simplification; real fills may be worse.
+
+### 2.3 Theta / rent convention is a real bug-level issue
+
+The engine theta is `theta_year / 365 / 375`, i.e. one day’s decay over 375 trading minutes. Calendar-minute theta is `theta_year / 525,600`. The engine’s per-minute theta is **3.84× larger** than calendar theta.
+
+Therefore `rent = 0.5 × gamma × RV / |theta|` with the engine theta gives a rent that is **3.84× smaller** than calendar rent. The nominal threshold `0.25` is equivalent to about **0.96 in calendar-minute terms**. This is not a small unit nit: the gate’s economic meaning depends on it. If the intended hurdle is 0.25 calendar rent, the current gate is about 3.8× too strict; if the intended hurdle is ~0.96 calendar, the formula should be fixed and documented. Either way, re-derive the threshold and re-run.
+
+### 2.4 Entry logic holes
+
+- **Expiry breakout buys mid-spike.** The autopsy says losers were bought in the middle of a 10–30 s spike with high 10-s acceleration. The current expiry entry still buys the breakout itself, with only a rent gate after a prior loss. There is no first-trade spike-quality filter.
+- **Change A only gates the other side after a loss within 900 s.** It does not gate the first whipsaw, same-side re-entry after a loss, or a flip after a winning trade.
+- **Rent is not checked at every entry.** Rejecting gamma-rent on every normal-day entry was reasonable, but on expiry days a low-rent first entry is exactly the documented failure mode.
+- **No spread/liquidity filter at entry.** Contract selection is “closest delta among eligible,” not “best expected value after spread, theta, gamma and liquidity.”
+- **No IV outlier / parity residual check.** The forward is parity-based; if legs are wide, stale or misprinted, F can be noisy. The code excludes stale legs but does not check put-call parity residual or cross-check against futures/spot.
+- **No post-gap history reset.** If F is missing >2 s, `fs` restarts, but rolling ranges and RV may still contain pre-gap data. A false breakout after a gap is possible.
+- **Normal pullback trigger is only “5 points off the pullback extreme.”** No acceleration, volume, order-flow or structure confirmation. A 5-point wiggle can trigger in a still-falling market.
+- **Arm time does not reset on same-side breakout.** That is defensible, but it means a fresh breakout 14 minutes after arming can expire almost immediately.
+- **Mode selection must use instrument-master expiry, not a calendar assumption.** Holidays/shifts can change the weekly expiry.
+
+### 2.5 Exit logic holes
+
+- **Fixed 15% premium stop is not volatility- or delta-adjusted.** On expiry day, gamma is high; 15% can be hit in seconds, or a gap can skip it.
+- **Fixed forward trail is not delta-adjusted.** As delta grows from ~0.60 to ~0.80, a 25-point forward give-back costs more premium. The give-back cap only arms after +60%; between +15% and +60% only the break-even lock protects.
+- **Time clock 900 s on expiry** may be too long given winners peak median ~7 minutes; but shortening it may cut runners. It should be tested with rent/MFE conditioning.
+- **SL is checked before BE/give-back in the exit order.** If bid gaps from +20% to −16%, SL fires; that is correct, but it means the BE lock cannot help through a gap.
+- **No theta/rent exit.** If the trade is flat and rent collapses, the strategy waits for SL/trail/clock while theta eats premium.
+- **No order-flow reversal exit.** If cumulative delta flips hard against the position and rent is low, an early exit could save losers.
+- **No fee-aware break-even.** BE lock at exactly entry ignores costs; a “break-even” exit after fees is a small loss. Setting it above entry collapsed results, but a fee-adjusted floor should be tested.
+
+### 2.6 Contract selection holes
+
+- **Closest delta is not necessarily best value.** All-in means the strike choice is the leverage dial. Two strikes with delta 0.52 and 0.53 can have very different spread %, theta %, gamma/theta and liquidity.
+- **No max spread filter.** A wide ITM quote can wipe the edge.
+- **No min volume/OI/depth filter.** Quote age is not liquidity.
+- **No IV outlier filter.** A single bad IV can distort delta and contract choice.
+- **No intrinsic/extrinsic sanity check.** For ITM options, ensure extrinsic value is positive and not distorted.
+- **Delta target 0.52 on normal days may pick a strike just above the minimum with poor gamma.** It worked on 7 days; it needs spread/liquidity scoring.
+
+### 2.7 Risk and operational holes
+
+- **All-in one position has no diversification and no hedge.** A single gap or stale quote can produce a large loss. A 15% stop is not a guarantee.
+- **No daily loss circuit breaker** — but that would be a rule change, so I am not proposing it as core. Under current rules, the only loss-control levers are no-trade filters, contract choice and exits.
+- **Paper-only means no real impact.** The engine replay must include realistic costs, spreads and liquidity.
+- **Kill switch/data blackout behavior is specified, but not stress-tested.** What happens if F is stale at entry, bid is stale at exit, or the option quote is crossed?
+- **No check for crossed/zero/wide quotes.** `bid < ask`, positive bid, finite IV, IV convergence should be mandatory.
+
+---
+
+## 3. Add-ons that could improve profitability within your rules
+
+### 3.1 Highest-value first: cost-aware expected-value veto
+
+At every signal, before buying, compute a simple expected edge:
+
+```
+E[premium change over expected hold] ≈
+    delta × E[ΔF]
+  + 0.5 × gamma × E[ΔF²]
+  + vega × E[ΔIV]
+  + theta × hold
+  − spread/2
+  − fees
+```
+
+Use `E[ΔF]` from velocity/acceleration with shrinkage, `E[ΔF²]` from realized variance, and `E[ΔIV]` from recent IV trend. Veto if `E < 0` or `E < k × costs`. This is not a guarantee against loss; it is a no-trade filter. It is especially useful on expiry days where theta is large.
+
+### 3.2 Extend the rent gate carefully
+
+- Fix the theta convention and re-derive the threshold.
+- Test rent at **every expiry entry**, not only after a loss on the other side.
+- Keep the normal-day rent gate off unless new data supports it; the document says it never fired there.
+- Add a **same-side post-loss rent gate** as a separate test.
+- Add a **rent-collapse exit**: if holding and rent falls below a threshold while premium is near entry, exit before theta/clock.
+
+### 3.3 Contract-selection score, not closest delta
+
+Among eligible contracts with `|delta| ≥ 0.52`, score each candidate:
+
+```
+score = expected_edge / capital_used
+      − spread_pct × penalty
+      − theta_pct × penalty
+      − illiquidity_penalty
+      − IV_outlier_penalty
+```
+
+Keep the delta target as a soft preference, but let a slightly different strike win if its spread, theta and liquidity are much better. Add hard caps: max spread % of premium, max theta % per minute, min quote age, finite IV, bid < ask.
+
+### 3.4 Volatility/delta-adjusted exits
+
+Replace fixed forward trail with a dynamic trail:
+
+```
+trail_pts = base_trail × (entry_delta / current_delta) × (realized_vol / baseline_vol)
+```
+
+or convert to a premium give-back trail after a peak:
+
+```
+if peak_gain ≥ arm and bid ≤ peak_bid × (1 − keep_fraction): exit
+```
+
+Test combinations. The idea is to keep the premium give-back roughly constant as delta and volatility change. The current 25-pt expiry trail is too crude when delta rises.
+
+### 3.5 Theta/rent time stop
+
+If after `N` minutes the trade has not made a new MFE and rent is below threshold, exit. This targets the “flat, decaying” trade without cutting runners. It is different from the rejected fixed profit cap.
+
+### 3.6 Expiry spike-quality filter
+
+The autopsy says losers were bought mid-spike with high 10-s acceleration. Add a soft filter:
+
+- compute 10-s acceleration and distance from a short VWAP/EMA;
+- if acceleration is extreme and price is extended, wait for a 3–10 s micro-pullback or require rent above a higher threshold;
+- do not stack this with the range-width guard; test them as alternatives.
+
+This is close to “waiting for acceleration to cool,” which failed on two days, so it must be tested as a score/veto, not a hard clock.
+
+### 3.7 Order-flow / microstructure add-ons
+
+If the tape has sizes/volume, use:
+
+- **spread and depth**: veto wide/illiquid quotes;
+- **signed trade flow**: LTP at/above ask = buy aggressor; at/below bid = sell aggressor; cumulative delta;
+- **delta-weighted option flow** across strikes;
+- **quote imbalance** if bid/ask sizes exist;
+- **OI change and volume at strike**;
+- **futures–forward basis**: if futures leads the parity forward, use it as a cross-check;
+- **IV skew/risk reversal**: if skew moves hard against the signal, veto;
+- **realized/implied ratio**: expiry options priced ~3× realised move; rent is one expression of this, but a direct ratio can be a regime filter.
+
+Do not add all at once. Test one at a time with LODO and costs.
+
+### 3.8 Calculus / statistical add-ons
+
+- **Velocity, acceleration, jerk** of `fs`: use acceleration sign for resumption confirmation; cap extreme acceleration on expiry.
+- **Realized variance / EWMA volatility**: scale stops and trails by volatility, not fixed points.
+- **Kalman filter or adaptive EMA** for the forward: the fixed 5-s EMA may lag or noise depending on regime.
+- **Ornstein–Uhlenbeck / z-score pullback**: instead of fixed 5-point resumption, require a z-score move off the pullback extreme relative to recent noise.
+- **Change-point/CUSUM**: detect regime shifts and whipsaws; veto entries right after a change point.
+- **Survival/hazard model**: estimate probability of further MFE given current MFE and time held; use to tune the 900-s expiry clock.
+- **Taylor decomposition**: attribute each trade’s P&L to delta, gamma, theta, vega, spread; use it to decide whether to change entry or exit. The autopsy already does this; make it a live diagnostic.
+
+### 3.9 Normal-day pullback improvements
+
+- Require resumption to have positive acceleration, not just +5 points.
+- Add a volatility-scaled minimum impulse: `impulse > k × ATR`, not only 40 points.
+- Add a “structure” check: pullback should not break the prior 20-min swing low/high.
+- Add order-flow confirmation if available.
+- Keep the 0.75 retrace and 900-s age limits; they are sensible.
+
+### 3.10 Validation add-ons
+
+- Full engine replay with **fees, slippage, spread, stale quotes, liquidity caps**.
+- 60–100 days across regimes; at least 10–15 expiry days.
+- True walk-forward: pre-register rules, then test on unseen days.
+- Nested CV / purged walk-forward; deflated Sharpe; probability of backtest overfitting.
+- Monte Carlo path resampling; bootstrap trade returns; stress test gaps and high-IV days.
+- Compare `c20_8x` to `c20_08` and champion under the same cost model.
+- Track paper-forward performance before any promotion.
+
+---
+
+## 4. On “never take a losing trade”
+
+This is not achievable with buy-only, all-in, one-position weekly options. The strategy can lose from:
+
+- direction reversal after entry;
+- gamma working against you;
+- theta decay while flat;
+- IV crush;
+- bid-ask spread and fees;
+- stale quotes/gaps;
+- forced flat at 15:00/15:20;
+- path dependence from all-in compounding.
+
+The only honest goals are:
+
+1. **Raise expected value per trade after costs.**
+2. **Reduce the number of low-quality entries** via no-trade filters.
+3. **Reduce the severity of losses** via volatility/delta-adjusted exits and rent/time stops.
+4. **Protect gains** via the existing BE/give-back logic and better trailing.
+5. **Prove it on unseen data with costs.**
+
+Any claim of “never losing” would be a red flag.
+
+---
+
+## 5. What I would test first, in order
+
+1. **Fix the theta/rent convention** and re-run the expiry gate with the correct threshold.
+2. **Add a full cost/slippage/liquidity model** to the kit and engine replay.
+3. **Run the 7-day engine replay** with identical fill assumptions; compare trade-by-trade to the kit.
+4. **Add a contract-selection score** with spread, theta %, gamma/theta and liquidity caps.
+5. **Add a cost-aware expected-value veto** at entry, especially on expiry days.
+6. **Test rent at every expiry entry** and a rent-collapse exit.
+7. **Test volatility/delta-adjusted trail and a theta/rent time stop** against the current exits.
+8. **Add order-flow/IV-skew filters only if the tape supports them**, one at a time.
+9. **Expand to 60–100 days and true OOS** before trusting the +8.47 L or +6.58 L numbers.
+
+The document’s greatest strength is that it already lists many of its weaknesses. The next step is not more clever entry rules on the same 7 days; it is **cost-aware validation on more days**, then a small number of economically motivated filters and exits.

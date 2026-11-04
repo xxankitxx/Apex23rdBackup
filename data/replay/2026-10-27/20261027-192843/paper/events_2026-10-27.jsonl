@@ -1,0 +1,4 @@
+{"t": "08:18:58", "k": "SYSTEM", "x": "day 2026-10-27 \u00b7 champion edge_gate_only \u00b7 gates none \u00b7 capital \u20b9100,000", "mkt_t": 1793069338.4}
+{"t": "09:15:00", "k": "GAP", "x": "data gap: feed stale: futures quote 378 s old \u2014 entries paused until 20 s of fresh data", "mkt_t": 1793072700.0}
+{"t": "09:15:20", "k": "GAP", "x": "data back after 20 s (feed stale: futures quote 378 s old); entries resume", "mkt_t": 1793072720.5}
+{"t": "09:19:02", "k": "SHIFT", "x": "ATM rolled 22750 \u2192 22650: straddle 186.7 \u2192 176.9 (spot settled at the new strike)", "mkt_t": 1793072942.1}

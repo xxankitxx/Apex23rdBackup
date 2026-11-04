@@ -1,0 +1,7 @@
+{"t": "08:47:05", "k": "SYSTEM", "x": "day 2026-10-21 \u00b7 champion edge_gate_trail \u00b7 gates none \u00b7 capital \u20b9100,000", "mkt_t": 1792552625.4}
+{"t": "09:17:47", "k": "SHIFT", "x": "ATM rolled 23000 \u2192 23100: straddle 350.4 \u2192 339.8 (spot settled at the new strike)", "mkt_t": 1792554467.8}
+{"t": "09:49:39", "k": "ENTRY", "x": "BUY 7 lots NIFTY 23000 CE (2026-10-27) @ 203.80 \u00b7 CE: 132-pt impulse 22988.0 -> 23119.5 pulled back 50 % to 23053.8; stop 22988.0, target 23251.0", "mkt_t": 1792556379.6}
+{"t": "09:49:39", "k": "RAW-ENTRY", "x": "BUY 7 lots NIFTY 23000 CE (2026-10-27) @ 203.80 \u00b7 CE: 132-pt impulse 22988.0 -> 23119.5 pulled back 50 % to 23053.8; stop 22988.0, target 23251.0", "mkt_t": 1792556379.6}
+{"t": "09:57:04", "k": "EXIT", "x": "CE 23000 7 lots \u00b7 203.80 \u2192 183.90 = -19.90 pts / \u20b9-9,054 \u00b7 STOP (premium -10.1 %, hard stop -10 %) \u00b7 capital \u20b990,946", "mkt_t": 1792556824.0}
+{"t": "09:57:04", "k": "RAW-EXIT", "x": "CE 23000 7 lots \u00b7 203.80 \u2192 183.90 = -19.90 pts / \u20b9-9,054 \u00b7 STOP (premium -10.1 %, hard stop -10 %) \u00b7 capital \u20b990,946", "mkt_t": 1792556824.0}
+{"t": "09:59:52", "k": "SHIFT", "x": "ATM rolled 23100 \u2192 23050: straddle 336.3 \u2192 333.8 (spot settled at the new strike)", "mkt_t": 1792556992.9}

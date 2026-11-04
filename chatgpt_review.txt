@@ -1,0 +1,873 @@
+# ApexOptions `c20_8x`: Thorough strategy teardown
+
+My central finding is that the strategy has several genuinely strong ideas, but the evidence does not yet establish that its apparent edge is durable. There are also important execution, mathematical, and exit-logic weaknesses that could undermine even a good entry signal.
+
+I would not discard the existing architecture and replace it with a generic RSI/MACD/ATR strategy or an AI model that simply predicts CE versus PE. The better approach is to retain the two-mode engine, preserve your fixed rules, investigate the failures at trade level, and add a small number of rigorously validated decision layers.
+
+I am preserving your stated constraints: NIFTY weekly options only, buying CE/PE only, ₹1 lakh starting capital each day, all-in sizing on every trade, ATM/ITM entries with absolute delta at least 0.52, and one open position at a time. I will not make changing those rules the solution.
+
+One important distinction from your specification: `c20_8x` is described as a proposed development strategy, with `t28_gap` still the champion and the full seven-day engine replay not yet complete when the document was prepared. The figures below are therefore reported test results, not proof of live profitability.&#x20;
+
+19_C20_8X_STRATEGY_SPEC.md
+
+
+
+## 1. The headline assessment
+
+What is genuinely good
+
+The system distinguishes expiry and normal days, uses a causal put-call-parity forward, demands a directional move before entering, has explicit pullback geometry on normal days, selects options using delta, uses bid-based protective exits in its rules, and tests changes at trade level rather than relying only on candle patterns.
+
+What concerns me most
+
+The evidence covers only seven sessions and two expiry days. One day supplies roughly ₹4.07 lakh of the reported ₹8.47 lakh total. The strategy has a potentially unsafe dependency between forward-data availability and exit processing, and the advertised profit locks are not guaranteed to override every other exit.
+
+Where I would focus next
+
+First, establish that exits and fills behave correctly under adverse conditions. Second, improve entry selection using a forecast of conditional forward movement, not just historical movement. Third, add option-chain and order-flow information as measurable confirmation or veto features—not as more unvalidated standalone signals.
+
+### What the reported results actually say
+
+The specification reports the following test-kit results, using its stated ask-entry/bid-exit convention:
+
+| Metric                             | `c20_8x`   | `c20_08` parent | `t28_gap` champion |
+| ---------------------------------- | ---------- | --------------- | ------------------ |
+| Reported P&L across seven sessions | +₹8,46,648 | +₹4,42,595      | +₹3,72,630         |
+| Green days                         | 7/7        | 6/7             | 5/7                |
+| Trades                             | 49         | 56              | 62                 |
+| Win rate                           | 59%        | 52%             | 53%                |
+| Catalogued big moves caught        | 34/112     | 38/112          | 25/112             |
+| Reported leave-one-day-out P&L     | +₹6,57,700 | +₹1,48,746      | Not reported       |
+
+These figures come from the document's evidence table.&#x20;
+
+19_C20_8X_STRATEGY_SPEC.md
+
+
+
+Three conclusions follow.
+
+First, the proposed system reports substantially better results on these sessions. That is worth investigating, not dismissing.
+
+Second, the fact that it catches fewer catalogued big moves than its parent while earning more is potentially instructive: catching every large move is not the objective; selecting the right trades and retaining their gains is.
+
+Third, seven green days do not establish a reliable 100% daily success rate. The reported result is concentrated in a small sample, with expiry-day performance especially exposed to selection bias. The document itself acknowledges that 27 October alone contributes approximately ₹4.07 lakh and that expiry logic was effectively evaluated on only two expiry sessions.&#x20;
+
+19_C20_8X_STRATEGY_SPEC.md
+
+
+
+The objective should be to reduce identifiable, preventable losses and improve expected profitability. No system can guarantee that every option-buying trade will win, particularly when prices can jump, quotes can become stale, and a stop can execute worse than its trigger. That limitation does not require changing your rules; it requires designing the system around the uncertainty it cannot eliminate.
+
+## 2. What I would retain from the existing strategy
+
+There are several worthwhile decisions in `c20_8x`. They should not be thrown away just because there are weaknesses elsewhere.
+
+### A. Separate expiry-day and normal-day behaviour
+
+Your engine uses a breakout-plus-speed signal on expiry days, but an impulse → pullback → resumption sequence on normal days. That is a good structural decision.
+
+Near expiry, gamma and time decay can become much more consequential, and the same underlying movement can have a very different premium outcome from a non-expiry session. Gamma measures how quickly delta changes; theta represents time decay, and both vary with the option's moneyness and time to expiry.&#x20;
+
+[image](https://www.google.com/s2/favicons?domain=https://www.schwab.com\&sz=32)
+
+Charles Schwab+1
+
+
+
+I would preserve the two-mode architecture and make the internal decisions more adaptive. I would not force both modes into one generic entry formula.
+
+### B. Use a synthetic forward instead of relying only on spot
+
+Your specification calculates the put-call-parity forward from matching CE and PE prices:
+
+\\[ F \approx K+C-P \\]
+
+For European options, the more complete relationship is \\(C-P=D(F-K)\\), where \\(D\\) is the relevant discount factor. Your simplified formula is generally a reasonable approximation for short-dated contracts, but the factor and quote quality matter when precision is important.&#x20;
+
+[image](https://www.google.com/s2/favicons?domain=https://www.imperial.ac.uk\&sz=32)
+
+Imperial College London
+
+
+
+The implementation also excludes stale parity legs, applies a five-second smoothing constant, and uses past forward ranges rather than including the current second in the breakout boundary. Those are sensible efforts to avoid noisy data and look-ahead.
+
+However, a synthetic forward is only as reliable as its source quotes. I would strengthen the forward estimator rather than abandon it.
+
+### C. Demand meaningful directional movement
+
+The expiry-day logic requires a break of the previous ten-minute range and at least a 20-point move over 150 seconds. Normal-day logic requires a larger impulse, a pullback within a specified range of retracement, and a five-point resumption.&#x20;
+
+19_C20_8X_STRATEGY_SPEC.md
+
+
+
+This is better designed than buying merely because an indicator turns green.
+
+The weakness is that those fixed thresholds do not necessarily distinguish a genuine directional continuation from an exhausted move or a volatility shock. That is where the next layer of analysis should be concentrated.
+
+### D. Manage winners without an arbitrary small profit target
+
+The strategy allows winners to run. It has a 15% premium stop, a forward-based trailing exit, a time exit, a break-even lock after a 15% peak gain, and a give-back rule after a 60% peak gain. The conventional take-profit target is effectively disabled.&#x20;
+
+19_C20_8X_STRATEGY_SPEC.md
+
+
+
+The specification reports that a profit cap, exhaustion exit, and several alternative booking rules harmed results by cutting large winners. That is a strong reason not to add a conventional profit cap casually.&#x20;
+
+19_C20_8X_STRATEGY_SPEC.md
+
+
+
+The concept of letting the trade's actual price behaviour determine when to leave is worth retaining. The exit implementation, however, needs closer scrutiny.
+
+### E. Investigate losing trades instead of counting indicators
+
+The autopsy says that 31 of 56 parent-strategy trades either lost money or earned under 5%. It attributes much of the poor performance to expiry entries with insufficient movement, narrow-range breakouts, quick reversals, and normal-day pullbacks that were actually reversals.&#x20;
+
+19_C20_8X_STRATEGY_SPEC.md
+
+
+
+That diagnosis is more useful than simply adding another indicator. The system already has a substantial amount of data; it needs to extract more predictive information from that data.
+
+# 3. Critical weaknesses in the current specification
+
+I am auditing the uploaded specification and pseudocode here, not the referenced Python source files themselves. Where a concern depends on an implementation detail that is not fully specified, I have marked it as a verification item rather than claiming that the actual source code definitely contains a bug.
+
+## P0 — Exit processing must not depend on a valid forward
+
+This is my highest-priority finding.
+
+Your pseudocode begins each second with:
+
+```
+F = forward(i)if F is missing or stale:    return nothing
+```
+
+Only afterwards does it check whether a position is open and evaluate the premium stop, forward trail, time clock, and profit-lock exits.&#x20;
+
+19_C20_8X_STRATEGY_SPEC.md
+
+
+
+If the implementation follows this order, a missing or stale synthetic forward can prevent the normal exit logic from running even when the held option has a perfectly usable bid.
+
+Consider this sequence:
+
+1. The strategy buys a CE.
+2. NIFTY reverses sharply.
+3. The CE's bid reaches the premium stop.
+4. One of the parity legs stops updating, causing the synthetic forward to be considered stale.
+5. The strategy returns before evaluating its stop.
+
+The underlying market can be moving against the option while the system waits for a data field that is not necessary for its premium stop.
+
+The specification also says that exits are still evaluated during a data blackout, while the earlier stale-forward rule says the strategy does nothing that second. Those two statements need to be reconciled.&#x20;
+
+19_C20_8X_STRATEGY_SPEC.md
+
+
+
+### The correction
+
+Separate the processing loop into two independent responsibilities:
+
+### Layer 1 — Position protection
+
+Must run even when the synthetic forward is unavailable.
+
+Check the held option's quote freshness, bid validity, premium stop, peak-premium protection, applicable time exit, and mandatory end-of-day exit. Use only the data each individual exit actually requires.
+
+### Layer 2 — Entry and forward analytics
+
+Requires a valid, sufficiently fresh forward and valid supporting data.
+
+Update range windows, calculate velocity, evaluate breakout or pullback conditions, estimate forward movement, select a contract, and decide whether to buy.
+
+When a required field is invalid, the system should block new entries. It should not automatically disable unrelated position-protection checks.
+
+This is an architectural correction, not a new trading indicator.
+
+## P0 — Your profit locks do not guarantee the protection described in the document
+
+The intended rules are:
+
+- After the bid reaches 15% above entry, never close below entry.
+- After the peak gain reaches 60%, retain at least 70% of that peak gain.
+
+The current exit ordering is:
+
+1. Premium stop.
+2. Forward trail.
+3. Time clock.
+4. Give-back cap.
+5. Break-even lock.
+
+19_C20_8X_STRATEGY_SPEC.md
+
+Because the forward trail and time exit are evaluated before the break-even lock, either can close the trade before the lock gets a chance to enforce its floor.
+
+For example, suppose the entry premium is ₹200 and the bid rises to ₹236. Your break-even lock should preserve ₹200. If the forward trail then fires while the premium is below ₹200, it can take precedence over that lock under the specified order.
+
+There is a similar precedence problem with the give-back rule.
+
+### The correction
+
+On every position update, calculate the state of every applicable exit condition and determine the most protective executable outcome. In particular:
+
+- A triggered hard premium stop must never be suppressed by a data-dependent trail.
+- Once the break-even lock is armed, a forward trail must not knowingly exit below its floor.
+- Once the give-back cap is armed, a competing exit condition must not bypass that floor unless the market has moved through it before an order could execute.
+- Mandatory end-of-day handling must remain independent of forward-data availability.
+
+Do not assume that simply moving the break-even check above the time check solves every case. The engine should explicitly determine the applicable premium floor and which exit conditions are active.
+
+There is an unavoidable physical limitation: if the bid jumps through a floor between observations, the system cannot guarantee an exit at that floor. It can guarantee that its logic attempts to protect the floor whenever the available executable market allows it.
+
+## P1 — Breakouts can remain actionable after the original breakout moment
+
+Your expiry trigger checks whether:
+
+\\[ fs_i>HI\_{600}(i) \\]
+
+and whether the forward has risen by at least 20 points over the preceding 150 seconds. It does not explicitly require that the breakout occurred in the current second or that the signal has not already been active for a while.&#x20;
+
+19_C20_8X_STRATEGY_SPEC.md
+
+
+
+This is an important distinction.
+
+The specification describes a fresh breakout, but the formula describes a current state: price is outside the previous range and the velocity threshold is satisfied.
+
+Suppose NIFTY breaks the high, runs sharply for 30 seconds, pauses, and continues hovering beyond the range boundary. If the other criteria remain satisfied, the system may still regard the condition as a valid entry when it is no longer a fresh opportunity.
+
+The same issue can occur after a sequence-rent veto. The signal can be evaluated again on the following second; the document does not specify a separate expiry for the original signal.
+
+### The correction
+
+Maintain a separate signal lifecycle:
+
+- Record the first second in which the breakout is confirmed.
+- Track the maximum extension from the breakout boundary.
+- Measure whether the directional move is continuing or has stalled.
+- Invalidate the signal if the move is too old, the original direction fails, or the option entry price has already moved too far from the price at which the setup was validated.
+- Revalidate the signal at the intended execution time, not only when the signal was generated.
+
+This does not require abandoning your breakout strategy. It prevents an old signal from being treated as a new opportunity indefinitely.
+
+## P1 — Forward-based signals can be wrong even when the forward calculation is mathematically valid
+
+The forward is calculated from the CE and PE mids at a strike where both legs are quoted. Quotes can be individually valid yet disagree because they arrived at different times, the spread widened, or one leg temporarily repriced before the other. The formula is not wrong merely because the resulting estimate is noisy; the input combination may be unreliable.&#x20;
+
+19_C20_8X_STRATEGY_SPEC.md
+
+
+
+I would add four forward-quality checks.
+
+1\. Multi-strike parity consistency. Calculate candidate forwards from several strikes around ATM. Use a robust median or weighted estimate rather than relying entirely on one strike. Exclude candidates with stale or poor-quality quotes.
+
+2\. Forward disagreement. Track the difference between the parity-derived forward, NIFTY futures, and spot after accounting for their respective basis and quote timestamps.
+
+3\. Quote synchronisation. Measure the age difference between the CE and PE prices used to calculate each parity forward. A fresh CE combined with a recently stale PE can still produce a misleading value.
+
+4\. Forward innovation. Monitor the difference between the new raw forward and the previous estimate. A sudden jump should be assessed against the simultaneous spot, futures, and option prices before it is interpreted as a genuine breakout.
+
+A large disagreement should reduce confidence or block an entry. It should not automatically generate the opposite trade.
+
+One further specification inconsistency: the contract selector allows spot as a fallback when the forward is missing, but the main pseudocode returns immediately if the forward is missing. As written, that fallback cannot be reached through the normal strategy path.&#x20;
+
+19_C20_8X_STRATEGY_SPEC.md
+
+19_C20_8X_STRATEGY_SPEC.md
+
+
+
+I would decide explicitly whether a missing forward means no trade or whether a separately validated fallback entry mode exists. Accidental fallback behaviour is undesirable.
+
+## P1 — The entry filters do not adequately assess the option's actual tradability
+
+The specification's contract selection requires a positive ask, a quote no more than five seconds old, and the required delta. It does not specify an entry filter for bid-ask spread, order-book quantity, price jumps between the signal and execution, or cross-strike liquidity.&#x20;
+
+19_C20_8X_STRATEGY_SPEC.md
+
+
+
+The entry price also differs between stages of the test process: the engine initially opens at LTP, while the test kit assumes a buy at the ask two seconds after the signal. The document does not establish whether the quantity calculation is always based on the exact price ultimately used for the simulated fill.&#x20;
+
+19_C20_8X_STRATEGY_SPEC.md
+
+
+
+I would verify the following before trusting the recorded P&L:
+
+| Check                                        | Why it matters                                                                                           |
+| -------------------------------------------- | -------------------------------------------------------------------------------------------------------- |
+| Ask and bid at execution time                | The market can change between the signal and the two-second fill.                                        |
+| Maximum spread as a proportion of premium    | A modest spread in index points can be a large percentage of a cheap option's premium.                   |
+| Quote validity and timestamp consistency     | A quote must not qualify merely because one component of the data is recent.                             |
+| Available quantity at the best price         | Top-of-book price does not establish that the entire intended quantity can trade there.                  |
+| Price movement from signal to execution      | A valid setup at the signal price can become unattractive by execution time.                             |
+| Sufficient capital at the actual entry price | A price increase between quantity calculation and execution can make the intended quantity unaffordable. |
+| Exit quote freshness                         | A stale or missing bid must not be treated as a reliable executable exit price.                          |
+
+These are especially important because your rules require all-in orders. I am not proposing a change in position sizing; I am proposing that the system evaluate the actual option contract and intended execution rather than assume that every qualifying contract is equally tradable.
+
+## P1 — The sequence-rent gate needs a consistent time basis
+
+This is one of the more important mathematical questions in your specification.
+
+The code defines:
+
+\\[ \operatorname{Rent} =\frac{0.5\\,\Gamma\\,RV}{|\Theta|} \\]
+
+where \\(RV\\) is the mean squared forward move over 60-second intervals sampled across the preceding 600 seconds, and \\(\Theta\\) is the engine's theta expressed per trading minute.&#x20;
+
+19_C20_8X_STRATEGY_SPEC.md
+
+
+
+The document acknowledges that its theta convention spreads a day's decay across 375 trading minutes, while the pricing model uses calendar time. It also states that the resulting rent threshold of 0.25 corresponds to approximately 0.96 when expressed using calendar-minute theta.&#x20;
+
+19_C20_8X_STRATEGY_SPEC.md
+
+
+
+The issue is not simply that one number is wrong. The issue is that the threshold has an economic interpretation, so the convention must be internally consistent.
+
+If gamma rent is intended to tell you whether forecast movement pays for decay over the actual holding period, calculate both in the same time units:
+
+- Estimate the expected underlying movement over a defined horizon.
+- Calculate expected gamma benefit over that horizon.
+- Calculate theta decay over the same horizon.
+- Include expected IV changes, spread, and execution effects in the full option-price calculation.
+
+For example, an estimated movement that covers 96% of the modeled decay is very different from one that covers 20%, even though both might pass a sufficiently low threshold.
+
+I would not change the threshold from 0.25 to an arbitrary new number. I would reconstruct the rent calculation, establish exactly what it measures, and reselect the threshold on training data before evaluating it on untouched sessions.
+
+### Another mathematical weakness in the rent estimator
+
+The 600-second window contains many overlapping 60-second changes. These are not 600 independent observations. The estimator can be smooth and responsive, but the apparent number of observations overstates how much independent information it contains.
+
+Also, historical squared movement is not automatically a forecast of future movement. A ten-minute volatility burst may be ending precisely when the system tries to buy a breakout.
+
+The better question is not just, "How much has the market moved recently?" It is:
+
+Given this exact entry setup and current market state, what movement is likely over the next few minutes, and how much of that movement is already priced into the option?
+
+That distinction leads to the next set of improvements.
+
+# 4. How I would improve the entry engine using options mathematics
+
+Your own autopsy provides an important clue: the second-order decomposition reportedly found that the delta term explained an \\(R^2\\) of 0.988 in the trade returns, while the losses were predominantly directional failures rather than IV crush.&#x20;
+
+19_C20_8X_STRATEGY_SPEC.md
+
+
+
+That does not make gamma, theta, or vega irrelevant. It means that, for the trades examined, correctly forecasting the underlying direction appears to have been more important than adding sophisticated pricing features alone.
+
+My recommendation is to combine directional forecasting with a proper assessment of the option's expected payoff.
+
+## Add-on 1: A forward-movement forecast conditioned on the setup
+
+Currently, your strategy uses fixed thresholds such as a 20-point move over 150 seconds or a 40-point move over 1,200 seconds.
+
+Those numbers measure what happened. They do not directly estimate what is likely to happen next.
+
+I would retain the breakout and pullback triggers, then estimate the distribution of forward movements after each qualifying setup.
+
+For each entry opportunity, record or estimate:
+
+- Expected forward change over the next 1, 3, 5, and 10 minutes.
+- Probability of moving at least the required amount in the intended direction.
+- Probability of moving adversely by a material amount first.
+- Likely maximum favourable excursion (MFE) and maximum adverse excursion (MAE).
+- Probability that a breakout continues versus immediately reverses.
+- Time of day, expiry mode, recent volatility regime, breakout age, and pullback depth.
+
+For instance, two CE signals may both satisfy the 20-point threshold. One could have persistent follow-through, clean price acceptance above the former range, and supporting order flow. The other could be a brief burst after a period of very narrow trading.
+
+The entry conditions are technically the same, but the conditional probabilities need not be.
+
+### How to calculate the movement distribution
+
+Start with historical outcomes from matching setups, but group them using a small set of features. Avoid searching through hundreds of combinations until one happens to fit the historical tape.
+
+A practical first model is a low-dimensional, regularised logistic or regression model, with calibration performed on later sessions. More complex models should only follow if they provide an independently measurable improvement.
+
+Use the model to answer a narrow question:
+
+Is this specific qualifying setup likely to produce a sufficient move before it produces an adverse move?
+
+It should not replace the existing entry logic immediately. First run it in shadow mode and record which trades it would have accepted or rejected.
+
+## Add-on 2: Calculate the expected premium movement, not just the expected NIFTY movement
+
+A 20-point NIFTY move is not equally valuable for every strike, expiry state, and IV level.
+
+For a short holding horizon, a useful approximation is:
+
+\\[ \begin{aligned} E[\Delta V] \approx{}& \Delta\\,E[\Delta F] +\frac12\Gamma\\,E[(\Delta F)^2]\\\ &+\nu\\,E[\Delta\sigma] +\Theta\_{\text{clock}}H\\\ &+\text{higher-order effects} \end{aligned} \\]
+
+Here:
+
+- \\(\Delta\\) is the option's signed delta.
+- \\(\Gamma\\) is gamma.
+- \\(\nu\\) is vega, with its units defined consistently.
+- \\(\Theta\_{\text{clock}}\\) is theta expressed in premium points per unit of actual elapsed time.
+- \\(H\\) is the forecast holding horizon.
+- Higher-order effects include interactions such as vanna and vomma, which become more relevant when volatility changes materially.
+
+The Greek terms have different sensitivities and change as the market moves. CME's options material illustrates how delta, gamma, theta, and vega contribute together to premium changes.&#x20;
+
+[image](https://www.google.com/s2/favicons?domain=https://www.cmegroup.com\&sz=32)
+
+CME Group
+
+
+
+This approximation is useful for analysis, but near expiry and during large moves I would prefer full option repricing over relying on a truncated Taylor expansion.
+
+### The more useful calculation for your engine
+
+For each eligible CE or PE contract, model several possible future scenarios:
+
+| Scenario             | Forward movement              | IV movement           | What it tests                                                |
+| -------------------- | ----------------------------- | --------------------- | ------------------------------------------------------------ |
+| Continuation         | Directional movement persists | IV stable             | Whether the existing signal captures a normal winner         |
+| Strong continuation  | Larger directional move       | IV stable or rising   | Whether the option has meaningful upside                     |
+| Stalled move         | Little forward movement       | IV stable or falling  | Whether decay and the spread dominate                        |
+| Reversal             | Adverse forward movement      | IV stable             | Directional failure                                          |
+| Volatility repricing | Limited forward movement      | IV changes materially | Whether the option may move for reasons other than direction |
+
+Reprice the candidate option at the forecast time under each scenario, then compare its simulated exit bid with the intended entry ask.
+
+This gives you a forecast of premium outcomes rather than assuming that an index-point target translates directly into a premium gain.
+
+This is also the foundation of an options-cheapness model: an option is not cheap merely because its absolute premium is low. It is potentially attractive if its price, relative to the movement distribution and expected volatility, makes the desired payoff sufficiently favourable.
+
+The model must include the spread. Otherwise, it might identify an attractive theoretical premium change that does not translate into an attractive executable trade.
+
+## Add-on 3: Forecast volatility relative to the volatility already priced into the option
+
+Your system calculates IV, but the entry rules described in the specification do not directly compare a forecast of future realised volatility against the option's implied volatility.&#x20;
+
+19_C20_8X_STRATEGY_SPEC.md
+
+
+
+I would add a volatility-value layer with four inputs:
+
+1. Current ATM implied volatility.
+2. Recent realised volatility, calculated over multiple horizons.
+3. A forecast of future realised volatility, conditioned on the present setup and time of day.
+4. IV repricing, measured by changes in IV and the residual premium move that is not explained by changes in the forward.
+
+One useful diagnostic is the relationship between implied volatility and forecast realised volatility. If an option is pricing substantial future movement but the model estimates little forward movement, a long-option entry may be unattractive even if the direction is marginally favourable.
+
+However, there is an important caveat: the implied-volatility-versus-realised-volatility comparison is not by itself a directional entry signal. The option buyer can still profit from a sufficiently large move in the correct direction even when implied volatility is high.
+
+Your strategy should use this analysis to estimate the likely premium outcome, not blindly avoid high-IV trades.
+
+### What to do with IV changes
+
+Your autopsy rejected a simple rule that blocks entry after IV has risen by more than 0.3 volatility points in three minutes. The reported studies found mixed results.&#x20;
+
+19_C20_8X_STRATEGY_SPEC.md
+
+
+
+I would therefore not reinstate that blanket guard.
+
+Instead, measure whether IV is rising together with a genuine forward move, whether the premium has already repriced ahead of the forward, and whether the option's current spread has worsened.
+
+Those are different situations from a simple IV-rise threshold.
+
+## Add-on 4: Use the option's Greeks as a contract selector
+
+You already choose options based on delta: approximately 0.65 on expiry days and 0.52 on normal days. Your own test results also describe delta as a leverage dial—shallower strikes capture more of the upside, while deeper ITM options tend to lose less in the study's repricing exercise.&#x20;
+
+19_C20_8X_STRATEGY_SPEC.md
+
+19_C20_8X_STRATEGY_SPEC.md
+
+
+
+The next step is not to select the strike with the highest gamma or the cheapest premium. It is to evaluate the expected payoff of every eligible strike.
+
+For each candidate, calculate:
+
+- Expected premium gain under the forecast forward distribution.
+- Expected premium loss under adverse scenarios.
+- Gamma benefit under larger moves.
+- Theta decay over likely holding periods.
+- Vega sensitivity to plausible IV changes.
+- Spread as a proportion of premium.
+- Probability of meeting the strategy's premium profit and stop thresholds.
+
+Then choose the candidate with the best forecast outcome from the permitted ATM/ITM set, subject to the absolute-delta rule.
+
+I would test this as an alternative contract-ranking layer before changing your existing targets. The current delta choices have some support in the limited test, so a new selector needs to demonstrate that it improves results on unseen sessions.
+
+# 5. Order inflows, order-book imbalance, and market microstructure
+
+This is a worthwhile expansion, particularly because your system already captures frequent market data. But I would not equate "more order-flow indicators" with "more edge."
+
+Your specification says the council's simple order-flow and OI triggers failed out of sample.&#x20;
+
+19_C20_8X_STRATEGY_SPEC.md
+
+&#x20;That argues for measuring order flow properly and testing its incremental contribution, not ignoring it and not trusting it blindly.
+
+
+
+## Add-on 5: Order-flow imbalance (OFI)
+
+Order-flow imbalance measures how demand and supply at the best bid and ask change as new orders arrive, existing orders are cancelled, or trades consume available liquidity.
+
+Research on US equities by Cont, Kukanov, and Stoikov found a relationship between short-horizon price changes and order-flow imbalance, with the impact related to market depth. That is useful motivation, but it does not guarantee the same relationship for NIFTY options.&#x20;
+
+[image](https://www.google.com/s2/favicons?domain=https://academic.oup.com\&sz=32)
+
+Oxford Academic
+
+
+
+A simplified book-imbalance feature is:
+
+\\[ OBI=\frac{Q_b-Q_a}{Q_b+Q_a} \\]
+
+where \\(Q_b\\) and \\(Q_a\\) are bid and ask quantities.
+
+That measures the current imbalance; OFI goes further by measuring the change in supply-demand pressure as book events occur.
+
+For your system, I would calculate:
+
+- OFI over 1, 5, 10, and 30 seconds.
+- OFI normalised by the available depth.
+- Price changes over the same horizons.
+- Whether aggressive buying is being absorbed by sellers.
+- Whether bid depth is replenishing as the market moves upward.
+- Whether a breakout is supported by continued buying or is losing its supporting demand.
+
+Apply analogous logic in reverse for PE setups.
+
+### Be careful about assuming that positive OFI always predicts continuation
+
+A recent September 2026 working paper examining Indian equity derivatives reports mean-reverting short-horizon relationships in its sampled futures data, unlike the momentum-consistent relationship described in some US equity research. It is a preprint, not conclusive evidence about your strategy or about NIFTY weekly options, but it reinforces an important point: the predictive sign and horizon must be established on your own market and data.&#x20;
+
+[image](https://www.google.com/s2/favicons?domain=https://papers.ssrn.com\&sz=32)
+
+SSRN
+
+
+
+For example, a sudden surge in buy-side OFI could be a continuation signal in one regime but a sign that an aggressive buying burst is exhausting itself in another.
+
+The correct feature is not "OFI is positive." It is "OFI has this measured relationship with subsequent forward movement under these conditions."
+
+## Add-on 6: Microprice as a short-horizon pressure indicator
+
+Where reliable best-bid and best-ask quantities are available, calculate the microprice:
+
+\\[ \text{Microprice} =\frac{A Q_b+B Q_a}{Q_b+Q_a} \\]
+
+Here \\(A\\) is the best ask, \\(B\\) is the best bid, \\(Q_b\\) is bid quantity, and \\(Q_a\\) is ask quantity.
+
+Compare this with the mid-price.
+
+If the microprice persistently sits above the mid-price, the visible book has a buy-side imbalance. If it sits below, the visible book has a sell-side imbalance.
+
+Use the difference between microprice and mid-price, scaled by the spread, as a feature. It is not an independent guarantee of direction.
+
+The same calculation can be considered for the NIFTY futures book and the selected option's book, but they serve different purposes:
+
+- Futures book: provides evidence about pressure on the underlying.
+- Selected option's book: helps assess whether the specific instrument is tradable at a reasonable price.
+
+## Add-on 7: Signed trade flow and absorption
+
+If your feed supplies reliable trade-side information, calculate aggressive buy volume minus aggressive sell volume over several horizons.
+
+Combine that with price movement.
+
+| Observed pattern                                        | What it may indicate                                                    |
+| ------------------------------------------------------- | ----------------------------------------------------------------------- |
+| Strong positive signed flow and rising forward          | Buying pressure with price confirmation                                 |
+| Strong positive signed flow but little forward progress | Possible absorption or aggressive buying into resting supply            |
+| Weak signed flow despite a rising forward               | The move may have limited participation or may be driven by a thin book |
+| Negative flow while a bullish breakout remains active   | Possible deterioration in continuation quality                          |
+
+The table describes hypotheses to test, not universal signals. The features should be evaluated for their ability to improve the success of your existing setups.
+
+### Do you actually have the necessary data?
+
+Your specification lists bids, asks, LTP, quote ages, IV, delta, and gamma, but does not explicitly establish that the system captures full depth or aggressor-side trades.&#x20;
+
+19_C20_8X_STRATEGY_SPEC.md
+
+
+
+NSE's real-time data offering distinguishes Level 1 data (best bid and ask), Level 2 data (up to five price levels), Level 3 data (up to twenty price levels), and tick-by-tick full-order-book data. Access to these levels is feed-dependent; their existence at the exchange does not mean your current broker feed exposes them.&#x20;
+
+[image](https://www.google.com/s2/favicons?domain=https://www.nseindia.com\&sz=32)
+
+NSE India
+
+
+
+I would verify the actual data schema before implementing OFI.
+
+Also, the document explicitly reports that raw OI and other simple order-flow triggers failed out of sample. Therefore, I would not add raw OI change or PCR as a new independent BUY trigger. Those are better treated as context or confirmation features unless a new, properly tested formulation proves otherwise.
+
+# 6. Detecting exhaustion and dangerous breakout conditions
+
+The autopsy's most useful observations concern the behaviour immediately before entry.
+
+It reports that 13 of 16 expiry-day breakouts from narrow ten-minute ranges were bad trades, and that losing trades tended to be bought during sharp 10–30-second spikes. The losing trades' acceleration was also substantially higher than that of winners in the study.&#x20;
+
+19_C20_8X_STRATEGY_SPEC.md
+
+
+
+These are clues for a better entry-quality model.
+
+## Add-on 8: Distinguish a genuine breakout from a volatility shock
+
+Do not introduce a fixed minimum range width of 40 points merely because it performed well in a particular study. The document says this rule was sensitive to small parameter changes.
+
+Instead, measure the breakout in the context of the volatility regime:
+
+\\[ Z\_{\text{move}} =\frac{\text{short-horizon forward move}} {\text{expected move over the same horizon}} \\]
+
+You can similarly normalise the ten-minute range width by the forecast movement for a comparable period.
+
+This would let the engine recognise several distinct situations:
+
+- A meaningful break of a compressed range with subsequent acceptance beyond the boundary.
+- A breakout following a sufficiently broad, well-established range.
+- A disproportionately large spike from a very narrow range.
+- A break that has already travelled far enough that the original entry has lost its appeal.
+
+The thresholds should be learned or selected from a training sample and then locked before validation.
+
+### What I would record during a breakout
+
+Breakout quality
+
+How far beyond the previous range did the forward move, how quickly, and how long did the market remain beyond the boundary?
+
+Movement acceleration
+
+Was the breakout supported by continued directional movement, or was it a brief high-acceleration event without follow-through?
+
+Signal age and extension
+
+How many seconds have passed since the first valid breakout, and how far has price already travelled before the entry could execute?
+
+Cross-market confirmation
+
+Did spot and futures broadly agree with the parity forward, and did the option's own quote remain consistent with the expected move?
+
+These measurements can distinguish the high-quality breakouts from the failures your own study has already identified.
+
+## Add-on 9: Make the normal-day pullback test volatility-aware
+
+The existing normal-day entry requires a retracement between 50% and 75% of the impulse, an impulse no older than 15 minutes, and a five-point resumption.&#x20;
+
+19_C20_8X_STRATEGY_SPEC.md
+
+
+
+This is logical but somewhat rigid.
+
+A five-point resumption can be meaningful in one regime and insignificant noise in another. A 60% pullback can represent a healthy retracement in one context but a rapidly deteriorating trend in another.
+
+I would retain the core geometry but record additional features:
+
+- Retracement percentage and absolute depth.
+- Time spent retracing.
+- Rate of decline during a bullish pullback, or rate of rise during a bearish pullback.
+- Whether the pullback is getting faster or slower.
+- Whether the resumption persists for a few observations.
+- Distance between the pullback extreme and the current forward.
+- Whether fresh order-flow pressure supports the resumption.
+- Whether the original impulse remains recent enough to matter.
+
+The aim is to establish which combination of pullback depth, speed, and resumption quality produces the best forward excursion after execution.
+
+I would not add a large collection of oscillators. These features directly describe the market structure your strategy already uses.
+
+# 7. Improving exits without cutting the large winners
+
+The documented strategy has already found that conventional profit caps and certain early-exit rules reduce historical performance. The improvements should therefore make the existing exit decisions better informed, not simply close every trade sooner.
+
+## Add-on 10: Use a premium-equivalent trailing mechanism
+
+Your forward trail allows a 25-point give-back on expiry days and 40 points on normal days. That rule is easy to understand, but a given forward reversal does not imply the same option-premium reversal across all contracts and market states.
+
+Consider two trades with different delta and gamma. The same 25-point pullback can have a substantially different effect on their premiums.
+
+A better diagnostic is to estimate the premium corresponding to a given move in the forward using the current option-price model.
+
+For instance:
+
+1. Estimate the held option's current value and Greeks.
+2. Simulate a set of adverse forward moves.
+3. Reprice the option under each scenario, accounting for elapsed time and plausible IV changes.
+4. Compare the resulting premium loss with the position's current peak and protected premium floor.
+
+This lets the engine assess the likely premium consequence of a forward reversal rather than relying exclusively on a fixed number of forward points.
+
+I would initially run this alongside your existing 25/40-point trails and compare the results without changing the live exit rule. Any replacement would need to prove that it protects large winners without prematurely closing the runners your current strategy is designed to capture.
+
+## Add-on 11: Analyse the time-to-peak distribution
+
+The document reports that losing narrow-range expiry trades tended to peak about a minute after entry, whereas winners tended to peak much later. Elsewhere it reports a median peak around seven minutes.&#x20;
+
+19_C20_8X_STRATEGY_SPEC.md
+
+
+
+This supports a useful line of investigation: how long does a position normally take to make meaningful progress, given the setup that created it?
+
+Record the distribution of:
+
+- Time to first positive premium threshold.
+- Time to the maximum favourable excursion.
+- Time to the maximum adverse excursion.
+- Maximum favourable excursion before the time exit.
+- Premium give-back after each meaningful peak.
+- Whether the forward continues in the intended direction after the option's premium has stalled.
+
+If a valid setup historically develops quickly, a trade that fails to make progress may deserve closer scrutiny. Conversely, the strategy should not use a blanket short time limit that cuts trades which normally take longer to develop.
+
+I would make this a conditional time-to-progress model, not a universal reduction in the 15-minute expiry clock.
+
+## Add-on 12: Improve failure diagnosis at the exact point of entry
+
+For every completed trade, maintain an event record containing:
+
+| Measurement                               | Why it is useful                                         |
+| ----------------------------------------- | -------------------------------------------------------- |
+| Entry signal and signal age               | Identifies late or repeated signals                      |
+| Forward and spot/futures state            | Captures directional context                             |
+| Delta, gamma, theta, vega, IV             | Describes the option's exposure                          |
+| Entry spread and quote ages               | Identifies poor entry quality                            |
+| OFI and book imbalance, if available      | Measures pressure and liquidity                          |
+| Best and worst option bid after entry     | Quantifies MFE and MAE                                   |
+| Best and worst forward after entry        | Separates directional failure from pricing effects       |
+| Actual exit reason and competing triggers | Reveals which exit rule controlled the result            |
+| Premium movement unexplained by the model | Highlights IV changes, spread changes, or quote problems |
+
+You already perform a trade-level autopsy, which is a strong foundation. Extend it so that the engine can identify not only which trades lost but also which state variable distinguished them from superficially similar winners.
+
+# 8. Other important gaps
+
+These findings are not all standalone reasons to rewrite the strategy, but they should be addressed before trusting the results.
+
+| Area                   | Weakness or question                                                                                                       | Recommended treatment                                                                                                                       |
+| ---------------------- | -------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------- |
+| Range windows          | What happens to past range and velocity history after a forward-data gap?                                                  | Verify that stale observations cannot create artificial breakouts; reset or invalidate history when continuity is compromised.              |
+| Quote freshness        | The entry rules specify quote age, but the full exit-quote validation is not established.                                  | Verify bid validity and timestamp checks independently of the forward.                                                                      |
+| IV model               | IV is calculated from the mid using Black-76 bisection.                                                                    | Reject invalid or crossed quotes, implausible solutions, and prices inconsistent with basic option relationships.                           |
+| Gamma and theta        | The rent gate combines historical squared movement with a particular theta convention.                                     | Re-derive it using a coherent holding horizon and validate the threshold independently.                                                     |
+| Greeks                 | The described strategy uses gamma and theta primarily through the rent gate; vega is not directly part of entry selection. | Add a measured premium-forecast layer rather than multiple independent Greek thresholds.                                                    |
+| Strike selection       | Fixed delta targets have limited empirical support.                                                                        | Test a scenario-based ranking against the existing 0.65/0.52 rules, without assuming a theoretically superior strike must be profitable.    |
+| Expiry identification  | The mode depends on recognising the correct weekly expiry.                                                                 | Use instrument and expiry metadata from the current contract master, including exchange-calendar changes and holidays.                      |
+| Execution timing       | The engine checks the strategy at one-second intervals while its loop runs more frequently.                                | Verify exact timestamps, quote freshness and signal validity at execution, particularly during rapid moves.                                 |
+| All-in path dependence | Adding or removing a trade changes the capital available for subsequent trades.                                            | Replay each candidate strategy sequentially under your fixed sizing rule. Do not evaluate a new feature using isolated trade returns alone. |
+
+The last item is fundamental to your system. Because every trade uses the available capital and only one position may be open, the sequence of trades is part of the strategy's behaviour. A feature that removes a small loser can change the size and timing of every later trade. Your own specification acknowledges this path dependence.&#x20;
+
+19_C20_8X_STRATEGY_SPEC.md
+
+
+
+# 9. The biggest evidence problem: the strategy has been selected on very little data
+
+I would treat this as a separate workstream from code improvements.
+
+Your research process has compared 20 strategies, followed by a ten-member autopsy, multiple changes, and a factorial search. Leave-one-day-out testing is useful, but it cannot fully eliminate selection bias when the researchers have repeatedly examined the same seven days and used their outcomes to generate new ideas.
+
+Research on backtest overfitting warns that trying numerous configurations on a finite historical sample can produce a convincing winner that fails to generalise. Even conventional holdout procedures can be unreliable when model and configuration selection are not separated from final evaluation.&#x20;
+
+[image](https://www.google.com/s2/favicons?domain=https://escholarship.org\&sz=32)
+
+eScholarship+1
+
+
+
+Your specification already identifies the limited expiry-day sample and fragile core parameters as weaknesses.&#x20;
+
+19_C20_8X_STRATEGY_SPEC.md
+
+
+
+### What I would change about the research process
+
+First, freeze a candidate. After fixing the confirmed safety issues, freeze the entry and exit implementation, its parameters, and the feature definitions.
+
+Second, extend the historical sample. Seven sessions are insufficient to establish how the strategy behaves across different regimes. I would target at least 50–100 trading sessions as a first substantial evaluation set, with a meaningful number of expiry sessions. This is a research target, not a statistical guarantee of sufficiency.
+
+Third, use chronological evaluation. Select parameters using older sessions and assess them on later, untouched sessions. Within that process, keep the final evaluation sessions out of feature design and threshold selection.
+
+Fourth, evaluate the all-in path. Replay every session in sequence, starting with your specified daily capital and intraday compounding. Preserve the exact one-position restriction and contract-selection rules.
+
+Fifth, record more than win rate. Include net P&L, expectancy per trade, average winner and loser, drawdown, worst daily return, trade count, profit concentration, MFE/MAE, premium give-back, and how many large moves were missed.
+
+Sixth, run ablations. Add each new feature individually and measure the incremental contribution. If adding order-flow imbalance improves results, verify that it still helps after the forward forecast and quote-quality gates are already present. Otherwise, it may simply be repeating information captured elsewhere.
+
+Your system needs to demonstrate that the edge survives changes in time period and market condition—not that a particular set of thresholds can produce excellent results on the sessions used to design it.
+
+# 10. The implementation roadmap I would prioritise
+
+This is the sequence I would follow without changing your fixed trading rules.
+
+## 1
+
+Make position protection independent of signal data
+
+Fix the forward-staleness dependency, verify exit precedence, reconcile the conflicting blackout rules, and ensure missing option quotes are handled explicitly.
+
+Highest priority
+
+## 2
+
+Harden the forward and execution data
+
+Add multi-strike parity checks, timestamp consistency, quote-quality diagnostics, signal-age checks, and actual entry-price validation.
+
+## 3
+
+Build a conditional movement and option-value estimator
+
+Forecast likely forward movement by setup and estimate the resulting premium change after delta, gamma, theta, IV, and spread effects. Keep the existing signal as the candidate-entry generator.
+
+## 4
+
+Add order-flow and breakout-quality measurements
+
+Start with futures OFI, book imbalance, breakout age, range compression, and follow-through. Treat these as features for validation, not as automatic BUY signals.
+
+## 5
+
+Replay, compare, and reject weak additions
+
+Use a longer chronological sample, preserve the exact all-in path, run per-feature ablations, and retain only additions that improve unseen-session performance.
+
+## Final verdict
+
+I would not start by rewriting the whole strategy. Your existing code has a coherent structure, useful entry geometry, and a sensible attempt to protect large winners. The most valuable next step is to make the current decision process more reliable and more selective.
+
+The two issues I would investigate first are the possibility of skipped exits when the synthetic forward is unavailable and the fact that the stated profit-lock rules are not guaranteed to take precedence over earlier exit conditions. After that, I would focus the research effort on forecasting the next few minutes of forward movement and estimating the actual option-premium outcome of each qualifying entry.
+
+Your next significant improvement is unlikely to come from collecting yet another indicator. It is more likely to come from distinguishing the breakout that still has room to run from the breakout whose move has already happened, while ensuring that the system's execution and exit logic behave as intended.
+
+No addition should be accepted because it makes the seven-day result look better. It should be accepted because it continues to help when the market, the trade sequence, and the precise set of opportunities are different.

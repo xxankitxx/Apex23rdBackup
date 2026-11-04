@@ -1,0 +1,15 @@
+{"t": "07:45:34", "k": "SYSTEM", "x": "day 2026-10-19 \u00b7 champion edge_gate_trail \u00b7 gates none \u00b7 capital \u20b9100,000", "mkt_t": 1792376134.3}
+{"t": "09:15:00", "k": "DATA", "x": "no trade for 120 s on hero contract(s): 23150 PE, 23250 CE, 23250 PE, 23300 PE", "mkt_t": 1792381500.2}
+{"t": "09:15:01", "k": "DATA", "x": "no trade for 120 s on hero contract(s): 23050 CE", "mkt_t": 1792381501.3}
+{"t": "09:25:10", "k": "SPIKE", "x": "straddle 23150 +12.5 over theta in 5 min \u2014 PE leg carries it (103.3, delta -0.506\u2192-0.635, gamma 0.00218)", "mkt_t": 1792382110.9}
+{"t": "09:25:44", "k": "SHIFT", "x": "ATM rolled 23150 \u2192 23050: straddle 151.9 \u2192 136.6 (spot settled at the new strike)", "mkt_t": 1792382144.0}
+{"t": "09:27:47", "k": "ENTRY", "x": "BUY 11 lots NIFTY 23100 PE (2026-10-19) @ 135.75 \u00b7 spot 23014.0 came back to the broken 12-min low 23015.9 and held (+2.0 pts) after running 5+", "mkt_t": 1792382267.5}
+{"t": "09:27:47", "k": "RAW-ENTRY", "x": "BUY 11 lots NIFTY 23100 PE (2026-10-19) @ 135.75 \u00b7 spot 23014.0 came back to the broken 12-min low 23015.9 and held (+2.0 pts) after running 5+", "mkt_t": 1792382267.5}
+{"t": "09:28:22", "k": "EXIT", "x": "PE 23100 11 lots \u00b7 135.75 \u2192 151.35 = +15.60 pts / \u20b9+11,154 \u00b7 BOOK at 23000 23000.0 (best 22999.0 could not break it) \u00b7 capital \u20b9111,154", "mkt_t": 1792382302.9}
+{"t": "09:28:22", "k": "RAW-EXIT", "x": "PE 23100 11 lots \u00b7 135.75 \u2192 151.35 = +15.60 pts / \u20b9+11,154 \u00b7 BOOK at 23000 23000.0 (best 22999.0 could not break it) \u00b7 capital \u20b9111,154", "mkt_t": 1792382302.9}
+{"t": "09:28:28", "k": "SHIFT", "x": "ATM rolled 23050 \u2192 22950: straddle 174.0 \u2192 164.1 (spot settled at the new strike)", "mkt_t": 1792382308.7}
+{"t": "09:29:30", "k": "ENTRY", "x": "BUY 13 lots NIFTY 23050 PE (2026-10-19) @ 124.50 \u00b7 spot 22988.5 came back to the broken 12-min low 22989.5 and held (+1.0 pts) after running 5+", "mkt_t": 1792382370.3}
+{"t": "09:29:30", "k": "RAW-ENTRY", "x": "BUY 13 lots NIFTY 23050 PE (2026-10-19) @ 124.50 \u00b7 spot 22988.5 came back to the broken 12-min low 22989.5 and held (+1.0 pts) after running 5+", "mkt_t": 1792382370.3}
+{"t": "09:29:53", "k": "EXIT", "x": "PE 23050 13 lots \u00b7 124.50 \u2192 132.70 = +8.20 pts / \u20b9+6,929 \u00b7 BOOK at DAY LOW 22971.0 (best 22972.8 could not break it) \u00b7 capital \u20b9118,083", "mkt_t": 1792382393.6}
+{"t": "09:29:53", "k": "RAW-EXIT", "x": "PE 23050 13 lots \u00b7 124.50 \u2192 132.70 = +8.20 pts / \u20b9+6,929 \u00b7 BOOK at DAY LOW 22971.0 (best 22972.8 could not break it) \u00b7 capital \u20b9118,083", "mkt_t": 1792382393.6}
+{"t": "09:33:10", "k": "SHIFT", "x": "ATM rolled 22950 \u2192 23050: straddle 192.5 \u2192 167.0 (spot settled at the new strike)", "mkt_t": 1792382590.4}

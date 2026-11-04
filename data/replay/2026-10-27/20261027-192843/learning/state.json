@@ -1,0 +1,24 @@
+{
+ "registered": "2026-10-17",
+ "champion": "edge_gate_only",
+ "champion_since": "2026-10-27",
+ "gates": [],
+ "retired": [],
+ "log": [
+  {
+   "day": "2026-10-27",
+   "event": "champion",
+   "from": "edge_gate_only",
+   "to": "edge_gate_only",
+   "by": "owner (D-124)"
+  }
+ ],
+ "status": "COLLECTING",
+ "candidates": {},
+ "streak": {},
+ "gate_streak": {},
+ "owner_champion": [
+  "edge_gate_only",
+  "2026-10-27"
+ ]
+}

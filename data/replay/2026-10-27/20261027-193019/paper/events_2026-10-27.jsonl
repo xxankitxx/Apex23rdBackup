@@ -1,0 +1,10 @@
+{"t": "08:18:58", "k": "SYSTEM", "x": "day 2026-10-27 \u00b7 champion edge_gate_only \u00b7 gates none \u00b7 capital \u20b9100,000", "mkt_t": 1793069338.4}
+{"t": "09:15:00", "k": "GAP", "x": "data gap: feed stale: futures quote 378 s old \u2014 entries paused until 20 s of fresh data", "mkt_t": 1793072700.0}
+{"t": "09:15:20", "k": "GAP", "x": "data back after 20 s (feed stale: futures quote 378 s old); entries resume", "mkt_t": 1793072720.5}
+{"t": "09:19:02", "k": "SHIFT", "x": "ATM rolled 22750 \u2192 22650: straddle 186.7 \u2192 176.9 (spot settled at the new strike)", "mkt_t": 1793072942.1}
+{"t": "09:24:02", "k": "SPIKE", "x": "straddle 22650 +14.1 over theta in 5 min \u2014 CE leg carries it (128.1, delta 0.541\u21920.62, gamma 0.00168)", "mkt_t": 1793073242.4}
+{"t": "09:28:03", "k": "ENTRY", "x": "BUY 9 lots NIFTY 22600 CE (2026-10-27) @ 162.00 \u00b7 spot 22717.7 came back to the broken 12-min high 22715.8 and held (+1.9 pts) after running 5+", "mkt_t": 1793073483.2}
+{"t": "09:28:03", "k": "RAW-ENTRY", "x": "BUY 9 lots NIFTY 22600 CE (2026-10-27) @ 162.00 \u00b7 spot 22717.7 came back to the broken 12-min high 22715.8 and held (+1.9 pts) after running 5+", "mkt_t": 1793073483.2}
+{"t": "09:28:09", "k": "SHIFT", "x": "ATM rolled 22650 \u2192 22750: straddle 184.7 \u2192 175.2 (spot settled at the new strike)", "mkt_t": 1793073489.9}
+{"t": "09:30:38", "k": "EXIT", "x": "CE 22600 9 lots \u00b7 162.00 \u2192 173.25 = +11.25 pts / \u20b9+6,581 \u00b7 TRAIL \u00b7 capital \u20b9106,581", "mkt_t": 1793073638.3}
+{"t": "09:30:38", "k": "RAW-EXIT", "x": "CE 22600 9 lots \u00b7 162.00 \u2192 173.25 = +11.25 pts / \u20b9+6,581 \u00b7 TRAIL \u00b7 capital \u20b9106,581", "mkt_t": 1793073638.3}

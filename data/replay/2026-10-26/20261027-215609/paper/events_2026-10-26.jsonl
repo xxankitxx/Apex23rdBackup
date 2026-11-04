@@ -1,0 +1,9 @@
+{"t": "08:31:18", "k": "SYSTEM", "x": "day 2026-10-26 \u00b7 champion edge_gate_trail \u00b7 gates none \u00b7 capital \u20b9100,000", "mkt_t": 1792983678.8}
+{"t": "09:19:59", "k": "SPIKE", "x": "straddle 22500 +22.5 over theta in 5 min \u2014 PE leg carries it (138.1, delta -0.414\u2192-0.508, gamma 0.00119)", "mkt_t": 1792986599.5}
+{"t": "09:29:22", "k": "ENTRY", "x": "BUY 8 lots NIFTY 22600 PE (2026-10-27) @ 179.40 \u00b7 PE: 129-pt impulse 22517.0 -> 22388.3 pulled back 51 % to 22453.8; stop 22517.0, target 22259.7", "mkt_t": 1792987162.8}
+{"t": "09:29:22", "k": "RAW-ENTRY", "x": "BUY 8 lots NIFTY 22600 PE (2026-10-27) @ 179.40 \u00b7 PE: 129-pt impulse 22517.0 -> 22388.3 pulled back 51 % to 22453.8; stop 22517.0, target 22259.7", "mkt_t": 1792987162.8}
+{"t": "09:30:24", "k": "EXIT", "x": "PE 22600 8 lots \u00b7 179.40 \u2192 162.45 = -16.95 pts / \u20b9-8,814 \u00b7 STOP (premium -10.3 %, hard stop -10 %) \u00b7 capital \u20b991,186", "mkt_t": 1792987224.8}
+{"t": "09:30:24", "k": "RAW-EXIT", "x": "PE 22600 8 lots \u00b7 179.40 \u2192 162.45 = -16.95 pts / \u20b9-8,814 \u00b7 STOP (premium -10.3 %, hard stop -10 %) \u00b7 capital \u20b991,186", "mkt_t": 1792987224.8}
+{"t": "09:45:04", "k": "GAP", "x": "data gap: feed silent: no quote on any instrument for 3 s \u2014 entries paused until 20 s of fresh data", "mkt_t": 1792988104.4}
+{"t": "09:45:24", "k": "GAP", "x": "data back after 20 s (feed silent: no quote on any instrument for 3 s); entries resume", "mkt_t": 1792988124.6}
+{"t": "09:53:21", "k": "SHIFT", "x": "ATM rolled 22500 \u2192 22600: straddle 255.8 \u2192 245.6 (spot settled at the new strike)", "mkt_t": 1792988601.3}

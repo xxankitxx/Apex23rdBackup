@@ -1,0 +1,24 @@
+{
+ "registered": "2026-10-17",
+ "champion": "t28_gap",
+ "champion_since": "2026-10-29",
+ "gates": [],
+ "retired": [],
+ "log": [
+  {
+   "day": "2026-10-29",
+   "event": "champion",
+   "from": "t28_gap",
+   "to": "t28_gap",
+   "by": "owner (D-124)"
+  }
+ ],
+ "status": "COLLECTING",
+ "candidates": {},
+ "streak": {},
+ "gate_streak": {},
+ "owner_champion": [
+  "t28_gap",
+  "2026-10-29"
+ ]
+}

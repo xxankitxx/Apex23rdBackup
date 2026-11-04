@@ -1,0 +1,149 @@
+{"t": "07:45:34", "k": "SYSTEM", "x": "day 2026-10-19 \u00b7 champion lvl_trail_re \u00b7 gates none \u00b7 capital \u20b9100,000", "mkt_t": 1792376134.3}
+{"t": "09:15:00", "k": "DATA", "x": "no trade for 120 s on hero contract(s): 23150 PE, 23200 PE, 23250 CE, 23250 PE, 23300 PE", "mkt_t": 1792381500.1}
+{"t": "09:15:01", "k": "DATA", "x": "no trade for 120 s on hero contract(s): 23050 CE", "mkt_t": 1792381501.3}
+{"t": "09:25:10", "k": "SPIKE", "x": "straddle 23150 +12.5 over theta in 5 min \u2014 PE leg carries it (103.3, delta -0.506\u2192-0.635, gamma 0.00218)", "mkt_t": 1792382110.9}
+{"t": "09:25:44", "k": "SHIFT", "x": "ATM rolled 23150 \u2192 23050: straddle 151.9 \u2192 136.6 (spot settled at the new strike)", "mkt_t": 1792382144.0}
+{"t": "09:27:47", "k": "ENTRY", "x": "BUY 11 lots NIFTY 23100 PE (2026-10-19) @ 135.75 \u00b7 spot 23014.0 came back to the broken 12-min low 23015.9 and held (+2.0 pts) after running 5+", "mkt_t": 1792382267.5}
+{"t": "09:27:47", "k": "RAW-ENTRY", "x": "BUY 11 lots NIFTY 23100 PE (2026-10-19) @ 135.75 \u00b7 spot 23014.0 came back to the broken 12-min low 23015.9 and held (+2.0 pts) after running 5+", "mkt_t": 1792382267.5}
+{"t": "09:28:22", "k": "EXIT", "x": "PE 23100 11 lots \u00b7 135.75 \u2192 151.35 = +15.60 pts / \u20b9+11,154 \u00b7 BOOK at 23000 23000.0 (best 22999.0 could not break it) \u00b7 capital \u20b9111,154", "mkt_t": 1792382302.9}
+{"t": "09:28:22", "k": "RAW-EXIT", "x": "PE 23100 11 lots \u00b7 135.75 \u2192 151.35 = +15.60 pts / \u20b9+11,154 \u00b7 BOOK at 23000 23000.0 (best 22999.0 could not break it) \u00b7 capital \u20b9111,154", "mkt_t": 1792382302.9}
+{"t": "09:28:28", "k": "SHIFT", "x": "ATM rolled 23050 \u2192 22950: straddle 174.0 \u2192 164.1 (spot settled at the new strike)", "mkt_t": 1792382308.7}
+{"t": "09:29:30", "k": "ENTRY", "x": "BUY 13 lots NIFTY 23050 PE (2026-10-19) @ 124.50 \u00b7 spot 22988.5 came back to the broken 12-min low 22989.5 and held (+1.0 pts) after running 5+", "mkt_t": 1792382370.3}
+{"t": "09:29:30", "k": "RAW-ENTRY", "x": "BUY 13 lots NIFTY 23050 PE (2026-10-19) @ 124.50 \u00b7 spot 22988.5 came back to the broken 12-min low 22989.5 and held (+1.0 pts) after running 5+", "mkt_t": 1792382370.3}
+{"t": "09:29:53", "k": "EXIT", "x": "PE 23050 13 lots \u00b7 124.50 \u2192 132.70 = +8.20 pts / \u20b9+6,929 \u00b7 BOOK at DAY LOW 22971.0 (best 22972.8 could not break it) \u00b7 capital \u20b9118,083", "mkt_t": 1792382393.6}
+{"t": "09:29:53", "k": "RAW-EXIT", "x": "PE 23050 13 lots \u00b7 124.50 \u2192 132.70 = +8.20 pts / \u20b9+6,929 \u00b7 BOOK at DAY LOW 22971.0 (best 22972.8 could not break it) \u00b7 capital \u20b9118,083", "mkt_t": 1792382393.6}
+{"t": "09:33:10", "k": "SHIFT", "x": "ATM rolled 22950 \u2192 23050: straddle 192.5 \u2192 167.0 (spot settled at the new strike)", "mkt_t": 1792382590.4}
+{"t": "09:36:21", "k": "SHIFT", "x": "ATM rolled 23050 \u2192 23150: straddle 167.2 \u2192 153.3 (spot settled at the new strike)", "mkt_t": 1792382781.8}
+{"t": "09:36:30", "k": "ENTRY", "x": "BUY 11 lots NIFTY 23000 CE (2026-10-19) @ 154.90 \u00b7 spot 23129.3 came back to the broken 12-min high 23127.3 and held (+2.0 pts) after running 5+", "mkt_t": 1792382790.2}
+{"t": "09:36:30", "k": "RAW-ENTRY", "x": "BUY 11 lots NIFTY 23000 CE (2026-10-19) @ 154.90 \u00b7 spot 23129.3 came back to the broken 12-min high 23127.3 and held (+2.0 pts) after running 5+", "mkt_t": 1792382790.2}
+{"t": "09:37:43", "k": "EXIT", "x": "CE 23000 11 lots \u00b7 154.90 \u2192 180.05 = +25.15 pts / \u20b9+17,982 \u00b7 TRAIL (locked +18 % at 09:37:31) \u00b7 capital \u20b9136,065", "mkt_t": 1792382863.6}
+{"t": "09:37:43", "k": "RAW-EXIT", "x": "CE 23000 11 lots \u00b7 154.90 \u2192 180.05 = +25.15 pts / \u20b9+17,982 \u00b7 TRAIL (locked +18 % at 09:37:31) \u00b7 capital \u20b9136,065", "mkt_t": 1792382863.6}
+{"t": "09:55:05", "k": "SPIKE", "x": "straddle 23150 +8.7 over theta in 5 min \u2014 PE leg carries it (98.8, delta -0.546\u2192-0.626, gamma 0.00223)", "mkt_t": 1792383905.9}
+{"t": "09:56:27", "k": "SHIFT", "x": "ATM rolled 23150 \u2192 23050: straddle 153.2 \u2192 144.1 (spot settled at the new strike)", "mkt_t": 1792383987.5}
+{"t": "10:23:28", "k": "SPIKE", "x": "straddle 23050 +8.1 over theta in 5 min \u2014 CE leg carries it (88.8, delta 0.542\u21920.603, gamma 0.00235)", "mkt_t": 1792385608.9}
+{"t": "10:29:53", "k": "SPIKE", "x": "straddle 23050 +9.0 over theta in 5 min \u2014 CE leg carries it (97.2, delta 0.591\u21920.628, gamma 0.00226)", "mkt_t": 1792385993.9}
+{"t": "10:30:20", "k": "SHIFT", "x": "ATM rolled 23050 \u2192 23150: straddle 144.3 \u2192 130.4 (spot settled at the new strike)", "mkt_t": 1792386020.6}
+{"t": "10:34:12", "k": "SHIFT", "x": "ATM rolled 23150 \u2192 23050: straddle 138.7 \u2192 126.7 (spot settled at the new strike)", "mkt_t": 1792386252.8}
+{"t": "10:38:01", "k": "ENTRY", "x": "BUY 19 lots NIFTY 23150 PE (2026-10-19) @ 107.15 \u00b7 spot 23074.1 came back to the broken 12-min low 23075.3 and held (+1.2 pts) after running 5+", "mkt_t": 1792386481.5}
+{"t": "10:38:01", "k": "RAW-ENTRY", "x": "BUY 19 lots NIFTY 23150 PE (2026-10-19) @ 107.15 \u00b7 spot 23074.1 came back to the broken 12-min low 23075.3 and held (+1.2 pts) after running 5+", "mkt_t": 1792386481.5}
+{"t": "10:40:17", "k": "SPIKE", "x": "straddle 23050 +7.6 over theta in 5 min \u2014 PE leg carries it (67.7, delta -0.435\u2192-0.517, gamma 0.00249)", "mkt_t": 1792386617.9}
+{"t": "10:42:10", "k": "SPIKE", "x": "straddle 23050 +14.4 over theta in 5 min \u2014 PE leg carries it (82.4, delta -0.472\u2192-0.568, gamma 0.00235)", "mkt_t": 1792386730.9}
+{"t": "10:42:12", "k": "EXIT", "x": "PE 23150 19 lots \u00b7 107.15 \u2192 145.80 = +38.65 pts / \u20b9+47,733 \u00b7 TRAIL (locked +18 % at 10:39:08) \u00b7 capital \u20b9183,798", "mkt_t": 1792386732.9}
+{"t": "10:42:12", "k": "RAW-EXIT", "x": "PE 23150 19 lots \u00b7 107.15 \u2192 145.80 = +38.65 pts / \u20b9+47,733 \u00b7 TRAIL (locked +18 % at 10:39:08) \u00b7 capital \u20b9183,798", "mkt_t": 1792386732.9}
+{"t": "10:49:19", "k": "SPIKE", "x": "straddle 23050 +8.7 over theta in 5 min \u2014 PE leg carries it (78.5, delta -0.503\u2192-0.56, gamma 0.00242)", "mkt_t": 1792387159.9}
+{"t": "10:57:02", "k": "ENTRY", "x": "BUY 22 lots NIFTY 22950 CE (2026-10-19) @ 127.85 \u00b7 spot 23059.9 came back to the broken 12-min high 23058.2 and held (+1.7 pts) after running 5+", "mkt_t": 1792387622.5}
+{"t": "10:57:02", "k": "RAW-ENTRY", "x": "BUY 22 lots NIFTY 22950 CE (2026-10-19) @ 127.85 \u00b7 spot 23059.9 came back to the broken 12-min high 23058.2 and held (+1.7 pts) after running 5+", "mkt_t": 1792387622.5}
+{"t": "11:01:26", "k": "EXIT", "x": "CE 22950 22 lots \u00b7 127.85 \u2192 123.65 = -4.20 pts / \u20b9-6,006 \u00b7 TRAIL \u00b7 capital \u20b9177,792", "mkt_t": 1792387886.6}
+{"t": "11:01:26", "k": "RAW-EXIT", "x": "CE 22950 22 lots \u00b7 127.85 \u2192 123.65 = -4.20 pts / \u20b9-6,006 \u00b7 TRAIL \u00b7 capital \u20b9177,792", "mkt_t": 1792387886.6}
+{"t": "11:10:15", "k": "SPIKE", "x": "straddle 23050 +7.5 over theta in 5 min \u2014 CE leg carries it (78.3, delta 0.494\u21920.575, gamma 0.00249)", "mkt_t": 1792388415.9}
+{"t": "11:13:54", "k": "ENTRY", "x": "BUY 27 lots NIFTY 23000 CE (2026-10-19) @ 97.85 \u00b7 spot 23070.6 came back to the broken 12-min high 23068.7 and held (+1.9 pts) after running 5+", "mkt_t": 1792388634.0}
+{"t": "11:13:54", "k": "RAW-ENTRY", "x": "BUY 27 lots NIFTY 23000 CE (2026-10-19) @ 97.85 \u00b7 spot 23070.6 came back to the broken 12-min high 23068.7 and held (+1.9 pts) after running 5+", "mkt_t": 1792388634.0}
+{"t": "11:17:35", "k": "EXIT", "x": "CE 23000 27 lots \u00b7 97.85 \u2192 100.35 = +2.50 pts / \u20b9+4,388 \u00b7 TRAIL \u00b7 capital \u20b9182,180", "mkt_t": 1792388855.4}
+{"t": "11:17:35", "k": "RAW-EXIT", "x": "CE 23000 27 lots \u00b7 97.85 \u2192 100.35 = +2.50 pts / \u20b9+4,388 \u00b7 TRAIL \u00b7 capital \u20b9182,180", "mkt_t": 1792388855.4}
+{"t": "11:31:13", "k": "ENTRY", "x": "BUY 31 lots NIFTY 23100 PE (2026-10-19) @ 88.75 \u00b7 spot 23049.5 came back to the broken 12-min low 23050.0 and held (+0.5 pts) after running 5+", "mkt_t": 1792389673.4}
+{"t": "11:31:13", "k": "RAW-ENTRY", "x": "BUY 31 lots NIFTY 23100 PE (2026-10-19) @ 88.75 \u00b7 spot 23049.5 came back to the broken 12-min low 23050.0 and held (+0.5 pts) after running 5+", "mkt_t": 1792389673.4}
+{"t": "11:33:22", "k": "SPIKE", "x": "straddle 23050 +7.3 over theta in 5 min \u2014 PE leg carries it (70.4, delta -0.508\u2192-0.578, gamma 0.00282)", "mkt_t": 1792389802.9}
+{"t": "11:35:56", "k": "EXIT", "x": "PE 23100 31 lots \u00b7 88.75 \u2192 106.85 = +18.10 pts / \u20b9+36,472 \u00b7 LOCK (106.85 fell 10.9 % from best 119.95; armed +18 % at 11:34:18) \u00b7 capital \u20b9218,651", "mkt_t": 1792389956.0}
+{"t": "11:35:56", "k": "RAW-EXIT", "x": "PE 23100 31 lots \u00b7 88.75 \u2192 106.85 = +18.10 pts / \u20b9+36,472 \u00b7 LOCK (106.85 fell 10.9 % from best 119.95; armed +18 % at 11:34:18) \u00b7 capital \u20b9218,651", "mkt_t": 1792389956.0}
+{"t": "11:36:11", "k": "GAP", "x": "data gap: feed silent: no quote on any instrument for 3 s \u2014 entries paused until 20 s of fresh data", "mkt_t": 1792389971.0}
+{"t": "11:36:36", "k": "GAP", "x": "data back after 26 s (feed stale: futures quote 12 s old); entries resume", "mkt_t": 1792389996.6}
+{"t": "11:37:19", "k": "GAP", "x": "data gap: feed stale: futures quote 10 s old \u2014 entries paused until 20 s of fresh data", "mkt_t": 1792390039.6}
+{"t": "11:37:20", "k": "SPIKE", "x": "straddle 23050 +11.5 over theta in 5 min \u2014 PE leg carries it (78.6, delta -0.547\u2192-0.61, gamma 0.00271)", "mkt_t": 1792390040.9}
+{"t": "11:37:40", "k": "GAP", "x": "data back after 21 s (feed stale: futures quote 11 s old); entries resume", "mkt_t": 1792390060.2}
+{"t": "11:39:14", "k": "SHIFT", "x": "ATM rolled 23050 \u2192 22950: straddle 136.1 \u2192 124.4 (spot settled at the new strike)", "mkt_t": 1792390154.0}
+{"t": "11:51:03", "k": "SHIFT", "x": "ATM rolled 22950 \u2192 23000: straddle 116.8 \u2192 114.3 (spot settled at the new strike)", "mkt_t": 1792390863.2}
+{"t": "11:51:30", "k": "GAP", "x": "data gap: feed stale: futures quote 10 s old \u2014 entries paused until 20 s of fresh data", "mkt_t": 1792390890.6}
+{"t": "11:52:09", "k": "GAP", "x": "data back after 39 s (feed silent: no quote on any instrument for 3 s); entries resume", "mkt_t": 1792390929.4}
+{"t": "11:52:54", "k": "GAP", "x": "data gap: feed silent: no quote on any instrument for 3 s \u2014 entries paused until 20 s of fresh data", "mkt_t": 1792390974.4}
+{"t": "11:53:20", "k": "GAP", "x": "data back after 26 s (feed stale: futures quote 14 s old); entries resume", "mkt_t": 1792391000.5}
+{"t": "11:54:32", "k": "GAP", "x": "data gap: feed silent: no quote on any instrument for 3 s \u2014 entries paused until 20 s of fresh data", "mkt_t": 1792391072.2}
+{"t": "11:54:52", "k": "GAP", "x": "data back after 20 s (feed silent: no quote on any instrument for 3 s); entries resume", "mkt_t": 1792391092.4}
+{"t": "11:56:41", "k": "SPIKE", "x": "straddle 23000 +6.9 over theta in 5 min \u2014 PE leg carries it (72.9, delta -0.546\u2192-0.575, gamma 0.0027)", "mkt_t": 1792391201.9}
+{"t": "11:58:45", "k": "ENTRY", "x": "BUY 44 lots NIFTY 23000 PE (2026-10-19) @ 75.30 \u00b7 spot 22980.5 came back to the broken 12-min low 22982.5 and held (+1.9 pts) after running 5+", "mkt_t": 1792391325.8}
+{"t": "11:58:45", "k": "RAW-ENTRY", "x": "BUY 44 lots NIFTY 23000 PE (2026-10-19) @ 75.30 \u00b7 spot 22980.5 came back to the broken 12-min low 22982.5 and held (+1.9 pts) after running 5+", "mkt_t": 1792391325.8}
+{"t": "11:59:11", "k": "SPIKE", "x": "straddle 23000 +7.8 over theta in 5 min \u2014 PE leg carries it (69.0, delta -0.503\u2192-0.571, gamma 0.00283)", "mkt_t": 1792391351.9}
+{"t": "11:59:13", "k": "EXIT", "x": "PE 23000 44 lots \u00b7 75.30 \u2192 69.00 = -6.30 pts / \u20b9-18,018 \u00b7 STOP \u00b7 capital \u20b9200,633", "mkt_t": 1792391353.4}
+{"t": "11:59:13", "k": "RAW-EXIT", "x": "PE 23000 44 lots \u00b7 75.30 \u2192 69.00 = -6.30 pts / \u20b9-18,018 \u00b7 STOP \u00b7 capital \u20b9200,633", "mkt_t": 1792391353.4}
+{"t": "11:59:24", "k": "GAP", "x": "data gap: feed silent: no quote on any instrument for 3 s \u2014 entries paused until 20 s of fresh data", "mkt_t": 1792391364.0}
+{"t": "11:59:44", "k": "GAP", "x": "data back after 20 s (feed silent: no quote on any instrument for 3 s); entries resume", "mkt_t": 1792391384.2}
+{"t": "12:02:05", "k": "SPIKE", "x": "straddle 23000 +7.1 over theta in 5 min \u2014 PE leg carries it (76.6, delta -0.581\u2192-0.6, gamma 0.00272)", "mkt_t": 1792391525.9}
+{"t": "12:04:35", "k": "SPIKE", "x": "straddle 23000 +18.1 over theta in 5 min \u2014 PE leg carries it (93.8, delta -0.567\u2192-0.65, gamma 0.00246)", "mkt_t": 1792391675.9}
+{"t": "12:04:47", "k": "GAP", "x": "data gap: feed silent: no quote on any instrument for 3 s \u2014 entries paused until 20 s of fresh data", "mkt_t": 1792391687.0}
+{"t": "12:05:08", "k": "GAP", "x": "data back after 21 s (feed silent: no quote on any instrument for 4 s); entries resume", "mkt_t": 1792391708.2}
+{"t": "12:05:26", "k": "GAP", "x": "data gap: feed stale: futures quote 10 s old \u2014 entries paused until 20 s of fresh data", "mkt_t": 1792391726.3}
+{"t": "12:05:46", "k": "GAP", "x": "data back after 20 s (feed stale: futures quote 10 s old); entries resume", "mkt_t": 1792391746.6}
+{"t": "12:06:28", "k": "GAP", "x": "data gap: feed stale: futures quote 10 s old \u2014 entries paused until 20 s of fresh data", "mkt_t": 1792391788.9}
+{"t": "12:06:31", "k": "SPIKE", "x": "straddle 23000 +11.4 over theta in 5 min \u2014 PE leg carries it (86.6, delta -0.565\u2192-0.651, gamma 0.00267)", "mkt_t": 1792391791.9}
+{"t": "12:06:49", "k": "GAP", "x": "data back after 20 s (feed stale: futures quote 10 s old); entries resume", "mkt_t": 1792391809.3}
+{"t": "12:08:03", "k": "ENTRY", "x": "BUY 27 lots NIFTY 23050 PE (2026-10-19) @ 110.60 \u00b7 spot 22977.8 came back to the broken 12-min low 22977.0 and held (-0.9 pts) after running 5+", "mkt_t": 1792391883.7}
+{"t": "12:08:03", "k": "RAW-ENTRY", "x": "BUY 27 lots NIFTY 23050 PE (2026-10-19) @ 110.60 \u00b7 spot 22977.8 came back to the broken 12-min low 22977.0 and held (-0.9 pts) after running 5+", "mkt_t": 1792391883.7}
+{"t": "12:09:07", "k": "SPIKE", "x": "straddle 23000 +7.6 over theta in 5 min \u2014 PE leg carries it (87.7, delta -0.608\u2192-0.656, gamma 0.00266)", "mkt_t": 1792391947.9}
+{"t": "12:10:57", "k": "SPIKE", "x": "straddle 23000 +8.8 over theta in 5 min \u2014 PE leg carries it (90.5, delta -0.636\u2192-0.662, gamma 0.0026)", "mkt_t": 1792392057.9}
+{"t": "12:11:33", "k": "SHIFT", "x": "ATM rolled 23000 \u2192 22950: straddle 122.6 \u2192 111.5 (spot settled at the new strike)", "mkt_t": 1792392093.8}
+{"t": "12:12:53", "k": "GAP", "x": "data gap: feed silent: no quote on any instrument for 3 s \u2014 entries paused until 20 s of fresh data", "mkt_t": 1792392173.5}
+{"t": "12:13:13", "k": "GAP", "x": "data back after 20 s (feed silent: no quote on any instrument for 3 s); entries resume", "mkt_t": 1792392193.8}
+{"t": "12:13:26", "k": "GAP", "x": "data gap: feed silent: no quote on any instrument for 3 s \u2014 entries paused until 20 s of fresh data", "mkt_t": 1792392206.8}
+{"t": "12:13:47", "k": "GAP", "x": "data back after 20 s (feed silent: no quote on any instrument for 3 s); entries resume", "mkt_t": 1792392227.3}
+{"t": "12:14:00", "k": "GAP", "x": "data gap: feed silent: no quote on any instrument for 3 s \u2014 entries paused until 20 s of fresh data", "mkt_t": 1792392240.3}
+{"t": "12:14:20", "k": "GAP", "x": "data back after 20 s (feed silent: no quote on any instrument for 3 s); entries resume", "mkt_t": 1792392260.8}
+{"t": "12:14:33", "k": "GAP", "x": "data gap: feed silent: no quote on any instrument for 3 s \u2014 entries paused until 20 s of fresh data", "mkt_t": 1792392273.6}
+{"t": "12:14:53", "k": "GAP", "x": "data back after 20 s (feed silent: no quote on any instrument for 3 s); entries resume", "mkt_t": 1792392293.8}
+{"t": "12:16:33", "k": "SPIKE", "x": "straddle 22950 +10.0 over theta in 5 min \u2014 PE leg carries it (76.1, delta -0.527\u2192-0.599, gamma 0.00274)", "mkt_t": 1792392393.9}
+{"t": "12:17:05", "k": "EXIT", "x": "PE 23050 27 lots \u00b7 110.60 \u2192 141.95 = +31.35 pts / \u20b9+55,019 \u00b7 TRAIL (locked +18 % at 12:10:33) \u00b7 capital \u20b9255,652", "mkt_t": 1792392425.8}
+{"t": "12:17:05", "k": "RAW-EXIT", "x": "PE 23050 27 lots \u00b7 110.60 \u2192 141.95 = +31.35 pts / \u20b9+55,019 \u00b7 TRAIL (locked +18 % at 12:10:33) \u00b7 capital \u20b9255,652", "mkt_t": 1792392425.8}
+{"t": "12:19:18", "k": "SPIKE", "x": "straddle 22950 +7.5 over theta in 5 min \u2014 PE leg carries it (72.0, delta -0.544\u2192-0.585, gamma 0.0028)", "mkt_t": 1792392558.9}
+{"t": "12:19:26", "k": "GAP", "x": "data gap: feed silent: no quote on any instrument for 3 s \u2014 entries paused until 20 s of fresh data", "mkt_t": 1792392566.3}
+{"t": "12:19:47", "k": "GAP", "x": "data back after 21 s (feed silent: no quote on any instrument for 4 s); entries resume", "mkt_t": 1792392587.1}
+{"t": "12:20:48", "k": "GAP", "x": "data gap: feed stale: futures quote 10 s old \u2014 entries paused until 20 s of fresh data", "mkt_t": 1792392648.1}
+{"t": "12:21:25", "k": "GAP", "x": "data back after 38 s (feed silent: no quote on any instrument for 3 s); entries resume", "mkt_t": 1792392685.7}
+{"t": "12:21:55", "k": "GAP", "x": "data gap: feed stale: futures quote 10 s old \u2014 entries paused until 20 s of fresh data", "mkt_t": 1792392715.1}
+{"t": "12:22:01", "k": "SPIKE", "x": "straddle 22950 +7.7 over theta in 5 min \u2014 PE leg carries it (75.7, delta -0.579\u2192-0.606, gamma 0.0028)", "mkt_t": 1792392721.9}
+{"t": "12:23:03", "k": "GAP", "x": "data back after 68 s (feed silent: no quote on any instrument for 3 s); entries resume", "mkt_t": 1792392783.5}
+{"t": "12:27:35", "k": "ENTRY", "x": "BUY 36 lots NIFTY 22850 CE (2026-10-19) @ 106.90 \u00b7 spot 22953.1 came back to the broken 12-min high 22951.1 and held (+2.0 pts) after running 5+", "mkt_t": 1792393055.5}
+{"t": "12:27:35", "k": "RAW-ENTRY", "x": "BUY 36 lots NIFTY 22850 CE (2026-10-19) @ 106.90 \u00b7 spot 22953.1 came back to the broken 12-min high 22951.1 and held (+2.0 pts) after running 5+", "mkt_t": 1792393055.5}
+{"t": "12:28:25", "k": "EXIT", "x": "CE 22850 36 lots \u00b7 106.90 \u2192 102.65 = -4.25 pts / \u20b9-9,945 \u00b7 TRAIL \u00b7 capital \u20b9245,707", "mkt_t": 1792393105.6}
+{"t": "12:28:25", "k": "RAW-EXIT", "x": "CE 22850 36 lots \u00b7 106.90 \u2192 102.65 = -4.25 pts / \u20b9-9,945 \u00b7 TRAIL \u00b7 capital \u20b9245,707", "mkt_t": 1792393105.6}
+{"t": "12:32:20", "k": "SPIKE", "x": "straddle 22950 +7.6 over theta in 5 min \u2014 PE leg carries it (65.4, delta -0.521\u2192-0.558, gamma 0.00289)", "mkt_t": 1792393340.9}
+{"t": "12:41:33", "k": "SPIKE", "x": "straddle 22950 +9.2 over theta in 5 min \u2014 PE leg carries it (75.1, delta -0.552\u2192-0.616, gamma 0.00288)", "mkt_t": 1792393893.9}
+{"t": "12:42:01", "k": "ENTRY", "x": "BUY 37 lots NIFTY 23000 PE (2026-10-19) @ 101.60 \u00b7 spot 22938.2 came back to the broken 12-min low 22939.5 and held (+1.4 pts) after running 5+", "mkt_t": 1792393921.6}
+{"t": "12:42:01", "k": "RAW-ENTRY", "x": "BUY 37 lots NIFTY 23000 PE (2026-10-19) @ 101.60 \u00b7 spot 22938.2 came back to the broken 12-min low 22939.5 and held (+1.4 pts) after running 5+", "mkt_t": 1792393921.6}
+{"t": "12:43:01", "k": "EXIT", "x": "PE 23000 37 lots \u00b7 101.60 \u2192 98.90 = -2.70 pts / \u20b9-6,494 \u00b7 TRAIL \u00b7 capital \u20b9239,214", "mkt_t": 1792393981.4}
+{"t": "12:43:01", "k": "RAW-EXIT", "x": "PE 23000 37 lots \u00b7 101.60 \u2192 98.90 = -2.70 pts / \u20b9-6,494 \u00b7 TRAIL \u00b7 capital \u20b9239,214", "mkt_t": 1792393981.4}
+{"t": "12:44:34", "k": "GAP", "x": "data gap: feed silent: no quote on any instrument for 3 s \u2014 entries paused until 20 s of fresh data", "mkt_t": 1792394074.9}
+{"t": "12:44:55", "k": "GAP", "x": "data back after 21 s (feed silent: no quote on any instrument for 4 s); entries resume", "mkt_t": 1792394095.9}
+{"t": "12:47:02", "k": "GAP", "x": "data gap: feed silent: no quote on any instrument for 3 s \u2014 entries paused until 20 s of fresh data", "mkt_t": 1792394222.0}
+{"t": "12:48:00", "k": "GAP", "x": "data back after 59 s (feed has no futures quote); entries resume", "mkt_t": 1792394280.9}
+{"t": "12:54:26", "k": "SPIKE", "x": "straddle 22950 +10.0 over theta in 5 min \u2014 PE leg carries it (79.0, delta -0.604\u2192-0.645, gamma 0.00297)", "mkt_t": 1792394666.0}
+{"t": "12:57:10", "k": "SPIKE", "x": "straddle 22950 +10.6 over theta in 5 min \u2014 PE leg carries it (82.9, delta -0.605\u2192-0.678, gamma 0.00292)", "mkt_t": 1792394830.0}
+{"t": "12:57:41", "k": "SHIFT", "x": "ATM rolled 22950 \u2192 22900: straddle 105.7 \u2192 96.2 (spot settled at the new strike)", "mkt_t": 1792394861.1}
+{"t": "13:03:54", "k": "SPIKE", "x": "straddle 22900 +10.8 over theta in 5 min \u2014 CE leg carries it (68.8, delta 0.508\u21920.62, gamma 0.00315)", "mkt_t": 1792395234.0}
+{"t": "13:04:50", "k": "ENTRY", "x": "BUY 36 lots NIFTY 22850 CE (2026-10-19) @ 99.75 \u00b7 spot 22940.2 came back to the broken 12-min high 22938.3 and held (+1.9 pts) after running 5+", "mkt_t": 1792395290.5}
+{"t": "13:04:50", "k": "RAW-ENTRY", "x": "BUY 36 lots NIFTY 22850 CE (2026-10-19) @ 99.75 \u00b7 spot 22940.2 came back to the broken 12-min high 22938.3 and held (+1.9 pts) after running 5+", "mkt_t": 1792395290.5}
+{"t": "13:05:28", "k": "EXIT", "x": "CE 22850 36 lots \u00b7 99.75 \u2192 93.80 = -5.95 pts / \u20b9-13,923 \u00b7 TRAIL \u00b7 capital \u20b9225,291", "mkt_t": 1792395328.6}
+{"t": "13:05:28", "k": "RAW-EXIT", "x": "CE 22850 36 lots \u00b7 99.75 \u2192 93.80 = -5.95 pts / \u20b9-13,923 \u00b7 TRAIL \u00b7 capital \u20b9225,291", "mkt_t": 1792395328.6}
+{"t": "13:11:54", "k": "GAP", "x": "data gap: feed silent: no quote on any instrument for 3 s \u2014 entries paused until 20 s of fresh data", "mkt_t": 1792395714.9}
+{"t": "13:12:33", "k": "GAP", "x": "data back after 38 s (feed has no futures quote); entries resume", "mkt_t": 1792395753.4}
+{"t": "13:23:07", "k": "SPIKE", "x": "straddle 22900 +12.4 over theta in 5 min \u2014 PE leg carries it (67.8, delta -0.539\u2192-0.627, gamma 0.00326)", "mkt_t": 1792396387.6}
+{"t": "13:24:58", "k": "ENTRY", "x": "BUY 47 lots NIFTY 22900 PE (2026-10-19) @ 72.50 \u00b7 spot 22870.0 came back to the broken 12-min low 22871.6 and held (+1.5 pts) after running 5+", "mkt_t": 1792396498.2}
+{"t": "13:24:58", "k": "RAW-ENTRY", "x": "BUY 47 lots NIFTY 22900 PE (2026-10-19) @ 72.50 \u00b7 spot 22870.0 came back to the broken 12-min low 22871.6 and held (+1.5 pts) after running 5+", "mkt_t": 1792396498.2}
+{"t": "13:25:30", "k": "SPIKE", "x": "straddle 22900 +11.9 over theta in 5 min \u2014 PE leg carries it (70.8, delta -0.58\u2192-0.645, gamma 0.00323)", "mkt_t": 1792396530.6}
+{"t": "13:25:52", "k": "EXIT", "x": "PE 22900 47 lots \u00b7 72.50 \u2192 65.65 = -6.85 pts / \u20b9-20,927 \u00b7 TRAIL \u00b7 capital \u20b9204,364", "mkt_t": 1792396552.6}
+{"t": "13:25:52", "k": "RAW-EXIT", "x": "PE 22900 47 lots \u00b7 72.50 \u2192 65.65 = -6.85 pts / \u20b9-20,927 \u00b7 TRAIL \u00b7 capital \u20b9204,364", "mkt_t": 1792396552.6}
+{"t": "13:28:00", "k": "SPIKE", "x": "straddle 22900 +11.9 over theta in 5 min \u2014 PE leg carries it (75.2, delta -0.611\u2192-0.665, gamma 0.00325)", "mkt_t": 1792396680.6}
+{"t": "13:32:44", "k": "SHIFT", "x": "ATM rolled 22900 \u2192 22850: straddle 97.6 \u2192 90.0 (spot settled at the new strike)", "mkt_t": 1792396964.0}
+{"t": "13:42:46", "k": "ENTRY", "x": "BUY 35 lots NIFTY 22800 CE (2026-10-19) @ 89.20 \u00b7 spot 22889.7 came back to the broken 12-min high 22889.2 and held (+0.4 pts) after running 5+", "mkt_t": 1792397566.5}
+{"t": "13:42:46", "k": "RAW-ENTRY", "x": "BUY 35 lots NIFTY 22800 CE (2026-10-19) @ 89.20 \u00b7 spot 22889.7 came back to the broken 12-min high 22889.2 and held (+0.4 pts) after running 5+", "mkt_t": 1792397566.5}
+{"t": "13:44:25", "k": "EXIT", "x": "CE 22800 35 lots \u00b7 89.20 \u2192 79.85 = -9.35 pts / \u20b9-21,271 \u00b7 TRAIL \u00b7 capital \u20b9183,093", "mkt_t": 1792397665.6}
+{"t": "13:44:25", "k": "RAW-EXIT", "x": "CE 22800 35 lots \u00b7 89.20 \u2192 79.85 = -9.35 pts / \u20b9-21,271 \u00b7 TRAIL \u00b7 capital \u20b9183,093", "mkt_t": 1792397665.6}
+{"t": "13:45:24", "k": "GAP", "x": "data gap: feed silent: no quote on any instrument for 3 s \u2014 entries paused until 20 s of fresh data", "mkt_t": 1792397724.1}
+{"t": "13:46:41", "k": "GAP", "x": "data back after 77 s (feed has no futures quote); entries resume", "mkt_t": 1792397801.0}
+{"t": "13:49:03", "k": "ENTRY", "x": "BUY 28 lots NIFTY 22950 PE (2026-10-19) @ 98.65 \u00b7 spot 22869.0 came back to the broken 12-min low 22871.0 and held (+2.0 pts) after running 5+", "mkt_t": 1792397943.2}
+{"t": "13:49:03", "k": "RAW-ENTRY", "x": "BUY 28 lots NIFTY 22950 PE (2026-10-19) @ 98.65 \u00b7 spot 22869.0 came back to the broken 12-min low 22871.0 and held (+2.0 pts) after running 5+", "mkt_t": 1792397943.2}
+{"t": "13:52:01", "k": "EXIT", "x": "PE 22950 28 lots \u00b7 98.65 \u2192 99.85 = +1.20 pts / \u20b9+2,184 \u00b7 TRAIL \u00b7 capital \u20b9185,277", "mkt_t": 1792398121.3}
+{"t": "13:52:01", "k": "RAW-EXIT", "x": "PE 22950 28 lots \u00b7 98.65 \u2192 99.85 = +1.20 pts / \u20b9+2,184 \u00b7 TRAIL \u00b7 capital \u20b9185,277", "mkt_t": 1792398121.3}
+{"t": "14:03:29", "k": "SPIKE", "x": "straddle 22850 +14.6 over theta in 5 min \u2014 CE leg carries it (62.5, delta 0.556\u21920.651, gamma 0.00367)", "mkt_t": 1792398809.3}
+{"t": "14:04:21", "k": "ENTRY", "x": "BUY 32 lots NIFTY 22800 CE (2026-10-19) @ 88.50 \u00b7 spot 22883.3 came back to the broken 12-min high 22881.4 and held (+1.9 pts) after running 5+", "mkt_t": 1792398861.2}
+{"t": "14:04:21", "k": "RAW-ENTRY", "x": "BUY 32 lots NIFTY 22800 CE (2026-10-19) @ 88.50 \u00b7 spot 22883.3 came back to the broken 12-min high 22881.4 and held (+1.9 pts) after running 5+", "mkt_t": 1792398861.2}
+{"t": "14:05:59", "k": "SPIKE", "x": "straddle 22850 +15.9 over theta in 5 min \u2014 CE leg carries it (62.6, delta 0.521\u21920.655, gamma 0.00369)", "mkt_t": 1792398959.3}
+{"t": "14:06:31", "k": "EXIT", "x": "CE 22800 32 lots \u00b7 88.50 \u2192 96.75 = +8.25 pts / \u20b9+17,160 \u00b7 LOCK (96.75 fell 10.4 % from best 108.00; armed +18 % at 14:05:39) \u00b7 capital \u20b9202,437", "mkt_t": 1792398991.2}
+{"t": "14:06:31", "k": "RAW-EXIT", "x": "CE 22800 32 lots \u00b7 88.50 \u2192 96.75 = +8.25 pts / \u20b9+17,160 \u00b7 LOCK (96.75 fell 10.4 % from best 108.00; armed +18 % at 14:05:39) \u00b7 capital \u20b9202,437", "mkt_t": 1792398991.2}
