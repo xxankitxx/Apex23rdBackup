@@ -1,0 +1,135 @@
+Your repository is already a sophisticated, well-architected paper-trading system—far beyond a typical retail bot. The teardown below separates what is already strong from the structural gaps that currently keep the mathematics at a first-order, Black-76 level. The improvement plan then targets exactly those gaps with higher-order Greeks, volatility-surface calculus, stochastic models, and modern quantitative techniques.
+
+---
+
+## 🔍 Teardown: What the Code Already Does Well
+
+### ⚙️ Architecture & Data Pipeline
+The engine is event‑driven, sampling at 100 ms and publishing state at 250 ms, with explicit handling of stale feeds, data gaps, and session boundaries . This is institution‑grade plumbing: most retail systems never address feed integrity or clock discipline at this level.
+
+### 📐 Pricing & Greeks
+`apex/greeks.py` implements Black‑76 on the synthetic forward (from put–call parity), with implied volatility solved by bisection and first‑order Greeks (delta, gamma, theta, vega) . The choice of Black‑76 over Black‑Scholes is correct for index options on a forward, and the 600‑second floor near expiry prevents numerical blow‑ups .
+
+### 📊 Microstructure & Order Flow
+`apex/engine/flow.py` computes quantity and order‑count imbalances, rate classes (refilling, draining, pulled), and a “book‑leads‑price” correlation that tells the system whether the order book is informative for a given contract . This is a level of microstructure awareness rarely seen in retail options systems.
+
+### 🧱 Pressure Zones & Dealer Gamma
+`apex/engine/levels.py` builds OI‑based walls and a force detector, while `apex/engine/gex.py` constructs a dealer gamma map with a gamma‑flip level . The GEX implementation is honest about the dealer‑sign assumption and treats it as an advisor rather than a hard gate—exactly the right epistemic stance.
+
+### 🧠 Self‑Learning with Statistical Rigour
+`apex/engine/learning.py` uses a Wald SPRT for the champion book, a Bonferroni‑corrected t‑test for challengers, leave‑one‑day‑out validation, and a candidate‑gate pipeline for advisors . This is genuine statistical process control, not “backtest and hope”.
+
+---
+
+## 🧩 Structural Gaps That Limit the Mathematics
+
+Despite the engineering maturity, the quantitative core is still first‑order and model‑light:
+
+1. **Greeks stop at first order.** For weekly Nifty options, delta, gamma, theta, and vega change violently in the last 48 hours. The code does not compute **vanna, charm, speed, color, zomma, or ultima**, which are precisely the Greeks that describe how delta, gamma, and vega themselves move with price and time .
+
+2. **Volatility is a point estimate, not a surface.** IV is solved per strike, but there is no arbitrage‑free volatility surface (SVI, SABR, or otherwise). Without a surface, you cannot distinguish between a genuinely rich option and a normal skew move, and you cannot enforce no‑arbitrage constraints on your own fair‑value estimates .
+
+3. **Black‑76 assumes constant volatility.** Near expiry, volatility clustering, jumps, and rough‑vol dynamics dominate. Black‑76 Greeks are biased precisely when weekly options are most sensitive. A stochastic‑volatility model (Heston, rough Heston) would give model‑consistent Greeks and a better smile fit .
+
+4. **Entry signals are heuristic.** Impulse z‑scores, synchrony, and force‑detector rules are sensible, but they are hand‑crafted thresholds. There is no supervised learning layer to discover nonlinear interactions between the dozens of features already captured in `edge.py` .
+
+5. **Options flow is under‑exploited.** The system tracks order‑book imbalance in the future, but not **options‑specific flow** (sweeps, large trades, opening/closing classification). Options flow often leads the underlying by seconds to minutes .
+
+6. **Execution and slippage are ignored.** Paper fills at LTP are fine for signal research, but the absence of a slippage model means the learning loop cannot distinguish a real edge from a spread‑crossing artefact.
+
+---
+
+## 🚀 Advanced Mathematics & Models to Deploy
+
+### 📈 Higher-Order Greeks and Calculus of Sensitivity
+**What to add:** Compute **vanna** (∂Δ/∂σ), **charm** (∂Δ/∂t), **speed** (∂Γ/∂S), **color** (∂Γ/∂t), **zomma** (∂Γ/∂σ), and **ultima** (∂Vomma/∂σ).
+
+**Why it matters for weekly Nifty:** In the last two days of expiry, **charm** tells you how fast your delta is decaying even if price does not move—critical for avoiding a “theta trap” on a seemingly stable position. **Vanna** tells you whether a volatility spike will help or hurt your delta. **Speed** and **color** tell you how unstable your gamma is, which is exactly the risk of a buy‑only weekly strategy.
+
+**How to integrate:** Extend `greeks.py` to return a dictionary of second‑ and third‑order Greeks. Use **charm** and **vanna** as additional advisor features in the learning loop. A candidate gate could be: “do not enter a CE if charm is below −X and vanna is negative” (meaning time decay is accelerating and volatility support is fading). Cite the standard taxonomy of higher‑order Greeks in .
+
+---
+
+### 🏔️ Arbitrage-Free Volatility Surface (SVI / SABR)
+**What to add:** Fit an **SVI parameterisation** (or **SABR**) to the option chain at each expiry. SVI gives a closed‑form smile that can be constrained to be free of **butterfly arbitrage** and **calendar‑spread arbitrage** .
+
+**Why it matters:** Once you have a surface, you can compute:
+- **Surface‑implied fair value** for every strike, not just the ATM IV.
+- **Skew and term‑structure residuals** as relative‑value signals: “this strike is 2 vol points rich to the fitted surface” is a far cleaner signal than raw IV.
+- **Arbitrage‑free Greeks** by differentiating the fitted surface rather than using a flat‑vol Black‑76 model.
+
+**How to integrate:** Add a `vol_surface.py` module that fits SVI per expiry using the chain you already poll every 90 seconds. Feed the fitted parameters into the GEX map and the edge snapshot. The `voltorch` library or a simple SciPy least‑squares SVI fit is sufficient .
+
+---
+
+### 🌊 Stochastic and Rough Volatility Models
+**What to add:** Calibrate a **Heston** or **rough Heston** model to the surface. Rough Heston (with a fractional kernel) captures the empirically observed rough volatility of intraday returns and produces more realistic short‑dated smiles .
+
+**Why it matters:** Black‑76 Greeks are model‑inconsistent when volatility is stochastic. If you compute delta under Black‑76 but the true dynamics are rough‑vol, your hedge ratio and your gamma exposure are wrong precisely when you need them most. Model‑consistent Greeks from a calibrated rough‑Heston model would improve both entry timing and risk assessment.
+
+**How to integrate:** Start with a **Heston** calibration (three parameters: mean reversion, long‑run variance, vol‑of‑vol) on the nearest weekly expiry. Use the calibrated model to compute **model‑based delta and gamma** alongside the Black‑76 Greeks. Log both in the edge snapshot and let the learning loop decide which Greeks are more predictive. Rough Heston can be a phase‑two upgrade once Heston is stable.
+
+---
+
+### 🤖 Machine Learning and Reinforcement Learning for Entry/Exit
+**What to add:**
+- **Supervised learning** (gradient‑boosted trees, LSTM) on the features already in `edge.py` to predict short‑horizon direction or volatility expansion.
+- **Reinforcement learning** for optimal entry/exit timing, position sizing, and strike selection. Recent work shows RL agents can learn volatility‑timing policies that outperform rule‑based exits .
+
+**Why it matters:** Your current trigger is a conjunction of hand‑tuned thresholds. A gradient‑boosted model can discover that, for example, the interaction of `fut_ofi60`, `vanna`, and `wall_dn` is far more predictive than any single threshold. RL can learn when to **wait** for a better entry—directly serving your goal of “never miss a good trade but never take a stupid one.”
+
+**How to integrate:** The existing **shadow‑book and learning‑loop framework is the perfect substrate**. Treat a trained ML model as another **advisor** that produces a probability of success. Register it as a candidate gate. The SPRT and Bonferroni tests will tell you whether the ML gate genuinely improves the champion book. For RL, start with a **contextual bandit** rather than a full RL agent—it is easier to validate and integrates directly with the existing paper‑book infrastructure.
+
+---
+
+### 📊 Options-Specific Order Flow and Microstructure
+**What to add:**
+- **Options flow imbalance**: net buyer‑initiated minus seller‑initiated volume in the option contracts themselves.
+- **Large‑trade and sweep detection**: identify aggressive multi‑exchange sweeps in the options chain.
+- **VPIN (Volume‑Synchronised Probability of Informed Trading)** on the futures book.
+
+**Why it matters:** Your `flow.py` already computes a sophisticated order‑book imbalance for the future . Options flow often leads the underlying by seconds to minutes, especially around large institutional trades . Adding an **options‑flow feature** to the edge snapshot gives the learning loop a new dimension of information that is currently absent.
+
+**How to integrate:** Extend `edge.py` with fields like `opt_flow_imb_5m` (net aggressive options premium bought minus sold over 5 minutes) and `sweep_count_1m`. These are observable from the tick data you already record.
+
+---
+
+### 🎲 Bayesian Uncertainty Quantification
+**What to add:** Replace point estimates of volatility and drift with **posterior distributions**. Use Bayesian inference (e.g., a simple conjugate model or MCMC) to estimate the current regime’s volatility with uncertainty.
+
+**Why it matters:** Your trigger currently uses hard thresholds on z‑scores. A Bayesian treatment would allow you to say “the probability that this impulse is genuine is 0.73” rather than “z > 2”. This directly reduces false positives—the “stupid non‑riding trades” you want to avoid.
+
+**How to integrate:** Start with a **Bayesian change‑point model** on the futures impulse. Compute the posterior probability that a regime shift has occurred. Use that probability as an additional advisor feature.
+
+---
+
+### 🧮 Execution and Slippage Modelling
+**What to add:** A simple **Almgren–Chriss** or **spread‑crossing** slippage model in the paper book. At minimum, assume the fill is at the **bid for a sell** and the **ask for a buy**, plus a size‑dependent impact term.
+
+**Why it matters:** Your learning loop currently optimises on gross P&L. If a signal only works because it implicitly assumes mid‑price fills, the SPRT will promote a gate that is actually negative after realistic execution. A slippage model makes the learning loop honest.
+
+---
+
+### 🧠 Malliavin Calculus for Greeks (Advanced / Optional)
+**What to add:** For path‑dependent or stochastic‑volatility models, **Malliavin calculus** provides efficient estimators for Greeks via integration by parts, avoiding finite‑difference bumping .
+
+**Why it matters:** If you move to rough Heston or jump‑diffusion models, Malliavin‑based Greeks are more stable and computationally efficient than finite differences, especially for vega and vanna.
+
+---
+
+## 🗺️ Prioritised Roadmap
+
+| Phase | Action | Expected Impact |
+|---|---|---|
+| **1 (Weeks 1–2)** | Add **higher‑order Greeks** (vanna, charm, speed, color) to `greeks.py`; log them in the edge snapshot. | Immediate improvement in entry filtering near expiry; no new model risk. |
+| **2 (Weeks 3–4)** | Fit an **arbitrage‑free SVI surface**; compute surface‑residual features. | Better relative‑value signals; cleaner GEX inputs. |
+| **3 (Weeks 5–8)** | Calibrate **Heston** and compute model‑consistent Greeks; log alongside Black‑76. | More accurate delta/gamma near expiry; learning loop can choose the better Greeks. |
+| **4 (Weeks 9–12)** | Train a **gradient‑boosted model** on existing edge features; register as an advisor gate. | Nonlinear signal discovery; directly targets “never miss a good trade”. |
+| **5 (Ongoing)** | Add **options‑flow features** and **slippage model** to the paper book. | Honest learning; new predictive dimension. |
+| **6 (Advanced)** | Explore **RL for entry timing** and **rough Heston** calibration. | State‑of‑the‑art timing and risk management. |
+
+---
+
+## 💎 Bottom Line
+
+Your code is already ahead of most retail options systems in data integrity, microstructure awareness, and statistical learning discipline. The biggest quantitative gap is that the **Greeks are first‑order and the volatility model is constant**. Closing that gap with **higher‑order Greeks, an arbitrage‑free volatility surface, and stochastic‑volatility‑consistent Greeks** will give you a mathematically coherent view of weekly options risk. Layering **machine learning and options‑flow features** on top will then exploit the rich feature set you already capture, moving you closer to the goal of never missing a good trade while systematically rejecting the bad ones.

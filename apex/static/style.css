@@ -1465,3 +1465,7 @@ body.stale .cmt-head::after, body.stale .rmk.new, body.stale .cmt.flash-warn { a
   *, *::before, *::after { transition: none !important; animation: none !important; }
   .ht-vix.lv4 { animation: none; } .ht .val.flash { text-shadow: none; }
 }
+
+/* 5 Nov: quant evidence block inside the OI card */
+.q-head { margin-top: var(--sp-3); }
+.force span.up { color: var(--up); } .force span.down { color: var(--down); }

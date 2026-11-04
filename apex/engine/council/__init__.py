@@ -50,6 +50,10 @@ class LiveDay:
         self.rr = np.array([], dtype="<U2")
         self.i = -1
 
+    def i_at(self, hh, mm, ss=0):
+        """Row index of the IST clock time hh:mm:ss (row 0 = 09:15:00), as the kit's D.i_at."""
+        return int(min(max((hh * 3600 + mm * 60 + ss) - (9 * 3600 + 15 * 60), 0), N_ROWS - 1))
+
     def atm(self, i, ref=None):
         r = ref if ref is not None else (self.fwd[i] if np.isfinite(self.fwd[i]) else self.spot[i])
         if not len(self.K) or not np.isfinite(r):
@@ -106,11 +110,26 @@ class LiveDay:
             self.rr = np.array([r for _, r in ks])
 
 
+_DAYS = {}                                 # (day, expiry) -> the one LiveDay every council book reads
+
+
+def shared_day(day, expiry):
+    """5 Nov (speed): every council book used to fill its own identical LiveDay each second; they now share one
+    (strategies only read D, never write it), so the row is written once per second instead of once per book."""
+    key = (day, expiry)
+    D = _DAYS.get(key)
+    if D is None:
+        for k in [k for k in _DAYS if k[0] != day]:
+            del _DAYS[k]
+        D = _DAYS[key] = LiveDay(day, expiry)
+    return D
+
+
 class Adapter:
     def __init__(self, name, day, expiry):
         mod = importlib.import_module(f"{__name__}.{name}")
         self.strat = mod.Strategy()
-        self.D = LiveDay(day, expiry)
+        self.D = shared_day(day, expiry)
         self.day, self.last_i = day, -1
 
     def step(self, eng, book, ctx):
@@ -120,7 +139,8 @@ class Adapter:
         if i < 0 or i >= N_ROWS or i == self.last_i:
             return False
         self.last_i = i
-        D.put(i, eng, ctx, ctx.get("w0"), getattr(eng.m, "snap", None) if getattr(eng, "m", None) else None)
+        if D.i != i:                                         # the first council book this second writes the row
+            D.put(i, eng, ctx, ctx.get("w0"), getattr(eng.m, "snap", None) if getattr(eng, "m", None) else None)
         w0 = ctx.get("w0")
         # D-126 (30 Oct review): fills wait for the first print AFTER the trigger, like every other book. While a fill
         # is pending the strategy is not stepped — the kit skipped its 2-s fill lag the same way ("catch" bridges the

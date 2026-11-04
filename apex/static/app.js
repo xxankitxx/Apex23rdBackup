@@ -323,7 +323,7 @@ function render(s) {
   if (!nil(s.fut)) { futBuf.push([now, s.fut]); while (futBuf.length && now - futBuf[0][0] > 300) futBuf.shift(); }
   renderVerdict(s); renderLadder(s); renderPos(s, now);
   if (typeof renderCommentary === "function") renderCommentary(s, now);   // commentary.js (T09)
-  drawTrace(s); drawOI(s);
+  drawTrace(s); drawOI(s); renderQuant(s);
   renderIdeas(s); renderStraddle(s, now); renderHeavy(s); renderTrades(s); renderBooks(s); renderTape(s);
 }
 
@@ -936,6 +936,32 @@ function drawTrace(s) {
   $("regime").innerHTML = rg.state ? `Market: <b class="rg-${rg.state}">${rg.text}</b> — ${RW[rg.state] || ""}.${ld.today ? ` Candidates today ${ld.today} (${ld.followed} being followed).` : ""}` : "";
   $("tracehint").textContent = `15-s move ${sgn(d.r15, 1)} pts, normal ${fmt(d.sigma15, 1)} · Bank Nifty z ${sgn(bk.z, 1)} · lag today ${lg.median === null || lg.median === undefined ? "—" : fmt(lg.median, 1) + " s (" + lg.n + ")"}`;
   $("futbook").innerHTML = `Futures book: <b>${fmt(fb.sbo, 0)}</b> buy orders v <b>${fmt(fb.sso, 0)}</b> sell, order imbalance <b class="${tone(fb.imb_o)}">${sgn(fb.imb_o, 2)}</b>, whole book <b class="${tone(fb.imb_t)}">${sgn(fb.imb_t, 2)}</b> (${sgn(fb.imb_t_chg, 2)} in 30 s). Bid orders <span class="c-${fb.bid_ord_cls}">${SH[fb.bid_ord_cls] || "—"}</span>, ask orders <span class="c-${fb.ask_ord_cls}">${SH[fb.ask_ord_cls] || "—"}</span>. Book→price <b>${sgn(fb.lead, 2)}</b>.`;
+}
+
+// 5 Nov: the reviews' quant evidence (apex/engine/quantview.py). Display only; nothing here feeds a decision.
+const pc = (x) => nil(x) ? "—" : `${Math.round(x * 100)}%`;
+function renderQuant(s) {
+  const q = s.quant || {};
+  const po = q.po || {}, fl = q.flow || {}, rg = q.regime, gk = q.greeks || {};
+  const race = (rr) => { const o = po[rr]; if (!o) return `${rr} —`;
+    const u = o.up_by || [];
+    const dk = nil(o.decay30) || Math.abs(o.decay30) < 0.005 ? "" : ` <span class="${o.decay30 > 0.02 ? "down" : o.decay30 < -0.02 ? "up" : ""}">${o.decay30 > 0 ? "fading" : "building"} ${fmt(Math.abs(o.decay30) * 100, 0)} pts in 30 s</span>`;
+    return `<b class="${rr === "CE" ? "up" : "down"}">${rr}</b> +10% before −10%: 1m <b>${pc(u[0])}</b> 3m <b>${pc(u[1])}</b> 5m <b>${pc(u[2])}</b> 15m <b>${pc(u[4])}</b>, ever <b>${pc(o.ever)}</b>${dk}`; };
+  setHTML($("qpo"), q.atm ? `Premium race at ${q.atm}: ${race("CE")} · ${race("PE")}` +
+    `<span class="c-0">Full Black-76 repricing of target and stop, forward drift ${sgn(q.kv, 3)} pts/s (t ${sgn(q.kvt, 1)}), noise ${fmt(q.sig, 2)} pts/√s, theta as a headwind.</span>` : "Premium race: warming.");
+  const fx = (rr) => { const f = fl[rr]; return f ? `${rr} buy/sell excitation <b class="${f.ratio > 1.25 ? "up" : f.ratio < 0.8 ? "down" : ""}">${fmt(f.ratio, 2)}</b>` : `${rr} —`; };
+  const jz = q.jz, cs = q.cusum;
+  setHTML($("qflow"), `Order flow (Hawkes): ${fx("CE")} · ${fx("PE")} · jump z <b class="${jz > 3 ? "down" : ""}">${fmt(jz, 1)}</b>${jz > 3 ? " (a jump in the last 5 min)" : ""} · drift change <b>${cs === 1 ? "up" : cs === -1 ? "down" : "none"}</b>`);
+  if (rg && rg.post) {
+    const names = rg.drift.map((d, k) => `${sgn(d, 0)} pts/min`);
+    const st = rg.state;
+    setHTML($("qstate"), `Regime (hidden Markov): state <b>${st + 1}</b> of ${rg.post.length} (drift ${names[st]}), ${pc(rg.post[st])} sure, running ${rg.run_min} min, about <b>${fmt(rg.left_min, 0)} min</b> left` +
+      `<span class="c-0">${rg.post.map((p, k) => `S${k + 1} ${pc(p)}`).join(" · ")}</span>`);
+  } else setHTML($("qstate"), "Regime (hidden Markov): warming (one 60-s bar at a time).");
+  const gl = Object.entries(gk).map(([k, g]) => `<b>${k}</b> Δ ${fmt(g.delta, 2)} · Γ ${fmt(g.gamma * 1e3, 2)}e-3 · θ ${fmt(g.theta_min * 60, 1)}/hr · vega ${fmt(g.vega, 2)}/vol · vanna ${sgn(g.vanna * 100, 2)} Δ%/vol · charm ${sgn(g.charm_min * 6000, 2)} Δ%/hr · vomma ${fmt(g.vomma, 3)} · speed ${sgn(g.speed * 1e6, 2)}e-6`).join("<br>");
+  const seen = new Set();
+  const sm = q.smile ? q.smile.K.map((k, i) => [k, q.smile.res[i]]).filter(([k, r]) => !nil(r) && Math.abs(k - q.atm) <= 150 && !seen.has(k) && seen.add(k)).sort((a, b) => a[0] - b[0]) : [];
+  setHTML($("qgreeks"), (gl || "Greeks: —") + (sm.length ? `<span class="c-0">Smile residual (vol pts, + rich): ${sm.map(([k, r]) => `${k} ${sgn(r, 1)}`).join(" · ")}</span>` : ""));
 }
 
 function drawOI(s) {

@@ -30,6 +30,10 @@ from .engine.guard import RESUME_S, DataGuard, in_session
 from .engine.ledger import Ledger
 from .engine.commentary import Commentary
 from .engine.regime import Regime
+try:                                     # 5 Nov: display-only quant evidence (needs scipy)
+    from .engine.quantview import QuantView
+except Exception:                        # pragma: no cover - a missing scipy must never stop the engine
+    QuantView = None
 from .engine.impulse import ImpulseWindow
 from .engine.daystate import DayState, load_prior, save_day
 from .engine import strike_levels as sl_mod
@@ -193,6 +197,17 @@ class Engine:
         self.ideas = None                    # 29 Oct: the Ideas board (observers only, never read by a book)
 
     # ── fault isolation (C-07) ─────────────────────────────────────────────
+    _kill_t, _kill_v = -1e18, False
+
+    def _kill_on(self):
+        """The kill-switch file, checked at most every 0.5 s of wall time (one stat cost ~1.7 ms on Windows, every
+        100-ms step). Entries stop within half a second of the file appearing."""
+        now = time.monotonic()
+        if now - self._kill_t >= 0.5:
+            self._kill_t = now
+            self._kill_v = bool(config.KILL_FILE and os.path.exists(config.KILL_FILE))
+        return self._kill_v
+
     def _safe(self, name, fn, default=None):
         """Run fn(); on an exception log it (at most once a minute per name) and return default.
         Advisors and observers go through here so one fault can never skip the books' exits."""
@@ -278,6 +293,7 @@ class Engine:
         self._day_hi = self._day_lo = None
         self.tainted_spikes = set()
         self.regime = Regime()                   # D-069: market state, session-aware, no look-ahead
+        self.quant = self._safe("quant view", QuantView, None) if QuantView else None   # 5 Nov: display only
         self.impulse = ImpulseWindow(config.PB_WINDOW_S)   # D-134: a new day starts a new impulse window
         self._pb_view = {"ok": False}
         self._reset_fwd()
@@ -430,6 +446,8 @@ class Engine:
             if self._fwd_on:
                 self._safe("forward history", lambda: self._feed_fwd(now_s, spot, snap))
             self._edge = self._safe("edge snapshot", lambda: edge_mod.snapshot(self, snap, spot, fut), {})   # D-136
+            if getattr(self, "quant", None) is not None and in_session(self.now_dt):   # 5 Nov: display only
+                self._safe("quant view", lambda: self.quant.step(self, snap))
             self._hist_cols = None                               # T02: the 1-Hz histories changed
             self.oi_hist.append((now_s, {it["id"]: float(snap["oi"][it["id"]])
                                          for it in self.items if it["kind"] in ("opt", "fut", "sfut")}))
@@ -530,7 +548,7 @@ class Engine:
             "range5": self._fut_range(now_s, 300),            # D-115: 5-min high-low
             "range15": self._fut_range(now_s, 900, full=True),   # D-121: 15-min high-low (None until 15 min held)
             "fut_ltp": float(snap["ltp"][fid]) if fid is not None else None,   # the raw last print (D-110 keeps the mid in "fut")
-            "kill": bool(config.KILL_FILE and os.path.exists(config.KILL_FILE)),   # T02: one stat per step, not one per book
+            "kill": self._kill_on(),             # 5 Nov: stat at most twice a second (was every step)
         }
         if self._fwd_on:
             ctx["fwd_over"] = self._safe("forward view", lambda: self._fwd_view(now_s), None)
@@ -1525,6 +1543,7 @@ class Engine:
             "controls": list(config.CONTROLS),
             "blackout": self.guard.view(self.now_s),
             "regime": self.regime.view() if getattr(self, "regime", None) else None,
+            "quant": self.quant.view() if getattr(self, "quant", None) else None,   # 5 Nov: display only
             "ledger": self.ledger.view() if getattr(self, "ledger", None) else None,
             "commentary": self.commentary.view() if getattr(self, "commentary", None) else None,   # council 5
             "spot_prev": fnum(snap["close"][self.spot_id], 2) if self.spot_id is not None and snap["close"][self.spot_id] > 0 else None,
@@ -1539,7 +1558,7 @@ class Engine:
             "variants": sorted([b.stats() for b in self.books.values()], key=lambda s: -s["pnl_pts"]),
             "events": list(self.events)[:60],
         }
-        self.blob.write(clean(state))
+        self.blob.write_state(state)              # 5 Nov: fast path, byte-identical to write(clean(state))
 
     def run(self):
         from .feed_core import source_hash

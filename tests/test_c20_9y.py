@@ -88,3 +88,13 @@ def test_wall_ahead_sign():
     D.oi[:, 1] = 9000.0
     assert c20_9y.wall_ahead(D, 0, "CE", 250) == 20.0       # call wall above a CE buy: ahead
     assert c20_9y.wall_ahead(D, 0, "PE", 250) == 30.0       # put wall 30 pts below a PE buy: ahead
+
+
+def test_runs_on_the_engines_live_day():
+    """5 Nov: the engine's LiveDay lacked i_at, so c20_9y faulted on its first second in the engine."""
+    from apex.engine.council import LiveDay
+    D = LiveDay("2026-11-05", "2026-11-10")
+    assert D.i_at(9, 15) == 0 and D.i_at(9, 20) == 300 and D.i_at(15, 30) == len(D.T) - 1
+    s = c20_9y.Strategy()
+    for i in range(400):                     # empty rows: no quotes yet, the strategy must simply stay flat
+        assert s.on_second(i, D, None) is None

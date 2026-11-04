@@ -1,5 +1,22 @@
 # Changelog
 
+## 5 Nov 2026 — the reviews' quant layer (display only), speed, two bug fixes
+- **apex/quant/** (reviews/ teardown, DeepSeek x2): Black-76 to third order and full repricing, a premium-outcome
+  (two-barrier first-passage) model, Hawkes intensity with exact and binned MLE, a Gaussian HMM with a semi-Markov
+  duration layer, bipower jump test / CUSUM / Kyle lambda / Kalman velocity, quasi-explicit SVI. 32 tests.
+- **Tested as yes/no rules on c20_9y** (kit, 12 days, models fitted leave-one-day-out): none adds profit; the
+  premium race's probabilities are uncalibrated (predicted 1 % -> 17 % actual, 98 % -> 23 %); as an entry engine it
+  trades ~50 times a day and loses. No new book; c20_9x champion, c20_9y shadow. docs/24_REVIEWS_QUANT_LAYER_5NOV.md.
+- **Dashboard**: a "Quant evidence" block (premium race for the ATM call and put, Hawkes flow, jump and drift-change
+  alarms, regime posterior with minutes left, third-order Greeks, smile residuals), from apex/engine/quantview.py
+  once per second inside the fault guard. Parameters in apex/quant/params.json.
+- **Speed, no decision changed** (72 of 72 books trade-for-trade identical on the 4 Nov 09:15-10:30 replay; 20.6 vs
+  23.7 ms per step): publish serialises without the recursive NaN scrub unless the output holds NaN/Infinity
+  (StateBlob.write_state, byte-identical); the kill-switch file is stat'ed at most twice a second; all council books
+  share one LiveDay.
+- **Fixes**: c20_9y faulted on its first live second (LiveDay had no i_at); a numpy array holding NaN crashed the
+  state write.
+
 ## 4 Nov 2026 (night) — twenty-member panel C12; c20_9y shadow
 - Twenty members, one mathematical angle each (gamma-theta breakeven, Kalman, variance ratio, CUSUM, SPRT, σ-trail,
   Taylor premium model, vanna, charm, OFI, GEX walls, re-entry, ...), red team on the best six, synthesis
