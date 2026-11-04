@@ -385,6 +385,7 @@ VARIANTS["c20_9v"] = dict(_G, council="c20_9v")      # 1 Nov (owner): C9 council
 VARIANTS["c20_9e"] = dict(_G, council="c20_9e")      # 3 Nov (owner): c20_9x + expiry give-back trail (arm +5 pts, give 6 pts); shadow (docs/21 §4)
 VARIANTS["c20_9h"] = dict(_G, council="c20_9h")      # 3 Nov: c20_9x + half-of-peak floor after +15 % on expiry days; shadow (docs/21 §4)
 VARIANTS["c20_9s"] = dict(_G, council="c20_9s")      # 3 Nov night (owner): c20_9x + stale-impulse pullback veto (normal days, 660 s); shadow (docs/22)
+VARIANTS["c20_9y"] = dict(_G, council="c20_9y")      # 4 Nov night (owner): c20_9x + IV-rich and OI-wall entry vetoes from the 20-member panel C12; shadow (docs/23)
 
 CHAMPION_DEFAULT = "c20_9x"  # 1 Nov (owner): back from c20_9t after its 8-day replay; before: c20_9t (31 Oct, never live), t28_gap (29 Oct 11:40), t28_cheap (29 Oct morning), t28_gap (28 Oct evening), lvl_trail_re (28 Oct), edge_gate_trail and edge_gate_only (27 Oct), spot_dual_lvl (D-142), edge_gate_trail and edge_gate_only (27 Oct), spot_dual_lvl (D-142)
 # D-124 (owner, 20 Oct 16:16: "Apply spot_dc12_t12 thoroughly on my code"): the champion is the owner's choice.

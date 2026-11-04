@@ -1,5 +1,13 @@
 # Changelog
 
+## 4 Nov 2026 (night) — twenty-member panel C12; c20_9y shadow
+- Twenty members, one mathematical angle each (gamma-theta breakeven, Kalman, variance ratio, CUSUM, SPRT, σ-trail,
+  Taylor premium model, vanna, charm, OFI, GEX walls, re-entry, ...), red team on the best six, synthesis
+  (docs/23_TWENTY_MEMBER_PANEL_4NOV.md). Every exit idea failed (cuts the runners). Two entry vetoes survived:
+  IV_RICH (ATM IV > 3.5 vol pts over its median since 09:20) and OI_WALL (normal days, max-OI resisting strike
+  <= 25 pts ahead). Kit, 12 days: +12.32 L vs c20_9x +11.24 L; losers 36 -> 28; no winner lost. Registered as
+  shadow c20_9y; c20_9x stays champion. tests/test_c20_9y.py.
+
 ## 3 Nov 2026 (night) — stuck-trade panel; c20_9s shadow
 - Ten-member panel on trades held 10+ min that never perform (docs/22_STUCK_TRADES_PANEL_3NOV.md). Six exit/entry
   rules failed (cliffs or losses); the stale-impulse pullback veto passed: on normal days refuse a pullback whose
