@@ -90,12 +90,11 @@ MARKET_OPEN = (9, 15)
 # launch). The cash market ends continuous trading at 15:15 for CAS stocks (every heavyweight).
 MARKET_CLOSE = (15, 40)
 SUPPRESS_UNTIL = (9, 25)   # overnight repricing: synchrony meaningless (G1)
-# [TESTING — owner, 19 Oct 2026] entries allowed up to 15:29 so the books trade INTO the cash
-# market's Closing Auction Session and the data shows how the trigger behaves there. The v1
-# production value was (15, 15) and FLATTEN_AT (15, 25). Revert both lines to end the test.
-LAST_ENTRY = (15, 29)
-FLATTEN_AT = (15, 35)
-CAS_TEST = True            # tags the test in the reports; flip to False when LAST_ENTRY is reverted
+# 7 Nov 2026 (owner): back to the production clock. The 19 Oct Closing Auction Session test (entries
+# to 15:29, flatten 15:35) is over; set (15, 29) / (15, 35) and CAS_TEST = True to run it again.
+LAST_ENTRY = (15, 15)
+FLATTEN_AT = (15, 25)
+CAS_TEST = False           # True exactly when LAST_ENTRY reaches into the closing auction (validated below)
 # Cash-market Closing Auction Session phases (NSE, CAS stocks — the whole heavyweight basket).
 CAS_START = (15, 15)       # 15:15-15:20 reference price (VWAP 15:00-15:15) and transition
 CAS_MATCH = (15, 30)       # order entry closes (randomly in the last 2 min); 15:30-15:35 matching
@@ -458,6 +457,7 @@ DELTA_BANDS = {           # by days-to-expiry bucket
 }
 MIN_PREMIUM = 20.0
 MAX_PREMIUM = 600.0
+MIN_ABS_DELTA = 0.52       # 7 Nov (owner): ATM / ITM only; also binds the straddle-leg books (spike, momentum)
 
 # ── REST budget (ICICI: 100/min and 5,000/day across all endpoints) ─────────
 CHAIN_POLL_S = 90.0

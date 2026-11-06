@@ -11,12 +11,12 @@ v1 trigger (D-033), evaluated every 100 ms by each variant's book:
   2. structure : weighted basket synchrony S_d >= s*
   3. not late  : |futures move since episode onset| <= L* x sigma15, and
                  ATM IV up <= 1.5 vol points since onset
-  plus: flat, inside 09:25-LAST_ENTRY (v1 15:15; 15:29 during the CAS test) (0DTE: no entries after 14:45), once per episode.
+  plus: flat, inside 09:25-LAST_ENTRY (15:15; 15:29 during the 19 Oct CAS test) (0DTE: no entries after 14:45), once per episode.
 Exits (the only four):
   * stop      : futures moves d* against the entry
   * trail     : once futures is +d* (1R) in favour, stop = best - d*
   * thesis    : synchrony flips — opposite-direction S >= s* with z >= 1 against
-  * time      : flat at FLATTEN_AT (v1 15:25; 15:35 during the CAS test); 0DTE flat at 15:00 unless |delta| >= 0.9
+  * time      : flat at FLATTEN_AT (15:25; 15:35 during the 19 Oct CAS test); 0DTE flat at 15:00 unless |delta| >= 0.9
 Advisors' would-have verdicts are stored with every trade for the learning loop.
 """
 import json
@@ -120,6 +120,10 @@ def spike_leg(ctx, leg=None):
         return None, f"{int(sw['K'])} {leg} premium {o['ltp']:.1f} outside {config.MIN_PREMIUM:.0f}-{config.MAX_PREMIUM:.0f}"
     if o["age"] >= 15:
         return None, f"{int(sw['K'])} {leg} quote is {o['age']:.0f} s old"
+    dl = o.get("delta")
+    if dl is None or abs(dl) < config.MIN_ABS_DELTA:      # 7 Nov (owner): ATM / ITM only, like every other book
+        return None, (f"{int(sw['K'])} {leg} |delta| {abs(dl):.2f} < {config.MIN_ABS_DELTA:.2f} (ATM/ITM only)"
+                      if dl is not None else f"{int(sw['K'])} {leg} has no delta yet")
     return o, ""
 
 
@@ -204,6 +208,8 @@ def evaluate_spot_breakout(book, ctx):
             fire, why = evaluate_pullback(book, ctx)
             if fire or not p.get("rt_fill"):
                 return fire, why
+            if _pullback_closed(book, ctx):                   # 7 Nov: "too late" / range mode / stale / data gap
+                return fire, why                              # binds the filler too (it used to trade past 14:45)
             fill = True                                       # 28 Oct (team 15): flat -> a retest filler may trade
     hi, lo, sp = ctx.get("spot_hi"), ctx.get("spot_lo"), ctx.get("spot")
     if hi is None or lo is None or sp is None:
@@ -280,6 +286,24 @@ def _track_gap(book, ctx):
         g0 = book.ctl.pop("gap_s")
         if now - g0 >= book.p["pb_gap_block_s"]:
             book.ctl["gap_last"] = {"s": round(g0, 1), "e": round(now, 1)}
+
+
+def _pullback_closed(book, ctx):
+    """7 Nov: the pullback book's book-wide prohibitions, which also bind its retest filler (rt_fill). The filler is
+    meant for "no setup yet", not for "no entries now": past pb_entry_end, range mode, a stale spot quote, or an
+    impulse window that held a data gap. (Before this, the filler traded on any "no" and entered after 14:45, even
+    after the 15:00 book flatten, which closed it a second later: 41 trades, -Rs 43,293 live, 29 Oct - 6 Nov.)"""
+    p = book.p
+    age = ctx.get("spot_age")
+    if age is not None and age > config.SPOT_STALE_S:
+        return True
+    end = p.get("pb_entry_end")
+    if end and config.hm(ctx["now_dt"]) >= config.mins(tuple(end)):
+        return True
+    if p.get("range_gate") and (ctx.get("day") or {}).get("range_on"):
+        return True
+    gl = book.ctl.get("gap_last") if p.get("pb_gap_block_s") else None
+    return bool(gl and gl["e"] > ctx["now_s"] - 2700)
 
 
 def evaluate_pullback(book, ctx):
@@ -1023,6 +1047,9 @@ def evaluate_momentum_entry(book, ctx, gates):
     return True, f"{leg} leg of {sw.get('K', 0):.0f} up {c:.1f} pts in 5 min (no theta model)"
 
 
+_SETUP_KEYS_ALL = ("fire_id", "ep_type", "dir", "leg", "pb_trade", "orb_trade", "trig_str", "trig_unit")
+
+
 def request_entry(book, ctx, opt, reason):
     """D-126: an entry is not filled on the print that was on the screen when the trigger fired (it predates the
     move). The book waits for the FIRST print of the contract that arrives after the trigger, at most
@@ -1058,6 +1085,9 @@ def try_fill_entry(book, ctx):
             book.ctl[k] = v
     book.ctl.pop("pending_entry", None)
     pos = open_trade(book, ctx, o, pe["why"])
+    if not pos:                                       # 7 Nov (F5): e.g. unaffordable; the restored trigger keys
+        for k in _SETUP_KEYS_ALL:                     # must not survive to steer the book's next entry
+            book.ctl.pop(k, None)
     if pos:
         pos["trigger_t"] = pe["t"]
         pos["trigger_time"] = pe["time"]
@@ -1154,6 +1184,7 @@ def check_exit(book, ctx):
     if px and not blackout:
         pos["last"] = px
         pos["peak_pts"] = max(pos["peak_pts"], px - pos["entry"])
+        pos["worst_pts"] = min(pos.get("worst_pts") or 0.0, px - pos["entry"])   # 7 Nov: for the diaries
     fav = (fut - pos["fut_in"]) * d
     if not blackout:                              # a frozen or implausible print must not move the trail
         pos["best"] = max(pos["best"], fut) if d > 0 else min(pos["best"], fut)
@@ -1276,7 +1307,8 @@ def check_exit(book, ctx):
 def request_exit(book, ctx, reason, o=None):
     """D-126 for the council books (30 Oct): the strategy's exit is committed now and filled on the first print of the
     held option that arrives AFTER the trigger (at most EXIT_DEFER_MAX_S, then the last price, tagged stale_exit).
-    Clock exits ("TIME ...") fill at once. Returns the closed trade, or None while the fill is still pending."""
+    Clock exits ("TIME ..." and, since 7 Nov, the strategy's own "COUNCIL TIME ...") fill at once. Returns the closed
+    trade, or None while the fill is still pending."""
     pos = book.pos
     if pos is None:
         return None
@@ -1293,7 +1325,7 @@ def try_fill_exit(book, ctx):
         return None
     o = (ctx.get("by_key") or {}).get(pos["key"])
     reason = pend["reason"]
-    timed = reason.startswith("TIME")
+    timed = reason.startswith(("TIME", "COUNCIL TIME"))   # 7 Nov (owner): a council clock exit fills at once too
     waited = ctx["now_s"] - pend["since"]
     bo = ctx.get("blackout") or {}
     blackout = bool(bo.get("on")) and not bo.get("exits_ok", False)

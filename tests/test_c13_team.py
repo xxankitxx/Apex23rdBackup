@@ -138,6 +138,31 @@ def test_filler_fires_through_the_retest_path_when_the_pullback_has_nothing():
     assert fired[-1][0] and b.ctl["fill"] and b.ctl["ep_type"] == "SPOT-RETEST-FILL", fired
 
 
+def _filler_run(now=T0, **extra):
+    """Break the 12-min high, run 5+, come back within 2: the retest pattern the filler buys."""
+    b = paper.Book("t28_fill", config.VARIANTS["t28_fill"], "2026-10-23")
+    kw = dict(spot_hi=22700.0, spot_lo=22600.0, **extra)
+    out = None
+    for i, sp in enumerate([22702.0, 22708.0, 22701.0]):
+        out = paper.evaluate_spot_breakout(b, _ctx(1000 + i, spot=sp, now=now, **kw))
+    return out, b
+
+
+def test_filler_never_enters_after_the_pullback_entry_end():
+    """7 Nov bug fix: the filler traded on any "no" from the pullback, including "no new entries after 14:45", and
+    entered after 14:45 and even after the 15:00 book flatten (closed a second later)."""
+    assert tuple(config.VARIANTS["t28_fill"]["pb_entry_end"]) == (14, 45)
+    for hm in ((14, 45), (14, 54), (15, 3), (15, 14)):
+        fire, why = _filler_run(now=T0.replace(hour=hm[0], minute=hm[1]))[0]
+        assert not fire and "no new entries after 14:45" in why, (hm, why)
+    assert _filler_run(now=T0.replace(hour=14, minute=44))[0][0]            # one minute before: still allowed
+
+
+def test_filler_respects_range_mode():
+    fire, why = _filler_run(day={"range_on": True, "range_since": 0, "lo": 22500, "hi": 22800})[0]
+    assert not fire and "range mode" in why, why
+
+
 def test_round2_flow_veto():
     from collections import deque
     assert config.VARIANTS["t28_st20"]["spot_trail"] == 20.0 and config.VARIANTS["t28_ivfall"]["pb_gap_block_s"] == 120

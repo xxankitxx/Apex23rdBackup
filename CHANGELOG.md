@@ -1,5 +1,27 @@
 # Changelog
 
+## 7 Nov 2026 — book guide; filler bug fixed
+- **docs/30_BOOK_GUIDE.md**: how every one of the 72 books trades (entries, strikes, holds, exits in code order, live
+  figures), read from the code with file:line references, and the issues found while writing it (Part F).
+- **Fixed: the t28 retest filler traded past the pullback book's 14:45 entry end** (t28_fill, t28_all, t28_core_fill,
+  t28_d46_fill). It fired on any "no" from the pullback rule, including "too late", range mode and the data-gap block,
+  and entered after 14:45 and even after the 15:00 book flatten (closed a second later): 41 trades, −₹43,293 live
+  29 Oct – 6 Nov. The filler now fires only when the pullback has no setup (`paper._pullback_closed`). Shadow books
+  only; the live system was never affected. Tests: test_c13_team.py.
+- **Owner's decisions (7 Nov):** entries until **15:15**, flatten **15:25** (the 19 Oct closing-auction test values
+  15:29 / 15:35 retired; `CAS_TEST` off); the council's own clock exit ("COUNCIL TIME") fills at once like the forced
+  flat; straddle_spike and premium_momentum respect |delta| ≥ 0.52 (`config.MIN_ABS_DELTA`); controls never enter
+  the Conductor pool; families are entry pattern × day type.
+- **Fixed:** a fill that `open_trade` rejects (unaffordable) no longer leaves the trigger's direction in the book.
+- **`worst_pts`** is tracked on every position (paper and council), for the diaries' loss labels.
+- **Missed-signal recorder, round 3** (docs/29): error and fault counts with a daily summary; straddle-spike consume;
+  fire_count in seconds; relation while pending; council strength; stable setup identities; new row fields; a
+  counterfactual can never write the shared LiveDay or the engine log. LiveDay warns when its columns are full.
+- **docs/28 version 3:** the stakeholder's corrections: absolute-profit test, returns not rupees, Conductor-level
+  sign-flip margin and window, day-level null, per-family "never worked" threshold, families by entry × day type,
+  explicit phase coverage, priority before book order, leak test by arrival time, and all replays at the Conductor
+  build (owner).
+
 ## 5 Nov 2026 — the reviews' quant layer (display only), speed, two bug fixes
 - **apex/quant/** (reviews/ teardown, DeepSeek x2): Black-76 to third order and full repricing, a premium-outcome
   (two-barrier first-passage) model, Hawkes intensity with exact and binned MLE, a Gaussian HMM with a semi-Markov

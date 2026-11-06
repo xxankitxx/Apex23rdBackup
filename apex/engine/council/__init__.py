@@ -31,7 +31,9 @@ FIELDS = ("bid", "ask", "ltp", "mid", "age", "iv", "delta", "gamma", "theta", "v
 
 class LiveDay:
     """The kit's D, filled live: every field is a real (N_ROWS, MAXC) float32 array, forward-filled each second,
-    so a strategy may read past rows exactly as it did offline (never future rows: they are still nan)."""
+    so a strategy may read past rows exactly as it did offline (never future rows: they are still nan).
+    Note: fwd[i] is NOT nan when the engine's forward is stale (> 2 s); the last value is carried forward unchanged,
+    which the l2 / catch parts rely on. Do not "correct" this to nan."""
 
     def __init__(self, day, expiry):
         self.day, self.expiry = day, expiry
@@ -86,6 +88,14 @@ class LiveDay:
             c = self.col.get(key)
             if c is None:
                 if len(self.col) >= MAXC:
+                    if not getattr(self, "_full_warned", False):     # 7 Nov: never drop contracts silently
+                        self._full_warned = True
+                        try:
+                            from ...engine_main import log
+                            log(f"council LiveDay: {MAXC} option columns full on {self.day}; "
+                                f"{key[0]} {key[1]} and later contracts are not tracked")
+                        except Exception:
+                            pass
                     continue
                 c = self.col[key] = len(self.col)
                 new = True
@@ -151,6 +161,7 @@ class Adapter:
             if ltp and not (ctx.get("blackout") or {}).get("on"):
                 book.pos["last"] = ltp
                 book.pos["peak_pts"] = max(book.pos.get("peak_pts") or 0.0, ltp - book.pos["entry"])
+                book.pos["worst_pts"] = min(book.pos.get("worst_pts") or 0.0, ltp - book.pos["entry"])   # 7 Nov
         if book.pos and book.pos.get("pending"):
             return paper.try_fill_exit(book, ctx) is not None
         if book.ctl.get("pending_entry"):

@@ -24,8 +24,10 @@ breakouts, retest states, fired episodes, re-entry chains).
     the same vetoes;
   * council books: `strategy.on_second(i, D, None)` plus the adapter's own entry checks (data gap, kill switch,
     stale quote, |delta| ≥ 0.5).
-* **Consumes** a setup when it fires, exactly as a real entry would: the episode is marked fired and the trigger
-  keys are cleared. It then stays flat, so it can fire again on a new setup.
+* **Consumes** a setup when it fires: the episode (or straddle spike) is marked fired and the trigger keys
+  are cleared, as `open_trade` does. **Known divergence:** the real book consumes at the *fill*; the twin at
+  the *fire*. If a real entry lapses and re-fires, the twin has written one `lapsed` row and does not re-fire.
+  It then stays flat, so it can fire again on a new setup.
 * **Discarded** the moment the real book is free again; from then on the real book trades for itself.
 
 **Definition (pinned).** A twin signal is *what this book would have done had it been free*. Its state evolves as if
@@ -70,12 +72,13 @@ was flat. They already appear in the decision tape for the champion, and they ar
 |---|---|
 | `date`, `book`, `episode_id` | identity (`episode_id` = `<book>#<n>`) |
 | `side`, `relation` | CE / PE; `same` / `opposite` to the real position |
-| `first_fire_time`, `last_fire_time`, `fire_count` | the episode |
+| `first_fire_time`, `last_fire_time`, `fire_count` | the episode; `fire_count` counts distinct **seconds** with a fire (`fire_count_unit`) |
 | `signal`, `strength` | the entry reason text and the trigger strength if the book records one |
 | `real_key`, `real_time_in` | the trade that kept the book busy |
 | `cf_status` | `closed`, `lapsed` (no print within the fill window), `rejected` (unaffordable, etc.), `open_at_end` |
 | `cf_time_in`, `cf_time_out`, `cf_entry`, `cf_exit`, `cf_hold_s` | the counterfactual trade |
-| `cf_pnl_rs`, `cf_ret_pct`, `cf_peak_pts`, `cf_reason` | its outcome, same definitions as real trades |
+| `cf_pnl_rs`, `cf_ret_pct`, `cf_peak_pts`, `cf_worst_pts`, `cf_reason` | its outcome, same definitions as real trades |
+| `cf_stale_exit`, `cf_fill_delay_s`, `cf_gap` | a stale exit fill, the entry fill's wait, a trade held through a data gap |
 | `is_counterfactual` | always `true`, so Phase 3 can never train on these as real trades |
 | `snapshot_id` | null; filled by Phase 2's factor snapshot |
 
@@ -106,3 +109,33 @@ counterfactual. On 3 Nov the council twins stepped but did not fire.
 
 **Full test suite.** No new failures. The 22 pre-existing failures dropped to 21, and the one pre-existing
 collection error (`test_c5_fills_lock`) remains.
+
+
+## Round-3 corrections (7 Nov, stakeholder review)
+
+| # | Change |
+|---|---|
+| C1 | Counterfactual errors and recorder faults are **counted**; `missed_summary_<day>.json` reports rows, episodes per book, `cf_errors`, `recorder_faults`, the number of copies and the seconds spent copying (C10). The gate requires zero errors and zero faults. |
+| C2 | The straddle_spike twin marks its spike (`-spike id`) as used, as `open_trade` does; before, it re-fired for up to 150 s. |
+| C3 | `fire_count` counts distinct seconds (paper twins are stepped every 100-ms engine step, council twins once a second). |
+| C4 | Rows carry `cf_worst_pts`, `cf_stale_exit`, `cf_fill_delay_s`, `cf_gap`. `worst_pts` is now tracked on every real and counterfactual position (paper.check_exit, council adapter). |
+| C5 | `relation` and the real trade's time come from the pending entry while the real book is only waiting for its fill. |
+| C6 | Council `strength` is the trigger velocity parsed from the signal (`v=+23`). |
+| C7 | The consume-at-fire divergence is documented (above). |
+| C8 | Episodes split on a **stable** setup identity where one exists (domino episode id, straddle spike id). Books driven by a `fire_id` fall back to the 30-s gap, because their `fire_id` embeds the current second. |
+| C9 | Comments: `trades[0]` (a counterfactual takes exactly one trade); `EPISODE_GAP_S` is also the write delay; `advance()` runs after the book loop, and a counterfactual adapter is stepped only when the shared `LiveDay` row for this second already exists (it can never write it). |
+| C12 | A counterfactual adapter's warnings are silenced (never in the engine log). |
+| C13 | `LiveDay` docstring: `fwd[i]` is carried forward, not nan, when the engine's forward is stale. |
+| C14 | `LiveDay` logs once when its 96 option columns are full, instead of dropping contracts silently. |
+| C15 | Checked: no strategy module writes to a `D.` attribute. |
+
+## The gate (final form, run at the Conductor build)
+
+1. Recorder off vs on: every real book trade-for-trade identical on two full tapes (one busy, one quiet, both
+   exercising council books in and out of positions).
+2. The decision tape, events tape and `strikes_*.jsonl` identical, with `#cf` lines filtered.
+3. Recorder on, replayed twice: identical `missed_*.jsonl`.
+4. Zero counterfactual errors and zero recorder faults (`missed_summary_<day>.json`), and no "missed … faulted" log lines.
+5. One run with a read-only wrapper on `LiveDay` during `tw.on_second` and `cfa.step`, raising on any write; then
+   remove it.
+6. The recorder summary printed: rows, episodes per book, errors, faults, copy time.
