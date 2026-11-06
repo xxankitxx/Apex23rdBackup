@@ -1,17 +1,18 @@
 # Apex Conductor — official specification
 
-*One trading system built from Apex's best strategies, each trading only in the market weather the future has
-confirmed it wins in.*
+*One trading system built from Apex's strategies, each trading only in the market weather the future has confirmed
+it wins in.*
 
-**Status:** official specification, adopted 7 November 2026. It combines the owner's write-up, the review
-adjustments and the stakeholder amendments of 7 Nov. **Nothing described here trades yet.**
+**Status:** official specification, version 2, 7 November 2026. It combines the owner's write-up, the review
+adjustments, and two rounds of stakeholder amendments, including the promotion standard (§2). **Nothing described
+here trades yet.**
 
 **Supporting documents:**
 
 * docs/27 — the factor catalogue (the "weather");
 * docs/29 — the missed-signal recorder;
 * docs/26 — the event study;
-* docs/20 — the champion's specification.
+* docs/20 — the current live system's specification (c20_9x).
 
 ---
 
@@ -28,9 +29,13 @@ keeps winning in one kind of weather and losing in another, it should trade only
 book's good weather is known, the books share **one pot of money**: whichever book sees its good weather first takes
 the trade, and the others wait. That is the **Conductor**.
 
-There is one thing to be careful about, and it shapes everything below: **a pattern found by looking at the past is
-a guess until the future agrees with it.** So the system finds patterns in the taped days and writes them down with
-a date. Then it lets new days judge them, and only patterns the future confirmed get money behind them.
+**There is no champion.** In the end state the Conductor is the one system traded, and every book is simply a member
+of its pool, there only because a dated, tested rule earned it a place. Until the Conductor proves itself, today's
+live system (c20_9x) keeps trading, and it is the yardstick the Conductor must beat (§2).
+
+One thing shapes everything below: **a pattern found by looking at the past is a guess until the future agrees with
+it.** Patterns found in the taped days are written down with a date, new days judge them, and only patterns the
+future confirmed get money behind them.
 
 ```
   every trigger of every book
@@ -42,375 +47,414 @@ a date. Then it lets new days judge them, and only patterns the future confirmed
                                                                │
                                                                ▼
                                                      THE FORWARD TEST
-                                              (new days only; restricted book vs
-                                               free book; margin; two windows)
+                                         (new days only; restricted book vs free book;
+                                          the promotion standard; two windows)
                                                                │ passed
                                                                ▼
                                                        THE CONDUCTOR
                                        (one pot, all-in; first proven book to fire takes it)
+                                                               │ beats the live system on
+                                                               ▼ the same standard
+                                                   THE SYSTEM YOU TRADE
 ```
 
 ---
 
-## 2. Where Apex stands today
+## 2. The promotion standard — one test, applied at both levels
+
+Nothing gets promoted on one number, one trade or one day. The same standard decides both:
+
+* **a book's rule entering the pool** — its restricted book against its own free book; and
+* **the Conductor replacing the current live system** — the Conductor against c20_9x.
+
+Using one standard at both levels means the two can never pull in different directions. Every test is yes/no,
+measured on **test days only** (days after the rule or the Conductor's rules were frozen), and **all** must pass:
+
+| # | Test | Passes when |
+|---|---|---|
+| 1 | **Wins more often** | its strike rate (share of trades that close in profit) beats the comparator's by the luck margin (§6) |
+| 2 | **Makes more money** | its rupees beat the comparator's by the luck margin |
+| 3 | **Not one win** | it is still ahead on rupees after removing its single best trade, and also after removing its single best test day |
+| 4 | **Keeps the big wins** | it still takes at least two-thirds of the comparator's biggest wins (its top 10 % of trades by rupees) |
+| 5 | **No worse on bad days** | its worst test day is no worse than the comparator's worst test day |
+| 6 | **Trades enough** (Conductor level only) | at least as many trades a day as the live system. A rule is a filter by design and is exempt, but it must still reach the minimum sample (§6) |
+| 7 | **Holds over time** | it passes in the first window, and again in a second window of the same length |
+
+Why each is there:
+
+* **Tests 1 and 2** are the owner's: win more often, and make more.
+* **Test 3** answers "one win alone does not decide": a result that depends on one runner or one lucky day fails.
+* **Test 4** protects the few large trades that carry the current system's results: 8 trades made 79 % of its
+  14-day total.
+* **Test 5** guards against a higher strike rate bought with a bigger loss.
+* **Test 6** is the owner's "trade often".
+* **Test 7** stops a lucky window from promoting anything.
+
+---
+
+## 3. Where Apex stands today
 
 | | Today |
 |---|---|
 | Instruments | Nifty weekly options, buy-only, ATM or in-the-money strikes (\|delta\| ≥ 0.52), paper trading |
 | Capital rule | ₹1,00,000 fresh each day, all-in on every trade, no position sizing |
-| Books running live | 72 (one champion, 71 shadows); 526 paper trades on 6 Nov |
-| Champion | c20_9x — on the 14 recorded days (19 Oct – 6 Nov): 81 trades, **54 % strike rate**, ~6 trades a day, +₹12.1 L |
-| Champion weakness | 8 trades made 79 % of its total; live record 2 winning days, 4 losing; on normal days it caught 6 of 26 big option moves |
+| Books running live | 72; 526 paper trades on 6 Nov |
+| Current live system | c20_9x — on the 14 recorded days (19 Oct – 6 Nov): 81 trades, 54 % strike rate, ~6 trades a day, +₹12.1 L |
+| Its weakness | 8 trades made 79 % of its total; live record 2 winning days, 4 losing; on normal days it caught 6 of 26 big option moves |
 | Frequent books | spot breakout books trade 20–40 times a day at a 37–52 % strike rate; uneven from day to day |
-| Recorded data | 14 full sessions of tick data; every new session adds about 70 move starts and 15 distinct option runs |
-| Research so far | single indicators tested as yes/no filters on one book did not survive (docs/24, docs/26); **no book has ever been analysed by market condition** |
-| Built for this plan | the missed-signal recorder (docs/29), proven to leave all 72 books trade-for-trade identical |
+| Recorded data | 14 full sessions; every new session adds about 70 move starts and 15 distinct option runs |
+| Research so far | single indicators as yes/no filters on one book did not survive (docs/24, docs/26); no book has ever been analysed by market condition |
+| Built for this plan | the missed-signal recorder (docs/29), identical on two tape slices; the full-tape proof is stage 2 (§13) |
 
-**Champion rule (owner, 6 Nov).** A champion is chosen by **strike rate**, with a considerable number of trades a
-day. The guards: a positive result on test days, and an average loss not far larger than the average win. The
-biggest total alone no longer decides.
+### Families
 
----
+Most of the 72 books are variants of a few strategies. Books are grouped into **families by entry logic**, because
+the weather question is about *when a trigger fires*, and that is the entry's doing. Exits change what a trigger
+earns, not when it fires.
 
-## 3. Step 1 — Each book's diary
+| Family (by entry) | Examples |
+|---|---|
+| Council | c20_9x, c20_8x, c20_9y, c20_9s, c20_9v, c20_9t, c20_9e, c20_9h |
+| t28 pullback | t28_gap, t28_core, t28_ivfall, … (20) |
+| Spot breakout / retest / opening range | spot_dc12_t12 and variants, spot_orb45, spot_dual … |
+| Impulse grid | the m-grid and gap books |
+| Edge / straddle / fade | edge_*, straddle_spike, fade_switch, apex_edge |
+| Controls (their own group) | RAW, random_entry, futures_only, premium_momentum |
 
-For every book the system keeps a diary, one line per trigger. Each line records:
-
-* when the trigger fired, and the direction (call or put);
-* the weather photograph at that second (§9);
-* what happened: rupees made or lost, minutes held, the best point in the book's favour, the worst point against
-  it, and the exit reason.
-
-Two labels are added to every line:
-
-* **Winner or loser** — did it close in profit?
-* **If a loser, what kind?**
-  * **Never worked.** It went against the book almost from the start and never showed a profit. *The weather was
-    wrong*; the book should not have fired here.
-  * **Worked, then gave it back.** It was up a decent amount, then came back to a loss. *The entry was fine; the
-    exit failed.* These go to the exit work (§8), not the weather search.
-
-  If only "losers" were studied, the weather would be blamed for losses it had nothing to do with.
-
-**Missed signals.** The diary also includes the triggers a book wanted to take but couldn't because it was already
-in a trade, from the missed-signal recorder (docs/29), with what would have happened.
-
-* They are flagged `is_counterfactual` and are never mistaken for real trades.
-* **Both directions are used.** The recorder already folds the real trade's own repeated signal into the real trade
-  (fires within 30 s), so a remaining same-direction row is a genuinely new setup. For example, c20_9x fired a fresh
-  CE six minutes after its real entry on 6 Nov.
-* A counterfactual trade that **overlaps the real trade in time shares its outcome**, so it counts as **at most half
-  an observation**.
-* **Counterfactual rows feed the search only.** They are never used to score a rule on test days (§6).
+"Level trail" is an exit style, so those books sit inside the family whose entry they use.
 
 ---
 
-## 4. Step 2 — The search: what did the winners have in common?
+## 4. Step 1 — Each book's diary
 
-For one book at a time, and for each weather number, the system asks a plain question: *if I draw a line somewhere
-on this number, do the winners fall mostly on one side and the losers on the other?*
+One line per trigger, recording:
 
-> Example. A breakout book fired 60 times over 14 days, winning 30. The line is breadth (the share of the 23 big
-> stocks moving with the trade) at 60 %:
+* when it fired and its direction (call or put);
+* the weather photograph at that second (§11);
+* the outcome: rupees, minutes held, best and worst points, exit reason.
+
+**Labels on every line:**
+
+* **Winner or loser** — closed in profit or not.
+* **If a loser, what kind:**
+  * **Never worked** — its best point never reached **+10 % of premium, or the book's own stop distance if that is
+    larger**. *A weather problem.*
+  * **Worked, then gave it back** — it reached that level and still closed at a loss. *An exit problem;* it goes to
+    the exit work (§10), not the weather search.
+
+**Missed signals** (from docs/29), while the book was busy:
+
+* flagged `is_counterfactual`, never mistaken for real trades;
+* both directions used — the real trade's own repeats are already folded in by the recorder, so a remaining
+  same-direction row is a new setup;
+* **weight:** a counterfactual that does not overlap the real trade in time counts as a **full observation**; one
+  that overlaps counts as **half** (it shares the real trade's outcome);
+* **search only** — never used to score a rule on test days.
+
+---
+
+## 5. Step 2 — The search: what did the winners have in common?
+
+Per **family**, using a representative variant (below), and for each weather number: *if a line is drawn on this
+number, do the winners fall mostly on one side and the losers on the other?*
+
+> Example. A breakout book: 60 triggers over 14 days, 30 winners. With the line at 60 % breadth (the share of the 23
+> big stocks moving with the trade):
 >
 > * above the line: 25 trades, 18 winners, 72 %;
 > * below the line: 35 trades, 12 winners, 34 %.
->
-> If most of its *never-worked* losers had breadth below 60 %, low breadth also goes on its "hurt" list.
 
-Every candidate condition must pass these checks:
-
-| Check | What it means |
+| Check | Rule |
 |---|---|
-| **Enough trades on both sides** | a side with only a handful of trades is ignored |
-| **Holds when the line moves** | it must still work with the line slightly lower and higher (e.g. 55 % and 65 %); a single sweet spot is luck |
-| **Keeps the big wins** | a condition that raises the hit rate by excluding most of the book's largest wins is rejected; a higher hit rate with less money is not an improvement |
-| **Counts days for day-type weather** | for whole-day facts (expiry or not, the opening gap, VIX), 30 wins on one trend day are one piece of evidence; at least 4–5 days are needed on each side |
-| **Beats pure luck** | the same search is run on the same trades with the win/loss labels shuffled; whatever the best shuffled condition looks like is what luck looks like, and a real condition must be clearly better |
+| **Enough trades on both sides** | at least **15 trades each side** for trade-level weather; for a pair of conditions at least **15 in the combined cell** |
+| **Day-type weather counts days** | for whole-day facts (expiry or not, opening gap, VIX), at least **4–5 days on each side**; 30 wins on one trend day are one piece of evidence |
+| **Holds when the line moves** | it must still work with the line slightly lower and higher (e.g. 55 % and 65 %) |
+| **Keeps the big wins** | a condition that drops most of the book's largest wins is rejected |
+| **Beats pure luck** | the same search on the same trades with win/loss labels shuffled shows what luck looks like; a real condition must be clearly better |
 
-The output is each book's **weather card**: a short readable list such as "breadth above 60 % helped; low breadth
-hurt; expiry afternoons helped". Every line is marked **found by searching the past**, so nobody mistakes it for
-proof.
+**Families in the search.** Variants of one entry share the same triggers with different outcomes, so the search
+uses one **representative variant** per family: the one with the most triggers. A rule learned there is proposed for
+the family. The luck arithmetic counts **distinct families**, not books, because variants pass or fail together.
 
----
-
-## 5. Step 3 — Write the rule down and date it
-
-From the card the system proposes a rule in plain language:
-
-> *Breakout book — from 7 November: trade only when breadth is 60 % or more.*
-
-* **One condition to start.** Two joined by "and" only if each passed on its own. No three-condition rules: with
-  this much data they are too easy to get by chance.
-* **One "strong triggers only" rule per book is allowed.** The book's own trigger measurements are otherwise left
-  out (§9), because searching them re-tunes the entry. But one plain strength rule, tested forward like any other,
-  is a legitimate idea.
-* Each rule carries:
-  * the **date it was written** and the days it was learned from;
-  * ideally, **a reason a trader would nod at** ("a breakout without the big stocks behind it tends to fail"). A
-    rule with no sensible reason is allowed but trusted less.
+The output is each family's **weather card**, every line marked **found by searching the past**.
 
 ---
 
-## 6. Step 4 — Freeze the rule and let new days judge it
+## 6. Steps 3–4 — Dated rules and the forward test
 
-**From the day it is written, the rule does not change.** Not after a losing day, not after it blocks a winner.
-Changing it makes a new rule with a new date and a fresh test. The point of the test is to see the rule on days it
-has never seen; adjusting it after each day means it has seen every day.
+### Writing a rule
+
+* Plain language, dated: *"Breakout family — from 7 Nov: trade only when breadth ≥ 60 %."*
+* One condition to start; two joined by "and" only if each passed alone; never three.
+* One "strong triggers only" rule per family is allowed.
+* Each rule records the days it was learned from and, ideally, a reason a trader would nod at.
+* **Near-duplicates of a failed rule** (same factor, nearby threshold, same family) are blocked for 20 trading days,
+  so the search cannot re-propose "breadth ≥ 58 %" the day after "breadth ≥ 60 %" failed.
+
+### Frozen
+
+From its date the rule does not change. A change makes a new rule with a new date and a fresh test.
 
 ### The restricted book
 
-During the test the book runs twice on paper:
+* The **representative variant** runs as a **registered restricted book** in the **evening replay** of each day's
+  tape, beside its free version. It is never computed from the diary: blocking one trade changes the rest of the
+  book's day.
+* A passed rule is rolled out to the family's other variants, and each starts its own (shorter) confirmation window.
+* **Live engine:** at most **5** rules that passed their first window may also run live; everything else stays in
+  the evening replay, so the live engine is never slowed.
+* **Compute:** restricted books start on the freeze date. The evening replay takes about 1 h 40 min per day for
+  today's books plus a share per restricted book; the nightly budget is shown on the register.
 
-* the **free** version: the book as it is, taking every trigger;
-* the **restricted** version: the book taking only the triggers that pass the rule.
+### Windows
 
-The restricted version must be **registered as its own book** and run through the engine. It cannot be computed from
-the diary, because blocking one trade changes the rest of the book's day: it is free earlier, takes different later
-signals, and its internal state differs. The restricted book logs every trigger it blocked.
+* **First window:** **30 restricted trades or 15 trading days, whichever comes later.** Day-type rules also need at
+  least 5 test days on each side of the condition. **Never extended** until a rule passes; that would be searching
+  again.
+* **Second window:** the same length again.
+* **Realistic timing:** a family firing once or twice a day needs **20+ test days**. Pooling variants does not
+  shorten this, because they fire on the same triggers. Expiry-day rules (one expiry a week) need **two months or
+  more**.
+* **The early pass list will be short.** At 30 trades the luck margin is about 15 points of strike rate, so even a
+  rule with a genuine 10-point edge will often fail its first window. That is the honest price of a strict test, not
+  a sign that nothing works.
 
-* **Restricted books run in the evening replay of each day's tape, not in the live engine.**
-  * The test stays fully forward: every rule is frozen before the day it is scored on.
-  * The live engine stays fast. 72 books × a few candidate rules could mean 200+ extra books, and the book loop is
-    already about a quarter of each live tick.
-  * Only rules that have passed their first window may also run live, and then only a capped number.
-* **Start date and compute.** Restricted books start on the freeze date, not before. The evening replay of one day
-  takes about 1 h 40 min for today's books, plus a share for every restricted book added. The nightly budget is
-  reported with the register.
+### The luck margin (tests 1 and 2 of §2)
 
-### Minimum test length
+Draw many random sets of the **free book's** test-day trades, each the same size as the restricted book's set. The
+spread of their strike rates and rupees is what luck looks like. The restricted book must beat the **95th
+percentile** of both.
 
-* **At least 10 new trading days and at least 20 restricted trades.**
-* **Day-type rules:** at least **5 test days on each side** of the condition.
-* **Realistic timing:**
-  * a book at 1–2 trades a day needs 2–3 weeks for 20 trades;
-  * an expiry-day rule (one expiry a week) needs at least 5 weeks.
+*Caveat:* the restricted book is not an exact subset of its free book (it becomes free earlier and takes some
+different later trades), so this is a close baseline, not an exact null. It is the right baseline for the question
+asked.
 
-  **The first rules pass in weeks; expiry-day rules take a month or two.**
-
-### Pass criteria — with a margin
-
-A rule that does nothing would beat its free version on "higher hit rate" about half the time on 20 trades. It would
-beat it on "at least as many rupees" about half the time too, and the two move together. So without a margin roughly
-**1 in 3 or 4** useless rules would pass. Across 72 books that is 20-odd lucky passes. The margin is what makes luck
-rare.
-
-On the test days only, the rule passes when **all** of these hold:
-
-1. **The restricted hit rate beats the free hit rate by a margin.** The margin is calibrated for each rule by
-   shuffling the win/loss labels of its own test-day trades: it must beat what shuffling produces in (say) 95 % of
-   shuffles. On 20 trades a hit rate's own noise is about ±11 points, and the bar differs by book, so it is not one
-   fixed number.
-2. **Rupees beat the free version by a clear amount,** not merely equal.
-3. **Most big wins are kept:** it blocks no more than a third of the free version's largest wins.
-
-### Two windows
+### Pass, fail, switch off
 
 | Result | What happens |
 |---|---|
-| Passes the **first window** | enters the Conductor's pool at **low priority** |
-| Stays ahead through a **second window** of the same length | **full standing** |
-| Fails the second window | out of the pool, recorded as failed |
-| Fails at any stage | recorded as failed; still useful ("breadth does not help the breakout book"), and the system will not propose it again |
-
-### Watching rules that passed
-
-A passed rule keeps being watched. If over the most recent 20 trading days the restricted version falls behind the
-free version, the rule is switched off until it recovers. Markets change.
+| Passes the promotion standard (§2) in the **first window** | enters the pool at **low priority** |
+| Passes again in the **second window** | **full standing** |
+| Fails at any stage | recorded as failed, with the near-duplicate block |
+| A pooled rule falls behind its free version **on both strike rate and rupees, by the luck margin, over the last 40 trading days** | switched off until it recovers |
 
 ### The register reports its own luck
 
-Every day the rule register prints the arithmetic: *"N rules under test; P passed; about M of those passes are
-expected by luck."* M comes from the same label-shuffling. This keeps everyone honest about what the pool contains.
+Every day: *"N rules under test across F families; P passed; about M of those passes are expected by luck."* M comes
+from the same permutation, counted over families.
 
 ---
 
-## 7. Step 5 — Placing the bets: the Conductor
+## 7. Step 5 — The Conductor
 
-**Only books with a rule that passed its test enter the pool.** A book without one keeps running as a shadow, keeps
-being studied, and may join later.
+* **The pool starts empty.** Only rules that passed enter. No book has a place by name, the current live system
+  included. Its strengths (expiry-afternoon breakouts, for example) earn their place the same way: a dated rule
+  passing its windows. An empty pool trades nothing, which is fine, because the Conductor runs as a shadow until it
+  meets the promotion standard against the live system.
+* **One trade at a time, all-in, buy-only, ATM/ITM.**
+* **First to fire takes it; the others wait.** "First" means the earlier tick. Within one tick, a fixed book order
+  is recorded in every run manifest, so the result is the same on every replay.
+* **Priority when two books are ready on the same tick:**
+  1. full-standing beats low-priority, whatever the numbers;
+  2. among equals, higher **test-day rupees per trade** wins.
 
-* **One trade at a time, all-in, buy-only, ATM/ITM**, as today.
-* **First to fire takes it; the others wait** until that trade closes.
-* **Two pooled books firing in the same second:** the one whose rule has the better **test-day** hit rate takes the
-  trade, never the hit rate from the days the rule was learned on. Low-priority (first-window) books yield to
-  full-standing books.
-* **The champion stays as it is** until a book's passed rule beats it on test days in the same part of the session.
-  The champion is not replaced on a promise.
-* **The Conductor's own record is honest.** It is replayed on past days using the rules *as they stood on each
-  date*, never with today's knowledge.
-* **Switching is a candidate rule under trial, not a default.** "Holding a losing trade while a pooled book fires the
-  other way → exit and switch" is the rule most likely to whipsaw in a sideways market, so it gets a dated, frozen
-  trial like everything else. It can be tested from data already being collected:
-  * for every opposite-direction missed signal, the counterfactual row gives what the new trade would have made;
-  * the free replay gives what the held trade went on to do from that same second;
-  * **the switch's result = the new trade's P&L − the held trade's P&L from the switch second to its own exit.** The
-    only costs are those of the paper fill rule itself (first traded price after each signal); slippage and
-    brokerage are excluded by the owner's instruction.
-
-  It passes only if switching beats holding on test days, **on choppy days as well as trending ones**. Until then
-  the Conductor runs "first to fire takes it; the others wait".
-
----
-
-## 8. The other half: exits
-
-Losses labelled **worked, then gave it back** are an exit problem, not a weather problem. They feed the exit work,
-which addresses the owner's complaints: trailing starts late, too much is given back from the peak, non-working
-trades are held too long. Three candidate exit designs:
-
-* a trail measured in premium, scaled by the option's live delta and gamma, and active from the start;
-* a theta budget: a trade that has paid more decay than its delta can realistically earn back is cut;
-* a give-back cap from the peak that tightens with gamma, near expiry.
-
-They are tested on **all** triggers in the diaries (thousands, not one book's 80 trades), so a rule that kills the
-big winners is caught first. Each is a dated, frozen candidate with its own forward test.
+  Strike rates on 20–40 test trades are too close to rank on.
+* **Protected phases, the same rule for everyone.** If a full-standing book's passed rule covers a session phase
+  (say, expiry afternoons), no lower-ranked book may enter a trade likely to still be open when that phase begins.
+  "Likely" means within the entering book's **75th-percentile hold time**; on expiry days the 15:00 forced flat
+  bounds it. Collisions are measured in replay first; if they turn out to be rare, the rule stays simple.
+* **Switching is a candidate rule under trial, not a default.**
+  * For every opposite-direction missed signal, its result is the new trade's P&L minus what the held trade went on
+    to make from that second to its own exit.
+  * It passes only if switching beats holding on test days on **choppy days** (day efficiency, net move ÷ path
+    length, below a stated value) **and** on trending days.
+  * Slippage and brokerage are left out of the whole study for now, at the owner's instruction. The switching trial
+    therefore runs at zero cost, and that is flagged as an open question on the register. Switching will not be
+    switched on without revisiting costs.
+  * Until it passes, the Conductor runs "first to fire takes it; the others wait".
+* **The Conductor's record is honest:** replayed on past days using the rules as they stood on each date.
 
 ---
 
-## 9. Which weather numbers are searched (docs/27)
+## 8. Every evening
 
-**Searched**, because they have a clear reason to matter and can be measured before the trade:
+1. **Replay** today's tape: free books, restricted books, the Conductor.
+2. **Score** every rule under test against the promotion standard.
+3. **Learn:**
+   * add today's triggers and photographs to the diaries;
+   * rerun the search and the luck check;
+   * propose new rules, dated today.
+4. **Decide:** pass, fail, promote or switch off.
+5. **Publish:**
+   * the **rule register** (with the luck arithmetic and the nightly compute budget);
+   * each family's **weather card**;
+   * the **loss breakdown**: never-worked against gave-it-back.
+
+No one adjusts rules by hand.
+
+---
+
+## 9. Safeguards on the machinery itself
+
+| Check | When | What it proves |
+|---|---|---|
+| **Recorder is an observer** | stage 2 | recorder off vs on: every book trade-for-trade identical on two full tapes (one busy, one quiet) |
+| **Determinism** | stage 3 | the same tape replayed twice gives identical trades and recorder output |
+| **Leak test for every weather factor** | before any diary is built (stage 6) | each factor recomputed with **all data after the trigger second deleted** gives exactly the same value; any factor that changes is using the future and is dropped |
+| **Whole-pipeline control run** | once stages 6–8 exist | the full loop (search, freeze, forward test, register) run on a deliberately useless input, e.g. a coin-flip book or a real book with outcomes shuffled before the search. Its pass rate must match the register's luck estimate; if not, the machinery leaks |
+| **Point-in-time Conductor** | every evening | the Conductor replays with each day's rules as they stood |
+
+**The leak test in detail.** For every factor in docs/27 and a sample of trigger seconds on several tapes:
+
+1. compute the snapshot from the full day's data;
+2. compute it again from a copy of the day truncated at the trigger second;
+3. require the two to be bit-identical.
+
+It runs automatically whenever a factor is added or changed.
+
+---
+
+## 10. The other half: exits
+
+**Worked, then gave it back** losses are exit problems. Three candidate exit designs, each a dated, frozen candidate
+with a forward test under the same promotion standard:
+
+* a trail measured in premium, scaled by the option's live delta and gamma, active from the start;
+* a theta budget: a trade that has paid more decay than its delta can earn back is cut;
+* a give-back cap from the peak that tightens with gamma near expiry.
+
+They are tested first on **all** diary triggers (thousands, not one book's 80 trades), so a design that kills the big
+winners is caught early.
+
+---
+
+## 11. Which weather numbers are searched (docs/27)
+
+**Searched:**
 
 * time of day and the expiry calendar;
-* the shape of the day so far: trend or chop, position in the day's range, side of VWAP, the opening range;
+* the day's shape so far: trend or chop, position in the range, side of VWAP, the opening range;
 * realised volatility;
 * big-stock breadth and leadership;
 * room to the nearest OI wall;
 * whether the straddle is expanding;
-* how expensive the option is relative to the move the index must make (breakeven against theta);
+* the option's breakeven against theta;
 * VIX.
 
-Start with these. If none of them survive for a book, searching combinations of the rest won't help; it would only
-hide the fact that nothing is there.
-
-**Set aside, with reasons:**
+**Set aside:**
 
 | Group | Why |
 |---|---|
-| The book's own trigger measurements (speed, impulse size) | this is the book's entry rule; searching it re-tunes the entry. Exception: one "strong triggers only" rule per book (§5) |
-| The book's own recent history (last result, streak, agreement with other books) | the Conductor replaces these per-book habits with its own rules; missed-signal rows have no such history |
-| The engine's verdicts (regime label, advisors) | computed from the other numbers; kept as labels on the reports, not searched |
-| Five higher-order Greeks | on a weekly ATM option these are largely one fact (time to expiry) written five ways; one is kept |
-| Model outputs (premium-race odds, hidden regime, Hawkes, gamma map) | predictions, not raw weather, each with tuned parameters; each tested alone as one yes/no idea |
-| Feed health and option spread | plain safety vetoes for every book, not searched |
+| The book's own trigger measurements | they are the entry rule (exception: one "strong triggers only" rule per family) |
+| The book's own recent history | the Conductor replaces per-book habits; counterfactual rows have none |
+| The engine's verdicts (regime label, advisors) | derived from the other numbers; kept as report labels |
+| Five higher-order Greeks | largely one fact (time to expiry); one is kept |
+| Model outputs (premium race, hidden regime, Hawkes, gamma map) | predictions with tuned parameters; each tested alone |
+| Feed health, option spread | safety vetoes for every book |
 
 ---
 
-## 10. Every evening
+## 12. A worked example *(illustrative numbers)*
 
-1. **Replay** today's tape: every free book, every restricted book under test, and the Conductor.
-2. **Score**: add today's result to every rule under test.
-3. **Learn**: add today's triggers and photographs to every diary; rerun the search and the luck check; propose new
-   rules, dated today.
-4. **Decide**: pass, fail, promote (second window) or switch off rules whose windows completed.
-5. **Publish**:
-   * **the rule register** — every rule, its date, how it is doing on test days, its status, and the day's luck
-     arithmetic;
-   * **each book's weather card** — helped and hurt conditions, the numbers behind them, and whether each is still a
-     guess or has passed;
-   * **the loss breakdown per book** — never-worked (weather) against gave-it-back (exits).
+1. **7 Nov — the search.** On the breakout family's representative variant, breadth ≥ 60 % gives 72 % against 34 %.
+   On shuffled labels the best condition reaches 61 %. It survives at 55 % and 65 % and keeps 8 of the 10 biggest
+   wins. The rule is frozen and the restricted book registered.
+2. **First window (30 trades / 15 days).**
+   * Restricted: 31 trades, 62 % strike rate, ₹41,000. Free: 61 % and ₹33,000 worse on both counts.
+   * It clears the luck margins on both strike rate and rupees.
+   * It is still ahead without its best trade and without its best day.
+   * It keeps 5 of the free version's 6 biggest wins, and its worst day is no worse.
 
-No one adjusts rules by hand. Every session adds one more day of evidence to every rule at once.
+   **Low priority in the pool.**
+3. **Second window.** It passes again. **Full standing**, rolled out to the family's variants.
+4. **In the Conductor.** It takes the trade when it fires first. A tie with another full-standing book on the same
+   tick goes to the higher test-day rupees per trade.
+5. **Ongoing.** If it falls behind its free version on both strike rate and rupees, by the margin, over 40 days, it is
+   switched off.
 
 ---
 
-## 11. Build order
+## 13. Build order
 
-| # | Stage | Status / effort |
+| # | Stage | Status |
 |---|---|---|
-| 1 | Missed-signal recorder | **done** (docs/29): 72/72 books identical on two tape slices; +2–4 % compute |
-| 2 | Freeze: the recorder-off-vs-on check on two full tapes; run manifest | ~2 h of replays |
-| 3 | Pre-flight: all books load, double replay identical, anchor check against live days | ~2 h |
+| 1 | Missed-signal recorder | built and tested (docs/29); identical on two tape slices, **not yet proven on full tapes** |
+| 2 | Freeze: recorder off vs on on two full tapes; the run manifest (commit, book registry, **fixed book order**) | next, ~2 h |
+| 3 | Pre-flight: all books load; double replay identical; anchor check against the live days, each difference tagged by cause | ~2 h |
 | 4 | One full tape, stop for sign-off with the anchor diff and validation report | ~2 h |
-| 5 | Full replay of every book on all taped days (resumable, per-tape validation) | ~8 h for 14 days |
-| 6 | Weather snapshot engine: the photograph at every trigger, computed in replay and checked | to build |
-| 7 | Diaries, loss labels, search with luck check, weather cards | to build |
-| 8 | First dated rules; restricted books registered; evening replay loop | to build |
-| 9 | Forward tests; rule register; first passes | weeks; expiry-day rules 1–2 months |
-| 10 | Conductor in the evening replay, then live as a shadow; switching trial | after the first passes |
-| 11 | Exit candidates (§8), forward-tested | in parallel from stage 7 |
+| 5 | Full replay of every book on all taped days (resumable, per-tape validation) | ~8 h |
+| 6 | Weather snapshot engine + **leak test** | to build; the leak-test spec is §9 |
+| 7 | Diaries, loss labels, family search with luck check, weather cards | to build |
+| 8 | First dated rules; restricted books in the evening replay; the register | to build |
+| 9 | Whole-pipeline control run | once 6–8 exist |
+| 10 | Forward tests; first passes | weeks; low-frequency families 20+ days; expiry-day rules 2+ months |
+| 11 | Conductor in the evening replay, then live as a shadow; switching trial | after the first passes |
+| 12 | Exit candidates (§10) | in parallel from stage 7 |
 
 ---
 
-## 12. A worked example
+## 14. How success is judged
 
-1. **7 Nov — the search.** The breakout book won 72 % with breadth above 60 % and 34 % below. On shuffled labels the
-   best condition reaches 61 %. The condition survives moving the line to 55 % and 65 %, and it keeps 8 of the book's
-   10 biggest wins. Rule written and frozen: *breakout book trades only when breadth ≥ 60 %.* A restricted book is
-   registered.
-2. **8–21 Nov — first window.** The free and restricted versions run in each evening's replay. After 10 days:
-   * restricted: 24 trades, 15 winners (62 %), ₹41,000;
-   * free: 58 trades, 27 winners (47 %), ₹33,000.
+The Conductor replaces the live system only by passing **the promotion standard (§2)** against it on test days.
+Along the way, these are the goals, measured on test days against c20_9x on the same days. They are targets, not
+promises.
 
-   The calibrated margin for this rule is 9 points; restricted beats free by 15. It blocked 2 of the free version's 6
-   biggest wins. **First window passed**; the book enters the pool at low priority.
-3. **22 Nov – early Dec — second window.** The restricted version stays ahead by more than the margin. **Full
-   standing.**
-4. **In the Conductor.** When the breakout book sees breadth above 60 % and nothing is held, it takes the trade. If
-   the champion fires in the same second, the Conductor compares their test-day records in that session phase.
-5. **Ongoing.** If over the last 20 days the restricted version falls behind the free one, the rule is switched off
-   and the book returns to shadow.
-
-*(Illustrative numbers.)*
-
----
-
-## 13. How success is judged
-
-Every number below is measured **on test days only**, against c20_9x on the same days. These are goals, not promises.
-
-| Measure | c20_9x today | Conductor goal |
+| Measure | c20_9x today | Goal |
 |---|---|---|
 | Strike rate | 54 % | ≥ 60 % |
-| Trades per day | ~6 | ≥ 8 |
+| Trades per day | ~6 | staged: ≥ the live system's once the pool holds several families; ≥ 8 as the pool grows |
 | Big option moves caught on normal days (≥ +40 % available) | 23 % | ≥ 50 % |
-| Losing days | 4 of 14 | fewer, with a smaller worst day |
-| Result on test days | — | positive |
+| Profit concentration | 8 trades = 79 % of the total | still ahead with the best trade and the best day removed (test 3) |
+| Worst day | −₹38,428 (offline, 3 Nov) | no worse (test 5) |
 
 ---
 
-## 14. Risks
+## 15. Risks
 
 | Risk | Handling |
 |---|---|
-| Too little history: 14 days sliced many ways produces lucky patterns | luck check in the search; margins and two windows in the test; the register prints expected lucky passes |
-| Hindsight weather ("it was a trend day") | every number is computed from data up to the trigger second |
+| Lucky patterns from too little history | luck checks in the search; margins, two windows and family-level luck counts in the test; the register prints expected lucky passes; the control run checks the machinery |
+| Looking into the future | every factor computed up to the trigger second; the leak test proves it |
 | Markets change | passed rules are watched and switched off when they fall behind |
-| All-in sizing makes every loss felt | only confirmed conditions get money; exit work (§8) |
-| Most factors are noise (docs/26) | the search keeps only what beats the luck baseline; the forward test is the final judge |
-| Compute | restricted books in the evening replay; a nightly budget on the register; the live engine is unaffected |
-| Missing data (no GIFT Nifty, global markets, news) | out of scope for the first version; can be added to the feed later |
+| All-in sizing | only confirmed conditions get money; test 5 guards the worst day; exit work (§10) |
+| Most factors are noise (docs/26) | only what beats luck is kept; the forward test is the final judge |
+| A slow start | stated plainly: the first passes take weeks, and the pool starts empty |
+| Compute | restricted books run in the evening replay; at most 5 live; the nightly budget is reported |
+| Costs excluded | owner's instruction for now; switching stays off until costs are revisited |
+| Missing data (GIFT Nifty, global markets, news) | out of scope for the first version |
 
 ---
 
-## 15. Principles that do not change
+## 16. Principles that do not change
 
 * Buy-only Nifty weekly options; ATM or in-the-money strikes only.
 * All-in on every trade; no position sizing.
 * Yes/no rules only, no composite scores or weights.
-* Paper trading; the live champion is untouched until the evidence says otherwise.
+* Paper trading; the live system is untouched until the evidence says otherwise.
 * Rules are dated and frozen; only days a rule has never seen count as proof.
+* No book is promoted by name; everything passes the same standard.
 * Every result is reported honestly, including what did not work.
 
 ---
 
-## 16. Glossary
+## 17. Glossary
 
 | Term | Meaning |
 |---|---|
 | Book | one complete trading strategy with its own paper capital and trades |
-| Champion | the book the system currently treats as "the" trader |
-| Shadow | any other book, trading on paper in the background on the same data |
-| Strike rate / hit rate | the share of trades that close in profit |
+| Family | books sharing one entry logic; the unit of search and luck counting |
+| Representative variant | the family's book with the most triggers; the one tested first |
+| Current live system | the book trading today (c20_9x); a transition role and the yardstick, not a privilege |
+| Shadow | any book trading on paper in the background |
+| Strike rate | the share of trades that close in profit |
 | Weather / photograph | the ~150 market numbers at the second a trigger fires (docs/27) |
 | Diary | a book's record of every trigger, its photograph and its outcome |
-| Never worked / gave it back | the two kinds of losing trade: wrong weather vs a failed exit |
-| Counterfactual | a trade a book would have taken while busy, reconstructed by the recorder; never a real trade |
-| Weather card | a book's helped and hurt conditions, marked as found by searching the past |
-| Rule | a dated, frozen yes/no condition for one book |
-| Free / restricted book | the book taking every trigger vs only the triggers its rule allows |
+| Never worked / gave it back | a loss that never reached +10 % (or the stop distance), against one that did and still lost |
+| Counterfactual | a trade a busy book would have taken; reconstructed, never real |
+| Rule | a dated, frozen yes/no condition for a family |
+| Free / restricted book | taking every trigger, against only the triggers the rule allows |
 | Test day | a day after the rule was frozen; the only days that count as proof |
-| Margin | how far a rule must beat its free version, calibrated against shuffled labels |
-| Pool | the books whose rules passed; the only books the Conductor trades |
-| Conductor | the layer that combines pooled books into one non-clashing, all-in trade stream |
+| Luck margin | the 95th percentile of random same-size subsets of the free book's test-day trades |
+| Promotion standard | the seven yes/no tests of §2, used for rules and for the Conductor alike |
+| Pool | the rules that passed; the only ones the Conductor trades |
+| Conductor | the layer that combines the pool into one non-clashing, all-in trade stream |
