@@ -30,6 +30,7 @@ from .engine.guard import RESUME_S, DataGuard, in_session
 from .engine.ledger import Ledger
 from .engine.commentary import Commentary
 from .engine.regime import Regime
+from .engine import missed as missed_mod      # 7 Nov: missed-signal recorder (replays, APEX_RECORD_MISSED=1)
 try:                                     # 5 Nov: display-only quant evidence (needs scipy)
     from .engine.quantview import QuantView
 except Exception:                        # pragma: no cover - a missing scipy must never stop the engine
@@ -198,6 +199,7 @@ class Engine:
 
     # ── fault isolation (C-07) ─────────────────────────────────────────────
     _kill_t, _kill_v = -1e18, False
+    missed = None                       # 7 Nov: the missed-signal recorder (replays only)
 
     def _kill_on(self):
         """The kill-switch file, checked at most every 0.5 s of wall time (one stat cost ~1.7 ms on Windows, every
@@ -304,6 +306,9 @@ class Engine:
         if getattr(self, "ledger", None) is not None:
             self.ledger.close()
         self.ledger = Ledger(day)                # D-070: every candidate, taken or not
+        if getattr(self, "missed", None) is not None:
+            self._safe("missed close", self.missed.close)
+        self.missed = (missed_mod.MissedRecorder(day, config.PAPER_DIR) if missed_mod.enabled() else None)
         self.commentary = Commentary(day, paper_dir=config.PAPER_DIR, log=log)   # council 5: the live-trade commentary
         self._exit_sig, self._exit_sig_t = self._exit_signature(), None
         self._dec_cls, self._dec_n = None, 0
@@ -379,6 +384,8 @@ class Engine:
         save_day(self.day_state)                 # D-141: tomorrow's prior-day levels
         self._safe("strike levels save", lambda: sl_mod.save_day(getattr(self, "strike_lv", None)))
         self.ledger.close()                      # unresolved candidates are written before learning reads them
+        if getattr(self, "missed", None) is not None:   # 7 Nov: every missed-signal episode is written
+            self._safe("missed close", self.missed.close)
         learning.record_day(self.day, self.books)   # always: the day's record must never be lost
         if learning.already_learned(self.day):
             log(f"day {self.day} was already learned — recorded, decisions not repeated")
@@ -1215,6 +1222,10 @@ class Engine:
                     changed = self._council(name, b, bctx) or changed
                 except Exception:
                     self._fault(f"council {name}")
+                if self.missed is not None:          # 7 Nov: observer only (docs/29)
+                    ad = (getattr(self, "_council_ad", None) or {}).get(name)
+                    if ad is not None:
+                        self._safe("missed council", lambda: self.missed.step_council(self, name, ad, b, bctx))
                 continue
             try:                                       # C-07: one book's fault must not skip the others' exits
                 t = paper.check_exit(b, bctx)
@@ -1233,6 +1244,10 @@ class Engine:
                 changed = self._entry(name, b, bctx) or changed
             except Exception:
                 self._fault(f"entry {name}")
+            if self.missed is not None:              # 7 Nov: observer only (docs/29)
+                self._safe("missed paper", lambda: self.missed.step_paper(self, name, b, bctx))
+        if self.missed is not None:
+            self._safe("missed advance", lambda: self.missed.advance(self, ctx))
         sig = self._exit_signature()
         if changed:
             paper.save_books(self.books, self.day)
@@ -1275,6 +1290,39 @@ class Engine:
                 fh.append((now, float(ctx["fut"])))
         ctx["ohist"] = self._ohist
 
+    def _entry_choice(self, b, ctx, gates):
+        """The entry decision of one paper book, without filling: (fire, opt, why, msg). Shared by the real entry
+        path and the missed-signal recorder's flat twins (7 Nov), so both run exactly the same rules."""
+        fire, why = paper.evaluate_entry(b, ctx, gates)
+        if not fire:
+            return False, None, why, why
+        d = paper.entry_dir(b, ctx)
+        opt, msg = paper.choose_contract(ctx, d, b)
+        if opt and b.p.get("cheap_strike"):
+            opt, cnote = paper.cheap_strike(b, ctx, opt)   # 29 Oct night (R4-01): expiry-day lag-cheapest strike
+            if cnote:
+                why = f"{why} · {cnote}"
+        if opt and b.p.get("gt_min"):
+            msg = paper.buyer_edge_gate(b, ctx, opt)   # 27 Oct: is gamma worth its theta rent right now?
+            if msg:
+                opt = None
+                for k in ("fire_id", "ep_type", "dir", "leg", "pb_trade", "orb_trade", "trig_str", "trig_unit"):
+                    b.ctl.pop(k, None)              # the setup is skipped, not queued
+        if opt and b.p.get("reentry"):
+            opt, rmsg = paper.reentry_check(b, ctx, d, opt)   # 27 Oct: after a trailing exit: cheaper / stronger
+            if not opt:
+                msg = rmsg
+                for k in ("fire_id", "ep_type", "dir", "leg", "pb_trade", "orb_trade", "trig_str", "trig_unit"):
+                    b.ctl.pop(k, None)
+        if opt and (b.p.get("iv_fall_rel15") is not None or b.p.get("skip_bid_pile")
+                    or b.p.get("entry_hi5_veto_pct") or b.p.get("req_move_veto")):
+            vmsg = paper.flow_veto(b, ctx, opt)     # 28 Oct night (round 2): IV fall / late bid pile
+            if vmsg:
+                opt, msg = None, vmsg
+                for k in ("fire_id", "ep_type", "dir", "leg", "pb_trade", "orb_trade", "trig_str", "trig_unit"):
+                    b.ctl.pop(k, None)
+        return True, opt, why, msg
+
     def _entry(self, name, b, ctx):
         """The entry decision for one book (unchanged logic). True if a position was opened."""
         if name == "RAW":
@@ -1290,36 +1338,11 @@ class Engine:
             if not pos:
                 return False
         else:
-            fire, why = paper.evaluate_entry(b, ctx, gates)
+            fire, opt, why, msg = self._entry_choice(b, ctx, gates)
             if name == self.champion:
                 self.last_reason = why
             if not fire:
                 return False
-            d = paper.entry_dir(b, ctx)
-            opt, msg = paper.choose_contract(ctx, d, b)
-            if opt and b.p.get("cheap_strike"):
-                opt, cnote = paper.cheap_strike(b, ctx, opt)   # 29 Oct night (R4-01): expiry-day lag-cheapest strike
-                if cnote:
-                    why = f"{why} · {cnote}"
-            if opt and b.p.get("gt_min"):
-                msg = paper.buyer_edge_gate(b, ctx, opt)   # 27 Oct: is gamma worth its theta rent right now?
-                if msg:
-                    opt = None
-                    for k in ("fire_id", "ep_type", "dir", "leg", "pb_trade", "orb_trade", "trig_str", "trig_unit"):
-                        b.ctl.pop(k, None)              # the setup is skipped, not queued
-            if opt and b.p.get("reentry"):
-                opt, rmsg = paper.reentry_check(b, ctx, d, opt)   # 27 Oct: after a trailing exit: cheaper / stronger
-                if not opt:
-                    msg = rmsg
-                    for k in ("fire_id", "ep_type", "dir", "leg", "pb_trade", "orb_trade", "trig_str", "trig_unit"):
-                        b.ctl.pop(k, None)
-            if opt and (b.p.get("iv_fall_rel15") is not None or b.p.get("skip_bid_pile")
-                        or b.p.get("entry_hi5_veto_pct") or b.p.get("req_move_veto")):
-                vmsg = paper.flow_veto(b, ctx, opt)     # 28 Oct night (round 2): IV fall / late bid pile
-                if vmsg:
-                    opt, msg = None, vmsg
-                    for k in ("fire_id", "ep_type", "dir", "leg", "pb_trade", "orb_trade", "trig_str", "trig_unit"):
-                        b.ctl.pop(k, None)
             if not opt:
                 if name == self.champion:
                     self.last_reason = msg

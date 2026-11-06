@@ -612,10 +612,11 @@ def _hard_stop_gain_trail(book, ctx, pos, px, o):
         return None
     w = float(p.get("gt_smooth_s") or 30.0)
     now = ctx["now_s"]
-    k = (book.name, id(pos), pos["t_in"])            # this very position (a new trade is a new dict)
+    gid = getattr(book, "gt_id", None) or book.name    # 7 Nov: a counterfactual copy (missed.py) has its own window
+    k = (gid, id(pos), pos["t_in"])                  # this very position (a new trade is a new dict)
     buf = _GT_BUF.get(k)
     if buf is None:
-        for old in [x for x in _GT_BUF if x[0] == book.name]:
+        for old in [x for x in _GT_BUF if x[0] == gid]:
             del _GT_BUF[old]                          # one open position per book: drop the last trade's window
         buf = _GT_BUF[k] = []
     buf.append((now, px))
