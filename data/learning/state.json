@@ -129,20 +129,24 @@
   "t28_tt8": 0,
   "c20_8x": 0,
   "c20_9t": 0,
-  "c20_9v": 0
+  "c20_9v": 0,
+  "c20_9e": 0,
+  "c20_9h": 0,
+  "c20_9s": 0,
+  "c20_9y": 0
  },
  "gate_streak": {},
  "owner_champion": [
   "c20_9x",
   "2026-10-30"
  ],
- "looked_day": "2026-11-03",
+ "looked_day": "2026-11-06",
  "scoreboard": {
-  "n": 16,
-  "sum": -5.22,
-  "go_line": 1018.1,
-  "kill_line": -540.9,
-  "sd_obs": 15.91
+  "n": 25,
+  "sum": 44.74,
+  "go_line": 1029.4,
+  "kill_line": -529.7,
+  "sd_obs": 19.62
  },
- "learned_day": "2026-11-03"
+ "learned_day": "2026-11-06"
 }
