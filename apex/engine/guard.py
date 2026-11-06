@@ -40,6 +40,7 @@ class DataGuard:
     def __init__(self):
         self.on = True
         self.reason = "starting"
+        self.bad_print = False     # 7 Nov (review 10.1): the current blackout is a bad print (was a "implausible" prefix test)
         self.since = None          # when the current blackout began
         self.fresh_since = None    # first fresh tick of the current clean run
         self.gaps = []             # this day's lifted blackouts: [(start_s, end_s, reason)]
@@ -55,7 +56,7 @@ class DataGuard:
         ok = (feed_state in LIVE_STATES and feed_ok and fut_age_s is not None and fut_age_s <= FUT_QUIET_S)
         if step_gap > ENGINE_PAUSE_S:
             ok = False
-            self.reason = f"engine paused {step_gap:.0f} s"
+            self.reason, self.bad_print = f"engine paused {step_gap:.0f} s", False
             self.fresh_since = None
             if not self.on:
                 self.on, self.since = True, now_s
@@ -71,7 +72,7 @@ class DataGuard:
             if not self.on:
                 self.on = True
             self.since = self.since or now_s
-            self.reason = f"implausible futures jump to {fut_px:.1f}"
+            self.reason, self.bad_print = f"implausible futures jump to {fut_px:.1f}", True
             self.fresh_since = None
             return self.on
         if not ok:
@@ -83,6 +84,7 @@ class DataGuard:
                 self.on, self.since = True, now_s
             if self.since is None:
                 self.since = now_s
+            self.bad_print = False
             self.reason = ("feed " + ("not live" if feed_state not in LIVE_STATES
                                       else f"silent: no quote on any instrument for {feed_age_s:.0f} s" if not feed_ok
                                       else f"stale: futures quote {fut_age_s:.0f} s old" if fut_age_s is not None
@@ -94,7 +96,7 @@ class DataGuard:
         if self.on and now_s - self.fresh_since >= RESUME_S:
             if self.since is not None and self.reason != "starting":
                 self.gaps.append((self.since, now_s, self.reason))
-            self.on, self.since, self.reason = False, None, ""
+            self.on, self.since, self.reason, self.bad_print = False, None, "", False
         return self.on
 
     def new_day(self):
@@ -110,7 +112,7 @@ class DataGuard:
         """Owner decision O-4 (18 Oct 2026): stops and trails may fire during the resume phase — fresh
         futures quotes are arriving again — while ENTRIES keep the full RESUME_S rule. Not after a bad
         print: a wrong price can persist, and a stop must never fire on it."""
-        return (not self.on) or (self.fresh_since is not None and not self.reason.startswith("implausible"))
+        return (not self.on) or (self.fresh_since is not None and not self.bad_print)
 
     def view(self, now_s):
         return {"on": self.on, "why": self.reason if self.on else "", "settling_s": round(self.settling(now_s), 1),

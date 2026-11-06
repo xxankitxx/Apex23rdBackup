@@ -68,7 +68,9 @@ GAINS = ("dtr", "ramp", "gbw", "ivz", "fy", "uw", "tie", "ptr", "ptre", "rt")
 # all three trades); rent halved catches trades 2 and 3, efficiency < 0.35 catches trade 1 (day median 0.25).
 FINAL_R9 = FINAL + FIXES + ("dtr", "ramp", "ivz", "ptre", "tie")   # chosen combination (R9_30)
 
-_SER = {}
+_SER = {}   # 7 Nov (review 5.3): a module-level cache shared by every instance, for the OFFLINE kit class only (a
+            # whole-day series that reads rows ahead of i). The engine class (LiveStrategy) never calls
+            # atm_iv_series: it builds the series second by second (_ivz_upto). Read-only if ever used live.
 
 
 def atm_iv_series(D, avg=30):
@@ -223,7 +225,7 @@ class _R9Mixin:
         P = self.parts
         if pos is None or "pex" not in P or not ({"ffirst", "ramp", "gbw", "rt"} & P):
             return super()._inner(i, D, pos)
-        best0, last0 = self.best, self.last_exit
+        best0, last0, mark0 = self.best, self.last_exit, self.last
         self.parts = set(P) - {"pex"}
         try:
             sig = super()._inner(i, D, pos)
@@ -246,6 +248,8 @@ class _R9Mixin:
                 and bid >= fl + self.r["GB_MIN"] * e and best0 is not None \
                 and abs(best0 - self.fs[i]) < self.p["trail"] * self.r["GB_TRW"]:
             self.best, self.last_exit = best0, last0      # undo the core exit, keep holding
+            self.last = mark0     # 7 Nov (review 5.1): today on_second writes self.last only after a SELL comes back, so
+            #                       this is a no-op; it keeps the undo whole if a core exit ever marks it inside _inner
             ce = pos["rr"] == "CE"
             self.best = max(self.best, self.fs[i]) if ce else min(self.best, self.fs[i])
             self.log.append((D.day, int(i), "gbw"))

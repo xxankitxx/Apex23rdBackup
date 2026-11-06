@@ -32,6 +32,7 @@ from .table import StateBlob, Table
 
 
 def run(path, table=None, blob=None, log=print):
+    config.REPLAY_FAST = True               # 7 Nov (C18): a batch driver calling run() gets the fast path too
     t = table or Table(create=True)
     blob = blob or StateBlob(create=True)
     t.set("speed", 1000.0)
@@ -130,6 +131,13 @@ def main():
     engine_main.LOG = open(os.path.join(config.LOG_DIR, "engine.log"), "a", encoding="utf-8")
     feed_replay.LOG = open(os.path.join(config.LOG_DIR, "replay.log"), "a", encoding="utf-8")
     if a.gateway:
+        # 7 Nov (review 7.4): the gateway reads the DEFAULT shared-memory names, the ones a live session holds. Refuse
+        # rather than collide. (apex/replay_batch.py has no --gateway at all.)
+        try:
+            Table(create=False).close()
+            sys.exit(f"--gateway: a session already holds {config.SHM_TABLE} (live?). Stop it, or run without --gateway.")
+        except FileNotFoundError:
+            pass
         t, b = Table(create=True), StateBlob(create=True)             # the gateway reads the default names
     else:
         # private names: a pure compute run never collides with a live session or another replay on this machine

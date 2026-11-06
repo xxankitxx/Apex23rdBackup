@@ -46,7 +46,8 @@ def snapshot(eng, snap, spot, fut):
     if fid is not None:
         b, a = float(snap["bid"][fid]), float(snap["ask"][fid])
         fmid = (a + b) / 2 if (b > 0 and a >= b and a - b <= 30) else (float(fut) if fut is not None and np.isfinite(fut) else None)
-        bq, aq = float(np.sum(snap["bq"][fid])), float(np.sum(snap["aq"][fid]))
+        bq, aq = float(np.sum(snap["bq"][fid])), float(np.sum(snap["aq"][fid]))   # all 5 depth levels (bq/aq);
+        # _ofi below reads only the top of book (bqty/aqty). Both on purpose: the names are close, the inputs differ.
         if bq + aq > 0:
             out["fut_imb5"] = _r((bq - aq) / (bq + aq))
         _ofi(eng, out, snap, fid)
@@ -61,7 +62,8 @@ def snapshot(eng, snap, spot, fut):
     if sp is not None and F is not None and np.isfinite(F):
         b = float(F) - sp
         st = eng.__dict__.setdefault("_syn_state", {"ewma": None})
-        if st["ewma"] is None or abs(b - st["ewma"]) > 150:      # first reading, or a re-centred chain
+        if st["ewma"] is None or abs(b - st["ewma"]) > 150:      # first reading, or a re-centred chain (a convention:
+            #   150 pts is far beyond any real parity gap, so a jump that large is a new chain/expiry, not a signal)
             st["ewma"] = b
         out["syn_dev"] = _r(b - st["ewma"], 2)
         st["ewma"] = 0.98 * st["ewma"] + 0.02 * b                   # ~50-s memory at 1 Hz
@@ -74,7 +76,8 @@ def snapshot(eng, snap, spot, fut):
         xs = [p for t, p in imp.samples if t >= imp.samples[-1][0] - 900]
         if len(xs) > 300:
             r = np.diff(np.log(np.asarray(xs, dtype=float)))
-            rv = float(np.std(r)) * math.sqrt(252 * 22500) * 100
+            rv = float(np.std(r)) * math.sqrt(252 * 22500) * 100   # convention: 252 days x 22,500 s per session
+            #   (09:15-15:30) annualises a 1-s return sd; in vol points, comparable with iv_atm
             if rv > 0:
                 out["rv15"] = _r(rv, 2)
                 if out["iv_atm"]:

@@ -458,6 +458,10 @@ DELTA_BANDS = {           # by days-to-expiry bucket
 MIN_PREMIUM = 20.0
 MAX_PREMIUM = 600.0
 MIN_ABS_DELTA = 0.52       # 7 Nov (owner): ATM / ITM only; also binds the straddle-leg books (spike, momentum)
+# 7 Nov 2026 (owner): the nightly learning loop is RECORD-ONLY. It still writes its report (and says what it would
+# have done) but never changes the champion, retires a book, adds or removes a gate, or adds or drops a candidate
+# (gated) book. During the Conductor's forward tests nothing may change a book except a dated, frozen rule.
+LEARN_DECIDE = False
 
 # ── REST budget (ICICI: 100/min and 5,000/day across all endpoints) ─────────
 CHAIN_POLL_S = 90.0

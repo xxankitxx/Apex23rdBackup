@@ -295,6 +295,8 @@ class Engine:
         self._day_hi = self._day_lo = None
         self.tainted_spikes = set()
         self.regime = Regime()                   # D-069: market state, session-aware, no look-ahead
+        for k in ("_syn_state", "_ofi_state", "_frozen_prev", "_frozen_t"):     # 7 Nov (B18): edge.py's EWMA / OFI state is per day, as in a replay
+            self.__dict__.pop(k, None)
         self.quant = self._safe("quant view", QuantView, None) if QuantView else None   # 5 Nov: display only
         self.impulse = ImpulseWindow(config.PB_WINDOW_S)   # D-134: a new day starts a new impulse window
         self._pb_view = {"ok": False}
@@ -563,6 +565,7 @@ class Engine:
         ctx["by_key"] = {o["key"]: o for o in ctx["options"]}
         if self._ohist_on:
             self._safe("option history", lambda: self._feed_ohist(snap, ctx), None)
+        self._safe("frozen tape", lambda: self._frozen_tape(snap), None)
         # C-07: from here on ctx exists, so nothing may stop run_books (the exits) from running
         ctx["book_state"] = self._safe("book_state", self.book_state, {})
         ctx["straddle_watch"] = self._safe("straddle watch view", lambda: self.watch.view(series=False), {})
@@ -773,12 +776,25 @@ class Engine:
             lt = float(snap["ltt"][i])
             if lt > 1e9 and now - lt > config.HERO_FROZEN_S:
                 out["frozen"].append(f"{int(k)} {rr} {int((now - lt) // 60)} min")
-        names = {f.rsplit(" ", 2)[0] for f in out["frozen"]}
+        return out
+
+    def _frozen_tape(self, snap):
+        """D-103 on the event tape. 7 Nov (review 4.1): run once per MARKET second from step(), not from publish()
+        (wall-clock 4 Hz live, market time in a replay), so the DATA lines are the same in live and in a replay."""
+        now = self.now_s
+        if now - getattr(self, "_frozen_t", -1e18) < 1.0:
+            return
+        self._frozen_t = now
+        names = set()
+        if in_session(self.now_dt):
+            for i, rr, k in self.heroes():
+                lt = float(snap["ltt"][i])
+                if lt > 1e9 and now - lt > config.HERO_FROZEN_S:
+                    names.add(f"{int(k)} {rr}")
         new = names - getattr(self, "_frozen_prev", set())
-        if new:                                     # D-103: on the event tape too, not only on screen
+        if new:
             self.ev("DATA", "no trade for %d s on hero contract(s): %s" % (config.HERO_FROZEN_S, ", ".join(sorted(new))))
         self._frozen_prev = names
-        return out
 
     def _spot_guard(self, now_s, spot, fut, snap):
         """D-132 (council 6 M10): the vendor index freezes ~15:15 and then prints garbage (+501 pts on 19 and 21 Oct) while its

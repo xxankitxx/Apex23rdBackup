@@ -550,9 +550,35 @@ def _write_report(today, lines):
         pass
 
 
+DECISION_KEYS = ("champion", "champion_since", "retired", "gates", "candidates", "streak", "gate_streak")
+DECISION_EVENTS = ("champion", "gate+", "gate-", "candidate+", "candidate-")
+
+
+def apply_record_only(s, keep, n_log0, today, lines):
+    """7 Nov (owner, LEARN_DECIDE = False): undo every decision learn() made this evening, keep its report, and record
+    what it WOULD have done. `keep` holds the decision fields as they were when learn() started; `n_log0` the length of
+    the log then. Returns the list of would-have changes (empty when learn() decided nothing)."""
+    import copy as _copy
+    new = s["log"][n_log0:]
+    would = [e for e in new if e.get("event") in DECISION_EVENTS]
+    s["log"] = s["log"][:n_log0] + [e for e in new if e.get("event") not in DECISION_EVENTS]
+    for k, v in keep.items():
+        s[k] = _copy.deepcopy(v)
+    if would:
+        s["log"].append({"day": today, "event": "record-only", "would_have": would})
+    lines += ["", "## Record-only (config.LEARN_DECIDE = False)",
+              "The learning loop does not change books during the Conductor's forward tests. "
+              + ("It would have made these changes, none applied: "
+                 + "; ".join(f"{e['event']} {e.get('to') or e.get('advisor') or ''}".strip() for e in would) + "."
+                 if would else "It would not have changed anything tonight.")]
+    return would
+
+
 def learn(today: str = None):
     today = today or date.today().isoformat()
     s = load_state()
+    _keep = {k: __import__("copy").deepcopy(s.get(k)) for k in DECISION_KEYS}
+    _n_log0 = len(s.get("log") or [])
     days = _load_days()
     if not _is_trading(today) and not any(today in bd for bd in days.values()):
         # C-10: a weekend or holiday is not a session. Nothing is decided, no streak moves, nothing is saved.
@@ -733,6 +759,9 @@ def learn(today: str = None):
         lines += quarantine_lines()
     except Exception as e:
         lines += ["", f"(quarantine section failed: {e})"]
+    if not config.LEARN_DECIDE:                # 7 Nov (owner): record-only; the report above stays as written
+        apply_record_only(s, _keep, _n_log0, today, lines)
+        cands = s["candidates"]
     s["status"] = s.get("status") if s.get("status") == "NO-EDGE" else status.split(" ")[0]
     s["learned_day"] = today
     lines += ["", f"Champion for the next session: **`{s['champion']}`** · gates: {', '.join(s['gates']) or 'none'} · "

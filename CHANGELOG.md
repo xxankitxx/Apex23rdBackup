@@ -1,5 +1,26 @@
 # Changelog
 
+## 7 Nov 2026 (later) — stakeholder rounds 4–5: record-only learning, run manifest, review fixes
+- **The learning loop is record-only** (`config.LEARN_DECIDE = False`, owner): its nightly report still says what it
+  would have done, but it never changes the default book, retires a book, or adds/removes a gate or candidate book.
+  The deciding code stays (its tests switch it on).
+- **Photograph at the trigger:** `signal_trig` / `edge_trig` stored at the entry request and copied to the position.
+- **Per-day reset** of the edge observers' EWMA / OFI state and the frozen-contract check at the start of each day.
+- **DATA events on market time:** the frozen hero-contract line is written from the engine step once per market
+  second, not from the wall-clock dashboard publish, so a replay's events tape is reproducible.
+- **`apex/replay_batch.py`** (not run yet; replays wait for the Conductor build): one fresh folder per batch run, a
+  `manifest.json` (tapes and hashes, commit, code hash, switches, starting learning state, book order, per-tape
+  trades, recorder rows / errors / faults, wall time), private shared memory, no dashboard.
+  `replay_fast --gateway` refuses to start while a live session holds the default names.
+- **Recorder:** council strength from the strategy's own `_buy_v`; an assert that no council book reaches the paper
+  twin path; `replay_fast.run()` sets the fast path itself.
+- **Small fixes and comments:** the guard's bad-print test is a flag, not a text prefix; the c20_9x `gbw` undo also
+  restores the last-exit mark (a no-op today; `gbw` is not in the live combination); comments on `_SER` (offline
+  only), the 150-pt parity reset, the 252 × 22,500 annualisation and the two order-book imbalance inputs.
+- **Docs:** docs/28 §16a (owner's decisions, per-row families, the seeded register, diaries, manifest, e-value
+  monitor, reuse list); docs/29 C6, C16, 4.1 and the breakout-window note; docs/30 F9 (five books) and F10.
+- Tests: test_replay_batch.py, test_review_7nov.py, test_missed.py additions. Suite: no new failures.
+
 ## 7 Nov 2026 — book guide; filler bug fixed
 - **docs/30_BOOK_GUIDE.md**: how every one of the 72 books trades (entries, strikes, holds, exits in code order, live
   figures), read from the code with file:line references, and the issues found while writing it (Part F).

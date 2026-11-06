@@ -10,6 +10,15 @@ os.environ["APEX_DATA"] = tempfile.mkdtemp(prefix="apex_test_wp3_")
 sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 
 from apex import config  # noqa: E402
+import pytest  # noqa: E402
+
+
+@pytest.fixture(autouse=True)
+def _learning_decides(monkeypatch):
+    """7 Nov: the shipped learning loop is record-only (config.LEARN_DECIDE = False); these tests exercise its
+    deciding mode, which is kept in the code, so they switch it on for each test only."""
+    monkeypatch.setattr(config, "LEARN_DECIDE", True)
+
 from apex.engine import learning, paper  # noqa: E402
 
 
@@ -18,6 +27,7 @@ def _fresh():
     global config, learning
     os.environ["APEX_DATA"] = tempfile.mkdtemp(prefix="apex_test_wp3_")
     config = importlib.reload(config)
+    config.LEARN_DECIDE = True                  # 7 Nov: these tests exercise the deciding mode (shipped record-only)
     learning = importlib.reload(learning)
 
 

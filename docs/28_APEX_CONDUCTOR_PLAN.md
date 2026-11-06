@@ -490,6 +490,58 @@ promises.
 
 ---
 
+## 16a. Decisions and facts added 7 Nov (stakeholder rounds 4–5)
+
+**Owner's decisions**
+
+* **The learning loop is record-only** (`config.LEARN_DECIDE = False`), live and in replay. It still writes its
+  nightly report and says what it *would* have done ("Record-only" section; a `record-only` entry in its log), but it
+  never changes the default book, retires a book, adds or removes a gate, or adds or drops a candidate book. During
+  the forward tests nothing may change a book except a dated, frozen rule; in a run of several replayed days, day
+  N+1's book set no longer depends on day N's learning.
+* **The five 0.46-delta books stay as they are for now:** t28_d46, t28_core, t28_core_fill, t28_all, t28_d46_fill
+  (`delta_target` 0.46 on non-expiry days, below the 0.52 floor). Not changed today; revisit before they enter the
+  pool.
+* **Families are assigned per diary row**, from what the row carries, not by book: entry pattern (`ep_type`:
+  SPOT-PULLBACK, SPOT-RETEST, SPOT-RETEST-FILL, SPOT-BREAKOUT, ORB, FOLLOW/FADE, the domino types with or without a
+  gap, STRADDLE-SPIKE, RANDOM, PREMIUM-MOMENTUM; council EXP / NORM) × day type (expiry or not). A filler book can
+  so put rows in two families, and the ~40 books that fire the same expiry retest count as one family. Each family's
+  representative is its least-gated member (spot_pb45, spot_dc12_t12, spot_dc12_t12_first, spot_orb45, m1.5_s0.4,
+  gap3_s0.4, straddle_spike, fade_switch, c20_9x; t28_fwd is its own family).
+* **The rule register is seeded from the restricted-vs-free pairs already running**, each frozen on the date its
+  config comment gives: spot_dual_rg vs spot_dual (22 Oct); spot_dc12_t12_1130 vs spot_dc12_t12 (~21 Oct); t28_gap,
+  t28_dur20 vs lvl_trail_re (28 Oct); m2.0_s0.5_trend, m2.0_s0.5_novol vs m2.0_s0.5 (19 Oct); edge_gate_only vs
+  spot_dual_lvl (27 Oct); t28_ivfall / bidpile / nohigh / req / cheap vs t28_gap (28–29 Oct); c20_9s, c20_9y vs
+  c20_9x (3–4 Nov). Exit-only pairs (nolock, tt8, mh15, st20, the be/rx chain, c20_9t/v/e/h) go to the exit test
+  (§10) instead.
+
+**How the machinery works (built 7 Nov)**
+
+* **Diaries read `paper/<day>.json`**, not the learning loop's `days.jsonl`, which keeps only a reduced trade (no
+  peak, hold time, edge, delta or trigger time).
+* **The photograph is taken at the trigger.** `request_entry` stores `signal_trig` and `edge_trig` with the pending
+  entry and the fill copies them to the position. They describe the last completed virtual second before the
+  trigger. `signal` / `edge_in` are still the values at the fill, up to 3 s later.
+* **One folder per run, with a manifest** (`apex/replay_batch.py`): every batch run gets a fresh
+  `data/replay/batch/<run_id>/` (an existing folder is refused), and `manifest.json` records the tapes and their
+  hashes, git commit and code hash, step size, every switch that changes what a replay trades (recorder, fast path,
+  entry end, flatten, CAS test, learning mode, a hash of the book list), the starting learning state, the book order
+  (the same-tick tie-break order), and at the end trades per book, recorder rows, errors, faults and wall time.
+  A batch never serves the dashboard and uses its own shared-memory names, so it cannot collide with a live
+  session; `replay_fast --gateway` refuses to start while a session holds the default names.
+* **DATA events are on market time.** The "no trade for 300 s on hero contract(s)" line is now written once per
+  market second from the engine step, not from the 4-Hz wall-clock dashboard publish, so the events tape of a replay
+  is the same run to run (needed by the gate in docs/29).
+* **Reuse, not rebuild:** `defects.Quarantine` / `quote_defect` for diary exclusions; `is_cas_trade` for the
+  anchor check; `_day_ret` and `_lodo_ok` as the day unit and the leave-one-day-out check; `paired_test` as the
+  skeleton of the Conductor-level day test, with the sign-flip permutation added for the margin.
+* **Watching a rule after it passes:** the betting e-value already in learning.py (`e_value_mean_le0`) on the daily
+  (restricted − free) differences from the pass date. It is valid however often it is looked at, so the nightly look
+  does not inflate the false-alarm rate as a fixed 40-day window would. A passed rule is switched off when it says
+  the difference is no longer positive.
+* **Pooled counts overstate evidence.** The learning report's pooled rows count the ~40 books that fire on the same
+  trigger as separate evidence. Evidence-only today; per family in step 2.
+
 ## 17. Glossary
 
 | Term | Meaning |

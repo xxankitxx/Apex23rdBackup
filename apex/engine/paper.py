@@ -1054,8 +1054,15 @@ def request_entry(book, ctx, opt, reason):
     """D-126: an entry is not filled on the print that was on the screen when the trigger fired (it predates the
     move). The book waits for the FIRST print of the contract that arrives after the trigger, at most
     ENTRY_FILL_MAX_S. Returns None (nothing opened yet); try_fill_entry completes or lapses it."""
+    d = 1 if opt.get("rr") == "CE" else -1           # 7 Nov (B17): the photograph at the TRIGGER, not the fill
+    try:
+        from .edge import signed as _edge_signed
+        edge_trig = _edge_signed(ctx.get("edge"), d)
+    except Exception:
+        edge_trig = None
     book.ctl["pending_entry"] = {"t": ctx["now_s"], "time": ctx["now_dt"].strftime("%H:%M:%S"), "key": opt["key"],
                                  "id": opt["id"], "why": reason, "trigger_ltp": opt.get("ltp"),
+                                 "signal_trig": _signal_snapshot(ctx, d), "edge_trig": edge_trig,
                                  "ctl": {k: book.ctl.get(k) for k in ("fire_id", "ep_type", "dir", "leg", "pb_trade", "orb_trade",
                                                                        "trig_str", "trig_unit")}}   # 28 Oct: strength too
     return None
@@ -1091,6 +1098,8 @@ def try_fill_entry(book, ctx):
     if pos:
         pos["trigger_t"] = pe["t"]
         pos["trigger_time"] = pe["time"]
+        pos["signal_trig"] = pe.get("signal_trig")     # 7 Nov (B17): what the trigger saw (signal / edge_in = at fill)
+        pos["edge_trig"] = pe.get("edge_trig")
         pos["trigger_ltp"] = pe["trigger_ltp"]
         pos["fill_delay_s"] = round(waited, 2)
         pos["fill_slip"] = round(pos["entry"] - pe["trigger_ltp"], 2) if pe.get("trigger_ltp") else None

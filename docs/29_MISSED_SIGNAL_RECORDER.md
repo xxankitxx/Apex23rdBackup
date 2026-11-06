@@ -120,7 +120,7 @@ collection error (`test_c5_fills_lock`) remains.
 | C3 | `fire_count` counts distinct seconds (paper twins are stepped every 100-ms engine step, council twins once a second). |
 | C4 | Rows carry `cf_worst_pts`, `cf_stale_exit`, `cf_fill_delay_s`, `cf_gap`. `worst_pts` is now tracked on every real and counterfactual position (paper.check_exit, council adapter). |
 | C5 | `relation` and the real trade's time come from the pending entry while the real book is only waiting for its fill. |
-| C6 | Council `strength` is the trigger velocity parsed from the signal (`v=+23`). |
+| C6 | Council `strength` is the strategy's own trigger strength at the BUY (`_buy_v`, round 4: C20); the velocity in the signal text (`v=+23`) is only the fallback. |
 | C7 | The consume-at-fire divergence is documented (above). |
 | C8 | Episodes split on a **stable** setup identity where one exists (domino episode id, straddle spike id). Books driven by a `fire_id` fall back to the 30-s gap, because their `fire_id` embeds the current second. |
 | C9 | Comments: `trades[0]` (a counterfactual takes exactly one trade); `EPISODE_GAP_S` is also the write delay; `advance()` runs after the book loop, and a counterfactual adapter is stepped only when the shared `LiveDay` row for this second already exists (it can never write it). |
@@ -128,6 +128,14 @@ collection error (`test_c5_fills_lock`) remains.
 | C13 | `LiveDay` docstring: `fwd[i]` is carried forward, not nan, when the engine's forward is stale. |
 | C14 | `LiveDay` logs once when its 96 option columns are full, instead of dropping contracts silently. |
 | C15 | Checked: no strategy module writes to a `D.` attribute. |
+| C16 | A council book can never reach the paper twin path (an assert in `_step_paper`). |
+| 4.1 | The engine's DATA events (frozen hero contracts) are written on market time, so the events tape compares equal run to run (gate item 2). |
+
+**Known, intended difference (round 5, 5.2).** The real council strategy's breakout window has small holes: while
+its fill is pending the adapter does not step it, `catch` bridges the forward through the skipped rows without
+pushing them into the window's max/min, and its staleness count covers only stepped seconds. The twin is stepped
+every second and has neither hole. About 2–3 s per fill; it can make a twin fire a second earlier or later than the
+real book would have.
 
 ## The gate (final form, run at the Conductor build)
 

@@ -1586,7 +1586,8 @@ family and not yet independently re-checked.
 | F6 | `t28_cheapK` measures the "lag" move on the futures mid, not the parity forward its description names. | t28_cheapK | from the code reading |
 | F7 | `t28_fwd` reads range mode and the levels from the index, but compares them with its forward-based spot. | t28_fwd | from the code reading |
 | F8 | The council premium trail used when the forward is frozen (STALE_PTRAIL) uses the base 25/40-pt trail, not the delta-scaled one; and the premium trail's peak is not saved across a same-day restart. | council books | from the code reading |
-| F9 | **Two books buy below the 0.52 delta floor by design.** t28_d46 and t28_d46_fill target \|delta\| ≈ 0.46 (0.42–0.52) on non-expiry days (`delta_target`, paper.py choose_contract). This contradicts the ATM/ITM rule; raised with the owner 7 Nov. | t28_d46, t28_d46_fill | **verified** (code) |
+| F9 | **Five books buy below the 0.52 delta floor by design.** They target \|delta\| ≈ 0.46 (0.42–0.52) on non-expiry days (`delta_target`, paper.py choose_contract). This contradicts the ATM/ITM rule. **Owner, 7 Nov: not changed for now**; revisit before they enter the Conductor pool. | t28_d46, t28_core, t28_core_fill, t28_all, t28_d46_fill | **verified** (code) |
+| F10 | **The learning loop no longer changes books.** From 7 Nov it is record-only (`config.LEARN_DECIDE = False`): it reports what it would have done, but never promotes, retires, gates or adds a book. | all books | **owner's decision, 7 Nov** |
 
 ### Things to know when reading trade logs
 

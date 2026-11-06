@@ -12,6 +12,15 @@ from datetime import datetime  # noqa: E402
 import numpy as np  # noqa: E402
 
 from apex import config, greeks  # noqa: E402
+import pytest  # noqa: E402
+
+
+@pytest.fixture(autouse=True)
+def _learning_decides(monkeypatch):
+    """7 Nov: the shipped learning loop is record-only (config.LEARN_DECIDE = False); these tests exercise its
+    deciding mode, which is kept in the code, so they switch it on for each test only."""
+    monkeypatch.setattr(config, "LEARN_DECIDE", True)
+
 config.FILL_NEXT_PRINT = False   # D-126: these suites test the exit/entry logic itself on same-step fills; D-126 has its own suite
 from apex.engine import learning, paper  # noqa: E402
 from apex.feed_core import Registry, apply_packet  # noqa: E402

@@ -271,3 +271,52 @@ def test_a_council_clock_exit_fills_at_once():
     ctx.update(by_key={o["key"]: dict(o, age=30.0)}, fut=0.0)      # an old quote: a price exit would wait
     t = paper.request_exit(b, ctx, "COUNCIL TIME", o)
     assert t is not None and t["reason"] == "COUNCIL TIME"
+
+
+# ------------------------------------------------------------------ 7 Nov, review addendum (B15, B17, C16)
+def test_learning_record_only_undoes_every_decision_and_says_what_it_would_have_done():
+    """B15: with LEARN_DECIDE False the nightly loop keeps its report but changes no book."""
+    from apex.engine import learning
+    keep = {"champion": "c20_9x", "champion_since": "2026-11-01", "retired": [], "gates": [], "candidates": {},
+            "streak": {}, "gate_streak": {}}
+    s = dict(keep, log=[{"event": "old"}])
+    n0 = len(s["log"])
+    s.update(champion="t28_gap", champion_since="2026-11-07", gates=["regime"], candidates={"bank": "2026-11-07"},
+             streak={"t28_gap": 3}, retired=["c20_9x"])
+    s["log"] += [{"day": "2026-11-07", "event": "champion", "from": "c20_9x", "to": "t28_gap"},
+                 {"day": "2026-11-07", "event": "gate+", "advisor": "regime"},
+                 {"day": "2026-11-07", "event": "backfilled"}]
+    lines = []
+    would = learning.apply_record_only(s, keep, n0, "2026-11-07", lines)
+    assert s["champion"] == "c20_9x" and s["gates"] == [] and s["candidates"] == {} and s["retired"] == []
+    assert [e["event"] for e in would] == ["champion", "gate+"]
+    assert [e["event"] for e in s["log"]] == ["old", "backfilled", "record-only"]
+    assert any("none applied" in x for x in lines)
+    assert config.LEARN_DECIDE is False                          # the shipped setting (owner, 7 Nov)
+
+
+def test_the_entry_photograph_is_taken_at_the_trigger(monkeypatch):
+    """B17: signal and edge are captured when the entry is requested and carried to the position at the fill."""
+    monkeypatch.setattr(config, "FILL_NEXT_PRINT", True)
+    b = paper.Book("m2.0_s0.5", {}, "2026-11-06")
+    o = dict(_opt("CE"), age=0.0)
+    ctx = _ctx(0)
+    ctx.update(by_key={o["key"]: o}, domino={"z": 2.5, "S_up": 0.6, "S_dn": 0.1, "r15": 18.0, "sigma15": 6.0},
+               regime={"state": "DIRECTIONAL"}, fut=24510.0, advisors={})
+    paper.request_entry(b, ctx, o, "t")
+    pe = b.ctl["pending_entry"]
+    assert pe["signal_trig"] is not None and "edge_trig" in pe
+    ctx1 = _ctx(1)
+    ctx1.update(by_key={o["key"]: dict(o, age=0.1)}, fut=24512.0, advisors={})
+    pos, _ = paper.try_fill_entry(b, ctx1)
+    assert pos is not None and pos["signal_trig"] == pe["signal_trig"] and pos["trigger_time"] == pe["time"]
+
+
+def test_a_council_book_never_reaches_the_paper_twin(tmp_path):
+    """C16: council books inherit the whole parameter set; the paper twin path must refuse them."""
+    import pytest
+    rec = missed.MissedRecorder("2026-11-06", str(tmp_path))
+    b = paper.Book("c20_9x", {"council": "c20_9x"}, "2026-11-06")
+    with pytest.raises(AssertionError):
+        rec.step_paper(_Eng("PE", 0), "c20_9x", b, _ctx(0))
+    assert rec.faults == 1

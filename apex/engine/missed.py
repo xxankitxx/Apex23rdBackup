@@ -145,6 +145,7 @@ class MissedRecorder:
             raise
 
     def _step_paper(self, eng, name, b, ctx):
+        assert not b.p.get("council"), f"{name}: a council book reached the paper twin path"   # 7 Nov (C16)
         busy = b.pos is not None or bool(b.ctl.get("pending_entry"))
         if not busy:
             self.twins.pop(name, None)
@@ -253,8 +254,10 @@ class MissedRecorder:
         if abs(opt.get("delta") or 0) < 0.5:
             return
         why = f"COUNCIL {act[3] if len(act) > 3 else ''}".strip()
-        m = _V.search(why)                       # the trigger's velocity in the signal text (e.g. "EXP brk v=+23")
-        strength = float(m.group(1)) if m else None
+        strength = getattr(tw, "_buy_v", None)   # 7 Nov (C20): the strategy's own trigger strength at the BUY
+        if strength is None:
+            m = _V.search(why)                   # fallback: the velocity in the signal text (e.g. "EXP brk v=+23")
+            strength = float(m.group(1)) if m else None
         ep = self._fire(name, _side_of(rr), ctx, why, strength, b)
         if ep is None:
             return
