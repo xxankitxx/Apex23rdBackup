@@ -391,7 +391,9 @@ VARIANTS["c20_9y"] = dict(_G, council="c20_9y")      # 4 Nov night (owner): c20_
 RESTRICTED = {
     "R-002": ("spot_dc12_t12", "spot_dc12_t12_first", "spot_pb45", "spot_orb45", "m1.5_s0.4", "gap3_s0.4",
               "fade_switch", "c20_9x"),
-    "R-003": ("spot_dc12_t12_first", "spot_orb45", "spot_pb45", "m1.5_s0.4", "gap3_s0.4"),
+    # spot_pb45_r003 switched off 8 Nov (owner): a pullback enters after minutes against the trend, so 5-min
+    # breadth our way is never >= 60 % there (14-day replay: 0 of 57 entries, max 57 %). Status "off" in status.jsonl.
+    "R-003": ("spot_dc12_t12_first", "spot_orb45", "m1.5_s0.4", "gap3_s0.4"),
     "R-004": ("c20_9x",),
     "R-005": ("spot_orb45",),
 }

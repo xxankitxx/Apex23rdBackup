@@ -59,7 +59,7 @@ def record_status(rid, status, day, note="", path=STATUS, reg=None):
     if status not in STATUSES:
         raise ValueError(f"unknown status {status!r}")
     reg = reg or load()
-    if rid not in {r["id"] for r in reg["rules"]}:
+    if rid.split("/")[0] not in {r["id"] for r in reg["rules"]}:      # "R-003/spot_pb45" = one book of a family rule
         raise KeyError(rid)
     with open(path, "a", encoding="utf-8", newline="\n") as f:
         f.write(json.dumps({"id": rid, "status": status, "day": str(day), "note": note}) + "\n")

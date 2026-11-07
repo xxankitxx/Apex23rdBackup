@@ -62,10 +62,10 @@ beside its free book; name = representative + `_r00N`. The rule is checked at th
 chosen, on the weather photograph (`apex/engine/rules.py`); a refusal skips the setup like every other entry veto.
 The same check runs for council books (`council.Adapter`) and for the missed-signal recorder's twins.
 
-| Rule | Restricted books (15) |
+| Rule | Restricted books (14) |
 |---|---|
 | R-002 | spot_dc12_t12_r002, spot_dc12_t12_first_r002, spot_pb45_r002, spot_orb45_r002, m1.5_s0.4_r002, gap3_s0.4_r002, fade_switch_r002, c20_9x_r002 |
-| R-003 | spot_dc12_t12_first_r003, spot_orb45_r003, spot_pb45_r003, m1.5_s0.4_r003, gap3_s0.4_r003 |
+| R-003 | spot_dc12_t12_first_r003, spot_orb45_r003, m1.5_s0.4_r003, gap3_s0.4_r003 (spot_pb45_r003 off 8 Nov: a pullback entry never has 60 % breadth our way; 14-day replay 0 of 57 entries) |
 | R-004 | c20_9x_r004 |
 | R-005 | spot_orb45_r005 |
 

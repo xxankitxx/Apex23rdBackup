@@ -19,6 +19,10 @@
   photograph at the entry, only for the entry patterns in the rule's family. A book with `rules=(...)` refuses an
   entry the rule fails; the setup is skipped like every other entry veto. Same check in the council adapter and in
   the missed-signal recorder's council twins. An unknown rule id refuses every entry (never trade unchecked).
+- **spot_pb45_r003 switched off** (owner, 8 Nov): the 14-day replay showed R-003's breadth >= 60 % is never met at a
+  pullback entry (0 of 57; max 57 %), so the book could never trade. Removed from `config.RESTRICTED`; status
+  line `R-003/spot_pb45 off` in apex/rules/status.jsonl (register untouched; `record_status` accepts a
+  rule/book id). 85 books + RAW; pinned counts 86 -> 85.
 - **15 restricted shadow books** (owner's go-ahead): each representative + one rule, `config.RESTRICTED`, named
   `<rep>_r00N`; they trade beside their free books from Mon 9 Nov. 86 books in all (+ RAW). No existing book
   changes.
