@@ -1,5 +1,24 @@
 # Changelog
 
+## 7 Nov 2026 (late) — Conductor stage 2: the weather photograph (the eight factors)
+- **`apex/engine/weather.py`** (an observer: no book reads it). At every entry trigger (`paper.request_entry`, used by
+  paper books, council books and the missed-signal counterfactuals) the pending entry gets `weather_trig`, copied to
+  the position and so into `paper/<day>.json`; missed rows carry it as `weather` (`snapshot_id` = the episode id).
+  The eight: calendar (mins_open, phase, weekday, dte, expiry_day); efficiency (er60 / dir60 exactly as R-002
+  defines them, er_day); range (pos_in_range, pos_dir, give, range_on, dist_hi / dist_lo, or_pos, or_late); breadth
+  (breadth_dir exactly as R-003 defines it); OI wall (wall_room in the trade's direction); straddle (chg5, excess,
+  expanding, state); theta breakeven (|theta_min| / |delta| in spot pts per minute, against speed15, the mean 1-min
+  spot move over 15 min); VIX (level, change since the day's first reading, 15-min change). Missing data is None,
+  never 0.
+- **No look-ahead by construction:** every history is stamped with its arrival time (the engine's virtual clock; VIX
+  by its own `vix_ns`) and every function reads only samples at or before the asked time. The leak test feeds the
+  same day to two points in time and checks that the photo at the earlier one is identical, and that wild prints
+  after it change nothing.
+- **Live-only note:** the histories start empty at a restart, so er60 / breadth / speed15 are undefined until enough
+  data has arrived again (an hour for er60). A replay starts at the open and has them.
+- Tests: test_weather.py (leak test, definitions, hook, the real engine); test_missed.py row fields. Suite: 385
+  passed, 0 failed.
+
 ## 7 Nov 2026 (night) — rules frozen, spec reconciled, test suite green
 - **Rule register** (`apex/rules/register.json`, docs/31): the five hand-written rules frozen today with exact
   formulas (ER60, BREADTH_DIR), numbers, families, restricted and free books; test days from Mon 9 Nov. R-001

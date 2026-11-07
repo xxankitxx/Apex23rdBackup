@@ -80,7 +80,7 @@ was flat. They already appear in the decision tape for the champion, and they ar
 | `cf_pnl_rs`, `cf_ret_pct`, `cf_peak_pts`, `cf_worst_pts`, `cf_reason` | its outcome, same definitions as real trades |
 | `cf_stale_exit`, `cf_fill_delay_s`, `cf_gap` | a stale exit fill, the entry fill's wait, a trade held through a data gap |
 | `is_counterfactual` | always `true`, so Phase 3 can never train on these as real trades |
-| `snapshot_id` | null; filled by Phase 2's factor snapshot |
+| `snapshot_id`, `weather` | the episode id, and the weather photograph (stage 2, `apex/engine/weather.py`): the counterfactual's own at its trigger, else the one at the first fire (no contract fields) |
 
 ## Proof it is an observer
 

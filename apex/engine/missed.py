@@ -30,6 +30,14 @@ def _side_of(rr):
     return "CE" if rr == "CE" else "PE"
 
 
+def _photo_safe(ctx, side):
+    try:
+        from .weather import photo
+        return photo(ctx, 1 if side == "CE" else -1, None)
+    except Exception:
+        return None
+
+
 def _real_side(b):
     """The side of the trade keeping the real book busy: its position, or the entry it is waiting to fill."""
     rr = (b.pos or {}).get("rr")
@@ -42,7 +50,7 @@ def _real_side(b):
 class _Episode:
     __slots__ = ("book", "eid", "side", "relation", "first_t", "first_time", "last_t", "last_time", "count",
                  "last_sec", "setup", "signal", "strength", "real_key", "real_time_in", "cf", "cf_kind",
-                 "cf_status", "cf_trade", "done")
+                 "cf_status", "cf_trade", "done", "weather")
 
     def __init__(self, **kw):
         for k in self.__slots__:
@@ -82,7 +90,8 @@ class MissedRecorder:
                         last_t=t, last_time=tm, count=1, last_sec=int(t), setup=setup, signal=signal,
                         strength=strength, real_key=(real or {}).get("key"),
                         real_time_in=(real or {}).get("time_in"), cf=None, cf_kind=None, cf_status=None,
-                        cf_trade=None, done=False)
+                        cf_trade=None, done=False,
+                        weather=_photo_safe(ctx, side))   # 7 Nov (stage 2): at the episode's first fire
 
     def _fire(self, name, side, ctx, signal, strength, b, setup=None):
         """Dedupe. A fire extends the open episode in the same direction when it is within EPISODE_GAP_S of that
@@ -130,7 +139,10 @@ class MissedRecorder:
                "cf_worst_pts": t.get("worst_pts"), "cf_stale_exit": bool(t.get("stale_exit")),
                "cf_fill_delay_s": t.get("fill_delay_s"), "cf_gap": bool(t.get("gap")),
                "cf_reason": t.get("reason"), "cf_strike": t.get("strike"), "cf_rr": t.get("rr"),
-               "is_counterfactual": True, "snapshot_id": None}
+               "is_counterfactual": True, "snapshot_id": ep.eid,
+               # 7 Nov (stage 2): the photograph. The counterfactual's own (with its contract's theta) when it
+               # reached a trigger, else the one taken at the first fire (no contract fields)
+               "weather": t.get("weather_trig") or ep.weather}
         with open(self.path, "a", encoding="utf-8") as f:
             f.write(json.dumps(row, default=float, separators=(",", ":")) + "\n")
         self.rows += 1

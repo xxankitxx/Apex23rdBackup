@@ -36,6 +36,7 @@ try:                                     # 5 Nov: display-only quant evidence (n
 except Exception:                        # pragma: no cover - a missing scipy must never stop the engine
     QuantView = None
 from .engine.impulse import ImpulseWindow
+from .engine.weather import Weather   # 7 Nov: stage 2, the weather photograph (observer)
 from .engine.daystate import DayState, load_prior, save_day
 from .engine import strike_levels as sl_mod
 from .engine import ideas as ideas_mod
@@ -302,6 +303,7 @@ class Engine:
         self._pb_view = {"ok": False}
         self._reset_fwd()
         self.day_state = DayState(day, load_prior(day))     # D-141
+        self.weather = Weather(day)                          # 7 Nov (stage 2): the photograph's histories, per day
         self.strike_lv = self._safe("strike levels", lambda: sl_mod.StrikeLevels(day, sl_mod.load_prior(day)), None)
         self._sl_last = 0.0                                  # 27 Oct: each strike's own support / resistance
         self._restore_warm(day)                  # D-120: a same-day restart keeps the regime and the price histories
@@ -438,6 +440,8 @@ class Engine:
         if now_s - self.last_1hz >= 1.0:
             self.last_1hz = now_s
             self.iv_hist.append((now_s, self.atm_iv))
+            if getattr(self, "weather", None) is not None:        # 7 Nov (stage 2): heavyweights and VIX, 1 Hz
+                self._safe("weather feed", lambda: self._weather_feed(now_s, snap), None)
             if np.isfinite(spot) and in_session(self.now_dt) and self._spot_age(snap) <= config.SPOT_STALE_S:
                 if self.spot_hist and now_s - self.spot_hist[-1][0] > 60:
                     self.spot_hist.clear()                        # D-124: a > 60-s hole restarts the range (no stitching)
@@ -445,6 +449,8 @@ class Engine:
                 self.impulse.add(now_s, float(spot))              # D-134: the 45-min impulse window (trusted spot only)
                 if self.day_state is not None:                    # D-141: the day state, from the same trusted spot
                     self.day_state.add(now_s, float(spot), config.hm(self.now_dt))
+                if getattr(self, "weather", None) is not None:    # 7 Nov (stage 2): the same trusted spot
+                    self.weather.feed_spot(now_s, float(spot))
                 self._pb_view = self.impulse.view(now_s)
                 while self.spot_hist and now_s - self.spot_hist[0][0] > config.SPOT_DC_S + 5:
                     self.spot_hist.popleft()
@@ -563,6 +569,8 @@ class Engine:
             ctx["fwd_over"] = self._safe("forward view", lambda: self._fwd_view(now_s), None)
         ctx["by_id"] = {o["id"]: o for o in ctx["options"]}
         ctx["by_key"] = {o["key"]: o for o in ctx["options"]}
+        ctx["weather"] = (self._safe("weather base", lambda: self.weather.base(now_s), {})   # 7 Nov (stage 2)
+                          if getattr(self, "weather", None) is not None else {})
         if self._ohist_on:
             self._safe("option history", lambda: self._feed_ohist(snap, ctx), None)
         self._safe("frozen tape", lambda: self._frozen_tape(snap), None)
@@ -778,6 +786,13 @@ class Engine:
             if lt > 1e9 and now - lt > config.HERO_FROZEN_S:
                 out["frozen"].append(f"{int(k)} {rr} {int((now - lt) // 60)} min")
         return out
+
+    def _weather_feed(self, now_s, snap):
+        """Stage 2: the heavyweights' last prices and VIX (with its own arrival stamp) into the photograph's histories."""
+        dm = self.domino
+        if dm is not None and len(dm.eq_ids):
+            self.weather.feed_hw(now_s, snap["ltp"][dm.eq_ids].astype(float), dm.eq_w)
+        self.weather.feed_vix(float(self.t.c("vix")), int(self.t.c("vix_ns")))
 
     def _frozen_tape(self, snap):
         """D-103 on the event tape. 7 Nov (review 4.1): run once per MARKET second from step(), not from publish()

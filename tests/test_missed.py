@@ -107,7 +107,8 @@ def test_settle_and_write(tmp_path):
     row = json.loads(open(tmp_path / "missed_2026-11-06.jsonl", encoding="utf-8").read())
     assert summary["rows"] == 1 and summary["cf_errors"] == 0 and summary["recorder_faults"] == 0
     assert (tmp_path / "missed_summary_2026-11-06.json").exists()
-    assert row["is_counterfactual"] is True and row["snapshot_id"] is None
+    assert row["is_counterfactual"] is True and row["snapshot_id"] == row["episode_id"]   # 7 Nov (stage 2)
+    assert "weather" in row
     assert row["relation"] == "opposite" and row["cf_pnl_rs"] == 7800.0 and row["fire_count"] == 1
     flat = paper.Book("bk2", {}, "2026-11-06")
     ep2 = rec._fire("bk2", "CE", _ctx(100), "TEST", None, flat)
