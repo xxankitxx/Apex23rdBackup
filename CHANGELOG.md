@@ -1,5 +1,22 @@
 # Changelog
 
+## 7 Nov 2026 (later still) — stage 2, version 2 of the weather photograph
+- **About 40 more factors from docs/27**, all from data the engine already has, in the trade's direction where it
+  matters: day before expiry, first session after a break, event day, hours to expiry, minutes to the flatten,
+  phase bucket; the opening gap and whether it filled; position in the 15 / 30-min opening range; 30-min efficiency;
+  new session highs and lows so far; distance from VWAP; distance to yesterday's high / low / close; age of today's
+  extremes; spot moves over 5 s to 5 min and the 15-s acceleration; the 45-min impulse's size, side, age and
+  pullback depth; room to the 30-min swing high / low; realised vol over 1 / 5 / 15 min; the heavyweights' weighted
+  move in Nifty points (10 / 30 / 60 s; banks, IT, energy, others over 60 s); the basket gap; Bank Nifty against
+  Nifty; ATM skew and this-week-vs-next-week IV; the contract's premium, spread %, quote age, delta, gamma, theta
+  per minute and as % of premium, the 15-min theta breakeven; VIX over 5 and 30 min; the book's own day (time since
+  its last exit, won or lost, same side, trades and return so far, streak); data quality (feed ages, gaps today).
+- docs/27 has a build-status table: what is in the photograph, what is already on every trade elsewhere (the edge
+  and signal photos, the advisors), and what needs data the engine does not keep yet.
+- Cost: about 1 ms once a second. The leak test covers every new value (the whole per-second base is compared).
+- Tests: test_weather.py (10). Two wall-clock performance tests in the commentary suites are marked
+  timing-sensitive: they fail at random on this machine with or without any change. Suite: 386 passed, 0 failed.
+
 ## 7 Nov 2026 (late) — Conductor stage 2: the weather photograph (the eight factors)
 - **`apex/engine/weather.py`** (an observer: no book reads it). At every entry trigger (`paper.request_entry`, used by
   paper books, council books and the missed-signal counterfactuals) the pending entry gets `weather_trig`, copied to

@@ -791,7 +791,14 @@ class Engine:
         """Stage 2: the heavyweights' last prices and VIX (with its own arrival stamp) into the photograph's histories."""
         dm = self.domino
         if dm is not None and len(dm.eq_ids):
-            self.weather.feed_hw(now_s, snap["ltp"][dm.eq_ids].astype(float), dm.eq_w)
+            if self.weather.hw_g is None:
+                from .universe import STOCKS
+                groups = [(STOCKS.get(s) or (0, 0, 0, "", "other"))[4] for s in dm.eq_sym]
+            else:
+                groups = None
+            self.weather.feed_hw(now_s, snap["ltp"][dm.eq_ids].astype(float), dm.eq_w, groups)
+        if dm is not None and dm.bn_fut is not None:
+            self.weather.feed_bn(now_s, float(snap["ltp"][dm.bn_fut]))
         self.weather.feed_vix(float(self.t.c("vix")), int(self.t.c("vix_ns")))
 
     def _frozen_tape(self, snap):

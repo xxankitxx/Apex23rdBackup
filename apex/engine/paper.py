@@ -1065,7 +1065,7 @@ def request_entry(book, ctx, opt, reason):
         edge_trig = None
     try:                                               # 7 Nov (stage 2): the weather photograph, same moment
         from .weather import photo as _weather_photo
-        weather_trig = _weather_photo(ctx, d, opt)
+        weather_trig = _weather_photo(ctx, d, opt, book)
     except Exception:
         weather_trig = None
     book.ctl["pending_entry"] = {"t": ctx["now_s"], "time": ctx["now_dt"].strftime("%H:%M:%S"), "key": opt["key"],

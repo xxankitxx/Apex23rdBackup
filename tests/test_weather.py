@@ -13,6 +13,7 @@ from apex.engine import paper, weather  # noqa: E402
 from apex.engine.weather import Weather  # noqa: E402
 
 T_OPEN = datetime(2026, 11, 6, 9, 15, tzinfo=config.IST).timestamp()
+GROUPS = ["bank"] * 8 + ["it"] * 3 + ["energy"] + ["fmcg"] * 11
 
 
 def _fill(w, t0, t1, seed=1, hw=True, vix=True):
@@ -25,8 +26,9 @@ def _fill(w, t0, t1, seed=1, hw=True, vix=True):
         sp += rng.gauss(0.05, 1.2)
         px = px * (1 + np.array([rng.gauss(0, 4e-4) for _ in range(23)]))
         w.feed_spot(t, sp)
+        w.feed_bn(t, 52000.0 + 2.1 * (sp - 24000.0))
         if hw:
-            w.feed_hw(t, px, np.ones(23))
+            w.feed_hw(t, px, np.ones(23), GROUPS)
         if vix and k % 30 == 0:
             w.feed_vix(13.0 + 0.01 * (k // 30), int(t * 1e9))
     return w
@@ -157,3 +159,46 @@ def test_the_real_engine_feeds_and_publishes_the_base():
         assert not [f for f in faults if "weather" in f], faults
     finally:
         rig.t.close(); rig.blob.close(); rig.t.unlink(); rig.blob.unlink()
+
+
+def test_v2_base_is_leak_free_too():
+    """The leak test above compares the WHOLE base, so every v2 value is covered; check it is not vacuous."""
+    T = T_OPEN + 2 * 3600
+    b = _fill(Weather("2026-11-06"), T_OPEN, T).base(T)
+    for k in ("er30", "mv5", "mv300", "accel15", "hi30", "rv1", "rv15", "or15", "or30", "wmove10", "wmove60_bank",
+              "wmove60_other", "bn60", "bn300", "nifty60", "vix_chg5", "vix_chg30", "new_highs"):
+        assert b.get(k) is not None, k
+
+
+def test_v2_definitions():
+    T = T_OPEN + 2 * 3600
+    w = Weather("2026-11-06")
+    for k in range(int(T - T_OPEN) + 1):                  # a steady climb: +0.1 pt / s, every stock +1e-5 / s
+        t = T_OPEN + k
+        w.feed_spot(t, 24000.0 + 0.1 * k)
+        w.feed_hw(t, np.full(23, 1000.0) * (1 + 1e-5 * k), np.full(23, 2.0), GROUPS)
+        w.feed_bn(t, 52000.0 + 0.2 * k)
+    b = w.base(T)
+    assert abs(b["mv60"] - 6.0) < 1e-6 and abs(b["mv5"] - 0.5) < 1e-6 and abs(b["accel15"]) < 1e-6
+    assert b["new_highs"] == int(T - T_OPEN) and b["new_lows"] == 0
+    assert b["or15"] == (24000.0 + 0.1 * 900, 24000.0)
+    # weighted move: spot x sum(w/100 x r): 23 stocks x 2 % weight x ~6e-4 over 60 s
+    assert abs(b["wmove60"] - b["spot"] * 0.46 * (1.072 / 1.0714 - 1)) < 1e-2
+    ctx, o = _ctx(T, w, "CE")
+    ctx["day"].update(pdc=23950.0, pdh=24200.0, pdl=23900.0, t_hi=T - 30, t_lo=T_OPEN)
+    ctx["spot"] = b["spot"]
+    bk = paper.Book("m2.0_s0.5", {}, "2026-11-06")
+    bk.trades = [{"t_out": T - 600, "pnl_rs": -10.0, "ret_pct": -1.0, "reason": "STOP", "rr": "PE"},
+                 {"t_out": T - 120, "pnl_rs": 50.0, "ret_pct": 3.0, "reason": "TRAIL", "rr": "CE"}]
+    ce, pe = weather.photo(ctx, +1, o, bk), weather.photo(ctx, -1, dict(o, rr="PE"), bk)
+    assert ce["v"] == 2 and "v2_error" not in ce
+    assert ce["mv60"] == -pe["mv60"] and ce["wmove60"] == -pe["wmove60"] and ce["gap_pts"] == 50.0
+    assert ce["gap_filled"] is False and ce["or15_pos"] > 1.0          # above the 15-min range: broken up
+    assert ce["to_pdh"] == round(24200.0 - b["spot"], 2) and ce["hi_age_min"] == 0.5
+    assert ce["last_exit_s"] == 120.0 and ce["last_won"] is True and ce["last_same_side"] is True
+    assert pe["last_same_side"] is False and ce["n_today"] == 2 and ce["ret_today"] == 2.0 and ce["streak"] == 1
+    assert ce["phase_bucket"] == "midday" or ce["phase_bucket"] == "morning"
+    assert ce["mins_to_flat"] == round(15 * 60 + 25 - (11 * 60 + 15), 2) and ce["after_break"] is False
+    assert ce["spread_pct"] == 1.0 and ce["theta_pct"] == 0.11
+    import json
+    json.dumps(ce, allow_nan=False)
