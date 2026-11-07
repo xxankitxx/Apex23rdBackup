@@ -1360,6 +1360,13 @@ class Engine:
                 opt, msg = None, vmsg
                 for k in ("fire_id", "ep_type", "dir", "leg", "pb_trade", "orb_trade", "trig_str", "trig_unit"):
                     b.ctl.pop(k, None)
+        if opt and b.p.get("rules"):                # 7 Nov (stage 5): a restricted book's frozen rules (docs/31)
+            from .engine import rules as rules_mod
+            rmsg = rules_mod.check(b, ctx, opt, why)
+            if rmsg:
+                opt, msg = None, rmsg
+                for k in ("fire_id", "ep_type", "dir", "leg", "pb_trade", "orb_trade", "trig_str", "trig_unit"):
+                    b.ctl.pop(k, None)              # the setup is skipped, not queued, like every entry veto
         return True, opt, why, msg
 
     def _entry(self, name, b, ctx):

@@ -52,6 +52,27 @@ Notes:
   spot_dc12_t12_first, spot_orb45, m1.5_s0.4, gap3_s0.4, straddle_spike, fade_switch, c20_9x; t28_fwd is its own
   family.
 
+## The restricted books (registered 7 Nov, trading as shadows from Mon 9 Nov)
+
+**Owner, 7 Nov: they run live, at the same time as every other book.** Measured cost about +6 % per engine
+step on the test rig.
+
+Each is the family's representative with **one** rule switched on (`config.RESTRICTED`, parameter `rules`), traded
+beside its free book; name = representative + `_r00N`. The rule is checked at the entry, after the contract is
+chosen, on the weather photograph (`apex/engine/rules.py`); a refusal skips the setup like every other entry veto.
+The same check runs for council books (`council.Adapter`) and for the missed-signal recorder's twins.
+
+| Rule | Restricted books (15) |
+|---|---|
+| R-002 | spot_dc12_t12_r002, spot_dc12_t12_first_r002, spot_pb45_r002, spot_orb45_r002, m1.5_s0.4_r002, gap3_s0.4_r002, fade_switch_r002, c20_9x_r002 |
+| R-003 | spot_dc12_t12_first_r003, spot_orb45_r003, spot_pb45_r003, m1.5_s0.4_r003, gap3_s0.4_r003 |
+| R-004 | c20_9x_r004 |
+| R-005 | spot_orb45_r005 |
+
+The rule applies only to the entry patterns in its family: fade_switch_r002 is restricted on its FOLLOW entries
+only (FADE is not a trend follower); spot_dc12_t12_r002 on both its retest and breakout entries. R-001 and the
+seeded rules already have their restricted books (the variants named in the table below).
+
 ## Seeded rules (existing restricted-vs-free pairs, at their original dates)
 
 | Id | Rule (as coded in the variant) | Restricted vs free | Frozen | First test day |
@@ -72,3 +93,14 @@ Notes:
 
 Exit-only pairs (nolock, tt8, mh15, st20, the be/rx chain, c20_9t / 9v / 9e / 9h) are not entry rules; they go to
 the exit test (docs/28 §10).
+
+## Scoring (`python -m apex.conductor.score DATA_DIR`)
+
+`apex/conductor/score.py` scores every rule on its own test days (R-002 to R-005 once per restricted book): the
+first window (30 restricted trades or 15 trading days, whichever comes later), then a second of the same length;
+the seven tests of docs/28 §2 on each; verdict under_test / passed_first_window / full_standing / failed; after a
+pass, the e-value watch (switch-off at 20). `--record` writes the changes to `apex/rules/status.jsonl`. Quote
+defects, defect windows and closing-auction entries are not evidence.
+
+**7 Nov, on the live record:** no window is complete yet (the oldest pairs have 13 test days). R-001 has 284
+restricted trades in 13 days, so its first window completes after Tue 10 Nov.

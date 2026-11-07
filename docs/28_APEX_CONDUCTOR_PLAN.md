@@ -232,8 +232,11 @@ From its date the rule does not change. A change makes a new rule with a new dat
   book's day.
 * A passed rule is rolled out to the family's other variants, and each starts its own confirmation window of 15
   trading days. Each confirmed variant becomes its own pool entry (book under rule).
-* **Live engine:** at most **5** rules that passed their first window may also run live; everything else stays in
-  the evening replay, so the live engine is never slowed.
+* **Live engine (owner, 7 Nov):** the restricted books run **live**, beside every other book, from their first test
+  day (the 15 of R-002 to R-005 from Mon 9 Nov). There is no evening replay yet, and the live run gives each rule its
+  real fills day by day. Measured cost: about +6 % per engine step on the test rig (87 books against 72); to be
+  confirmed on a real day. *(Was: at most 5 rules live, after passing their first window; the rest in the evening
+  replay.)*
 * **Compute:** restricted books start on the freeze date. The evening replay takes about 1 h 40 min per day for
   today's books plus a share per restricted book; the nightly budget is shown on the register.
 
@@ -448,9 +451,9 @@ from their bases only by exits, on identical triggers, so they are a ready-made 
 |---|---|---|
 | 1 | Missed-signal recorder | built and unit-tested (docs/29); proven on two tape slices; full-tape proof at the Conductor build |
 | 2 | Weather snapshot engine on the existing entry hook (`open_trade` already records `signal`, `edge_in`, `advisors`, `regime`, `phase_in`, `sr_in`; counterfactuals carry the same), **leak test** by arrival time. The eight shortlisted factors first: calendar/phase, day efficiency, position in range, breadth, room to OI wall, straddle expanding, theta breakeven, VIX | **built 7 Nov**: the eight, then version 2 with about 40 more from docs/27 (its build-status table lists what is in, what is already on every trade elsewhere, and what needs data the engine does not keep yet); `apex/engine/weather.py`, `weather_trig` on every position and missed row, leak test by arrival time in tests/test_weather.py; the full-tape leak test (a replay truncated at each trigger) runs at the Conductor build |
-| 3 | Diaries, loss labels (per-family threshold), family search with luck check, weather cards, rule register | to build |
+| 3 | Diaries, loss labels (per-family threshold), family search with luck check, weather cards, rule register | **built 7 Nov** (`apex/conductor/`: `diary.py` reads paper/<day>.json and missed_<day>.jsonl; `search.py` writes cards.json / cards.md; `register.py` proposes, adds and tracks rules, register add-only, status in `apex/rules/status.jsonl`). Runs on the replayed days at the Conductor build |
 | 4 | Hand-written rules, dated and frozen now (they need no search). Candidates: spot retest on expiry days before 11:30; normal days only after a trending last 60 min; breakout and impulse families only with breadth ≥ 60 %; council-normal mornings only; no entries in the last 45 min for families holding > 15 min | **frozen 7 Nov** with exact formulas: docs/31, `apex/rules/register.json` (R-001 to R-005, plus the seeded pairs R-006 to R-018) |
-| 5 | Restricted-book machinery; Conductor code (pool, priority, protected phases) | to build |
+| 5 | Restricted-book machinery; Conductor code (pool, priority, protected phases) | **restricted books built 7 Nov**: the frozen rules as code (`apex/engine/rules.py`), 15 restricted shadow books for R-002 to R-005 (docs/31); **scoring built** (`apex/conductor/score.py`: windows, the seven tests, verdicts, the e-value watch); the Conductor itself still to build |
 | 6 | **Conductor build — all replays together:** the recorder gate on two full tapes (docs/29); pre-flight (books load, double replay identical, anchor check against live days); one tape for sign-off; full replay of every book on all recorded days with the run manifest (commit, book registry, fixed book order); diaries; the whole-pipeline control run; scoring every frozen rule on its test days; the Conductor's own replay | at the Conductor build |
 | 7 | Forward tests continue on each new day; first passes | weeks; low-frequency families 20+ days; expiry-day rules 2+ months |
 | 8 | Conductor live as a shadow; switching trial | after the first passes |

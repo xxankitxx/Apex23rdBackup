@@ -215,6 +215,10 @@ class Adapter:
             if abs(opt.get("delta") or 0) < 0.5:          # owner's ATM/ITM rule (|delta| >= 0.52 at the signal)
                 return False
             why = f"COUNCIL {act[3] if len(act) > 3 else ''}".strip()
+            if book.p.get("rules"):                   # 7 Nov (stage 5): a restricted council book's frozen rules
+                from .. import rules as rules_mod
+                if rules_mod.check(book, ctx, opt, why):
+                    return False
             if config.FILL_NEXT_PRINT:
                 paper.request_entry(book, ctx, opt, why)   # filled by try_fill_entry on a later second
                 return False

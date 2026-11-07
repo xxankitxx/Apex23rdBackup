@@ -1,5 +1,51 @@
 # Changelog
 
+## 7 Nov 2026 (night) — rule scoring
+- **`apex/conductor/score.py`**: each frozen rule's restricted book against its free book on test days only.
+  Windows per docs/28 §6 (30 trades or 15 trading days, whichever later; the second the same again; never extended);
+  the seven tests per §2 (strike rate and return against the 95th percentile of random same-size sets of the free
+  book's trades, a day-level draw for day-type rules; positive with and without the best trade / day; ahead without
+  them; two-thirds of the free book's top-10 % wins taken within 60 s on the same side; worst day no worse; two
+  windows); verdicts; after a pass the two e-values on the daily differences (switch-off at 20). Evidence hygiene
+  as in the learning loop. `--record` writes status changes.
+- **Register near-duplicates per docs/28 §6:** a line within 20 % of the factor's range of a failed rule, in either
+  direction, is blocked for 20 trading days (was 10 % of the line, for ever).
+- First run on a copy of the live records: no window complete yet; R-001 completes its first window after 10 Nov.
+- Tests: test_score.py (6); test_conductor.py updated. Suite: 405 passed, 0 failed.
+
+## 7 Nov 2026 (night, last) — Conductor stage 5 begins: the restricted books
+- **`apex/engine/rules.py`**: the frozen rules R-002 to R-005 as code, numbers exactly as registered (efficiency 0.35
+  in our direction, breadth 60 %, council normal days before 12:00, ORB before 14:30), read on the weather
+  photograph at the entry, only for the entry patterns in the rule's family. A book with `rules=(...)` refuses an
+  entry the rule fails; the setup is skipped like every other entry veto. Same check in the council adapter and in
+  the missed-signal recorder's council twins. An unknown rule id refuses every entry (never trade unchecked).
+- **15 restricted shadow books** (owner's go-ahead): each representative + one rule, `config.RESTRICTED`, named
+  `<rep>_r00N`; they trade beside their free books from Mon 9 Nov. 86 books in all (+ RAW). No existing book
+  changes.
+- Tests: test_restricted_books.py (the code matches the register, each rule's scope, the veto clears the setup on
+  the real entry path); pinned book counts 71 -> 86. Suite: 399 passed, 0 failed. A real engine with all 87 books
+  stepped with no fault, both restricted council books with their own adapters.
+
+## 7 Nov 2026 (night, later) — Conductor stage 3: diaries, search, weather cards, register code
+- **`apex/conductor/diary.py`**: one row per trigger from paper/<day>.json and missed_<day>.jsonl: family (entry
+  pattern x day type, per row), the weather photograph, the outcome, win / loss labels. A loser "never worked" when
+  its best point stayed under max(one-third of its family's median winning peak, the book's own stop distance =
+  the median points of its stop-outs), else it "gave it back". Counterfactuals weigh 0.5 when they overlap the real
+  trade, 1 when not. Exclusions kept with their reason: quote defects and defect windows, closing-auction entries,
+  counterfactuals with no outcome. `python -m apex.conductor.diary DATA_DIR`.
+- **`apex/conductor/search.py`**: per family, on its representative (the least-gated member), every weather number
+  and line; a line goes on the card only with >= 15 trades each side (>= 5 days for whole-day facts), more wins AND
+  more return on the kept side, the same with the line moved a step, two-thirds of the big wins kept, and a lift
+  above the 95th percentile of the best line found on shuffled outcomes. cards.json + cards.md, every line marked
+  "found by searching the past". About 24 s per family.
+- **`apex/conductor/register.py`**: propose a rule from a card line (frozen today, tested from the next trading
+  day), refuse duplicates and near-duplicates of failed rules (within 10 %), append-only register, statuses in
+  `apex/rules/status.jsonl`, test days, the register's own luck line.
+- Missed rows now carry `ep_type` / `cf_why`.
+- Smoke check on the live paper records (read only; no weather photo on them yet): 5,557 rows, 32 families, 382
+  excluded with reasons; of the labelled losers 2,563 never worked and 295 gave it back.
+- Tests: test_conductor.py (7). Suite: 392 passed, 0 failed.
+
 ## 7 Nov 2026 (later still) — stage 2, version 2 of the weather photograph
 - **About 40 more factors from docs/27**, all from data the engine already has, in the trade's direction where it
   matters: day before expiry, first session after a break, event day, hours to expiry, minutes to the flatten,

@@ -139,6 +139,7 @@ class MissedRecorder:
                "cf_worst_pts": t.get("worst_pts"), "cf_stale_exit": bool(t.get("stale_exit")),
                "cf_fill_delay_s": t.get("fill_delay_s"), "cf_gap": bool(t.get("gap")),
                "cf_reason": t.get("reason"), "cf_strike": t.get("strike"), "cf_rr": t.get("rr"),
+               "ep_type": t.get("ep_type"), "cf_why": t.get("why"),   # 7 Nov (stage 3): the diaries' family
                "is_counterfactual": True, "snapshot_id": ep.eid,
                # 7 Nov (stage 2): the photograph. The counterfactual's own (with its contract's theta) when it
                # reached a trigger, else the one taken at the first fire (no contract fields)
@@ -266,6 +267,10 @@ class MissedRecorder:
         if abs(opt.get("delta") or 0) < 0.5:
             return
         why = f"COUNCIL {act[3] if len(act) > 3 else ''}".strip()
+        if b.p.get("rules"):                     # 7 Nov (stage 5): the same frozen-rule check as Adapter.step
+            from . import rules as rules_mod
+            if rules_mod.check(b, ctx, opt, why):
+                return
         strength = getattr(tw, "_buy_v", None)   # 7 Nov (C20): the strategy's own trigger strength at the BUY
         if strength is None:
             m = _V.search(why)                   # fallback: the velocity in the signal text (e.g. "EXP brk v=+23")

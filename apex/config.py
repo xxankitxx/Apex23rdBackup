@@ -385,6 +385,19 @@ VARIANTS["c20_9e"] = dict(_G, council="c20_9e")      # 3 Nov (owner): c20_9x + e
 VARIANTS["c20_9h"] = dict(_G, council="c20_9h")      # 3 Nov: c20_9x + half-of-peak floor after +15 % on expiry days; shadow (docs/21 §4)
 VARIANTS["c20_9s"] = dict(_G, council="c20_9s")      # 3 Nov night (owner): c20_9x + stale-impulse pullback veto (normal days, 660 s); shadow (docs/22)
 VARIANTS["c20_9y"] = dict(_G, council="c20_9y")      # 4 Nov night (owner): c20_9x + IV-rich and OI-wall entry vetoes from the 20-member panel C12; shadow (docs/23)
+# 7 Nov (owner, Conductor stage 5): the RESTRICTED books of the hand-written rules frozen 7 Nov (docs/31,
+# apex/rules/register.json): each family's representative with one rule switched on (apex/engine/rules.py), traded
+# beside its free book from Mon 9 Nov. Name = representative + "_r00N". Shadow books only; nothing else changes.
+RESTRICTED = {
+    "R-002": ("spot_dc12_t12", "spot_dc12_t12_first", "spot_pb45", "spot_orb45", "m1.5_s0.4", "gap3_s0.4",
+              "fade_switch", "c20_9x"),
+    "R-003": ("spot_dc12_t12_first", "spot_orb45", "spot_pb45", "m1.5_s0.4", "gap3_s0.4"),
+    "R-004": ("c20_9x",),
+    "R-005": ("spot_orb45",),
+}
+for _rid, _reps in RESTRICTED.items():
+    for _rep in _reps:
+        VARIANTS[f"{_rep}_r{_rid[2:]}"] = dict(VARIANTS[_rep], rules=(_rid,))
 
 CHAMPION_DEFAULT = "c20_9x"  # 1 Nov (owner): back from c20_9t after its 8-day replay; before: c20_9t (31 Oct, never live), t28_gap (29 Oct 11:40), t28_cheap (29 Oct morning), t28_gap (28 Oct evening), lvl_trail_re (28 Oct), edge_gate_trail and edge_gate_only (27 Oct), spot_dual_lvl (D-142), edge_gate_trail and edge_gate_only (27 Oct), spot_dual_lvl (D-142)
 # D-124 (owner, 20 Oct 16:16: "Apply spot_dc12_t12 thoroughly on my code"): the champion is the owner's choice.
@@ -627,7 +640,8 @@ VARIANT_KEYS = frozenset(("m_star", "s_star", "L_star", "d_star", "s_exit", "iv_
                           "rt_fill", "fill_tgt", "fill_stop",
                           "iv_fall_rel15", "skip_bid_pile", "bid_pile_lookback_s", "bid_pile_max",
                           "entry_hi5_veto_pct", "req_move_veto", "req_move_k",
-                          "cheap_strike", "cheap_anchor_s", "cheap_dte0_only", "spot_src", "council"))   # 27 Oct: buyer edge; 30 Oct: council books
+                          "cheap_strike", "cheap_anchor_s", "cheap_dte0_only", "spot_src", "council",
+                          "rules"))   # 7 Nov: a restricted book's frozen rule ids (apex/engine/rules.py)   # 27 Oct: buyer edge; 30 Oct: council books
 VARIANT_MODES = ("gap_star", "exit_book", "spike", "random", "momentum", "spot_dc", "fade_switch")   # at most one per variant
 
 

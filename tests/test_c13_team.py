@@ -39,8 +39,10 @@ def _chain(*deltas):
 
 
 def test_registered():
-    assert config.validate() == [] and len(config.VARIANTS) == 71        # 67 + c20_9e, c20_9h (3 Nov), c20_9s (3 Nov night), c20_9y (4 Nov)
-    assert list(config.VARIANTS)[-4:] == ["c20_9e", "c20_9h", "c20_9s", "c20_9y"]
+    assert config.validate() == [] and len(config.VARIANTS) == 86        # 67 + c20_9e, c20_9h (3 Nov), c20_9s (3 Nov night), c20_9y (4 Nov) + 15 restricted (7 Nov)
+    names = list(config.VARIANTS)
+    assert names[names.index("c20_9e"):names.index("c20_9y") + 1] == ["c20_9e", "c20_9h", "c20_9s", "c20_9y"]
+    assert sum(1 for p in config.VARIANTS.values() if p.get("rules")) == 15
     assert config.VARIANTS["t28_core"]["delta_target"] == 0.46 and config.CHAMPION_DEFAULT == "c20_9x"
     for k in ("t28_d46", "t28_gap", "t28_dur20", "t28_ts", "t28_fill", "t28_core", "t28_core_fill", "t28_all"):
         assert "alloc_pct" not in config.VARIANTS[k]                         # all-in, owner's rule
