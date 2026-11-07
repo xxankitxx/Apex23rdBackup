@@ -59,6 +59,8 @@ class Domino:
         self.eq_w = np.array([it["wn"] for it in self.eq], dtype=float)
         self.eq_sym = [it["sym"] for it in self.eq]
         self.all_eq = [it for it in items if it["kind"] == "eq"]
+        # 7 Nov (review 11): sig / vol15_base are kept BY POSITION when the heavyweight count is unchanged. Correct
+        # because the registry is rebuilt in universe.STOCKS order; fragile if that order ever changes.
         if not hasattr(self, "sig") or len(self.sig) != len(self.eq_ids):
             self.sig = np.full(len(self.eq_ids), np.nan)
             self.sig_n = np.zeros(len(self.eq_ids))

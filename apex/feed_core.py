@@ -167,6 +167,8 @@ def apply_packet(table, by_token, raw, recv_ns: int) -> int:
         i = by_token["fo" if n == 23 else "eq"].get(tok, -1)
     else:
         i = by_token["fo"].get(tok, by_token["eq"].get(tok, -1))
+        # 7 Nov (review 3.3): depth packets prefer the NFO segment. Right today (depth is subscribed on the future and
+        # the hero options only, all NFO); a cash instrument with depth and the same numeric token would be misrouted.
     if i < 0:
         return -1
     r = table.col                         # T02: cached column views (same cells, same values)
@@ -195,6 +197,9 @@ def apply_packet(table, by_token, raw, recv_ns: int) -> int:
         if d_new is not None and d_old is not None and d_new < d_old:
             return -1
         px_ok = not (d_new is not None and d_new == d_old and ltt_new < old_ltt - 2.0)
+        # 7 Nov (review 3.2), intended: a packet >= 2 s older than the held quote keeps the held ltp / ltt but STILL
+        # updates bid / ask / sizes / OI and bumps seq and recv_ns. So the quote age (recv_ns) reads fresh while the
+        # trade age (ltt) reads old. Both are right: bid / ask are fresh. D-101 uses ltt; freshness gates use recv_ns.
         if ttq_new == ttq_new and (old_ttq <= 0 or ttq_new >= old_ttq or ttq_new < VOLUME_RESET_FRAC * old_ttq):
             ttq_set = ttq_new
         else:
@@ -310,6 +315,28 @@ def config_hash():
     blob = json.dumps({"VARIANTS": config.VARIANTS, "CONTROLS": list(config.CONTROLS), "GUARD": g,
                        "IV_RISE_CAP": config.IV_RISE_CAP}, sort_keys=True, default=str)
     return hashlib.sha1(blob.encode()).hexdigest()
+
+
+# 7 Nov (review 3.1): paths, ports and process plumbing do not change what a replay trades; REPLAY_FAST follows APEX_FAST
+_HASH_SKIP = {"ROOT", "DATA_DIR", "TICKS_DIR", "PAPER_DIR", "LEARN_DIR", "LOG_DIR", "SECRETS_DIR", "STATIC_DIR",
+              "INSTRUMENTS_JSON", "TOKEN_CACHE_JSON", "KILL_FILE", "HOST", "PORT", "SHM_TABLE", "SHM_STATE",
+              "AUDIO", "REPLAY_FAST"}
+
+
+def config_hash_full():
+    """sha1 of EVERY upper-case config constant that can change a trade (clocks, delta bands, fills, exits, brakes,
+    LEARN_DECIDE, REPLAY_STEP_S ...). config_hash() above stays as it was, to compare with the tapes it stamped."""
+    import hashlib
+    vals = {}
+    for k in dir(config):
+        if not k.isupper() or k in _HASH_SKIP:
+            continue
+        v = getattr(config, k)
+        if isinstance(v, (set, frozenset)):
+            v = sorted(v, key=repr)
+        if isinstance(v, (int, float, str, bool, tuple, list, dict)) or v is None:
+            vals[k] = v
+    return hashlib.sha1(json.dumps(vals, sort_keys=True, default=str).encode()).hexdigest()
 
 
 def part_path(base_dir: str, stem: str, part: int) -> str:

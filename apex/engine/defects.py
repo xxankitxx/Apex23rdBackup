@@ -15,14 +15,20 @@ control tests, advisor screens, candidate diagnostics) while it stays on file an
     dropping only the mispriced trades would bias every PAIRED test (19 Oct: futures_only keeps its
     10 PE trades, -22.6 %/day, while its 9 frozen CE trades — +36 %, +12 % ... at true prices — are
     dropped). So on a day with a defect, a window is quarantined for EVERY book:
-      * automatic: from the first defective entry (or the open, if the stamp is from a previous
-        session — the contract never updated that day) to the last defective exit;
+      * automatic: around each CLUSTER of defective trades (7 Nov, review 7.1): the day's defective trades
+        sorted by entry, a new cluster when the next one starts more than CLUSTER_GAP_S (30 min) after the
+        cluster's last exit; each window runs from its first defective entry (or the open, if a stamp is
+        from a previous session: the contract never updated that day) to its last defective exit. Before,
+        one window spanned every defect of the day, so one stale quote at 14:50 quarantined the morning too;
       * declared: windows the owner lists in data/learning/defects.json, e.g.
         [{"day": "2026-10-19", "from": "09:15:00", "to": "11:05:00", "ref": "D-095",
           "reason": "CE quotes frozen at Friday's close (ttq ordering guard)"}]
         "to" = the engine restart on the fixed code. A window covering the whole session removes
         the day from the evidence entirely (it is not a 0 % day).
-    The union of both is used. Nothing here changes a trading decision.
+    The union of both is used. An automatic window covering the whole session removes the day too (7.3).
+    The window test uses the trade's ENTRY time (7.4): a trade entered inside a window and exiting after it
+    is dropped; one entered before and exiting inside is kept. That protects the entry decision, which is
+    what read the polluted inputs. Nothing here changes a trading decision.
 """
 import json
 import os
@@ -30,6 +36,7 @@ import os
 from .. import config
 
 DEFECTS_FILE = os.path.join(config.LEARN_DIR, "defects.json")
+CLUSTER_GAP_S = 1800                 # 7 Nov (review 7.1): defects further apart than this get their own window
 _DAY_S = 86400.0
 
 
@@ -96,8 +103,9 @@ def load_declared(path=None):
 
 
 def auto_windows(rows):
-    """rows = days.jsonl rows (every book). {day: (from_s, to_s, n_defect_trades)} from quote defects."""
-    out = {}
+    """rows = days.jsonl rows (every book). {day: [(from_s, to_s, n_defect_trades), ...]} from quote defects, one
+    window per cluster of defective trades (CLUSTER_GAP_S), in time order."""
+    spans = {}
     for r in rows:
         for t in r.get("trades") or []:
             if not quote_defect(t):
@@ -106,8 +114,17 @@ def auto_windows(rows):
             b = _secs(t.get("time_out") or t.get("time_in"))
             if a is None or b is None:
                 continue
-            lo, hi, n = out.get(r["day"], (a, b, 0))
-            out[r["day"]] = (min(lo, a), max(hi, b), n + 1)
+            spans.setdefault(r["day"], []).append((a, max(a, b)))
+    out = {}
+    for day, xs in spans.items():
+        ws = []
+        for a, b in sorted(xs):
+            if ws and a <= ws[-1][1] + CLUSTER_GAP_S:
+                lo, hi, n = ws[-1]
+                ws[-1] = (lo, max(hi, b), n + 1)
+            else:
+                ws.append((a, b, 1))
+        out[day] = ws
     return out
 
 
@@ -122,12 +139,12 @@ class Quarantine:
         self.err = declared_err
 
     def windows(self, day):
-        w = [(a, b, "auto", f"{n} quote-defect trade(s)") for a, b, n in [self.auto[day]]] if day in self.auto else []
+        w = [(a, b, "auto", f"{n} quote-defect trade(s)") for a, b, n in self.auto.get(day, [])]
         return w + [(a, b, ref or "declared", why) for a, b, ref, why in self.declared.get(day, [])]
 
     def whole_day(self, day):
         o, c = config.mins(config.MARKET_OPEN) * 60, config.mins(config.MARKET_CLOSE) * 60
-        return any(a <= o and b >= c for a, b, _, _ in self.declared.get(day, []))
+        return any(a <= o and b >= c for a, b, _, _ in self.declared.get(day, []))             or any(a <= o and b >= c for a, b, _ in self.auto.get(day, []))      # 7 Nov (review 7.3)
 
     def reason(self, day, t):
         q = quote_defect(t)

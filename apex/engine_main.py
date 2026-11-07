@@ -754,7 +754,8 @@ class Engine:
           frozen            : hero contracts whose exchange stamp is > 300 s old (name + minutes)
           lag_s             : receive time minus exchange time on the Nifty index (feed delivery lag)."""
         now = self.now_s
-        out = {"ce_live": None, "pe_live": None, "frozen": [], "lag_s": None}
+        out = {"ce_live": None, "pe_live": None, "frozen": [], "lag_s": None,
+               "feed_sync": int(self.t.c("feed_sync"))}       # 7 Nov (review 4.1): 1 / -1 / 0, see table.CTRL_DTYPE
         if self.spot_id is not None:
             lt, rn = float(snap["ltt"][self.spot_id]), int(snap["recv_ns"][self.spot_id])
             if lt > 1e9 and rn > 0:

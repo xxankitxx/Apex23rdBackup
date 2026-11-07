@@ -951,6 +951,9 @@ def evaluate_spike_entry(book, ctx, gates):
 
 
 # ── control books (D-065): they can never become champion; they exist to be beaten ──
+# 7 Nov (review 11): fired ids share ONE set per book (fired_episodes), so the families' id ranges must never overlap:
+# domino episodes +int(now_s*10) (~+1.8e10); straddle spikes -int(spike id) (~-1.8e9); random -(1e7 + sod);
+# momentum -(2e7 + sod); spot -(3e10 + now_s); fade -(4e10 + now_s). Keep any new family clear of these.
 RANDOM_ID0 = 10 ** 7             # fired ids for control books, negative and clear of spike ids
 SPOT_ID0 = 3 * 10 ** 10          # D-116 spot-breakout fire ids
 FADE_ID0 = 4 * 10 ** 10          # D-121 fade-switch fire ids

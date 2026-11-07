@@ -1,5 +1,26 @@
 # Changelog
 
+## 7 Nov 2026 (evening) — stakeholder code review round 2: replay fidelity
+- **`apex/replay_compare.py`**: two run folders, per day: books / trades / fields exact, tapes line by line (#cf
+  lines out; DATA lines optional), recorder errors fail the day; one verdict per day, non-zero exit on a difference.
+- **Batch driver:** every restarted-feed part of a tape is listed and hashed; the tape's own meta record; `--seed`
+  also copies `day_levels.json`, `strike_levels.json` and `defects.json` (hashed in the manifest); per day what the
+  engine actually ran with (default book, gates, gate: books); Python, numpy and platform; a hash of every config
+  constant (`feed_core.config_hash_full`; the old `config_hash` stays for old tapes); each child's output in
+  `tape_XX.out`; refuses to run without `config.LEARN_DECIDE`; a stopped run is marked "aborted"; git checked once.
+- **Quarantine windows per cluster** of quote-defect trades (30 min gap), not one window per day; a session-long
+  automatic window removes the day like a declared one. Evidence only; no trading decision changes.
+- **Opening range after a late start:** a first trusted print more than 10 min after 09:15 (a cold restart) leaves
+  the range unknown: no OR levels, no ORB trade that day. Normal days and replays unchanged.
+- **Day state view:** `give` (share of the leg given back), `pos_in_range`, `or_late`, for the factor search.
+- **Feed:** a WARNING when the in-order dispatch (D-106) cannot be installed, and a `feed_sync` flag shown on the
+  dashboard's data-health line ("FEED SLOW MODE"); a reconnect no longer reports the installed hook as a failure;
+  `python-engineio` added to requirements.
+- **Comments:** the seqlock's single-writer and x86 assumptions and who writes each control field; snapshot cost;
+  the older-packet rule in `apply_packet`; depth segment routing; the mid-day table zeroing; recenter under the GIL;
+  the fired-id ranges per family; domino state kept by position.
+- Tests: test_review2_7nov.py, test_replay_batch.py; test_c10_daystate.py feeds at 09:15. Suite: no new failures.
+
 ## 7 Nov 2026 (later) — stakeholder rounds 4–5: record-only learning, run manifest, review fixes
 - **The learning loop is record-only** (`config.LEARN_DECIDE = False`, owner): its nightly report still says what it
   would have done, but it never changes the default book, retires a book, or adds/removes a gate or candidate book.

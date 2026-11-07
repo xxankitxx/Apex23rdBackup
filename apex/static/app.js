@@ -155,8 +155,9 @@ function renderHealth(h) {
   if (!nil(h.lag_s)) parts.push(`data ${fmt(h.lag_s, 1)} s behind`);
   const fr = (h.frozen || []);
   if (fr.length) parts.push(`FROZEN: ${fr.slice(0, 3).join(", ")}${fr.length > 3 ? " …" : ""}`);
+  if (h.feed_sync === -1) parts.push("FEED SLOW MODE (D-106)");   // 7 Nov: sync dispatch not installed
   el.textContent = parts.join(" · ");
-  const bad = fr.length || (!nil(h.ce_live) && h.ce_live < 0.5) || (!nil(h.pe_live) && h.pe_live < 0.5);
+  const bad = h.feed_sync === -1 || fr.length || (!nil(h.ce_live) && h.ce_live < 0.5) || (!nil(h.pe_live) && h.pe_live < 0.5);
   const warn = !nil(h.lag_s) && h.lag_s > 3;
   el.className = "dhealth" + (bad ? " bad" : warn ? " warn" : "");
   el.title = "From exchange time stamps: share of this week's options that traded in the last minute, the hero contracts with no trade for 5+ minutes, and how far the feed runs behind the exchange.";

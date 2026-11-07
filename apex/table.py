@@ -55,7 +55,13 @@ CTRL_DTYPE = np.dtype([
     ("stop", "i8"),            # supervisor sets 1 to ask children to exit
     ("lockstep", "i8"),        # D-105: replay runs lock-step (engine steps once per STEP of virtual time)
     ("eng_vt_ns", "i8"),       # D-105: virtual time of the engine's last completed step
+    ("feed_sync", "i8"),       # 7 Nov (review 4.1): live feed dispatch: 1 in the read loop (D-106), -1 thread per
+                               #   message (the 19 Oct lag), 0 not live / not yet known
 ])
+# 7 Nov (review 1.1): who writes what. One writer per FIELD: the feed (gseq, reg_version, feed_hb_ns, feed_state, msgs,
+# reconnects, hot_*, msgs_per_s, vix*, chain_*, rest_today, feed_sync; now_ns in sim / replay), the engine
+# (engine_hb_ns, eng_vt_ns), the gateway (gateway_hb_ns), the supervisor / replay driver (speed, stop, lockstep, and
+# now_ns in a fast replay). Every field is 8-byte aligned, so each store is a single atomic write on x86-64.
 
 MAGIC = 0xA9E0_0001
 CTRL_BYTES = 4096
@@ -119,6 +125,9 @@ class Table:
 
     # ── writer side (feed only) ────────────────────────────────────────────
     def begin(self, i: int):
+        # 7 Nov (review 1.1): the row seqlock is correct only because (a) exactly ONE process writes rows (the feed)
+        # and (b) x86-64 keeps stores in order: numpy writes carry no memory fences, so on ARM the data could become
+        # visible after the even seq. A second row writer or a port to another CPU needs real fences / a lock.
         self.col["seq"][i] += 1           # odd: write in progress
 
     def end(self, i: int, recv_ns: int):
@@ -131,6 +140,8 @@ class Table:
 
     # ── reader side ────────────────────────────────────────────────────────
     def snapshot(self) -> np.ndarray:
+        # 7 Nov (review 1.4): one snapshot copies MAX_ROWS x ROW_DTYPE (~200 KB: 19 scalars + 6x5 depth per row);
+        # the engine takes one per 100-ms step. Negligible, but it is the unit any gateway redesign should count in.
         """Copy of all rows; rows caught mid-write are re-read, yielding between tries (C-40).
         Rows still torn after SNAP_RETRY_S are returned as read; their count is left in
         `self.last_torn` for logging (the return value is unchanged)."""

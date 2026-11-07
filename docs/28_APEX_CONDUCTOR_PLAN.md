@@ -529,6 +529,20 @@ promises.
   (the same-tick tie-break order), and at the end trades per book, recorder rows, errors, faults and wall time.
   A batch never serves the dashboard and uses its own shared-memory names, so it cannot collide with a live
   session; `replay_fast --gateway` refuses to start while a session holds the default names.
+* **The compare tool** (`apex/replay_compare.py RUN_A RUN_B`) is the other half of the gate: per day it compares
+  every book, trade and field exactly, then the decision, strike, missed and event tapes line by line, and fails on
+  any recorder error. `--books-only` for recorder off vs on.
+* **Faithful starting files.** `--seed` copies yesterday's levels (`day_levels.json`), the strike-levels prior and the
+  declared defects along with the learning state; the manifest hashes them. For the full pass: seed from the live
+  data folder, tapes in date order, no gaps. Every restarted-feed part of a tape is listed and hashed, and the
+  manifest carries a hash of every config constant, the Python / numpy versions and what each day actually ran with.
+  Live wrote yesterday's levels only from 22 Oct, so level-exit differences on earlier days are tagged
+  "no prior levels live" in the anchor check.
+* **Quarantine windows are per cluster.** A day's quote-defect trades are grouped (a new window after 30 min clear);
+  one stale quote at 14:50 no longer throws out the morning. An automatic window covering the whole session removes
+  the day, like a declared one.
+* **The opening range after a late start is unknown, not wrong.** If the engine's first trusted print is more than
+  10 min after 09:15 (a cold restart), there are no OR levels and the ORB book does not trade that day.
 * **DATA events are on market time.** The "no trade for 300 s on hero contract(s)" line is now written once per
   market second from the engine step, not from the 4-Hz wall-clock dashboard publish, so the events tape of a replay
   is the same run to run (needed by the gate in docs/29).

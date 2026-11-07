@@ -21,7 +21,7 @@ OPT = {"id": 5, "key": "NIFTY|OPT|2026-10-27|22700|CE", "strike": 22700, "rr": "
 
 def _feed(ds, path, t0=0.0):
     for k, px in enumerate(path):
-        ds.add(t0 + k, px, 600)
+        ds.add(t0 + k, px, 555)          # 09:15 (7 Nov: a first print 10 min after the open is a late start)
     return ds
 
 

@@ -17,6 +17,11 @@ import os
 
 from .. import config
 
+OR_LATE_S = 600      # 7 Nov (review 8.2): a first trusted print later than open + this means the engine started late
+                     # (a cold restart); the opening range is then UNKNOWN (no OR levels, ORB does not trade), not
+                     # measured from the restart. A normal day's first print is within seconds of 09:15, so a replay
+                     # (and every live day so far started before the open) is unchanged.
+
 
 class DayState:
     def __init__(self, day, prior=None):
@@ -27,6 +32,8 @@ class DayState:
         self.range_since = None
         self.or_hi = self.or_lo = None
         self.t0 = None
+        self.or_late = False                 # 7 Nov (8.2): the session started without us; the OR is unknown
+        self.give = None                     # 7 Nov (8.3): share of the day's leg given back (observer)
         self.last = None
         self.close = None                    # last trusted print before the 15:15 index freeze (D-132)
         self.prior = prior or {}             # {"day", "hi", "lo", "close"} of the previous recorded session
@@ -36,10 +43,12 @@ class DayState:
         sp = float(sp)
         if self.t0 is None:
             self.t0 = t
+            open_m = config.mins(config.MARKET_OPEN)
+            self.or_late = hm is not None and (hm - open_m) * 60 > OR_LATE_S
         self.last = sp
         if hm is None or hm < config.mins((15, 15)):
             self.close = sp
-        if t - self.t0 <= config.OR_WINDOW_S:
+        if not self.or_late and t - self.t0 <= config.OR_WINDOW_S:
             self.or_hi = sp if self.or_hi is None else max(self.or_hi, sp)
             self.or_lo = sp if self.or_lo is None else min(self.or_lo, sp)
         new_ext = False
@@ -52,13 +61,14 @@ class DayState:
         if new_ext and self.range_on:            # a new session extreme: a trend has (re)started
             self.range_on, self.range_since = False, None
         leg = self.hi - self.lo
+        self.give = ((self.hi - sp) / leg if self.t_hi > self.t_lo else (sp - self.lo) / leg) if leg > 0 else None
         if not self.range_on and leg >= config.RANGE_MIN_LEG_PTS:
-            give = (self.hi - sp) / leg if self.t_hi > self.t_lo else (sp - self.lo) / leg
+            give = self.give
             if give >= config.RANGE_GIVEBACK:
                 self.range_on, self.range_since = True, t
 
     def or_done(self, t):
-        return self.t0 is not None and t - self.t0 > config.OR_WINDOW_S
+        return self.t0 is not None and not self.or_late and t - self.t0 > config.OR_WINDOW_S
 
     def levels(self, sp):
         """The levels a manual trader watches, as (price, label), unsorted."""
@@ -83,12 +93,17 @@ class DayState:
     def view(self):
         return {"hi": self.hi, "lo": self.lo, "t_hi": self.t_hi, "t_lo": self.t_lo, "range_on": self.range_on,
                 "range_since": self.range_since, "or_hi": self.or_hi, "or_lo": self.or_lo,
-                "pdh": self.prior.get("hi"), "pdl": self.prior.get("lo"), "pdc": self.prior.get("close")}
+                "pdh": self.prior.get("hi"), "pdl": self.prior.get("lo"), "pdc": self.prior.get("close"),
+                # 7 Nov (review 8.3): the continuous values behind range mode, for the factor search (observers)
+                "give": None if getattr(self, "give", None) is None else round(self.give, 4),
+                "pos_in_range": (round((self.last - self.lo) / (self.hi - self.lo), 4)
+                                 if self.last is not None and self.hi is not None and self.hi > self.lo else None),
+                "or_late": bool(getattr(self, "or_late", False))}
 
     # ── persistence ──────────────────────────────────────────────────────────
     def dump(self):
         return {k: getattr(self, k) for k in ("day", "hi", "lo", "t_hi", "t_lo", "range_on", "range_since", "or_hi",
-                                               "or_lo", "t0", "last", "close", "prior")}
+                                               "or_lo", "t0", "or_late", "give", "last", "close", "prior")}
 
     @classmethod
     def load(cls, st):

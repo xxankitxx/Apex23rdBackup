@@ -139,6 +139,10 @@ real book would have.
 
 ## The gate (final form, run at the Conductor build)
 
+Run with `apex/replay_batch.py` (one folder per run, manifest) and checked with `apex/replay_compare.py`: items 1–4
+are what it reports (`--books-only` for item 1). First on the two step-1 slices (6 Nov 09:15–11:15, 3 Nov
+09:15–10:45: expected 72/72 identical, 98 and 129 rows, 0 errors), then the full pass.
+
 1. Recorder off vs on: every real book trade-for-trade identical on two full tapes (one busy, one quiet, both
    exercising council books in and out of positions).
 2. The decision tape, events tape and `strikes_*.jsonl` identical, with `#cf` lines filtered.

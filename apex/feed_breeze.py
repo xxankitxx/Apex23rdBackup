@@ -187,14 +187,18 @@ def install_sync_dispatch():
     ~230 packets/s that is ~230 thread starts per second on Windows; on 19 Oct from 10:10 the feed
     ran 4-12 s behind the exchange in a 30-s saw-tooth and 2.3 % of packets arrived out of order.
     Our handler takes ~13 us, so dispatching messages in the read loop itself, in arrival order,
-    removes the thread churn and the reordering. Returns True if installed."""
+    removes the thread churn and the reordering. Returns True if installed (or already installed).
+    7 Nov (review 4.1): a False is the 19 Oct lag coming back, so the caller logs it as a WARNING and publishes
+    ctrl.feed_sync (1 in the read loop, -1 thread per message) for the engine and the dashboard."""
     try:
         import engineio
         from engineio import packet as eio_packet
     except Exception:
         return False
     cls = getattr(engineio, "Client", None)
-    if cls is None or getattr(cls, "_apex_sync", False) or not hasattr(cls, "_receive_packet"):
+    if cls is not None and getattr(cls, "_apex_sync", False):
+        return True                                    # already installed (a reconnect)
+    if cls is None or not hasattr(cls, "_receive_packet") or not hasattr(eio_packet, "MESSAGE"):
         return False
     orig = cls._receive_packet
 
@@ -260,6 +264,9 @@ class BreezeFeed:
         self.profile = profile
         self.reg = Registry()
         self.reg.version = int(table.c("reg_version"))      # a restart continues the sequence
+        # 7 Nov (review 4.3): this zeroes the live table if the feed restarts mid-day. Safe because: the future's age
+        # reads None, so the data guard turns ON; the registry version bump makes the engine reset its histories; and
+        # D-095's volume-reset rule (VOLUME_RESET_FRAC) accepts the first volume after the reset.
         table.rows[:] = np.zeros(config.MAX_ROWS, dtype=table.rows.dtype)
         self.lock = threading.Lock()
         self.day = config.now_ist().date().isoformat()
@@ -467,7 +474,13 @@ class BreezeFeed:
 
         bc.SocketEventBreeze.on_message = on_message
         if config.FEED_SYNC_DISPATCH:
-            install_sync_dispatch()
+            ok = install_sync_dispatch()
+            if not ok:
+                log("WARNING: engineio sync dispatch NOT installed (engineio changed?): the feed runs one thread per "
+                    "message again, the 19 Oct lag and reordering (D-106). Check python-engineio.")
+            feed.t.set("feed_sync", 1 if ok else -1)
+        else:
+            feed.t.set("feed_sync", -1)
 
     def shape_canary(self):
         """D-138: once a minute, log any packet layouts that are not the verified Breeze shapes."""
@@ -618,6 +631,9 @@ class BreezeFeed:
             self.shutdown()
 
     def maybe_recenter(self):
+        # 7 Nov (review 4.3): runs on the main thread and changes reg.by_token while the read loop reads it. Safe
+        # under the GIL (a new token can miss one packet); do not widen feed.lock to cover it. Live, the table's
+        # now_ns is never written: Table.now_ns() falls back to wall time by design.
         i = self.reg.by_key.get("NIFTY|SPOT")
         if i is None:
             return

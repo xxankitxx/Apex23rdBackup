@@ -41,8 +41,11 @@ def test_one_folder_per_run_and_manifest(monkeypatch):
     assert replay_batch.main([tape, "--run-id", "r1", "--base", base, "--record-missed", "--seed", seed]) == 0
     run_dir = os.path.join(base, "r1")
     m = json.load(open(os.path.join(run_dir, "manifest.json")))
-    assert m["status"] == "ok" and m["tapes"][0]["sha256"] and m["git"]["commit"] == "abc"
-    assert m["learning_start"]["champion"] == "c20_9x" and m["learning_start"]["gates"] == ["g1"]
+    assert m["status"] == "ok" and m["tapes"][0]["parts"][0]["sha256"] and m["git"]["commit"] == "abc"
+    assert m["seeded"]["state"]["champion"] == "c20_9x" and m["seeded"]["state"]["gates"] == ["g1"]
+    assert m["seeded"]["state.json"] and m["seeded"]["day_levels.json"] is None
+    assert m["numpy"] and m["python"] and m["switches"]["config_full_sha1"]
+    assert os.path.exists(os.path.join(run_dir, "tape_00.out"))
     assert m["switches"]["APEX_RECORD_MISSED"] and m["switches"]["APEX_FAST"]
     assert m["results"][0]["books"] == ["t28_core", "RAW"]
     assert m["totals"] == {"trades": 4, "missed_rows": 5, "cf_errors": 0, "recorder_faults": 0}
@@ -70,3 +73,16 @@ def test_switch_mismatch_fails_the_run(monkeypatch):
     m = json.load(open(os.path.join(base, "r2", "manifest.json")))
     assert m["status"] == "FAILED" and m["results"][0]["switch_mismatch"]
     assert not m["switches"]["APEX_RECORD_MISSED"]
+
+
+def test_interrupted_run_is_marked_aborted(monkeypatch):
+    base, src = tempfile.mkdtemp(), tempfile.mkdtemp()
+    tape = _tape(src)
+
+    def run(cmd, cwd=None, env=None, **kw):
+        raise KeyboardInterrupt
+    monkeypatch.setattr(replay_batch.subprocess, "run", run)
+    monkeypatch.setattr(replay_batch, "_git", lambda: {"commit": "abc", "dirty": False})
+    with pytest.raises(KeyboardInterrupt):
+        replay_batch.main([tape, "--run-id", "r3", "--base", base])
+    assert json.load(open(os.path.join(base, "r3", "manifest.json")))["status"] == "aborted"
