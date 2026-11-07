@@ -1,5 +1,21 @@
 # Changelog
 
+## 7 Nov 2026 (night) — rules frozen, spec reconciled, test suite green
+- **Rule register** (`apex/rules/register.json`, docs/31): the five hand-written rules frozen today with exact
+  formulas (ER60, BREADTH_DIR), numbers, families, restricted and free books; test days from Mon 9 Nov. R-001
+  (expiry retests end 11:30) keeps its original 21 Oct date. The existing restricted-vs-free pairs are seeded at their
+  original dates (R-006 to R-018). R-005 (no entry after 14:30 for families whose median hold > 15 min) holds ORB
+  only on the live record. `tests/test_rule_register.py` pins every frozen rule: an edit fails the suite.
+- **docs/28 reconciled:** switch-off is the two-sided e-value (`e_value_mean_le0` on the daily differences and on their
+  negation, off at 20), no 40-day window; returns, not rupees, in the luck margin and the worked example;
+  representatives are the least-gated members everywhere (§3, §5, glossary); spot_ft_prem10 under first-touch;
+  test numbers in §14 (tests 3–4, 5b); determinism is checked at the Conductor build; the glossary's "never worked"
+  matches §4.
+- **Test suite green:** 377 passed, 0 failed (8 gateway tests skipped: `httpx2` not installed; 3 expected failures
+  with reasons). Root cause of most old failures: suites switched `config.FILL_NEXT_PRINT` / `REPLAY_LOCKSTEP` off at
+  import, so the last file imported decided the value for all; conftest now gives each test file its own value.
+  Stale counts updated (71 books); the defects test uses its own paper folder; no engine change.
+
 ## 7 Nov 2026 (evening) — stakeholder code review round 2: replay fidelity
 - **`apex/replay_compare.py`**: two run folders, per day: books / trades / fields exact, tapes line by line (#cf
   lines out; DATA lines optional), recorder errors fail the day; one verdict per day, non-zero exit on a difference.

@@ -8,8 +8,10 @@ session, so the suite can be run on the trading machine at any hour. The engine'
 after the session; a test that still reaches it fails the run.
 """
 import os
+import re
 import shutil
 import tempfile
+import types
 
 import pytest
 
@@ -63,3 +65,34 @@ def _isolated_data_tree():
                          if before.get(p) != after.get(p) and os.sep + "logs" + os.sep not in p)
         if changed:
             pytest.fail("the test session touched the LIVE data tree: " + ", ".join(changed[:10]), pytrace=False)
+
+
+# Engine switches, per module (7 Nov 2026). Most suites set config.FILL_NEXT_PRINT = False at import to test the
+# exit/entry logic on same-step fills (the D-126 and council suites test it as shipped, True); test_wp1 sets
+# REPLAY_LOCKSTEP = False to run the replay feed alone. Imports all happen at collection, before any test runs, so
+# without this the last import wins for every module and the order of the files decides the result. Each module now
+# runs with the value it asked for: False when its source (or a suite it imports, e.g. test_c6_feed -> test_wp2)
+# switches it off at module level, else the shipped value.
+_SWITCHES = ("FILL_NEXT_PRINT", "REPLAY_LOCKSTEP")
+_SHIPPED = {k: getattr(config, k) for k in _SWITCHES}
+_OFF = {k: re.compile(r"^\w+\." + k + r"\s*=\s*False", re.M) for k in _SWITCHES}
+
+
+def _sources(mod):
+    for m in [mod] + [v for v in vars(mod).values() if isinstance(v, types.ModuleType)
+                      and getattr(v, "__name__", "").startswith("test_")]:
+        try:
+            with open(m.__file__, encoding="utf-8") as f:
+                yield f.read()
+        except (OSError, TypeError, AttributeError):
+            pass
+
+
+@pytest.fixture(scope="module", autouse=True)
+def _engine_switches_per_module(request):
+    src = list(_sources(request.module))
+    for k in _SWITCHES:
+        setattr(config, k, False if any(_OFF[k].search(t) for t in src) else _SHIPPED[k])
+    yield
+    for k in _SWITCHES:
+        setattr(config, k, _SHIPPED[k])

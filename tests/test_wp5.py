@@ -244,6 +244,21 @@ API_TESTS = {"test_host_allowlist", "test_ws_origin", "test_ws_connection_cap", 
              "test_with_ages_empty_and_odd_blobs", "test_ws_state_heartbeat_frame",
              "test_ticks_torn_row_skipped", "test_log_throttle"}
 
+try:  # under pytest the gateway tests skip (not fail) when fastapi's TestClient cannot import, as in the script run
+    import pytest  # noqa: E402
+
+    if not HAVE_API:
+        for _n in API_TESTS:
+            globals()[_n] = pytest.mark.skip(reason=f"fastapi TestClient not importable: {WHY.splitlines()[0]}")(globals()[_n])
+
+    @pytest.fixture(scope="module", autouse=True)
+    def _free_private_shm():
+        yield
+        if HAVE_API:
+            _teardown()
+except ImportError:  # pragma: no cover
+    pass
+
 if __name__ == "__main__":
     try:
         for name, fn in list(globals().items()):

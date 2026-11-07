@@ -12,7 +12,13 @@ from datetime import datetime  # noqa: E402
 from apex import config  # noqa: E402
 from apex.engine import paper  # noqa: E402
 
-assert config.FILL_NEXT_PRINT, "this suite tests D-126 as shipped"
+# under pytest other suites switch D-126 off at import; tests/conftest.py restores the shipped value per module
+if "pytest" not in sys.modules:
+    assert config.FILL_NEXT_PRINT, "this suite tests D-126 as shipped"
+
+
+def test_d126_is_on_as_shipped():
+    assert config.FILL_NEXT_PRINT, "this suite tests D-126 as shipped"
 
 T_NORMAL = datetime(2026, 10, 21, 10, 0, tzinfo=config.IST)
 T_FLAT = datetime(2026, 10, 21, config.FLATTEN_AT[0], config.FLATTEN_AT[1], tzinfo=config.IST)

@@ -75,7 +75,15 @@ def test_declared_window_and_whole_day():
 
 def test_candidates_in_window_are_quarantined():
     _reset()
-    os.makedirs(config.PAPER_DIR, exist_ok=True)
+    saved = config.PAPER_DIR                   # its own paper dir: other suites leave candidates_*.jsonl in the shared one
+    config.PAPER_DIR = tempfile.mkdtemp(prefix="apex_test_defects_paper_")
+    try:
+        _candidates_in_window_are_quarantined()
+    finally:
+        config.PAPER_DIR = saved
+
+
+def _candidates_in_window_are_quarantined():
     rows = [{"day": DAY, "time": "09:31:14", "label": "TARGET", "opt": {"rr": "CE"}, "opt_ret": {"300": 0.0}},
             {"day": DAY, "time": "11:30:00", "label": "STOP", "opt": {"rr": "PE"}, "opt_ret": {"300": -5.0}},
             {"day": DAY, "time": "12:00:00", "label": "STOP", "opt": {"rr": "CE"}, "opt_age0": 9999.0, "opt_ret": {"300": 0.0}}]
