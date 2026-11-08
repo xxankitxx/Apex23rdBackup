@@ -1,5 +1,10 @@
 # 14-day replay with the whole photograph (version 3, all 68 items) — 8 Nov 2026
 
+**The complete per-book report is `FULL_REPORT.md` beside this file:** every one of the 87 books over the 14 days
+(trades, wins, losses, win rate, mean return, rupees, losing days, best and worst day), then every restricted book
+against its free parent trade by trade (kept / removed by the rule / extra), a one-line verdict per rule, and every
+losing trade of every restricted book with its trigger, exit reason, hold and return.
+
 Run dirs `data/replay/batch/v3_<day>`, 19 Oct – 6 Nov (14 trading days), 7 at a time, `--seed data`,
 APEX_FAST, missed-signal recorder on. Every manifest `status: ok`, 0 cf_errors, 0 recorder faults, 0 engine faults.
 Every trade's photograph is version 3 with 263–273 fields (the first seven days ran the tree before the `conductor`
