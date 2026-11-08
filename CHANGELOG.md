@@ -1,5 +1,19 @@
 # Changelog
 
+## 9 Nov 2026 (pre-open, 05:20 IST) — the pool is applied; the Conductor is the champion
+- **Owner ("Yes, apply pool"):** `apex/rules/pool.json` holds the c20 family unrestricted from 9 Nov: c20_9y, c20_9s,
+  c20_9v, c20_9x, c20_9t (standing low; same-tick priority by the 14-day card's mean return per trade, in-sample).
+  No factor lines: the 10-agent rule team (59 books, 871 rules, `data/replay/batch/v3_cards_2026-11-08/team/`) found
+  none that survives the shuffle test and the held-out days.
+- **`config.CHAMPION_OWNER = ("conductor", "2026-11-09")`.** `CHAMPION_DEFAULT` stays c20_9x (RAW's base, and the
+  fallback if the learning state names an unknown book).
+- **Shadow rules R-019 / R-020 (register, frozen before the open, NOT in the pool):** the family vote,
+  `agree_same >= 7` on c20_9y and `>= 6` on c20_9s. On the 14 replayed days every c20_9y trade taken while one earlier
+  council sibling stayed silent lost (12 of 12). Pre-registered and judged on live days only.
+- **Tests:** the suite runs on a plain champion (`conftest._plain_champion`); tests marked `owner_champion` check the
+  shipped value. New: the engine starts with the Conductor as champion, loads this pool, and mirrors a pool book's
+  fill and exit through its own step.
+
 ## 8 Nov 2026 (evening) — the Conductor's account
 - **Owner's decision:** the Conductor runs live on paper from Mon 9 Nov on the pairs the 14-day all-item cards
   support; every other book in shadow; no proof period as a gate; the pool is improved every evening. "No losing

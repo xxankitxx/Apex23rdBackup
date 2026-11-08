@@ -1,11 +1,13 @@
+import pytest
 """30 Oct (D-145): council books — c20_9x champion, c20_8x shadow, run through apex/engine/council.Adapter."""
 import importlib
 
 from apex import config
 
 
+@pytest.mark.owner_champion
 def test_council_books_registered_and_champion():
-    assert config.CHAMPION_DEFAULT == "c20_9x" and config.CHAMPION_OWNER == ("c20_9x", "2026-10-30")
+    assert config.CHAMPION_DEFAULT == "c20_9x" and config.CHAMPION_OWNER == ("conductor", "2026-11-09")
     for n in ("c20_8x", "c20_9x"):
         assert config.VARIANTS[n]["council"] == n
         assert n not in config.CONTROLS

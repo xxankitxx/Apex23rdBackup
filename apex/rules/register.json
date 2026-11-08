@@ -244,6 +244,40 @@
    "first_test_day": "2026-11-05",
    "source": "existing variant, seeded per B14 (config.py D-148, 3-4 Nov)",
    "reason": "config.py: 4 Nov night (owner), panel C12"
+  },
+  {
+   "id": "R-019",
+   "name": "BOOK:c20_9y: agree_same >= 7",
+   "kind": "entry",
+   "family": "BOOK:c20_9y",
+   "factor": "agree_same",
+   "op": ">=",
+   "line": 7.0,
+   "condition": "enter only if weather_trig.agree_same >= 7 at the trigger second (docs/27, apex/engine/weather.py); a missing value blocks the entry",
+   "restricted_book": "c20_9y family vote (SHADOW: not in the pool, logged only)",
+   "free_book": "c20_9y",
+   "frozen": "2026-11-09",
+   "first_test_day": "2026-11-09",
+   "source": "10-agent rule team, 8-9 Nov (found by searching the past; pre-registered, shadow; frozen before the 9 Nov open)",
+   "reason": "rule team 9 Nov (data/replay/batch/v3_cards_2026-11-08/team/TEAM_REPORT.md): 12 of 12 trades with one earlier council sibling silent lost on the 14 replayed days (1 on the held-out days); full-width shuffle test does not beat luck, so it is frozen here as a pre-registered hypothesis and judged on live days only",
+   "shadow": true
+  },
+  {
+   "id": "R-020",
+   "name": "BOOK:c20_9s: agree_same >= 6",
+   "kind": "entry",
+   "family": "BOOK:c20_9s",
+   "factor": "agree_same",
+   "op": ">=",
+   "line": 6.0,
+   "condition": "enter only if weather_trig.agree_same >= 6 at the trigger second (docs/27, apex/engine/weather.py); a missing value blocks the entry",
+   "restricted_book": "c20_9s family vote (SHADOW: not in the pool, logged only)",
+   "free_book": "c20_9s",
+   "frozen": "2026-11-09",
+   "first_test_day": "2026-11-09",
+   "source": "10-agent rule team, 8-9 Nov (found by searching the past; pre-registered, shadow; frozen before the 9 Nov open)",
+   "reason": "rule team 9 Nov (data/replay/batch/v3_cards_2026-11-08/team/TEAM_REPORT.md): 10 of 10 such trades lost on the 10 discovery days, 2 of 2 on the held-out days; shares 8 triggers with c20_9y; full-width shuffle test does not beat luck, so it is frozen here as a pre-registered hypothesis and judged on live days only",
+   "shadow": true
   }
  ]
 }

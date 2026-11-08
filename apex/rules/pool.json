@@ -1,4 +1,50 @@
 {
  "about": "The Conductor's pool (docs/28 §7, apex/engine/conductor.py). Book-plus-rule pairs, add-only, every entry dated: an entry is in the pool from its `from` date (a replay of an earlier day runs the pool as it stood then). rule = a register id (apex/rules/register.json; coded R-00x or a factor/op/line rule from a weather card) or null for the book unrestricted. standing: full | low (same-tick priority, then ret_per_trade = the pair's test-day return per trade, then the engine's book order). Owner, 8 Nov 2026: the pool is filled from the 14-day all-item cards and the Conductor runs live on paper from 9 Nov; the official standard scores every pair as it goes.",
- "entries": []
+ "entries": [
+  {
+   "book": "c20_9y",
+   "rule": null,
+   "standing": "low",
+   "ret_per_trade": 12.088,
+   "ret_basis": "discovery days (in-sample)",
+   "from": "2026-11-09",
+   "note": "unrestricted (owner, 9 Nov: c20 family pool); 64% winners, mean +12.1 % per trade on the 14-day card (in-sample)"
+  },
+  {
+   "book": "c20_9s",
+   "rule": null,
+   "standing": "low",
+   "ret_per_trade": 11.441,
+   "ret_basis": "discovery days (in-sample)",
+   "from": "2026-11-09",
+   "note": "unrestricted (owner, 9 Nov: c20 family pool); 61% winners, mean +11.4 % per trade on the 14-day card (in-sample)"
+  },
+  {
+   "book": "c20_9v",
+   "rule": null,
+   "standing": "low",
+   "ret_per_trade": 9.897,
+   "ret_basis": "discovery days (in-sample)",
+   "from": "2026-11-09",
+   "note": "unrestricted (owner, 9 Nov: c20 family pool); 67% winners, mean +9.9 % per trade on the 14-day card (in-sample)"
+  },
+  {
+   "book": "c20_9x",
+   "rule": null,
+   "standing": "low",
+   "ret_per_trade": 9.605,
+   "ret_basis": "discovery days (in-sample)",
+   "from": "2026-11-09",
+   "note": "unrestricted (owner, 9 Nov: c20 family pool); 55% winners, mean +9.6 % per trade on the 14-day card (in-sample)"
+  },
+  {
+   "book": "c20_9t",
+   "rule": null,
+   "standing": "low",
+   "ret_per_trade": 4.385,
+   "ret_basis": "discovery days (in-sample)",
+   "from": "2026-11-09",
+   "note": "unrestricted (owner, 9 Nov: c20 family pool); 73% winners, mean +4.4 % per trade on the 14-day card (in-sample)"
+  }
+ ]
 }

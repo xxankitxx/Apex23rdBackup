@@ -3,6 +3,8 @@ pool books' own trigger, fill and exit; same-tick priority; occupied and lost tr
 register-stated factor rules checked on the trigger photograph; the pool read as of the day; the offline simulator
 agrees with the engine path to the trade; the owner survives a restart; the photograph checks."""
 import json
+
+import pytest
 import os
 import sys
 from datetime import datetime
@@ -284,3 +286,40 @@ def test_missing_source_is_an_integrity_fault_then_a_flagged_recovery_exit(tmp_p
     assert ev.count("integrity") == 1 and "adjustment" in ev and ev.index("integrity") < ev.index("adjustment")
     q = type("Q", (), {"reason": lambda self, d, t: None})()
     assert score._ok_trades(cb.trades, DAY, q, lambda t: False) == []       # an adjustment is not scored
+
+
+@pytest.mark.owner_champion
+def test_the_engine_runs_with_the_conductor_as_the_owners_champion():
+    """9 Nov (owner: "Yes, apply pool"): config names the Conductor as champion and the pool file holds the c20 family
+    unrestricted. A fresh engine takes the Conductor as champion, loads that pool, and the champion's account mirrors
+    a pool book's fill and exit through the engine's own step (events, books saved, dashboard view)."""
+    import test_wp2 as W
+    assert config.CHAMPION_OWNER == ("conductor", "2026-11-09")
+    assert [e["book"] for e in cond.active_entries(cond.load_pool(), "2026-11-09")] == ["c20_9y", "c20_9s", "c20_9v", "c20_9x", "c20_9t"]
+    assert not cond.pool_problems(cond.load_pool()) and not config.validate()
+    rig = W.Rig("cchamp", "2026-11-09")
+    shipped, config.FILL_NEXT_PRINT = config.FILL_NEXT_PRINT, True      # as shipped (test_wp2 switches it off at import)
+    try:
+        eng = rig.eng
+        rig.warm()
+        assert eng.champion == "conductor" and "RAW" in eng.books
+        assert [m["book"] for m in eng.conductor.members] == ["c20_9y", "c20_9s", "c20_9v", "c20_9x", "c20_9t"]
+        eng.conductor.members = [_e("spot_dc12_t12", frm="2026-11-09")]      # a book this rig can trade
+        src, cb = eng.books["spot_dc12_t12"], eng.books["conductor"]
+        o = eng.ctx["by_key"][f"NIFTY|OPT|{W.EXP}|25200|CE"]
+        _fire(src, eng.ctx, o)
+        assert eng._conductor_step(eng.ctx)                  # in the engine a book fires inside the step, and the Conductor runs right after it
+        assert cb.ctl["owner"]["book"] == "spot_dc12_t12"
+        rig.step(25210.0, 30)
+        assert src.pos is not None or src.trades, "the source book never filled"
+        assert (cb.pos or cb.trades[-1])["src"] == "spot_dc12_t12"
+        if src.pos is not None:
+            paper.close_trade(src, eng.ctx, src.pos["entry"] + 5.0, "TEST EXIT", eng.ctx["by_key"][src.pos["key"]])
+        rig.step(25210.0, 5)
+        assert cb.pos is None and len(cb.trades) == 1 and cb.trades[0]["src"] == "spot_dc12_t12"
+        assert cb.trades[0]["pnl_rs"] == round(cb.trades[0]["pnl_pts"] * cb.trades[0]["qty"], 2)
+        v = eng._conductor_view()
+        assert v and len(v["members"]) == 1
+    finally:
+        config.FILL_NEXT_PRINT = shipped
+        rig.close()

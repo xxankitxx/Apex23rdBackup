@@ -411,7 +411,7 @@ CHAMPION_DEFAULT = "c20_9x"  # 1 Nov (owner): back from c20_9t after its 8-day r
 # learning.load_state applies it ONCE to an existing state (the champion lives in data/learning/state.json,
 # which the learning loop may later change on evidence); trades from the day after this date count for its
 # scoreboard. Bump the date to force the owner's champion again.
-CHAMPION_OWNER = ("c20_9x", "2026-10-30")   # 30 Oct pre-open (owner: "c20_9x as champion"); kept 1 Nov after c20_9t (31 Oct) lost the 8-day replay; before: t28_gap (29 Oct 11:40), t28_cheap (29 Oct morning), t28_gap (28 Oct evening), lvl_trail_re (28 Oct), edge_gate_trail (27 Oct), spot_dual_lvl (D-142), spot_dual (D-140), spot_pb45 (D-134), spot_dc12_t12 (D-124)
+CHAMPION_OWNER = ("conductor", "2026-11-09")   # 9 Nov (owner: "Yes, apply pool"): the Conductor's account, pool = the c20 family unrestricted (apex/rules/pool.json); before: c20_9x (30 Oct pre-open; 30 Oct pre-open (owner: "c20_9x as champion"); kept 1 Nov after c20_9t (31 Oct) lost the 8-day replay; before: t28_gap (29 Oct 11:40), t28_cheap (29 Oct morning), t28_gap (28 Oct evening), lvl_trail_re (28 Oct), edge_gate_trail (27 Oct), spot_dual_lvl (D-142), spot_dual (D-140), spot_pb45 (D-134), spot_dc12_t12 (D-124)
 # 27 Oct: FREEZE. Four champions in six sessions, each picked on 1-3 days of in-sample replay, each lost on its first
 # unseen day. t28_gap (owner's pick again 29 Oct 11:40, = lvl_trail_re + data-gap guard) is not to be swapped or re-tuned before 15 sessions (or the SPRT) have judged it.
 # 29 Oct (owner: "I want to test my ideas later ... somewhere in the UI"): the Ideas board (apex/engine/ideas/).

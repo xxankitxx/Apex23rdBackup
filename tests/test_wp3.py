@@ -28,6 +28,7 @@ def _fresh():
     os.environ["APEX_DATA"] = tempfile.mkdtemp(prefix="apex_test_wp3_")
     config = importlib.reload(config)
     config.LEARN_DECIDE = True                  # 7 Nov: these tests exercise the deciding mode (shipped record-only)
+    config.CHAMPION_OWNER = (config.CHAMPION_DEFAULT, "2026-10-30")   # 9 Nov: the reload restores the owner's live champion (the Conductor); these tests run on a plain champion (conftest._plain_champion)
     learning = importlib.reload(learning)
 
 

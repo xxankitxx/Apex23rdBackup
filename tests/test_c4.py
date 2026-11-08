@@ -1,3 +1,4 @@
+import pytest
 """Council 4 (19 Oct evening): the spot-breakout books (D-116). python tests/test_c4.py  (numpy only)."""
 import os
 import sys
@@ -164,6 +165,7 @@ def test_d121_fade_switch_follows_in_range_fades_in_chop_and_exits_on_a_bracket(
     assert t and t["reason"] == "HOLD-LIMIT"
 
 
+@pytest.mark.owner_champion
 def test_d124_owner_champion_is_applied_once_to_the_stored_state():
     from apex.engine import learning
     import json
@@ -184,7 +186,7 @@ def test_d124_owner_champion_is_applied_once_to_the_stored_state():
     learning.save_state(s1)
     assert learning.load_state()["champion"] == "m1.5_s0.4"
     os.remove(learning.STATE)
-    assert learning.load_state()["champion"] == config.CHAMPION_DEFAULT                            # fresh state too
+    assert learning.load_state()["champion"] == own                                                # fresh state too: the owner's choice (9 Nov: differs from CHAMPION_DEFAULT)
 
 
 def test_d124_restart_keeps_the_swing_mark_and_the_cool_down():

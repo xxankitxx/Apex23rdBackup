@@ -1,3 +1,4 @@
+import pytest
 """Council 9 (22 Oct): day state, range mode, level booking, premium booking, ORB (D-141). python tests/test_c10_daystate.py"""
 import os
 import sys
@@ -25,8 +26,9 @@ def _feed(ds, path, t0=0.0):
     return ds
 
 
+@pytest.mark.owner_champion
 def test_champion_and_registry():
-    assert config.CHAMPION_DEFAULT == "c20_9x" and config.CHAMPION_OWNER == ("c20_9x", "2026-10-30")   # 27 Oct (was spot_dual_lvl)
+    assert config.CHAMPION_DEFAULT == "c20_9x" and config.CHAMPION_OWNER == ("conductor", "2026-11-09")   # 27 Oct (was spot_dual_lvl)
     p = config.VARIANTS["spot_dual_rg"]
     assert p["range_gate"] and p["dte0_retest"] and p["entry_mode"] == "pullback"
     for n in ("spot_dual_lvl", "spot_ft_prem10", "spot_orb45"):

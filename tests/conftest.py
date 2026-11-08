@@ -96,3 +96,21 @@ def _engine_switches_per_module(request):
     yield
     for k in _SWITCHES:
         setattr(config, k, _SHIPPED[k])
+
+
+# The owner's champion (9 Nov 2026: the Conductor) is a live setting, not a test fixture. The suites that test the
+# learning loop and the exit / entry mechanics were written against a plain champion book, so every test runs with the
+# owner's choice equal to CHAMPION_DEFAULT unless it is marked `owner_champion` (the tests that check the shipped value).
+_OWNER_SHIPPED = config.CHAMPION_OWNER
+
+
+def pytest_configure(config):
+    config.addinivalue_line("markers", "owner_champion: run with the shipped config.CHAMPION_OWNER")
+
+
+@pytest.fixture(autouse=True)
+def _plain_champion(request):
+    from apex import config as cfg
+    cfg.CHAMPION_OWNER = _OWNER_SHIPPED if request.node.get_closest_marker("owner_champion") else (cfg.CHAMPION_DEFAULT, "2026-10-30")
+    yield
+    cfg.CHAMPION_OWNER = _OWNER_SHIPPED
