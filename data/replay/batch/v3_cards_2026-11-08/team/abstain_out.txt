@@ -1,0 +1,44 @@
+c20 family in config order: ['c20_8x', 'c20_9x', 'c20_9t', 'c20_9v', 'c20_9e', 'c20_9h', 'c20_9s', 'c20_9y', 'c20_9x_r002', 'c20_9x_r004']
+
+== c20_9y: trades with agree_same < 7
+2026-10-19 10:30:06 CE agree_same=6 pnl=-25,025 | took: c20_8x -27,027, c20_9x -20,020, c20_9v -20,020, c20_9e -23,023, c20_9h -18,018, c20_9s -20,020, c20_9y -25,025, c20_9x_r002 -20,020, c20_9x_r004 -20,020 | absent: c20_9t
+2026-10-19 12:16:20 PE agree_same=6 pnl=-39,000 | took: c20_8x -42,900, c20_9x -31,980, c20_9v -31,980, c20_9e -25,740, c20_9h -31,200, c20_9s -31,980, c20_9y -39,000, c20_9x_r002 -31,980, c20_9x_r004 -31,980 | absent: c20_9t
+2026-10-19 12:41:36 PE agree_same=6 pnl=-29,458 | took: c20_8x -32,136, c20_9x -24,102, c20_9v -24,102, c20_9e -19,416, c20_9h -23,432, c20_9s -24,102, c20_9y -29,458, c20_9x_r002 -24,102, c20_9x_r004 -24,102 | absent: c20_9t
+2026-10-19 12:50:10 PE agree_same=6 pnl=-28,405 | took: c20_8x -31,395, c20_9x -23,172, c20_9v -23,172, c20_9e +3,331, c20_9h -22,425, c20_9s -23,172, c20_9y -28,405, c20_9x_r002 -23,172, c20_9x_r004 -23,172 | absent: c20_9t
+2026-10-21 14:34:54 PE agree_same=6 pnl=-2,496 | took: c20_8x -2,288, c20_9x -2,288, c20_9t +7,049, c20_9v +12,129, c20_9e -2,288, c20_9h -2,288, c20_9y -2,496 | absent: c20_9s, c20_9x_r002, c20_9x_r004
+2026-10-22 13:04:56 CE agree_same=6 pnl=-7,751 | took: c20_8x -7,751, c20_9x -7,751, c20_9t -8,612, c20_9v -7,751, c20_9e -7,751, c20_9h -7,751, c20_9y -7,751 | absent: c20_9s, c20_9x_r002, c20_9x_r004
+2026-10-23 12:11:52 PE agree_same=1 pnl=+390 | took: c20_9v +260, c20_9y +390 | absent: c20_8x, c20_9x, c20_9t, c20_9e, c20_9h, c20_9s, c20_9x_r002, c20_9x_r004
+2026-10-27 09:40:34 CE agree_same=6 pnl=-9,380 | took: c20_8x -9,380, c20_9x -9,380, c20_9v -9,380, c20_9e +4,140, c20_9h -10,101, c20_9s -9,380, c20_9y -9,380, c20_9x_r002 -9,380, c20_9x_r004 -9,380 | absent: c20_9t
+2026-10-27 13:08:53 PE agree_same=5 pnl=+99,099 | took: c20_8x +99,099, c20_9x +99,099, c20_9v +99,099, c20_9e +2,106, c20_9s +99,099, c20_9y +99,099, c20_9x_r002 +99,099, c20_9x_r004 +99,099 | absent: c20_9t, c20_9h
+2026-10-27 14:15:03 PE agree_same=6 pnl=-1,268 | took: c20_8x -1,089, c20_9x -1,268, c20_9v -1,268, c20_9e +13,455, c20_9h +15,698, c20_9s -1,268, c20_9y -1,268, c20_9x_r002 -1,268, c20_9x_r004 -1,268 | absent: c20_9t
+2026-10-29 11:15:48 PE agree_same=6 pnl=-16,458 | took: c20_8x -17,121, c20_9x -16,458, c20_9t -12,344, c20_9v -16,458, c20_9e -16,458, c20_9h -16,458, c20_9y -16,458, c20_9x_r004 -16,458 | absent: c20_9s, c20_9x_r002
+2026-10-29 12:59:58 PE agree_same=6 pnl=-14,008 | took: c20_8x -14,008, c20_9x -14,008, c20_9t -11,206, c20_9v -14,008, c20_9e -14,008, c20_9h -14,008, c20_9y -14,008 | absent: c20_9s, c20_9x_r002, c20_9x_r004
+2026-11-02 12:02:49 PE agree_same=6 pnl=-14,112 | took: c20_8x -14,112, c20_9x -14,112, c20_9t -14,112, c20_9v -14,112, c20_9e -14,112, c20_9h -14,112, c20_9y -14,112 | absent: c20_9s, c20_9x_r002, c20_9x_r004
+2026-11-02 13:20:47 PE agree_same=5 pnl=+20,192 | took: c20_9x +20,192, c20_9v +20,192, c20_9e +20,192, c20_9h +20,192, c20_9s +23,380, c20_9y +20,192 | absent: c20_8x, c20_9t, c20_9x_r002, c20_9x_r004
+2026-11-04 10:34:58 PE agree_same=6 pnl=-2,379 | took: c20_8x -2,379, c20_9x -2,379, c20_9t +4,856, c20_9v -2,379, c20_9e -2,379, c20_9h -2,379, c20_9y -2,379, c20_9x_r004 -2,379 | absent: c20_9s, c20_9x_r002
+
+== c20_9s: trades with agree_same < 6
+2026-10-19 09:28:51 PE agree_same=5 pnl=-27,072 | took: c20_9x -27,072, c20_9t -27,072, c20_9v -27,072, c20_9e +2,821, c20_9h -27,072, c20_9s -27,072, c20_9x_r002 -27,072, c20_9x_r004 -27,072 | absent: c20_8x, c20_9y
+2026-10-19 10:30:06 CE agree_same=5 pnl=-20,020 | took: c20_8x -27,027, c20_9x -20,020, c20_9v -20,020, c20_9e -23,023, c20_9h -18,018, c20_9s -20,020, c20_9y -25,025, c20_9x_r002 -20,020, c20_9x_r004 -20,020 | absent: c20_9t
+2026-10-19 12:16:20 PE agree_same=5 pnl=-31,980 | took: c20_8x -42,900, c20_9x -31,980, c20_9v -31,980, c20_9e -25,740, c20_9h -31,200, c20_9s -31,980, c20_9y -39,000, c20_9x_r002 -31,980, c20_9x_r004 -31,980 | absent: c20_9t
+2026-10-19 12:41:36 PE agree_same=5 pnl=-24,102 | took: c20_8x -32,136, c20_9x -24,102, c20_9v -24,102, c20_9e -19,416, c20_9h -23,432, c20_9s -24,102, c20_9y -29,458, c20_9x_r002 -24,102, c20_9x_r004 -24,102 | absent: c20_9t
+2026-10-19 12:50:10 PE agree_same=5 pnl=-23,172 | took: c20_8x -31,395, c20_9x -23,172, c20_9v -23,172, c20_9e +3,331, c20_9h -22,425, c20_9s -23,172, c20_9y -28,405, c20_9x_r002 -23,172, c20_9x_r004 -23,172 | absent: c20_9t
+2026-10-23 12:23:46 CE agree_same=5 pnl=-18,252 | took: c20_8x -18,252, c20_9x -18,252, c20_9t -13,689, c20_9e -18,252, c20_9h -18,252, c20_9s -18,252 | absent: c20_9v, c20_9y, c20_9x_r002, c20_9x_r004
+2026-10-27 09:40:34 CE agree_same=5 pnl=-9,380 | took: c20_8x -9,380, c20_9x -9,380, c20_9v -9,380, c20_9e +4,140, c20_9h -10,101, c20_9s -9,380, c20_9y -9,380, c20_9x_r002 -9,380, c20_9x_r004 -9,380 | absent: c20_9t
+2026-10-27 13:08:53 PE agree_same=4 pnl=+99,099 | took: c20_8x +99,099, c20_9x +99,099, c20_9v +99,099, c20_9e +2,106, c20_9s +99,099, c20_9y +99,099, c20_9x_r002 +99,099, c20_9x_r004 +99,099 | absent: c20_9t, c20_9h
+2026-10-27 14:15:03 PE agree_same=5 pnl=-1,268 | took: c20_8x -1,089, c20_9x -1,268, c20_9v -1,268, c20_9e +13,455, c20_9h +15,698, c20_9s -1,268, c20_9y -1,268, c20_9x_r002 -1,268, c20_9x_r004 -1,268 | absent: c20_9t
+2026-11-02 13:20:47 PE agree_same=4 pnl=+23,380 | took: c20_9x +20,192, c20_9v +20,192, c20_9e +20,192, c20_9h +20,192, c20_9s +23,380, c20_9y +20,192 | absent: c20_8x, c20_9t, c20_9x_r002, c20_9x_r004
+2026-11-03 13:54:06 PE agree_same=5 pnl=-13,156 | took: c20_9x -13,156, c20_9t -13,728, c20_9v -13,156, c20_9e -13,728, c20_9h -13,728, c20_9s -13,156, c20_9x_r002 -13,156, c20_9x_r004 -13,156 | absent: c20_8x, c20_9y
+2026-11-03 14:18:35 PE agree_same=5 pnl=-16,478 | took: c20_9x -16,478, c20_9t -17,111, c20_9v -16,478, c20_9e -17,745, c20_9h -17,745, c20_9s -16,478, c20_9x_r002 -16,478, c20_9x_r004 -16,478 | absent: c20_8x, c20_9y
+
+Triggers flagged by both 9y and 9s: 8
+
+== every family trigger: how many family books took it vs the family's P&L on it
+1 books took it: 33 triggers, 18 where most books won, mean P&L per book-trade +214
+2 books took it: 7 triggers, 4 where most books won, mean P&L per book-trade -4,712
+3 books took it: 2 triggers, 1 where most books won, mean P&L per book-trade -10,353
+6 books took it: 2 triggers, 1 where most books won, mean P&L per book-trade +1,616
+7 books took it: 5 triggers, 0 where most books won, mean P&L per book-trade -7,069
+8 books took it: 20 triggers, 10 where most books won, mean P&L per book-trade +11,639
+9 books took it: 25 triggers, 10 where most books won, mean P&L per book-trade +5,335
+10 books took it: 29 triggers, 22 where most books won, mean P&L per book-trade +17,859

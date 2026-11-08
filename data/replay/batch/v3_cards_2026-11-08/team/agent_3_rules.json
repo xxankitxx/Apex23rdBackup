@@ -1,0 +1,7070 @@
+[
+ {
+  "book": "t28_cheap",
+  "search_id": "A raw single q5",
+  "rule": [
+   [
+    "e_syn_dev",
+    ">=",
+    -0.69
+   ]
+  ],
+  "combinator": "AND",
+  "features": {
+   "e_syn_dev": "raw photograph field"
+  },
+  "search": "best single clause, raw numeric photo fields, 5 quantile lines (10..90 %) both directions, min 20 kept; 190 features, 1856 clause masks; shuffle n=300 seed 7",
+  "score": 0.32722007722007723,
+  "shuffle_median": 0.36293436293436293,
+  "shuffle_max": 0.5260617760617761,
+  "discovery": {
+   "book": {
+    "n": 65,
+    "win": 0.5692307692307692,
+    "mean": 5.540569230769231,
+    "pnl": 432432.0,
+    "losers": 28
+   },
+   "kept": {
+    "n": 33,
+    "win": 0.7272727272727273,
+    "mean": 8.820030303030302,
+    "pnl": 331789.25,
+    "losers": 9
+   },
+   "removed": {
+    "n": 32,
+    "win": 0.40625,
+    "mean": 2.158625,
+    "pnl": 100642.75,
+    "losers": 19
+   }
+  },
+  "holdout": {
+   "book": {
+    "n": 18,
+    "win": 0.4444444444444444,
+    "mean": 1.7446666666666668,
+    "pnl": 23010.0,
+    "losers": 10
+   },
+   "kept": {
+    "n": 10,
+    "win": 0.4,
+    "mean": -1.9672999999999998,
+    "pnl": -19415.5,
+    "losers": 6
+   },
+   "removed": {
+    "n": 8,
+    "win": 0.5,
+    "mean": 6.384625,
+    "pnl": 42425.5,
+    "losers": 4
+   }
+  },
+  "p": 0.9033333333333333,
+  "verdict": "REJECTED",
+  "why": "shuffle; holdout win < book; removed side profitable on holdout"
+ },
+ {
+  "book": "t28_cheap",
+  "search_id": "B raw pair q5",
+  "rule": [
+   [
+    "fut_spread",
+    ">=",
+    2.9
+   ],
+   [
+    "oi_own_chg5",
+    "<",
+    -15482.999999999996
+   ]
+  ],
+  "combinator": "AND",
+  "features": {
+   "fut_spread": "raw photograph field",
+   "oi_own_chg5": "raw photograph field"
+  },
+  "search": "best AND-pair of clauses on different raw fields, 5 quantile lines, min 20 kept (rule_lab.best_pair); 190 features, 1856 clause masks; shuffle n=300 seed 7",
+  "score": 0.47104247104247104,
+  "shuffle_median": 0.5057915057915057,
+  "shuffle_max": 0.6409266409266409,
+  "discovery": {
+   "book": {
+    "n": 65,
+    "win": 0.5692307692307692,
+    "mean": 5.540569230769231,
+    "pnl": 432432.0,
+    "losers": 28
+   },
+   "kept": {
+    "n": 36,
+    "win": 0.7777777777777778,
+    "mean": 9.763555555555556,
+    "pnl": 410939.75,
+    "losers": 8
+   },
+   "removed": {
+    "n": 29,
+    "win": 0.3103448275862069,
+    "mean": 0.2982413793103446,
+    "pnl": 21492.25,
+    "losers": 20
+   }
+  },
+  "holdout": {
+   "book": {
+    "n": 18,
+    "win": 0.4444444444444444,
+    "mean": 1.7446666666666668,
+    "pnl": 23010.0,
+    "losers": 10
+   },
+   "kept": {
+    "n": 8,
+    "win": 0.5,
+    "mean": 4.142875,
+    "pnl": 24378.25,
+    "losers": 4
+   },
+   "removed": {
+    "n": 10,
+    "win": 0.4,
+    "mean": -0.1738999999999999,
+    "pnl": -1368.25,
+    "losers": 6
+   }
+  },
+  "p": 0.84,
+  "verdict": "REJECTED",
+  "why": "shuffle"
+ },
+ {
+  "book": "t28_cheap",
+  "search_id": "C raw+derived single q5",
+  "rule": [
+   [
+    "e_syn_dev",
+    ">=",
+    -0.69
+   ]
+  ],
+  "combinator": "AND",
+  "features": {
+   "e_syn_dev": "raw photograph field"
+  },
+  "search": "best single clause, raw + derived features, 5 lines; 252 features, 2476 clause masks; shuffle n=300 seed 7",
+  "score": 0.32722007722007723,
+  "shuffle_median": 0.3716216216216216,
+  "shuffle_max": 0.5260617760617761,
+  "discovery": {
+   "book": {
+    "n": 65,
+    "win": 0.5692307692307692,
+    "mean": 5.540569230769231,
+    "pnl": 432432.0,
+    "losers": 28
+   },
+   "kept": {
+    "n": 33,
+    "win": 0.7272727272727273,
+    "mean": 8.820030303030302,
+    "pnl": 331789.25,
+    "losers": 9
+   },
+   "removed": {
+    "n": 32,
+    "win": 0.40625,
+    "mean": 2.158625,
+    "pnl": 100642.75,
+    "losers": 19
+   }
+  },
+  "holdout": {
+   "book": {
+    "n": 18,
+    "win": 0.4444444444444444,
+    "mean": 1.7446666666666668,
+    "pnl": 23010.0,
+    "losers": 10
+   },
+   "kept": {
+    "n": 10,
+    "win": 0.4,
+    "mean": -1.9672999999999998,
+    "pnl": -19415.5,
+    "losers": 6
+   },
+   "removed": {
+    "n": 8,
+    "win": 0.5,
+    "mean": 6.384625,
+    "pnl": 42425.5,
+    "losers": 4
+   }
+  },
+  "p": 0.9666666666666667,
+  "verdict": "REJECTED",
+  "why": "shuffle; holdout win < book; removed side profitable on holdout"
+ },
+ {
+  "book": "t28_cheap",
+  "search_id": "D raw+derived pair q5",
+  "rule": [
+   [
+    "e_syn_dev",
+    ">=",
+    -1.6639999999999995
+   ],
+   [
+    "oi_help30_minus_5",
+    "<",
+    6465647.500000004
+   ]
+  ],
+  "combinator": "AND",
+  "features": {
+   "e_syn_dev": "raw photograph field",
+   "oi_help30_minus_5": "oi_net_help30 - oi_net_help5"
+  },
+  "search": "best AND-pair, raw + derived, 5 lines; 252 features, 2476 clause masks; shuffle n=300 seed 7",
+  "score": 0.4884169884169884,
+  "shuffle_median": 0.5164092664092664,
+  "shuffle_max": 0.6776061776061776,
+  "discovery": {
+   "book": {
+    "n": 65,
+    "win": 0.5692307692307692,
+    "mean": 5.540569230769231,
+    "pnl": 432432.0,
+    "losers": 28
+   },
+   "kept": {
+    "n": 32,
+    "win": 0.8125,
+    "mean": 11.398249999999999,
+    "pnl": 426071.75,
+    "losers": 6
+   },
+   "removed": {
+    "n": 33,
+    "win": 0.3333333333333333,
+    "mean": -0.13960606060606068,
+    "pnl": 6360.25,
+    "losers": 22
+   }
+  },
+  "holdout": {
+   "book": {
+    "n": 18,
+    "win": 0.4444444444444444,
+    "mean": 1.7446666666666668,
+    "pnl": 23010.0,
+    "losers": 10
+   },
+   "kept": {
+    "n": 7,
+    "win": 0.2857142857142857,
+    "mean": -2.4917142857142855,
+    "pnl": -16116.75,
+    "losers": 5
+   },
+   "removed": {
+    "n": 11,
+    "win": 0.5454545454545454,
+    "mean": 4.440545454545455,
+    "pnl": 39126.75,
+    "losers": 5
+   }
+  },
+  "p": 0.87,
+  "verdict": "REJECTED",
+  "why": "shuffle; holdout win < book; removed side profitable on holdout"
+ },
+ {
+  "book": "t28_cheap",
+  "search_id": "E raw+text pair q5",
+  "rule": [
+   [
+    "fut_spread",
+    ">=",
+    2.9
+   ],
+   [
+    "oi_own_chg5",
+    "<",
+    -15482.999999999996
+   ]
+  ],
+  "combinator": "AND",
+  "features": {
+   "fut_spread": "raw photograph field",
+   "oi_own_chg5": "raw photograph field"
+  },
+  "search": "best AND-pair, raw + text indicators (field=VALUE), 5 lines; 251 features, 2062 clause masks; shuffle n=300 seed 7",
+  "score": 0.47104247104247104,
+  "shuffle_median": 0.5072393822393823,
+  "shuffle_max": 0.6409266409266409,
+  "discovery": {
+   "book": {
+    "n": 65,
+    "win": 0.5692307692307692,
+    "mean": 5.540569230769231,
+    "pnl": 432432.0,
+    "losers": 28
+   },
+   "kept": {
+    "n": 36,
+    "win": 0.7777777777777778,
+    "mean": 9.763555555555556,
+    "pnl": 410939.75,
+    "losers": 8
+   },
+   "removed": {
+    "n": 29,
+    "win": 0.3103448275862069,
+    "mean": 0.2982413793103446,
+    "pnl": 21492.25,
+    "losers": 20
+   }
+  },
+  "holdout": {
+   "book": {
+    "n": 18,
+    "win": 0.4444444444444444,
+    "mean": 1.7446666666666668,
+    "pnl": 23010.0,
+    "losers": 10
+   },
+   "kept": {
+    "n": 8,
+    "win": 0.5,
+    "mean": 4.142875,
+    "pnl": 24378.25,
+    "losers": 4
+   },
+   "removed": {
+    "n": 10,
+    "win": 0.4,
+    "mean": -0.1738999999999999,
+    "pnl": -1368.25,
+    "losers": 6
+   }
+  },
+  "p": 0.8666666666666667,
+  "verdict": "REJECTED",
+  "why": "shuffle"
+ },
+ {
+  "book": "t28_cheap",
+  "search_id": "F raw+derived greedy triple q5",
+  "rule": [
+   [
+    "e_syn_dev",
+    ">=",
+    -1.6639999999999995
+   ],
+   [
+    "oi_help30_minus_5",
+    "<",
+    6465647.500000004
+   ],
+   [
+    "e_iv_atm",
+    ">=",
+    14.416
+   ]
+  ],
+  "combinator": "AND",
+  "features": {
+   "e_syn_dev": "raw photograph field",
+   "oi_help30_minus_5": "oi_net_help30 - oi_net_help5",
+   "e_iv_atm": "raw photograph field"
+  },
+  "search": "greedy triple: best pair (raw + derived, 5 lines) then the single clause that most improves it; 252 features, 2476 clause masks; shuffle n=300 seed 7",
+  "score": 0.5955598455598456,
+  "shuffle_median": 0.6042471042471043,
+  "shuffle_max": 0.7480694980694981,
+  "discovery": {
+   "book": {
+    "n": 65,
+    "win": 0.5692307692307692,
+    "mean": 5.540569230769231,
+    "pnl": 432432.0,
+    "losers": 28
+   },
+   "kept": {
+    "n": 29,
+    "win": 0.896551724137931,
+    "mean": 13.317551724137932,
+    "pnl": 447746.0,
+    "losers": 3
+   },
+   "removed": {
+    "n": 36,
+    "win": 0.3055555555555556,
+    "mean": -0.7242222222222223,
+    "pnl": -15314.0,
+    "losers": 25
+   }
+  },
+  "holdout": {
+   "book": {
+    "n": 18,
+    "win": 0.4444444444444444,
+    "mean": 1.7446666666666668,
+    "pnl": 23010.0,
+    "losers": 10
+   },
+   "kept": {
+    "n": 7,
+    "win": 0.2857142857142857,
+    "mean": -2.4917142857142855,
+    "pnl": -16116.75,
+    "losers": 5
+   },
+   "removed": {
+    "n": 11,
+    "win": 0.5454545454545454,
+    "mean": 4.440545454545455,
+    "pnl": 39126.75,
+    "losers": 5
+   }
+  },
+  "p": 0.55,
+  "verdict": "REJECTED",
+  "why": "shuffle; holdout win < book; removed side profitable on holdout"
+ },
+ {
+  "book": "t28_cheap",
+  "search_id": "G raw single q9",
+  "rule": [
+   [
+    "e_syn_dev",
+    ">=",
+    -1.0659999999999998
+   ]
+  ],
+  "combinator": "AND",
+  "features": {
+   "e_syn_dev": "raw photograph field"
+  },
+  "search": "best single clause, raw, 9 quantile lines; 190 features, 3270 clause masks; shuffle n=300 seed 7",
+  "score": 0.36389961389961384,
+  "shuffle_median": 0.38175675675675674,
+  "shuffle_max": 0.5521235521235521,
+  "discovery": {
+   "book": {
+    "n": 65,
+    "win": 0.5692307692307692,
+    "mean": 5.540569230769231,
+    "pnl": 432432.0,
+    "losers": 28
+   },
+   "kept": {
+    "n": 39,
+    "win": 0.717948717948718,
+    "mean": 8.718051282051283,
+    "pnl": 380841.5,
+    "losers": 11
+   },
+   "removed": {
+    "n": 26,
+    "win": 0.34615384615384615,
+    "mean": 0.7743461538461538,
+    "pnl": 51590.5,
+    "losers": 17
+   }
+  },
+  "holdout": {
+   "book": {
+    "n": 18,
+    "win": 0.4444444444444444,
+    "mean": 1.7446666666666668,
+    "pnl": 23010.0,
+    "losers": 10
+   },
+   "kept": {
+    "n": 10,
+    "win": 0.4,
+    "mean": -1.9672999999999998,
+    "pnl": -19415.5,
+    "losers": 6
+   },
+   "removed": {
+    "n": 8,
+    "win": 0.5,
+    "mean": 6.384625,
+    "pnl": 42425.5,
+    "losers": 4
+   }
+  },
+  "p": 0.6866666666666666,
+  "verdict": "REJECTED",
+  "why": "shuffle; holdout win < book; removed side profitable on holdout"
+ },
+ {
+  "book": "t28_cheap",
+  "search_id": "H raw pair q9",
+  "rule": [
+   [
+    "e_syn_dev",
+    ">=",
+    -1.0659999999999998
+   ],
+   [
+    "zomma",
+    ">=",
+    -7.382000000000001e-05
+   ]
+  ],
+  "combinator": "AND",
+  "features": {
+   "e_syn_dev": "raw photograph field",
+   "zomma": "raw photograph field"
+  },
+  "search": "best AND-pair, raw, 9 lines; 190 features, 3270 clause masks; shuffle n=300 seed 7",
+  "score": 0.5154440154440154,
+  "shuffle_median": 0.5328185328185328,
+  "shuffle_max": 0.667953667953668,
+  "discovery": {
+   "book": {
+    "n": 65,
+    "win": 0.5692307692307692,
+    "mean": 5.540569230769231,
+    "pnl": 432432.0,
+    "losers": 28
+   },
+   "kept": {
+    "n": 33,
+    "win": 0.8181818181818182,
+    "mean": 10.414393939393939,
+    "pnl": 390052.0,
+    "losers": 6
+   },
+   "removed": {
+    "n": 32,
+    "win": 0.3125,
+    "mean": 0.5144375,
+    "pnl": 42380.0,
+    "losers": 22
+   }
+  },
+  "holdout": {
+   "book": {
+    "n": 18,
+    "win": 0.4444444444444444,
+    "mean": 1.7446666666666668,
+    "pnl": 23010.0,
+    "losers": 10
+   },
+   "kept": {
+    "n": 8,
+    "win": 0.375,
+    "mean": -2.0273749999999997,
+    "pnl": -16042.0,
+    "losers": 5
+   },
+   "removed": {
+    "n": 10,
+    "win": 0.5,
+    "mean": 4.762300000000001,
+    "pnl": 39052.0,
+    "losers": 5
+   }
+  },
+  "p": 0.6766666666666666,
+  "verdict": "REJECTED",
+  "why": "shuffle; holdout win < book; removed side profitable on holdout"
+ },
+ {
+  "book": "t28_cheap",
+  "search_id": "I raw OR-pair q5",
+  "rule": [
+   [
+    "agg_net",
+    ">=",
+    0.06620000000000041
+   ],
+   [
+    "oi_net_help5",
+    ">=",
+    1030802.5
+   ]
+  ],
+  "combinator": "OR",
+  "features": {
+   "agg_net": "raw photograph field",
+   "oi_net_help5": "raw photograph field"
+  },
+  "search": "best OR of two single clauses on different raw fields, 5 lines; 190 features, 1856 clause masks; shuffle n=300 seed 7",
+  "score": 0.48069498069498073,
+  "shuffle_median": 0.5144787644787645,
+  "shuffle_max": 0.6418918918918919,
+  "discovery": {
+   "book": {
+    "n": 65,
+    "win": 0.5692307692307692,
+    "mean": 5.540569230769231,
+    "pnl": 432432.0,
+    "losers": 28
+   },
+   "kept": {
+    "n": 41,
+    "win": 0.7560975609756098,
+    "mean": 9.819536585365853,
+    "pnl": 483041.0,
+    "losers": 10
+   },
+   "removed": {
+    "n": 24,
+    "win": 0.25,
+    "mean": -1.7693333333333336,
+    "pnl": -50609.0,
+    "losers": 18
+   }
+  },
+  "holdout": {
+   "book": {
+    "n": 18,
+    "win": 0.4444444444444444,
+    "mean": 1.7446666666666668,
+    "pnl": 23010.0,
+    "losers": 10
+   },
+   "kept": {
+    "n": 8,
+    "win": 0.5,
+    "mean": -0.26249999999999996,
+    "pnl": -4322.5,
+    "losers": 4
+   },
+   "removed": {
+    "n": 10,
+    "win": 0.4,
+    "mean": 3.3504000000000005,
+    "pnl": 27332.5,
+    "losers": 6
+   }
+  },
+  "p": 0.79,
+  "verdict": "REJECTED",
+  "why": "shuffle; removed side profitable on holdout"
+ },
+ {
+  "book": "t28_cheap",
+  "search_id": "J derived-only pair q5",
+  "rule": [
+   [
+    "oi_help30_minus_5",
+    "<",
+    6465647.500000004
+   ],
+   [
+    "dir_x_e_syn_dev",
+    "<",
+    2.9080000000000004
+   ]
+  ],
+  "combinator": "AND",
+  "features": {
+   "oi_help30_minus_5": "oi_net_help30 - oi_net_help5",
+   "dir_x_e_syn_dev": "dir * e_syn_dev (+1 CE / -1 PE)"
+  },
+  "search": "best AND-pair over derived features only, 5 lines; 62 features, 620 clause masks; shuffle n=300 seed 7",
+  "score": 0.39961389961389965,
+  "shuffle_median": 0.4531853281853282,
+  "shuffle_max": 0.6148648648648649,
+  "discovery": {
+   "book": {
+    "n": 65,
+    "win": 0.5692307692307692,
+    "mean": 5.540569230769231,
+    "pnl": 432432.0,
+    "losers": 28
+   },
+   "kept": {
+    "n": 38,
+    "win": 0.7368421052631579,
+    "mean": 9.612131578947368,
+    "pnl": 438454.25,
+    "losers": 10
+   },
+   "removed": {
+    "n": 27,
+    "win": 0.3333333333333333,
+    "mean": -0.18977777777777777,
+    "pnl": -6022.25,
+    "losers": 18
+   }
+  },
+  "holdout": {
+   "book": {
+    "n": 18,
+    "win": 0.4444444444444444,
+    "mean": 1.7446666666666668,
+    "pnl": 23010.0,
+    "losers": 10
+   },
+   "kept": {
+    "n": 6,
+    "win": 0.16666666666666666,
+    "mean": -2.9386666666666663,
+    "pnl": -16298.75,
+    "losers": 5
+   },
+   "removed": {
+    "n": 12,
+    "win": 0.5833333333333334,
+    "mean": 4.086333333333333,
+    "pnl": 39308.75,
+    "losers": 5
+   }
+  },
+  "p": 0.9033333333333333,
+  "verdict": "REJECTED",
+  "why": "shuffle; holdout win < book; removed side profitable on holdout"
+ },
+ {
+  "book": "t28_cheap",
+  "search_id": "K raw+derived pair q5 min_keep 30",
+  "rule": [
+   [
+    "e_syn_dev",
+    ">=",
+    -1.6639999999999995
+   ],
+   [
+    "oi_help30_minus_5",
+    "<",
+    6465647.500000004
+   ]
+  ],
+  "combinator": "AND",
+  "features": {
+   "e_syn_dev": "raw photograph field",
+   "oi_help30_minus_5": "oi_net_help30 - oi_net_help5"
+  },
+  "search": "best AND-pair, raw + derived, 5 lines, min 30 kept; 252 features, 2476 clause masks; shuffle n=300 seed 7",
+  "score": 0.4884169884169884,
+  "shuffle_median": 0.5154440154440154,
+  "shuffle_max": 0.6776061776061776,
+  "discovery": {
+   "book": {
+    "n": 65,
+    "win": 0.5692307692307692,
+    "mean": 5.540569230769231,
+    "pnl": 432432.0,
+    "losers": 28
+   },
+   "kept": {
+    "n": 32,
+    "win": 0.8125,
+    "mean": 11.398249999999999,
+    "pnl": 426071.75,
+    "losers": 6
+   },
+   "removed": {
+    "n": 33,
+    "win": 0.3333333333333333,
+    "mean": -0.13960606060606068,
+    "pnl": 6360.25,
+    "losers": 22
+   }
+  },
+  "holdout": {
+   "book": {
+    "n": 18,
+    "win": 0.4444444444444444,
+    "mean": 1.7446666666666668,
+    "pnl": 23010.0,
+    "losers": 10
+   },
+   "kept": {
+    "n": 7,
+    "win": 0.2857142857142857,
+    "mean": -2.4917142857142855,
+    "pnl": -16116.75,
+    "losers": 5
+   },
+   "removed": {
+    "n": 11,
+    "win": 0.5454545454545454,
+    "mean": 4.440545454545455,
+    "pnl": 39126.75,
+    "losers": 5
+   }
+  },
+  "p": 0.8166666666666667,
+  "verdict": "REJECTED",
+  "why": "shuffle; holdout win < book; removed side profitable on holdout"
+ },
+ {
+  "book": "t28_cheap",
+  "search_id": "L raw+derived+text pair q5 min_keep 25",
+  "rule": [
+   [
+    "e_syn_dev",
+    ">=",
+    -1.6639999999999995
+   ],
+   [
+    "oi_help30_minus_5",
+    "<",
+    6465647.500000004
+   ]
+  ],
+  "combinator": "AND",
+  "features": {
+   "e_syn_dev": "raw photograph field",
+   "oi_help30_minus_5": "oi_net_help30 - oi_net_help5"
+  },
+  "search": "best AND-pair, raw + derived + text, 5 lines, min 25 kept; 313 features, 2682 clause masks; shuffle n=300 seed 7",
+  "score": 0.4884169884169884,
+  "shuffle_median": 0.524131274131274,
+  "shuffle_max": 0.6776061776061776,
+  "discovery": {
+   "book": {
+    "n": 65,
+    "win": 0.5692307692307692,
+    "mean": 5.540569230769231,
+    "pnl": 432432.0,
+    "losers": 28
+   },
+   "kept": {
+    "n": 32,
+    "win": 0.8125,
+    "mean": 11.398249999999999,
+    "pnl": 426071.75,
+    "losers": 6
+   },
+   "removed": {
+    "n": 33,
+    "win": 0.3333333333333333,
+    "mean": -0.13960606060606068,
+    "pnl": 6360.25,
+    "losers": 22
+   }
+  },
+  "holdout": {
+   "book": {
+    "n": 18,
+    "win": 0.4444444444444444,
+    "mean": 1.7446666666666668,
+    "pnl": 23010.0,
+    "losers": 10
+   },
+   "kept": {
+    "n": 7,
+    "win": 0.2857142857142857,
+    "mean": -2.4917142857142855,
+    "pnl": -16116.75,
+    "losers": 5
+   },
+   "removed": {
+    "n": 11,
+    "win": 0.5454545454545454,
+    "mean": 4.440545454545455,
+    "pnl": 39126.75,
+    "losers": 5
+   }
+  },
+  "p": 0.89,
+  "verdict": "REJECTED",
+  "why": "shuffle; holdout win < book; removed side profitable on holdout"
+ },
+ {
+  "book": "t28_cheap",
+  "search_id": "M raw+derived triple q9",
+  "rule": [
+   [
+    "e_syn_dev",
+    ">=",
+    -1.0659999999999998
+   ],
+   [
+    "zomma",
+    ">=",
+    -7.382000000000001e-05
+   ],
+   [
+    "sl_room_ahead",
+    ">=",
+    0.404
+   ]
+  ],
+  "combinator": "AND",
+  "features": {
+   "e_syn_dev": "raw photograph field",
+   "zomma": "raw photograph field",
+   "sl_room_ahead": "sl_room_up_pct for CE, dn for PE"
+  },
+  "search": "greedy triple, raw + derived, 9 lines; 252 features, 4378 clause masks; shuffle n=300 seed 7",
+  "score": 0.5868725868725868,
+  "shuffle_median": 0.6225868725868726,
+  "shuffle_max": 0.7480694980694981,
+  "discovery": {
+   "book": {
+    "n": 65,
+    "win": 0.5692307692307692,
+    "mean": 5.540569230769231,
+    "pnl": 432432.0,
+    "losers": 28
+   },
+   "kept": {
+    "n": 31,
+    "win": 0.8709677419354839,
+    "mean": 11.744838709677419,
+    "pnl": 418512.25,
+    "losers": 4
+   },
+   "removed": {
+    "n": 34,
+    "win": 0.29411764705882354,
+    "mean": -0.11626470588235296,
+    "pnl": 13919.75,
+    "losers": 24
+   }
+  },
+  "holdout": {
+   "book": {
+    "n": 18,
+    "win": 0.4444444444444444,
+    "mean": 1.7446666666666668,
+    "pnl": 23010.0,
+    "losers": 10
+   },
+   "kept": {
+    "n": 8,
+    "win": 0.375,
+    "mean": -2.0273749999999997,
+    "pnl": -16042.0,
+    "losers": 5
+   },
+   "removed": {
+    "n": 10,
+    "win": 0.5,
+    "mean": 4.762300000000001,
+    "pnl": 39052.0,
+    "losers": 5
+   }
+  },
+  "p": 0.78,
+  "verdict": "REJECTED",
+  "why": "shuffle; holdout win < book; removed side profitable on holdout"
+ },
+ {
+  "book": "t28_cheap",
+  "search_id": "N text-only pair",
+  "rule": [
+   [
+    "ep_type=None",
+    "<",
+    1.0
+   ],
+   [
+    "phase_bucket=morning",
+    "<",
+    1.0
+   ]
+  ],
+  "combinator": "AND",
+  "features": {
+   "ep_type=None": "text indicator field=VALUE -> 1/0",
+   "phase_bucket=morning": "text indicator field=VALUE -> 1/0"
+  },
+  "search": "best AND-pair of text indicators only; 61 features, 204 clause masks; shuffle n=300 seed 7",
+  "score": 0.3455598455598456,
+  "shuffle_median": 0.3455598455598456,
+  "shuffle_max": 0.5598455598455598,
+  "discovery": {
+   "book": {
+    "n": 65,
+    "win": 0.5692307692307692,
+    "mean": 5.540569230769231,
+    "pnl": 432432.0,
+    "losers": 28
+   },
+   "kept": {
+    "n": 36,
+    "win": 0.7222222222222222,
+    "mean": 8.518722222222221,
+    "pnl": 383477.25,
+    "losers": 10
+   },
+   "removed": {
+    "n": 29,
+    "win": 0.3793103448275862,
+    "mean": 1.843551724137931,
+    "pnl": 48954.75,
+    "losers": 18
+   }
+  },
+  "holdout": {
+   "book": {
+    "n": 18,
+    "win": 0.4444444444444444,
+    "mean": 1.7446666666666668,
+    "pnl": 23010.0,
+    "losers": 10
+   },
+   "kept": {
+    "n": 8,
+    "win": 0.5,
+    "mean": 3.074625,
+    "pnl": 18434.0,
+    "losers": 4
+   },
+   "removed": {
+    "n": 10,
+    "win": 0.4,
+    "mean": 0.6807000000000001,
+    "pnl": 4576.0,
+    "losers": 6
+   }
+  },
+  "p": 0.5033333333333333,
+  "verdict": "REJECTED",
+  "why": "shuffle; removed side profitable on holdout"
+ },
+ {
+  "book": "t28_cheap",
+  "search_id": "O raw pair by direction (CE | PE)",
+  "rule": [
+   [
+    "depth_age_fut",
+    ">=",
+    0.7
+   ],
+   [
+    "svi_res",
+    ">=",
+    -0.02
+   ],
+   [
+    "is_ce",
+    "<",
+    0.5
+   ]
+  ],
+  "combinator": "AND",
+  "features": {
+   "depth_age_fut": "raw photograph field",
+   "svi_res": "raw photograph field",
+   "is_ce": "1 if the trade buys a call"
+  },
+  "search": "best AND-pair searched separately on CE trades and on PE trades (raw, 5 lines), better side taken, with the is_ce clause; 190 features, 1856 clause masks; shuffle n=300 seed 7",
+  "score": 0.6571428571428573,
+  "shuffle_median": 0.6666666666666666,
+  "shuffle_max": 0.8695652173913043,
+  "discovery": {
+   "book": {
+    "n": 65,
+    "win": 0.5692307692307692,
+    "mean": 5.540569230769231,
+    "pnl": 432432.0,
+    "losers": 28
+   },
+   "kept": {
+    "n": 21,
+    "win": 0.8571428571428571,
+    "mean": 13.065619047619046,
+    "pnl": 316377.75,
+    "losers": 3
+   },
+   "removed": {
+    "n": 44,
+    "win": 0.4318181818181818,
+    "mean": 1.9490681818181819,
+    "pnl": 116054.25,
+    "losers": 25
+   }
+  },
+  "holdout": {
+   "book": {
+    "n": 18,
+    "win": 0.4444444444444444,
+    "mean": 1.7446666666666668,
+    "pnl": 23010.0,
+    "losers": 10
+   },
+   "kept": {
+    "n": 7,
+    "win": 0.2857142857142857,
+    "mean": -2.183142857142857,
+    "pnl": -13230.75,
+    "losers": 5
+   },
+   "removed": {
+    "n": 11,
+    "win": 0.5454545454545454,
+    "mean": 4.2441818181818185,
+    "pnl": 36240.75,
+    "losers": 5
+   }
+  },
+  "p": 0.5966666666666667,
+  "verdict": "REJECTED",
+  "why": "shuffle; holdout win < book; removed side profitable on holdout"
+ },
+ {
+  "book": "t28_cheap",
+  "search_id": "P derived single q9",
+  "rule": [
+   [
+    "oi_help30_minus_5",
+    "<",
+    3326452.9999999995
+   ]
+  ],
+  "combinator": "AND",
+  "features": {
+   "oi_help30_minus_5": "oi_net_help30 - oi_net_help5"
+  },
+  "search": "best single clause over derived features, 9 lines; 62 features, 1108 clause masks; shuffle n=300 seed 7",
+  "score": 0.28281853281853275,
+  "shuffle_median": 0.34459459459459457,
+  "shuffle_max": 0.5260617760617761,
+  "discovery": {
+   "book": {
+    "n": 65,
+    "win": 0.5692307692307692,
+    "mean": 5.540569230769231,
+    "pnl": 432432.0,
+    "losers": 28
+   },
+   "kept": {
+    "n": 36,
+    "win": 0.6944444444444444,
+    "mean": 8.059444444444445,
+    "pnl": 347529.0,
+    "losers": 11
+   },
+   "removed": {
+    "n": 29,
+    "win": 0.41379310344827586,
+    "mean": 2.413689655172414,
+    "pnl": 84903.0,
+    "losers": 17
+   }
+  },
+  "holdout": {
+   "book": {
+    "n": 18,
+    "win": 0.4444444444444444,
+    "mean": 1.7446666666666668,
+    "pnl": 23010.0,
+    "losers": 10
+   },
+   "kept": {
+    "n": 5,
+    "win": 0.4,
+    "mean": -2.1959999999999997,
+    "pnl": -10575.5,
+    "losers": 3
+   },
+   "removed": {
+    "n": 13,
+    "win": 0.46153846153846156,
+    "mean": 3.260307692307692,
+    "pnl": 33585.5,
+    "losers": 7
+   }
+  },
+  "p": 0.9133333333333333,
+  "verdict": "REJECTED",
+  "why": "shuffle; holdout win < book; removed side profitable on holdout"
+ },
+ {
+  "book": "t28_nohigh",
+  "search_id": "A raw single q5",
+  "rule": [
+   [
+    "fut_spread",
+    ">=",
+    2.810000000000001
+   ]
+  ],
+  "combinator": "AND",
+  "features": {
+   "fut_spread": "raw photograph field"
+  },
+  "search": "best single clause, raw numeric photo fields, 5 quantile lines (10..90 %) both directions, min 20 kept; 193 features, 1878 clause masks; shuffle n=300 seed 7",
+  "score": 0.33002481389578164,
+  "shuffle_median": 0.3643507030603805,
+  "shuffle_max": 0.5500413564929694,
+  "discovery": {
+   "book": {
+    "n": 70,
+    "win": 0.5571428571428572,
+    "mean": 4.9876000000000005,
+    "pnl": 415216.75,
+    "losers": 31
+   },
+   "kept": {
+    "n": 49,
+    "win": 0.673469387755102,
+    "mean": 7.510816326530612,
+    "pnl": 413481.25,
+    "losers": 16
+   },
+   "removed": {
+    "n": 21,
+    "win": 0.2857142857142857,
+    "mean": -0.8999047619047621,
+    "pnl": 1735.5,
+    "losers": 15
+   }
+  },
+  "holdout": {
+   "book": {
+    "n": 20,
+    "win": 0.4,
+    "mean": 0.6061000000000001,
+    "pnl": 6061.25,
+    "losers": 12
+   },
+   "kept": {
+    "n": 11,
+    "win": 0.36363636363636365,
+    "mean": 0.4695454545454547,
+    "pnl": -334.75,
+    "losers": 7
+   },
+   "removed": {
+    "n": 9,
+    "win": 0.4444444444444444,
+    "mean": 0.773,
+    "pnl": 6396.0,
+    "losers": 5
+   }
+  },
+  "p": 0.7333333333333333,
+  "verdict": "REJECTED",
+  "why": "shuffle; holdout win < book; removed side profitable on holdout"
+ },
+ {
+  "book": "t28_nohigh",
+  "search_id": "B raw pair q5",
+  "rule": [
+   [
+    "e_pcr",
+    ">=",
+    0.9463
+   ],
+   [
+    "fut_spread",
+    ">=",
+    2.810000000000001
+   ]
+  ],
+  "combinator": "AND",
+  "features": {
+   "e_pcr": "raw photograph field",
+   "fut_spread": "raw photograph field"
+  },
+  "search": "best AND-pair of clauses on different raw fields, 5 quantile lines, min 20 kept (rule_lab.best_pair); 193 features, 1878 clause masks; shuffle n=300 seed 7",
+  "score": 0.47311827956989244,
+  "shuffle_median": 0.48635235732009924,
+  "shuffle_max": 0.6658395368072787,
+  "discovery": {
+   "book": {
+    "n": 70,
+    "win": 0.5571428571428572,
+    "mean": 4.9876000000000005,
+    "pnl": 415216.75,
+    "losers": 31
+   },
+   "kept": {
+    "n": 32,
+    "win": 0.8125,
+    "mean": 10.7275,
+    "pnl": 410429.5,
+    "losers": 6
+   },
+   "removed": {
+    "n": 38,
+    "win": 0.34210526315789475,
+    "mean": 0.15399999999999986,
+    "pnl": 4787.25,
+    "losers": 25
+   }
+  },
+  "holdout": {
+   "book": {
+    "n": 20,
+    "win": 0.4,
+    "mean": 0.6061000000000001,
+    "pnl": 6061.25,
+    "losers": 12
+   },
+   "kept": {
+    "n": 8,
+    "win": 0.375,
+    "mean": 3.17375,
+    "pnl": 17176.25,
+    "losers": 5
+   },
+   "removed": {
+    "n": 12,
+    "win": 0.4166666666666667,
+    "mean": -1.1056666666666666,
+    "pnl": -11115.0,
+    "losers": 7
+   }
+  },
+  "p": 0.6566666666666666,
+  "verdict": "REJECTED",
+  "why": "shuffle; holdout win < book"
+ },
+ {
+  "book": "t28_nohigh",
+  "search_id": "C raw+derived single q5",
+  "rule": [
+   [
+    "fut_spread",
+    ">=",
+    2.810000000000001
+   ]
+  ],
+  "combinator": "AND",
+  "features": {
+   "fut_spread": "raw photograph field"
+  },
+  "search": "best single clause, raw + derived features, 5 lines; 255 features, 2496 clause masks; shuffle n=300 seed 7",
+  "score": 0.33002481389578164,
+  "shuffle_median": 0.37303556658395365,
+  "shuffle_max": 0.5500413564929694,
+  "discovery": {
+   "book": {
+    "n": 70,
+    "win": 0.5571428571428572,
+    "mean": 4.9876000000000005,
+    "pnl": 415216.75,
+    "losers": 31
+   },
+   "kept": {
+    "n": 49,
+    "win": 0.673469387755102,
+    "mean": 7.510816326530612,
+    "pnl": 413481.25,
+    "losers": 16
+   },
+   "removed": {
+    "n": 21,
+    "win": 0.2857142857142857,
+    "mean": -0.8999047619047621,
+    "pnl": 1735.5,
+    "losers": 15
+   }
+  },
+  "holdout": {
+   "book": {
+    "n": 20,
+    "win": 0.4,
+    "mean": 0.6061000000000001,
+    "pnl": 6061.25,
+    "losers": 12
+   },
+   "kept": {
+    "n": 11,
+    "win": 0.36363636363636365,
+    "mean": 0.4695454545454547,
+    "pnl": -334.75,
+    "losers": 7
+   },
+   "removed": {
+    "n": 9,
+    "win": 0.4444444444444444,
+    "mean": 0.773,
+    "pnl": 6396.0,
+    "losers": 5
+   }
+  },
+  "p": 0.7966666666666666,
+  "verdict": "REJECTED",
+  "why": "shuffle; holdout win < book; removed side profitable on holdout"
+ },
+ {
+  "book": "t28_nohigh",
+  "search_id": "D raw+derived pair q5",
+  "rule": [
+   [
+    "e_syn_dev",
+    ">=",
+    -1.4639999999999997
+   ],
+   [
+    "oi_help30_minus_5",
+    "<",
+    6294281.500000001
+   ]
+  ],
+  "combinator": "AND",
+  "features": {
+   "e_syn_dev": "raw photograph field",
+   "oi_help30_minus_5": "oi_net_help30 - oi_net_help5"
+  },
+  "search": "best AND-pair, raw + derived, 5 lines; 255 features, 2496 clause masks; shuffle n=300 seed 7",
+  "score": 0.4921422663358147,
+  "shuffle_median": 0.49875930521091805,
+  "shuffle_max": 0.6658395368072787,
+  "discovery": {
+   "book": {
+    "n": 70,
+    "win": 0.5571428571428572,
+    "mean": 4.9876000000000005,
+    "pnl": 415216.75,
+    "losers": 31
+   },
+   "kept": {
+    "n": 35,
+    "win": 0.8,
+    "mean": 10.638657142857143,
+    "pnl": 431668.25,
+    "losers": 7
+   },
+   "removed": {
+    "n": 35,
+    "win": 0.3142857142857143,
+    "mean": -0.663457142857143,
+    "pnl": -16451.5,
+    "losers": 24
+   }
+  },
+  "holdout": {
+   "book": {
+    "n": 20,
+    "win": 0.4,
+    "mean": 0.6061000000000001,
+    "pnl": 6061.25,
+    "losers": 12
+   },
+   "kept": {
+    "n": 7,
+    "win": 0.2857142857142857,
+    "mean": -3.7207142857142856,
+    "pnl": -23250.5,
+    "losers": 5
+   },
+   "removed": {
+    "n": 13,
+    "win": 0.46153846153846156,
+    "mean": 2.935923076923077,
+    "pnl": 29311.75,
+    "losers": 7
+   }
+  },
+  "p": 0.58,
+  "verdict": "REJECTED",
+  "why": "shuffle; holdout win < book; removed side profitable on holdout"
+ },
+ {
+  "book": "t28_nohigh",
+  "search_id": "E raw+text pair q5",
+  "rule": [
+   [
+    "e_pcr",
+    ">=",
+    0.9463
+   ],
+   [
+    "fut_spread",
+    ">=",
+    2.810000000000001
+   ]
+  ],
+  "combinator": "AND",
+  "features": {
+   "e_pcr": "raw photograph field",
+   "fut_spread": "raw photograph field"
+  },
+  "search": "best AND-pair, raw + text indicators (field=VALUE), 5 lines; 254 features, 2084 clause masks; shuffle n=300 seed 7",
+  "score": 0.47311827956989244,
+  "shuffle_median": 0.48635235732009924,
+  "shuffle_max": 0.6658395368072787,
+  "discovery": {
+   "book": {
+    "n": 70,
+    "win": 0.5571428571428572,
+    "mean": 4.9876000000000005,
+    "pnl": 415216.75,
+    "losers": 31
+   },
+   "kept": {
+    "n": 32,
+    "win": 0.8125,
+    "mean": 10.7275,
+    "pnl": 410429.5,
+    "losers": 6
+   },
+   "removed": {
+    "n": 38,
+    "win": 0.34210526315789475,
+    "mean": 0.15399999999999986,
+    "pnl": 4787.25,
+    "losers": 25
+   }
+  },
+  "holdout": {
+   "book": {
+    "n": 20,
+    "win": 0.4,
+    "mean": 0.6061000000000001,
+    "pnl": 6061.25,
+    "losers": 12
+   },
+   "kept": {
+    "n": 8,
+    "win": 0.375,
+    "mean": 3.17375,
+    "pnl": 17176.25,
+    "losers": 5
+   },
+   "removed": {
+    "n": 12,
+    "win": 0.4166666666666667,
+    "mean": -1.1056666666666666,
+    "pnl": -11115.0,
+    "losers": 7
+   }
+  },
+  "p": 0.69,
+  "verdict": "REJECTED",
+  "why": "shuffle; holdout win < book"
+ },
+ {
+  "book": "t28_nohigh",
+  "search_id": "F raw+derived greedy triple q5",
+  "rule": [
+   [
+    "e_syn_dev",
+    ">=",
+    -1.4639999999999997
+   ],
+   [
+    "oi_help30_minus_5",
+    "<",
+    6294281.500000001
+   ],
+   [
+    "breadth_dir",
+    ">=",
+    0.02709000000000001
+   ]
+  ],
+  "combinator": "AND",
+  "features": {
+   "e_syn_dev": "raw photograph field",
+   "oi_help30_minus_5": "oi_net_help30 - oi_net_help5",
+   "breadth_dir": "raw photograph field"
+  },
+  "search": "greedy triple: best pair (raw + derived, 5 lines) then the single clause that most improves it; 255 features, 2496 clause masks; shuffle n=300 seed 7",
+  "score": 0.5566583953680728,
+  "shuffle_median": 0.5698924731182795,
+  "shuffle_max": 0.7303556658395367,
+  "discovery": {
+   "book": {
+    "n": 70,
+    "win": 0.5571428571428572,
+    "mean": 4.9876000000000005,
+    "pnl": 415216.75,
+    "losers": 31
+   },
+   "kept": {
+    "n": 33,
+    "win": 0.8484848484848485,
+    "mean": 11.89281818181818,
+    "pnl": 453014.25,
+    "losers": 5
+   },
+   "removed": {
+    "n": 37,
+    "win": 0.2972972972972973,
+    "mean": -1.1711081081081083,
+    "pnl": -37797.5,
+    "losers": 26
+   }
+  },
+  "holdout": {
+   "book": {
+    "n": 20,
+    "win": 0.4,
+    "mean": 0.6061000000000001,
+    "pnl": 6061.25,
+    "losers": 12
+   },
+   "kept": {
+    "n": 7,
+    "win": 0.2857142857142857,
+    "mean": -3.7207142857142856,
+    "pnl": -23250.5,
+    "losers": 5
+   },
+   "removed": {
+    "n": 13,
+    "win": 0.46153846153846156,
+    "mean": 2.935923076923077,
+    "pnl": 29311.75,
+    "losers": 7
+   }
+  },
+  "p": 0.6266666666666667,
+  "verdict": "REJECTED",
+  "why": "shuffle; holdout win < book; removed side profitable on holdout"
+ },
+ {
+  "book": "t28_nohigh",
+  "search_id": "G raw single q9",
+  "rule": [
+   [
+    "e_syn_dev",
+    ">=",
+    -0.2560000000000001
+   ]
+  ],
+  "combinator": "AND",
+  "features": {
+   "e_syn_dev": "raw photograph field"
+  },
+  "search": "best single clause, raw, 9 quantile lines; 193 features, 3320 clause masks; shuffle n=300 seed 7",
+  "score": 0.37055417700578985,
+  "shuffle_median": 0.37634408602150543,
+  "shuffle_max": 0.5558312655086849,
+  "discovery": {
+   "book": {
+    "n": 70,
+    "win": 0.5571428571428572,
+    "mean": 4.9876000000000005,
+    "pnl": 415216.75,
+    "losers": 31
+   },
+   "kept": {
+    "n": 28,
+    "win": 0.7857142857142857,
+    "mean": 9.130071428571428,
+    "pnl": 308863.75,
+    "losers": 6
+   },
+   "removed": {
+    "n": 42,
+    "win": 0.40476190476190477,
+    "mean": 2.2259523809523807,
+    "pnl": 106353.0,
+    "losers": 25
+   }
+  },
+  "holdout": {
+   "book": {
+    "n": 20,
+    "win": 0.4,
+    "mean": 0.6061000000000001,
+    "pnl": 6061.25,
+    "losers": 12
+   },
+   "kept": {
+    "n": 11,
+    "win": 0.36363636363636365,
+    "mean": -2.8477272727272727,
+    "pnl": -29506.75,
+    "losers": 7
+   },
+   "removed": {
+    "n": 9,
+    "win": 0.4444444444444444,
+    "mean": 4.827444444444445,
+    "pnl": 35568.0,
+    "losers": 5
+   }
+  },
+  "p": 0.6033333333333334,
+  "verdict": "REJECTED",
+  "why": "shuffle; holdout win < book; removed side profitable on holdout"
+ },
+ {
+  "book": "t28_nohigh",
+  "search_id": "H raw pair q9",
+  "rule": [
+   [
+    "e_pcr",
+    ">=",
+    0.9463
+   ],
+   [
+    "fut_spread",
+    ">=",
+    2.810000000000001
+   ]
+  ],
+  "combinator": "AND",
+  "features": {
+   "e_pcr": "raw photograph field",
+   "fut_spread": "raw photograph field"
+  },
+  "search": "best AND-pair, raw, 9 lines; 193 features, 3320 clause masks; shuffle n=300 seed 7",
+  "score": 0.47311827956989244,
+  "shuffle_median": 0.5111662531017369,
+  "shuffle_max": 0.6658395368072787,
+  "discovery": {
+   "book": {
+    "n": 70,
+    "win": 0.5571428571428572,
+    "mean": 4.9876000000000005,
+    "pnl": 415216.75,
+    "losers": 31
+   },
+   "kept": {
+    "n": 32,
+    "win": 0.8125,
+    "mean": 10.7275,
+    "pnl": 410429.5,
+    "losers": 6
+   },
+   "removed": {
+    "n": 38,
+    "win": 0.34210526315789475,
+    "mean": 0.15399999999999986,
+    "pnl": 4787.25,
+    "losers": 25
+   }
+  },
+  "holdout": {
+   "book": {
+    "n": 20,
+    "win": 0.4,
+    "mean": 0.6061000000000001,
+    "pnl": 6061.25,
+    "losers": 12
+   },
+   "kept": {
+    "n": 8,
+    "win": 0.375,
+    "mean": 3.17375,
+    "pnl": 17176.25,
+    "losers": 5
+   },
+   "removed": {
+    "n": 12,
+    "win": 0.4166666666666667,
+    "mean": -1.1056666666666666,
+    "pnl": -11115.0,
+    "losers": 7
+   }
+  },
+  "p": 0.9,
+  "verdict": "REJECTED",
+  "why": "shuffle; holdout win < book"
+ },
+ {
+  "book": "t28_nohigh",
+  "search_id": "I raw OR-pair q5",
+  "rule": [
+   [
+    "depth_age_fut",
+    ">=",
+    1.5
+   ],
+   [
+    "e_syn_dev",
+    ">=",
+    0.3860000000000001
+   ]
+  ],
+  "combinator": "OR",
+  "features": {
+   "depth_age_fut": "raw photograph field",
+   "e_syn_dev": "raw photograph field"
+  },
+  "search": "best OR of two single clauses on different raw fields, 5 lines; 193 features, 1878 clause masks; shuffle n=300 seed 7",
+  "score": 0.4797353184449959,
+  "shuffle_median": 0.4913151364764268,
+  "shuffle_max": 0.6459884201819686,
+  "discovery": {
+   "book": {
+    "n": 70,
+    "win": 0.5571428571428572,
+    "mean": 4.9876000000000005,
+    "pnl": 415216.75,
+    "losers": 31
+   },
+   "kept": {
+    "n": 30,
+    "win": 0.8333333333333334,
+    "mean": 10.192499999999999,
+    "pnl": 419497.0,
+    "losers": 5
+   },
+   "removed": {
+    "n": 40,
+    "win": 0.35,
+    "mean": 1.083925,
+    "pnl": -4280.25,
+    "losers": 26
+   }
+  },
+  "holdout": {
+   "book": {
+    "n": 20,
+    "win": 0.4,
+    "mean": 0.6061000000000001,
+    "pnl": 6061.25,
+    "losers": 12
+   },
+   "kept": {
+    "n": 10,
+    "win": 0.3,
+    "mean": -1.64,
+    "pnl": -19844.5,
+    "losers": 7
+   },
+   "removed": {
+    "n": 10,
+    "win": 0.5,
+    "mean": 2.8522000000000003,
+    "pnl": 25905.75,
+    "losers": 5
+   }
+  },
+  "p": 0.5833333333333334,
+  "verdict": "REJECTED",
+  "why": "shuffle; holdout win < book; removed side profitable on holdout"
+ },
+ {
+  "book": "t28_nohigh",
+  "search_id": "J derived-only pair q5",
+  "rule": [
+   [
+    "oi_help30_minus_5",
+    "<",
+    6294281.500000001
+   ],
+   [
+    "dir_x_e_syn_dev",
+    "<",
+    2.8430000000000004
+   ]
+  ],
+  "combinator": "AND",
+  "features": {
+   "oi_help30_minus_5": "oi_net_help30 - oi_net_help5",
+   "dir_x_e_syn_dev": "dir * e_syn_dev (+1 CE / -1 PE)"
+  },
+  "search": "best AND-pair over derived features only, 5 lines; 62 features, 618 clause masks; shuffle n=300 seed 7",
+  "score": 0.41439205955334985,
+  "shuffle_median": 0.43424317617866004,
+  "shuffle_max": 0.6137303556658396,
+  "discovery": {
+   "book": {
+    "n": 70,
+    "win": 0.5571428571428572,
+    "mean": 4.9876000000000005,
+    "pnl": 415216.75,
+    "losers": 31
+   },
+   "kept": {
+    "n": 41,
+    "win": 0.7317073170731707,
+    "mean": 9.094390243902438,
+    "pnl": 444050.75,
+    "losers": 11
+   },
+   "removed": {
+    "n": 29,
+    "win": 0.3103448275862069,
+    "mean": -0.818551724137931,
+    "pnl": -28834.0,
+    "losers": 20
+   }
+  },
+  "holdout": {
+   "book": {
+    "n": 20,
+    "win": 0.4,
+    "mean": 0.6061000000000001,
+    "pnl": 6061.25,
+    "losers": 12
+   },
+   "kept": {
+    "n": 7,
+    "win": 0.14285714285714285,
+    "mean": -3.787,
+    "pnl": -23627.5,
+    "losers": 6
+   },
+   "removed": {
+    "n": 13,
+    "win": 0.5384615384615384,
+    "mean": 2.9716153846153848,
+    "pnl": 29688.75,
+    "losers": 6
+   }
+  },
+  "p": 0.6966666666666667,
+  "verdict": "REJECTED",
+  "why": "shuffle; holdout win < book; removed side profitable on holdout"
+ },
+ {
+  "book": "t28_nohigh",
+  "search_id": "K raw+derived pair q5 min_keep 30",
+  "rule": [
+   [
+    "e_syn_dev",
+    ">=",
+    -1.4639999999999997
+   ],
+   [
+    "oi_help30_minus_5",
+    "<",
+    6294281.500000001
+   ]
+  ],
+  "combinator": "AND",
+  "features": {
+   "e_syn_dev": "raw photograph field",
+   "oi_help30_minus_5": "oi_net_help30 - oi_net_help5"
+  },
+  "search": "best AND-pair, raw + derived, 5 lines, min 30 kept; 255 features, 2496 clause masks; shuffle n=300 seed 7",
+  "score": 0.4921422663358147,
+  "shuffle_median": 0.4921422663358147,
+  "shuffle_max": 0.6658395368072787,
+  "discovery": {
+   "book": {
+    "n": 70,
+    "win": 0.5571428571428572,
+    "mean": 4.9876000000000005,
+    "pnl": 415216.75,
+    "losers": 31
+   },
+   "kept": {
+    "n": 35,
+    "win": 0.8,
+    "mean": 10.638657142857143,
+    "pnl": 431668.25,
+    "losers": 7
+   },
+   "removed": {
+    "n": 35,
+    "win": 0.3142857142857143,
+    "mean": -0.663457142857143,
+    "pnl": -16451.5,
+    "losers": 24
+   }
+  },
+  "holdout": {
+   "book": {
+    "n": 20,
+    "win": 0.4,
+    "mean": 0.6061000000000001,
+    "pnl": 6061.25,
+    "losers": 12
+   },
+   "kept": {
+    "n": 7,
+    "win": 0.2857142857142857,
+    "mean": -3.7207142857142856,
+    "pnl": -23250.5,
+    "losers": 5
+   },
+   "removed": {
+    "n": 13,
+    "win": 0.46153846153846156,
+    "mean": 2.935923076923077,
+    "pnl": 29311.75,
+    "losers": 7
+   }
+  },
+  "p": 0.5033333333333333,
+  "verdict": "REJECTED",
+  "why": "shuffle; holdout win < book; removed side profitable on holdout"
+ },
+ {
+  "book": "t28_nohigh",
+  "search_id": "L raw+derived+text pair q5 min_keep 25",
+  "rule": [
+   [
+    "e_syn_dev",
+    ">=",
+    -1.4639999999999997
+   ],
+   [
+    "oi_help30_minus_5",
+    "<",
+    6294281.500000001
+   ]
+  ],
+  "combinator": "AND",
+  "features": {
+   "e_syn_dev": "raw photograph field",
+   "oi_help30_minus_5": "oi_net_help30 - oi_net_help5"
+  },
+  "search": "best AND-pair, raw + derived + text, 5 lines, min 25 kept; 316 features, 2702 clause masks; shuffle n=300 seed 7",
+  "score": 0.4921422663358147,
+  "shuffle_median": 0.49875930521091805,
+  "shuffle_max": 0.6658395368072787,
+  "discovery": {
+   "book": {
+    "n": 70,
+    "win": 0.5571428571428572,
+    "mean": 4.9876000000000005,
+    "pnl": 415216.75,
+    "losers": 31
+   },
+   "kept": {
+    "n": 35,
+    "win": 0.8,
+    "mean": 10.638657142857143,
+    "pnl": 431668.25,
+    "losers": 7
+   },
+   "removed": {
+    "n": 35,
+    "win": 0.3142857142857143,
+    "mean": -0.663457142857143,
+    "pnl": -16451.5,
+    "losers": 24
+   }
+  },
+  "holdout": {
+   "book": {
+    "n": 20,
+    "win": 0.4,
+    "mean": 0.6061000000000001,
+    "pnl": 6061.25,
+    "losers": 12
+   },
+   "kept": {
+    "n": 7,
+    "win": 0.2857142857142857,
+    "mean": -3.7207142857142856,
+    "pnl": -23250.5,
+    "losers": 5
+   },
+   "removed": {
+    "n": 13,
+    "win": 0.46153846153846156,
+    "mean": 2.935923076923077,
+    "pnl": 29311.75,
+    "losers": 7
+   }
+  },
+  "p": 0.58,
+  "verdict": "REJECTED",
+  "why": "shuffle; holdout win < book; removed side profitable on holdout"
+ },
+ {
+  "book": "t28_nohigh",
+  "search_id": "M raw+derived triple q9",
+  "rule": [
+   [
+    "e_syn_dev",
+    ">=",
+    -1.4639999999999997
+   ],
+   [
+    "oi_help30_minus_5",
+    "<",
+    8687614.000000004
+   ],
+   [
+    "theta_pct_x_mins_to_flat",
+    ">=",
+    3.9591455000000004
+   ]
+  ],
+  "combinator": "AND",
+  "features": {
+   "e_syn_dev": "raw photograph field",
+   "oi_help30_minus_5": "oi_net_help30 - oi_net_help5",
+   "theta_pct_x_mins_to_flat": "theta_pct * mins_to_flat"
+  },
+  "search": "greedy triple, raw + derived, 9 lines; 255 features, 4424 clause masks; shuffle n=300 seed 7",
+  "score": 0.5822994210090985,
+  "shuffle_median": 0.6013234077750207,
+  "shuffle_max": 0.7692307692307692,
+  "discovery": {
+   "book": {
+    "n": 70,
+    "win": 0.5571428571428572,
+    "mean": 4.9876000000000005,
+    "pnl": 415216.75,
+    "losers": 31
+   },
+   "kept": {
+    "n": 34,
+    "win": 0.8529411764705882,
+    "mean": 12.093764705882352,
+    "pnl": 468871.0,
+    "losers": 5
+   },
+   "removed": {
+    "n": 36,
+    "win": 0.2777777777777778,
+    "mean": -1.7237777777777779,
+    "pnl": -53654.25,
+    "losers": 26
+   }
+  },
+  "holdout": {
+   "book": {
+    "n": 20,
+    "win": 0.4,
+    "mean": 0.6061000000000001,
+    "pnl": 6061.25,
+    "losers": 12
+   },
+   "kept": {
+    "n": 9,
+    "win": 0.3333333333333333,
+    "mean": -1.540222222222222,
+    "pnl": -16194.75,
+    "losers": 6
+   },
+   "removed": {
+    "n": 11,
+    "win": 0.45454545454545453,
+    "mean": 2.3621818181818184,
+    "pnl": 22256.0,
+    "losers": 6
+   }
+  },
+  "p": 0.6766666666666666,
+  "verdict": "REJECTED",
+  "why": "shuffle; holdout win < book; removed side profitable on holdout"
+ },
+ {
+  "book": "t28_nohigh",
+  "search_id": "N text-only pair",
+  "rule": [
+   [
+    "fut_opp_o=HOLDING",
+    "<",
+    1.0
+   ],
+   [
+    "opt_opp_o=REFILLING",
+    "<",
+    1.0
+   ]
+  ],
+  "combinator": "AND",
+  "features": {
+   "fut_opp_o=HOLDING": "text indicator field=VALUE -> 1/0",
+   "opt_opp_o=REFILLING": "text indicator field=VALUE -> 1/0"
+  },
+  "search": "best AND-pair of text indicators only; 61 features, 204 clause masks; shuffle n=300 seed 7",
+  "score": 0.3250620347394541,
+  "shuffle_median": 0.3316790736145575,
+  "shuffle_max": 0.5301902398676592,
+  "discovery": {
+   "book": {
+    "n": 70,
+    "win": 0.5571428571428572,
+    "mean": 4.9876000000000005,
+    "pnl": 415216.75,
+    "losers": 31
+   },
+   "kept": {
+    "n": 33,
+    "win": 0.7272727272727273,
+    "mean": 7.598575757575757,
+    "pnl": 275268.5,
+    "losers": 9
+   },
+   "removed": {
+    "n": 37,
+    "win": 0.40540540540540543,
+    "mean": 2.6588918918918916,
+    "pnl": 139948.25,
+    "losers": 22
+   }
+  },
+  "holdout": {
+   "book": {
+    "n": 20,
+    "win": 0.4,
+    "mean": 0.6061000000000001,
+    "pnl": 6061.25,
+    "losers": 12
+   },
+   "kept": {
+    "n": 9,
+    "win": 0.3333333333333333,
+    "mean": -0.7319999999999999,
+    "pnl": -11843.0,
+    "losers": 6
+   },
+   "removed": {
+    "n": 11,
+    "win": 0.45454545454545453,
+    "mean": 1.700909090909091,
+    "pnl": 17904.25,
+    "losers": 6
+   }
+  },
+  "p": 0.5666666666666667,
+  "verdict": "REJECTED",
+  "why": "shuffle; holdout win < book; removed side profitable on holdout"
+ },
+ {
+  "book": "t28_nohigh",
+  "search_id": "O raw pair by direction (CE | PE)",
+  "rule": [
+   [
+    "ep_max_s",
+    "<",
+    0.6835
+   ],
+   [
+    "vix_chg15",
+    ">=",
+    -0.04
+   ],
+   [
+    "is_ce",
+    "<",
+    0.5
+   ]
+  ],
+  "combinator": "AND",
+  "features": {
+   "ep_max_s": "raw photograph field",
+   "vix_chg15": "raw photograph field",
+   "is_ce": "1 if the trade buys a call"
+  },
+  "search": "best AND-pair searched separately on CE trades and on PE trades (raw, 5 lines), better side taken, with the is_ce clause; 193 features, 1878 clause masks; shuffle n=300 seed 7",
+  "score": 0.6071428571428572,
+  "shuffle_median": 0.6692307692307693,
+  "shuffle_max": 0.8181818181818182,
+  "discovery": {
+   "book": {
+    "n": 70,
+    "win": 0.5571428571428572,
+    "mean": 4.9876000000000005,
+    "pnl": 415216.75,
+    "losers": 31
+   },
+   "kept": {
+    "n": 22,
+    "win": 0.8181818181818182,
+    "mean": 12.727818181818181,
+    "pnl": 334730.5,
+    "losers": 4
+   },
+   "removed": {
+    "n": 48,
+    "win": 0.4375,
+    "mean": 1.4399999999999997,
+    "pnl": 80486.25,
+    "losers": 27
+   }
+  },
+  "holdout": {
+   "book": {
+    "n": 20,
+    "win": 0.4,
+    "mean": 0.6061000000000001,
+    "pnl": 6061.25,
+    "losers": 12
+   },
+   "kept": {
+    "n": 6,
+    "win": 0.16666666666666666,
+    "mean": -2.1696666666666666,
+    "pnl": -10770.5,
+    "losers": 5
+   },
+   "removed": {
+    "n": 14,
+    "win": 0.5,
+    "mean": 1.7957142857142858,
+    "pnl": 16831.75,
+    "losers": 7
+   }
+  },
+  "p": 0.94,
+  "verdict": "REJECTED",
+  "why": "shuffle; holdout win < book; removed side profitable on holdout"
+ },
+ {
+  "book": "t28_nohigh",
+  "search_id": "P derived single q9",
+  "rule": [
+   [
+    "oi_help30_minus_5",
+    "<",
+    6294281.500000001
+   ]
+  ],
+  "combinator": "AND",
+  "features": {
+   "oi_help30_minus_5": "oi_net_help30 - oi_net_help5"
+  },
+  "search": "best single clause over derived features, 9 lines; 62 features, 1104 clause masks; shuffle n=300 seed 7",
+  "score": 0.2853598014888337,
+  "shuffle_median": 0.32423490488006623,
+  "shuffle_max": 0.5558312655086849,
+  "discovery": {
+   "book": {
+    "n": 70,
+    "win": 0.5571428571428572,
+    "mean": 4.9876000000000005,
+    "pnl": 415216.75,
+    "losers": 31
+   },
+   "kept": {
+    "n": 45,
+    "win": 0.6666666666666666,
+    "mean": 7.892733333333333,
+    "pnl": 417670.5,
+    "losers": 15
+   },
+   "removed": {
+    "n": 25,
+    "win": 0.36,
+    "mean": -0.24164000000000002,
+    "pnl": -2453.75,
+    "losers": 16
+   }
+  },
+  "holdout": {
+   "book": {
+    "n": 20,
+    "win": 0.4,
+    "mean": 0.6061000000000001,
+    "pnl": 6061.25,
+    "losers": 12
+   },
+   "kept": {
+    "n": 9,
+    "win": 0.3333333333333333,
+    "mean": -0.216,
+    "pnl": -1036.75,
+    "losers": 6
+   },
+   "removed": {
+    "n": 11,
+    "win": 0.45454545454545453,
+    "mean": 1.278727272727273,
+    "pnl": 7098.0,
+    "losers": 6
+   }
+  },
+  "p": 0.8433333333333334,
+  "verdict": "REJECTED",
+  "why": "shuffle; holdout win < book; removed side profitable on holdout"
+ },
+ {
+  "book": "t28_bidpile",
+  "search_id": "A raw single q5",
+  "rule": [
+   [
+    "oi_own_chg30",
+    ">=",
+    27690.0
+   ]
+  ],
+  "combinator": "AND",
+  "features": {
+   "oi_own_chg30": "raw photograph field"
+  },
+  "search": "best single clause, raw numeric photo fields, 5 quantile lines (10..90 %) both directions, min 20 kept; 193 features, 1878 clause masks; shuffle n=300 seed 7",
+  "score": 0.3250620347394541,
+  "shuffle_median": 0.36228287841191065,
+  "shuffle_max": 0.5500413564929694,
+  "discovery": {
+   "book": {
+    "n": 70,
+    "win": 0.5571428571428572,
+    "mean": 4.556385714285715,
+    "pnl": 405125.5,
+    "losers": 31
+   },
+   "kept": {
+    "n": 33,
+    "win": 0.7272727272727273,
+    "mean": 9.328999999999999,
+    "pnl": 386217.0,
+    "losers": 9
+   },
+   "removed": {
+    "n": 37,
+    "win": 0.40540540540540543,
+    "mean": 0.29972972972972967,
+    "pnl": 18908.5,
+    "losers": 22
+   }
+  },
+  "holdout": {
+   "book": {
+    "n": 21,
+    "win": 0.42857142857142855,
+    "mean": 0.9552857142857143,
+    "pnl": 12837.5,
+    "losers": 12
+   },
+   "kept": {
+    "n": 5,
+    "win": 0.4,
+    "mean": -3.9574,
+    "pnl": -19246.5,
+    "losers": 3
+   },
+   "removed": {
+    "n": 16,
+    "win": 0.4375,
+    "mean": 2.4905,
+    "pnl": 32084.0,
+    "losers": 9
+   }
+  },
+  "p": 0.7266666666666667,
+  "verdict": "REJECTED",
+  "why": "shuffle; holdout win < book; removed side profitable on holdout"
+ },
+ {
+  "book": "t28_bidpile",
+  "search_id": "B raw pair q5",
+  "rule": [
+   [
+    "fut_spread",
+    ">=",
+    2.6
+   ],
+   [
+    "oi_own_chg5",
+    "<",
+    -7916.999999999989
+   ]
+  ],
+  "combinator": "AND",
+  "features": {
+   "fut_spread": "raw photograph field",
+   "oi_own_chg5": "raw photograph field"
+  },
+  "search": "best AND-pair of clauses on different raw fields, 5 quantile lines, min 20 kept (rule_lab.best_pair); 193 features, 1878 clause masks; shuffle n=300 seed 7",
+  "score": 0.47890818858560796,
+  "shuffle_median": 0.48635235732009924,
+  "shuffle_max": 0.6534325889164598,
+  "discovery": {
+   "book": {
+    "n": 70,
+    "win": 0.5571428571428572,
+    "mean": 4.556385714285715,
+    "pnl": 405125.5,
+    "losers": 31
+   },
+   "kept": {
+    "n": 39,
+    "win": 0.7692307692307693,
+    "mean": 8.954923076923077,
+    "pnl": 419425.5,
+    "losers": 9
+   },
+   "removed": {
+    "n": 31,
+    "win": 0.2903225806451613,
+    "mean": -0.9772580645161293,
+    "pnl": -14300.0,
+    "losers": 22
+   }
+  },
+  "holdout": {
+   "book": {
+    "n": 21,
+    "win": 0.42857142857142855,
+    "mean": 0.9552857142857143,
+    "pnl": 12837.5,
+    "losers": 12
+   },
+   "kept": {
+    "n": 10,
+    "win": 0.5,
+    "mean": 2.6756,
+    "pnl": 18128.5,
+    "losers": 5
+   },
+   "removed": {
+    "n": 11,
+    "win": 0.36363636363636365,
+    "mean": -0.6086363636363636,
+    "pnl": -5291.0,
+    "losers": 7
+   }
+  },
+  "p": 0.61,
+  "verdict": "REJECTED",
+  "why": "shuffle"
+ },
+ {
+  "book": "t28_bidpile",
+  "search_id": "C raw+derived single q5",
+  "rule": [
+   [
+    "oi_own_chg30",
+    ">=",
+    27690.0
+   ]
+  ],
+  "combinator": "AND",
+  "features": {
+   "oi_own_chg30": "raw photograph field"
+  },
+  "search": "best single clause, raw + derived features, 5 lines; 255 features, 2496 clause masks; shuffle n=300 seed 7",
+  "score": 0.3250620347394541,
+  "shuffle_median": 0.36476426799007444,
+  "shuffle_max": 0.5500413564929694,
+  "discovery": {
+   "book": {
+    "n": 70,
+    "win": 0.5571428571428572,
+    "mean": 4.556385714285715,
+    "pnl": 405125.5,
+    "losers": 31
+   },
+   "kept": {
+    "n": 33,
+    "win": 0.7272727272727273,
+    "mean": 9.328999999999999,
+    "pnl": 386217.0,
+    "losers": 9
+   },
+   "removed": {
+    "n": 37,
+    "win": 0.40540540540540543,
+    "mean": 0.29972972972972967,
+    "pnl": 18908.5,
+    "losers": 22
+   }
+  },
+  "holdout": {
+   "book": {
+    "n": 21,
+    "win": 0.42857142857142855,
+    "mean": 0.9552857142857143,
+    "pnl": 12837.5,
+    "losers": 12
+   },
+   "kept": {
+    "n": 5,
+    "win": 0.4,
+    "mean": -3.9574,
+    "pnl": -19246.5,
+    "losers": 3
+   },
+   "removed": {
+    "n": 16,
+    "win": 0.4375,
+    "mean": 2.4905,
+    "pnl": 32084.0,
+    "losers": 9
+   }
+  },
+  "p": 0.8,
+  "verdict": "REJECTED",
+  "why": "shuffle; holdout win < book; removed side profitable on holdout"
+ },
+ {
+  "book": "t28_bidpile",
+  "search_id": "D raw+derived pair q5",
+  "rule": [
+   [
+    "fut_spread",
+    ">=",
+    2.6
+   ],
+   [
+    "oi_own_chg5",
+    "<",
+    -7916.999999999989
+   ]
+  ],
+  "combinator": "AND",
+  "features": {
+   "fut_spread": "raw photograph field",
+   "oi_own_chg5": "raw photograph field"
+  },
+  "search": "best AND-pair, raw + derived, 5 lines; 255 features, 2496 clause masks; shuffle n=300 seed 7",
+  "score": 0.47890818858560796,
+  "shuffle_median": 0.49875930521091805,
+  "shuffle_max": 0.6534325889164598,
+  "discovery": {
+   "book": {
+    "n": 70,
+    "win": 0.5571428571428572,
+    "mean": 4.556385714285715,
+    "pnl": 405125.5,
+    "losers": 31
+   },
+   "kept": {
+    "n": 39,
+    "win": 0.7692307692307693,
+    "mean": 8.954923076923077,
+    "pnl": 419425.5,
+    "losers": 9
+   },
+   "removed": {
+    "n": 31,
+    "win": 0.2903225806451613,
+    "mean": -0.9772580645161293,
+    "pnl": -14300.0,
+    "losers": 22
+   }
+  },
+  "holdout": {
+   "book": {
+    "n": 21,
+    "win": 0.42857142857142855,
+    "mean": 0.9552857142857143,
+    "pnl": 12837.5,
+    "losers": 12
+   },
+   "kept": {
+    "n": 10,
+    "win": 0.5,
+    "mean": 2.6756,
+    "pnl": 18128.5,
+    "losers": 5
+   },
+   "removed": {
+    "n": 11,
+    "win": 0.36363636363636365,
+    "mean": -0.6086363636363636,
+    "pnl": -5291.0,
+    "losers": 7
+   }
+  },
+  "p": 0.6733333333333333,
+  "verdict": "REJECTED",
+  "why": "shuffle"
+ },
+ {
+  "book": "t28_bidpile",
+  "search_id": "E raw+text pair q5",
+  "rule": [
+   [
+    "fut_spread",
+    ">=",
+    2.6
+   ],
+   [
+    "oi_own_chg5",
+    "<",
+    -7916.999999999989
+   ]
+  ],
+  "combinator": "AND",
+  "features": {
+   "fut_spread": "raw photograph field",
+   "oi_own_chg5": "raw photograph field"
+  },
+  "search": "best AND-pair, raw + text indicators (field=VALUE), 5 lines; 255 features, 2086 clause masks; shuffle n=300 seed 7",
+  "score": 0.47890818858560796,
+  "shuffle_median": 0.4913151364764268,
+  "shuffle_max": 0.6534325889164598,
+  "discovery": {
+   "book": {
+    "n": 70,
+    "win": 0.5571428571428572,
+    "mean": 4.556385714285715,
+    "pnl": 405125.5,
+    "losers": 31
+   },
+   "kept": {
+    "n": 39,
+    "win": 0.7692307692307693,
+    "mean": 8.954923076923077,
+    "pnl": 419425.5,
+    "losers": 9
+   },
+   "removed": {
+    "n": 31,
+    "win": 0.2903225806451613,
+    "mean": -0.9772580645161293,
+    "pnl": -14300.0,
+    "losers": 22
+   }
+  },
+  "holdout": {
+   "book": {
+    "n": 21,
+    "win": 0.42857142857142855,
+    "mean": 0.9552857142857143,
+    "pnl": 12837.5,
+    "losers": 12
+   },
+   "kept": {
+    "n": 10,
+    "win": 0.5,
+    "mean": 2.6756,
+    "pnl": 18128.5,
+    "losers": 5
+   },
+   "removed": {
+    "n": 11,
+    "win": 0.36363636363636365,
+    "mean": -0.6086363636363636,
+    "pnl": -5291.0,
+    "losers": 7
+   }
+  },
+  "p": 0.6466666666666666,
+  "verdict": "REJECTED",
+  "why": "shuffle"
+ },
+ {
+  "book": "t28_bidpile",
+  "search_id": "F raw+derived greedy triple q5",
+  "rule": [
+   [
+    "fut_spread",
+    ">=",
+    2.6
+   ],
+   [
+    "oi_own_chg5",
+    "<",
+    -7916.999999999989
+   ],
+   [
+    "po_a",
+    "<",
+    36.02
+   ]
+  ],
+  "combinator": "AND",
+  "features": {
+   "fut_spread": "raw photograph field",
+   "oi_own_chg5": "raw photograph field",
+   "po_a": "raw photograph field"
+  },
+  "search": "greedy triple: best pair (raw + derived, 5 lines) then the single clause that most improves it; 255 features, 2496 clause masks; shuffle n=300 seed 7",
+  "score": 0.5244003308519437,
+  "shuffle_median": 0.5690653432588917,
+  "shuffle_max": 0.7427626137303557,
+  "discovery": {
+   "book": {
+    "n": 70,
+    "win": 0.5571428571428572,
+    "mean": 4.556385714285715,
+    "pnl": 405125.5,
+    "losers": 31
+   },
+   "kept": {
+    "n": 34,
+    "win": 0.8235294117647058,
+    "mean": 10.266117647058824,
+    "pnl": 414872.25,
+    "losers": 6
+   },
+   "removed": {
+    "n": 36,
+    "win": 0.3055555555555556,
+    "mean": -0.8361388888888891,
+    "pnl": -9746.75,
+    "losers": 25
+   }
+  },
+  "holdout": {
+   "book": {
+    "n": 21,
+    "win": 0.42857142857142855,
+    "mean": 0.9552857142857143,
+    "pnl": 12837.5,
+    "losers": 12
+   },
+   "kept": {
+    "n": 10,
+    "win": 0.5,
+    "mean": 2.6756,
+    "pnl": 18128.5,
+    "losers": 5
+   },
+   "removed": {
+    "n": 11,
+    "win": 0.36363636363636365,
+    "mean": -0.6086363636363636,
+    "pnl": -5291.0,
+    "losers": 7
+   }
+  },
+  "p": 0.86,
+  "verdict": "REJECTED",
+  "why": "shuffle"
+ },
+ {
+  "book": "t28_bidpile",
+  "search_id": "G raw single q9",
+  "rule": [
+   [
+    "oi_own_chg30",
+    ">=",
+    27690.0
+   ]
+  ],
+  "combinator": "AND",
+  "features": {
+   "oi_own_chg30": "raw photograph field"
+  },
+  "search": "best single clause, raw, 9 quantile lines; 193 features, 3318 clause masks; shuffle n=300 seed 7",
+  "score": 0.3250620347394541,
+  "shuffle_median": 0.37634408602150543,
+  "shuffle_max": 0.5500413564929694,
+  "discovery": {
+   "book": {
+    "n": 70,
+    "win": 0.5571428571428572,
+    "mean": 4.556385714285715,
+    "pnl": 405125.5,
+    "losers": 31
+   },
+   "kept": {
+    "n": 33,
+    "win": 0.7272727272727273,
+    "mean": 9.328999999999999,
+    "pnl": 386217.0,
+    "losers": 9
+   },
+   "removed": {
+    "n": 37,
+    "win": 0.40540540540540543,
+    "mean": 0.29972972972972967,
+    "pnl": 18908.5,
+    "losers": 22
+   }
+  },
+  "holdout": {
+   "book": {
+    "n": 21,
+    "win": 0.42857142857142855,
+    "mean": 0.9552857142857143,
+    "pnl": 12837.5,
+    "losers": 12
+   },
+   "kept": {
+    "n": 5,
+    "win": 0.4,
+    "mean": -3.9574,
+    "pnl": -19246.5,
+    "losers": 3
+   },
+   "removed": {
+    "n": 16,
+    "win": 0.4375,
+    "mean": 2.4905,
+    "pnl": 32084.0,
+    "losers": 9
+   }
+  },
+  "p": 0.8033333333333333,
+  "verdict": "REJECTED",
+  "why": "shuffle; holdout win < book; removed side profitable on holdout"
+ },
+ {
+  "book": "t28_bidpile",
+  "search_id": "H raw pair q9",
+  "rule": [
+   [
+    "oi_own_chg30",
+    ">=",
+    27690.0
+   ],
+   [
+    "opt_iv_chg5",
+    ">=",
+    -0.572
+   ]
+  ],
+  "combinator": "AND",
+  "features": {
+   "oi_own_chg30": "raw photograph field",
+   "opt_iv_chg5": "raw photograph field"
+  },
+  "search": "best AND-pair, raw, 9 lines; 193 features, 3318 clause masks; shuffle n=300 seed 7",
+  "score": 0.49296939619520264,
+  "shuffle_median": 0.5115798180314309,
+  "shuffle_max": 0.6534325889164598,
+  "discovery": {
+   "book": {
+    "n": 70,
+    "win": 0.5571428571428572,
+    "mean": 4.556385714285715,
+    "pnl": 405125.5,
+    "losers": 31
+   },
+   "kept": {
+    "n": 26,
+    "win": 0.8846153846153846,
+    "mean": 12.872423076923077,
+    "pnl": 422922.5,
+    "losers": 3
+   },
+   "removed": {
+    "n": 44,
+    "win": 0.36363636363636365,
+    "mean": -0.35763636363636375,
+    "pnl": -17797.0,
+    "losers": 28
+   }
+  },
+  "holdout": {
+   "book": {
+    "n": 21,
+    "win": 0.42857142857142855,
+    "mean": 0.9552857142857143,
+    "pnl": 12837.5,
+    "losers": 12
+   },
+   "kept": {
+    "n": 5,
+    "win": 0.4,
+    "mean": -3.9574,
+    "pnl": -19246.5,
+    "losers": 3
+   },
+   "removed": {
+    "n": 16,
+    "win": 0.4375,
+    "mean": 2.4905,
+    "pnl": 32084.0,
+    "losers": 9
+   }
+  },
+  "p": 0.6866666666666666,
+  "verdict": "REJECTED",
+  "why": "shuffle; holdout win < book; removed side profitable on holdout"
+ },
+ {
+  "book": "t28_bidpile",
+  "search_id": "I raw OR-pair q5",
+  "rule": [
+   [
+    "new_lows",
+    ">=",
+    139.0
+   ],
+   [
+    "oi_net_help5",
+    ">=",
+    1732068.0
+   ]
+  ],
+  "combinator": "OR",
+  "features": {
+   "new_lows": "raw photograph field",
+   "oi_net_help5": "raw photograph field"
+  },
+  "search": "best OR of two single clauses on different raw fields, 5 lines; 193 features, 1878 clause masks; shuffle n=300 seed 7",
+  "score": 0.45409429280397023,
+  "shuffle_median": 0.4913151364764268,
+  "shuffle_max": 0.6459884201819686,
+  "discovery": {
+   "book": {
+    "n": 70,
+    "win": 0.5571428571428572,
+    "mean": 4.556385714285715,
+    "pnl": 405125.5,
+    "losers": 31
+   },
+   "kept": {
+    "n": 29,
+    "win": 0.8275862068965517,
+    "mean": 8.882620689655173,
+    "pnl": 350145.25,
+    "losers": 5
+   },
+   "removed": {
+    "n": 41,
+    "win": 0.36585365853658536,
+    "mean": 1.4963658536585365,
+    "pnl": 54980.25,
+    "losers": 26
+   }
+  },
+  "holdout": {
+   "book": {
+    "n": 21,
+    "win": 0.42857142857142855,
+    "mean": 0.9552857142857143,
+    "pnl": 12837.5,
+    "losers": 12
+   },
+   "kept": {
+    "n": 7,
+    "win": 0.7142857142857143,
+    "mean": 1.608142857142857,
+    "pnl": 8060.0,
+    "losers": 2
+   },
+   "removed": {
+    "n": 14,
+    "win": 0.2857142857142857,
+    "mean": 0.628857142857143,
+    "pnl": 4777.5,
+    "losers": 10
+   }
+  },
+  "p": 0.8433333333333334,
+  "verdict": "REJECTED",
+  "why": "shuffle; removed side profitable on holdout"
+ },
+ {
+  "book": "t28_bidpile",
+  "search_id": "J derived-only pair q5",
+  "rule": [
+   [
+    "oi_help30_minus_5",
+    "<",
+    6793462.000000003
+   ],
+   [
+    "dir_x_e_syn_dev",
+    "<",
+    2.968
+   ]
+  ],
+  "combinator": "AND",
+  "features": {
+   "oi_help30_minus_5": "oi_net_help30 - oi_net_help5",
+   "dir_x_e_syn_dev": "dir * e_syn_dev (+1 CE / -1 PE)"
+  },
+  "search": "best AND-pair over derived features only, 5 lines; 62 features, 618 clause masks; shuffle n=300 seed 7",
+  "score": 0.44665012406947885,
+  "shuffle_median": 0.43424317617866004,
+  "shuffle_max": 0.6203473945409429,
+  "discovery": {
+   "book": {
+    "n": 70,
+    "win": 0.5571428571428572,
+    "mean": 4.556385714285715,
+    "pnl": 405125.5,
+    "losers": 31
+   },
+   "kept": {
+    "n": 40,
+    "win": 0.75,
+    "mean": 8.7618,
+    "pnl": 430121.25,
+    "losers": 10
+   },
+   "removed": {
+    "n": 30,
+    "win": 0.3,
+    "mean": -1.0508333333333335,
+    "pnl": -24995.75,
+    "losers": 21
+   }
+  },
+  "holdout": {
+   "book": {
+    "n": 21,
+    "win": 0.42857142857142855,
+    "mean": 0.9552857142857143,
+    "pnl": 12837.5,
+    "losers": 12
+   },
+   "kept": {
+    "n": 8,
+    "win": 0.25,
+    "mean": -2.811375,
+    "pnl": -20822.75,
+    "losers": 6
+   },
+   "removed": {
+    "n": 13,
+    "win": 0.5384615384615384,
+    "mean": 3.273230769230769,
+    "pnl": 33660.25,
+    "losers": 6
+   }
+  },
+  "p": 0.39666666666666667,
+  "verdict": "REJECTED",
+  "why": "shuffle; holdout win < book; removed side profitable on holdout"
+ },
+ {
+  "book": "t28_bidpile",
+  "search_id": "K raw+derived pair q5 min_keep 30",
+  "rule": [
+   [
+    "fut_spread",
+    ">=",
+    2.6
+   ],
+   [
+    "oi_own_chg5",
+    "<",
+    -7916.999999999989
+   ]
+  ],
+  "combinator": "AND",
+  "features": {
+   "fut_spread": "raw photograph field",
+   "oi_own_chg5": "raw photograph field"
+  },
+  "search": "best AND-pair, raw + derived, 5 lines, min 30 kept; 255 features, 2496 clause masks; shuffle n=300 seed 7",
+  "score": 0.47890818858560796,
+  "shuffle_median": 0.4913151364764268,
+  "shuffle_max": 0.6534325889164598,
+  "discovery": {
+   "book": {
+    "n": 70,
+    "win": 0.5571428571428572,
+    "mean": 4.556385714285715,
+    "pnl": 405125.5,
+    "losers": 31
+   },
+   "kept": {
+    "n": 39,
+    "win": 0.7692307692307693,
+    "mean": 8.954923076923077,
+    "pnl": 419425.5,
+    "losers": 9
+   },
+   "removed": {
+    "n": 31,
+    "win": 0.2903225806451613,
+    "mean": -0.9772580645161293,
+    "pnl": -14300.0,
+    "losers": 22
+   }
+  },
+  "holdout": {
+   "book": {
+    "n": 21,
+    "win": 0.42857142857142855,
+    "mean": 0.9552857142857143,
+    "pnl": 12837.5,
+    "losers": 12
+   },
+   "kept": {
+    "n": 10,
+    "win": 0.5,
+    "mean": 2.6756,
+    "pnl": 18128.5,
+    "losers": 5
+   },
+   "removed": {
+    "n": 11,
+    "win": 0.36363636363636365,
+    "mean": -0.6086363636363636,
+    "pnl": -5291.0,
+    "losers": 7
+   }
+  },
+  "p": 0.6266666666666667,
+  "verdict": "REJECTED",
+  "why": "shuffle"
+ },
+ {
+  "book": "t28_bidpile",
+  "search_id": "L raw+derived+text pair q5 min_keep 25",
+  "rule": [
+   [
+    "fut_spread",
+    ">=",
+    2.6
+   ],
+   [
+    "oi_own_chg5",
+    "<",
+    -7916.999999999989
+   ]
+  ],
+  "combinator": "AND",
+  "features": {
+   "fut_spread": "raw photograph field",
+   "oi_own_chg5": "raw photograph field"
+  },
+  "search": "best AND-pair, raw + derived + text, 5 lines, min 25 kept; 317 features, 2704 clause masks; shuffle n=300 seed 7",
+  "score": 0.47890818858560796,
+  "shuffle_median": 0.4954507857733664,
+  "shuffle_max": 0.6534325889164598,
+  "discovery": {
+   "book": {
+    "n": 70,
+    "win": 0.5571428571428572,
+    "mean": 4.556385714285715,
+    "pnl": 405125.5,
+    "losers": 31
+   },
+   "kept": {
+    "n": 39,
+    "win": 0.7692307692307693,
+    "mean": 8.954923076923077,
+    "pnl": 419425.5,
+    "losers": 9
+   },
+   "removed": {
+    "n": 31,
+    "win": 0.2903225806451613,
+    "mean": -0.9772580645161293,
+    "pnl": -14300.0,
+    "losers": 22
+   }
+  },
+  "holdout": {
+   "book": {
+    "n": 21,
+    "win": 0.42857142857142855,
+    "mean": 0.9552857142857143,
+    "pnl": 12837.5,
+    "losers": 12
+   },
+   "kept": {
+    "n": 10,
+    "win": 0.5,
+    "mean": 2.6756,
+    "pnl": 18128.5,
+    "losers": 5
+   },
+   "removed": {
+    "n": 11,
+    "win": 0.36363636363636365,
+    "mean": -0.6086363636363636,
+    "pnl": -5291.0,
+    "losers": 7
+   }
+  },
+  "p": 0.6933333333333334,
+  "verdict": "REJECTED",
+  "why": "shuffle"
+ },
+ {
+  "book": "t28_bidpile",
+  "search_id": "M raw+derived triple q9",
+  "rule": [
+   [
+    "oi_own_chg30",
+    ">=",
+    27690.0
+   ],
+   [
+    "opt_iv_chg5",
+    ">=",
+    -0.572
+   ],
+   [
+    "basis_chg60",
+    ">=",
+    -4.26
+   ]
+  ],
+  "combinator": "AND",
+  "features": {
+   "oi_own_chg30": "raw photograph field",
+   "opt_iv_chg5": "raw photograph field",
+   "basis_chg60": "raw photograph field"
+  },
+  "search": "greedy triple, raw + derived, 9 lines; 255 features, 4422 clause masks; shuffle n=300 seed 7",
+  "score": 0.5574855252274608,
+  "shuffle_median": 0.5955334987593052,
+  "shuffle_max": 0.7684036393713813,
+  "discovery": {
+   "book": {
+    "n": 70,
+    "win": 0.5571428571428572,
+    "mean": 4.556385714285715,
+    "pnl": 405125.5,
+    "losers": 31
+   },
+   "kept": {
+    "n": 24,
+    "win": 0.9583333333333334,
+    "mean": 14.017541666666666,
+    "pnl": 424771.75,
+    "losers": 1
+   },
+   "removed": {
+    "n": 46,
+    "win": 0.34782608695652173,
+    "mean": -0.3798695652173914,
+    "pnl": -19646.25,
+    "losers": 30
+   }
+  },
+  "holdout": {
+   "book": {
+    "n": 21,
+    "win": 0.42857142857142855,
+    "mean": 0.9552857142857143,
+    "pnl": 12837.5,
+    "losers": 12
+   },
+   "kept": {
+    "n": 5,
+    "win": 0.4,
+    "mean": -3.9574,
+    "pnl": -19246.5,
+    "losers": 3
+   },
+   "removed": {
+    "n": 16,
+    "win": 0.4375,
+    "mean": 2.4905,
+    "pnl": 32084.0,
+    "losers": 9
+   }
+  },
+  "p": 0.8266666666666667,
+  "verdict": "REJECTED",
+  "why": "shuffle; holdout win < book; removed side profitable on holdout"
+ },
+ {
+  "book": "t28_bidpile",
+  "search_id": "N text-only pair",
+  "rule": [
+   [
+    "fut_opp_o=HOLDING",
+    "<",
+    1.0
+   ],
+   [
+    "opt_opp_o=REFILLING",
+    "<",
+    1.0
+   ]
+  ],
+  "combinator": "AND",
+  "features": {
+   "fut_opp_o=HOLDING": "text indicator field=VALUE -> 1/0",
+   "opt_opp_o=REFILLING": "text indicator field=VALUE -> 1/0"
+  },
+  "search": "best AND-pair of text indicators only; 62 features, 206 clause masks; shuffle n=300 seed 7",
+  "score": 0.3316790736145575,
+  "shuffle_median": 0.3378825475599669,
+  "shuffle_max": 0.4979321753515301,
+  "discovery": {
+   "book": {
+    "n": 70,
+    "win": 0.5571428571428572,
+    "mean": 4.556385714285715,
+    "pnl": 405125.5,
+    "losers": 31
+   },
+   "kept": {
+    "n": 31,
+    "win": 0.7419354838709677,
+    "mean": 7.462935483870968,
+    "pnl": 261537.25,
+    "losers": 8
+   },
+   "removed": {
+    "n": 39,
+    "win": 0.41025641025641024,
+    "mean": 2.246051282051282,
+    "pnl": 143588.25,
+    "losers": 23
+   }
+  },
+  "holdout": {
+   "book": {
+    "n": 21,
+    "win": 0.42857142857142855,
+    "mean": 0.9552857142857143,
+    "pnl": 12837.5,
+    "losers": 12
+   },
+   "kept": {
+    "n": 10,
+    "win": 0.4,
+    "mean": 0.13510000000000005,
+    "pnl": -5122.0,
+    "losers": 6
+   },
+   "removed": {
+    "n": 11,
+    "win": 0.45454545454545453,
+    "mean": 1.700909090909091,
+    "pnl": 17959.5,
+    "losers": 6
+   }
+  },
+  "p": 0.55,
+  "verdict": "REJECTED",
+  "why": "shuffle; holdout win < book; removed side profitable on holdout"
+ },
+ {
+  "book": "t28_bidpile",
+  "search_id": "O raw pair by direction (CE | PE)",
+  "rule": [
+   [
+    "fut_spread",
+    ">=",
+    2.6
+   ],
+   [
+    "regime_ext_pct",
+    "<",
+    94.1
+   ],
+   [
+    "is_ce",
+    "<",
+    0.5
+   ]
+  ],
+  "combinator": "AND",
+  "features": {
+   "fut_spread": "raw photograph field",
+   "regime_ext_pct": "raw photograph field",
+   "is_ce": "1 if the trade buys a call"
+  },
+  "search": "best AND-pair searched separately on CE trades and on PE trades (raw, 5 lines), better side taken, with the is_ce clause; 193 features, 1878 clause masks; shuffle n=300 seed 7",
+  "score": 0.6735294117647058,
+  "shuffle_median": 0.6777777777777777,
+  "shuffle_max": 0.875,
+  "discovery": {
+   "book": {
+    "n": 70,
+    "win": 0.5571428571428572,
+    "mean": 4.556385714285715,
+    "pnl": 405125.5,
+    "losers": 31
+   },
+   "kept": {
+    "n": 20,
+    "win": 0.85,
+    "mean": 13.61955,
+    "pnl": 304479.5,
+    "losers": 3
+   },
+   "removed": {
+    "n": 50,
+    "win": 0.44,
+    "mean": 0.9311199999999998,
+    "pnl": 100646.0,
+    "losers": 28
+   }
+  },
+  "holdout": {
+   "book": {
+    "n": 21,
+    "win": 0.42857142857142855,
+    "mean": 0.9552857142857143,
+    "pnl": 12837.5,
+    "losers": 12
+   },
+   "kept": {
+    "n": 5,
+    "win": 0.0,
+    "mean": -8.721599999999999,
+    "pnl": -40137.5,
+    "losers": 5
+   },
+   "removed": {
+    "n": 16,
+    "win": 0.5625,
+    "mean": 3.9793125,
+    "pnl": 52975.0,
+    "losers": 7
+   }
+  },
+  "p": 0.5166666666666667,
+  "verdict": "REJECTED",
+  "why": "shuffle; holdout win < book; removed side profitable on holdout"
+ },
+ {
+  "book": "t28_bidpile",
+  "search_id": "P derived single q9",
+  "rule": [
+   [
+    "oi_help30_minus_5",
+    "<",
+    6793462.000000003
+   ]
+  ],
+  "combinator": "AND",
+  "features": {
+   "oi_help30_minus_5": "oi_net_help30 - oi_net_help5"
+  },
+  "search": "best single clause over derived features, 9 lines; 62 features, 1104 clause masks; shuffle n=300 seed 7",
+  "score": 0.2853598014888337,
+  "shuffle_median": 0.32423490488006623,
+  "shuffle_max": 0.4979321753515301,
+  "discovery": {
+   "book": {
+    "n": 70,
+    "win": 0.5571428571428572,
+    "mean": 4.556385714285715,
+    "pnl": 405125.5,
+    "losers": 31
+   },
+   "kept": {
+    "n": 45,
+    "win": 0.6666666666666666,
+    "mean": 7.191422222222221,
+    "pnl": 397897.5,
+    "losers": 15
+   },
+   "removed": {
+    "n": 25,
+    "win": 0.36,
+    "mean": -0.18668000000000007,
+    "pnl": 7228.0,
+    "losers": 16
+   }
+  },
+  "holdout": {
+   "book": {
+    "n": 21,
+    "win": 0.42857142857142855,
+    "mean": 0.9552857142857143,
+    "pnl": 12837.5,
+    "losers": 12
+   },
+   "kept": {
+    "n": 10,
+    "win": 0.4,
+    "mean": 0.20739999999999997,
+    "pnl": 1768.0,
+    "losers": 6
+   },
+   "removed": {
+    "n": 11,
+    "win": 0.45454545454545453,
+    "mean": 1.6351818181818183,
+    "pnl": 11069.5,
+    "losers": 6
+   }
+  },
+  "p": 0.8166666666666667,
+  "verdict": "REJECTED",
+  "why": "shuffle; holdout win < book; removed side profitable on holdout"
+ },
+ {
+  "book": "t28_req",
+  "search_id": "A raw single q5",
+  "rule": [
+   [
+    "fut_spread",
+    ">=",
+    2.6
+   ]
+  ],
+  "combinator": "AND",
+  "features": {
+   "fut_spread": "raw photograph field"
+  },
+  "search": "best single clause, raw numeric photo fields, 5 quantile lines (10..90 %) both directions, min 20 kept; 190 features, 1856 clause masks; shuffle n=300 seed 7",
+  "score": 0.368421052631579,
+  "shuffle_median": 0.3578947368421052,
+  "shuffle_max": 0.536842105263158,
+  "discovery": {
+   "book": {
+    "n": 68,
+    "win": 0.5588235294117647,
+    "mean": 4.915558823529412,
+    "pnl": 368277.0,
+    "losers": 30
+   },
+   "kept": {
+    "n": 48,
+    "win": 0.6875,
+    "mean": 7.980645833333333,
+    "pnl": 412564.75,
+    "losers": 15
+   },
+   "removed": {
+    "n": 20,
+    "win": 0.25,
+    "mean": -2.44065,
+    "pnl": -44287.75,
+    "losers": 15
+   }
+  },
+  "holdout": {
+   "book": {
+    "n": 19,
+    "win": 0.47368421052631576,
+    "mean": 2.070684210526316,
+    "pnl": 29786.25,
+    "losers": 10
+   },
+   "kept": {
+    "n": 12,
+    "win": 0.4166666666666667,
+    "mean": 1.32325,
+    "pnl": 9015.5,
+    "losers": 7
+   },
+   "removed": {
+    "n": 7,
+    "win": 0.5714285714285714,
+    "mean": 3.352,
+    "pnl": 20770.75,
+    "losers": 3
+   }
+  },
+  "p": 0.37666666666666665,
+  "verdict": "REJECTED",
+  "why": "shuffle; holdout win < book; removed side profitable on holdout"
+ },
+ {
+  "book": "t28_req",
+  "search_id": "B raw pair q5",
+  "rule": [
+   [
+    "fut_spread",
+    ">=",
+    2.6
+   ],
+   [
+    "oi_own_chg5",
+    "<",
+    -11088.999999999978
+   ]
+  ],
+  "combinator": "AND",
+  "features": {
+   "fut_spread": "raw photograph field",
+   "oi_own_chg5": "raw photograph field"
+  },
+  "search": "best AND-pair of clauses on different raw fields, 5 quantile lines, min 20 kept (rule_lab.best_pair); 190 features, 1856 clause masks; shuffle n=300 seed 7",
+  "score": 0.556140350877193,
+  "shuffle_median": 0.48596491228070177,
+  "shuffle_max": 0.6614035087719299,
+  "discovery": {
+   "book": {
+    "n": 68,
+    "win": 0.5588235294117647,
+    "mean": 4.915558823529412,
+    "pnl": 368277.0,
+    "losers": 30
+   },
+   "kept": {
+    "n": 37,
+    "win": 0.8108108108108109,
+    "mean": 10.395135135135135,
+    "pnl": 439292.75,
+    "losers": 7
+   },
+   "removed": {
+    "n": 31,
+    "win": 0.25806451612903225,
+    "mean": -1.6245806451612905,
+    "pnl": -71015.75,
+    "losers": 23
+   }
+  },
+  "holdout": {
+   "book": {
+    "n": 19,
+    "win": 0.47368421052631576,
+    "mean": 2.070684210526316,
+    "pnl": 29786.25,
+    "losers": 10
+   },
+   "kept": {
+    "n": 9,
+    "win": 0.5555555555555556,
+    "mean": 4.1290000000000004,
+    "pnl": 27748.5,
+    "losers": 4
+   },
+   "removed": {
+    "n": 10,
+    "win": 0.4,
+    "mean": 0.2182000000000001,
+    "pnl": 2037.75,
+    "losers": 6
+   }
+  },
+  "p": 0.09,
+  "verdict": "REJECTED",
+  "why": "shuffle; removed side profitable on holdout"
+ },
+ {
+  "book": "t28_req",
+  "search_id": "C raw+derived single q5",
+  "rule": [
+   [
+    "fut_spread",
+    ">=",
+    2.6
+   ]
+  ],
+  "combinator": "AND",
+  "features": {
+   "fut_spread": "raw photograph field"
+  },
+  "search": "best single clause, raw + derived features, 5 lines; 252 features, 2476 clause masks; shuffle n=300 seed 7",
+  "score": 0.368421052631579,
+  "shuffle_median": 0.3578947368421052,
+  "shuffle_max": 0.536842105263158,
+  "discovery": {
+   "book": {
+    "n": 68,
+    "win": 0.5588235294117647,
+    "mean": 4.915558823529412,
+    "pnl": 368277.0,
+    "losers": 30
+   },
+   "kept": {
+    "n": 48,
+    "win": 0.6875,
+    "mean": 7.980645833333333,
+    "pnl": 412564.75,
+    "losers": 15
+   },
+   "removed": {
+    "n": 20,
+    "win": 0.25,
+    "mean": -2.44065,
+    "pnl": -44287.75,
+    "losers": 15
+   }
+  },
+  "holdout": {
+   "book": {
+    "n": 19,
+    "win": 0.47368421052631576,
+    "mean": 2.070684210526316,
+    "pnl": 29786.25,
+    "losers": 10
+   },
+   "kept": {
+    "n": 12,
+    "win": 0.4166666666666667,
+    "mean": 1.32325,
+    "pnl": 9015.5,
+    "losers": 7
+   },
+   "removed": {
+    "n": 7,
+    "win": 0.5714285714285714,
+    "mean": 3.352,
+    "pnl": 20770.75,
+    "losers": 3
+   }
+  },
+  "p": 0.43333333333333335,
+  "verdict": "REJECTED",
+  "why": "shuffle; holdout win < book; removed side profitable on holdout"
+ },
+ {
+  "book": "t28_req",
+  "search_id": "D raw+derived pair q5",
+  "rule": [
+   [
+    "fut_spread",
+    ">=",
+    2.6
+   ],
+   [
+    "oi_own_chg5",
+    "<",
+    -11088.999999999978
+   ]
+  ],
+  "combinator": "AND",
+  "features": {
+   "fut_spread": "raw photograph field",
+   "oi_own_chg5": "raw photograph field"
+  },
+  "search": "best AND-pair, raw + derived, 5 lines; 252 features, 2476 clause masks; shuffle n=300 seed 7",
+  "score": 0.556140350877193,
+  "shuffle_median": 0.5087719298245614,
+  "shuffle_max": 0.6614035087719299,
+  "discovery": {
+   "book": {
+    "n": 68,
+    "win": 0.5588235294117647,
+    "mean": 4.915558823529412,
+    "pnl": 368277.0,
+    "losers": 30
+   },
+   "kept": {
+    "n": 37,
+    "win": 0.8108108108108109,
+    "mean": 10.395135135135135,
+    "pnl": 439292.75,
+    "losers": 7
+   },
+   "removed": {
+    "n": 31,
+    "win": 0.25806451612903225,
+    "mean": -1.6245806451612905,
+    "pnl": -71015.75,
+    "losers": 23
+   }
+  },
+  "holdout": {
+   "book": {
+    "n": 19,
+    "win": 0.47368421052631576,
+    "mean": 2.070684210526316,
+    "pnl": 29786.25,
+    "losers": 10
+   },
+   "kept": {
+    "n": 9,
+    "win": 0.5555555555555556,
+    "mean": 4.1290000000000004,
+    "pnl": 27748.5,
+    "losers": 4
+   },
+   "removed": {
+    "n": 10,
+    "win": 0.4,
+    "mean": 0.2182000000000001,
+    "pnl": 2037.75,
+    "losers": 6
+   }
+  },
+  "p": 0.11333333333333333,
+  "verdict": "REJECTED",
+  "why": "shuffle; removed side profitable on holdout"
+ },
+ {
+  "book": "t28_req",
+  "search_id": "E raw+text pair q5",
+  "rule": [
+   [
+    "fut_spread",
+    ">=",
+    2.6
+   ],
+   [
+    "oi_own_chg5",
+    "<",
+    -11088.999999999978
+   ]
+  ],
+  "combinator": "AND",
+  "features": {
+   "fut_spread": "raw photograph field",
+   "oi_own_chg5": "raw photograph field"
+  },
+  "search": "best AND-pair, raw + text indicators (field=VALUE), 5 lines; 251 features, 2060 clause masks; shuffle n=300 seed 7",
+  "score": 0.556140350877193,
+  "shuffle_median": 0.4912280701754386,
+  "shuffle_max": 0.6614035087719299,
+  "discovery": {
+   "book": {
+    "n": 68,
+    "win": 0.5588235294117647,
+    "mean": 4.915558823529412,
+    "pnl": 368277.0,
+    "losers": 30
+   },
+   "kept": {
+    "n": 37,
+    "win": 0.8108108108108109,
+    "mean": 10.395135135135135,
+    "pnl": 439292.75,
+    "losers": 7
+   },
+   "removed": {
+    "n": 31,
+    "win": 0.25806451612903225,
+    "mean": -1.6245806451612905,
+    "pnl": -71015.75,
+    "losers": 23
+   }
+  },
+  "holdout": {
+   "book": {
+    "n": 19,
+    "win": 0.47368421052631576,
+    "mean": 2.070684210526316,
+    "pnl": 29786.25,
+    "losers": 10
+   },
+   "kept": {
+    "n": 9,
+    "win": 0.5555555555555556,
+    "mean": 4.1290000000000004,
+    "pnl": 27748.5,
+    "losers": 4
+   },
+   "removed": {
+    "n": 10,
+    "win": 0.4,
+    "mean": 0.2182000000000001,
+    "pnl": 2037.75,
+    "losers": 6
+   }
+  },
+  "p": 0.09666666666666666,
+  "verdict": "REJECTED",
+  "why": "shuffle; removed side profitable on holdout"
+ },
+ {
+  "book": "t28_req",
+  "search_id": "F raw+derived greedy triple q5",
+  "rule": [
+   [
+    "fut_spread",
+    ">=",
+    2.6
+   ],
+   [
+    "oi_own_chg5",
+    "<",
+    -11088.999999999978
+   ],
+   [
+    "agg_with_rs",
+    ">=",
+    203947.4
+   ]
+  ],
+  "combinator": "AND",
+  "features": {
+   "fut_spread": "raw photograph field",
+   "oi_own_chg5": "raw photograph field",
+   "agg_with_rs": "raw photograph field"
+  },
+  "search": "greedy triple: best pair (raw + derived, 5 lines) then the single clause that most improves it; 252 features, 2476 clause masks; shuffle n=300 seed 7",
+  "score": 0.5964912280701755,
+  "shuffle_median": 0.5771929824561404,
+  "shuffle_max": 0.7280701754385965,
+  "discovery": {
+   "book": {
+    "n": 68,
+    "win": 0.5588235294117647,
+    "mean": 4.915558823529412,
+    "pnl": 368277.0,
+    "losers": 30
+   },
+   "kept": {
+    "n": 34,
+    "win": 0.8529411764705882,
+    "mean": 11.742323529411763,
+    "pnl": 458233.75,
+    "losers": 5
+   },
+   "removed": {
+    "n": 34,
+    "win": 0.2647058823529412,
+    "mean": -1.9112058823529414,
+    "pnl": -89956.75,
+    "losers": 25
+   }
+  },
+  "holdout": {
+   "book": {
+    "n": 19,
+    "win": 0.47368421052631576,
+    "mean": 2.070684210526316,
+    "pnl": 29786.25,
+    "losers": 10
+   },
+   "kept": {
+    "n": 9,
+    "win": 0.5555555555555556,
+    "mean": 4.1290000000000004,
+    "pnl": 27748.5,
+    "losers": 4
+   },
+   "removed": {
+    "n": 10,
+    "win": 0.4,
+    "mean": 0.2182000000000001,
+    "pnl": 2037.75,
+    "losers": 6
+   }
+  },
+  "p": 0.35333333333333333,
+  "verdict": "REJECTED",
+  "why": "shuffle; removed side profitable on holdout"
+ },
+ {
+  "book": "t28_req",
+  "search_id": "G raw single q9",
+  "rule": [
+   [
+    "fut_spread",
+    ">=",
+    2.6
+   ]
+  ],
+  "combinator": "AND",
+  "features": {
+   "fut_spread": "raw photograph field"
+  },
+  "search": "best single clause, raw, 9 quantile lines; 190 features, 3282 clause masks; shuffle n=300 seed 7",
+  "score": 0.368421052631579,
+  "shuffle_median": 0.3631578947368421,
+  "shuffle_max": 0.536842105263158,
+  "discovery": {
+   "book": {
+    "n": 68,
+    "win": 0.5588235294117647,
+    "mean": 4.915558823529412,
+    "pnl": 368277.0,
+    "losers": 30
+   },
+   "kept": {
+    "n": 48,
+    "win": 0.6875,
+    "mean": 7.980645833333333,
+    "pnl": 412564.75,
+    "losers": 15
+   },
+   "removed": {
+    "n": 20,
+    "win": 0.25,
+    "mean": -2.44065,
+    "pnl": -44287.75,
+    "losers": 15
+   }
+  },
+  "holdout": {
+   "book": {
+    "n": 19,
+    "win": 0.47368421052631576,
+    "mean": 2.070684210526316,
+    "pnl": 29786.25,
+    "losers": 10
+   },
+   "kept": {
+    "n": 12,
+    "win": 0.4166666666666667,
+    "mean": 1.32325,
+    "pnl": 9015.5,
+    "losers": 7
+   },
+   "removed": {
+    "n": 7,
+    "win": 0.5714285714285714,
+    "mean": 3.352,
+    "pnl": 20770.75,
+    "losers": 3
+   }
+  },
+  "p": 0.48,
+  "verdict": "REJECTED",
+  "why": "shuffle; holdout win < book; removed side profitable on holdout"
+ },
+ {
+  "book": "t28_req",
+  "search_id": "H raw pair q9",
+  "rule": [
+   [
+    "fut_spread",
+    ">=",
+    2.6
+   ],
+   [
+    "oi_own_chg5",
+    "<",
+    -11088.999999999978
+   ]
+  ],
+  "combinator": "AND",
+  "features": {
+   "fut_spread": "raw photograph field",
+   "oi_own_chg5": "raw photograph field"
+  },
+  "search": "best AND-pair, raw, 9 lines; 190 features, 3282 clause masks; shuffle n=300 seed 7",
+  "score": 0.556140350877193,
+  "shuffle_median": 0.5140350877192983,
+  "shuffle_max": 0.6877192982456141,
+  "discovery": {
+   "book": {
+    "n": 68,
+    "win": 0.5588235294117647,
+    "mean": 4.915558823529412,
+    "pnl": 368277.0,
+    "losers": 30
+   },
+   "kept": {
+    "n": 37,
+    "win": 0.8108108108108109,
+    "mean": 10.395135135135135,
+    "pnl": 439292.75,
+    "losers": 7
+   },
+   "removed": {
+    "n": 31,
+    "win": 0.25806451612903225,
+    "mean": -1.6245806451612905,
+    "pnl": -71015.75,
+    "losers": 23
+   }
+  },
+  "holdout": {
+   "book": {
+    "n": 19,
+    "win": 0.47368421052631576,
+    "mean": 2.070684210526316,
+    "pnl": 29786.25,
+    "losers": 10
+   },
+   "kept": {
+    "n": 9,
+    "win": 0.5555555555555556,
+    "mean": 4.1290000000000004,
+    "pnl": 27748.5,
+    "losers": 4
+   },
+   "removed": {
+    "n": 10,
+    "win": 0.4,
+    "mean": 0.2182000000000001,
+    "pnl": 2037.75,
+    "losers": 6
+   }
+  },
+  "p": 0.20333333333333334,
+  "verdict": "REJECTED",
+  "why": "shuffle; removed side profitable on holdout"
+ },
+ {
+  "book": "t28_req",
+  "search_id": "I raw OR-pair q5",
+  "rule": [
+   [
+    "agg_net",
+    ">=",
+    0.08770000000000001
+   ],
+   [
+    "oi_net_help5",
+    ">=",
+    997360.0
+   ]
+  ],
+  "combinator": "OR",
+  "features": {
+   "agg_net": "raw photograph field",
+   "oi_net_help5": "raw photograph field"
+  },
+  "search": "best OR of two single clauses on different raw fields, 5 lines; 190 features, 1856 clause masks; shuffle n=300 seed 7",
+  "score": 0.4421052631578947,
+  "shuffle_median": 0.4964912280701754,
+  "shuffle_max": 0.6280701754385964,
+  "discovery": {
+   "book": {
+    "n": 68,
+    "win": 0.5588235294117647,
+    "mean": 4.915558823529412,
+    "pnl": 368277.0,
+    "losers": 30
+   },
+   "kept": {
+    "n": 44,
+    "win": 0.7272727272727273,
+    "mean": 8.561863636363636,
+    "pnl": 422896.5,
+    "losers": 12
+   },
+   "removed": {
+    "n": 24,
+    "win": 0.25,
+    "mean": -1.7693333333333336,
+    "pnl": -54619.5,
+    "losers": 18
+   }
+  },
+  "holdout": {
+   "book": {
+    "n": 19,
+    "win": 0.47368421052631576,
+    "mean": 2.070684210526316,
+    "pnl": 29786.25,
+    "losers": 10
+   },
+   "kept": {
+    "n": 11,
+    "win": 0.45454545454545453,
+    "mean": -0.05663636363636362,
+    "pnl": -3087.5,
+    "losers": 6
+   },
+   "removed": {
+    "n": 8,
+    "win": 0.5,
+    "mean": 4.99575,
+    "pnl": 32873.75,
+    "losers": 4
+   }
+  },
+  "p": 0.9233333333333333,
+  "verdict": "REJECTED",
+  "why": "shuffle; holdout win < book; removed side profitable on holdout"
+ },
+ {
+  "book": "t28_req",
+  "search_id": "J derived-only pair q5",
+  "rule": [
+   [
+    "oi_help30_minus_5",
+    "<",
+    6789217.500000002
+   ],
+   [
+    "dir_x_e_syn_dev",
+    "<",
+    2.8690000000000007
+   ]
+  ],
+  "combinator": "AND",
+  "features": {
+   "oi_help30_minus_5": "oi_net_help30 - oi_net_help5",
+   "dir_x_e_syn_dev": "dir * e_syn_dev (+1 CE / -1 PE)"
+  },
+  "search": "best AND-pair over derived features only, 5 lines; 62 features, 620 clause masks; shuffle n=300 seed 7",
+  "score": 0.4298245614035088,
+  "shuffle_median": 0.4385964912280702,
+  "shuffle_max": 0.5842105263157895,
+  "discovery": {
+   "book": {
+    "n": 68,
+    "win": 0.5588235294117647,
+    "mean": 4.915558823529412,
+    "pnl": 368277.0,
+    "losers": 30
+   },
+   "kept": {
+    "n": 39,
+    "win": 0.7435897435897436,
+    "mean": 9.194333333333333,
+    "pnl": 407953.0,
+    "losers": 10
+   },
+   "removed": {
+    "n": 29,
+    "win": 0.3103448275862069,
+    "mean": -0.8386551724137932,
+    "pnl": -39676.0,
+    "losers": 20
+   }
+  },
+  "holdout": {
+   "book": {
+    "n": 19,
+    "win": 0.47368421052631576,
+    "mean": 2.070684210526316,
+    "pnl": 29786.25,
+    "losers": 10
+   },
+   "kept": {
+    "n": 7,
+    "win": 0.2857142857142857,
+    "mean": -1.9448571428571426,
+    "pnl": -13494.0,
+    "losers": 5
+   },
+   "removed": {
+    "n": 12,
+    "win": 0.5833333333333334,
+    "mean": 4.413083333333334,
+    "pnl": 43280.25,
+    "losers": 5
+   }
+  },
+  "p": 0.5833333333333334,
+  "verdict": "REJECTED",
+  "why": "shuffle; holdout win < book; removed side profitable on holdout"
+ },
+ {
+  "book": "t28_req",
+  "search_id": "K raw+derived pair q5 min_keep 30",
+  "rule": [
+   [
+    "fut_spread",
+    ">=",
+    2.6
+   ],
+   [
+    "oi_own_chg5",
+    "<",
+    -11088.999999999978
+   ]
+  ],
+  "combinator": "AND",
+  "features": {
+   "fut_spread": "raw photograph field",
+   "oi_own_chg5": "raw photograph field"
+  },
+  "search": "best AND-pair, raw + derived, 5 lines, min 30 kept; 252 features, 2476 clause masks; shuffle n=300 seed 7",
+  "score": 0.556140350877193,
+  "shuffle_median": 0.4912280701754386,
+  "shuffle_max": 0.6614035087719299,
+  "discovery": {
+   "book": {
+    "n": 68,
+    "win": 0.5588235294117647,
+    "mean": 4.915558823529412,
+    "pnl": 368277.0,
+    "losers": 30
+   },
+   "kept": {
+    "n": 37,
+    "win": 0.8108108108108109,
+    "mean": 10.395135135135135,
+    "pnl": 439292.75,
+    "losers": 7
+   },
+   "removed": {
+    "n": 31,
+    "win": 0.25806451612903225,
+    "mean": -1.6245806451612905,
+    "pnl": -71015.75,
+    "losers": 23
+   }
+  },
+  "holdout": {
+   "book": {
+    "n": 19,
+    "win": 0.47368421052631576,
+    "mean": 2.070684210526316,
+    "pnl": 29786.25,
+    "losers": 10
+   },
+   "kept": {
+    "n": 9,
+    "win": 0.5555555555555556,
+    "mean": 4.1290000000000004,
+    "pnl": 27748.5,
+    "losers": 4
+   },
+   "removed": {
+    "n": 10,
+    "win": 0.4,
+    "mean": 0.2182000000000001,
+    "pnl": 2037.75,
+    "losers": 6
+   }
+  },
+  "p": 0.10666666666666667,
+  "verdict": "REJECTED",
+  "why": "shuffle; removed side profitable on holdout"
+ },
+ {
+  "book": "t28_req",
+  "search_id": "L raw+derived+text pair q5 min_keep 25",
+  "rule": [
+   [
+    "fut_spread",
+    ">=",
+    2.6
+   ],
+   [
+    "oi_own_chg5",
+    "<",
+    -11088.999999999978
+   ]
+  ],
+  "combinator": "AND",
+  "features": {
+   "fut_spread": "raw photograph field",
+   "oi_own_chg5": "raw photograph field"
+  },
+  "search": "best AND-pair, raw + derived + text, 5 lines, min 25 kept; 313 features, 2680 clause masks; shuffle n=300 seed 7",
+  "score": 0.556140350877193,
+  "shuffle_median": 0.5052631578947369,
+  "shuffle_max": 0.6614035087719299,
+  "discovery": {
+   "book": {
+    "n": 68,
+    "win": 0.5588235294117647,
+    "mean": 4.915558823529412,
+    "pnl": 368277.0,
+    "losers": 30
+   },
+   "kept": {
+    "n": 37,
+    "win": 0.8108108108108109,
+    "mean": 10.395135135135135,
+    "pnl": 439292.75,
+    "losers": 7
+   },
+   "removed": {
+    "n": 31,
+    "win": 0.25806451612903225,
+    "mean": -1.6245806451612905,
+    "pnl": -71015.75,
+    "losers": 23
+   }
+  },
+  "holdout": {
+   "book": {
+    "n": 19,
+    "win": 0.47368421052631576,
+    "mean": 2.070684210526316,
+    "pnl": 29786.25,
+    "losers": 10
+   },
+   "kept": {
+    "n": 9,
+    "win": 0.5555555555555556,
+    "mean": 4.1290000000000004,
+    "pnl": 27748.5,
+    "losers": 4
+   },
+   "removed": {
+    "n": 10,
+    "win": 0.4,
+    "mean": 0.2182000000000001,
+    "pnl": 2037.75,
+    "losers": 6
+   }
+  },
+  "p": 0.12333333333333334,
+  "verdict": "REJECTED",
+  "why": "shuffle; removed side profitable on holdout"
+ },
+ {
+  "book": "t28_req",
+  "search_id": "M raw+derived triple q9",
+  "rule": [
+   [
+    "fut_spread",
+    ">=",
+    2.6
+   ],
+   [
+    "oi_own_chg5",
+    "<",
+    -11088.999999999978
+   ],
+   [
+    "hw_vol_surge",
+    "<",
+    1.5564000000000002
+   ]
+  ],
+  "combinator": "AND",
+  "features": {
+   "fut_spread": "raw photograph field",
+   "oi_own_chg5": "raw photograph field",
+   "hw_vol_surge": "raw photograph field"
+  },
+  "search": "greedy triple, raw + derived, 9 lines; 252 features, 4384 clause masks; shuffle n=300 seed 7",
+  "score": 0.6035087719298247,
+  "shuffle_median": 0.6035087719298247,
+  "shuffle_max": 0.7614035087719299,
+  "discovery": {
+   "book": {
+    "n": 68,
+    "win": 0.5588235294117647,
+    "mean": 4.915558823529412,
+    "pnl": 368277.0,
+    "losers": 30
+   },
+   "kept": {
+    "n": 32,
+    "win": 0.875,
+    "mean": 12.1405,
+    "pnl": 444882.75,
+    "losers": 4
+   },
+   "removed": {
+    "n": 36,
+    "win": 0.2777777777777778,
+    "mean": -1.5066111111111113,
+    "pnl": -76605.75,
+    "losers": 26
+   }
+  },
+  "holdout": {
+   "book": {
+    "n": 19,
+    "win": 0.47368421052631576,
+    "mean": 2.070684210526316,
+    "pnl": 29786.25,
+    "losers": 10
+   },
+   "kept": {
+    "n": 9,
+    "win": 0.5555555555555556,
+    "mean": 4.1290000000000004,
+    "pnl": 27748.5,
+    "losers": 4
+   },
+   "removed": {
+    "n": 10,
+    "win": 0.4,
+    "mean": 0.2182000000000001,
+    "pnl": 2037.75,
+    "losers": 6
+   }
+  },
+  "p": 0.5233333333333333,
+  "verdict": "REJECTED",
+  "why": "shuffle; removed side profitable on holdout"
+ },
+ {
+  "book": "t28_req",
+  "search_id": "N text-only pair",
+  "rule": [
+   [
+    "ep_type=None",
+    "<",
+    1.0
+   ],
+   [
+    "phase_bucket=morning",
+    "<",
+    1.0
+   ]
+  ],
+  "combinator": "AND",
+  "features": {
+   "ep_type=None": "text indicator field=VALUE -> 1/0",
+   "phase_bucket=morning": "text indicator field=VALUE -> 1/0"
+  },
+  "search": "best AND-pair of text indicators only; 61 features, 204 clause masks; shuffle n=300 seed 7",
+  "score": 0.28421052631578947,
+  "shuffle_median": 0.343859649122807,
+  "shuffle_max": 0.5491228070175438,
+  "discovery": {
+   "book": {
+    "n": 68,
+    "win": 0.5588235294117647,
+    "mean": 4.915558823529412,
+    "pnl": 368277.0,
+    "losers": 30
+   },
+   "kept": {
+    "n": 38,
+    "win": 0.6842105263157895,
+    "mean": 7.545894736842104,
+    "pnl": 326326.0,
+    "losers": 12
+   },
+   "removed": {
+    "n": 30,
+    "win": 0.4,
+    "mean": 1.5837999999999999,
+    "pnl": 41951.0,
+    "losers": 18
+   }
+  },
+  "holdout": {
+   "book": {
+    "n": 19,
+    "win": 0.47368421052631576,
+    "mean": 2.070684210526316,
+    "pnl": 29786.25,
+    "losers": 10
+   },
+   "kept": {
+    "n": 8,
+    "win": 0.5,
+    "mean": 3.074625,
+    "pnl": 17946.5,
+    "losers": 4
+   },
+   "removed": {
+    "n": 11,
+    "win": 0.45454545454545453,
+    "mean": 1.3405454545454545,
+    "pnl": 11839.75,
+    "losers": 6
+   }
+  },
+  "p": 0.8666666666666667,
+  "verdict": "REJECTED",
+  "why": "shuffle; removed side profitable on holdout"
+ },
+ {
+  "book": "t28_req",
+  "search_id": "O raw pair by direction (CE | PE)",
+  "rule": [
+   [
+    "fut_spread",
+    ">=",
+    2.6
+   ],
+   [
+    "regime_ext_pct",
+    "<",
+    95.30000000000001
+   ],
+   [
+    "is_ce",
+    "<",
+    0.5
+   ]
+  ],
+  "combinator": "AND",
+  "features": {
+   "fut_spread": "raw photograph field",
+   "regime_ext_pct": "raw photograph field",
+   "is_ce": "1 if the trade buys a call"
+  },
+  "search": "best AND-pair searched separately on CE trades and on PE trades (raw, 5 lines), better side taken, with the is_ce clause; 190 features, 1856 clause masks; shuffle n=300 seed 7",
+  "score": 0.680672268907563,
+  "shuffle_median": 0.6492753623188406,
+  "shuffle_max": 0.8465909090909091,
+  "discovery": {
+   "book": {
+    "n": 68,
+    "win": 0.5588235294117647,
+    "mean": 4.915558823529412,
+    "pnl": 368277.0,
+    "losers": 30
+   },
+   "kept": {
+    "n": 21,
+    "win": 0.8571428571428571,
+    "mean": 13.812904761904761,
+    "pnl": 318155.5,
+    "losers": 3
+   },
+   "removed": {
+    "n": 47,
+    "win": 0.425531914893617,
+    "mean": 0.9401489361702126,
+    "pnl": 50121.5,
+    "losers": 27
+   }
+  },
+  "holdout": {
+   "book": {
+    "n": 19,
+    "win": 0.47368421052631576,
+    "mean": 2.070684210526316,
+    "pnl": 29786.25,
+    "losers": 10
+   },
+   "kept": {
+    "n": 4,
+    "win": 0.0,
+    "mean": -8.300749999999999,
+    "pnl": -30517.5,
+    "losers": 4
+   },
+   "removed": {
+    "n": 15,
+    "win": 0.6,
+    "mean": 4.8364,
+    "pnl": 60303.75,
+    "losers": 6
+   }
+  },
+  "p": 0.37,
+  "verdict": "REJECTED",
+  "why": "shuffle; holdout win < book; removed side profitable on holdout"
+ },
+ {
+  "book": "t28_req",
+  "search_id": "P derived single q9",
+  "rule": [
+   [
+    "oi_help30_minus_5",
+    "<",
+    6789217.500000002
+   ]
+  ],
+  "combinator": "AND",
+  "features": {
+   "oi_help30_minus_5": "oi_net_help30 - oi_net_help5"
+  },
+  "search": "best single clause over derived features, 9 lines; 62 features, 1102 clause masks; shuffle n=300 seed 7",
+  "score": 0.29649122807017547,
+  "shuffle_median": 0.34210526315789475,
+  "shuffle_max": 0.48245614035087714,
+  "discovery": {
+   "book": {
+    "n": 68,
+    "win": 0.5588235294117647,
+    "mean": 4.915558823529412,
+    "pnl": 368277.0,
+    "losers": 30
+   },
+   "kept": {
+    "n": 43,
+    "win": 0.6744186046511628,
+    "mean": 7.927488372093023,
+    "pnl": 384575.75,
+    "losers": 14
+   },
+   "removed": {
+    "n": 25,
+    "win": 0.36,
+    "mean": -0.26496000000000003,
+    "pnl": -16298.75,
+    "losers": 16
+   }
+  },
+  "holdout": {
+   "book": {
+    "n": 19,
+    "win": 0.47368421052631576,
+    "mean": 2.070684210526316,
+    "pnl": 29786.25,
+    "losers": 10
+   },
+   "kept": {
+    "n": 9,
+    "win": 0.4444444444444444,
+    "mean": 1.2167777777777777,
+    "pnl": 9096.75,
+    "losers": 5
+   },
+   "removed": {
+    "n": 10,
+    "win": 0.5,
+    "mean": 2.8392,
+    "pnl": 20689.5,
+    "losers": 5
+   }
+  },
+  "p": 0.8566666666666667,
+  "verdict": "REJECTED",
+  "why": "shuffle; holdout win < book; removed side profitable on holdout"
+ },
+ {
+  "book": "t28_gap",
+  "search_id": "A raw single q5",
+  "rule": [
+   [
+    "fut_spread",
+    ">=",
+    2.6
+   ]
+  ],
+  "combinator": "AND",
+  "features": {
+   "fut_spread": "raw photograph field"
+  },
+  "search": "best single clause, raw numeric photo fields, 5 quantile lines (10..90 %) both directions, min 20 kept; 195 features, 1896 clause masks; shuffle n=300 seed 7",
+  "score": 0.34558823529411764,
+  "shuffle_median": 0.3323529411764705,
+  "shuffle_max": 0.5985294117647059,
+  "discovery": {
+   "book": {
+    "n": 74,
+    "win": 0.5405405405405406,
+    "mean": 4.244486486486486,
+    "pnl": 345579.0,
+    "losers": 34
+   },
+   "kept": {
+    "n": 53,
+    "win": 0.660377358490566,
+    "mean": 7.00888679245283,
+    "pnl": 402584.0,
+    "losers": 18
+   },
+   "removed": {
+    "n": 21,
+    "win": 0.23809523809523808,
+    "mean": -2.7323333333333335,
+    "pnl": -57005.0,
+    "losers": 16
+   }
+  },
+  "holdout": {
+   "book": {
+    "n": 21,
+    "win": 0.42857142857142855,
+    "mean": 0.9552857142857143,
+    "pnl": 12837.5,
+    "losers": 12
+   },
+   "kept": {
+    "n": 13,
+    "win": 0.38461538461538464,
+    "mean": 0.42107692307692324,
+    "pnl": -604.5,
+    "losers": 8
+   },
+   "removed": {
+    "n": 8,
+    "win": 0.5,
+    "mean": 1.823375,
+    "pnl": 13442.0,
+    "losers": 4
+   }
+  },
+  "p": 0.4066666666666667,
+  "verdict": "REJECTED",
+  "why": "shuffle; holdout win < book; removed side profitable on holdout"
+ },
+ {
+  "book": "t28_gap",
+  "search_id": "B raw pair q5",
+  "rule": [
+   [
+    "fut_spread",
+    ">=",
+    2.6
+   ],
+   [
+    "ret_today",
+    "<",
+    81.8458
+   ]
+  ],
+  "combinator": "AND",
+  "features": {
+   "fut_spread": "raw photograph field",
+   "ret_today": "raw photograph field"
+  },
+  "search": "best AND-pair of clauses on different raw fields, 5 quantile lines, min 20 kept (rule_lab.best_pair); 195 features, 1896 clause masks; shuffle n=300 seed 7",
+  "score": 0.49264705882352944,
+  "shuffle_median": 0.4720588235294118,
+  "shuffle_max": 0.6352941176470589,
+  "discovery": {
+   "book": {
+    "n": 74,
+    "win": 0.5405405405405406,
+    "mean": 4.244486486486486,
+    "pnl": 345579.0,
+    "losers": 34
+   },
+   "kept": {
+    "n": 48,
+    "win": 0.7291666666666666,
+    "mean": 8.394125,
+    "pnl": 472234.75,
+    "losers": 13
+   },
+   "removed": {
+    "n": 26,
+    "win": 0.19230769230769232,
+    "mean": -3.4163846153846156,
+    "pnl": -126655.75,
+    "losers": 21
+   }
+  },
+  "holdout": {
+   "book": {
+    "n": 21,
+    "win": 0.42857142857142855,
+    "mean": 0.9552857142857143,
+    "pnl": 12837.5,
+    "losers": 12
+   },
+   "kept": {
+    "n": 13,
+    "win": 0.38461538461538464,
+    "mean": 0.42107692307692324,
+    "pnl": -604.5,
+    "losers": 8
+   },
+   "removed": {
+    "n": 8,
+    "win": 0.5,
+    "mean": 1.823375,
+    "pnl": 13442.0,
+    "losers": 4
+   }
+  },
+  "p": 0.3233333333333333,
+  "verdict": "REJECTED",
+  "why": "shuffle; holdout win < book; removed side profitable on holdout"
+ },
+ {
+  "book": "t28_gap",
+  "search_id": "C raw+derived single q5",
+  "rule": [
+   [
+    "fut_spread",
+    ">=",
+    2.6
+   ]
+  ],
+  "combinator": "AND",
+  "features": {
+   "fut_spread": "raw photograph field"
+  },
+  "search": "best single clause, raw + derived features, 5 lines; 257 features, 2514 clause masks; shuffle n=300 seed 7",
+  "score": 0.34558823529411764,
+  "shuffle_median": 0.3375,
+  "shuffle_max": 0.5985294117647059,
+  "discovery": {
+   "book": {
+    "n": 74,
+    "win": 0.5405405405405406,
+    "mean": 4.244486486486486,
+    "pnl": 345579.0,
+    "losers": 34
+   },
+   "kept": {
+    "n": 53,
+    "win": 0.660377358490566,
+    "mean": 7.00888679245283,
+    "pnl": 402584.0,
+    "losers": 18
+   },
+   "removed": {
+    "n": 21,
+    "win": 0.23809523809523808,
+    "mean": -2.7323333333333335,
+    "pnl": -57005.0,
+    "losers": 16
+   }
+  },
+  "holdout": {
+   "book": {
+    "n": 21,
+    "win": 0.42857142857142855,
+    "mean": 0.9552857142857143,
+    "pnl": 12837.5,
+    "losers": 12
+   },
+   "kept": {
+    "n": 13,
+    "win": 0.38461538461538464,
+    "mean": 0.42107692307692324,
+    "pnl": -604.5,
+    "losers": 8
+   },
+   "removed": {
+    "n": 8,
+    "win": 0.5,
+    "mean": 1.823375,
+    "pnl": 13442.0,
+    "losers": 4
+   }
+  },
+  "p": 0.47333333333333333,
+  "verdict": "REJECTED",
+  "why": "shuffle; holdout win < book; removed side profitable on holdout"
+ },
+ {
+  "book": "t28_gap",
+  "search_id": "D raw+derived pair q5",
+  "rule": [
+   [
+    "fut_spread",
+    ">=",
+    2.6
+   ],
+   [
+    "ret_today",
+    "<",
+    81.8458
+   ]
+  ],
+  "combinator": "AND",
+  "features": {
+   "fut_spread": "raw photograph field",
+   "ret_today": "raw photograph field"
+  },
+  "search": "best AND-pair, raw + derived, 5 lines; 257 features, 2514 clause masks; shuffle n=300 seed 7",
+  "score": 0.49264705882352944,
+  "shuffle_median": 0.48676470588235293,
+  "shuffle_max": 0.6441176470588235,
+  "discovery": {
+   "book": {
+    "n": 74,
+    "win": 0.5405405405405406,
+    "mean": 4.244486486486486,
+    "pnl": 345579.0,
+    "losers": 34
+   },
+   "kept": {
+    "n": 48,
+    "win": 0.7291666666666666,
+    "mean": 8.394125,
+    "pnl": 472234.75,
+    "losers": 13
+   },
+   "removed": {
+    "n": 26,
+    "win": 0.19230769230769232,
+    "mean": -3.4163846153846156,
+    "pnl": -126655.75,
+    "losers": 21
+   }
+  },
+  "holdout": {
+   "book": {
+    "n": 21,
+    "win": 0.42857142857142855,
+    "mean": 0.9552857142857143,
+    "pnl": 12837.5,
+    "losers": 12
+   },
+   "kept": {
+    "n": 13,
+    "win": 0.38461538461538464,
+    "mean": 0.42107692307692324,
+    "pnl": -604.5,
+    "losers": 8
+   },
+   "removed": {
+    "n": 8,
+    "win": 0.5,
+    "mean": 1.823375,
+    "pnl": 13442.0,
+    "losers": 4
+   }
+  },
+  "p": 0.44333333333333336,
+  "verdict": "REJECTED",
+  "why": "shuffle; holdout win < book; removed side profitable on holdout"
+ },
+ {
+  "book": "t28_gap",
+  "search_id": "E raw+text pair q5",
+  "rule": [
+   [
+    "fut_spread",
+    ">=",
+    2.6
+   ],
+   [
+    "ret_today",
+    "<",
+    81.8458
+   ]
+  ],
+  "combinator": "AND",
+  "features": {
+   "fut_spread": "raw photograph field",
+   "ret_today": "raw photograph field"
+  },
+  "search": "best AND-pair, raw + text indicators (field=VALUE), 5 lines; 257 features, 2102 clause masks; shuffle n=300 seed 7",
+  "score": 0.49264705882352944,
+  "shuffle_median": 0.47352941176470587,
+  "shuffle_max": 0.6735294117647058,
+  "discovery": {
+   "book": {
+    "n": 74,
+    "win": 0.5405405405405406,
+    "mean": 4.244486486486486,
+    "pnl": 345579.0,
+    "losers": 34
+   },
+   "kept": {
+    "n": 48,
+    "win": 0.7291666666666666,
+    "mean": 8.394125,
+    "pnl": 472234.75,
+    "losers": 13
+   },
+   "removed": {
+    "n": 26,
+    "win": 0.19230769230769232,
+    "mean": -3.4163846153846156,
+    "pnl": -126655.75,
+    "losers": 21
+   }
+  },
+  "holdout": {
+   "book": {
+    "n": 21,
+    "win": 0.42857142857142855,
+    "mean": 0.9552857142857143,
+    "pnl": 12837.5,
+    "losers": 12
+   },
+   "kept": {
+    "n": 13,
+    "win": 0.38461538461538464,
+    "mean": 0.42107692307692324,
+    "pnl": -604.5,
+    "losers": 8
+   },
+   "removed": {
+    "n": 8,
+    "win": 0.5,
+    "mean": 1.823375,
+    "pnl": 13442.0,
+    "losers": 4
+   }
+  },
+  "p": 0.3566666666666667,
+  "verdict": "REJECTED",
+  "why": "shuffle; holdout win < book; removed side profitable on holdout"
+ },
+ {
+  "book": "t28_gap",
+  "search_id": "F raw+derived greedy triple q5",
+  "rule": [
+   [
+    "fut_spread",
+    ">=",
+    2.6
+   ],
+   [
+    "ret_today",
+    "<",
+    81.8458
+   ],
+   [
+    "fut_ttq60",
+    ">=",
+    3120.0
+   ]
+  ],
+  "combinator": "AND",
+  "features": {
+   "fut_spread": "raw photograph field",
+   "ret_today": "raw photograph field",
+   "fut_ttq60": "raw photograph field"
+  },
+  "search": "greedy triple: best pair (raw + derived, 5 lines) then the single clause that most improves it; 257 features, 2514 clause masks; shuffle n=300 seed 7",
+  "score": 0.5852941176470589,
+  "shuffle_median": 0.5573529411764706,
+  "shuffle_max": 0.7323529411764705,
+  "discovery": {
+   "book": {
+    "n": 74,
+    "win": 0.5405405405405406,
+    "mean": 4.244486486486486,
+    "pnl": 345579.0,
+    "losers": 34
+   },
+   "kept": {
+    "n": 43,
+    "win": 0.7906976744186046,
+    "mean": 9.886720930232558,
+    "pnl": 496031.25,
+    "losers": 9
+   },
+   "removed": {
+    "n": 31,
+    "win": 0.1935483870967742,
+    "mean": -3.5818387096774194,
+    "pnl": -150452.25,
+    "losers": 25
+   }
+  },
+  "holdout": {
+   "book": {
+    "n": 21,
+    "win": 0.42857142857142855,
+    "mean": 0.9552857142857143,
+    "pnl": 12837.5,
+    "losers": 12
+   },
+   "kept": {
+    "n": 13,
+    "win": 0.38461538461538464,
+    "mean": 0.42107692307692324,
+    "pnl": -604.5,
+    "losers": 8
+   },
+   "removed": {
+    "n": 8,
+    "win": 0.5,
+    "mean": 1.823375,
+    "pnl": 13442.0,
+    "losers": 4
+   }
+  },
+  "p": 0.3,
+  "verdict": "REJECTED",
+  "why": "shuffle; holdout win < book; removed side profitable on holdout"
+ },
+ {
+  "book": "t28_gap",
+  "search_id": "G raw single q9",
+  "rule": [
+   [
+    "fut_spread",
+    ">=",
+    2.6
+   ]
+  ],
+  "combinator": "AND",
+  "features": {
+   "fut_spread": "raw photograph field"
+  },
+  "search": "best single clause, raw, 9 quantile lines; 195 features, 3354 clause masks; shuffle n=300 seed 7",
+  "score": 0.34558823529411764,
+  "shuffle_median": 0.34852941176470587,
+  "shuffle_max": 0.5985294117647059,
+  "discovery": {
+   "book": {
+    "n": 74,
+    "win": 0.5405405405405406,
+    "mean": 4.244486486486486,
+    "pnl": 345579.0,
+    "losers": 34
+   },
+   "kept": {
+    "n": 53,
+    "win": 0.660377358490566,
+    "mean": 7.00888679245283,
+    "pnl": 402584.0,
+    "losers": 18
+   },
+   "removed": {
+    "n": 21,
+    "win": 0.23809523809523808,
+    "mean": -2.7323333333333335,
+    "pnl": -57005.0,
+    "losers": 16
+   }
+  },
+  "holdout": {
+   "book": {
+    "n": 21,
+    "win": 0.42857142857142855,
+    "mean": 0.9552857142857143,
+    "pnl": 12837.5,
+    "losers": 12
+   },
+   "kept": {
+    "n": 13,
+    "win": 0.38461538461538464,
+    "mean": 0.42107692307692324,
+    "pnl": -604.5,
+    "losers": 8
+   },
+   "removed": {
+    "n": 8,
+    "win": 0.5,
+    "mean": 1.823375,
+    "pnl": 13442.0,
+    "losers": 4
+   }
+  },
+  "p": 0.5266666666666666,
+  "verdict": "REJECTED",
+  "why": "shuffle; holdout win < book; removed side profitable on holdout"
+ },
+ {
+  "book": "t28_gap",
+  "search_id": "H raw pair q9",
+  "rule": [
+   [
+    "fut_spread",
+    ">=",
+    2.6
+   ],
+   [
+    "oi_net_help5",
+    ">=",
+    461071.00000000006
+   ]
+  ],
+  "combinator": "AND",
+  "features": {
+   "fut_spread": "raw photograph field",
+   "oi_net_help5": "raw photograph field"
+  },
+  "search": "best AND-pair, raw, 9 lines; 195 features, 3354 clause masks; shuffle n=300 seed 7",
+  "score": 0.4941176470588235,
+  "shuffle_median": 0.49852941176470583,
+  "shuffle_max": 0.6529411764705881,
+  "discovery": {
+   "book": {
+    "n": 74,
+    "win": 0.5405405405405406,
+    "mean": 4.244486486486486,
+    "pnl": 345579.0,
+    "losers": 34
+   },
+   "kept": {
+    "n": 35,
+    "win": 0.8,
+    "mean": 10.292885714285713,
+    "pnl": 409506.5,
+    "losers": 7
+   },
+   "removed": {
+    "n": 39,
+    "win": 0.3076923076923077,
+    "mean": -1.1835641025641028,
+    "pnl": -63927.5,
+    "losers": 27
+   }
+  },
+  "holdout": {
+   "book": {
+    "n": 21,
+    "win": 0.42857142857142855,
+    "mean": 0.9552857142857143,
+    "pnl": 12837.5,
+    "losers": 12
+   },
+   "kept": {
+    "n": 5,
+    "win": 0.6,
+    "mean": 0.49219999999999997,
+    "pnl": -162.5,
+    "losers": 2
+   },
+   "removed": {
+    "n": 16,
+    "win": 0.375,
+    "mean": 1.1,
+    "pnl": 13000.0,
+    "losers": 10
+   }
+  },
+  "p": 0.5566666666666666,
+  "verdict": "REJECTED",
+  "why": "shuffle; removed side profitable on holdout"
+ },
+ {
+  "book": "t28_gap",
+  "search_id": "I raw OR-pair q5",
+  "rule": [
+   [
+    "gap_pts",
+    "<",
+    -76.72
+   ],
+   [
+    "oi_own_chg30",
+    ">=",
+    27690.0
+   ]
+  ],
+  "combinator": "OR",
+  "features": {
+   "gap_pts": "raw photograph field",
+   "oi_own_chg30": "raw photograph field"
+  },
+  "search": "best OR of two single clauses on different raw fields, 5 lines; 195 features, 1896 clause masks; shuffle n=300 seed 7",
+  "score": 0.4558823529411765,
+  "shuffle_median": 0.4779411764705882,
+  "shuffle_max": 0.6485294117647058,
+  "discovery": {
+   "book": {
+    "n": 74,
+    "win": 0.5405405405405406,
+    "mean": 4.244486486486486,
+    "pnl": 345579.0,
+    "losers": 34
+   },
+   "kept": {
+    "n": 40,
+    "win": 0.75,
+    "mean": 9.43625,
+    "pnl": 432477.5,
+    "losers": 10
+   },
+   "removed": {
+    "n": 34,
+    "win": 0.29411764705882354,
+    "mean": -1.8634705882352942,
+    "pnl": -86898.5,
+    "losers": 24
+   }
+  },
+  "holdout": {
+   "book": {
+    "n": 21,
+    "win": 0.42857142857142855,
+    "mean": 0.9552857142857143,
+    "pnl": 12837.5,
+    "losers": 12
+   },
+   "kept": {
+    "n": 9,
+    "win": 0.2222222222222222,
+    "mean": -5.134444444444444,
+    "pnl": -43972.5,
+    "losers": 7
+   },
+   "removed": {
+    "n": 12,
+    "win": 0.5833333333333334,
+    "mean": 5.522583333333333,
+    "pnl": 56810.0,
+    "losers": 5
+   }
+  },
+  "p": 0.73,
+  "verdict": "REJECTED",
+  "why": "shuffle; holdout win < book; removed side profitable on holdout"
+ },
+ {
+  "book": "t28_gap",
+  "search_id": "J derived-only pair q5",
+  "rule": [
+   [
+    "oi_help30_minus_5",
+    "<",
+    6365593.000000002
+   ],
+   [
+    "dir_x_e_syn_dev",
+    "<",
+    2.9210000000000003
+   ]
+  ],
+  "combinator": "AND",
+  "features": {
+   "oi_help30_minus_5": "oi_net_help30 - oi_net_help5",
+   "dir_x_e_syn_dev": "dir * e_syn_dev (+1 CE / -1 PE)"
+  },
+  "search": "best AND-pair over derived features only, 5 lines; 62 features, 618 clause masks; shuffle n=300 seed 7",
+  "score": 0.4514705882352942,
+  "shuffle_median": 0.4191176470588235,
+  "shuffle_max": 0.6235294117647059,
+  "discovery": {
+   "book": {
+    "n": 74,
+    "win": 0.5405405405405406,
+    "mean": 4.244486486486486,
+    "pnl": 345579.0,
+    "losers": 34
+   },
+   "kept": {
+    "n": 42,
+    "win": 0.7380952380952381,
+    "mean": 8.718761904761905,
+    "pnl": 413708.75,
+    "losers": 11
+   },
+   "removed": {
+    "n": 32,
+    "win": 0.28125,
+    "mean": -1.6280000000000001,
+    "pnl": -68129.75,
+    "losers": 23
+   }
+  },
+  "holdout": {
+   "book": {
+    "n": 21,
+    "win": 0.42857142857142855,
+    "mean": 0.9552857142857143,
+    "pnl": 12837.5,
+    "losers": 12
+   },
+   "kept": {
+    "n": 8,
+    "win": 0.25,
+    "mean": -2.811375,
+    "pnl": -20822.75,
+    "losers": 6
+   },
+   "removed": {
+    "n": 13,
+    "win": 0.5384615384615384,
+    "mean": 3.273230769230769,
+    "pnl": 33660.25,
+    "losers": 6
+   }
+  },
+  "p": 0.28,
+  "verdict": "REJECTED",
+  "why": "shuffle; holdout win < book; removed side profitable on holdout"
+ },
+ {
+  "book": "t28_gap",
+  "search_id": "K raw+derived pair q5 min_keep 30",
+  "rule": [
+   [
+    "fut_spread",
+    ">=",
+    2.6
+   ],
+   [
+    "ret_today",
+    "<",
+    81.8458
+   ]
+  ],
+  "combinator": "AND",
+  "features": {
+   "fut_spread": "raw photograph field",
+   "ret_today": "raw photograph field"
+  },
+  "search": "best AND-pair, raw + derived, 5 lines, min 30 kept; 257 features, 2514 clause masks; shuffle n=300 seed 7",
+  "score": 0.49264705882352944,
+  "shuffle_median": 0.4779411764705882,
+  "shuffle_max": 0.6441176470588235,
+  "discovery": {
+   "book": {
+    "n": 74,
+    "win": 0.5405405405405406,
+    "mean": 4.244486486486486,
+    "pnl": 345579.0,
+    "losers": 34
+   },
+   "kept": {
+    "n": 48,
+    "win": 0.7291666666666666,
+    "mean": 8.394125,
+    "pnl": 472234.75,
+    "losers": 13
+   },
+   "removed": {
+    "n": 26,
+    "win": 0.19230769230769232,
+    "mean": -3.4163846153846156,
+    "pnl": -126655.75,
+    "losers": 21
+   }
+  },
+  "holdout": {
+   "book": {
+    "n": 21,
+    "win": 0.42857142857142855,
+    "mean": 0.9552857142857143,
+    "pnl": 12837.5,
+    "losers": 12
+   },
+   "kept": {
+    "n": 13,
+    "win": 0.38461538461538464,
+    "mean": 0.42107692307692324,
+    "pnl": -604.5,
+    "losers": 8
+   },
+   "removed": {
+    "n": 8,
+    "win": 0.5,
+    "mean": 1.823375,
+    "pnl": 13442.0,
+    "losers": 4
+   }
+  },
+  "p": 0.42333333333333334,
+  "verdict": "REJECTED",
+  "why": "shuffle; holdout win < book; removed side profitable on holdout"
+ },
+ {
+  "book": "t28_gap",
+  "search_id": "L raw+derived+text pair q5 min_keep 25",
+  "rule": [
+   [
+    "fut_spread",
+    ">=",
+    2.6
+   ],
+   [
+    "ret_today",
+    "<",
+    81.8458
+   ]
+  ],
+  "combinator": "AND",
+  "features": {
+   "fut_spread": "raw photograph field",
+   "ret_today": "raw photograph field"
+  },
+  "search": "best AND-pair, raw + derived + text, 5 lines, min 25 kept; 319 features, 2720 clause masks; shuffle n=300 seed 7",
+  "score": 0.49264705882352944,
+  "shuffle_median": 0.4897058823529411,
+  "shuffle_max": 0.6735294117647058,
+  "discovery": {
+   "book": {
+    "n": 74,
+    "win": 0.5405405405405406,
+    "mean": 4.244486486486486,
+    "pnl": 345579.0,
+    "losers": 34
+   },
+   "kept": {
+    "n": 48,
+    "win": 0.7291666666666666,
+    "mean": 8.394125,
+    "pnl": 472234.75,
+    "losers": 13
+   },
+   "removed": {
+    "n": 26,
+    "win": 0.19230769230769232,
+    "mean": -3.4163846153846156,
+    "pnl": -126655.75,
+    "losers": 21
+   }
+  },
+  "holdout": {
+   "book": {
+    "n": 21,
+    "win": 0.42857142857142855,
+    "mean": 0.9552857142857143,
+    "pnl": 12837.5,
+    "losers": 12
+   },
+   "kept": {
+    "n": 13,
+    "win": 0.38461538461538464,
+    "mean": 0.42107692307692324,
+    "pnl": -604.5,
+    "losers": 8
+   },
+   "removed": {
+    "n": 8,
+    "win": 0.5,
+    "mean": 1.823375,
+    "pnl": 13442.0,
+    "losers": 4
+   }
+  },
+  "p": 0.4633333333333333,
+  "verdict": "REJECTED",
+  "why": "shuffle; holdout win < book; removed side profitable on holdout"
+ },
+ {
+  "book": "t28_gap",
+  "search_id": "M raw+derived triple q9",
+  "rule": [
+   [
+    "e_syn_dev",
+    ">=",
+    -2.35
+   ],
+   [
+    "oi_help30_minus_5",
+    "<",
+    6365593.000000002
+   ],
+   [
+    "lo_age_min",
+    "<",
+    220.82700000000003
+   ]
+  ],
+  "combinator": "AND",
+  "features": {
+   "e_syn_dev": "raw photograph field",
+   "oi_help30_minus_5": "oi_net_help30 - oi_net_help5",
+   "lo_age_min": "raw photograph field"
+  },
+  "search": "greedy triple, raw + derived, 9 lines; 257 features, 4458 clause masks; shuffle n=300 seed 7",
+  "score": 0.6029411764705882,
+  "shuffle_median": 0.5867647058823529,
+  "shuffle_max": 0.7205882352941176,
+  "discovery": {
+   "book": {
+    "n": 74,
+    "win": 0.5405405405405406,
+    "mean": 4.244486486486486,
+    "pnl": 345579.0,
+    "losers": 34
+   },
+   "kept": {
+    "n": 35,
+    "win": 0.8571428571428571,
+    "mean": 11.445714285714285,
+    "pnl": 463147.75,
+    "losers": 5
+   },
+   "removed": {
+    "n": 39,
+    "win": 0.2564102564102564,
+    "mean": -2.218153846153846,
+    "pnl": -117568.75,
+    "losers": 29
+   }
+  },
+  "holdout": {
+   "book": {
+    "n": 21,
+    "win": 0.42857142857142855,
+    "mean": 0.9552857142857143,
+    "pnl": 12837.5,
+    "losers": 12
+   },
+   "kept": {
+    "n": 6,
+    "win": 0.5,
+    "mean": -1.1793333333333333,
+    "pnl": -6851.0,
+    "losers": 3
+   },
+   "removed": {
+    "n": 15,
+    "win": 0.4,
+    "mean": 1.8091333333333333,
+    "pnl": 19688.5,
+    "losers": 9
+   }
+  },
+  "p": 0.3233333333333333,
+  "verdict": "REJECTED",
+  "why": "shuffle; removed side profitable on holdout"
+ },
+ {
+  "book": "t28_gap",
+  "search_id": "N text-only pair",
+  "rule": [
+   [
+    "fut_opp_o=HOLDING",
+    "<",
+    1.0
+   ],
+   [
+    "opt_opp_o=REFILLING",
+    "<",
+    1.0
+   ]
+  ],
+  "combinator": "AND",
+  "features": {
+   "fut_opp_o=HOLDING": "text indicator field=VALUE -> 1/0",
+   "opt_opp_o=REFILLING": "text indicator field=VALUE -> 1/0"
+  },
+  "search": "best AND-pair of text indicators only; 62 features, 204 clause masks; shuffle n=300 seed 7",
+  "score": 0.33529411764705885,
+  "shuffle_median": 0.3205882352941176,
+  "shuffle_max": 0.5308823529411766,
+  "discovery": {
+   "book": {
+    "n": 74,
+    "win": 0.5405405405405406,
+    "mean": 4.244486486486486,
+    "pnl": 345579.0,
+    "losers": 34
+   },
+   "kept": {
+    "n": 33,
+    "win": 0.7272727272727273,
+    "mean": 7.518212121212121,
+    "pnl": 260250.25,
+    "losers": 9
+   },
+   "removed": {
+    "n": 41,
+    "win": 0.3902439024390244,
+    "mean": 1.6095365853658536,
+    "pnl": 85328.75,
+    "losers": 25
+   }
+  },
+  "holdout": {
+   "book": {
+    "n": 21,
+    "win": 0.42857142857142855,
+    "mean": 0.9552857142857143,
+    "pnl": 12837.5,
+    "losers": 12
+   },
+   "kept": {
+    "n": 10,
+    "win": 0.4,
+    "mean": 0.13510000000000005,
+    "pnl": -5122.0,
+    "losers": 6
+   },
+   "removed": {
+    "n": 11,
+    "win": 0.45454545454545453,
+    "mean": 1.700909090909091,
+    "pnl": 17959.5,
+    "losers": 6
+   }
+  },
+  "p": 0.37333333333333335,
+  "verdict": "REJECTED",
+  "why": "shuffle; holdout win < book; removed side profitable on holdout"
+ },
+ {
+  "book": "t28_gap",
+  "search_id": "O raw pair by direction (CE | PE)",
+  "rule": [
+   [
+    "fut_spread",
+    ">=",
+    2.6
+   ],
+   [
+    "regime_ext_pct",
+    "<",
+    94.7
+   ],
+   [
+    "is_ce",
+    "<",
+    0.5
+   ]
+  ],
+  "combinator": "AND",
+  "features": {
+   "fut_spread": "raw photograph field",
+   "regime_ext_pct": "raw photograph field",
+   "is_ce": "1 if the trade buys a call"
+  },
+  "search": "best AND-pair searched separately on CE trades and on PE trades (raw, 5 lines), better side taken, with the is_ce clause; 195 features, 1896 clause masks; shuffle n=300 seed 7",
+  "score": 0.6904761904761905,
+  "shuffle_median": 0.657142857142857,
+  "shuffle_max": 0.8809523809523809,
+  "discovery": {
+   "book": {
+    "n": 74,
+    "win": 0.5405405405405406,
+    "mean": 4.244486486486486,
+    "pnl": 345579.0,
+    "losers": 34
+   },
+   "kept": {
+    "n": 21,
+    "win": 0.8571428571428571,
+    "mean": 14.21852380952381,
+    "pnl": 323550.5,
+    "losers": 3
+   },
+   "removed": {
+    "n": 53,
+    "win": 0.41509433962264153,
+    "mean": 0.292509433962264,
+    "pnl": 22028.5,
+    "losers": 31
+   }
+  },
+  "holdout": {
+   "book": {
+    "n": 21,
+    "win": 0.42857142857142855,
+    "mean": 0.9552857142857143,
+    "pnl": 12837.5,
+    "losers": 12
+   },
+   "kept": {
+    "n": 5,
+    "win": 0.0,
+    "mean": -8.721599999999999,
+    "pnl": -40137.5,
+    "losers": 5
+   },
+   "removed": {
+    "n": 16,
+    "win": 0.5625,
+    "mean": 3.9793125,
+    "pnl": 52975.0,
+    "losers": 7
+   }
+  },
+  "p": 0.38666666666666666,
+  "verdict": "REJECTED",
+  "why": "shuffle; holdout win < book; removed side profitable on holdout"
+ },
+ {
+  "book": "t28_gap",
+  "search_id": "P derived single q9",
+  "rule": [
+   [
+    "oi_help30_minus_5",
+    "<",
+    6365593.000000002
+   ]
+  ],
+  "combinator": "AND",
+  "features": {
+   "oi_help30_minus_5": "oi_net_help30 - oi_net_help5"
+  },
+  "search": "best single clause over derived features, 9 lines; 62 features, 1104 clause masks; shuffle n=300 seed 7",
+  "score": 0.3044117647058824,
+  "shuffle_median": 0.3205882352941176,
+  "shuffle_max": 0.5014705882352941,
+  "discovery": {
+   "book": {
+    "n": 74,
+    "win": 0.5405405405405406,
+    "mean": 4.244486486486486,
+    "pnl": 345579.0,
+    "losers": 34
+   },
+   "kept": {
+    "n": 47,
+    "win": 0.6595744680851063,
+    "mean": 7.219787234042553,
+    "pnl": 383409.0,
+    "losers": 16
+   },
+   "removed": {
+    "n": 27,
+    "win": 0.3333333333333333,
+    "mean": -0.9347407407407409,
+    "pnl": -37830.0,
+    "losers": 18
+   }
+  },
+  "holdout": {
+   "book": {
+    "n": 21,
+    "win": 0.42857142857142855,
+    "mean": 0.9552857142857143,
+    "pnl": 12837.5,
+    "losers": 12
+   },
+   "kept": {
+    "n": 10,
+    "win": 0.4,
+    "mean": 0.20739999999999997,
+    "pnl": 1768.0,
+    "losers": 6
+   },
+   "removed": {
+    "n": 11,
+    "win": 0.45454545454545453,
+    "mean": 1.6351818181818183,
+    "pnl": 11069.5,
+    "losers": 6
+   }
+  },
+  "p": 0.6133333333333333,
+  "verdict": "REJECTED",
+  "why": "shuffle; holdout win < book; removed side profitable on holdout"
+ },
+ {
+  "book": "t28_ivfall",
+  "search_id": "A raw single q5",
+  "rule": [
+   [
+    "e_syn_dev",
+    ">=",
+    -0.51
+   ]
+  ],
+  "combinator": "AND",
+  "features": {
+   "e_syn_dev": "raw photograph field"
+  },
+  "search": "best single clause, raw numeric photo fields, 5 quantile lines (10..90 %) both directions, min 20 kept; 195 features, 1896 clause masks; shuffle n=300 seed 7",
+  "score": 0.44662309368191716,
+  "shuffle_median": 0.37636165577342046,
+  "shuffle_max": 0.579520697167756,
+  "discovery": {
+   "book": {
+    "n": 61,
+    "win": 0.5573770491803278,
+    "mean": 4.472491803278689,
+    "pnl": 280644.0,
+    "losers": 27
+   },
+   "kept": {
+    "n": 31,
+    "win": 0.7741935483870968,
+    "mean": 8.169967741935483,
+    "pnl": 261907.75,
+    "losers": 7
+   },
+   "removed": {
+    "n": 30,
+    "win": 0.3333333333333333,
+    "mean": 0.6517666666666667,
+    "pnl": 18736.25,
+    "losers": 20
+   }
+  },
+  "holdout": {
+   "book": {
+    "n": 18,
+    "win": 0.5,
+    "mean": 2.460888888888889,
+    "pnl": 38551.5,
+    "losers": 9
+   },
+   "kept": {
+    "n": 11,
+    "win": 0.45454545454545453,
+    "mean": -1.5724545454545455,
+    "pnl": -19578.0,
+    "losers": 6
+   },
+   "removed": {
+    "n": 7,
+    "win": 0.5714285714285714,
+    "mean": 8.799000000000001,
+    "pnl": 58129.5,
+    "losers": 3
+   }
+  },
+  "p": 0.10333333333333333,
+  "verdict": "REJECTED",
+  "why": "shuffle; holdout win < book; removed side profitable on holdout"
+ },
+ {
+  "book": "t28_ivfall",
+  "search_id": "B raw pair q5",
+  "rule": [
+   [
+    "e_syn_dev",
+    ">=",
+    -0.51
+   ],
+   [
+    "oi_net_help30",
+    "<",
+    17524325.000000004
+   ]
+  ],
+  "combinator": "AND",
+  "features": {
+   "e_syn_dev": "raw photograph field",
+   "oi_net_help30": "raw photograph field"
+  },
+  "search": "best AND-pair of clauses on different raw fields, 5 quantile lines, min 20 kept (rule_lab.best_pair); 195 features, 1896 clause masks; shuffle n=300 seed 7",
+  "score": 0.5577342047930283,
+  "shuffle_median": 0.5206971677559913,
+  "shuffle_max": 0.7788671023965141,
+  "discovery": {
+   "book": {
+    "n": 61,
+    "win": 0.5573770491803278,
+    "mean": 4.472491803278689,
+    "pnl": 280644.0,
+    "losers": 27
+   },
+   "kept": {
+    "n": 28,
+    "win": 0.8571428571428571,
+    "mean": 9.993035714285714,
+    "pnl": 302386.5,
+    "losers": 4
+   },
+   "removed": {
+    "n": 33,
+    "win": 0.30303030303030304,
+    "mean": -0.2116060606060606,
+    "pnl": -21742.5,
+    "losers": 23
+   }
+  },
+  "holdout": {
+   "book": {
+    "n": 18,
+    "win": 0.5,
+    "mean": 2.460888888888889,
+    "pnl": 38551.5,
+    "losers": 9
+   },
+   "kept": {
+    "n": 8,
+    "win": 0.375,
+    "mean": -3.2805,
+    "pnl": -27111.5,
+    "losers": 5
+   },
+   "removed": {
+    "n": 10,
+    "win": 0.6,
+    "mean": 7.054,
+    "pnl": 65663.0,
+    "losers": 4
+   }
+  },
+  "p": 0.22,
+  "verdict": "REJECTED",
+  "why": "shuffle; holdout win < book; removed side profitable on holdout"
+ },
+ {
+  "book": "t28_ivfall",
+  "search_id": "C raw+derived single q5",
+  "rule": [
+   [
+    "e_syn_dev",
+    ">=",
+    -0.51
+   ]
+  ],
+  "combinator": "AND",
+  "features": {
+   "e_syn_dev": "raw photograph field"
+  },
+  "search": "best single clause, raw + derived features, 5 lines; 257 features, 2516 clause masks; shuffle n=300 seed 7",
+  "score": 0.44662309368191716,
+  "shuffle_median": 0.3801742919389978,
+  "shuffle_max": 0.579520697167756,
+  "discovery": {
+   "book": {
+    "n": 61,
+    "win": 0.5573770491803278,
+    "mean": 4.472491803278689,
+    "pnl": 280644.0,
+    "losers": 27
+   },
+   "kept": {
+    "n": 31,
+    "win": 0.7741935483870968,
+    "mean": 8.169967741935483,
+    "pnl": 261907.75,
+    "losers": 7
+   },
+   "removed": {
+    "n": 30,
+    "win": 0.3333333333333333,
+    "mean": 0.6517666666666667,
+    "pnl": 18736.25,
+    "losers": 20
+   }
+  },
+  "holdout": {
+   "book": {
+    "n": 18,
+    "win": 0.5,
+    "mean": 2.460888888888889,
+    "pnl": 38551.5,
+    "losers": 9
+   },
+   "kept": {
+    "n": 11,
+    "win": 0.45454545454545453,
+    "mean": -1.5724545454545455,
+    "pnl": -19578.0,
+    "losers": 6
+   },
+   "removed": {
+    "n": 7,
+    "win": 0.5714285714285714,
+    "mean": 8.799000000000001,
+    "pnl": 58129.5,
+    "losers": 3
+   }
+  },
+  "p": 0.13333333333333333,
+  "verdict": "REJECTED",
+  "why": "shuffle; holdout win < book; removed side profitable on holdout"
+ },
+ {
+  "book": "t28_ivfall",
+  "search_id": "D raw+derived pair q5",
+  "rule": [
+   [
+    "e_syn_dev",
+    ">=",
+    -0.51
+   ],
+   [
+    "oi_net_help30",
+    "<",
+    17524325.000000004
+   ]
+  ],
+  "combinator": "AND",
+  "features": {
+   "e_syn_dev": "raw photograph field",
+   "oi_net_help30": "raw photograph field"
+  },
+  "search": "best AND-pair, raw + derived, 5 lines; 257 features, 2516 clause masks; shuffle n=300 seed 7",
+  "score": 0.5577342047930283,
+  "shuffle_median": 0.5348583877995643,
+  "shuffle_max": 0.7788671023965141,
+  "discovery": {
+   "book": {
+    "n": 61,
+    "win": 0.5573770491803278,
+    "mean": 4.472491803278689,
+    "pnl": 280644.0,
+    "losers": 27
+   },
+   "kept": {
+    "n": 28,
+    "win": 0.8571428571428571,
+    "mean": 9.993035714285714,
+    "pnl": 302386.5,
+    "losers": 4
+   },
+   "removed": {
+    "n": 33,
+    "win": 0.30303030303030304,
+    "mean": -0.2116060606060606,
+    "pnl": -21742.5,
+    "losers": 23
+   }
+  },
+  "holdout": {
+   "book": {
+    "n": 18,
+    "win": 0.5,
+    "mean": 2.460888888888889,
+    "pnl": 38551.5,
+    "losers": 9
+   },
+   "kept": {
+    "n": 8,
+    "win": 0.375,
+    "mean": -3.2805,
+    "pnl": -27111.5,
+    "losers": 5
+   },
+   "removed": {
+    "n": 10,
+    "win": 0.6,
+    "mean": 7.054,
+    "pnl": 65663.0,
+    "losers": 4
+   }
+  },
+  "p": 0.2866666666666667,
+  "verdict": "REJECTED",
+  "why": "shuffle; holdout win < book; removed side profitable on holdout"
+ },
+ {
+  "book": "t28_ivfall",
+  "search_id": "E raw+text pair q5",
+  "rule": [
+   [
+    "e_syn_dev",
+    ">=",
+    -0.51
+   ],
+   [
+    "oi_net_help30",
+    "<",
+    17524325.000000004
+   ]
+  ],
+  "combinator": "AND",
+  "features": {
+   "e_syn_dev": "raw photograph field",
+   "oi_net_help30": "raw photograph field"
+  },
+  "search": "best AND-pair, raw + text indicators (field=VALUE), 5 lines; 257 features, 2094 clause masks; shuffle n=300 seed 7",
+  "score": 0.5577342047930283,
+  "shuffle_median": 0.5217864923747276,
+  "shuffle_max": 0.7788671023965141,
+  "discovery": {
+   "book": {
+    "n": 61,
+    "win": 0.5573770491803278,
+    "mean": 4.472491803278689,
+    "pnl": 280644.0,
+    "losers": 27
+   },
+   "kept": {
+    "n": 28,
+    "win": 0.8571428571428571,
+    "mean": 9.993035714285714,
+    "pnl": 302386.5,
+    "losers": 4
+   },
+   "removed": {
+    "n": 33,
+    "win": 0.30303030303030304,
+    "mean": -0.2116060606060606,
+    "pnl": -21742.5,
+    "losers": 23
+   }
+  },
+  "holdout": {
+   "book": {
+    "n": 18,
+    "win": 0.5,
+    "mean": 2.460888888888889,
+    "pnl": 38551.5,
+    "losers": 9
+   },
+   "kept": {
+    "n": 8,
+    "win": 0.375,
+    "mean": -3.2805,
+    "pnl": -27111.5,
+    "losers": 5
+   },
+   "removed": {
+    "n": 10,
+    "win": 0.6,
+    "mean": 7.054,
+    "pnl": 65663.0,
+    "losers": 4
+   }
+  },
+  "p": 0.23333333333333334,
+  "verdict": "REJECTED",
+  "why": "shuffle; holdout win < book; removed side profitable on holdout"
+ },
+ {
+  "book": "t28_ivfall",
+  "search_id": "F raw+derived greedy triple q5",
+  "rule": [
+   [
+    "e_syn_dev",
+    ">=",
+    -0.51
+   ],
+   [
+    "oi_net_help30",
+    "<",
+    17524325.000000004
+   ],
+   [
+    "gex_wall_ahead",
+    "<",
+    225.2
+   ]
+  ],
+  "combinator": "AND",
+  "features": {
+   "e_syn_dev": "raw photograph field",
+   "oi_net_help30": "raw photograph field",
+   "gex_wall_ahead": "raw photograph field"
+  },
+  "search": "greedy triple: best pair (raw + derived, 5 lines) then the single clause that most improves it; 257 features, 2516 clause masks; shuffle n=300 seed 7",
+  "score": 0.6100217864923747,
+  "shuffle_median": 0.6100217864923747,
+  "shuffle_max": 0.8159041394335511,
+  "discovery": {
+   "book": {
+    "n": 61,
+    "win": 0.5573770491803278,
+    "mean": 4.472491803278689,
+    "pnl": 280644.0,
+    "losers": 27
+   },
+   "kept": {
+    "n": 23,
+    "win": 0.9565217391304348,
+    "mean": 11.240217391304347,
+    "pnl": 278733.0,
+    "losers": 1
+   },
+   "removed": {
+    "n": 38,
+    "win": 0.3157894736842105,
+    "mean": 0.37623684210526315,
+    "pnl": 1911.0,
+    "losers": 26
+   }
+  },
+  "holdout": {
+   "book": {
+    "n": 18,
+    "win": 0.5,
+    "mean": 2.460888888888889,
+    "pnl": 38551.5,
+    "losers": 9
+   },
+   "kept": {
+    "n": 8,
+    "win": 0.375,
+    "mean": -3.2805,
+    "pnl": -27111.5,
+    "losers": 5
+   },
+   "removed": {
+    "n": 10,
+    "win": 0.6,
+    "mean": 7.054,
+    "pnl": 65663.0,
+    "losers": 4
+   }
+  },
+  "p": 0.52,
+  "verdict": "REJECTED",
+  "why": "shuffle; holdout win < book; removed side profitable on holdout"
+ },
+ {
+  "book": "t28_ivfall",
+  "search_id": "G raw single q9",
+  "rule": [
+   [
+    "e_syn_dev",
+    ">=",
+    -0.51
+   ]
+  ],
+  "combinator": "AND",
+  "features": {
+   "e_syn_dev": "raw photograph field"
+  },
+  "search": "best single clause, raw, 9 quantile lines; 195 features, 3342 clause masks; shuffle n=300 seed 7",
+  "score": 0.44662309368191716,
+  "shuffle_median": 0.39433551198257083,
+  "shuffle_max": 0.579520697167756,
+  "discovery": {
+   "book": {
+    "n": 61,
+    "win": 0.5573770491803278,
+    "mean": 4.472491803278689,
+    "pnl": 280644.0,
+    "losers": 27
+   },
+   "kept": {
+    "n": 31,
+    "win": 0.7741935483870968,
+    "mean": 8.169967741935483,
+    "pnl": 261907.75,
+    "losers": 7
+   },
+   "removed": {
+    "n": 30,
+    "win": 0.3333333333333333,
+    "mean": 0.6517666666666667,
+    "pnl": 18736.25,
+    "losers": 20
+   }
+  },
+  "holdout": {
+   "book": {
+    "n": 18,
+    "win": 0.5,
+    "mean": 2.460888888888889,
+    "pnl": 38551.5,
+    "losers": 9
+   },
+   "kept": {
+    "n": 11,
+    "win": 0.45454545454545453,
+    "mean": -1.5724545454545455,
+    "pnl": -19578.0,
+    "losers": 6
+   },
+   "removed": {
+    "n": 7,
+    "win": 0.5714285714285714,
+    "mean": 8.799000000000001,
+    "pnl": 58129.5,
+    "losers": 3
+   }
+  },
+  "p": 0.15333333333333332,
+  "verdict": "REJECTED",
+  "why": "shuffle; holdout win < book; removed side profitable on holdout"
+ },
+ {
+  "book": "t28_ivfall",
+  "search_id": "H raw pair q9",
+  "rule": [
+   [
+    "chain_age",
+    ">=",
+    38.0
+   ],
+   [
+    "fut_spread",
+    ">=",
+    2.6
+   ]
+  ],
+  "combinator": "AND",
+  "features": {
+   "chain_age": "raw photograph field",
+   "fut_spread": "raw photograph field"
+  },
+  "search": "best AND-pair, raw, 9 lines; 195 features, 3342 clause masks; shuffle n=300 seed 7",
+  "score": 0.5577342047930283,
+  "shuffle_median": 0.5435729847494554,
+  "shuffle_max": 0.7788671023965141,
+  "discovery": {
+   "book": {
+    "n": 61,
+    "win": 0.5573770491803278,
+    "mean": 4.472491803278689,
+    "pnl": 280644.0,
+    "losers": 27
+   },
+   "kept": {
+    "n": 28,
+    "win": 0.8571428571428571,
+    "mean": 11.886392857142857,
+    "pnl": 383149.0,
+    "losers": 4
+   },
+   "removed": {
+    "n": 33,
+    "win": 0.30303030303030304,
+    "mean": -1.818090909090909,
+    "pnl": -102505.0,
+    "losers": 23
+   }
+  },
+  "holdout": {
+   "book": {
+    "n": 18,
+    "win": 0.5,
+    "mean": 2.460888888888889,
+    "pnl": 38551.5,
+    "losers": 9
+   },
+   "kept": {
+    "n": 5,
+    "win": 0.6,
+    "mean": 6.7492,
+    "pnl": 30706.0,
+    "losers": 2
+   },
+   "removed": {
+    "n": 13,
+    "win": 0.46153846153846156,
+    "mean": 0.8115384615384615,
+    "pnl": 7845.5,
+    "losers": 7
+   }
+  },
+  "p": 0.4033333333333333,
+  "verdict": "REJECTED",
+  "why": "shuffle; removed side profitable on holdout"
+ },
+ {
+  "book": "t28_ivfall",
+  "search_id": "I raw OR-pair q5",
+  "rule": [
+   [
+    "e_syn_dev",
+    ">=",
+    -0.51
+   ],
+   [
+    "fut_imb_o",
+    "<",
+    -0.16699999999999998
+   ]
+  ],
+  "combinator": "OR",
+  "features": {
+   "e_syn_dev": "raw photograph field",
+   "fut_imb_o": "raw photograph field"
+  },
+  "search": "best OR of two single clauses on different raw fields, 5 lines; 195 features, 1896 clause masks; shuffle n=300 seed 7",
+  "score": 0.5708061002178649,
+  "shuffle_median": 0.5266884531590414,
+  "shuffle_max": 0.667755991285403,
+  "discovery": {
+   "book": {
+    "n": 61,
+    "win": 0.5573770491803278,
+    "mean": 4.472491803278689,
+    "pnl": 280644.0,
+    "losers": 27
+   },
+   "kept": {
+    "n": 42,
+    "win": 0.7619047619047619,
+    "mean": 9.252857142857144,
+    "pnl": 439409.75,
+    "losers": 10
+   },
+   "removed": {
+    "n": 19,
+    "win": 0.10526315789473684,
+    "mean": -6.094631578947369,
+    "pnl": -158765.75,
+    "losers": 17
+   }
+  },
+  "holdout": {
+   "book": {
+    "n": 18,
+    "win": 0.5,
+    "mean": 2.460888888888889,
+    "pnl": 38551.5,
+    "losers": 9
+   },
+   "kept": {
+    "n": 12,
+    "win": 0.5,
+    "mean": -0.8355,
+    "pnl": -12610.0,
+    "losers": 6
+   },
+   "removed": {
+    "n": 6,
+    "win": 0.5,
+    "mean": 9.053666666666667,
+    "pnl": 51161.5,
+    "losers": 3
+   }
+  },
+  "p": 0.15666666666666668,
+  "verdict": "REJECTED",
+  "why": "shuffle; removed side profitable on holdout"
+ },
+ {
+  "book": "t28_ivfall",
+  "search_id": "J derived-only pair q5",
+  "rule": [
+   [
+    "wmove60_minus_wmove30",
+    ">=",
+    -5.29
+   ],
+   [
+    "oi_help30_minus_5",
+    "<",
+    14383902.0
+   ]
+  ],
+  "combinator": "AND",
+  "features": {
+   "wmove60_minus_wmove30": "wmove60 - wmove30",
+   "oi_help30_minus_5": "oi_net_help30 - oi_net_help5"
+  },
+  "search": "best AND-pair over derived features only, 5 lines; 62 features, 620 clause masks; shuffle n=300 seed 7",
+  "score": 0.4673202614379085,
+  "shuffle_median": 0.4618736383442265,
+  "shuffle_max": 0.6906318082788672,
+  "discovery": {
+   "book": {
+    "n": 61,
+    "win": 0.5573770491803278,
+    "mean": 4.472491803278689,
+    "pnl": 280644.0,
+    "losers": 27
+   },
+   "kept": {
+    "n": 43,
+    "win": 0.7209302325581395,
+    "mean": 7.528744186046511,
+    "pnl": 365797.25,
+    "losers": 12
+   },
+   "removed": {
+    "n": 18,
+    "win": 0.16666666666666666,
+    "mean": -2.8285555555555555,
+    "pnl": -85153.25,
+    "losers": 15
+   }
+  },
+  "holdout": {
+   "book": {
+    "n": 18,
+    "win": 0.5,
+    "mean": 2.460888888888889,
+    "pnl": 38551.5,
+    "losers": 9
+   },
+   "kept": {
+    "n": 13,
+    "win": 0.46153846153846156,
+    "mean": 2.489846153846154,
+    "pnl": 24869.0,
+    "losers": 7
+   },
+   "removed": {
+    "n": 5,
+    "win": 0.6,
+    "mean": 2.3856,
+    "pnl": 13682.5,
+    "losers": 2
+   }
+  },
+  "p": 0.48,
+  "verdict": "REJECTED",
+  "why": "shuffle; holdout win < book; removed side profitable on holdout"
+ },
+ {
+  "book": "t28_ivfall",
+  "search_id": "K raw+derived pair q5 min_keep 30",
+  "rule": [
+   [
+    "ep_age_s",
+    ">=",
+    9.26
+   ],
+   [
+    "fut_spread",
+    ">=",
+    2.6
+   ]
+  ],
+  "combinator": "AND",
+  "features": {
+   "ep_age_s": "raw photograph field",
+   "fut_spread": "raw photograph field"
+  },
+  "search": "best AND-pair, raw + derived, 5 lines, min 30 kept; 257 features, 2516 clause masks; shuffle n=300 seed 7",
+  "score": 0.5272331154684096,
+  "shuffle_median": 0.5130718954248366,
+  "shuffle_max": 0.7788671023965141,
+  "discovery": {
+   "book": {
+    "n": 61,
+    "win": 0.5573770491803278,
+    "mean": 4.472491803278689,
+    "pnl": 280644.0,
+    "losers": 27
+   },
+   "kept": {
+    "n": 36,
+    "win": 0.7777777777777778,
+    "mean": 8.620361111111112,
+    "pnl": 338630.5,
+    "losers": 8
+   },
+   "removed": {
+    "n": 25,
+    "win": 0.24,
+    "mean": -1.5004400000000002,
+    "pnl": -57986.5,
+    "losers": 19
+   }
+  },
+  "holdout": {
+   "book": {
+    "n": 18,
+    "win": 0.5,
+    "mean": 2.460888888888889,
+    "pnl": 38551.5,
+    "losers": 9
+   },
+   "kept": {
+    "n": 10,
+    "win": 0.5,
+    "mean": 2.0902000000000003,
+    "pnl": 17137.25,
+    "losers": 5
+   },
+   "removed": {
+    "n": 8,
+    "win": 0.5,
+    "mean": 2.92425,
+    "pnl": 21414.25,
+    "losers": 4
+   }
+  },
+  "p": 0.41333333333333333,
+  "verdict": "REJECTED",
+  "why": "shuffle; removed side profitable on holdout"
+ },
+ {
+  "book": "t28_ivfall",
+  "search_id": "L raw+derived+text pair q5 min_keep 25",
+  "rule": [
+   [
+    "e_syn_dev",
+    ">=",
+    -0.51
+   ],
+   [
+    "oi_net_help30",
+    "<",
+    17524325.000000004
+   ]
+  ],
+  "combinator": "AND",
+  "features": {
+   "e_syn_dev": "raw photograph field",
+   "oi_net_help30": "raw photograph field"
+  },
+  "search": "best AND-pair, raw + derived + text, 5 lines, min 25 kept; 319 features, 2714 clause masks; shuffle n=300 seed 7",
+  "score": 0.5577342047930283,
+  "shuffle_median": 0.528322440087146,
+  "shuffle_max": 0.7788671023965141,
+  "discovery": {
+   "book": {
+    "n": 61,
+    "win": 0.5573770491803278,
+    "mean": 4.472491803278689,
+    "pnl": 280644.0,
+    "losers": 27
+   },
+   "kept": {
+    "n": 28,
+    "win": 0.8571428571428571,
+    "mean": 9.993035714285714,
+    "pnl": 302386.5,
+    "losers": 4
+   },
+   "removed": {
+    "n": 33,
+    "win": 0.30303030303030304,
+    "mean": -0.2116060606060606,
+    "pnl": -21742.5,
+    "losers": 23
+   }
+  },
+  "holdout": {
+   "book": {
+    "n": 18,
+    "win": 0.5,
+    "mean": 2.460888888888889,
+    "pnl": 38551.5,
+    "losers": 9
+   },
+   "kept": {
+    "n": 8,
+    "win": 0.375,
+    "mean": -3.2805,
+    "pnl": -27111.5,
+    "losers": 5
+   },
+   "removed": {
+    "n": 10,
+    "win": 0.6,
+    "mean": 7.054,
+    "pnl": 65663.0,
+    "losers": 4
+   }
+  },
+  "p": 0.2866666666666667,
+  "verdict": "REJECTED",
+  "why": "shuffle; holdout win < book; removed side profitable on holdout"
+ },
+ {
+  "book": "t28_ivfall",
+  "search_id": "M raw+derived triple q9",
+  "rule": [
+   [
+    "chain_age",
+    ">=",
+    38.0
+   ],
+   [
+    "fut_spread",
+    ">=",
+    2.6
+   ],
+   [
+    "ep_max_s",
+    "<",
+    0.7191
+   ]
+  ],
+  "combinator": "AND",
+  "features": {
+   "chain_age": "raw photograph field",
+   "fut_spread": "raw photograph field",
+   "ep_max_s": "raw photograph field"
+  },
+  "search": "greedy triple, raw + derived, 9 lines; 257 features, 4446 clause masks; shuffle n=300 seed 7",
+  "score": 0.6470588235294117,
+  "shuffle_median": 0.6350762527233116,
+  "shuffle_max": 0.8159041394335511,
+  "discovery": {
+   "book": {
+    "n": 61,
+    "win": 0.5573770491803278,
+    "mean": 4.472491803278689,
+    "pnl": 280644.0,
+    "losers": 27
+   },
+   "kept": {
+    "n": 22,
+    "win": 1.0,
+    "mean": 15.33481818181818,
+    "pnl": 390575.25,
+    "losers": 0
+   },
+   "removed": {
+    "n": 39,
+    "win": 0.3076923076923077,
+    "mean": -1.6549743589743589,
+    "pnl": -109931.25,
+    "losers": 27
+   }
+  },
+  "holdout": {
+   "book": {
+    "n": 18,
+    "win": 0.5,
+    "mean": 2.460888888888889,
+    "pnl": 38551.5,
+    "losers": 9
+   },
+   "kept": {
+    "n": 5,
+    "win": 0.6,
+    "mean": 6.7492,
+    "pnl": 30706.0,
+    "losers": 2
+   },
+   "removed": {
+    "n": 13,
+    "win": 0.46153846153846156,
+    "mean": 0.8115384615384615,
+    "pnl": 7845.5,
+    "losers": 7
+   }
+  },
+  "p": 0.39,
+  "verdict": "REJECTED",
+  "why": "shuffle; removed side profitable on holdout"
+ },
+ {
+  "book": "t28_ivfall",
+  "search_id": "N text-only pair",
+  "rule": [
+   [
+    "ep_type=None",
+    "<",
+    1.0
+   ],
+   [
+    "opt_opp_o=REFILLING",
+    "<",
+    1.0
+   ]
+  ],
+  "combinator": "AND",
+  "features": {
+   "ep_type=None": "text indicator field=VALUE -> 1/0",
+   "opt_opp_o=REFILLING": "text indicator field=VALUE -> 1/0"
+  },
+  "search": "best AND-pair of text indicators only; 62 features, 196 clause masks; shuffle n=300 seed 7",
+  "score": 0.4237472766884532,
+  "shuffle_median": 0.34313725490196073,
+  "shuffle_max": 0.5206971677559913,
+  "discovery": {
+   "book": {
+    "n": 61,
+    "win": 0.5573770491803278,
+    "mean": 4.472491803278689,
+    "pnl": 280644.0,
+    "losers": 27
+   },
+   "kept": {
+    "n": 37,
+    "win": 0.7297297297297297,
+    "mean": 7.712,
+    "pnl": 299500.5,
+    "losers": 10
+   },
+   "removed": {
+    "n": 24,
+    "win": 0.2916666666666667,
+    "mean": -0.52175,
+    "pnl": -18856.5,
+    "losers": 17
+   }
+  },
+  "holdout": {
+   "book": {
+    "n": 18,
+    "win": 0.5,
+    "mean": 2.460888888888889,
+    "pnl": 38551.5,
+    "losers": 9
+   },
+   "kept": {
+    "n": 15,
+    "win": 0.5333333333333333,
+    "mean": 3.0726,
+    "pnl": 40287.0,
+    "losers": 7
+   },
+   "removed": {
+    "n": 3,
+    "win": 0.3333333333333333,
+    "mean": -0.5976666666666667,
+    "pnl": -1735.5,
+    "losers": 2
+   }
+  },
+  "p": 0.13333333333333333,
+  "verdict": "REJECTED",
+  "why": "shuffle"
+ },
+ {
+  "book": "t28_ivfall",
+  "search_id": "O raw pair by direction (CE | PE)",
+  "rule": [
+   [
+    "fut_spread",
+    ">=",
+    2.6
+   ],
+   [
+    "regime_ext_pct",
+    "<",
+    96.0
+   ],
+   [
+    "is_ce",
+    "<",
+    0.5
+   ]
+  ],
+  "combinator": "AND",
+  "features": {
+   "fut_spread": "raw photograph field",
+   "regime_ext_pct": "raw photograph field",
+   "is_ce": "1 if the trade buys a call"
+  },
+  "search": "best AND-pair searched separately on CE trades and on PE trades (raw, 5 lines), better side taken, with the is_ce clause; 195 features, 1896 clause masks; shuffle n=300 seed 7",
+  "score": 0.7072368421052632,
+  "shuffle_median": 0.6447368421052632,
+  "shuffle_max": 0.8833333333333333,
+  "discovery": {
+   "book": {
+    "n": 61,
+    "win": 0.5573770491803278,
+    "mean": 4.472491803278689,
+    "pnl": 280644.0,
+    "losers": 27
+   },
+   "kept": {
+    "n": 20,
+    "win": 0.85,
+    "mean": 12.09355,
+    "pnl": 286406.25,
+    "losers": 3
+   },
+   "removed": {
+    "n": 41,
+    "win": 0.4146341463414634,
+    "mean": 0.7549024390243901,
+    "pnl": -5762.25,
+    "losers": 24
+   }
+  },
+  "holdout": {
+   "book": {
+    "n": 18,
+    "win": 0.5,
+    "mean": 2.460888888888889,
+    "pnl": 38551.5,
+    "losers": 9
+   },
+   "kept": {
+    "n": 4,
+    "win": 0.0,
+    "mean": -8.3995,
+    "pnl": -34030.75,
+    "losers": 4
+   },
+   "removed": {
+    "n": 14,
+    "win": 0.6428571428571429,
+    "mean": 5.5638571428571435,
+    "pnl": 72582.25,
+    "losers": 5
+   }
+  },
+  "p": 0.15333333333333332,
+  "verdict": "REJECTED",
+  "why": "shuffle; holdout win < book; removed side profitable on holdout"
+ },
+ {
+  "book": "t28_ivfall",
+  "search_id": "P derived single q9",
+  "rule": [
+   [
+    "oi_help30_minus_5",
+    "<",
+    7863570.000000002
+   ]
+  ],
+  "combinator": "AND",
+  "features": {
+   "oi_help30_minus_5": "oi_net_help30 - oi_net_help5"
+  },
+  "search": "best single clause over derived features, 9 lines; 62 features, 1104 clause masks; shuffle n=300 seed 7",
+  "score": 0.3638344226579521,
+  "shuffle_median": 0.35076252723311546,
+  "shuffle_max": 0.579520697167756,
+  "discovery": {
+   "book": {
+    "n": 61,
+    "win": 0.5573770491803278,
+    "mean": 4.472491803278689,
+    "pnl": 280644.0,
+    "losers": 27
+   },
+   "kept": {
+    "n": 44,
+    "win": 0.6818181818181818,
+    "mean": 6.617318181818181,
+    "pnl": 339959.75,
+    "losers": 14
+   },
+   "removed": {
+    "n": 17,
+    "win": 0.23529411764705882,
+    "mean": -1.0788235294117647,
+    "pnl": -59315.75,
+    "losers": 13
+   }
+  },
+  "holdout": {
+   "book": {
+    "n": 18,
+    "win": 0.5,
+    "mean": 2.460888888888889,
+    "pnl": 38551.5,
+    "losers": 9
+   },
+   "kept": {
+    "n": 12,
+    "win": 0.4166666666666667,
+    "mean": 1.2825,
+    "pnl": 9223.5,
+    "losers": 7
+   },
+   "removed": {
+    "n": 6,
+    "win": 0.6666666666666666,
+    "mean": 4.817666666666667,
+    "pnl": 29328.0,
+    "losers": 2
+   }
+  },
+  "p": 0.43333333333333335,
+  "verdict": "REJECTED",
+  "why": "shuffle; holdout win < book; removed side profitable on holdout"
+ }
+]

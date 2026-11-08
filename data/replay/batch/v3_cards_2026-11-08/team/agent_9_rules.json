@@ -1,0 +1,4226 @@
+[
+ {
+  "book": "edge_bracket_only",
+  "agent": 9,
+  "combine": "AND",
+  "rule": [
+   [
+    "speed15",
+    ">=",
+    6.362
+   ]
+  ],
+  "features": {
+   "speed15": "weather field as recorded at the trigger second"
+  },
+  "search": "single/SMALL: best single clause, 30 prior-chosen features, 5 quantile lines (10..90 %), both directions, min 20 kept; score = losers-removed share - winners-removed share; shuffle = same search on 200 shufflings of discovery outcomes (rule_lab.shuffle_p seed 7); real score 0.2621, shuffle median 0.2647, max 0.4706",
+  "discovery": {
+   "book": {
+    "n": 80,
+    "win": 0.425,
+    "mean": 1.5295750000000001,
+    "pnl": 67840.5,
+    "losers": 46
+   },
+   "kept": {
+    "n": 35,
+    "win": 0.5714285714285714,
+    "mean": 4.756342857142857,
+    "pnl": 146903.25,
+    "losers": 15
+   },
+   "removed": {
+    "n": 45,
+    "win": 0.3111111111111111,
+    "mean": -0.9801333333333334,
+    "pnl": -79062.75,
+    "losers": 31
+   }
+  },
+  "holdout": {
+   "book": {
+    "n": 24,
+    "win": 0.2916666666666667,
+    "mean": -2.8821666666666665,
+    "pnl": -30566.25,
+    "losers": 17
+   },
+   "kept": {
+    "n": 8,
+    "win": 0.5,
+    "mean": 0.2138750000000002,
+    "pnl": 15323.75,
+    "losers": 4
+   },
+   "removed": {
+    "n": 16,
+    "win": 0.1875,
+    "mean": -4.4301875,
+    "pnl": -45890.0,
+    "losers": 13
+   }
+  },
+  "p": 0.53,
+  "verdict": "REJECTED",
+  "why": "shuffle p=0.53"
+ },
+ {
+  "book": "edge_bracket_only",
+  "agent": 9,
+  "combine": "AND",
+  "rule": [
+   [
+    "premium",
+    ">=",
+    107.31
+   ],
+   [
+    "vix_chg15",
+    ">=",
+    -0.005
+   ]
+  ],
+  "features": {
+   "premium": "weather field as recorded at the trigger second",
+   "vix_chg15": "weather field as recorded at the trigger second"
+  },
+  "search": "pair/SMALL: best 2-clause AND over the 30 prior-chosen features, 5 lines each, different fields, min 20 kept; score = losers-removed share - winners-removed share; shuffle = same search on 200 shufflings of discovery outcomes (rule_lab.shuffle_p seed 7); real score 0.4003, shuffle median 0.3664, max 0.5934",
+  "discovery": {
+   "book": {
+    "n": 80,
+    "win": 0.425,
+    "mean": 1.5295750000000001,
+    "pnl": 67840.5,
+    "losers": 46
+   },
+   "kept": {
+    "n": 31,
+    "win": 0.6774193548387096,
+    "mean": 8.307193548387097,
+    "pnl": 246769.25,
+    "losers": 10
+   },
+   "removed": {
+    "n": 49,
+    "win": 0.2653061224489796,
+    "mean": -2.758306122448979,
+    "pnl": -178928.75,
+    "losers": 36
+   }
+  },
+  "holdout": {
+   "book": {
+    "n": 24,
+    "win": 0.2916666666666667,
+    "mean": -2.8821666666666665,
+    "pnl": -30566.25,
+    "losers": 17
+   },
+   "kept": {
+    "n": 7,
+    "win": 0.5714285714285714,
+    "mean": 2.517571428571429,
+    "pnl": 13637.0,
+    "losers": 3
+   },
+   "removed": {
+    "n": 17,
+    "win": 0.17647058823529413,
+    "mean": -5.1055882352941175,
+    "pnl": -44203.25,
+    "losers": 14
+   }
+  },
+  "p": 0.24,
+  "verdict": "REJECTED",
+  "why": "shuffle p=0.24"
+ },
+ {
+  "book": "edge_bracket_only",
+  "agent": 9,
+  "combine": "AND",
+  "rule": [
+   [
+    "premium",
+    ">=",
+    107.31
+   ],
+   [
+    "vix_chg15",
+    ">=",
+    -0.005
+   ],
+   [
+    "mean_ret_today",
+    "<",
+    15.532700000000043
+   ]
+  ],
+  "features": {
+   "premium": "weather field as recorded at the trigger second",
+   "vix_chg15": "weather field as recorded at the trigger second",
+   "mean_ret_today": "ret_today / n_today (0 if no earlier trade today)"
+  },
+  "search": "triple/SMALL: best 2-clause AND over the 30 prior-chosen features, then the best third clause added to each of the top 40 pairs; score = losers-removed share - winners-removed share; shuffle = same search on 200 shufflings of discovery outcomes (rule_lab.shuffle_p seed 7); real score 0.4361, shuffle median 0.4220, max 0.6074",
+  "discovery": {
+   "book": {
+    "n": 80,
+    "win": 0.425,
+    "mean": 1.5295750000000001,
+    "pnl": 67840.5,
+    "losers": 46
+   },
+   "kept": {
+    "n": 27,
+    "win": 0.7407407407407407,
+    "mean": 10.049333333333333,
+    "pnl": 265001.75,
+    "losers": 7
+   },
+   "removed": {
+    "n": 53,
+    "win": 0.2641509433962264,
+    "mean": -2.8106792452830183,
+    "pnl": -197161.25,
+    "losers": 39
+   }
+  },
+  "holdout": {
+   "book": {
+    "n": 24,
+    "win": 0.2916666666666667,
+    "mean": -2.8821666666666665,
+    "pnl": -30566.25,
+    "losers": 17
+   },
+   "kept": {
+    "n": 7,
+    "win": 0.5714285714285714,
+    "mean": 2.517571428571429,
+    "pnl": 13637.0,
+    "losers": 3
+   },
+   "removed": {
+    "n": 17,
+    "win": 0.17647058823529413,
+    "mean": -5.1055882352941175,
+    "pnl": -44203.25,
+    "losers": 14
+   }
+  },
+  "p": 0.38,
+  "verdict": "REJECTED",
+  "why": "shuffle p=0.38"
+ },
+ {
+  "book": "edge_bracket_only",
+  "agent": 9,
+  "combine": "OR",
+  "rule": [
+   [
+    "speed15",
+    ">=",
+    6.362
+   ],
+   [
+    "rv15_spot",
+    ">=",
+    12.123
+   ]
+  ],
+  "features": {
+   "speed15": "weather field as recorded at the trigger second",
+   "rv15_spot": "weather field as recorded at the trigger second"
+  },
+  "search": "or/SMALL: best 2-clause OR (keep if either holds) over the 30 prior-chosen features, 5 lines; score = losers-removed share - winners-removed share; shuffle = same search on 200 shufflings of discovery outcomes (rule_lab.shuffle_p seed 7); real score 0.3734, shuffle median 0.3574, max 0.5269",
+  "discovery": {
+   "book": {
+    "n": 80,
+    "win": 0.425,
+    "mean": 1.5295750000000001,
+    "pnl": 67840.5,
+    "losers": 46
+   },
+   "kept": {
+    "n": 44,
+    "win": 0.5909090909090909,
+    "mean": 5.983477272727273,
+    "pnl": 239986.5,
+    "losers": 18
+   },
+   "removed": {
+    "n": 36,
+    "win": 0.2222222222222222,
+    "mean": -3.9140833333333336,
+    "pnl": -172146.0,
+    "losers": 28
+   }
+  },
+  "holdout": {
+   "book": {
+    "n": 24,
+    "win": 0.2916666666666667,
+    "mean": -2.8821666666666665,
+    "pnl": -30566.25,
+    "losers": 17
+   },
+   "kept": {
+    "n": 9,
+    "win": 0.4444444444444444,
+    "mean": -0.9315555555555554,
+    "pnl": 5677.75,
+    "losers": 5
+   },
+   "removed": {
+    "n": 15,
+    "win": 0.2,
+    "mean": -4.052533333333333,
+    "pnl": -36244.0,
+    "losers": 12
+   }
+  },
+  "p": 0.41,
+  "verdict": "REJECTED",
+  "why": "shuffle p=0.41"
+ },
+ {
+  "book": "edge_bracket_only",
+  "agent": 9,
+  "combine": "AND",
+  "rule": [
+   [
+    "fut_spread",
+    ">=",
+    2.6
+   ]
+  ],
+  "features": {
+   "fut_spread": "weather field as recorded at the trigger second"
+  },
+  "search": "single/FULL: best single clause over ALL numeric weather fields + derived features + text indicators (~300 features), 5 lines; score = losers-removed share - winners-removed share; shuffle = same search on 200 shufflings of discovery outcomes (rule_lab.shuffle_p seed 7); real score 0.3465, shuffle median 0.3472, max 0.5115",
+  "discovery": {
+   "book": {
+    "n": 80,
+    "win": 0.425,
+    "mean": 1.5295750000000001,
+    "pnl": 67840.5,
+    "losers": 46
+   },
+   "kept": {
+    "n": 57,
+    "win": 0.543859649122807,
+    "mean": 4.361964912280702,
+    "pnl": 201282.25,
+    "losers": 26
+   },
+   "removed": {
+    "n": 23,
+    "win": 0.13043478260869565,
+    "mean": -5.489826086956521,
+    "pnl": -133441.75,
+    "losers": 20
+   }
+  },
+  "holdout": {
+   "book": {
+    "n": 24,
+    "win": 0.2916666666666667,
+    "mean": -2.8821666666666665,
+    "pnl": -30566.25,
+    "losers": 17
+   },
+   "kept": {
+    "n": 16,
+    "win": 0.3125,
+    "mean": -2.6025,
+    "pnl": -13754.0,
+    "losers": 11
+   },
+   "removed": {
+    "n": 8,
+    "win": 0.25,
+    "mean": -3.4415,
+    "pnl": -16812.25,
+    "losers": 6
+   }
+  },
+  "p": 0.505,
+  "verdict": "REJECTED",
+  "why": "shuffle p=0.505"
+ },
+ {
+  "book": "edge_bracket_only",
+  "agent": 9,
+  "combine": "AND",
+  "rule": [
+   [
+    "agree_same",
+    ">=",
+    5.0
+   ],
+   [
+    "fut_spread",
+    ">=",
+    2.6
+   ]
+  ],
+  "features": {
+   "agree_same": "weather field as recorded at the trigger second",
+   "fut_spread": "weather field as recorded at the trigger second"
+  },
+  "search": "pair/FULL: best 2-clause AND over ~300 features x 5 lines x 2 directions (~3000 masks), different fields, min 20 kept; score = losers-removed share - winners-removed share; shuffle = same search on 200 shufflings of discovery outcomes (rule_lab.shuffle_p seed 7); real score 0.5256, shuffle median 0.4776, max 0.6355",
+  "discovery": {
+   "book": {
+    "n": 80,
+    "win": 0.425,
+    "mean": 1.5295750000000001,
+    "pnl": 67840.5,
+    "losers": 46
+   },
+   "kept": {
+    "n": 37,
+    "win": 0.7027027027027027,
+    "mean": 8.604567567567567,
+    "pnl": 305870.5,
+    "losers": 11
+   },
+   "removed": {
+    "n": 43,
+    "win": 0.18604651162790697,
+    "mean": -4.558209302325581,
+    "pnl": -238030.0,
+    "losers": 35
+   }
+  },
+  "holdout": {
+   "book": {
+    "n": 24,
+    "win": 0.2916666666666667,
+    "mean": -2.8821666666666665,
+    "pnl": -30566.25,
+    "losers": 17
+   },
+   "kept": {
+    "n": 14,
+    "win": 0.2857142857142857,
+    "mean": -3.7603571428571425,
+    "pnl": -26523.25,
+    "losers": 10
+   },
+   "removed": {
+    "n": 10,
+    "win": 0.3,
+    "mean": -1.6527,
+    "pnl": -4043.0,
+    "losers": 7
+   }
+  },
+  "p": 0.12,
+  "verdict": "REJECTED",
+  "why": "shuffle p=0.12; holdout: kept win% below book or removed side profitable"
+ },
+ {
+  "book": "edge_bracket_only",
+  "agent": 9,
+  "combine": "AND",
+  "rule": [
+   [
+    "agree_same",
+    ">=",
+    5.0
+   ],
+   [
+    "fut_spread",
+    ">=",
+    2.6
+   ],
+   [
+    "hrs_to_expiry",
+    "<",
+    146.0192
+   ]
+  ],
+  "features": {
+   "agree_same": "weather field as recorded at the trigger second",
+   "fut_spread": "weather field as recorded at the trigger second",
+   "hrs_to_expiry": "weather field as recorded at the trigger second"
+  },
+  "search": "triple/FULL: best 2-clause AND over ~300 features, then best third clause on each of the top 40 pairs; score = losers-removed share - winners-removed share; shuffle = same search on 200 shufflings of discovery outcomes (rule_lab.shuffle_p seed 7); real score 0.5831, shuffle median 0.5607, max 0.7008",
+  "discovery": {
+   "book": {
+    "n": 80,
+    "win": 0.425,
+    "mean": 1.5295750000000001,
+    "pnl": 67840.5,
+    "losers": 46
+   },
+   "kept": {
+    "n": 32,
+    "win": 0.78125,
+    "mean": 10.66590625,
+    "pnl": 328185.0,
+    "losers": 7
+   },
+   "removed": {
+    "n": 48,
+    "win": 0.1875,
+    "mean": -4.5613125,
+    "pnl": -260344.5,
+    "losers": 39
+   }
+  },
+  "holdout": {
+   "book": {
+    "n": 24,
+    "win": 0.2916666666666667,
+    "mean": -2.8821666666666665,
+    "pnl": -30566.25,
+    "losers": 17
+   },
+   "kept": {
+    "n": 14,
+    "win": 0.2857142857142857,
+    "mean": -3.7603571428571425,
+    "pnl": -26523.25,
+    "losers": 10
+   },
+   "removed": {
+    "n": 10,
+    "win": 0.3,
+    "mean": -1.6527,
+    "pnl": -4043.0,
+    "losers": 7
+   }
+  },
+  "p": 0.285,
+  "verdict": "REJECTED",
+  "why": "shuffle p=0.285; holdout: kept win% below book or removed side profitable"
+ },
+ {
+  "book": "edge_bracket_only",
+  "agent": 9,
+  "combine": "OR",
+  "rule": [
+   [
+    "chain_age",
+    ">=",
+    65.0
+   ],
+   [
+    "dist_hi",
+    "<",
+    54.795
+   ]
+  ],
+  "features": {
+   "chain_age": "weather field as recorded at the trigger second",
+   "dist_hi": "weather field as recorded at the trigger second"
+  },
+  "search": "or/FULL: best 2-clause OR over ~300 features, 5 lines; score = losers-removed share - winners-removed share; shuffle = same search on 200 shufflings of discovery outcomes (rule_lab.shuffle_p seed 7); real score 0.4463, shuffle median 0.4757, max 0.5831",
+  "discovery": {
+   "book": {
+    "n": 80,
+    "win": 0.425,
+    "mean": 1.5295750000000001,
+    "pnl": 67840.5,
+    "losers": 46
+   },
+   "kept": {
+    "n": 43,
+    "win": 0.627906976744186,
+    "mean": 6.385744186046511,
+    "pnl": 224448.25,
+    "losers": 16
+   },
+   "removed": {
+    "n": 37,
+    "win": 0.1891891891891892,
+    "mean": -4.114081081081081,
+    "pnl": -156607.75,
+    "losers": 30
+   }
+  },
+  "holdout": {
+   "book": {
+    "n": 24,
+    "win": 0.2916666666666667,
+    "mean": -2.8821666666666665,
+    "pnl": -30566.25,
+    "losers": 17
+   },
+   "kept": {
+    "n": 21,
+    "win": 0.23809523809523808,
+    "mean": -3.7965714285714283,
+    "pnl": -46588.75,
+    "losers": 16
+   },
+   "removed": {
+    "n": 3,
+    "win": 0.6666666666666666,
+    "mean": 3.518666666666667,
+    "pnl": 16022.5,
+    "losers": 1
+   }
+  },
+  "p": 0.79,
+  "verdict": "REJECTED",
+  "why": "shuffle p=0.79; holdout: kept win% below book or removed side profitable"
+ },
+ {
+  "book": "edge_bracket_only",
+  "agent": 9,
+  "combine": "AND",
+  "rule": [
+   [
+    "gex_wall_ahead",
+    ">=",
+    58.55
+   ]
+  ],
+  "features": {
+   "gex_wall_ahead": "weather field as recorded at the trigger second"
+  },
+  "search": "single/FULL/3lines: best single clause over ~300 features, 3 quantile lines (10/50/90 %); score = losers-removed share - winners-removed share; shuffle = same search on 200 shufflings of discovery outcomes (rule_lab.shuffle_p seed 7); real score 0.3069, shuffle median 0.3146, max 0.5115",
+  "discovery": {
+   "book": {
+    "n": 80,
+    "win": 0.425,
+    "mean": 1.5295750000000001,
+    "pnl": 67840.5,
+    "losers": 46
+   },
+   "kept": {
+    "n": 40,
+    "win": 0.575,
+    "mean": 5.202325,
+    "pnl": 195448.5,
+    "losers": 17
+   },
+   "removed": {
+    "n": 40,
+    "win": 0.275,
+    "mean": -2.1431750000000003,
+    "pnl": -127608.0,
+    "losers": 29
+   }
+  },
+  "holdout": {
+   "book": {
+    "n": 24,
+    "win": 0.2916666666666667,
+    "mean": -2.8821666666666665,
+    "pnl": -30566.25,
+    "losers": 17
+   },
+   "kept": {
+    "n": 8,
+    "win": 0.5,
+    "mean": 1.9575,
+    "pnl": 19197.75,
+    "losers": 4
+   },
+   "removed": {
+    "n": 16,
+    "win": 0.1875,
+    "mean": -5.302,
+    "pnl": -49764.0,
+    "losers": 13
+   }
+  },
+  "p": 0.8,
+  "verdict": "REJECTED",
+  "why": "shuffle p=0.8"
+ },
+ {
+  "book": "edge_bracket_only",
+  "agent": 9,
+  "combine": "AND",
+  "rule": [
+   [
+    "fut_spread",
+    ">=",
+    1.2700000000000002
+   ],
+   [
+    "ret_today",
+    "<",
+    10.6935
+   ]
+  ],
+  "features": {
+   "fut_spread": "weather field as recorded at the trigger second",
+   "ret_today": "weather field as recorded at the trigger second"
+  },
+  "search": "pair/FULL/3lines: best 2-clause AND over ~300 features, 3 quantile lines; score = losers-removed share - winners-removed share; shuffle = same search on 200 shufflings of discovery outcomes (rule_lab.shuffle_p seed 7); real score 0.4373, shuffle median 0.4373, max 0.6049",
+  "discovery": {
+   "book": {
+    "n": 80,
+    "win": 0.425,
+    "mean": 1.5295750000000001,
+    "pnl": 67840.5,
+    "losers": 46
+   },
+   "kept": {
+    "n": 34,
+    "win": 0.6764705882352942,
+    "mean": 8.62164705882353,
+    "pnl": 262431.0,
+    "losers": 11
+   },
+   "removed": {
+    "n": 46,
+    "win": 0.2391304347826087,
+    "mean": -3.712391304347826,
+    "pnl": -194590.5,
+    "losers": 35
+   }
+  },
+  "holdout": {
+   "book": {
+    "n": 24,
+    "win": 0.2916666666666667,
+    "mean": -2.8821666666666665,
+    "pnl": -30566.25,
+    "losers": 17
+   },
+   "kept": {
+    "n": 17,
+    "win": 0.29411764705882354,
+    "mean": -4.003529411764706,
+    "pnl": -38844.0,
+    "losers": 12
+   },
+   "removed": {
+    "n": 7,
+    "win": 0.2857142857142857,
+    "mean": -0.15885714285714275,
+    "pnl": 8277.75,
+    "losers": 5
+   }
+  },
+  "p": 0.53,
+  "verdict": "REJECTED",
+  "why": "shuffle p=0.53; holdout: kept win% below book or removed side profitable"
+ },
+ {
+  "book": "edge_breakout",
+  "agent": 9,
+  "combine": "AND",
+  "rule": [
+   [
+    "abs_delta",
+    ">=",
+    0.5386000000000001
+   ]
+  ],
+  "features": {
+   "abs_delta": "|delta|"
+  },
+  "search": "single/SMALL: best single clause, 30 prior-chosen features, 5 quantile lines (10..90 %), both directions, min 20 kept; score = losers-removed share - winners-removed share; shuffle = same search on 200 shufflings of discovery outcomes (rule_lab.shuffle_p seed 7); real score 0.2516, shuffle median 0.3124, max 0.4834",
+  "discovery": {
+   "book": {
+    "n": 63,
+    "win": 0.4126984126984127,
+    "mean": 0.6616984126984126,
+    "pnl": 14023.75,
+    "losers": 37
+   },
+   "kept": {
+    "n": 44,
+    "win": 0.5,
+    "mean": 3.2005227272727272,
+    "pnl": 113490.0,
+    "losers": 22
+   },
+   "removed": {
+    "n": 19,
+    "win": 0.21052631578947367,
+    "mean": -5.217684210526316,
+    "pnl": -99466.25,
+    "losers": 15
+   }
+  },
+  "holdout": {
+   "book": {
+    "n": 18,
+    "win": 0.2777777777777778,
+    "mean": -3.479277777777778,
+    "pnl": -64681.5,
+    "losers": 13
+   },
+   "kept": {
+    "n": 12,
+    "win": 0.4166666666666667,
+    "mean": -0.02325000000000002,
+    "pnl": -4719.0,
+    "losers": 7
+   },
+   "removed": {
+    "n": 6,
+    "win": 0.0,
+    "mean": -10.391333333333334,
+    "pnl": -59962.5,
+    "losers": 6
+   }
+  },
+  "p": 0.835,
+  "verdict": "REJECTED",
+  "why": "shuffle p=0.835"
+ },
+ {
+  "book": "edge_breakout",
+  "agent": 9,
+  "combine": "AND",
+  "rule": [
+   [
+    "abs_delta",
+    ">=",
+    0.5386000000000001
+   ],
+   [
+    "n_today",
+    "<",
+    5.400000000000006
+   ]
+  ],
+  "features": {
+   "abs_delta": "|delta|",
+   "n_today": "weather field as recorded at the trigger second"
+  },
+  "search": "pair/SMALL: best 2-clause AND over the 30 prior-chosen features, 5 lines each, different fields, min 20 kept; score = losers-removed share - winners-removed share; shuffle = same search on 200 shufflings of discovery outcomes (rule_lab.shuffle_p seed 7); real score 0.4335, shuffle median 0.4220, max 0.5873",
+  "discovery": {
+   "book": {
+    "n": 63,
+    "win": 0.4126984126984127,
+    "mean": 0.6616984126984126,
+    "pnl": 14023.75,
+    "losers": 37
+   },
+   "kept": {
+    "n": 30,
+    "win": 0.6333333333333333,
+    "mean": 6.536766666666667,
+    "pnl": 177541.0,
+    "losers": 11
+   },
+   "removed": {
+    "n": 33,
+    "win": 0.21212121212121213,
+    "mean": -4.6792727272727275,
+    "pnl": -163517.25,
+    "losers": 26
+   }
+  },
+  "holdout": {
+   "book": {
+    "n": 18,
+    "win": 0.2777777777777778,
+    "mean": -3.479277777777778,
+    "pnl": -64681.5,
+    "losers": 13
+   },
+   "kept": {
+    "n": 12,
+    "win": 0.4166666666666667,
+    "mean": -0.02325000000000002,
+    "pnl": -4719.0,
+    "losers": 7
+   },
+   "removed": {
+    "n": 6,
+    "win": 0.0,
+    "mean": -10.391333333333334,
+    "pnl": -59962.5,
+    "losers": 6
+   }
+  },
+  "p": 0.45,
+  "verdict": "REJECTED",
+  "why": "shuffle p=0.45"
+ },
+ {
+  "book": "edge_breakout",
+  "agent": 9,
+  "combine": "AND",
+  "rule": [
+   [
+    "abs_delta",
+    ">=",
+    0.5386000000000001
+   ],
+   [
+    "n_today",
+    "<",
+    5.400000000000006
+   ],
+   [
+    "wmove60",
+    "<",
+    13.190000000000005
+   ]
+  ],
+  "features": {
+   "abs_delta": "|delta|",
+   "n_today": "weather field as recorded at the trigger second",
+   "wmove60": "weather field as recorded at the trigger second"
+  },
+  "search": "triple/SMALL: best 2-clause AND over the 30 prior-chosen features, then the best third clause added to each of the top 40 pairs; score = losers-removed share - winners-removed share; shuffle = same search on 200 shufflings of discovery outcomes (rule_lab.shuffle_p seed 7); real score 0.5146, shuffle median 0.4896, max 0.6684",
+  "discovery": {
+   "book": {
+    "n": 63,
+    "win": 0.4126984126984127,
+    "mean": 0.6616984126984126,
+    "pnl": 14023.75,
+    "losers": 37
+   },
+   "kept": {
+    "n": 27,
+    "win": 0.7037037037037037,
+    "mean": 8.433925925925926,
+    "pnl": 207015.25,
+    "losers": 8
+   },
+   "removed": {
+    "n": 36,
+    "win": 0.19444444444444445,
+    "mean": -5.167472222222222,
+    "pnl": -192991.5,
+    "losers": 29
+   }
+  },
+  "holdout": {
+   "book": {
+    "n": 18,
+    "win": 0.2777777777777778,
+    "mean": -3.479277777777778,
+    "pnl": -64681.5,
+    "losers": 13
+   },
+   "kept": {
+    "n": 11,
+    "win": 0.36363636363636365,
+    "mean": -1.8559090909090907,
+    "pnl": -20848.75,
+    "losers": 7
+   },
+   "removed": {
+    "n": 7,
+    "win": 0.14285714285714285,
+    "mean": -6.030285714285715,
+    "pnl": -43832.75,
+    "losers": 6
+   }
+  },
+  "p": 0.29,
+  "verdict": "REJECTED",
+  "why": "shuffle p=0.29"
+ },
+ {
+  "book": "edge_breakout",
+  "agent": 9,
+  "combine": "OR",
+  "rule": [
+   [
+    "breadth_dir",
+    "<",
+    0.59318
+   ],
+   [
+    "vix",
+    "<",
+    16.23
+   ]
+  ],
+  "features": {
+   "breadth_dir": "weather field as recorded at the trigger second",
+   "vix": "weather field as recorded at the trigger second"
+  },
+  "search": "or/SMALL: best 2-clause OR (keep if either holds) over the 30 prior-chosen features, 5 lines; score = losers-removed share - winners-removed share; shuffle = same search on 200 shufflings of discovery outcomes (rule_lab.shuffle_p seed 7); real score 0.3753, shuffle median 0.4252, max 0.5956",
+  "discovery": {
+   "book": {
+    "n": 63,
+    "win": 0.4126984126984127,
+    "mean": 0.6616984126984126,
+    "pnl": 14023.75,
+    "losers": 37
+   },
+   "kept": {
+    "n": 37,
+    "win": 0.5675675675675675,
+    "mean": 3.9316486486486486,
+    "pnl": 114013.25,
+    "losers": 16
+   },
+   "removed": {
+    "n": 26,
+    "win": 0.19230769230769232,
+    "mean": -3.991692307692308,
+    "pnl": -99989.5,
+    "losers": 21
+   }
+  },
+  "holdout": {
+   "book": {
+    "n": 18,
+    "win": 0.2777777777777778,
+    "mean": -3.479277777777778,
+    "pnl": -64681.5,
+    "losers": 13
+   },
+   "kept": {
+    "n": 14,
+    "win": 0.35714285714285715,
+    "mean": -1.4865,
+    "pnl": -25229.75,
+    "losers": 9
+   },
+   "removed": {
+    "n": 4,
+    "win": 0.0,
+    "mean": -10.454,
+    "pnl": -39451.75,
+    "losers": 4
+   }
+  },
+  "p": 0.825,
+  "verdict": "REJECTED",
+  "why": "shuffle p=0.825"
+ },
+ {
+  "book": "edge_breakout",
+  "agent": 9,
+  "combine": "AND",
+  "rule": [
+   [
+    "gaps_today",
+    "<",
+    5.0
+   ]
+  ],
+  "features": {
+   "gaps_today": "weather field as recorded at the trigger second"
+  },
+  "search": "single/FULL: best single clause over ALL numeric weather fields + derived features + text indicators (~300 features), 5 lines; score = losers-removed share - winners-removed share; shuffle = same search on 200 shufflings of discovery outcomes (rule_lab.shuffle_p seed 7); real score 0.3867, shuffle median 0.3825, max 0.5759",
+  "discovery": {
+   "book": {
+    "n": 63,
+    "win": 0.4126984126984127,
+    "mean": 0.6616984126984126,
+    "pnl": 14023.75,
+    "losers": 37
+   },
+   "kept": {
+    "n": 39,
+    "win": 0.5641025641025641,
+    "mean": 3.973307692307692,
+    "pnl": 133740.75,
+    "losers": 17
+   },
+   "removed": {
+    "n": 24,
+    "win": 0.16666666666666666,
+    "mean": -4.719666666666667,
+    "pnl": -119717.0,
+    "losers": 20
+   }
+  },
+  "holdout": {
+   "book": {
+    "n": 18,
+    "win": 0.2777777777777778,
+    "mean": -3.479277777777778,
+    "pnl": -64681.5,
+    "losers": 13
+   },
+   "kept": {
+    "n": 13,
+    "win": 0.3076923076923077,
+    "mean": -2.428384615384615,
+    "pnl": -36887.5,
+    "losers": 9
+   },
+   "removed": {
+    "n": 5,
+    "win": 0.2,
+    "mean": -6.2116,
+    "pnl": -27794.0,
+    "losers": 4
+   }
+  },
+  "p": 0.405,
+  "verdict": "REJECTED",
+  "why": "shuffle p=0.405"
+ },
+ {
+  "book": "edge_breakout",
+  "agent": 9,
+  "combine": "AND",
+  "rule": [
+   [
+    "gaps_today",
+    "<",
+    5.0
+   ],
+   [
+    "oi_own_chg5",
+    "<",
+    140764.0
+   ]
+  ],
+  "features": {
+   "gaps_today": "weather field as recorded at the trigger second",
+   "oi_own_chg5": "weather field as recorded at the trigger second"
+  },
+  "search": "pair/FULL: best 2-clause AND over ~300 features x 5 lines x 2 directions (~3000 masks), different fields, min 20 kept; score = losers-removed share - winners-removed share; shuffle = same search on 200 shufflings of discovery outcomes (rule_lab.shuffle_p seed 7); real score 0.5956, shuffle median 0.5395, max 0.6840",
+  "discovery": {
+   "book": {
+    "n": 63,
+    "win": 0.4126984126984127,
+    "mean": 0.6616984126984126,
+    "pnl": 14023.75,
+    "losers": 37
+   },
+   "kept": {
+    "n": 24,
+    "win": 0.7916666666666666,
+    "mean": 11.0465,
+    "pnl": 236749.5,
+    "losers": 5
+   },
+   "removed": {
+    "n": 39,
+    "win": 0.1794871794871795,
+    "mean": -5.728948717948718,
+    "pnl": -222725.75,
+    "losers": 32
+   }
+  },
+  "holdout": {
+   "book": {
+    "n": 18,
+    "win": 0.2777777777777778,
+    "mean": -3.479277777777778,
+    "pnl": -64681.5,
+    "losers": 13
+   },
+   "kept": {
+    "n": 8,
+    "win": 0.375,
+    "mean": -1.2343750000000002,
+    "pnl": -11641.5,
+    "losers": 5
+   },
+   "removed": {
+    "n": 10,
+    "win": 0.2,
+    "mean": -5.2752,
+    "pnl": -53040.0,
+    "losers": 8
+   }
+  },
+  "p": 0.115,
+  "verdict": "REJECTED",
+  "why": "shuffle p=0.115"
+ },
+ {
+  "book": "edge_breakout",
+  "agent": 9,
+  "combine": "AND",
+  "rule": [
+   [
+    "gaps_today",
+    "<",
+    6.0
+   ],
+   [
+    "vomma",
+    ">=",
+    0.00696
+   ],
+   [
+    "vix_chg30",
+    "<",
+    0.608
+   ]
+  ],
+  "features": {
+   "gaps_today": "weather field as recorded at the trigger second",
+   "vomma": "weather field as recorded at the trigger second",
+   "vix_chg30": "weather field as recorded at the trigger second"
+  },
+  "search": "triple/FULL: best 2-clause AND over ~300 features, then best third clause on each of the top 40 pairs; score = losers-removed share - winners-removed share; shuffle = same search on 200 shufflings of discovery outcomes (rule_lab.shuffle_p seed 7); real score 0.7225, shuffle median 0.6242, max 0.7422",
+  "discovery": {
+   "book": {
+    "n": 63,
+    "win": 0.4126984126984127,
+    "mean": 0.6616984126984126,
+    "pnl": 14023.75,
+    "losers": 37
+   },
+   "kept": {
+    "n": 29,
+    "win": 0.7931034482758621,
+    "mean": 9.942655172413792,
+    "pnl": 266571.5,
+    "losers": 6
+   },
+   "removed": {
+    "n": 34,
+    "win": 0.08823529411764706,
+    "mean": -7.254411764705883,
+    "pnl": -252547.75,
+    "losers": 31
+   }
+  },
+  "holdout": {
+   "book": {
+    "n": 18,
+    "win": 0.2777777777777778,
+    "mean": -3.479277777777778,
+    "pnl": -64681.5,
+    "losers": 13
+   },
+   "kept": {
+    "n": 7,
+    "win": 0.42857142857142855,
+    "mean": 0.379857142857143,
+    "pnl": -2297.75,
+    "losers": 4
+   },
+   "removed": {
+    "n": 11,
+    "win": 0.18181818181818182,
+    "mean": -5.935090909090909,
+    "pnl": -62383.75,
+    "losers": 9
+   }
+  },
+  "p": 0.045,
+  "verdict": "PROPOSE",
+  "why": "passes discovery profitability, shuffle p < 0.05 and holdout; MARGINAL: p=0.045 (seed 7, n=200) and 0.0175 (seed 11, n=400), pooled 0.027; best of 10 searches on this book; holdout kept side 3 W / 4 L, -2,298 Rs (wins 43% vs book 28%); gaps_today is a feed-health counter, the holdout lift comes from vomma AND vix_chg30 which alone did not pass the shuffle test",
+  "p_second_run": {
+   "seed": 11,
+   "n": 400,
+   "p": 0.0175,
+   "pooled_p": 0.02666666666666667
+  }
+ },
+ {
+  "book": "edge_breakout",
+  "agent": 9,
+  "combine": "OR",
+  "rule": [
+   [
+    "jump_z",
+    "<",
+    -0.16
+   ],
+   [
+    "vix_chg30",
+    "<",
+    -0.06
+   ]
+  ],
+  "features": {
+   "jump_z": "weather field as recorded at the trigger second",
+   "vix_chg30": "weather field as recorded at the trigger second"
+  },
+  "search": "or/FULL: best 2-clause OR over ~300 features, 5 lines; score = losers-removed share - winners-removed share; shuffle = same search on 200 shufflings of discovery outcomes (rule_lab.shuffle_p seed 7); real score 0.5301, shuffle median 0.5333, max 0.6528",
+  "discovery": {
+   "book": {
+    "n": 63,
+    "win": 0.4126984126984127,
+    "mean": 0.6616984126984126,
+    "pnl": 14023.75,
+    "losers": 37
+   },
+   "kept": {
+    "n": 24,
+    "win": 0.75,
+    "mean": 7.977333333333333,
+    "pnl": 180735.75,
+    "losers": 6
+   },
+   "removed": {
+    "n": 39,
+    "win": 0.20512820512820512,
+    "mean": -3.8402307692307693,
+    "pnl": -166712.0,
+    "losers": 31
+   }
+  },
+  "holdout": {
+   "book": {
+    "n": 18,
+    "win": 0.2777777777777778,
+    "mean": -3.479277777777778,
+    "pnl": -64681.5,
+    "losers": 13
+   },
+   "kept": {
+    "n": 5,
+    "win": 0.4,
+    "mean": -0.8749999999999998,
+    "pnl": -9688.25,
+    "losers": 3
+   },
+   "removed": {
+    "n": 13,
+    "win": 0.23076923076923078,
+    "mean": -4.4809230769230775,
+    "pnl": -54993.25,
+    "losers": 10
+   }
+  },
+  "p": 0.565,
+  "verdict": "REJECTED",
+  "why": "shuffle p=0.565"
+ },
+ {
+  "book": "edge_breakout",
+  "agent": 9,
+  "combine": "AND",
+  "rule": [
+   [
+    "gaps_today",
+    "<",
+    6.0
+   ]
+  ],
+  "features": {
+   "gaps_today": "weather field as recorded at the trigger second"
+  },
+  "search": "single/FULL/3lines: best single clause over ~300 features, 3 quantile lines (10/50/90 %); score = losers-removed share - winners-removed share; shuffle = same search on 200 shufflings of discovery outcomes (rule_lab.shuffle_p seed 7); real score 0.2859, shuffle median 0.3794, max 0.5759",
+  "discovery": {
+   "book": {
+    "n": 63,
+    "win": 0.4126984126984127,
+    "mean": 0.6616984126984126,
+    "pnl": 14023.75,
+    "losers": 37
+   },
+   "kept": {
+    "n": 50,
+    "win": 0.5,
+    "mean": 2.44088,
+    "pnl": 95267.25,
+    "losers": 25
+   },
+   "removed": {
+    "n": 13,
+    "win": 0.07692307692307693,
+    "mean": -6.181307692307692,
+    "pnl": -81243.5,
+    "losers": 12
+   }
+  },
+  "holdout": {
+   "book": {
+    "n": 18,
+    "win": 0.2777777777777778,
+    "mean": -3.479277777777778,
+    "pnl": -64681.5,
+    "losers": 13
+   },
+   "kept": {
+    "n": 15,
+    "win": 0.26666666666666666,
+    "mean": -3.2878,
+    "pnl": -52630.5,
+    "losers": 11
+   },
+   "removed": {
+    "n": 3,
+    "win": 0.3333333333333333,
+    "mean": -4.4366666666666665,
+    "pnl": -12051.0,
+    "losers": 2
+   }
+  },
+  "p": 0.96,
+  "verdict": "REJECTED",
+  "why": "shuffle p=0.96; holdout: kept win% below book or removed side profitable"
+ },
+ {
+  "book": "edge_breakout",
+  "agent": 9,
+  "combine": "AND",
+  "rule": [
+   [
+    "gaps_today",
+    "<",
+    6.0
+   ],
+   [
+    "prem_ratio_with",
+    ">=",
+    1.002
+   ]
+  ],
+  "features": {
+   "gaps_today": "weather field as recorded at the trigger second",
+   "prem_ratio_with": "weather field as recorded at the trigger second"
+  },
+  "search": "pair/FULL/3lines: best 2-clause AND over ~300 features, 3 quantile lines; score = losers-removed share - winners-removed share; shuffle = same search on 200 shufflings of discovery outcomes (rule_lab.shuffle_p seed 7); real score 0.4917, shuffle median 0.5031, max 0.6726",
+  "discovery": {
+   "book": {
+    "n": 63,
+    "win": 0.4126984126984127,
+    "mean": 0.6616984126984126,
+    "pnl": 14023.75,
+    "losers": 37
+   },
+   "kept": {
+    "n": 23,
+    "win": 0.7391304347826086,
+    "mean": 8.527695652173913,
+    "pnl": 186403.75,
+    "losers": 6
+   },
+   "removed": {
+    "n": 40,
+    "win": 0.225,
+    "mean": -3.8612500000000005,
+    "pnl": -172380.0,
+    "losers": 31
+   }
+  },
+  "holdout": {
+   "book": {
+    "n": 18,
+    "win": 0.2777777777777778,
+    "mean": -3.479277777777778,
+    "pnl": -64681.5,
+    "losers": 13
+   },
+   "kept": {
+    "n": 9,
+    "win": 0.3333333333333333,
+    "mean": -1.924222222222222,
+    "pnl": -19045.0,
+    "losers": 6
+   },
+   "removed": {
+    "n": 9,
+    "win": 0.2222222222222222,
+    "mean": -5.034333333333333,
+    "pnl": -45636.5,
+    "losers": 7
+   }
+  },
+  "p": 0.535,
+  "verdict": "REJECTED",
+  "why": "shuffle p=0.535"
+ },
+ {
+  "book": "edge_gate_only",
+  "agent": 9,
+  "combine": "AND",
+  "rule": [
+   [
+    "premium",
+    "<",
+    196.4
+   ]
+  ],
+  "features": {
+   "premium": "weather field as recorded at the trigger second"
+  },
+  "search": "single/SMALL: best single clause, 30 prior-chosen features, 5 quantile lines (10..90 %), both directions, min 20 kept; score = losers-removed share - winners-removed share; shuffle = same search on 200 shufflings of discovery outcomes (rule_lab.shuffle_p seed 7); real score 0.3095, shuffle median 0.3571, max 0.6190",
+  "discovery": {
+   "book": {
+    "n": 33,
+    "win": 0.6363636363636364,
+    "mean": 4.756909090909091,
+    "pnl": 192205.0,
+    "losers": 12
+   },
+   "kept": {
+    "n": 23,
+    "win": 0.7391304347826086,
+    "mean": 7.75804347826087,
+    "pnl": 209560.0,
+    "losers": 6
+   },
+   "removed": {
+    "n": 10,
+    "win": 0.4,
+    "mean": -2.1456999999999997,
+    "pnl": -17355.0,
+    "losers": 6
+   }
+  },
+  "holdout": {
+   "book": {
+    "n": 8,
+    "win": 0.5,
+    "mean": -2.458625,
+    "pnl": -22811.75,
+    "losers": 4
+   },
+   "kept": {
+    "n": 6,
+    "win": 0.5,
+    "mean": -2.7025,
+    "pnl": -22298.25,
+    "losers": 3
+   },
+   "removed": {
+    "n": 2,
+    "win": 0.5,
+    "mean": -1.7270000000000003,
+    "pnl": -513.5,
+    "losers": 1
+   }
+  },
+  "p": 0.95,
+  "verdict": "REJECTED",
+  "why": "shuffle p=0.95"
+ },
+ {
+  "book": "edge_gate_only",
+  "agent": 9,
+  "combine": "AND",
+  "rule": [
+   [
+    "mv300",
+    ">=",
+    -47.87
+   ],
+   [
+    "vwap_ext",
+    ">=",
+    2.6000000000000023
+   ]
+  ],
+  "features": {
+   "mv300": "weather field as recorded at the trigger second",
+   "vwap_ext": "weather field as recorded at the trigger second"
+  },
+  "search": "pair/SMALL: best 2-clause AND over the 30 prior-chosen features, 5 lines each, different fields, min 20 kept; score = losers-removed share - winners-removed share; shuffle = same search on 200 shufflings of discovery outcomes (rule_lab.shuffle_p seed 7); real score 0.4762, shuffle median 0.5238, max 0.7381",
+  "discovery": {
+   "book": {
+    "n": 33,
+    "win": 0.6363636363636364,
+    "mean": 4.756909090909091,
+    "pnl": 192205.0,
+    "losers": 12
+   },
+   "kept": {
+    "n": 21,
+    "win": 0.8095238095238095,
+    "mean": 9.826,
+    "pnl": 212858.75,
+    "losers": 4
+   },
+   "removed": {
+    "n": 12,
+    "win": 0.3333333333333333,
+    "mean": -4.114,
+    "pnl": -20653.75,
+    "losers": 8
+   }
+  },
+  "holdout": {
+   "book": {
+    "n": 8,
+    "win": 0.5,
+    "mean": -2.458625,
+    "pnl": -22811.75,
+    "losers": 4
+   },
+   "kept": {
+    "n": 4,
+    "win": 0.75,
+    "mean": 3.5522500000000004,
+    "pnl": 6145.75,
+    "losers": 1
+   },
+   "removed": {
+    "n": 4,
+    "win": 0.25,
+    "mean": -8.4695,
+    "pnl": -28957.5,
+    "losers": 3
+   }
+  },
+  "p": 0.78,
+  "verdict": "REJECTED",
+  "why": "shuffle p=0.78"
+ },
+ {
+  "book": "edge_gate_only",
+  "agent": 9,
+  "combine": "AND",
+  "rule": [
+   [
+    "iv_vs_med",
+    ">=",
+    -0.872
+   ],
+   [
+    "mean_ret_today",
+    ">=",
+    0.0
+   ],
+   [
+    "mv300",
+    ">=",
+    -47.87
+   ]
+  ],
+  "features": {
+   "iv_vs_med": "weather field as recorded at the trigger second",
+   "mean_ret_today": "ret_today / n_today (0 if no earlier trade today)",
+   "mv300": "weather field as recorded at the trigger second"
+  },
+  "search": "triple/SMALL: best 2-clause AND over the 30 prior-chosen features, then the best third clause added to each of the top 40 pairs; score = losers-removed share - winners-removed share; shuffle = same search on 200 shufflings of discovery outcomes (rule_lab.shuffle_p seed 7); real score 0.5595, shuffle median 0.5595, max 0.8333",
+  "discovery": {
+   "book": {
+    "n": 33,
+    "win": 0.6363636363636364,
+    "mean": 4.756909090909091,
+    "pnl": 192205.0,
+    "losers": 12
+   },
+   "kept": {
+    "n": 20,
+    "win": 0.85,
+    "mean": 11.1464,
+    "pnl": 263428.75,
+    "losers": 3
+   },
+   "removed": {
+    "n": 13,
+    "win": 0.3076923076923077,
+    "mean": -5.073076923076924,
+    "pnl": -71223.75,
+    "losers": 9
+   }
+  },
+  "holdout": {
+   "book": {
+    "n": 8,
+    "win": 0.5,
+    "mean": -2.458625,
+    "pnl": -22811.75,
+    "losers": 4
+   },
+   "kept": {
+    "n": 4,
+    "win": 0.5,
+    "mean": -0.6137500000000004,
+    "pnl": -3269.5,
+    "losers": 2
+   },
+   "removed": {
+    "n": 4,
+    "win": 0.5,
+    "mean": -4.3035,
+    "pnl": -19542.25,
+    "losers": 2
+   }
+  },
+  "p": 0.695,
+  "verdict": "REJECTED",
+  "why": "shuffle p=0.695"
+ },
+ {
+  "book": "edge_gate_only",
+  "agent": 9,
+  "combine": "OR",
+  "rule": [
+   [
+    "mv60_over_rv15",
+    ">=",
+    -1.004892736168611
+   ],
+   [
+    "gamma_x_mv30",
+    "<",
+    -0.012044000000000001
+   ]
+  ],
+  "features": {
+   "mv60_over_rv15": "mv60 / |rv15_spot|",
+   "gamma_x_mv30": "gamma * mv30"
+  },
+  "search": "or/SMALL: best 2-clause OR (keep if either holds) over the 30 prior-chosen features, 5 lines; score = losers-removed share - winners-removed share; shuffle = same search on 200 shufflings of discovery outcomes (rule_lab.shuffle_p seed 7); real score 0.5714, shuffle median 0.5595, max 0.8214",
+  "discovery": {
+   "book": {
+    "n": 33,
+    "win": 0.6363636363636364,
+    "mean": 4.756909090909091,
+    "pnl": 192205.0,
+    "losers": 12
+   },
+   "kept": {
+    "n": 23,
+    "win": 0.8260869565217391,
+    "mean": 10.34691304347826,
+    "pnl": 268921.25,
+    "losers": 4
+   },
+   "removed": {
+    "n": 10,
+    "win": 0.2,
+    "mean": -8.100100000000001,
+    "pnl": -76716.25,
+    "losers": 8
+   }
+  },
+  "holdout": {
+   "book": {
+    "n": 8,
+    "win": 0.5,
+    "mean": -2.458625,
+    "pnl": -22811.75,
+    "losers": 4
+   },
+   "kept": {
+    "n": 4,
+    "win": 0.25,
+    "mean": -13.458,
+    "pnl": -47294.0,
+    "losers": 3
+   },
+   "removed": {
+    "n": 4,
+    "win": 0.75,
+    "mean": 8.54075,
+    "pnl": 24482.25,
+    "losers": 1
+   }
+  },
+  "p": 0.47,
+  "verdict": "REJECTED",
+  "why": "shuffle p=0.47; holdout: kept win% below book or removed side profitable"
+ },
+ {
+  "book": "edge_gate_only",
+  "agent": 9,
+  "combine": "AND",
+  "rule": [
+   [
+    "fut_spread",
+    ">=",
+    2.8400000000000007
+   ]
+  ],
+  "features": {
+   "fut_spread": "weather field as recorded at the trigger second"
+  },
+  "search": "single/FULL: best single clause over ALL numeric weather fields + derived features + text indicators (~300 features), 5 lines; score = losers-removed share - winners-removed share; shuffle = same search on 200 shufflings of discovery outcomes (rule_lab.shuffle_p seed 7); real score 0.4405, shuffle median 0.4405, max 0.7381",
+  "discovery": {
+   "book": {
+    "n": 33,
+    "win": 0.6363636363636364,
+    "mean": 4.756909090909091,
+    "pnl": 192205.0,
+    "losers": 12
+   },
+   "kept": {
+    "n": 23,
+    "win": 0.782608695652174,
+    "mean": 8.618434782608695,
+    "pnl": 225452.5,
+    "losers": 5
+   },
+   "removed": {
+    "n": 10,
+    "win": 0.3,
+    "mean": -4.1246,
+    "pnl": -33247.5,
+    "losers": 7
+   }
+  },
+  "holdout": {
+   "book": {
+    "n": 8,
+    "win": 0.5,
+    "mean": -2.458625,
+    "pnl": -22811.75,
+    "losers": 4
+   },
+   "kept": {
+    "n": 5,
+    "win": 0.4,
+    "mean": -7.106,
+    "pnl": -36429.25,
+    "losers": 3
+   },
+   "removed": {
+    "n": 3,
+    "win": 0.6666666666666666,
+    "mean": 5.286999999999999,
+    "pnl": 13617.5,
+    "losers": 1
+   }
+  },
+  "p": 0.975,
+  "verdict": "REJECTED",
+  "why": "shuffle p=0.975; holdout: kept win% below book or removed side profitable"
+ },
+ {
+  "book": "edge_gate_only",
+  "agent": 9,
+  "combine": "AND",
+  "rule": [
+   [
+    "e_fut_tot_imb_dir",
+    "<",
+    0.016400000000000005
+   ],
+   [
+    "oi_own_chg5",
+    "<",
+    -26636.999999999964
+   ]
+  ],
+  "features": {
+   "e_fut_tot_imb_dir": "e_fut_tot_imb * (+1 for CE, -1 for PE)",
+   "oi_own_chg5": "weather field as recorded at the trigger second"
+  },
+  "search": "pair/FULL: best 2-clause AND over ~300 features x 5 lines x 2 directions (~3000 masks), different fields, min 20 kept; score = losers-removed share - winners-removed share; shuffle = same search on 200 shufflings of discovery outcomes (rule_lab.shuffle_p seed 7); real score 0.6905, shuffle median 0.6905, max 0.8690",
+  "discovery": {
+   "book": {
+    "n": 33,
+    "win": 0.6363636363636364,
+    "mean": 4.756909090909091,
+    "pnl": 192205.0,
+    "losers": 12
+   },
+   "kept": {
+    "n": 20,
+    "win": 0.9,
+    "mean": 11.25605,
+    "pnl": 252645.25,
+    "losers": 2
+   },
+   "removed": {
+    "n": 13,
+    "win": 0.23076923076923078,
+    "mean": -5.241769230769231,
+    "pnl": -60440.25,
+    "losers": 10
+   }
+  },
+  "holdout": {
+   "book": {
+    "n": 8,
+    "win": 0.5,
+    "mean": -2.458625,
+    "pnl": -22811.75,
+    "losers": 4
+   },
+   "kept": {
+    "n": 0,
+    "win": null,
+    "mean": null,
+    "pnl": 0.0,
+    "losers": 0
+   },
+   "removed": {
+    "n": 8,
+    "win": 0.5,
+    "mean": -2.458625,
+    "pnl": -22811.75,
+    "losers": 4
+   }
+  },
+  "p": 0.785,
+  "verdict": "REJECTED",
+  "why": "shuffle p=0.785; holdout: kept win% below book or removed side profitable"
+ },
+ {
+  "book": "edge_gate_only",
+  "agent": 9,
+  "combine": "AND",
+  "rule": [
+   [
+    "e_iv_atm",
+    ">=",
+    14.018
+   ],
+   [
+    "fmv300",
+    ">=",
+    -52.076
+   ],
+   [
+    "gamma",
+    ">=",
+    0.0008860000000000001
+   ]
+  ],
+  "features": {
+   "e_iv_atm": "weather field as recorded at the trigger second",
+   "fmv300": "weather field as recorded at the trigger second",
+   "gamma": "weather field as recorded at the trigger second"
+  },
+  "search": "triple/FULL: best 2-clause AND over ~300 features, then best third clause on each of the top 40 pairs; score = losers-removed share - winners-removed share; shuffle = same search on 200 shufflings of discovery outcomes (rule_lab.shuffle_p seed 7); real score 0.8690, shuffle median 0.8214, max 1.0000",
+  "discovery": {
+   "book": {
+    "n": 33,
+    "win": 0.6363636363636364,
+    "mean": 4.756909090909091,
+    "pnl": 192205.0,
+    "losers": 12
+   },
+   "kept": {
+    "n": 21,
+    "win": 0.9523809523809523,
+    "mean": 14.075761904761904,
+    "pnl": 321707.75,
+    "losers": 1
+   },
+   "removed": {
+    "n": 12,
+    "win": 0.08333333333333333,
+    "mean": -11.551083333333333,
+    "pnl": -129502.75,
+    "losers": 11
+   }
+  },
+  "holdout": {
+   "book": {
+    "n": 8,
+    "win": 0.5,
+    "mean": -2.458625,
+    "pnl": -22811.75,
+    "losers": 4
+   },
+   "kept": {
+    "n": 6,
+    "win": 0.3333333333333333,
+    "mean": -9.632666666666667,
+    "pnl": -52169.0,
+    "losers": 4
+   },
+   "removed": {
+    "n": 2,
+    "win": 1.0,
+    "mean": 19.063499999999998,
+    "pnl": 29357.25,
+    "losers": 0
+   }
+  },
+  "p": 0.255,
+  "verdict": "REJECTED",
+  "why": "shuffle p=0.255; holdout: kept win% below book or removed side profitable"
+ },
+ {
+  "book": "edge_gate_only",
+  "agent": 9,
+  "combine": "OR",
+  "rule": [
+   [
+    "lo_age_min",
+    "<",
+    15.26
+   ],
+   [
+    "oi_net_help5",
+    ">=",
+    838565.0
+   ]
+  ],
+  "features": {
+   "lo_age_min": "weather field as recorded at the trigger second",
+   "oi_net_help5": "weather field as recorded at the trigger second"
+  },
+  "search": "or/FULL: best 2-clause OR over ~300 features, 5 lines; score = losers-removed share - winners-removed share; shuffle = same search on 200 shufflings of discovery outcomes (rule_lab.shuffle_p seed 7); real score 0.7857, shuffle median 0.7202, max 0.9524",
+  "discovery": {
+   "book": {
+    "n": 33,
+    "win": 0.6363636363636364,
+    "mean": 4.756909090909091,
+    "pnl": 192205.0,
+    "losers": 12
+   },
+   "kept": {
+    "n": 22,
+    "win": 0.9090909090909091,
+    "mean": 11.555772727272727,
+    "pnl": 280049.25,
+    "losers": 2
+   },
+   "removed": {
+    "n": 11,
+    "win": 0.09090909090909091,
+    "mean": -8.84081818181818,
+    "pnl": -87844.25,
+    "losers": 10
+   }
+  },
+  "holdout": {
+   "book": {
+    "n": 8,
+    "win": 0.5,
+    "mean": -2.458625,
+    "pnl": -22811.75,
+    "losers": 4
+   },
+   "kept": {
+    "n": 2,
+    "win": 0.5,
+    "mean": -5.682,
+    "pnl": -10816.0,
+    "losers": 1
+   },
+   "removed": {
+    "n": 6,
+    "win": 0.5,
+    "mean": -1.3841666666666665,
+    "pnl": -11995.75,
+    "losers": 3
+   }
+  },
+  "p": 0.195,
+  "verdict": "REJECTED",
+  "why": "shuffle p=0.195"
+ },
+ {
+  "book": "edge_gate_only",
+  "agent": 9,
+  "combine": "AND",
+  "rule": [
+   [
+    "phase_bucket=morning",
+    "<",
+    1.0
+   ]
+  ],
+  "features": {
+   "phase_bucket=morning": "1 if weather text field phase_bucket == 'morning' else 0"
+  },
+  "search": "single/FULL/3lines: best single clause over ~300 features, 3 quantile lines (10/50/90 %); score = losers-removed share - winners-removed share; shuffle = same search on 200 shufflings of discovery outcomes (rule_lab.shuffle_p seed 7); real score 0.3452, shuffle median 0.3452, max 0.6190",
+  "discovery": {
+   "book": {
+    "n": 33,
+    "win": 0.6363636363636364,
+    "mean": 4.756909090909091,
+    "pnl": 192205.0,
+    "losers": 12
+   },
+   "kept": {
+    "n": 21,
+    "win": 0.7619047619047619,
+    "mean": 7.225904761904762,
+    "pnl": 186384.25,
+    "losers": 5
+   },
+   "removed": {
+    "n": 12,
+    "win": 0.4166666666666667,
+    "mean": 0.43616666666666676,
+    "pnl": 5820.75,
+    "losers": 7
+   }
+  },
+  "holdout": {
+   "book": {
+    "n": 8,
+    "win": 0.5,
+    "mean": -2.458625,
+    "pnl": -22811.75,
+    "losers": 4
+   },
+   "kept": {
+    "n": 3,
+    "win": 0.6666666666666666,
+    "mean": 2.2063333333333337,
+    "pnl": 22.75,
+    "losers": 1
+   },
+   "removed": {
+    "n": 5,
+    "win": 0.4,
+    "mean": -5.2576,
+    "pnl": -22834.5,
+    "losers": 3
+   }
+  },
+  "p": 0.595,
+  "verdict": "REJECTED",
+  "why": "shuffle p=0.595"
+ },
+ {
+  "book": "edge_gate_only",
+  "agent": 9,
+  "combine": "AND",
+  "rule": [
+   [
+    "e_iv_atm",
+    ">=",
+    14.018
+   ],
+   [
+    "fmv300",
+    ">=",
+    -52.076
+   ]
+  ],
+  "features": {
+   "e_iv_atm": "weather field as recorded at the trigger second",
+   "fmv300": "weather field as recorded at the trigger second"
+  },
+  "search": "pair/FULL/3lines: best 2-clause AND over ~300 features, 3 quantile lines; score = losers-removed share - winners-removed share; shuffle = same search on 200 shufflings of discovery outcomes (rule_lab.shuffle_p seed 7); real score 0.6667, shuffle median 0.6190, max 0.7857",
+  "discovery": {
+   "book": {
+    "n": 33,
+    "win": 0.6363636363636364,
+    "mean": 4.756909090909091,
+    "pnl": 192205.0,
+    "losers": 12
+   },
+   "kept": {
+    "n": 25,
+    "win": 0.84,
+    "mean": 11.41636,
+    "pnl": 314665.0,
+    "losers": 4
+   },
+   "removed": {
+    "n": 8,
+    "win": 0.0,
+    "mean": -16.053875,
+    "pnl": -122460.0,
+    "losers": 8
+   }
+  },
+  "holdout": {
+   "book": {
+    "n": 8,
+    "win": 0.5,
+    "mean": -2.458625,
+    "pnl": -22811.75,
+    "losers": 4
+   },
+   "kept": {
+    "n": 7,
+    "win": 0.42857142857142855,
+    "mean": -5.378857142857143,
+    "pnl": -33650.5,
+    "losers": 4
+   },
+   "removed": {
+    "n": 1,
+    "win": 1.0,
+    "mean": 17.983,
+    "pnl": 10838.75,
+    "losers": 0
+   }
+  },
+  "p": 0.41,
+  "verdict": "REJECTED",
+  "why": "shuffle p=0.41; holdout: kept win% below book or removed side profitable"
+ },
+ {
+  "book": "edge_gate_trail",
+  "agent": 9,
+  "combine": "AND",
+  "rule": [
+   [
+    "vix_chg15",
+    ">=",
+    -0.0
+   ]
+  ],
+  "features": {
+   "vix_chg15": "weather field as recorded at the trigger second"
+  },
+  "search": "single/SMALL: best single clause, 30 prior-chosen features, 5 quantile lines (10..90 %), both directions, min 20 kept; score = losers-removed share - winners-removed share; shuffle = same search on 200 shufflings of discovery outcomes (rule_lab.shuffle_p seed 7); real score 0.3693, shuffle median 0.3182, max 0.5966",
+  "discovery": {
+   "book": {
+    "n": 38,
+    "win": 0.5789473684210527,
+    "mean": 4.289052631578947,
+    "pnl": 174619.25,
+    "losers": 16
+   },
+   "kept": {
+    "n": 20,
+    "win": 0.75,
+    "mean": 5.3231,
+    "pnl": 106424.5,
+    "losers": 5
+   },
+   "removed": {
+    "n": 18,
+    "win": 0.3888888888888889,
+    "mean": 3.140111111111111,
+    "pnl": 68194.75,
+    "losers": 11
+   }
+  },
+  "holdout": {
+   "book": {
+    "n": 8,
+    "win": 0.5,
+    "mean": 1.6991250000000002,
+    "pnl": 7679.75,
+    "losers": 4
+   },
+   "kept": {
+    "n": 6,
+    "win": 0.3333333333333333,
+    "mean": -2.6939999999999995,
+    "pnl": -14680.25,
+    "losers": 4
+   },
+   "removed": {
+    "n": 2,
+    "win": 1.0,
+    "mean": 14.8785,
+    "pnl": 22360.0,
+    "losers": 0
+   }
+  },
+  "p": 0.32,
+  "verdict": "REJECTED",
+  "why": "shuffle p=0.32; holdout: kept win% below book or removed side profitable"
+ },
+ {
+  "book": "edge_gate_trail",
+  "agent": 9,
+  "combine": "AND",
+  "rule": [
+   [
+    "mean_ret_today",
+    ">=",
+    0.0
+   ],
+   [
+    "vwap_ext",
+    ">=",
+    -2.079999999999994
+   ]
+  ],
+  "features": {
+   "mean_ret_today": "ret_today / n_today (0 if no earlier trade today)",
+   "vwap_ext": "weather field as recorded at the trigger second"
+  },
+  "search": "pair/SMALL: best 2-clause AND over the 30 prior-chosen features, 5 lines each, different fields, min 20 kept; score = losers-removed share - winners-removed share; shuffle = same search on 200 shufflings of discovery outcomes (rule_lab.shuffle_p seed 7); real score 0.4773, shuffle median 0.4886, max 0.6932",
+  "discovery": {
+   "book": {
+    "n": 38,
+    "win": 0.5789473684210527,
+    "mean": 4.289052631578947,
+    "pnl": 174619.25,
+    "losers": 16
+   },
+   "kept": {
+    "n": 20,
+    "win": 0.8,
+    "mean": 8.568999999999999,
+    "pnl": 177105.5,
+    "losers": 4
+   },
+   "removed": {
+    "n": 18,
+    "win": 0.3333333333333333,
+    "mean": -0.4664444444444445,
+    "pnl": -2486.25,
+    "losers": 12
+   }
+  },
+  "holdout": {
+   "book": {
+    "n": 8,
+    "win": 0.5,
+    "mean": 1.6991250000000002,
+    "pnl": 7679.75,
+    "losers": 4
+   },
+   "kept": {
+    "n": 3,
+    "win": 0.6666666666666666,
+    "mean": 4.9223333333333334,
+    "pnl": 13022.75,
+    "losers": 1
+   },
+   "removed": {
+    "n": 5,
+    "win": 0.4,
+    "mean": -0.23479999999999973,
+    "pnl": -5343.0,
+    "losers": 3
+   }
+  },
+  "p": 0.61,
+  "verdict": "REJECTED",
+  "why": "shuffle p=0.61"
+ },
+ {
+  "book": "edge_gate_trail",
+  "agent": 9,
+  "combine": "AND",
+  "rule": [
+   [
+    "mv300",
+    ">=",
+    -47.17
+   ],
+   [
+    "vwap_ext",
+    ">=",
+    -2.079999999999994
+   ],
+   [
+    "vix_chg15",
+    ">=",
+    -0.03
+   ]
+  ],
+  "features": {
+   "mv300": "weather field as recorded at the trigger second",
+   "vwap_ext": "weather field as recorded at the trigger second",
+   "vix_chg15": "weather field as recorded at the trigger second"
+  },
+  "search": "triple/SMALL: best 2-clause AND over the 30 prior-chosen features, then the best third clause added to each of the top 40 pairs; score = losers-removed share - winners-removed share; shuffle = same search on 200 shufflings of discovery outcomes (rule_lab.shuffle_p seed 7); real score 0.5227, shuffle median 0.5852, max 0.7386",
+  "discovery": {
+   "book": {
+    "n": 38,
+    "win": 0.5789473684210527,
+    "mean": 4.289052631578947,
+    "pnl": 174619.25,
+    "losers": 16
+   },
+   "kept": {
+    "n": 21,
+    "win": 0.8095238095238095,
+    "mean": 8.505809523809523,
+    "pnl": 184356.25,
+    "losers": 4
+   },
+   "removed": {
+    "n": 17,
+    "win": 0.29411764705882354,
+    "mean": -0.9198823529411765,
+    "pnl": -9737.0,
+    "losers": 12
+   }
+  },
+  "holdout": {
+   "book": {
+    "n": 8,
+    "win": 0.5,
+    "mean": 1.6991250000000002,
+    "pnl": 7679.75,
+    "losers": 4
+   },
+   "kept": {
+    "n": 3,
+    "win": 0.6666666666666666,
+    "mean": 4.9223333333333334,
+    "pnl": 13022.75,
+    "losers": 1
+   },
+   "removed": {
+    "n": 5,
+    "win": 0.4,
+    "mean": -0.23479999999999973,
+    "pnl": -5343.0,
+    "losers": 3
+   }
+  },
+  "p": 0.775,
+  "verdict": "REJECTED",
+  "why": "shuffle p=0.775"
+ },
+ {
+  "book": "edge_gate_trail",
+  "agent": 9,
+  "combine": "OR",
+  "rule": [
+   [
+    "gamma_x_mv30",
+    ">=",
+    -0.004393799999999999
+   ],
+   [
+    "vwap_ext",
+    ">=",
+    21.15
+   ]
+  ],
+  "features": {
+   "gamma_x_mv30": "gamma * mv30",
+   "vwap_ext": "weather field as recorded at the trigger second"
+  },
+  "search": "or/SMALL: best 2-clause OR (keep if either holds) over the 30 prior-chosen features, 5 lines; score = losers-removed share - winners-removed share; shuffle = same search on 200 shufflings of discovery outcomes (rule_lab.shuffle_p seed 7); real score 0.5511, shuffle median 0.5227, max 0.6932",
+  "discovery": {
+   "book": {
+    "n": 38,
+    "win": 0.5789473684210527,
+    "mean": 4.289052631578947,
+    "pnl": 174619.25,
+    "losers": 16
+   },
+   "kept": {
+    "n": 24,
+    "win": 0.7916666666666666,
+    "mean": 7.254166666666666,
+    "pnl": 184522.0,
+    "losers": 5
+   },
+   "removed": {
+    "n": 14,
+    "win": 0.21428571428571427,
+    "mean": -0.7940000000000003,
+    "pnl": -9902.75,
+    "losers": 11
+   }
+  },
+  "holdout": {
+   "book": {
+    "n": 8,
+    "win": 0.5,
+    "mean": 1.6991250000000002,
+    "pnl": 7679.75,
+    "losers": 4
+   },
+   "kept": {
+    "n": 4,
+    "win": 0.75,
+    "mean": 9.31325,
+    "pnl": 29285.75,
+    "losers": 1
+   },
+   "removed": {
+    "n": 4,
+    "win": 0.25,
+    "mean": -5.915,
+    "pnl": -21606.0,
+    "losers": 3
+   }
+  },
+  "p": 0.385,
+  "verdict": "REJECTED",
+  "why": "shuffle p=0.385"
+ },
+ {
+  "book": "edge_gate_trail",
+  "agent": 9,
+  "combine": "AND",
+  "rule": [
+   [
+    "phase_bucket=morning",
+    "<",
+    1.0
+   ]
+  ],
+  "features": {
+   "phase_bucket=morning": "1 if weather text field phase_bucket == 'morning' else 0"
+  },
+  "search": "single/FULL: best single clause over ALL numeric weather fields + derived features + text indicators (~300 features), 5 lines; score = losers-removed share - winners-removed share; shuffle = same search on 200 shufflings of discovery outcomes (rule_lab.shuffle_p seed 7); real score 0.4432, shuffle median 0.4261, max 0.6136",
+  "discovery": {
+   "book": {
+    "n": 38,
+    "win": 0.5789473684210527,
+    "mean": 4.289052631578947,
+    "pnl": 174619.25,
+    "losers": 16
+   },
+   "kept": {
+    "n": 24,
+    "win": 0.75,
+    "mean": 7.977458333333334,
+    "pnl": 213235.75,
+    "losers": 6
+   },
+   "removed": {
+    "n": 14,
+    "win": 0.2857142857142857,
+    "mean": -2.033928571428571,
+    "pnl": -38616.5,
+    "losers": 10
+   }
+  },
+  "holdout": {
+   "book": {
+    "n": 8,
+    "win": 0.5,
+    "mean": 1.6991250000000002,
+    "pnl": 7679.75,
+    "losers": 4
+   },
+   "kept": {
+    "n": 3,
+    "win": 0.6666666666666666,
+    "mean": 4.053333333333334,
+    "pnl": 6435.0,
+    "losers": 1
+   },
+   "removed": {
+    "n": 5,
+    "win": 0.4,
+    "mean": 0.28660000000000013,
+    "pnl": 1244.75,
+    "losers": 3
+   }
+  },
+  "p": 0.365,
+  "verdict": "REJECTED",
+  "why": "shuffle p=0.365; holdout: kept win% below book or removed side profitable"
+ },
+ {
+  "book": "edge_gate_trail",
+  "agent": 9,
+  "combine": "AND",
+  "rule": [
+   [
+    "ep_age_s",
+    "<",
+    327.37999999999994
+   ],
+   [
+    "fut_spread",
+    ">=",
+    2.6400000000000006
+   ]
+  ],
+  "features": {
+   "ep_age_s": "weather field as recorded at the trigger second",
+   "fut_spread": "weather field as recorded at the trigger second"
+  },
+  "search": "pair/FULL: best 2-clause AND over ~300 features x 5 lines x 2 directions (~3000 masks), different fields, min 20 kept; score = losers-removed share - winners-removed share; shuffle = same search on 200 shufflings of discovery outcomes (rule_lab.shuffle_p seed 7); real score 0.6136, shuffle median 0.6307, max 0.8011",
+  "discovery": {
+   "book": {
+    "n": 38,
+    "win": 0.5789473684210527,
+    "mean": 4.289052631578947,
+    "pnl": 174619.25,
+    "losers": 16
+   },
+   "kept": {
+    "n": 23,
+    "win": 0.8260869565217391,
+    "mean": 10.059434782608696,
+    "pnl": 245713.0,
+    "losers": 4
+   },
+   "removed": {
+    "n": 15,
+    "win": 0.2,
+    "mean": -4.558866666666666,
+    "pnl": -71093.75,
+    "losers": 12
+   }
+  },
+  "holdout": {
+   "book": {
+    "n": 8,
+    "win": 0.5,
+    "mean": 1.6991250000000002,
+    "pnl": 7679.75,
+    "losers": 4
+   },
+   "kept": {
+    "n": 4,
+    "win": 0.5,
+    "mean": 0.6182500000000003,
+    "pnl": -2743.0,
+    "losers": 2
+   },
+   "removed": {
+    "n": 4,
+    "win": 0.5,
+    "mean": 2.7800000000000002,
+    "pnl": 10422.75,
+    "losers": 2
+   }
+  },
+  "p": 0.81,
+  "verdict": "REJECTED",
+  "why": "shuffle p=0.81; holdout: kept win% below book or removed side profitable"
+ },
+ {
+  "book": "edge_gate_trail",
+  "agent": 9,
+  "combine": "AND",
+  "rule": [
+   [
+    "ep_age_s",
+    "<",
+    327.37999999999994
+   ],
+   [
+    "gex_wall_ahead",
+    ">=",
+    44.580000000000005
+   ],
+   [
+    "fut_spread",
+    ">=",
+    1.94
+   ]
+  ],
+  "features": {
+   "ep_age_s": "weather field as recorded at the trigger second",
+   "gex_wall_ahead": "weather field as recorded at the trigger second",
+   "fut_spread": "weather field as recorded at the trigger second"
+  },
+  "search": "triple/FULL: best 2-clause AND over ~300 features, then best third clause on each of the top 40 pairs; score = losers-removed share - winners-removed share; shuffle = same search on 200 shufflings of discovery outcomes (rule_lab.shuffle_p seed 7); real score 0.7386, shuffle median 0.7386, max 0.8466",
+  "discovery": {
+   "book": {
+    "n": 38,
+    "win": 0.5789473684210527,
+    "mean": 4.289052631578947,
+    "pnl": 174619.25,
+    "losers": 16
+   },
+   "kept": {
+    "n": 21,
+    "win": 0.9047619047619048,
+    "mean": 10.74795238095238,
+    "pnl": 244039.25,
+    "losers": 2
+   },
+   "removed": {
+    "n": 17,
+    "win": 0.17647058823529413,
+    "mean": -3.6895882352941176,
+    "pnl": -69420.0,
+    "losers": 14
+   }
+  },
+  "holdout": {
+   "book": {
+    "n": 8,
+    "win": 0.5,
+    "mean": 1.6991250000000002,
+    "pnl": 7679.75,
+    "losers": 4
+   },
+   "kept": {
+    "n": 4,
+    "win": 0.5,
+    "mean": 0.6182500000000003,
+    "pnl": -2743.0,
+    "losers": 2
+   },
+   "removed": {
+    "n": 4,
+    "win": 0.5,
+    "mean": 2.7800000000000002,
+    "pnl": 10422.75,
+    "losers": 2
+   }
+  },
+  "p": 0.75,
+  "verdict": "REJECTED",
+  "why": "shuffle p=0.75; holdout: kept win% below book or removed side profitable"
+ },
+ {
+  "book": "edge_gate_trail",
+  "agent": 9,
+  "combine": "OR",
+  "rule": [
+   [
+    "gap_pts",
+    "<",
+    -55.55
+   ],
+   [
+    "swing_ahead_minus_behind",
+    "<",
+    1.8700000000000019
+   ]
+  ],
+  "features": {
+   "gap_pts": "weather field as recorded at the trigger second",
+   "swing_ahead_minus_behind": "swing_ahead - swing_behind"
+  },
+  "search": "or/FULL: best 2-clause OR over ~300 features, 5 lines; score = losers-removed share - winners-removed share; shuffle = same search on 200 shufflings of discovery outcomes (rule_lab.shuffle_p seed 7); real score 0.6761, shuffle median 0.6761, max 0.8295",
+  "discovery": {
+   "book": {
+    "n": 38,
+    "win": 0.5789473684210527,
+    "mean": 4.289052631578947,
+    "pnl": 174619.25,
+    "losers": 16
+   },
+   "kept": {
+    "n": 22,
+    "win": 0.8636363636363636,
+    "mean": 11.213772727272728,
+    "pnl": 252684.25,
+    "losers": 3
+   },
+   "removed": {
+    "n": 16,
+    "win": 0.1875,
+    "mean": -5.2324375,
+    "pnl": -78065.0,
+    "losers": 13
+   }
+  },
+  "holdout": {
+   "book": {
+    "n": 8,
+    "win": 0.5,
+    "mean": 1.6991250000000002,
+    "pnl": 7679.75,
+    "losers": 4
+   },
+   "kept": {
+    "n": 3,
+    "win": 0.3333333333333333,
+    "mean": -6.910333333333333,
+    "pnl": -19448.0,
+    "losers": 2
+   },
+   "removed": {
+    "n": 5,
+    "win": 0.6,
+    "mean": 6.8648,
+    "pnl": 27127.75,
+    "losers": 2
+   }
+  },
+  "p": 0.51,
+  "verdict": "REJECTED",
+  "why": "shuffle p=0.51; holdout: kept win% below book or removed side profitable"
+ },
+ {
+  "book": "edge_gate_trail",
+  "agent": 9,
+  "combine": "AND",
+  "rule": [
+   [
+    "phase_bucket=morning",
+    "<",
+    1.0
+   ]
+  ],
+  "features": {
+   "phase_bucket=morning": "1 if weather text field phase_bucket == 'morning' else 0"
+  },
+  "search": "single/FULL/3lines: best single clause over ~300 features, 3 quantile lines (10/50/90 %); score = losers-removed share - winners-removed share; shuffle = same search on 200 shufflings of discovery outcomes (rule_lab.shuffle_p seed 7); real score 0.4432, shuffle median 0.3693, max 0.6136",
+  "discovery": {
+   "book": {
+    "n": 38,
+    "win": 0.5789473684210527,
+    "mean": 4.289052631578947,
+    "pnl": 174619.25,
+    "losers": 16
+   },
+   "kept": {
+    "n": 24,
+    "win": 0.75,
+    "mean": 7.977458333333334,
+    "pnl": 213235.75,
+    "losers": 6
+   },
+   "removed": {
+    "n": 14,
+    "win": 0.2857142857142857,
+    "mean": -2.033928571428571,
+    "pnl": -38616.5,
+    "losers": 10
+   }
+  },
+  "holdout": {
+   "book": {
+    "n": 8,
+    "win": 0.5,
+    "mean": 1.6991250000000002,
+    "pnl": 7679.75,
+    "losers": 4
+   },
+   "kept": {
+    "n": 3,
+    "win": 0.6666666666666666,
+    "mean": 4.053333333333334,
+    "pnl": 6435.0,
+    "losers": 1
+   },
+   "removed": {
+    "n": 5,
+    "win": 0.4,
+    "mean": 0.28660000000000013,
+    "pnl": 1244.75,
+    "losers": 3
+   }
+  },
+  "p": 0.18,
+  "verdict": "REJECTED",
+  "why": "shuffle p=0.18; holdout: kept win% below book or removed side profitable"
+ },
+ {
+  "book": "edge_gate_trail",
+  "agent": 9,
+  "combine": "AND",
+  "rule": [
+   [
+    "e_fut_tot_imb_dir",
+    "<",
+    0.09
+   ],
+   [
+    "phase_bucket=morning",
+    "<",
+    1.0
+   ]
+  ],
+  "features": {
+   "e_fut_tot_imb_dir": "e_fut_tot_imb * (+1 for CE, -1 for PE)",
+   "phase_bucket=morning": "1 if weather text field phase_bucket == 'morning' else 0"
+  },
+  "search": "pair/FULL/3lines: best 2-clause AND over ~300 features, 3 quantile lines; score = losers-removed share - winners-removed share; shuffle = same search on 200 shufflings of discovery outcomes (rule_lab.shuffle_p seed 7); real score 0.5852, shuffle median 0.5284, max 0.8011",
+  "discovery": {
+   "book": {
+    "n": 38,
+    "win": 0.5789473684210527,
+    "mean": 4.289052631578947,
+    "pnl": 174619.25,
+    "losers": 16
+   },
+   "kept": {
+    "n": 20,
+    "win": 0.85,
+    "mean": 10.353950000000001,
+    "pnl": 229352.5,
+    "losers": 3
+   },
+   "removed": {
+    "n": 18,
+    "win": 0.2777777777777778,
+    "mean": -2.4497222222222224,
+    "pnl": -54733.25,
+    "losers": 13
+   }
+  },
+  "holdout": {
+   "book": {
+    "n": 8,
+    "win": 0.5,
+    "mean": 1.6991250000000002,
+    "pnl": 7679.75,
+    "losers": 4
+   },
+   "kept": {
+    "n": 2,
+    "win": 0.5,
+    "mean": -5.163,
+    "pnl": -9828.0,
+    "losers": 1
+   },
+   "removed": {
+    "n": 6,
+    "win": 0.5,
+    "mean": 3.9865,
+    "pnl": 17507.75,
+    "losers": 3
+   }
+  },
+  "p": 0.27,
+  "verdict": "REJECTED",
+  "why": "shuffle p=0.27; holdout: kept win% below book or removed side profitable"
+ },
+ {
+  "book": "premium_momentum",
+  "agent": 9,
+  "combine": "AND",
+  "rule": [
+   [
+    "breadth_dir",
+    "<",
+    0.74272
+   ]
+  ],
+  "features": {
+   "breadth_dir": "weather field as recorded at the trigger second"
+  },
+  "search": "single/SMALL: best single clause, 30 prior-chosen features, 5 quantile lines (10..90 %), both directions, min 20 kept; score = losers-removed share - winners-removed share; shuffle = same search on 200 shufflings of discovery outcomes (rule_lab.shuffle_p seed 7); real score 0.1871, shuffle median 0.1871, max 0.2893",
+  "discovery": {
+   "book": {
+    "n": 184,
+    "win": 0.3641304347826087,
+    "mean": -0.5342228260869566,
+    "pnl": -175197.75,
+    "losers": 117
+   },
+   "kept": {
+    "n": 55,
+    "win": 0.509090909090909,
+    "mean": 1.315672727272727,
+    "pnl": 80473.25,
+    "losers": 27
+   },
+   "removed": {
+    "n": 129,
+    "win": 0.3023255813953488,
+    "mean": -1.322937984496124,
+    "pnl": -255671.0,
+    "losers": 90
+   }
+  },
+  "holdout": {
+   "book": {
+    "n": 57,
+    "win": 0.40350877192982454,
+    "mean": -2.9174912280701752,
+    "pnl": -100662.25,
+    "losers": 34
+   },
+   "kept": {
+    "n": 24,
+    "win": 0.375,
+    "mean": -5.404374999999999,
+    "pnl": -84077.5,
+    "losers": 15
+   },
+   "removed": {
+    "n": 33,
+    "win": 0.42424242424242425,
+    "mean": -1.1088484848484848,
+    "pnl": -16584.75,
+    "losers": 19
+   }
+  },
+  "p": 0.515,
+  "verdict": "REJECTED",
+  "why": "shuffle p=0.515; holdout: kept win% below book or removed side profitable"
+ },
+ {
+  "book": "premium_momentum",
+  "agent": 9,
+  "combine": "AND",
+  "rule": [
+   [
+    "abs_delta",
+    ">=",
+    0.534
+   ],
+   [
+    "e_fut_ofi60_dir",
+    ">=",
+    -14.69
+   ]
+  ],
+  "features": {
+   "abs_delta": "|delta|",
+   "e_fut_ofi60_dir": "e_fut_ofi60 * (+1 for CE, -1 for PE)"
+  },
+  "search": "pair/SMALL: best 2-clause AND over the 30 prior-chosen features, 5 lines each, different fields, min 20 kept; score = losers-removed share - winners-removed share; shuffle = same search on 200 shufflings of discovery outcomes (rule_lab.shuffle_p seed 7); real score 0.2120, shuffle median 0.2500, max 0.3428",
+  "discovery": {
+   "book": {
+    "n": 184,
+    "win": 0.3641304347826087,
+    "mean": -0.5342228260869566,
+    "pnl": -175197.75,
+    "losers": 117
+   },
+   "kept": {
+    "n": 118,
+    "win": 0.4406779661016949,
+    "mean": 0.9320169491525423,
+    "pnl": 47248.5,
+    "losers": 66
+   },
+   "removed": {
+    "n": 66,
+    "win": 0.22727272727272727,
+    "mean": -3.1556818181818183,
+    "pnl": -222446.25,
+    "losers": 51
+   }
+  },
+  "holdout": {
+   "book": {
+    "n": 57,
+    "win": 0.40350877192982454,
+    "mean": -2.9174912280701752,
+    "pnl": -100662.25,
+    "losers": 34
+   },
+   "kept": {
+    "n": 41,
+    "win": 0.3902439024390244,
+    "mean": -3.685073170731707,
+    "pnl": -91871.0,
+    "losers": 25
+   },
+   "removed": {
+    "n": 16,
+    "win": 0.4375,
+    "mean": -0.9505625,
+    "pnl": -8791.25,
+    "losers": 9
+   }
+  },
+  "p": 0.92,
+  "verdict": "REJECTED",
+  "why": "shuffle p=0.92; holdout: kept win% below book or removed side profitable"
+ },
+ {
+  "book": "premium_momentum",
+  "agent": 9,
+  "combine": "AND",
+  "rule": [
+   [
+    "e_fut_ofi60_dir",
+    ">=",
+    -6.792
+   ],
+   [
+    "vwap_ext",
+    "<",
+    50.520000000000024
+   ],
+   [
+    "iv_vs_med",
+    "<",
+    0.03200000000000045
+   ]
+  ],
+  "features": {
+   "e_fut_ofi60_dir": "e_fut_ofi60 * (+1 for CE, -1 for PE)",
+   "vwap_ext": "weather field as recorded at the trigger second",
+   "iv_vs_med": "weather field as recorded at the trigger second"
+  },
+  "search": "triple/SMALL: best 2-clause AND over the 30 prior-chosen features, then the best third clause added to each of the top 40 pairs; score = losers-removed share - winners-removed share; shuffle = same search on 200 shufflings of discovery outcomes (rule_lab.shuffle_p seed 7); real score 0.2766, shuffle median 0.2926, max 0.3745",
+  "discovery": {
+   "book": {
+    "n": 184,
+    "win": 0.3641304347826087,
+    "mean": -0.5342228260869566,
+    "pnl": -175197.75,
+    "losers": 117
+   },
+   "kept": {
+    "n": 72,
+    "win": 0.5277777777777778,
+    "mean": 2.849125,
+    "pnl": 152925.5,
+    "losers": 34
+   },
+   "removed": {
+    "n": 112,
+    "win": 0.25892857142857145,
+    "mean": -2.709232142857143,
+    "pnl": -328123.25,
+    "losers": 83
+   }
+  },
+  "holdout": {
+   "book": {
+    "n": 57,
+    "win": 0.40350877192982454,
+    "mean": -2.9174912280701752,
+    "pnl": -100662.25,
+    "losers": 34
+   },
+   "kept": {
+    "n": 12,
+    "win": 0.5833333333333334,
+    "mean": -0.12891666666666662,
+    "pnl": -5450.25,
+    "losers": 5
+   },
+   "removed": {
+    "n": 45,
+    "win": 0.35555555555555557,
+    "mean": -3.661111111111111,
+    "pnl": -95212.0,
+    "losers": 29
+   }
+  },
+  "p": 0.705,
+  "verdict": "REJECTED",
+  "why": "shuffle p=0.705"
+ },
+ {
+  "book": "premium_momentum",
+  "agent": 9,
+  "combine": "OR",
+  "rule": [
+   [
+    "breadth_dir",
+    "<",
+    0.74272
+   ],
+   [
+    "spread_pct",
+    "<",
+    0.211
+   ]
+  ],
+  "features": {
+   "breadth_dir": "weather field as recorded at the trigger second",
+   "spread_pct": "weather field as recorded at the trigger second"
+  },
+  "search": "or/SMALL: best 2-clause OR (keep if either holds) over the 30 prior-chosen features, 5 lines; score = losers-removed share - winners-removed share; shuffle = same search on 200 shufflings of discovery outcomes (rule_lab.shuffle_p seed 7); real score 0.2570, shuffle median 0.2548, max 0.3615",
+  "discovery": {
+   "book": {
+    "n": 184,
+    "win": 0.3641304347826087,
+    "mean": -0.5342228260869566,
+    "pnl": -175197.75,
+    "losers": 117
+   },
+   "kept": {
+    "n": 99,
+    "win": 0.47474747474747475,
+    "mean": 0.9886868686868688,
+    "pnl": 60463.0,
+    "losers": 52
+   },
+   "removed": {
+    "n": 85,
+    "win": 0.23529411764705882,
+    "mean": -2.307964705882353,
+    "pnl": -235660.75,
+    "losers": 65
+   }
+  },
+  "holdout": {
+   "book": {
+    "n": 57,
+    "win": 0.40350877192982454,
+    "mean": -2.9174912280701752,
+    "pnl": -100662.25,
+    "losers": 34
+   },
+   "kept": {
+    "n": 36,
+    "win": 0.3888888888888889,
+    "mean": -3.7461944444444444,
+    "pnl": -90652.25,
+    "losers": 22
+   },
+   "removed": {
+    "n": 21,
+    "win": 0.42857142857142855,
+    "mean": -1.4968571428571427,
+    "pnl": -10010.0,
+    "losers": 12
+   }
+  },
+  "p": 0.45,
+  "verdict": "REJECTED",
+  "why": "shuffle p=0.45; holdout: kept win% below book or removed side profitable"
+ },
+ {
+  "book": "premium_momentum",
+  "agent": 9,
+  "combine": "AND",
+  "rule": [
+   [
+    "sl_room_dn_pct",
+    "<",
+    3.3899999999999997
+   ]
+  ],
+  "features": {
+   "sl_room_dn_pct": "weather field as recorded at the trigger second"
+  },
+  "search": "single/FULL: best single clause over ALL numeric weather fields + derived features + text indicators (~300 features), 5 lines; score = losers-removed share - winners-removed share; shuffle = same search on 200 shufflings of discovery outcomes (rule_lab.shuffle_p seed 7); real score 0.2465, shuffle median 0.2328, max 0.3638",
+  "discovery": {
+   "book": {
+    "n": 184,
+    "win": 0.3641304347826087,
+    "mean": -0.5342228260869566,
+    "pnl": -175197.75,
+    "losers": 117
+   },
+   "kept": {
+    "n": 92,
+    "win": 0.4782608695652174,
+    "mean": 1.9166847826086957,
+    "pnl": 141700.0,
+    "losers": 48
+   },
+   "removed": {
+    "n": 92,
+    "win": 0.25,
+    "mean": -2.985130434782609,
+    "pnl": -316897.75,
+    "losers": 69
+   }
+  },
+  "holdout": {
+   "book": {
+    "n": 57,
+    "win": 0.40350877192982454,
+    "mean": -2.9174912280701752,
+    "pnl": -100662.25,
+    "losers": 34
+   },
+   "kept": {
+    "n": 26,
+    "win": 0.5,
+    "mean": -0.8891923076923077,
+    "pnl": -20650.5,
+    "losers": 13
+   },
+   "removed": {
+    "n": 31,
+    "win": 0.3225806451612903,
+    "mean": -4.618645161290322,
+    "pnl": -80011.75,
+    "losers": 21
+   }
+  },
+  "p": 0.335,
+  "verdict": "REJECTED",
+  "why": "shuffle p=0.335"
+ },
+ {
+  "book": "premium_momentum",
+  "agent": 9,
+  "combine": "AND",
+  "rule": [
+   [
+    "kyle_lambda",
+    ">=",
+    0.0001965
+   ],
+   [
+    "sl_room_dn_pct",
+    "<",
+    3.3899999999999997
+   ]
+  ],
+  "features": {
+   "kyle_lambda": "weather field as recorded at the trigger second",
+   "sl_room_dn_pct": "weather field as recorded at the trigger second"
+  },
+  "search": "pair/FULL: best 2-clause AND over ~300 features x 5 lines x 2 directions (~3000 masks), different fields, min 20 kept; score = losers-removed share - winners-removed share; shuffle = same search on 200 shufflings of discovery outcomes (rule_lab.shuffle_p seed 7); real score 0.3170, shuffle median 0.3233, max 0.4258",
+  "discovery": {
+   "book": {
+    "n": 184,
+    "win": 0.3641304347826087,
+    "mean": -0.5342228260869566,
+    "pnl": -175197.75,
+    "losers": 117
+   },
+   "kept": {
+    "n": 81,
+    "win": 0.5308641975308642,
+    "mean": 2.989851851851852,
+    "pnl": 202133.75,
+    "losers": 38
+   },
+   "removed": {
+    "n": 103,
+    "win": 0.23300970873786409,
+    "mean": -3.305582524271845,
+    "pnl": -377331.5,
+    "losers": 79
+   }
+  },
+  "holdout": {
+   "book": {
+    "n": 57,
+    "win": 0.40350877192982454,
+    "mean": -2.9174912280701752,
+    "pnl": -100662.25,
+    "losers": 34
+   },
+   "kept": {
+    "n": 26,
+    "win": 0.5,
+    "mean": -0.8891923076923077,
+    "pnl": -20650.5,
+    "losers": 13
+   },
+   "removed": {
+    "n": 31,
+    "win": 0.3225806451612903,
+    "mean": -4.618645161290322,
+    "pnl": -80011.75,
+    "losers": 21
+   }
+  },
+  "p": 0.595,
+  "verdict": "REJECTED",
+  "why": "shuffle p=0.595"
+ },
+ {
+  "book": "premium_momentum",
+  "agent": 9,
+  "combine": "AND",
+  "rule": [
+   [
+    "kv",
+    ">=",
+    0.102
+   ],
+   [
+    "sl_room_dn_pct",
+    "<",
+    3.3899999999999997
+   ],
+   [
+    "e_basis_dev",
+    ">=",
+    -5.705
+   ]
+  ],
+  "features": {
+   "kv": "weather field as recorded at the trigger second",
+   "sl_room_dn_pct": "weather field as recorded at the trigger second",
+   "e_basis_dev": "weather field as recorded at the trigger second"
+  },
+  "search": "triple/FULL: best 2-clause AND over ~300 features, then best third clause on each of the top 40 pairs; score = losers-removed share - winners-removed share; shuffle = same search on 200 shufflings of discovery outcomes (rule_lab.shuffle_p seed 7); real score 0.3664, shuffle median 0.3812, max 0.4686",
+  "discovery": {
+   "book": {
+    "n": 184,
+    "win": 0.3641304347826087,
+    "mean": -0.5342228260869566,
+    "pnl": -175197.75,
+    "losers": 117
+   },
+   "kept": {
+    "n": 56,
+    "win": 0.6428571428571429,
+    "mean": 4.578160714285715,
+    "pnl": 243880.0,
+    "losers": 20
+   },
+   "removed": {
+    "n": 128,
+    "win": 0.2421875,
+    "mean": -2.770890625,
+    "pnl": -419077.75,
+    "losers": 97
+   }
+  },
+  "holdout": {
+   "book": {
+    "n": 57,
+    "win": 0.40350877192982454,
+    "mean": -2.9174912280701752,
+    "pnl": -100662.25,
+    "losers": 34
+   },
+   "kept": {
+    "n": 20,
+    "win": 0.4,
+    "mean": -2.01085,
+    "pnl": -35516.0,
+    "losers": 12
+   },
+   "removed": {
+    "n": 37,
+    "win": 0.40540540540540543,
+    "mean": -3.4075675675675674,
+    "pnl": -65146.25,
+    "losers": 22
+   }
+  },
+  "p": 0.73,
+  "verdict": "REJECTED",
+  "why": "shuffle p=0.73; holdout: kept win% below book or removed side profitable"
+ },
+ {
+  "book": "premium_momentum",
+  "agent": 9,
+  "combine": "OR",
+  "rule": [
+   [
+    "hw_book_chg30",
+    ">=",
+    0.02
+   ],
+   [
+    "sl_room_dn_pct",
+    "<",
+    3.3899999999999997
+   ]
+  ],
+  "features": {
+   "hw_book_chg30": "weather field as recorded at the trigger second",
+   "sl_room_dn_pct": "weather field as recorded at the trigger second"
+  },
+  "search": "or/FULL: best 2-clause OR over ~300 features, 5 lines; score = losers-removed share - winners-removed share; shuffle = same search on 200 shufflings of discovery outcomes (rule_lab.shuffle_p seed 7); real score 0.3167, shuffle median 0.3256, max 0.4299",
+  "discovery": {
+   "book": {
+    "n": 184,
+    "win": 0.3641304347826087,
+    "mean": -0.5342228260869566,
+    "pnl": -175197.75,
+    "losers": 117
+   },
+   "kept": {
+    "n": 103,
+    "win": 0.49514563106796117,
+    "mean": 2.1876893203883494,
+    "pnl": 186641.0,
+    "losers": 52
+   },
+   "removed": {
+    "n": 81,
+    "win": 0.19753086419753085,
+    "mean": -3.99541975308642,
+    "pnl": -361838.75,
+    "losers": 65
+   }
+  },
+  "holdout": {
+   "book": {
+    "n": 57,
+    "win": 0.40350877192982454,
+    "mean": -2.9174912280701752,
+    "pnl": -100662.25,
+    "losers": 34
+   },
+   "kept": {
+    "n": 30,
+    "win": 0.4666666666666667,
+    "mean": -1.1981333333333335,
+    "pnl": -32740.5,
+    "losers": 16
+   },
+   "removed": {
+    "n": 27,
+    "win": 0.3333333333333333,
+    "mean": -4.827888888888889,
+    "pnl": -67921.75,
+    "losers": 18
+   }
+  },
+  "p": 0.64,
+  "verdict": "REJECTED",
+  "why": "shuffle p=0.64"
+ },
+ {
+  "book": "premium_momentum",
+  "agent": 9,
+  "combine": "AND",
+  "rule": [
+   [
+    "sl_room_dn_pct",
+    "<",
+    3.3899999999999997
+   ]
+  ],
+  "features": {
+   "sl_room_dn_pct": "weather field as recorded at the trigger second"
+  },
+  "search": "single/FULL/3lines: best single clause over ~300 features, 3 quantile lines (10/50/90 %); score = losers-removed share - winners-removed share; shuffle = same search on 200 shufflings of discovery outcomes (rule_lab.shuffle_p seed 7); real score 0.2465, shuffle median 0.2230, max 0.3638",
+  "discovery": {
+   "book": {
+    "n": 184,
+    "win": 0.3641304347826087,
+    "mean": -0.5342228260869566,
+    "pnl": -175197.75,
+    "losers": 117
+   },
+   "kept": {
+    "n": 92,
+    "win": 0.4782608695652174,
+    "mean": 1.9166847826086957,
+    "pnl": 141700.0,
+    "losers": 48
+   },
+   "removed": {
+    "n": 92,
+    "win": 0.25,
+    "mean": -2.985130434782609,
+    "pnl": -316897.75,
+    "losers": 69
+   }
+  },
+  "holdout": {
+   "book": {
+    "n": 57,
+    "win": 0.40350877192982454,
+    "mean": -2.9174912280701752,
+    "pnl": -100662.25,
+    "losers": 34
+   },
+   "kept": {
+    "n": 26,
+    "win": 0.5,
+    "mean": -0.8891923076923077,
+    "pnl": -20650.5,
+    "losers": 13
+   },
+   "removed": {
+    "n": 31,
+    "win": 0.3225806451612903,
+    "mean": -4.618645161290322,
+    "pnl": -80011.75,
+    "losers": 21
+   }
+  },
+  "p": 0.255,
+  "verdict": "REJECTED",
+  "why": "shuffle p=0.255"
+ },
+ {
+  "book": "premium_momentum",
+  "agent": 9,
+  "combine": "AND",
+  "rule": [
+   [
+    "kyle_lambda",
+    ">=",
+    0.0001965
+   ],
+   [
+    "sl_room_dn_pct",
+    "<",
+    3.3899999999999997
+   ]
+  ],
+  "features": {
+   "kyle_lambda": "weather field as recorded at the trigger second",
+   "sl_room_dn_pct": "weather field as recorded at the trigger second"
+  },
+  "search": "pair/FULL/3lines: best 2-clause AND over ~300 features, 3 quantile lines; score = losers-removed share - winners-removed share; shuffle = same search on 200 shufflings of discovery outcomes (rule_lab.shuffle_p seed 7); real score 0.3170, shuffle median 0.3011, max 0.4258",
+  "discovery": {
+   "book": {
+    "n": 184,
+    "win": 0.3641304347826087,
+    "mean": -0.5342228260869566,
+    "pnl": -175197.75,
+    "losers": 117
+   },
+   "kept": {
+    "n": 81,
+    "win": 0.5308641975308642,
+    "mean": 2.989851851851852,
+    "pnl": 202133.75,
+    "losers": 38
+   },
+   "removed": {
+    "n": 103,
+    "win": 0.23300970873786409,
+    "mean": -3.305582524271845,
+    "pnl": -377331.5,
+    "losers": 79
+   }
+  },
+  "holdout": {
+   "book": {
+    "n": 57,
+    "win": 0.40350877192982454,
+    "mean": -2.9174912280701752,
+    "pnl": -100662.25,
+    "losers": 34
+   },
+   "kept": {
+    "n": 26,
+    "win": 0.5,
+    "mean": -0.8891923076923077,
+    "pnl": -20650.5,
+    "losers": 13
+   },
+   "removed": {
+    "n": 31,
+    "win": 0.3225806451612903,
+    "mean": -4.618645161290322,
+    "pnl": -80011.75,
+    "losers": 21
+   }
+  },
+  "p": 0.275,
+  "verdict": "REJECTED",
+  "why": "shuffle p=0.275"
+ },
+ {
+  "book": "straddle_spike",
+  "agent": 9,
+  "combine": "AND",
+  "rule": [
+   [
+    "breadth_dir",
+    "<",
+    0.9611
+   ]
+  ],
+  "features": {
+   "breadth_dir": "weather field as recorded at the trigger second"
+  },
+  "search": "single/SMALL: best single clause, 30 prior-chosen features, 5 quantile lines (10..90 %), both directions, min 20 kept; score = losers-removed share - winners-removed share; shuffle = same search on 200 shufflings of discovery outcomes (rule_lab.shuffle_p seed 7); real score 0.3634, shuffle median 0.3634, max 0.5217",
+  "discovery": {
+   "book": {
+    "n": 37,
+    "win": 0.3783783783783784,
+    "mean": 0.3356486486486487,
+    "pnl": -32890.0,
+    "losers": 23
+   },
+   "kept": {
+    "n": 26,
+    "win": 0.5,
+    "mean": 3.1163846153846153,
+    "pnl": 37059.75,
+    "losers": 13
+   },
+   "removed": {
+    "n": 11,
+    "win": 0.09090909090909091,
+    "mean": -6.237,
+    "pnl": -69949.75,
+    "losers": 10
+   }
+  },
+  "holdout": {
+   "book": {
+    "n": 11,
+    "win": 0.09090909090909091,
+    "mean": -7.28209090909091,
+    "pnl": -57684.25,
+    "losers": 10
+   },
+   "kept": {
+    "n": 8,
+    "win": 0.125,
+    "mean": -7.4273750000000005,
+    "pnl": -44564.0,
+    "losers": 7
+   },
+   "removed": {
+    "n": 3,
+    "win": 0.0,
+    "mean": -6.894666666666667,
+    "pnl": -13120.25,
+    "losers": 3
+   }
+  },
+  "p": 0.53,
+  "verdict": "REJECTED",
+  "why": "shuffle p=0.53"
+ },
+ {
+  "book": "straddle_spike",
+  "agent": 9,
+  "combine": "AND",
+  "rule": [
+   [
+    "er30",
+    "<",
+    0.49868
+   ],
+   [
+    "vix_chg15",
+    ">=",
+    -0.06
+   ]
+  ],
+  "features": {
+   "er30": "weather field as recorded at the trigger second",
+   "vix_chg15": "weather field as recorded at the trigger second"
+  },
+  "search": "pair/SMALL: best 2-clause AND over the 30 prior-chosen features, 5 lines each, different fields, min 20 kept; score = losers-removed share - winners-removed share; shuffle = same search on 200 shufflings of discovery outcomes (rule_lab.shuffle_p seed 7); real score 0.5093, shuffle median 0.4938, max 0.6957",
+  "discovery": {
+   "book": {
+    "n": 37,
+    "win": 0.3783783783783784,
+    "mean": 0.3356486486486487,
+    "pnl": -32890.0,
+    "losers": 23
+   },
+   "kept": {
+    "n": 20,
+    "win": 0.6,
+    "mean": 5.494,
+    "pnl": 98995.0,
+    "losers": 8
+   },
+   "removed": {
+    "n": 17,
+    "win": 0.11764705882352941,
+    "mean": -5.733,
+    "pnl": -131885.0,
+    "losers": 15
+   }
+  },
+  "holdout": {
+   "book": {
+    "n": 11,
+    "win": 0.09090909090909091,
+    "mean": -7.28209090909091,
+    "pnl": -57684.25,
+    "losers": 10
+   },
+   "kept": {
+    "n": 7,
+    "win": 0.0,
+    "mean": -8.797142857142857,
+    "pnl": -41827.5,
+    "losers": 7
+   },
+   "removed": {
+    "n": 4,
+    "win": 0.25,
+    "mean": -4.63075,
+    "pnl": -15856.75,
+    "losers": 3
+   }
+  },
+  "p": 0.455,
+  "verdict": "REJECTED",
+  "why": "shuffle p=0.455; holdout: kept win% below book or removed side profitable"
+ },
+ {
+  "book": "straddle_spike",
+  "agent": 9,
+  "combine": "AND",
+  "rule": [
+   [
+    "breadth_dir",
+    "<",
+    0.9611
+   ],
+   [
+    "premium",
+    ">=",
+    61.46
+   ],
+   [
+    "spread_pct",
+    ">=",
+    0.1678
+   ]
+  ],
+  "features": {
+   "breadth_dir": "weather field as recorded at the trigger second",
+   "premium": "weather field as recorded at the trigger second",
+   "spread_pct": "weather field as recorded at the trigger second"
+  },
+  "search": "triple/SMALL: best 2-clause AND over the 30 prior-chosen features, then the best third clause added to each of the top 40 pairs; score = losers-removed share - winners-removed share; shuffle = same search on 200 shufflings of discovery outcomes (rule_lab.shuffle_p seed 7); real score 0.5807, shuffle median 0.5652, max 0.7391",
+  "discovery": {
+   "book": {
+    "n": 37,
+    "win": 0.3783783783783784,
+    "mean": 0.3356486486486487,
+    "pnl": -32890.0,
+    "losers": 23
+   },
+   "kept": {
+    "n": 21,
+    "win": 0.6190476190476191,
+    "mean": 6.588666666666667,
+    "pnl": 115661.0,
+    "losers": 8
+   },
+   "removed": {
+    "n": 16,
+    "win": 0.0625,
+    "mean": -7.8714375,
+    "pnl": -148551.0,
+    "losers": 15
+   }
+  },
+  "holdout": {
+   "book": {
+    "n": 11,
+    "win": 0.09090909090909091,
+    "mean": -7.28209090909091,
+    "pnl": -57684.25,
+    "losers": 10
+   },
+   "kept": {
+    "n": 7,
+    "win": 0.14285714285714285,
+    "mean": -5.924571428571428,
+    "pnl": -29120.0,
+    "losers": 6
+   },
+   "removed": {
+    "n": 4,
+    "win": 0.0,
+    "mean": -9.65775,
+    "pnl": -28564.25,
+    "losers": 4
+   }
+  },
+  "p": 0.48,
+  "verdict": "REJECTED",
+  "why": "shuffle p=0.48"
+ },
+ {
+  "book": "straddle_spike",
+  "agent": 9,
+  "combine": "OR",
+  "rule": [
+   [
+    "spread_pct",
+    "<",
+    0.247
+   ],
+   [
+    "mins_open",
+    ">=",
+    304.49399999999997
+   ]
+  ],
+  "features": {
+   "spread_pct": "weather field as recorded at the trigger second",
+   "mins_open": "weather field as recorded at the trigger second"
+  },
+  "search": "or/SMALL: best 2-clause OR (keep if either holds) over the 30 prior-chosen features, 5 lines; score = losers-removed share - winners-removed share; shuffle = same search on 200 shufflings of discovery outcomes (rule_lab.shuffle_p seed 7); real score 0.5093, shuffle median 0.5217, max 0.6522",
+  "discovery": {
+   "book": {
+    "n": 37,
+    "win": 0.3783783783783784,
+    "mean": 0.3356486486486487,
+    "pnl": -32890.0,
+    "losers": 23
+   },
+   "kept": {
+    "n": 20,
+    "win": 0.6,
+    "mean": 7.6655500000000005,
+    "pnl": 150358.0,
+    "losers": 8
+   },
+   "removed": {
+    "n": 17,
+    "win": 0.11764705882352941,
+    "mean": -8.287764705882353,
+    "pnl": -183248.0,
+    "losers": 15
+   }
+  },
+  "holdout": {
+   "book": {
+    "n": 11,
+    "win": 0.09090909090909091,
+    "mean": -7.28209090909091,
+    "pnl": -57684.25,
+    "losers": 10
+   },
+   "kept": {
+    "n": 4,
+    "win": 0.25,
+    "mean": -6.01125,
+    "pnl": -18440.5,
+    "losers": 3
+   },
+   "removed": {
+    "n": 7,
+    "win": 0.0,
+    "mean": -8.008285714285714,
+    "pnl": -39243.75,
+    "losers": 7
+   }
+  },
+  "p": 0.685,
+  "verdict": "REJECTED",
+  "why": "shuffle p=0.685"
+ },
+ {
+  "book": "straddle_spike",
+  "agent": 9,
+  "combine": "AND",
+  "rule": [
+   [
+    "oi_other_chg30",
+    "<",
+    3595052.500000001
+   ]
+  ],
+  "features": {
+   "oi_other_chg30": "weather field as recorded at the trigger second"
+  },
+  "search": "single/FULL: best single clause over ALL numeric weather fields + derived features + text indicators (~300 features), 5 lines; score = losers-removed share - winners-removed share; shuffle = same search on 200 shufflings of discovery outcomes (rule_lab.shuffle_p seed 7); real score 0.4224, shuffle median 0.4503, max 0.7391",
+  "discovery": {
+   "book": {
+    "n": 37,
+    "win": 0.3783783783783784,
+    "mean": 0.3356486486486487,
+    "pnl": -32890.0,
+    "losers": 23
+   },
+   "kept": {
+    "n": 22,
+    "win": 0.5454545454545454,
+    "mean": 4.0100454545454545,
+    "pnl": 81656.25,
+    "losers": 10
+   },
+   "removed": {
+    "n": 15,
+    "win": 0.13333333333333333,
+    "mean": -5.053466666666667,
+    "pnl": -114546.25,
+    "losers": 13
+   }
+  },
+  "holdout": {
+   "book": {
+    "n": 11,
+    "win": 0.09090909090909091,
+    "mean": -7.28209090909091,
+    "pnl": -57684.25,
+    "losers": 10
+   },
+   "kept": {
+    "n": 9,
+    "win": 0.1111111111111111,
+    "mean": -8.797888888888888,
+    "pnl": -56813.25,
+    "losers": 8
+   },
+   "removed": {
+    "n": 2,
+    "win": 0.0,
+    "mean": -0.46099999999999997,
+    "pnl": -871.0,
+    "losers": 2
+   }
+  },
+  "p": 0.58,
+  "verdict": "REJECTED",
+  "why": "shuffle p=0.58"
+ },
+ {
+  "book": "straddle_spike",
+  "agent": 9,
+  "combine": "AND",
+  "rule": [
+   [
+    "breadth_dir",
+    "<",
+    0.9611
+   ],
+   [
+    "oi_net_help15_dir",
+    ">=",
+    -14289977.0
+   ]
+  ],
+  "features": {
+   "breadth_dir": "weather field as recorded at the trigger second",
+   "oi_net_help15_dir": "oi_net_help15 * (+1 for CE, -1 for PE)"
+  },
+  "search": "pair/FULL: best 2-clause AND over ~300 features x 5 lines x 2 directions (~3000 masks), different fields, min 20 kept; score = losers-removed share - winners-removed share; shuffle = same search on 200 shufflings of discovery outcomes (rule_lab.shuffle_p seed 7); real score 0.6242, shuffle median 0.6242, max 0.7391",
+  "discovery": {
+   "book": {
+    "n": 37,
+    "win": 0.3783783783783784,
+    "mean": 0.3356486486486487,
+    "pnl": -32890.0,
+    "losers": 23
+   },
+   "kept": {
+    "n": 20,
+    "win": 0.65,
+    "mean": 7.816450000000001,
+    "pnl": 147368.0,
+    "losers": 7
+   },
+   "removed": {
+    "n": 17,
+    "win": 0.058823529411764705,
+    "mean": -8.465294117647058,
+    "pnl": -180258.0,
+    "losers": 16
+   }
+  },
+  "holdout": {
+   "book": {
+    "n": 11,
+    "win": 0.09090909090909091,
+    "mean": -7.28209090909091,
+    "pnl": -57684.25,
+    "losers": 10
+   },
+   "kept": {
+    "n": 8,
+    "win": 0.125,
+    "mean": -7.4273750000000005,
+    "pnl": -44564.0,
+    "losers": 7
+   },
+   "removed": {
+    "n": 3,
+    "win": 0.0,
+    "mean": -6.894666666666667,
+    "pnl": -13120.25,
+    "losers": 3
+   }
+  },
+  "p": 0.65,
+  "verdict": "REJECTED",
+  "why": "shuffle p=0.65"
+ },
+ {
+  "book": "straddle_spike",
+  "agent": 9,
+  "combine": "AND",
+  "rule": [
+   [
+    "swing_ahead_minus_behind",
+    ">=",
+    -81.87
+   ],
+   [
+    "vix_chg_open",
+    "<",
+    0.4960000000000001
+   ]
+  ],
+  "features": {
+   "swing_ahead_minus_behind": "swing_ahead - swing_behind",
+   "vix_chg_open": "weather field as recorded at the trigger second"
+  },
+  "search": "triple/FULL: best 2-clause AND over ~300 features, then best third clause on each of the top 40 pairs; score = losers-removed share - winners-removed share; shuffle = same search on 200 shufflings of discovery outcomes (rule_lab.shuffle_p seed 7); real score 0.6242, shuffle median 0.6242, max 0.7391",
+  "discovery": {
+   "book": {
+    "n": 37,
+    "win": 0.3783783783783784,
+    "mean": 0.3356486486486487,
+    "pnl": -32890.0,
+    "losers": 23
+   },
+   "kept": {
+    "n": 20,
+    "win": 0.65,
+    "mean": 8.3765,
+    "pnl": 166991.5,
+    "losers": 7
+   },
+   "removed": {
+    "n": 17,
+    "win": 0.058823529411764705,
+    "mean": -9.124176470588235,
+    "pnl": -199881.5,
+    "losers": 16
+   }
+  },
+  "holdout": {
+   "book": {
+    "n": 11,
+    "win": 0.09090909090909091,
+    "mean": -7.28209090909091,
+    "pnl": -57684.25,
+    "losers": 10
+   },
+   "kept": {
+    "n": 6,
+    "win": 0.0,
+    "mean": -9.059,
+    "pnl": -39672.75,
+    "losers": 6
+   },
+   "removed": {
+    "n": 5,
+    "win": 0.2,
+    "mean": -5.149800000000001,
+    "pnl": -18011.5,
+    "losers": 4
+   }
+  },
+  "p": 0.695,
+  "verdict": "REJECTED",
+  "why": "shuffle p=0.695; holdout: kept win% below book or removed side profitable"
+ },
+ {
+  "book": "straddle_spike",
+  "agent": 9,
+  "combine": "OR",
+  "rule": [
+   [
+    "e_fut_imb5_dir",
+    "<",
+    -0.333
+   ],
+   [
+    "oi_own_chg30",
+    ">=",
+    1499777.5
+   ]
+  ],
+  "features": {
+   "e_fut_imb5_dir": "e_fut_imb5 * (+1 for CE, -1 for PE)",
+   "oi_own_chg30": "weather field as recorded at the trigger second"
+  },
+  "search": "or/FULL: best 2-clause OR over ~300 features, 5 lines; score = losers-removed share - winners-removed share; shuffle = same search on 200 shufflings of discovery outcomes (rule_lab.shuffle_p seed 7); real score 0.6522, shuffle median 0.6522, max 0.7391",
+  "discovery": {
+   "book": {
+    "n": 37,
+    "win": 0.3783783783783784,
+    "mean": 0.3356486486486487,
+    "pnl": -32890.0,
+    "losers": 23
+   },
+   "kept": {
+    "n": 22,
+    "win": 0.6363636363636364,
+    "mean": 7.294409090909091,
+    "pnl": 150650.5,
+    "losers": 8
+   },
+   "removed": {
+    "n": 15,
+    "win": 0.0,
+    "mean": -9.870533333333332,
+    "pnl": -183540.5,
+    "losers": 15
+   }
+  },
+  "holdout": {
+   "book": {
+    "n": 11,
+    "win": 0.09090909090909091,
+    "mean": -7.28209090909091,
+    "pnl": -57684.25,
+    "losers": 10
+   },
+   "kept": {
+    "n": 9,
+    "win": 0.0,
+    "mean": -8.931111111111111,
+    "pnl": -58100.25,
+    "losers": 9
+   },
+   "removed": {
+    "n": 2,
+    "win": 0.5,
+    "mean": 0.13849999999999962,
+    "pnl": 416.0,
+    "losers": 1
+   }
+  },
+  "p": 0.605,
+  "verdict": "REJECTED",
+  "why": "shuffle p=0.605; holdout: kept win% below book or removed side profitable"
+ },
+ {
+  "book": "straddle_spike",
+  "agent": 9,
+  "combine": "AND",
+  "rule": [
+   [
+    "opt_opp_q=REFILLING",
+    "<",
+    1.0
+   ]
+  ],
+  "features": {
+   "opt_opp_q=REFILLING": "1 if weather text field opt_opp_q == 'REFILLING' else 0"
+  },
+  "search": "single/FULL/3lines: best single clause over ~300 features, 3 quantile lines (10/50/90 %); score = losers-removed share - winners-removed share; shuffle = same search on 200 shufflings of discovery outcomes (rule_lab.shuffle_p seed 7); real score 0.3789, shuffle median 0.3634, max 0.7391",
+  "discovery": {
+   "book": {
+    "n": 37,
+    "win": 0.3783783783783784,
+    "mean": 0.3356486486486487,
+    "pnl": -32890.0,
+    "losers": 23
+   },
+   "kept": {
+    "n": 23,
+    "win": 0.5217391304347826,
+    "mean": 3.515,
+    "pnl": 53729.0,
+    "losers": 11
+   },
+   "removed": {
+    "n": 14,
+    "win": 0.14285714285714285,
+    "mean": -4.8875714285714285,
+    "pnl": -86619.0,
+    "losers": 12
+   }
+  },
+  "holdout": {
+   "book": {
+    "n": 11,
+    "win": 0.09090909090909091,
+    "mean": -7.28209090909091,
+    "pnl": -57684.25,
+    "losers": 10
+   },
+   "kept": {
+    "n": 5,
+    "win": 0.2,
+    "mean": -3.0556,
+    "pnl": -7936.5,
+    "losers": 4
+   },
+   "removed": {
+    "n": 6,
+    "win": 0.0,
+    "mean": -10.804166666666667,
+    "pnl": -49747.75,
+    "losers": 6
+   }
+  },
+  "p": 0.465,
+  "verdict": "REJECTED",
+  "why": "shuffle p=0.465"
+ },
+ {
+  "book": "straddle_spike",
+  "agent": 9,
+  "combine": "AND",
+  "rule": [
+   [
+    "breadth_dir",
+    "<",
+    1.0
+   ],
+   [
+    "oi_net_help15_dir",
+    ">=",
+    -14289977.0
+   ]
+  ],
+  "features": {
+   "breadth_dir": "weather field as recorded at the trigger second",
+   "oi_net_help15_dir": "oi_net_help15 * (+1 for CE, -1 for PE)"
+  },
+  "search": "pair/FULL/3lines: best 2-clause AND over ~300 features, 3 quantile lines; score = losers-removed share - winners-removed share; shuffle = same search on 200 shufflings of discovery outcomes (rule_lab.shuffle_p seed 7); real score 0.5807, shuffle median 0.5093, max 0.7391",
+  "discovery": {
+   "book": {
+    "n": 37,
+    "win": 0.3783783783783784,
+    "mean": 0.3356486486486487,
+    "pnl": -32890.0,
+    "losers": 23
+   },
+   "kept": {
+    "n": 21,
+    "win": 0.6190476190476191,
+    "mean": 7.303285714285714,
+    "pnl": 144241.5,
+    "losers": 8
+   },
+   "removed": {
+    "n": 16,
+    "win": 0.0625,
+    "mean": -8.809375,
+    "pnl": -177131.5,
+    "losers": 15
+   }
+  },
+  "holdout": {
+   "book": {
+    "n": 11,
+    "win": 0.09090909090909091,
+    "mean": -7.28209090909091,
+    "pnl": -57684.25,
+    "losers": 10
+   },
+   "kept": {
+    "n": 8,
+    "win": 0.125,
+    "mean": -7.4273750000000005,
+    "pnl": -44564.0,
+    "losers": 7
+   },
+   "removed": {
+    "n": 3,
+    "win": 0.0,
+    "mean": -6.894666666666667,
+    "pnl": -13120.25,
+    "losers": 3
+   }
+  },
+  "p": 0.215,
+  "verdict": "REJECTED",
+  "why": "shuffle p=0.215"
+ }
+]

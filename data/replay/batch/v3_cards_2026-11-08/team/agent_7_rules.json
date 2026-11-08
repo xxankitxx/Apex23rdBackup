@@ -1,0 +1,4517 @@
+[
+ {
+  "book": "spot_dc12_t12",
+  "rule": [
+   [
+    "opt_iv_chg5",
+    ">=",
+    0.08
+   ]
+  ],
+  "rule_form": "AND",
+  "features": {
+   "opt_iv_chg5": "photo field as recorded (weather.py)"
+  },
+  "search": "S1 single, base fields, 5 lines",
+  "score": 0.2192745514180976,
+  "discovery": {
+   "book": {
+    "n": 215,
+    "win": 0.3395348837209302,
+    "mean": 0.609706976744186,
+    "pnl": 127481.25,
+    "losers": 142
+   },
+   "kept": {
+    "n": 69,
+    "win": 0.4927536231884058,
+    "mean": 2.909521739130435,
+    "pnl": 187703.75,
+    "losers": 35
+   },
+   "removed": {
+    "n": 146,
+    "win": 0.2671232876712329,
+    "mean": -0.4771917808219178,
+    "pnl": -60222.5,
+    "losers": 107
+   }
+  },
+  "holdout": {
+   "book": {
+    "n": 76,
+    "win": 0.4342105263157895,
+    "mean": 0.6670131578947368,
+    "pnl": 51892.75,
+    "losers": 43
+   },
+   "kept": {
+    "n": 23,
+    "win": 0.5217391304347826,
+    "mean": -0.20665217391304336,
+    "pnl": -3068.0,
+    "losers": 11
+   },
+   "removed": {
+    "n": 53,
+    "win": 0.39622641509433965,
+    "mean": 1.0461509433962264,
+    "pnl": 54960.75,
+    "losers": 32
+   }
+  },
+  "p": 0.41,
+  "shuffle_median": 0.21242523634960447,
+  "shuffle_max": 0.3237507235191974,
+  "verdict": "REJECTED",
+  "why": "shuffle p=0.410 >= 0.05; holdout removed side is profitable"
+ },
+ {
+  "book": "spot_dc12_t12",
+  "rule": [
+   [
+    "absorb60",
+    "<",
+    34603157.0
+   ],
+   [
+    "fmv300",
+    "<",
+    18.4
+   ]
+  ],
+  "rule_form": "AND",
+  "features": {
+   "absorb60": "photo field as recorded (weather.py)",
+   "fmv300": "photo field as recorded (weather.py)"
+  },
+  "search": "S2 pair, base fields, 5 lines",
+  "score": 0.29673934015049197,
+  "discovery": {
+   "book": {
+    "n": 215,
+    "win": 0.3395348837209302,
+    "mean": 0.609706976744186,
+    "pnl": 127481.25,
+    "losers": 142
+   },
+   "kept": {
+    "n": 58,
+    "win": 0.5862068965517241,
+    "mean": 5.017741379310345,
+    "pnl": 333125.0,
+    "losers": 24
+   },
+   "removed": {
+    "n": 157,
+    "win": 0.2484076433121019,
+    "mean": -1.0187388535031847,
+    "pnl": -205643.75,
+    "losers": 118
+   }
+  },
+  "holdout": {
+   "book": {
+    "n": 76,
+    "win": 0.4342105263157895,
+    "mean": 0.6670131578947368,
+    "pnl": 51892.75,
+    "losers": 43
+   },
+   "kept": {
+    "n": 16,
+    "win": 0.375,
+    "mean": -0.06412500000000004,
+    "pnl": -2089.75,
+    "losers": 10
+   },
+   "removed": {
+    "n": 60,
+    "win": 0.45,
+    "mean": 0.8619833333333333,
+    "pnl": 53982.5,
+    "losers": 33
+   }
+  },
+  "p": 0.54,
+  "shuffle_median": 0.30108045533474825,
+  "shuffle_max": 0.3777734902566081,
+  "verdict": "REJECTED",
+  "why": "shuffle p=0.540 >= 0.05; holdout kept win rate below the book's"
+ },
+ {
+  "book": "spot_dc12_t12",
+  "rule": [
+   [
+    "s_bank_z",
+    "<",
+    0.4780000000000001
+   ]
+  ],
+  "rule_form": "AND",
+  "features": {
+   "s_bank_z": "photo field times trade direction (+1 CE, -1 PE)"
+  },
+  "search": "S3 single, derived fields (ratios/diffs/products/signed/z/bool), 5 lines",
+  "score": 0.2088558749758827,
+  "discovery": {
+   "book": {
+    "n": 215,
+    "win": 0.3395348837209302,
+    "mean": 0.609706976744186,
+    "pnl": 127481.25,
+    "losers": 142
+   },
+   "kept": {
+    "n": 150,
+    "win": 0.4066666666666667,
+    "mean": 1.4236333333333333,
+    "pnl": 232141.0,
+    "losers": 89
+   },
+   "removed": {
+    "n": 65,
+    "win": 0.18461538461538463,
+    "mean": -1.2685846153846154,
+    "pnl": -104659.75,
+    "losers": 53
+   }
+  },
+  "holdout": {
+   "book": {
+    "n": 76,
+    "win": 0.4342105263157895,
+    "mean": 0.6670131578947368,
+    "pnl": 51892.75,
+    "losers": 43
+   },
+   "kept": {
+    "n": 42,
+    "win": 0.5,
+    "mean": 1.5191666666666666,
+    "pnl": 71591.0,
+    "losers": 21
+   },
+   "removed": {
+    "n": 34,
+    "win": 0.35294117647058826,
+    "mean": -0.3856470588235294,
+    "pnl": -19698.25,
+    "losers": 22
+   }
+  },
+  "p": 0.51,
+  "shuffle_median": 0.2088558749758827,
+  "shuffle_max": 0.31526143160331854,
+  "verdict": "REJECTED",
+  "why": "shuffle p=0.510 >= 0.05"
+ },
+ {
+  "book": "spot_dc12_t12",
+  "rule": [
+   [
+    "s_bank_z",
+    "<",
+    0.4780000000000001
+   ],
+   [
+    "vol_ratio_with",
+    ">=",
+    1.219
+   ]
+  ],
+  "rule_form": "AND",
+  "features": {
+   "s_bank_z": "photo field times trade direction (+1 CE, -1 PE)",
+   "vol_ratio_with": "photo field as recorded (weather.py)"
+  },
+  "search": "S4 pair, all fields (base+derived+text), 5 lines, top 1500 masks",
+  "score": 0.31593671618753616,
+  "discovery": {
+   "book": {
+    "n": 215,
+    "win": 0.3395348837209302,
+    "mean": 0.609706976744186,
+    "pnl": 127481.25,
+    "losers": 142
+   },
+   "kept": {
+    "n": 70,
+    "win": 0.5571428571428572,
+    "mean": 2.2077714285714287,
+    "pnl": 160767.75,
+    "losers": 31
+   },
+   "removed": {
+    "n": 145,
+    "win": 0.23448275862068965,
+    "mean": -0.16177241379310345,
+    "pnl": -33286.5,
+    "losers": 111
+   }
+  },
+  "holdout": {
+   "book": {
+    "n": 76,
+    "win": 0.4342105263157895,
+    "mean": 0.6670131578947368,
+    "pnl": 51892.75,
+    "losers": 43
+   },
+   "kept": {
+    "n": 23,
+    "win": 0.5652173913043478,
+    "mean": 3.87104347826087,
+    "pnl": 89992.5,
+    "losers": 10
+   },
+   "removed": {
+    "n": 53,
+    "win": 0.37735849056603776,
+    "mean": -0.7234150943396227,
+    "pnl": -38099.75,
+    "losers": 33
+   }
+  },
+  "p": 0.505,
+  "shuffle_median": 0.31776963148755544,
+  "shuffle_max": 0.39899672004630526,
+  "verdict": "REJECTED",
+  "why": "shuffle p=0.505 >= 0.05"
+ },
+ {
+  "book": "spot_dc12_t12",
+  "rule": [
+   [
+    "s_bank_z",
+    "<",
+    0.4780000000000001
+   ],
+   [
+    "vol_ratio_with",
+    ">=",
+    1.219
+   ]
+  ],
+  "rule_form": "AND",
+  "features": {
+   "s_bank_z": "photo field times trade direction (+1 CE, -1 PE)",
+   "vol_ratio_with": "photo field as recorded (weather.py)"
+  },
+  "search": "S5 pair, all fields, 9 lines, top 1500 masks",
+  "score": 0.31593671618753616,
+  "discovery": {
+   "book": {
+    "n": 215,
+    "win": 0.3395348837209302,
+    "mean": 0.609706976744186,
+    "pnl": 127481.25,
+    "losers": 142
+   },
+   "kept": {
+    "n": 70,
+    "win": 0.5571428571428572,
+    "mean": 2.2077714285714287,
+    "pnl": 160767.75,
+    "losers": 31
+   },
+   "removed": {
+    "n": 145,
+    "win": 0.23448275862068965,
+    "mean": -0.16177241379310345,
+    "pnl": -33286.5,
+    "losers": 111
+   }
+  },
+  "holdout": {
+   "book": {
+    "n": 76,
+    "win": 0.4342105263157895,
+    "mean": 0.6670131578947368,
+    "pnl": 51892.75,
+    "losers": 43
+   },
+   "kept": {
+    "n": 23,
+    "win": 0.5652173913043478,
+    "mean": 3.87104347826087,
+    "pnl": 89992.5,
+    "losers": 10
+   },
+   "removed": {
+    "n": 53,
+    "win": 0.37735849056603776,
+    "mean": -0.7234150943396227,
+    "pnl": -38099.75,
+    "losers": 33
+   }
+  },
+  "p": 0.74,
+  "shuffle_median": 0.33088944626664096,
+  "shuffle_max": 0.402083735288443,
+  "verdict": "REJECTED",
+  "why": "shuffle p=0.740 >= 0.05"
+ },
+ {
+  "book": "spot_dc12_t12",
+  "rule": [
+   [
+    "s_bank_z",
+    "<",
+    0.4780000000000001
+   ],
+   [
+    "vol_ratio_with",
+    ">=",
+    1.219
+   ],
+   [
+    "r_wmove60_mv60",
+    "<",
+    0.9922955974842766
+   ]
+  ],
+  "rule_form": "AND",
+  "features": {
+   "s_bank_z": "photo field times trade direction (+1 CE, -1 PE)",
+   "vol_ratio_with": "photo field as recorded (weather.py)",
+   "r_wmove60_mv60": "ratio of the two named photo fields (a/b)"
+  },
+  "search": "S6 greedy triple, all fields, 5 lines",
+  "score": 0.35191973760370443,
+  "discovery": {
+   "book": {
+    "n": 215,
+    "win": 0.3395348837209302,
+    "mean": 0.609706976744186,
+    "pnl": 127481.25,
+    "losers": 142
+   },
+   "kept": {
+    "n": 59,
+    "win": 0.6271186440677966,
+    "mean": 2.594576271186441,
+    "pnl": 163520.5,
+    "losers": 22
+   },
+   "removed": {
+    "n": 156,
+    "win": 0.23076923076923078,
+    "mean": -0.14098076923076924,
+    "pnl": -36039.25,
+    "losers": 120
+   }
+  },
+  "holdout": {
+   "book": {
+    "n": 76,
+    "win": 0.4342105263157895,
+    "mean": 0.6670131578947368,
+    "pnl": 51892.75,
+    "losers": 43
+   },
+   "kept": {
+    "n": 14,
+    "win": 0.5714285714285714,
+    "mean": 3.198857142857143,
+    "pnl": 44356.0,
+    "losers": 6
+   },
+   "removed": {
+    "n": 62,
+    "win": 0.4032258064516129,
+    "mean": 0.09530645161290324,
+    "pnl": 7536.75,
+    "losers": 37
+   }
+  },
+  "p": 0.71,
+  "shuffle_median": 0.36663129461701716,
+  "shuffle_max": 0.44945012540999424,
+  "verdict": "REJECTED",
+  "why": "shuffle p=0.710 >= 0.05; holdout removed side is profitable"
+ },
+ {
+  "book": "spot_dc12_t12",
+  "rule": [
+   [
+    "opt_iv_chg5",
+    ">=",
+    0.08
+   ],
+   [
+    "fmv300",
+    "<",
+    18.4
+   ]
+  ],
+  "rule_form": "AND",
+  "features": {
+   "opt_iv_chg5": "photo field as recorded (weather.py)",
+   "fmv300": "photo field as recorded (weather.py)"
+  },
+  "search": "S7 pair maximising kept win rate (kept>=30), all fields, 5 lines",
+  "score": 0.699999988079071,
+  "discovery": {
+   "book": {
+    "n": 215,
+    "win": 0.3395348837209302,
+    "mean": 0.609706976744186,
+    "pnl": 127481.25,
+    "losers": 142
+   },
+   "kept": {
+    "n": 30,
+    "win": 0.7,
+    "mean": 6.7474,
+    "pnl": 224386.5,
+    "losers": 9
+   },
+   "removed": {
+    "n": 185,
+    "win": 0.2810810810810811,
+    "mean": -0.38559459459459455,
+    "pnl": -96905.25,
+    "losers": 133
+   }
+  },
+  "holdout": {
+   "book": {
+    "n": 76,
+    "win": 0.4342105263157895,
+    "mean": 0.6670131578947368,
+    "pnl": 51892.75,
+    "losers": 43
+   },
+   "kept": {
+    "n": 13,
+    "win": 0.5384615384615384,
+    "mean": 0.7510000000000001,
+    "pnl": 8632.0,
+    "losers": 6
+   },
+   "removed": {
+    "n": 63,
+    "win": 0.4126984126984127,
+    "mean": 0.6496825396825396,
+    "pnl": 43260.75,
+    "losers": 37
+   }
+  },
+  "p": 0.37,
+  "shuffle_median": 0.686607152223587,
+  "shuffle_max": 0.7878788113594055,
+  "verdict": "REJECTED",
+  "why": "shuffle p=0.370 >= 0.05; holdout removed side is profitable"
+ },
+ {
+  "book": "spot_dc12_t12",
+  "rule": [
+   [
+    "p_vanna_mv60",
+    ">=",
+    0.0202804
+   ],
+   [
+    "fmv300",
+    "<",
+    12.282000000000002
+   ]
+  ],
+  "rule_form": "OR",
+  "features": {
+   "p_vanna_mv60": "product of the two named photo fields",
+   "fmv300": "photo field as recorded (weather.py)"
+  },
+  "search": "S8 OR of two clauses, all fields, 5 lines, top 1200 masks",
+  "score": 0.31757669303492186,
+  "discovery": {
+   "book": {
+    "n": 215,
+    "win": 0.3395348837209302,
+    "mean": 0.609706976744186,
+    "pnl": 127481.25,
+    "losers": 142
+   },
+   "kept": {
+    "n": 111,
+    "win": 0.4774774774774775,
+    "mean": 2.4313153153153153,
+    "pnl": 261348.75,
+    "losers": 58
+   },
+   "removed": {
+    "n": 104,
+    "win": 0.19230769230769232,
+    "mean": -1.3345096153846152,
+    "pnl": -133867.5,
+    "losers": 84
+   }
+  },
+  "holdout": {
+   "book": {
+    "n": 76,
+    "win": 0.4342105263157895,
+    "mean": 0.6670131578947368,
+    "pnl": 51892.75,
+    "losers": 43
+   },
+   "kept": {
+    "n": 36,
+    "win": 0.5,
+    "mean": -0.23816666666666667,
+    "pnl": -698.75,
+    "losers": 18
+   },
+   "removed": {
+    "n": 40,
+    "win": 0.375,
+    "mean": 1.481675,
+    "pnl": 52591.5,
+    "losers": 25
+   }
+  },
+  "p": 0.4,
+  "shuffle_median": 0.3093768087979935,
+  "shuffle_max": 0.4157823654254293,
+  "verdict": "REJECTED",
+  "why": "shuffle p=0.400 >= 0.05; holdout removed side is profitable"
+ },
+ {
+  "book": "spot_dc12_t12",
+  "rule": [
+   [
+    "opt_iv_chg5",
+    ">=",
+    0.08
+   ]
+  ],
+  "rule_form": "AND",
+  "features": {
+   "opt_iv_chg5": "photo field as recorded (weather.py)"
+  },
+  "search": "S9 single, all fields, 9 lines",
+  "score": 0.2192745514180976,
+  "discovery": {
+   "book": {
+    "n": 215,
+    "win": 0.3395348837209302,
+    "mean": 0.609706976744186,
+    "pnl": 127481.25,
+    "losers": 142
+   },
+   "kept": {
+    "n": 69,
+    "win": 0.4927536231884058,
+    "mean": 2.909521739130435,
+    "pnl": 187703.75,
+    "losers": 35
+   },
+   "removed": {
+    "n": 146,
+    "win": 0.2671232876712329,
+    "mean": -0.4771917808219178,
+    "pnl": -60222.5,
+    "losers": 107
+   }
+  },
+  "holdout": {
+   "book": {
+    "n": 76,
+    "win": 0.4342105263157895,
+    "mean": 0.6670131578947368,
+    "pnl": 51892.75,
+    "losers": 43
+   },
+   "kept": {
+    "n": 23,
+    "win": 0.5217391304347826,
+    "mean": -0.20665217391304336,
+    "pnl": -3068.0,
+    "losers": 11
+   },
+   "removed": {
+    "n": 53,
+    "win": 0.39622641509433965,
+    "mean": 1.0461509433962264,
+    "pnl": 54960.75,
+    "losers": 32
+   }
+  },
+  "p": 0.735,
+  "shuffle_median": 0.23461315840246966,
+  "shuffle_max": 0.32770596179818645,
+  "verdict": "REJECTED",
+  "why": "shuffle p=0.735 >= 0.05; holdout removed side is profitable"
+ },
+ {
+  "book": "spot_dc12_t12_1130",
+  "rule": [
+   [
+    "opt_iv_chg5",
+    ">=",
+    0.06
+   ]
+  ],
+  "rule_form": "AND",
+  "features": {
+   "opt_iv_chg5": "photo field as recorded (weather.py)"
+  },
+  "search": "S1 single, base fields, 5 lines",
+  "score": 0.22594246031746035,
+  "discovery": {
+   "book": {
+    "n": 191,
+    "win": 0.3298429319371728,
+    "mean": 0.521649214659686,
+    "pnl": 95020.25,
+    "losers": 128
+   },
+   "kept": {
+    "n": 59,
+    "win": 0.4915254237288136,
+    "mean": 3.2294237288135594,
+    "pnl": 197037.75,
+    "losers": 30
+   },
+   "removed": {
+    "n": 132,
+    "win": 0.25757575757575757,
+    "mean": -0.6886439393939394,
+    "pnl": -102017.5,
+    "losers": 98
+   }
+  },
+  "holdout": {
+   "book": {
+    "n": 68,
+    "win": 0.45588235294117646,
+    "mean": 1.279279411764706,
+    "pnl": 82381.0,
+    "losers": 37
+   },
+   "kept": {
+    "n": 21,
+    "win": 0.6190476190476191,
+    "mean": 1.1301904761904762,
+    "pnl": 22577.75,
+    "losers": 8
+   },
+   "removed": {
+    "n": 47,
+    "win": 0.3829787234042553,
+    "mean": 1.3458936170212765,
+    "pnl": 59803.25,
+    "losers": 29
+   }
+  },
+  "p": 0.505,
+  "shuffle_median": 0.22606646825396826,
+  "shuffle_max": 0.3395337301587302,
+  "verdict": "REJECTED",
+  "why": "shuffle p=0.505 >= 0.05; holdout removed side is profitable"
+ },
+ {
+  "book": "spot_dc12_t12_1130",
+  "rule": [
+   [
+    "basis_chg300",
+    "<",
+    3.75
+   ],
+   [
+    "hw_vol_surge",
+    "<",
+    0.939
+   ]
+  ],
+  "rule_form": "AND",
+  "features": {
+   "basis_chg300": "photo field as recorded (weather.py)",
+   "hw_vol_surge": "photo field as recorded (weather.py)"
+  },
+  "search": "S2 pair, base fields, 5 lines",
+  "score": 0.3133680555555556,
+  "discovery": {
+   "book": {
+    "n": 191,
+    "win": 0.3298429319371728,
+    "mean": 0.521649214659686,
+    "pnl": 95020.25,
+    "losers": 128
+   },
+   "kept": {
+    "n": 66,
+    "win": 0.5303030303030303,
+    "mean": 1.5439545454545454,
+    "pnl": 91988.0,
+    "losers": 31
+   },
+   "removed": {
+    "n": 125,
+    "win": 0.224,
+    "mean": -0.01812800000000001,
+    "pnl": 3032.25,
+    "losers": 97
+   }
+  },
+  "holdout": {
+   "book": {
+    "n": 68,
+    "win": 0.45588235294117646,
+    "mean": 1.279279411764706,
+    "pnl": 82381.0,
+    "losers": 37
+   },
+   "kept": {
+    "n": 18,
+    "win": 0.3888888888888889,
+    "mean": 0.2856111111111111,
+    "pnl": -416.0,
+    "losers": 11
+   },
+   "removed": {
+    "n": 50,
+    "win": 0.48,
+    "mean": 1.6369999999999998,
+    "pnl": 82797.0,
+    "losers": 26
+   }
+  },
+  "p": 0.585,
+  "shuffle_median": 0.3176463293650794,
+  "shuffle_max": 0.43452380952380953,
+  "verdict": "REJECTED",
+  "why": "shuffle p=0.585 >= 0.05; holdout kept win rate below the book's"
+ },
+ {
+  "book": "spot_dc12_t12_1130",
+  "rule": [
+   [
+    "d_mv10_mv60",
+    "<",
+    -11.150000000000002
+   ]
+  ],
+  "rule_form": "AND",
+  "features": {
+   "d_mv10_mv60": "difference of the two named photo fields (a-b)"
+  },
+  "search": "S3 single, derived fields (ratios/diffs/products/signed/z/bool), 5 lines",
+  "score": 0.21788194444444442,
+  "discovery": {
+   "book": {
+    "n": 191,
+    "win": 0.3298429319371728,
+    "mean": 0.521649214659686,
+    "pnl": 95020.25,
+    "losers": 128
+   },
+   "kept": {
+    "n": 57,
+    "win": 0.49122807017543857,
+    "mean": 2.922421052631579,
+    "pnl": 149925.75,
+    "losers": 29
+   },
+   "removed": {
+    "n": 134,
+    "win": 0.26119402985074625,
+    "mean": -0.4995746268656716,
+    "pnl": -54905.5,
+    "losers": 99
+   }
+  },
+  "holdout": {
+   "book": {
+    "n": 68,
+    "win": 0.45588235294117646,
+    "mean": 1.279279411764706,
+    "pnl": 82381.0,
+    "losers": 37
+   },
+   "kept": {
+    "n": 14,
+    "win": 0.42857142857142855,
+    "mean": 1.150857142857143,
+    "pnl": 12249.25,
+    "losers": 8
+   },
+   "removed": {
+    "n": 54,
+    "win": 0.46296296296296297,
+    "mean": 1.312574074074074,
+    "pnl": 70131.75,
+    "losers": 29
+   }
+  },
+  "p": 0.57,
+  "shuffle_median": 0.2211061507936508,
+  "shuffle_max": 0.3412698412698413,
+  "verdict": "REJECTED",
+  "why": "shuffle p=0.570 >= 0.05; holdout kept win rate below the book's"
+ },
+ {
+  "book": "spot_dc12_t12_1130",
+  "rule": [
+   [
+    "s_bank_z",
+    "<",
+    0.37
+   ],
+   [
+    "basis_chg300",
+    "<",
+    3.75
+   ]
+  ],
+  "rule_form": "AND",
+  "features": {
+   "s_bank_z": "photo field times trade direction (+1 CE, -1 PE)",
+   "basis_chg300": "photo field as recorded (weather.py)"
+  },
+  "search": "S4 pair, all fields (base+derived+text), 5 lines, top 1500 masks",
+  "score": 0.31560019841269843,
+  "discovery": {
+   "book": {
+    "n": 191,
+    "win": 0.3298429319371728,
+    "mean": 0.521649214659686,
+    "pnl": 95020.25,
+    "losers": 128
+   },
+   "kept": {
+    "n": 93,
+    "win": 0.4731182795698925,
+    "mean": 1.7323763440860214,
+    "pnl": 151466.25,
+    "losers": 49
+   },
+   "removed": {
+    "n": 98,
+    "win": 0.19387755102040816,
+    "mean": -0.6273061224489795,
+    "pnl": -56446.0,
+    "losers": 79
+   }
+  },
+  "holdout": {
+   "book": {
+    "n": 68,
+    "win": 0.45588235294117646,
+    "mean": 1.279279411764706,
+    "pnl": 82381.0,
+    "losers": 37
+   },
+   "kept": {
+    "n": 20,
+    "win": 0.55,
+    "mean": 2.75475,
+    "pnl": 61990.5,
+    "losers": 9
+   },
+   "removed": {
+    "n": 48,
+    "win": 0.4166666666666667,
+    "mean": 0.6645,
+    "pnl": 20390.5,
+    "losers": 28
+   }
+  },
+  "p": 0.75,
+  "shuffle_median": 0.33122519841269843,
+  "shuffle_max": 0.43452380952380953,
+  "verdict": "REJECTED",
+  "why": "shuffle p=0.750 >= 0.05; holdout removed side is profitable"
+ },
+ {
+  "book": "spot_dc12_t12_1130",
+  "rule": [
+   [
+    "round_dist",
+    "<",
+    52.5
+   ],
+   [
+    "vol_ratio_with",
+    ">=",
+    0.935
+   ]
+  ],
+  "rule_form": "AND",
+  "features": {
+   "round_dist": "photo field as recorded (weather.py)",
+   "vol_ratio_with": "photo field as recorded (weather.py)"
+  },
+  "search": "S5 pair, all fields, 9 lines, top 1500 masks",
+  "score": 0.3599950396825397,
+  "discovery": {
+   "book": {
+    "n": 191,
+    "win": 0.3298429319371728,
+    "mean": 0.521649214659686,
+    "pnl": 95020.25,
+    "losers": 128
+   },
+   "kept": {
+    "n": 57,
+    "win": 0.5964912280701754,
+    "mean": 2.3101228070175437,
+    "pnl": 107753.75,
+    "losers": 23
+   },
+   "removed": {
+    "n": 134,
+    "win": 0.21641791044776118,
+    "mean": -0.23911940298507464,
+    "pnl": -12733.5,
+    "losers": 105
+   }
+  },
+  "holdout": {
+   "book": {
+    "n": 68,
+    "win": 0.45588235294117646,
+    "mean": 1.279279411764706,
+    "pnl": 82381.0,
+    "losers": 37
+   },
+   "kept": {
+    "n": 29,
+    "win": 0.41379310344827586,
+    "mean": 0.798551724137931,
+    "pnl": 23140.0,
+    "losers": 17
+   },
+   "removed": {
+    "n": 39,
+    "win": 0.48717948717948717,
+    "mean": 1.6367435897435898,
+    "pnl": 59241.0,
+    "losers": 20
+   }
+  },
+  "p": 0.34,
+  "shuffle_median": 0.3472222222222222,
+  "shuffle_max": 0.43452380952380953,
+  "verdict": "REJECTED",
+  "why": "shuffle p=0.340 >= 0.05; holdout kept win rate below the book's"
+ },
+ {
+  "book": "spot_dc12_t12_1130",
+  "rule": [
+   [
+    "s_bank_z",
+    "<",
+    0.37
+   ],
+   [
+    "basis_chg300",
+    "<",
+    3.75
+   ],
+   [
+    "r_gexwall_ahead_behind",
+    "<",
+    4.376344086021505
+   ]
+  ],
+  "rule_form": "AND",
+  "features": {
+   "s_bank_z": "photo field times trade direction (+1 CE, -1 PE)",
+   "basis_chg300": "photo field as recorded (weather.py)",
+   "r_gexwall_ahead_behind": "ratio of the two named photo fields (a/b)"
+  },
+  "search": "S6 greedy triple, all fields, 5 lines",
+  "score": 0.38566468253968256,
+  "discovery": {
+   "book": {
+    "n": 191,
+    "win": 0.3298429319371728,
+    "mean": 0.521649214659686,
+    "pnl": 95020.25,
+    "losers": 128
+   },
+   "kept": {
+    "n": 81,
+    "win": 0.5308641975308642,
+    "mean": 2.103172839506173,
+    "pnl": 161359.25,
+    "losers": 38
+   },
+   "removed": {
+    "n": 110,
+    "win": 0.18181818181818182,
+    "mean": -0.6429272727272727,
+    "pnl": -66339.0,
+    "losers": 90
+   }
+  },
+  "holdout": {
+   "book": {
+    "n": 68,
+    "win": 0.45588235294117646,
+    "mean": 1.279279411764706,
+    "pnl": 82381.0,
+    "losers": 37
+   },
+   "kept": {
+    "n": 19,
+    "win": 0.5263157894736842,
+    "mean": 2.8511052631578946,
+    "pnl": 60950.5,
+    "losers": 9
+   },
+   "removed": {
+    "n": 49,
+    "win": 0.42857142857142855,
+    "mean": 0.669795918367347,
+    "pnl": 21430.5,
+    "losers": 28
+   }
+  },
+  "p": 0.5,
+  "shuffle_median": 0.38566468253968256,
+  "shuffle_max": 0.5033482142857143,
+  "verdict": "REJECTED",
+  "why": "shuffle p=0.500 >= 0.05; holdout removed side is profitable"
+ },
+ {
+  "book": "spot_dc12_t12_1130",
+  "rule": [
+   [
+    "d_mv10_mv60",
+    "<",
+    -11.150000000000002
+   ],
+   [
+    "b_imp_with",
+    ">=",
+    1.0
+   ]
+  ],
+  "rule_form": "AND",
+  "features": {
+   "d_mv10_mv60": "difference of the two named photo fields (a-b)",
+   "b_imp_with": "boolean photo field as 0/1"
+  },
+  "search": "S7 pair maximising kept win rate (kept>=30), all fields, 5 lines",
+  "score": 0.699999988079071,
+  "discovery": {
+   "book": {
+    "n": 191,
+    "win": 0.3298429319371728,
+    "mean": 0.521649214659686,
+    "pnl": 95020.25,
+    "losers": 128
+   },
+   "kept": {
+    "n": 30,
+    "win": 0.7,
+    "mean": 5.444733333333334,
+    "pnl": 149968.0,
+    "losers": 9
+   },
+   "removed": {
+    "n": 161,
+    "win": 0.2608695652173913,
+    "mean": -0.39569565217391306,
+    "pnl": -54947.75,
+    "losers": 119
+   }
+  },
+  "holdout": {
+   "book": {
+    "n": 68,
+    "win": 0.45588235294117646,
+    "mean": 1.279279411764706,
+    "pnl": 82381.0,
+    "losers": 37
+   },
+   "kept": {
+    "n": 7,
+    "win": 0.5714285714285714,
+    "mean": 3.0442857142857145,
+    "pnl": 18846.75,
+    "losers": 3
+   },
+   "removed": {
+    "n": 61,
+    "win": 0.4426229508196721,
+    "mean": 1.0767377049180327,
+    "pnl": 63534.25,
+    "losers": 34
+   }
+  },
+  "p": 0.22,
+  "shuffle_median": 0.6666666865348816,
+  "shuffle_max": 0.75,
+  "verdict": "REJECTED",
+  "why": "shuffle p=0.220 >= 0.05; holdout removed side is profitable"
+ },
+ {
+  "book": "spot_dc12_t12_1130",
+  "rule": [
+   [
+    "opt_iv_chg5",
+    ">=",
+    0.06
+   ],
+   [
+    "wmove60_it",
+    ">=",
+    1.24
+   ]
+  ],
+  "rule_form": "OR",
+  "features": {
+   "opt_iv_chg5": "photo field as recorded (weather.py)",
+   "wmove60_it": "photo field as recorded (weather.py)"
+  },
+  "search": "S8 OR of two clauses, all fields, 5 lines, top 1200 masks",
+  "score": 0.3297371031746032,
+  "discovery": {
+   "book": {
+    "n": 191,
+    "win": 0.3298429319371728,
+    "mean": 0.521649214659686,
+    "pnl": 95020.25,
+    "losers": 128
+   },
+   "kept": {
+    "n": 73,
+    "win": 0.5205479452054794,
+    "mean": 3.3536849315068498,
+    "pnl": 242245.25,
+    "losers": 35
+   },
+   "removed": {
+    "n": 118,
+    "win": 0.211864406779661,
+    "mean": -1.2303728813559323,
+    "pnl": -147225.0,
+    "losers": 93
+   }
+  },
+  "holdout": {
+   "book": {
+    "n": 68,
+    "win": 0.45588235294117646,
+    "mean": 1.279279411764706,
+    "pnl": 82381.0,
+    "losers": 37
+   },
+   "kept": {
+    "n": 22,
+    "win": 0.6363636363636364,
+    "mean": 1.5070454545454546,
+    "pnl": 31885.75,
+    "losers": 8
+   },
+   "removed": {
+    "n": 46,
+    "win": 0.3695652173913043,
+    "mean": 1.1703478260869564,
+    "pnl": 50495.25,
+    "losers": 29
+   }
+  },
+  "p": 0.56,
+  "shuffle_median": 0.33209325396825395,
+  "shuffle_max": 0.4244791666666667,
+  "verdict": "REJECTED",
+  "why": "shuffle p=0.560 >= 0.05; holdout removed side is profitable"
+ },
+ {
+  "book": "spot_dc12_t12_1130",
+  "rule": [
+   [
+    "opt_iv_chg5",
+    ">=",
+    0.06
+   ]
+  ],
+  "rule_form": "AND",
+  "features": {
+   "opt_iv_chg5": "photo field as recorded (weather.py)"
+  },
+  "search": "S9 single, all fields, 9 lines",
+  "score": 0.22594246031746035,
+  "discovery": {
+   "book": {
+    "n": 191,
+    "win": 0.3298429319371728,
+    "mean": 0.521649214659686,
+    "pnl": 95020.25,
+    "losers": 128
+   },
+   "kept": {
+    "n": 59,
+    "win": 0.4915254237288136,
+    "mean": 3.2294237288135594,
+    "pnl": 197037.75,
+    "losers": 30
+   },
+   "removed": {
+    "n": 132,
+    "win": 0.25757575757575757,
+    "mean": -0.6886439393939394,
+    "pnl": -102017.5,
+    "losers": 98
+   }
+  },
+  "holdout": {
+   "book": {
+    "n": 68,
+    "win": 0.45588235294117646,
+    "mean": 1.279279411764706,
+    "pnl": 82381.0,
+    "losers": 37
+   },
+   "kept": {
+    "n": 21,
+    "win": 0.6190476190476191,
+    "mean": 1.1301904761904762,
+    "pnl": 22577.75,
+    "losers": 8
+   },
+   "removed": {
+    "n": 47,
+    "win": 0.3829787234042553,
+    "mean": 1.3458936170212765,
+    "pnl": 59803.25,
+    "losers": 29
+   }
+  },
+  "p": 0.815,
+  "shuffle_median": 0.24627976190476192,
+  "shuffle_max": 0.3412698412698413,
+  "verdict": "REJECTED",
+  "why": "shuffle p=0.815 >= 0.05; holdout removed side is profitable"
+ },
+ {
+  "book": "spot_dc12_t12_nolock",
+  "rule": [
+   [
+    "opt_iv_chg5",
+    ">=",
+    0.08
+   ]
+  ],
+  "rule_form": "AND",
+  "features": {
+   "opt_iv_chg5": "photo field as recorded (weather.py)"
+  },
+  "search": "S1 single, base fields, 5 lines",
+  "score": 0.2192745514180976,
+  "discovery": {
+   "book": {
+    "n": 215,
+    "win": 0.3395348837209302,
+    "mean": 0.8064139534883722,
+    "pnl": 156367.25,
+    "losers": 142
+   },
+   "kept": {
+    "n": 69,
+    "win": 0.4927536231884058,
+    "mean": 3.522449275362319,
+    "pnl": 224838.25,
+    "losers": 35
+   },
+   "removed": {
+    "n": 146,
+    "win": 0.2671232876712329,
+    "mean": -0.4771917808219178,
+    "pnl": -68471.0,
+    "losers": 107
+   }
+  },
+  "holdout": {
+   "book": {
+    "n": 76,
+    "win": 0.4342105263157895,
+    "mean": 0.6762894736842104,
+    "pnl": 52071.5,
+    "losers": 43
+   },
+   "kept": {
+    "n": 23,
+    "win": 0.5217391304347826,
+    "mean": -0.17599999999999996,
+    "pnl": -2476.5,
+    "losers": 11
+   },
+   "removed": {
+    "n": 53,
+    "win": 0.39622641509433965,
+    "mean": 1.0461509433962264,
+    "pnl": 54548.0,
+    "losers": 32
+   }
+  },
+  "p": 0.41,
+  "shuffle_median": 0.21242523634960447,
+  "shuffle_max": 0.3237507235191974,
+  "verdict": "REJECTED",
+  "why": "shuffle p=0.410 >= 0.05; holdout removed side is profitable"
+ },
+ {
+  "book": "spot_dc12_t12_nolock",
+  "rule": [
+   [
+    "absorb60",
+    "<",
+    34603157.0
+   ],
+   [
+    "fmv300",
+    "<",
+    18.4
+   ]
+  ],
+  "rule_form": "AND",
+  "features": {
+   "absorb60": "photo field as recorded (weather.py)",
+   "fmv300": "photo field as recorded (weather.py)"
+  },
+  "search": "S2 pair, base fields, 5 lines",
+  "score": 0.29673934015049197,
+  "discovery": {
+   "book": {
+    "n": 215,
+    "win": 0.3395348837209302,
+    "mean": 0.8064139534883722,
+    "pnl": 156367.25,
+    "losers": 142
+   },
+   "kept": {
+    "n": 58,
+    "win": 0.5862068965517241,
+    "mean": 5.746913793103449,
+    "pnl": 389554.75,
+    "losers": 24
+   },
+   "removed": {
+    "n": 157,
+    "win": 0.2484076433121019,
+    "mean": -1.0187388535031847,
+    "pnl": -233187.5,
+    "losers": 118
+   }
+  },
+  "holdout": {
+   "book": {
+    "n": 76,
+    "win": 0.4342105263157895,
+    "mean": 0.6762894736842104,
+    "pnl": 52071.5,
+    "losers": 43
+   },
+   "kept": {
+    "n": 16,
+    "win": 0.375,
+    "mean": -0.020062500000000143,
+    "pnl": -1911.0,
+    "losers": 10
+   },
+   "removed": {
+    "n": 60,
+    "win": 0.45,
+    "mean": 0.8619833333333333,
+    "pnl": 53982.5,
+    "losers": 33
+   }
+  },
+  "p": 0.54,
+  "shuffle_median": 0.30108045533474825,
+  "shuffle_max": 0.3777734902566081,
+  "verdict": "REJECTED",
+  "why": "shuffle p=0.540 >= 0.05; holdout kept win rate below the book's"
+ },
+ {
+  "book": "spot_dc12_t12_nolock",
+  "rule": [
+   [
+    "s_bank_z",
+    "<",
+    0.4780000000000001
+   ]
+  ],
+  "rule_form": "AND",
+  "features": {
+   "s_bank_z": "photo field times trade direction (+1 CE, -1 PE)"
+  },
+  "search": "S3 single, derived fields (ratios/diffs/products/signed/z/bool), 5 lines",
+  "score": 0.2088558749758827,
+  "discovery": {
+   "book": {
+    "n": 215,
+    "win": 0.3395348837209302,
+    "mean": 0.8064139534883722,
+    "pnl": 156367.25,
+    "losers": 142
+   },
+   "kept": {
+    "n": 150,
+    "win": 0.4066666666666667,
+    "mean": 1.3421333333333332,
+    "pnl": 237981.25,
+    "losers": 89
+   },
+   "removed": {
+    "n": 65,
+    "win": 0.18461538461538463,
+    "mean": -0.4298615384615384,
+    "pnl": -81614.0,
+    "losers": 53
+   }
+  },
+  "holdout": {
+   "book": {
+    "n": 76,
+    "win": 0.4342105263157895,
+    "mean": 0.6762894736842104,
+    "pnl": 52071.5,
+    "losers": 43
+   },
+   "kept": {
+    "n": 42,
+    "win": 0.5,
+    "mean": 1.5359523809523812,
+    "pnl": 71769.75,
+    "losers": 21
+   },
+   "removed": {
+    "n": 34,
+    "win": 0.35294117647058826,
+    "mean": -0.3856470588235294,
+    "pnl": -19698.25,
+    "losers": 22
+   }
+  },
+  "p": 0.51,
+  "shuffle_median": 0.2088558749758827,
+  "shuffle_max": 0.31526143160331854,
+  "verdict": "REJECTED",
+  "why": "shuffle p=0.510 >= 0.05"
+ },
+ {
+  "book": "spot_dc12_t12_nolock",
+  "rule": [
+   [
+    "s_bank_z",
+    "<",
+    0.4780000000000001
+   ],
+   [
+    "vol_ratio_with",
+    ">=",
+    1.219
+   ]
+  ],
+  "rule_form": "AND",
+  "features": {
+   "s_bank_z": "photo field times trade direction (+1 CE, -1 PE)",
+   "vol_ratio_with": "photo field as recorded (weather.py)"
+  },
+  "search": "S4 pair, all fields (base+derived+text), 5 lines, top 1500 masks",
+  "score": 0.31593671618753616,
+  "discovery": {
+   "book": {
+    "n": 215,
+    "win": 0.3395348837209302,
+    "mean": 0.8064139534883722,
+    "pnl": 156367.25,
+    "losers": 142
+   },
+   "kept": {
+    "n": 70,
+    "win": 0.5571428571428572,
+    "mean": 2.033128571428571,
+    "pnl": 153653.5,
+    "losers": 31
+   },
+   "removed": {
+    "n": 145,
+    "win": 0.23448275862068965,
+    "mean": 0.21420689655172417,
+    "pnl": 2713.75,
+    "losers": 111
+   }
+  },
+  "holdout": {
+   "book": {
+    "n": 76,
+    "win": 0.4342105263157895,
+    "mean": 0.6762894736842104,
+    "pnl": 52071.5,
+    "losers": 43
+   },
+   "kept": {
+    "n": 23,
+    "win": 0.5652173913043478,
+    "mean": 3.9016956521739132,
+    "pnl": 90584.0,
+    "losers": 10
+   },
+   "removed": {
+    "n": 53,
+    "win": 0.37735849056603776,
+    "mean": -0.7234150943396227,
+    "pnl": -38512.5,
+    "losers": 33
+   }
+  },
+  "p": 0.505,
+  "shuffle_median": 0.31776963148755544,
+  "shuffle_max": 0.39899672004630526,
+  "verdict": "REJECTED",
+  "why": "shuffle p=0.505 >= 0.05"
+ },
+ {
+  "book": "spot_dc12_t12_nolock",
+  "rule": [
+   [
+    "s_bank_z",
+    "<",
+    0.4780000000000001
+   ],
+   [
+    "vol_ratio_with",
+    ">=",
+    1.219
+   ]
+  ],
+  "rule_form": "AND",
+  "features": {
+   "s_bank_z": "photo field times trade direction (+1 CE, -1 PE)",
+   "vol_ratio_with": "photo field as recorded (weather.py)"
+  },
+  "search": "S5 pair, all fields, 9 lines, top 1500 masks",
+  "score": 0.31593671618753616,
+  "discovery": {
+   "book": {
+    "n": 215,
+    "win": 0.3395348837209302,
+    "mean": 0.8064139534883722,
+    "pnl": 156367.25,
+    "losers": 142
+   },
+   "kept": {
+    "n": 70,
+    "win": 0.5571428571428572,
+    "mean": 2.033128571428571,
+    "pnl": 153653.5,
+    "losers": 31
+   },
+   "removed": {
+    "n": 145,
+    "win": 0.23448275862068965,
+    "mean": 0.21420689655172417,
+    "pnl": 2713.75,
+    "losers": 111
+   }
+  },
+  "holdout": {
+   "book": {
+    "n": 76,
+    "win": 0.4342105263157895,
+    "mean": 0.6762894736842104,
+    "pnl": 52071.5,
+    "losers": 43
+   },
+   "kept": {
+    "n": 23,
+    "win": 0.5652173913043478,
+    "mean": 3.9016956521739132,
+    "pnl": 90584.0,
+    "losers": 10
+   },
+   "removed": {
+    "n": 53,
+    "win": 0.37735849056603776,
+    "mean": -0.7234150943396227,
+    "pnl": -38512.5,
+    "losers": 33
+   }
+  },
+  "p": 0.74,
+  "shuffle_median": 0.33088944626664096,
+  "shuffle_max": 0.402083735288443,
+  "verdict": "REJECTED",
+  "why": "shuffle p=0.740 >= 0.05"
+ },
+ {
+  "book": "spot_dc12_t12_nolock",
+  "rule": [
+   [
+    "s_bank_z",
+    "<",
+    0.4780000000000001
+   ],
+   [
+    "vol_ratio_with",
+    ">=",
+    1.219
+   ],
+   [
+    "r_wmove60_mv60",
+    "<",
+    0.9922955974842766
+   ]
+  ],
+  "rule_form": "AND",
+  "features": {
+   "s_bank_z": "photo field times trade direction (+1 CE, -1 PE)",
+   "vol_ratio_with": "photo field as recorded (weather.py)",
+   "r_wmove60_mv60": "ratio of the two named photo fields (a/b)"
+  },
+  "search": "S6 greedy triple, all fields, 5 lines",
+  "score": 0.35191973760370443,
+  "discovery": {
+   "book": {
+    "n": 215,
+    "win": 0.3395348837209302,
+    "mean": 0.8064139534883722,
+    "pnl": 156367.25,
+    "losers": 142
+   },
+   "kept": {
+    "n": 59,
+    "win": 0.6271186440677966,
+    "mean": 2.387372881355932,
+    "pnl": 156406.25,
+    "losers": 22
+   },
+   "removed": {
+    "n": 156,
+    "win": 0.23076923076923078,
+    "mean": 0.20848717948717954,
+    "pnl": -39.0,
+    "losers": 120
+   }
+  },
+  "holdout": {
+   "book": {
+    "n": 76,
+    "win": 0.4342105263157895,
+    "mean": 0.6762894736842104,
+    "pnl": 52071.5,
+    "losers": 43
+   },
+   "kept": {
+    "n": 14,
+    "win": 0.5714285714285714,
+    "mean": 3.198857142857143,
+    "pnl": 44356.0,
+    "losers": 6
+   },
+   "removed": {
+    "n": 62,
+    "win": 0.4032258064516129,
+    "mean": 0.1066774193548387,
+    "pnl": 7715.5,
+    "losers": 37
+   }
+  },
+  "p": 0.715,
+  "shuffle_median": 0.36663129461701716,
+  "shuffle_max": 0.44945012540999424,
+  "verdict": "REJECTED",
+  "why": "shuffle p=0.715 >= 0.05; holdout removed side is profitable"
+ },
+ {
+  "book": "spot_dc12_t12_nolock",
+  "rule": [
+   [
+    "opt_iv_chg5",
+    ">=",
+    0.08
+   ],
+   [
+    "fmv300",
+    "<",
+    18.4
+   ]
+  ],
+  "rule_form": "AND",
+  "features": {
+   "opt_iv_chg5": "photo field as recorded (weather.py)",
+   "fmv300": "photo field as recorded (weather.py)"
+  },
+  "search": "S7 pair maximising kept win rate (kept>=30), all fields, 5 lines",
+  "score": 0.699999988079071,
+  "discovery": {
+   "book": {
+    "n": 215,
+    "win": 0.3395348837209302,
+    "mean": 0.8064139534883722,
+    "pnl": 156367.25,
+    "losers": 142
+   },
+   "kept": {
+    "n": 30,
+    "win": 0.7,
+    "mean": 8.157133333333332,
+    "pnl": 276305.25,
+    "losers": 9
+   },
+   "removed": {
+    "n": 185,
+    "win": 0.2810810810810811,
+    "mean": -0.38559459459459455,
+    "pnl": -119938.0,
+    "losers": 133
+   }
+  },
+  "holdout": {
+   "book": {
+    "n": 76,
+    "win": 0.4342105263157895,
+    "mean": 0.6762894736842104,
+    "pnl": 52071.5,
+    "losers": 43
+   },
+   "kept": {
+    "n": 13,
+    "win": 0.5384615384615384,
+    "mean": 0.8052307692307692,
+    "pnl": 9223.5,
+    "losers": 6
+   },
+   "removed": {
+    "n": 63,
+    "win": 0.4126984126984127,
+    "mean": 0.6496825396825396,
+    "pnl": 42848.0,
+    "losers": 37
+   }
+  },
+  "p": 0.37,
+  "shuffle_median": 0.686607152223587,
+  "shuffle_max": 0.7878788113594055,
+  "verdict": "REJECTED",
+  "why": "shuffle p=0.370 >= 0.05; holdout removed side is profitable"
+ },
+ {
+  "book": "spot_dc12_t12_nolock",
+  "rule": [
+   [
+    "fmv300",
+    "<",
+    12.282000000000002
+   ],
+   [
+    "p_vanna_mv60",
+    ">=",
+    0.0202804
+   ]
+  ],
+  "rule_form": "OR",
+  "features": {
+   "fmv300": "photo field as recorded (weather.py)",
+   "p_vanna_mv60": "product of the two named photo fields"
+  },
+  "search": "S8 OR of two clauses, all fields, 5 lines, top 1200 masks",
+  "score": 0.31757669303492186,
+  "discovery": {
+   "book": {
+    "n": 215,
+    "win": 0.3395348837209302,
+    "mean": 0.8064139534883722,
+    "pnl": 156367.25,
+    "losers": 142
+   },
+   "kept": {
+    "n": 111,
+    "win": 0.4774774774774775,
+    "mean": 2.8123243243243246,
+    "pnl": 304518.5,
+    "losers": 58
+   },
+   "removed": {
+    "n": 104,
+    "win": 0.19230769230769232,
+    "mean": -1.3345096153846152,
+    "pnl": -148151.25,
+    "losers": 84
+   }
+  },
+  "holdout": {
+   "book": {
+    "n": 76,
+    "win": 0.4342105263157895,
+    "mean": 0.6762894736842104,
+    "pnl": 52071.5,
+    "losers": 43
+   },
+   "kept": {
+    "n": 36,
+    "win": 0.5,
+    "mean": -0.23816666666666667,
+    "pnl": -1111.5,
+    "losers": 18
+   },
+   "removed": {
+    "n": 40,
+    "win": 0.375,
+    "mean": 1.4993,
+    "pnl": 53183.0,
+    "losers": 25
+   }
+  },
+  "p": 0.4,
+  "shuffle_median": 0.3093768087979935,
+  "shuffle_max": 0.4157823654254293,
+  "verdict": "REJECTED",
+  "why": "shuffle p=0.400 >= 0.05; holdout removed side is profitable"
+ },
+ {
+  "book": "spot_dc12_t12_nolock",
+  "rule": [
+   [
+    "opt_iv_chg5",
+    ">=",
+    0.08
+   ]
+  ],
+  "rule_form": "AND",
+  "features": {
+   "opt_iv_chg5": "photo field as recorded (weather.py)"
+  },
+  "search": "S9 single, all fields, 9 lines",
+  "score": 0.2192745514180976,
+  "discovery": {
+   "book": {
+    "n": 215,
+    "win": 0.3395348837209302,
+    "mean": 0.8064139534883722,
+    "pnl": 156367.25,
+    "losers": 142
+   },
+   "kept": {
+    "n": 69,
+    "win": 0.4927536231884058,
+    "mean": 3.522449275362319,
+    "pnl": 224838.25,
+    "losers": 35
+   },
+   "removed": {
+    "n": 146,
+    "win": 0.2671232876712329,
+    "mean": -0.4771917808219178,
+    "pnl": -68471.0,
+    "losers": 107
+   }
+  },
+  "holdout": {
+   "book": {
+    "n": 76,
+    "win": 0.4342105263157895,
+    "mean": 0.6762894736842104,
+    "pnl": 52071.5,
+    "losers": 43
+   },
+   "kept": {
+    "n": 23,
+    "win": 0.5217391304347826,
+    "mean": -0.17599999999999996,
+    "pnl": -2476.5,
+    "losers": 11
+   },
+   "removed": {
+    "n": 53,
+    "win": 0.39622641509433965,
+    "mean": 1.0461509433962264,
+    "pnl": 54548.0,
+    "losers": 32
+   }
+  },
+  "p": 0.735,
+  "shuffle_median": 0.23461315840246966,
+  "shuffle_max": 0.32770596179818645,
+  "verdict": "REJECTED",
+  "why": "shuffle p=0.735 >= 0.05; holdout removed side is profitable"
+ },
+ {
+  "book": "spot_dc12_t12_r002",
+  "rule": [
+   [
+    "absorb60",
+    "<",
+    29701705.5
+   ]
+  ],
+  "rule_form": "AND",
+  "features": {
+   "absorb60": "photo field as recorded (weather.py)"
+  },
+  "search": "S1 single, base fields, 5 lines",
+  "score": 0.5010351966873705,
+  "discovery": {
+   "book": {
+    "n": 44,
+    "win": 0.4772727272727273,
+    "mean": 3.199772727272727,
+    "pnl": 150283.25,
+    "losers": 23
+   },
+   "kept": {
+    "n": 22,
+    "win": 0.7272727272727273,
+    "mean": 8.556636363636365,
+    "pnl": 250256.5,
+    "losers": 6
+   },
+   "removed": {
+    "n": 22,
+    "win": 0.22727272727272727,
+    "mean": -2.1570909090909094,
+    "pnl": -99973.25,
+    "losers": 17
+   }
+  },
+  "holdout": {
+   "book": {
+    "n": 16,
+    "win": 0.375,
+    "mean": -2.4692499999999997,
+    "pnl": -33978.75,
+    "losers": 10
+   },
+   "kept": {
+    "n": 7,
+    "win": 0.42857142857142855,
+    "mean": -2.1302857142857143,
+    "pnl": -12879.75,
+    "losers": 4
+   },
+   "removed": {
+    "n": 9,
+    "win": 0.3333333333333333,
+    "mean": -2.7328888888888887,
+    "pnl": -21099.0,
+    "losers": 6
+   }
+  },
+  "p": 0.21,
+  "shuffle_median": 0.40993788819875776,
+  "shuffle_max": 0.6438923395445134,
+  "verdict": "REJECTED",
+  "why": "shuffle p=0.210 >= 0.05"
+ },
+ {
+  "book": "spot_dc12_t12_r002",
+  "rule": [
+   [
+    "absorb60",
+    "<",
+    29701705.5
+   ],
+   [
+    "ret_today",
+    "<",
+    92.5822
+   ]
+  ],
+  "rule_form": "AND",
+  "features": {
+   "absorb60": "photo field as recorded (weather.py)",
+   "ret_today": "photo field as recorded (weather.py)"
+  },
+  "search": "S2 pair, base fields, 5 lines",
+  "score": 0.5879917184265011,
+  "discovery": {
+   "book": {
+    "n": 44,
+    "win": 0.4772727272727273,
+    "mean": 3.199772727272727,
+    "pnl": 150283.25,
+    "losers": 23
+   },
+   "kept": {
+    "n": 20,
+    "win": 0.8,
+    "mean": 9.8777,
+    "pnl": 271534.25,
+    "losers": 4
+   },
+   "removed": {
+    "n": 24,
+    "win": 0.20833333333333334,
+    "mean": -2.3651666666666666,
+    "pnl": -121251.0,
+    "losers": 19
+   }
+  },
+  "holdout": {
+   "book": {
+    "n": 16,
+    "win": 0.375,
+    "mean": -2.4692499999999997,
+    "pnl": -33978.75,
+    "losers": 10
+   },
+   "kept": {
+    "n": 7,
+    "win": 0.42857142857142855,
+    "mean": -2.1302857142857143,
+    "pnl": -12879.75,
+    "losers": 4
+   },
+   "removed": {
+    "n": 9,
+    "win": 0.3333333333333333,
+    "mean": -2.7328888888888887,
+    "pnl": -21099.0,
+    "losers": 6
+   }
+  },
+  "p": 0.68,
+  "shuffle_median": 0.5921325051759835,
+  "shuffle_max": 0.8178053830227743,
+  "verdict": "REJECTED",
+  "why": "shuffle p=0.680 >= 0.05"
+ },
+ {
+  "book": "spot_dc12_t12_r002",
+  "rule": [
+   [
+    "abs_wmove60",
+    ">=",
+    2.1750000000000003
+   ]
+  ],
+  "rule_form": "AND",
+  "features": {
+   "abs_wmove60": "absolute value of the photo field"
+  },
+  "search": "S3 single, derived fields (ratios/diffs/products/signed/z/bool), 5 lines",
+  "score": 0.474120082815735,
+  "discovery": {
+   "book": {
+    "n": 44,
+    "win": 0.4772727272727273,
+    "mean": 3.199772727272727,
+    "pnl": 150283.25,
+    "losers": 23
+   },
+   "kept": {
+    "n": 31,
+    "win": 0.6451612903225806,
+    "mean": 6.5960322580645165,
+    "pnl": 240106.75,
+    "losers": 11
+   },
+   "removed": {
+    "n": 13,
+    "win": 0.07692307692307693,
+    "mean": -4.899,
+    "pnl": -89823.5,
+    "losers": 12
+   }
+  },
+  "holdout": {
+   "book": {
+    "n": 16,
+    "win": 0.375,
+    "mean": -2.4692499999999997,
+    "pnl": -33978.75,
+    "losers": 10
+   },
+   "kept": {
+    "n": 12,
+    "win": 0.4166666666666667,
+    "mean": -2.5443333333333333,
+    "pnl": -25073.75,
+    "losers": 7
+   },
+   "removed": {
+    "n": 4,
+    "win": 0.25,
+    "mean": -2.2439999999999998,
+    "pnl": -8905.0,
+    "losers": 3
+   }
+  },
+  "p": 0.205,
+  "shuffle_median": 0.40993788819875776,
+  "shuffle_max": 0.5921325051759835,
+  "verdict": "REJECTED",
+  "why": "shuffle p=0.205 >= 0.05"
+ },
+ {
+  "book": "spot_dc12_t12_r002",
+  "rule": [
+   [
+    "abs_wmove60",
+    ">=",
+    2.1750000000000003
+   ],
+   [
+    "opt_lead",
+    "<",
+    0.056100000000000004
+   ]
+  ],
+  "rule_form": "AND",
+  "features": {
+   "abs_wmove60": "absolute value of the photo field",
+   "opt_lead": "photo field as recorded (weather.py)"
+  },
+  "search": "S4 pair, all fields (base+derived+text), 5 lines, top 1500 masks",
+  "score": 0.6356107660455487,
+  "discovery": {
+   "book": {
+    "n": 44,
+    "win": 0.4772727272727273,
+    "mean": 3.199772727272727,
+    "pnl": 150283.25,
+    "losers": 23
+   },
+   "kept": {
+    "n": 21,
+    "win": 0.8095238095238095,
+    "mean": 9.418666666666667,
+    "pnl": 259447.5,
+    "losers": 4
+   },
+   "removed": {
+    "n": 23,
+    "win": 0.17391304347826086,
+    "mean": -2.4783478260869565,
+    "pnl": -109164.25,
+    "losers": 19
+   }
+  },
+  "holdout": {
+   "book": {
+    "n": 16,
+    "win": 0.375,
+    "mean": -2.4692499999999997,
+    "pnl": -33978.75,
+    "losers": 10
+   },
+   "kept": {
+    "n": 8,
+    "win": 0.5,
+    "mean": -2.10875,
+    "pnl": -15730.0,
+    "losers": 4
+   },
+   "removed": {
+    "n": 8,
+    "win": 0.25,
+    "mean": -2.8297499999999998,
+    "pnl": -18248.75,
+    "losers": 6
+   }
+  },
+  "p": 0.41,
+  "shuffle_median": 0.6004140786749482,
+  "shuffle_max": 0.8178053830227743,
+  "verdict": "REJECTED",
+  "why": "shuffle p=0.410 >= 0.05"
+ },
+ {
+  "book": "spot_dc12_t12_r002",
+  "rule": [
+   [
+    "opt_lead",
+    "<",
+    0.06679999999999998
+   ],
+   [
+    "abs_e_fut_ofi60",
+    ">=",
+    4.065999999999999
+   ]
+  ],
+  "rule_form": "AND",
+  "features": {
+   "opt_lead": "photo field as recorded (weather.py)",
+   "abs_e_fut_ofi60": "absolute value of the photo field"
+  },
+  "search": "S5 pair, all fields, 9 lines, top 1500 masks",
+  "score": 0.7391304347826086,
+  "discovery": {
+   "book": {
+    "n": 44,
+    "win": 0.4772727272727273,
+    "mean": 3.199772727272727,
+    "pnl": 150283.25,
+    "losers": 23
+   },
+   "kept": {
+    "n": 27,
+    "win": 0.7777777777777778,
+    "mean": 9.058666666666667,
+    "pnl": 318084.0,
+    "losers": 6
+   },
+   "removed": {
+    "n": 17,
+    "win": 0.0,
+    "mean": -6.105529411764706,
+    "pnl": -167800.75,
+    "losers": 17
+   }
+  },
+  "holdout": {
+   "book": {
+    "n": 16,
+    "win": 0.375,
+    "mean": -2.4692499999999997,
+    "pnl": -33978.75,
+    "losers": 10
+   },
+   "kept": {
+    "n": 8,
+    "win": 0.5,
+    "mean": -2.10875,
+    "pnl": -15730.0,
+    "losers": 4
+   },
+   "removed": {
+    "n": 8,
+    "win": 0.25,
+    "mean": -2.8297499999999998,
+    "pnl": -18248.75,
+    "losers": 6
+   }
+  },
+  "p": 0.025,
+  "shuffle_median": 0.639751552795031,
+  "shuffle_max": 0.8219461697722568,
+  "verdict": "PROPOSE",
+  "why": "WEAK: passes 2-4 by the letter but the kept side LOST rupees on holdout"
+ },
+ {
+  "book": "spot_dc12_t12_r002",
+  "rule": [
+   [
+    "abs_wmove60",
+    ">=",
+    2.1750000000000003
+   ],
+   [
+    "opt_lead",
+    "<",
+    0.056100000000000004
+   ],
+   [
+    "rest_opp_rs",
+    ">=",
+    1476719.4
+   ]
+  ],
+  "rule_form": "AND",
+  "features": {
+   "abs_wmove60": "absolute value of the photo field",
+   "opt_lead": "photo field as recorded (weather.py)",
+   "rest_opp_rs": "photo field as recorded (weather.py)"
+  },
+  "search": "S6 greedy triple, all fields, 5 lines",
+  "score": 0.6790890269151139,
+  "discovery": {
+   "book": {
+    "n": 44,
+    "win": 0.4772727272727273,
+    "mean": 3.199772727272727,
+    "pnl": 150283.25,
+    "losers": 23
+   },
+   "kept": {
+    "n": 20,
+    "win": 0.85,
+    "mean": 10.6648,
+    "pnl": 277647.5,
+    "losers": 3
+   },
+   "removed": {
+    "n": 24,
+    "win": 0.16666666666666666,
+    "mean": -3.0210833333333333,
+    "pnl": -127364.25,
+    "losers": 20
+   }
+  },
+  "holdout": {
+   "book": {
+    "n": 16,
+    "win": 0.375,
+    "mean": -2.4692499999999997,
+    "pnl": -33978.75,
+    "losers": 10
+   },
+   "kept": {
+    "n": 8,
+    "win": 0.5,
+    "mean": -2.10875,
+    "pnl": -15730.0,
+    "losers": 4
+   },
+   "removed": {
+    "n": 8,
+    "win": 0.25,
+    "mean": -2.8297499999999998,
+    "pnl": -18248.75,
+    "losers": 6
+   }
+  },
+  "p": 0.8,
+  "shuffle_median": 0.6832298136645962,
+  "shuffle_max": 0.865424430641822,
+  "verdict": "REJECTED",
+  "why": "shuffle p=0.800 >= 0.05"
+ },
+ {
+  "book": "spot_dc12_t12_r002",
+  "rule": [
+   [
+    "abs_wmove60",
+    ">=",
+    2.1750000000000003
+   ],
+   [
+    "r_fmv60_mv60",
+    ">=",
+    0.3171352471145309
+   ]
+  ],
+  "rule_form": "AND",
+  "features": {
+   "abs_wmove60": "absolute value of the photo field",
+   "r_fmv60_mv60": "ratio of the two named photo fields (a/b)"
+  },
+  "search": "S7 pair maximising kept win rate (kept>=30), all fields, 5 lines",
+  "score": 0.6666666865348816,
+  "discovery": {
+   "book": {
+    "n": 44,
+    "win": 0.4772727272727273,
+    "mean": 3.199772727272727,
+    "pnl": 150283.25,
+    "losers": 23
+   },
+   "kept": {
+    "n": 30,
+    "win": 0.6666666666666666,
+    "mean": 6.951066666666666,
+    "pnl": 244370.75,
+    "losers": 10
+   },
+   "removed": {
+    "n": 14,
+    "win": 0.07142857142857142,
+    "mean": -4.838714285714286,
+    "pnl": -94087.5,
+    "losers": 13
+   }
+  },
+  "holdout": {
+   "book": {
+    "n": 16,
+    "win": 0.375,
+    "mean": -2.4692499999999997,
+    "pnl": -33978.75,
+    "losers": 10
+   },
+   "kept": {
+    "n": 12,
+    "win": 0.4166666666666667,
+    "mean": -2.5443333333333333,
+    "pnl": -25073.75,
+    "losers": 7
+   },
+   "removed": {
+    "n": 4,
+    "win": 0.25,
+    "mean": -2.2439999999999998,
+    "pnl": -8905.0,
+    "losers": 3
+   }
+  },
+  "p": 0.325,
+  "shuffle_median": 0.6451612710952759,
+  "shuffle_max": 0.699999988079071,
+  "verdict": "REJECTED",
+  "why": "shuffle p=0.325 >= 0.05"
+ },
+ {
+  "book": "spot_dc12_t12_r002",
+  "rule": [
+   [
+    "absorb60",
+    "<",
+    29701705.5
+   ],
+   [
+    "p_mv60_wmove60",
+    ">=",
+    18.656999999999996
+   ]
+  ],
+  "rule_form": "OR",
+  "features": {
+   "absorb60": "photo field as recorded (weather.py)",
+   "p_mv60_wmove60": "product of the two named photo fields"
+  },
+  "search": "S8 OR of two clauses, all fields, 5 lines, top 1200 masks",
+  "score": 0.5217391304347826,
+  "discovery": {
+   "book": {
+    "n": 44,
+    "win": 0.4772727272727273,
+    "mean": 3.199772727272727,
+    "pnl": 150283.25,
+    "losers": 23
+   },
+   "kept": {
+    "n": 32,
+    "win": 0.65625,
+    "mean": 6.74296875,
+    "pnl": 258336.0,
+    "losers": 11
+   },
+   "removed": {
+    "n": 12,
+    "win": 0.0,
+    "mean": -6.24875,
+    "pnl": -108052.75,
+    "losers": 12
+   }
+  },
+  "holdout": {
+   "book": {
+    "n": 16,
+    "win": 0.375,
+    "mean": -2.4692499999999997,
+    "pnl": -33978.75,
+    "losers": 10
+   },
+   "kept": {
+    "n": 12,
+    "win": 0.4166666666666667,
+    "mean": -2.5443333333333333,
+    "pnl": -25073.75,
+    "losers": 7
+   },
+   "removed": {
+    "n": 4,
+    "win": 0.25,
+    "mean": -2.2439999999999998,
+    "pnl": -8905.0,
+    "losers": 3
+   }
+  },
+  "p": 0.605,
+  "shuffle_median": 0.5217391304347826,
+  "shuffle_max": 0.6956521739130435,
+  "verdict": "REJECTED",
+  "why": "shuffle p=0.605 >= 0.05"
+ },
+ {
+  "book": "spot_dc12_t12_r002",
+  "rule": [
+   [
+    "p_mv60_wmove60",
+    ">=",
+    12.5902
+   ]
+  ],
+  "rule_form": "AND",
+  "features": {
+   "p_mv60_wmove60": "product of the two named photo fields"
+  },
+  "search": "S9 single, all fields, 9 lines",
+  "score": 0.5093167701863355,
+  "discovery": {
+   "book": {
+    "n": 44,
+    "win": 0.4772727272727273,
+    "mean": 3.199772727272727,
+    "pnl": 150283.25,
+    "losers": 23
+   },
+   "kept": {
+    "n": 26,
+    "win": 0.6923076923076923,
+    "mean": 7.261807692307692,
+    "pnl": 240087.25,
+    "losers": 8
+   },
+   "removed": {
+    "n": 18,
+    "win": 0.16666666666666666,
+    "mean": -2.667611111111111,
+    "pnl": -89804.0,
+    "losers": 15
+   }
+  },
+  "holdout": {
+   "book": {
+    "n": 16,
+    "win": 0.375,
+    "mean": -2.4692499999999997,
+    "pnl": -33978.75,
+    "losers": 10
+   },
+   "kept": {
+    "n": 12,
+    "win": 0.4166666666666667,
+    "mean": -2.5443333333333333,
+    "pnl": -25073.75,
+    "losers": 7
+   },
+   "removed": {
+    "n": 4,
+    "win": 0.25,
+    "mean": -2.2439999999999998,
+    "pnl": -8905.0,
+    "losers": 3
+   }
+  },
+  "p": 0.25,
+  "shuffle_median": 0.4616977225672878,
+  "shuffle_max": 0.6480331262939958,
+  "verdict": "REJECTED",
+  "why": "shuffle p=0.250 >= 0.05"
+ },
+ {
+  "book": "spot_dc12_t12_first",
+  "rule": [
+   [
+    "oi_net_help5",
+    ">=",
+    105917.5
+   ]
+  ],
+  "rule_form": "AND",
+  "features": {
+   "oi_net_help5": "photo field as recorded (weather.py)"
+  },
+  "search": "S1 single, base fields, 5 lines",
+  "score": 0.1893830703012912,
+  "discovery": {
+   "book": {
+    "n": 436,
+    "win": 0.3761467889908257,
+    "mean": 0.2459862385321101,
+    "pnl": 105296.75,
+    "losers": 272
+   },
+   "kept": {
+    "n": 217,
+    "win": 0.46543778801843316,
+    "mean": 1.4065944700460828,
+    "pnl": 279971.25,
+    "losers": 116
+   },
+   "removed": {
+    "n": 219,
+    "win": 0.2876712328767123,
+    "mean": -0.9040228310502283,
+    "pnl": -174674.5,
+    "losers": 156
+   }
+  },
+  "holdout": {
+   "book": {
+    "n": 167,
+    "win": 0.40718562874251496,
+    "mean": 0.00056287425149698,
+    "pnl": 5239.0,
+    "losers": 99
+   },
+   "kept": {
+    "n": 84,
+    "win": 0.4166666666666667,
+    "mean": 0.24542857142857138,
+    "pnl": 27901.25,
+    "losers": 49
+   },
+   "removed": {
+    "n": 83,
+    "win": 0.39759036144578314,
+    "mean": -0.2472530120481928,
+    "pnl": -22662.25,
+    "losers": 50
+   }
+  },
+  "p": 0.02,
+  "shuffle_median": 0.1466104734576758,
+  "shuffle_max": 0.205254662840746,
+  "verdict": "PROPOSE",
+  "why": "passes 2-4"
+ },
+ {
+  "book": "spot_dc12_t12_first",
+  "rule": [
+   [
+    "oi_net_help5",
+    ">=",
+    105917.5
+   ],
+   [
+    "fut_imb_t_chg30",
+    ">=",
+    -0.010599999999999995
+   ]
+  ],
+  "rule_form": "AND",
+  "features": {
+   "oi_net_help5": "photo field as recorded (weather.py)",
+   "fut_imb_t_chg30": "photo field as recorded (weather.py)"
+  },
+  "search": "S2 pair, base fields, 5 lines",
+  "score": 0.2311692969870875,
+  "discovery": {
+   "book": {
+    "n": 436,
+    "win": 0.3761467889908257,
+    "mean": 0.2459862385321101,
+    "pnl": 105296.75,
+    "losers": 272
+   },
+   "kept": {
+    "n": 195,
+    "win": 0.49743589743589745,
+    "mean": 1.520405128205128,
+    "pnl": 295236.5,
+    "losers": 98
+   },
+   "removed": {
+    "n": 241,
+    "win": 0.27800829875518673,
+    "mean": -0.785182572614108,
+    "pnl": -189939.75,
+    "losers": 174
+   }
+  },
+  "holdout": {
+   "book": {
+    "n": 167,
+    "win": 0.40718562874251496,
+    "mean": 0.00056287425149698,
+    "pnl": 5239.0,
+    "losers": 99
+   },
+   "kept": {
+    "n": 79,
+    "win": 0.4177215189873418,
+    "mean": 0.33972151898734176,
+    "pnl": 32994.0,
+    "losers": 46
+   },
+   "removed": {
+    "n": 88,
+    "win": 0.3977272727272727,
+    "mean": -0.3039090909090909,
+    "pnl": -27755.0,
+    "losers": 53
+   }
+  },
+  "p": 0.075,
+  "shuffle_median": 0.2034164275466284,
+  "shuffle_max": 0.2690100430416069,
+  "verdict": "REJECTED",
+  "why": "shuffle p=0.075 >= 0.05"
+ },
+ {
+  "book": "spot_dc12_t12_first",
+  "rule": [
+   [
+    "rk_spread_pct",
+    "<",
+    0.2857142857142857
+   ]
+  ],
+  "rule_form": "AND",
+  "features": {
+   "rk_spread_pct": "share of the book's earlier trades that day with a lower value"
+  },
+  "search": "S3 single, derived fields (ratios/diffs/products/signed/z/bool), 5 lines",
+  "score": 0.17091104734576756,
+  "discovery": {
+   "book": {
+    "n": 436,
+    "win": 0.3761467889908257,
+    "mean": 0.2459862385321101,
+    "pnl": 105296.75,
+    "losers": 272
+   },
+   "kept": {
+    "n": 121,
+    "win": 0.5206611570247934,
+    "mean": 1.1995041322314048,
+    "pnl": 153624.25,
+    "losers": 58
+   },
+   "removed": {
+    "n": 315,
+    "win": 0.32063492063492066,
+    "mean": -0.12028571428571429,
+    "pnl": -48327.5,
+    "losers": 214
+   }
+  },
+  "holdout": {
+   "book": {
+    "n": 167,
+    "win": 0.40718562874251496,
+    "mean": 0.00056287425149698,
+    "pnl": 5239.0,
+    "losers": 99
+   },
+   "kept": {
+    "n": 52,
+    "win": 0.46153846153846156,
+    "mean": 1.9073461538461538,
+    "pnl": 76180.0,
+    "losers": 28
+   },
+   "removed": {
+    "n": 115,
+    "win": 0.3826086956521739,
+    "mean": -0.8616347826086957,
+    "pnl": -70941.0,
+    "losers": 71
+   }
+  },
+  "p": 0.1,
+  "shuffle_median": 0.1385401721664275,
+  "shuffle_max": 0.21502869440459116,
+  "verdict": "REJECTED",
+  "why": "shuffle p=0.100 >= 0.05"
+ },
+ {
+  "book": "spot_dc12_t12_first",
+  "rule": [
+   [
+    "z_spread_pct",
+    "<",
+    0.6033211990284332
+   ],
+   [
+    "new_highs",
+    "<",
+    98.0
+   ]
+  ],
+  "rule_form": "AND",
+  "features": {
+   "z_spread_pct": "z-score of the field against the book's own EARLIER trades that day (>=3 earlier)",
+   "new_highs": "photo field as recorded (weather.py)"
+  },
+  "search": "S4 pair, all fields (base+derived+text), 5 lines, top 1500 masks",
+  "score": 0.23744619799139172,
+  "discovery": {
+   "book": {
+    "n": 436,
+    "win": 0.3761467889908257,
+    "mean": 0.2459862385321101,
+    "pnl": 105296.75,
+    "losers": 272
+   },
+   "kept": {
+    "n": 180,
+    "win": 0.5111111111111111,
+    "mean": 1.2907666666666666,
+    "pnl": 241140.25,
+    "losers": 88
+   },
+   "removed": {
+    "n": 256,
+    "win": 0.28125,
+    "mean": -0.48862500000000003,
+    "pnl": -135843.5,
+    "losers": 184
+   }
+  },
+  "holdout": {
+   "book": {
+    "n": 167,
+    "win": 0.40718562874251496,
+    "mean": 0.00056287425149698,
+    "pnl": 5239.0,
+    "losers": 99
+   },
+   "kept": {
+    "n": 21,
+    "win": 0.38095238095238093,
+    "mean": -0.28276190476190477,
+    "pnl": -7319.0,
+    "losers": 13
+   },
+   "removed": {
+    "n": 146,
+    "win": 0.410958904109589,
+    "mean": 0.041315068493150656,
+    "pnl": 12558.0,
+    "losers": 86
+   }
+  },
+  "p": 0.105,
+  "shuffle_median": 0.21314562410329985,
+  "shuffle_max": 0.2690100430416069,
+  "verdict": "REJECTED",
+  "why": "shuffle p=0.105 >= 0.05; holdout kept win rate below the book's"
+ },
+ {
+  "book": "spot_dc12_t12_first",
+  "rule": [
+   [
+    "rk_spread_pct",
+    "<",
+    0.5789473684210527
+   ],
+   [
+    "new_highs",
+    "<",
+    98.0
+   ]
+  ],
+  "rule_form": "AND",
+  "features": {
+   "rk_spread_pct": "share of the book's earlier trades that day with a lower value",
+   "new_highs": "photo field as recorded (weather.py)"
+  },
+  "search": "S5 pair, all fields, 9 lines, top 1500 masks",
+  "score": 0.2524210903873745,
+  "discovery": {
+   "book": {
+    "n": 436,
+    "win": 0.3761467889908257,
+    "mean": 0.2459862385321101,
+    "pnl": 105296.75,
+    "losers": 272
+   },
+   "kept": {
+    "n": 152,
+    "win": 0.5460526315789473,
+    "mean": 1.4792434210526315,
+    "pnl": 232748.75,
+    "losers": 69
+   },
+   "removed": {
+    "n": 284,
+    "win": 0.2852112676056338,
+    "mean": -0.4140669014084507,
+    "pnl": -127452.0,
+    "losers": 203
+   }
+  },
+  "holdout": {
+   "book": {
+    "n": 167,
+    "win": 0.40718562874251496,
+    "mean": 0.00056287425149698,
+    "pnl": 5239.0,
+    "losers": 99
+   },
+   "kept": {
+    "n": 19,
+    "win": 0.42105263157894735,
+    "mean": 0.4520526315789474,
+    "pnl": 5408.0,
+    "losers": 11
+   },
+   "removed": {
+    "n": 148,
+    "win": 0.40540540540540543,
+    "mean": -0.05739864864864868,
+    "pnl": -169.0,
+    "losers": 88
+   }
+  },
+  "p": 0.08,
+  "shuffle_median": 0.22265064562410328,
+  "shuffle_max": 0.2873027259684362,
+  "verdict": "REJECTED",
+  "why": "shuffle p=0.080 >= 0.05"
+ },
+ {
+  "book": "spot_dc12_t12_first",
+  "rule": [
+   [
+    "z_spread_pct",
+    "<",
+    0.6033211990284332
+   ],
+   [
+    "new_highs",
+    "<",
+    98.0
+   ],
+   [
+    "fut_imb_t_chg30",
+    ">=",
+    -0.010599999999999995
+   ]
+  ],
+  "rule_form": "AND",
+  "features": {
+   "z_spread_pct": "z-score of the field against the book's own EARLIER trades that day (>=3 earlier)",
+   "new_highs": "photo field as recorded (weather.py)",
+   "fut_imb_t_chg30": "photo field as recorded (weather.py)"
+  },
+  "search": "S6 greedy triple, all fields, 5 lines",
+  "score": 0.2706241032998565,
+  "discovery": {
+   "book": {
+    "n": 436,
+    "win": 0.3761467889908257,
+    "mean": 0.2459862385321101,
+    "pnl": 105296.75,
+    "losers": 272
+   },
+   "kept": {
+    "n": 163,
+    "win": 0.5460122699386503,
+    "mean": 1.6423374233128836,
+    "pnl": 289302.0,
+    "losers": 74
+   },
+   "removed": {
+    "n": 273,
+    "win": 0.27472527472527475,
+    "mean": -0.5877326007326007,
+    "pnl": -184005.25,
+    "losers": 198
+   }
+  },
+  "holdout": {
+   "book": {
+    "n": 167,
+    "win": 0.40718562874251496,
+    "mean": 0.00056287425149698,
+    "pnl": 5239.0,
+    "losers": 99
+   },
+   "kept": {
+    "n": 17,
+    "win": 0.4117647058823529,
+    "mean": 0.37764705882352945,
+    "pnl": 1235.0,
+    "losers": 10
+   },
+   "removed": {
+    "n": 150,
+    "win": 0.4066666666666667,
+    "mean": -0.04217333333333337,
+    "pnl": 4004.0,
+    "losers": 89
+   }
+  },
+  "p": 0.13,
+  "shuffle_median": 0.24937230989956957,
+  "shuffle_max": 0.30469870875179345,
+  "verdict": "REJECTED",
+  "why": "shuffle p=0.130 >= 0.05; holdout removed side is profitable"
+ },
+ {
+  "book": "spot_dc12_t12_first",
+  "rule": [
+   [
+    "rk_spread_pct",
+    "<",
+    0.2857142857142857
+   ],
+   [
+    "s_basis_chg60",
+    "<",
+    -1.6249999999999987
+   ]
+  ],
+  "rule_form": "AND",
+  "features": {
+   "rk_spread_pct": "share of the book's earlier trades that day with a lower value",
+   "s_basis_chg60": "photo field times trade direction (+1 CE, -1 PE)"
+  },
+  "search": "S7 pair maximising kept win rate (kept>=30), all fields, 5 lines",
+  "score": 0.7631579041481018,
+  "discovery": {
+   "book": {
+    "n": 436,
+    "win": 0.3761467889908257,
+    "mean": 0.2459862385321101,
+    "pnl": 105296.75,
+    "losers": 272
+   },
+   "kept": {
+    "n": 38,
+    "win": 0.7631578947368421,
+    "mean": 4.648315789473684,
+    "pnl": 202156.5,
+    "losers": 9
+   },
+   "removed": {
+    "n": 398,
+    "win": 0.3391959798994975,
+    "mean": -0.17433668341708541,
+    "pnl": -96859.75,
+    "losers": 263
+   }
+  },
+  "holdout": {
+   "book": {
+    "n": 167,
+    "win": 0.40718562874251496,
+    "mean": 0.00056287425149698,
+    "pnl": 5239.0,
+    "losers": 99
+   },
+   "kept": {
+    "n": 17,
+    "win": 0.6470588235294118,
+    "mean": 2.265470588235294,
+    "pnl": 28372.5,
+    "losers": 6
+   },
+   "removed": {
+    "n": 150,
+    "win": 0.38,
+    "mean": -0.25612666666666667,
+    "pnl": -23133.5,
+    "losers": 93
+   }
+  },
+  "p": 0.19,
+  "shuffle_median": 0.7333333492279053,
+  "shuffle_max": 0.8333333134651184,
+  "verdict": "REJECTED",
+  "why": "shuffle p=0.190 >= 0.05"
+ },
+ {
+  "book": "spot_dc12_t12_first",
+  "rule": [
+   [
+    "z_spread_pct",
+    "<",
+    -0.3837377747526012
+   ],
+   [
+    "sl_room_up_pct",
+    ">=",
+    1.45
+   ]
+  ],
+  "rule_form": "OR",
+  "features": {
+   "z_spread_pct": "z-score of the field against the book's own EARLIER trades that day (>=3 earlier)",
+   "sl_room_up_pct": "photo field as recorded (weather.py)"
+  },
+  "search": "S8 OR of two clauses, all fields, 5 lines, top 1200 masks",
+  "score": 0.2487446197991392,
+  "discovery": {
+   "book": {
+    "n": 436,
+    "win": 0.3761467889908257,
+    "mean": 0.2459862385321101,
+    "pnl": 105296.75,
+    "losers": 272
+   },
+   "kept": {
+    "n": 262,
+    "win": 0.4732824427480916,
+    "mean": 0.919942748091603,
+    "pnl": 252518.5,
+    "losers": 138
+   },
+   "removed": {
+    "n": 174,
+    "win": 0.22988505747126436,
+    "mean": -0.7688218390804598,
+    "pnl": -147221.75,
+    "losers": 134
+   }
+  },
+  "holdout": {
+   "book": {
+    "n": 167,
+    "win": 0.40718562874251496,
+    "mean": 0.00056287425149698,
+    "pnl": 5239.0,
+    "losers": 99
+   },
+   "kept": {
+    "n": 108,
+    "win": 0.4166666666666667,
+    "mean": 0.5132685185185185,
+    "pnl": 38665.25,
+    "losers": 63
+   },
+   "removed": {
+    "n": 59,
+    "win": 0.3898305084745763,
+    "mean": -0.937949152542373,
+    "pnl": -33426.25,
+    "losers": 36
+   }
+  },
+  "p": 0.065,
+  "shuffle_median": 0.21377331420373025,
+  "shuffle_max": 0.27439024390243905,
+  "verdict": "REJECTED",
+  "why": "shuffle p=0.065 >= 0.05"
+ },
+ {
+  "book": "spot_dc12_t12_first",
+  "rule": [
+   [
+    "oi_net_help5",
+    ">=",
+    105917.5
+   ]
+  ],
+  "rule_form": "AND",
+  "features": {
+   "oi_net_help5": "photo field as recorded (weather.py)"
+  },
+  "search": "S9 single, all fields, 9 lines",
+  "score": 0.1893830703012912,
+  "discovery": {
+   "book": {
+    "n": 436,
+    "win": 0.3761467889908257,
+    "mean": 0.2459862385321101,
+    "pnl": 105296.75,
+    "losers": 272
+   },
+   "kept": {
+    "n": 217,
+    "win": 0.46543778801843316,
+    "mean": 1.4065944700460828,
+    "pnl": 279971.25,
+    "losers": 116
+   },
+   "removed": {
+    "n": 219,
+    "win": 0.2876712328767123,
+    "mean": -0.9040228310502283,
+    "pnl": -174674.5,
+    "losers": 156
+   }
+  },
+  "holdout": {
+   "book": {
+    "n": 167,
+    "win": 0.40718562874251496,
+    "mean": 0.00056287425149698,
+    "pnl": 5239.0,
+    "losers": 99
+   },
+   "kept": {
+    "n": 84,
+    "win": 0.4166666666666667,
+    "mean": 0.24542857142857138,
+    "pnl": 27901.25,
+    "losers": 49
+   },
+   "removed": {
+    "n": 83,
+    "win": 0.39759036144578314,
+    "mean": -0.2472530120481928,
+    "pnl": -22662.25,
+    "losers": 50
+   }
+  },
+  "p": 0.09,
+  "shuffle_median": 0.15750538020086083,
+  "shuffle_max": 0.2436334289813486,
+  "verdict": "REJECTED",
+  "why": "shuffle p=0.090 >= 0.05"
+ },
+ {
+  "book": "spot_dc12_t12_first_r002",
+  "rule": [
+   [
+    "agree_same",
+    ">=",
+    2.0
+   ]
+  ],
+  "rule_form": "AND",
+  "features": {
+   "agree_same": "photo field as recorded (weather.py)"
+  },
+  "search": "S1 single, base fields, 5 lines",
+  "score": 0.3012820512820513,
+  "discovery": {
+   "book": {
+    "n": 91,
+    "win": 0.42857142857142855,
+    "mean": 1.7961098901098902,
+    "pnl": 184132.0,
+    "losers": 52
+   },
+   "kept": {
+    "n": 66,
+    "win": 0.5303030303030303,
+    "mean": 3.4084848484848487,
+    "pnl": 261257.75,
+    "losers": 31
+   },
+   "removed": {
+    "n": 25,
+    "win": 0.16,
+    "mean": -2.4605599999999996,
+    "pnl": -77125.75,
+    "losers": 21
+   }
+  },
+  "holdout": {
+   "book": {
+    "n": 40,
+    "win": 0.45,
+    "mean": -0.2472,
+    "pnl": 5674.5,
+    "losers": 22
+   },
+   "kept": {
+    "n": 31,
+    "win": 0.3870967741935484,
+    "mean": -2.417225806451613,
+    "pnl": -49507.25,
+    "losers": 19
+   },
+   "removed": {
+    "n": 9,
+    "win": 0.6666666666666666,
+    "mean": 7.227333333333334,
+    "pnl": 55181.75,
+    "losers": 3
+   }
+  },
+  "p": 0.55,
+  "shuffle_median": 0.3141025641025641,
+  "shuffle_max": 0.4487179487179487,
+  "verdict": "REJECTED",
+  "why": "shuffle p=0.550 >= 0.05; holdout kept win rate below the book's"
+ },
+ {
+  "book": "spot_dc12_t12_first_r002",
+  "rule": [
+   [
+    "quote_age",
+    ">=",
+    0.21000000000000002
+   ],
+   [
+    "e_basis_dev",
+    "<",
+    2.4500000000000015
+   ]
+  ],
+  "rule_form": "AND",
+  "features": {
+   "quote_age": "photo field as recorded (weather.py)",
+   "e_basis_dev": "photo field as recorded (weather.py)"
+  },
+  "search": "S2 pair, base fields, 5 lines",
+  "score": 0.4487179487179487,
+  "discovery": {
+   "book": {
+    "n": 91,
+    "win": 0.42857142857142855,
+    "mean": 1.7961098901098902,
+    "pnl": 184132.0,
+    "losers": 52
+   },
+   "kept": {
+    "n": 42,
+    "win": 0.6666666666666666,
+    "mean": 5.520619047619047,
+    "pnl": 256353.5,
+    "losers": 14
+   },
+   "removed": {
+    "n": 49,
+    "win": 0.22448979591836735,
+    "mean": -1.396326530612245,
+    "pnl": -72221.5,
+    "losers": 38
+   }
+  },
+  "holdout": {
+   "book": {
+    "n": 40,
+    "win": 0.45,
+    "mean": -0.2472,
+    "pnl": 5674.5,
+    "losers": 22
+   },
+   "kept": {
+    "n": 17,
+    "win": 0.35294117647058826,
+    "mean": -0.9131176470588236,
+    "pnl": -5167.5,
+    "losers": 11
+   },
+   "removed": {
+    "n": 23,
+    "win": 0.5217391304347826,
+    "mean": 0.24500000000000008,
+    "pnl": 10842.0,
+    "losers": 11
+   }
+  },
+  "p": 0.375,
+  "shuffle_median": 0.4294871794871795,
+  "shuffle_max": 0.5448717948717949,
+  "verdict": "REJECTED",
+  "why": "shuffle p=0.375 >= 0.05; holdout kept win rate below the book's"
+ },
+ {
+  "book": "spot_dc12_t12_first_r002",
+  "rule": [
+   [
+    "rk_spread_pct",
+    "<",
+    1.0
+   ]
+  ],
+  "rule_form": "AND",
+  "features": {
+   "rk_spread_pct": "share of the book's earlier trades that day with a lower value"
+  },
+  "search": "S3 single, derived fields (ratios/diffs/products/signed/z/bool), 5 lines",
+  "score": 0.3589743589743589,
+  "discovery": {
+   "book": {
+    "n": 91,
+    "win": 0.42857142857142855,
+    "mean": 1.7961098901098902,
+    "pnl": 184132.0,
+    "losers": 52
+   },
+   "kept": {
+    "n": 56,
+    "win": 0.5714285714285714,
+    "mean": 4.143357142857143,
+    "pnl": 269867.0,
+    "losers": 24
+   },
+   "removed": {
+    "n": 35,
+    "win": 0.2,
+    "mean": -1.9594857142857145,
+    "pnl": -85735.0,
+    "losers": 28
+   }
+  },
+  "holdout": {
+   "book": {
+    "n": 40,
+    "win": 0.45,
+    "mean": -0.2472,
+    "pnl": 5674.5,
+    "losers": 22
+   },
+   "kept": {
+    "n": 28,
+    "win": 0.42857142857142855,
+    "mean": -0.8931428571428571,
+    "pnl": -21095.75,
+    "losers": 16
+   },
+   "removed": {
+    "n": 12,
+    "win": 0.5,
+    "mean": 1.26,
+    "pnl": 26770.25,
+    "losers": 6
+   }
+  },
+  "p": 0.09,
+  "shuffle_median": 0.30128205128205127,
+  "shuffle_max": 0.423076923076923,
+  "verdict": "REJECTED",
+  "why": "shuffle p=0.090 >= 0.05; holdout kept win rate below the book's"
+ },
+ {
+  "book": "spot_dc12_t12_first_r002",
+  "rule": [
+   [
+    "rk_spread_pct",
+    "<",
+    1.0
+   ],
+   [
+    "agree_same",
+    ">=",
+    2.0
+   ]
+  ],
+  "rule_form": "AND",
+  "features": {
+   "rk_spread_pct": "share of the book's earlier trades that day with a lower value",
+   "agree_same": "photo field as recorded (weather.py)"
+  },
+  "search": "S4 pair, all fields (base+derived+text), 5 lines, top 1500 masks",
+  "score": 0.48717948717948717,
+  "discovery": {
+   "book": {
+    "n": 91,
+    "win": 0.42857142857142855,
+    "mean": 1.7961098901098902,
+    "pnl": 184132.0,
+    "losers": 52
+   },
+   "kept": {
+    "n": 47,
+    "win": 0.6595744680851063,
+    "mean": 5.657787234042553,
+    "pnl": 322318.75,
+    "losers": 16
+   },
+   "removed": {
+    "n": 44,
+    "win": 0.18181818181818182,
+    "mean": -2.328863636363636,
+    "pnl": -138186.75,
+    "losers": 36
+   }
+  },
+  "holdout": {
+   "book": {
+    "n": 40,
+    "win": 0.45,
+    "mean": -0.2472,
+    "pnl": 5674.5,
+    "losers": 22
+   },
+   "kept": {
+    "n": 24,
+    "win": 0.4166666666666667,
+    "mean": -1.6064166666666668,
+    "pnl": -26351.0,
+    "losers": 14
+   },
+   "removed": {
+    "n": 16,
+    "win": 0.5,
+    "mean": 1.791625,
+    "pnl": 32025.5,
+    "losers": 8
+   }
+  },
+  "p": 0.18,
+  "shuffle_median": 0.4487179487179487,
+  "shuffle_max": 0.5448717948717949,
+  "verdict": "REJECTED",
+  "why": "shuffle p=0.180 >= 0.05; holdout kept win rate below the book's"
+ },
+ {
+  "book": "spot_dc12_t12_first_r002",
+  "rule": [
+   [
+    "rk_spread_pct",
+    "<",
+    1.0
+   ],
+   [
+    "agree_same",
+    ">=",
+    2.0
+   ]
+  ],
+  "rule_form": "AND",
+  "features": {
+   "rk_spread_pct": "share of the book's earlier trades that day with a lower value",
+   "agree_same": "photo field as recorded (weather.py)"
+  },
+  "search": "S5 pair, all fields, 9 lines, top 1500 masks",
+  "score": 0.48717948717948717,
+  "discovery": {
+   "book": {
+    "n": 91,
+    "win": 0.42857142857142855,
+    "mean": 1.7961098901098902,
+    "pnl": 184132.0,
+    "losers": 52
+   },
+   "kept": {
+    "n": 47,
+    "win": 0.6595744680851063,
+    "mean": 5.657787234042553,
+    "pnl": 322318.75,
+    "losers": 16
+   },
+   "removed": {
+    "n": 44,
+    "win": 0.18181818181818182,
+    "mean": -2.328863636363636,
+    "pnl": -138186.75,
+    "losers": 36
+   }
+  },
+  "holdout": {
+   "book": {
+    "n": 40,
+    "win": 0.45,
+    "mean": -0.2472,
+    "pnl": 5674.5,
+    "losers": 22
+   },
+   "kept": {
+    "n": 24,
+    "win": 0.4166666666666667,
+    "mean": -1.6064166666666668,
+    "pnl": -26351.0,
+    "losers": 14
+   },
+   "removed": {
+    "n": 16,
+    "win": 0.5,
+    "mean": 1.791625,
+    "pnl": 32025.5,
+    "losers": 8
+   }
+  },
+  "p": 0.34,
+  "shuffle_median": 0.46794871794871795,
+  "shuffle_max": 0.5641025641025641,
+  "verdict": "REJECTED",
+  "why": "shuffle p=0.340 >= 0.05; holdout kept win rate below the book's"
+ },
+ {
+  "book": "spot_dc12_t12_first_r002",
+  "rule": [
+   [
+    "rk_spread_pct",
+    "<",
+    1.0
+   ],
+   [
+    "agree_same",
+    ">=",
+    2.0
+   ],
+   [
+    "r_vix_rv15",
+    "<",
+    1.9342560553633217
+   ]
+  ],
+  "rule_form": "AND",
+  "features": {
+   "rk_spread_pct": "share of the book's earlier trades that day with a lower value",
+   "agree_same": "photo field as recorded (weather.py)",
+   "r_vix_rv15": "ratio of the two named photo fields (a/b)"
+  },
+  "search": "S6 greedy triple, all fields, 5 lines",
+  "score": 0.5512820512820513,
+  "discovery": {
+   "book": {
+    "n": 91,
+    "win": 0.42857142857142855,
+    "mean": 1.7961098901098902,
+    "pnl": 184132.0,
+    "losers": 52
+   },
+   "kept": {
+    "n": 39,
+    "win": 0.7435897435897436,
+    "mean": 5.91,
+    "pnl": 300098.5,
+    "losers": 10
+   },
+   "removed": {
+    "n": 52,
+    "win": 0.19230769230769232,
+    "mean": -1.2893076923076923,
+    "pnl": -115966.5,
+    "losers": 42
+   }
+  },
+  "holdout": {
+   "book": {
+    "n": 40,
+    "win": 0.45,
+    "mean": -0.2472,
+    "pnl": 5674.5,
+    "losers": 22
+   },
+   "kept": {
+    "n": 22,
+    "win": 0.4090909090909091,
+    "mean": -1.1592272727272728,
+    "pnl": -17299.75,
+    "losers": 13
+   },
+   "removed": {
+    "n": 18,
+    "win": 0.5,
+    "mean": 0.8675,
+    "pnl": 22974.25,
+    "losers": 9
+   }
+  },
+  "p": 0.205,
+  "shuffle_median": 0.5192307692307692,
+  "shuffle_max": 0.641025641025641,
+  "verdict": "REJECTED",
+  "why": "shuffle p=0.205 >= 0.05; holdout kept win rate below the book's"
+ },
+ {
+  "book": "spot_dc12_t12_first_r002",
+  "rule": [
+   [
+    "rk_spread_pct",
+    "<",
+    1.0
+   ],
+   [
+    "accel30",
+    ">=",
+    3.0
+   ]
+  ],
+  "rule_form": "AND",
+  "features": {
+   "rk_spread_pct": "share of the book's earlier trades that day with a lower value",
+   "accel30": "photo field as recorded (weather.py)"
+  },
+  "search": "S7 pair maximising kept win rate (kept>=30), all fields, 5 lines",
+  "score": 0.7419354915618896,
+  "discovery": {
+   "book": {
+    "n": 91,
+    "win": 0.42857142857142855,
+    "mean": 1.7961098901098902,
+    "pnl": 184132.0,
+    "losers": 52
+   },
+   "kept": {
+    "n": 31,
+    "win": 0.7419354838709677,
+    "mean": 8.83341935483871,
+    "pnl": 337892.75,
+    "losers": 8
+   },
+   "removed": {
+    "n": 60,
+    "win": 0.26666666666666666,
+    "mean": -1.8398333333333334,
+    "pnl": -153760.75,
+    "losers": 44
+   }
+  },
+  "holdout": {
+   "book": {
+    "n": 40,
+    "win": 0.45,
+    "mean": -0.2472,
+    "pnl": 5674.5,
+    "losers": 22
+   },
+   "kept": {
+    "n": 13,
+    "win": 0.38461538461538464,
+    "mean": -3.822,
+    "pnl": -31456.75,
+    "losers": 8
+   },
+   "removed": {
+    "n": 27,
+    "win": 0.48148148148148145,
+    "mean": 1.474,
+    "pnl": 37131.25,
+    "losers": 14
+   }
+  },
+  "p": 0.365,
+  "shuffle_median": 0.7333333492279053,
+  "shuffle_max": 0.800000011920929,
+  "verdict": "REJECTED",
+  "why": "shuffle p=0.365 >= 0.05; holdout kept win rate below the book's"
+ },
+ {
+  "book": "spot_dc12_t12_first_r002",
+  "rule": [
+   [
+    "rk_spread_pct",
+    "<",
+    1.0
+   ],
+   [
+    "s_accel15",
+    ">=",
+    2.1300000000000003
+   ]
+  ],
+  "rule_form": "OR",
+  "features": {
+   "rk_spread_pct": "share of the book's earlier trades that day with a lower value",
+   "s_accel15": "photo field times trade direction (+1 CE, -1 PE)"
+  },
+  "search": "S8 OR of two clauses, all fields, 5 lines, top 1200 masks",
+  "score": 0.4294871794871795,
+  "discovery": {
+   "book": {
+    "n": 91,
+    "win": 0.42857142857142855,
+    "mean": 1.7961098901098902,
+    "pnl": 184132.0,
+    "losers": 52
+   },
+   "kept": {
+    "n": 64,
+    "win": 0.578125,
+    "mean": 4.129984375,
+    "pnl": 297570.0,
+    "losers": 27
+   },
+   "removed": {
+    "n": 27,
+    "win": 0.07407407407407407,
+    "mean": -3.736037037037037,
+    "pnl": -113438.0,
+    "losers": 25
+   }
+  },
+  "holdout": {
+   "book": {
+    "n": 40,
+    "win": 0.45,
+    "mean": -0.2472,
+    "pnl": 5674.5,
+    "losers": 22
+   },
+   "kept": {
+    "n": 32,
+    "win": 0.4375,
+    "mean": -0.6646249999999999,
+    "pnl": -13022.75,
+    "losers": 18
+   },
+   "removed": {
+    "n": 8,
+    "win": 0.5,
+    "mean": 1.4224999999999999,
+    "pnl": 18697.25,
+    "losers": 4
+   }
+  },
+  "p": 0.67,
+  "shuffle_median": 0.4423076923076923,
+  "shuffle_max": 0.5641025641025641,
+  "verdict": "REJECTED",
+  "why": "shuffle p=0.670 >= 0.05; holdout kept win rate below the book's"
+ },
+ {
+  "book": "spot_dc12_t12_first_r002",
+  "rule": [
+   [
+    "rk_spread_pct",
+    "<",
+    1.0
+   ]
+  ],
+  "rule_form": "AND",
+  "features": {
+   "rk_spread_pct": "share of the book's earlier trades that day with a lower value"
+  },
+  "search": "S9 single, all fields, 9 lines",
+  "score": 0.3589743589743589,
+  "discovery": {
+   "book": {
+    "n": 91,
+    "win": 0.42857142857142855,
+    "mean": 1.7961098901098902,
+    "pnl": 184132.0,
+    "losers": 52
+   },
+   "kept": {
+    "n": 56,
+    "win": 0.5714285714285714,
+    "mean": 4.143357142857143,
+    "pnl": 269867.0,
+    "losers": 24
+   },
+   "removed": {
+    "n": 35,
+    "win": 0.2,
+    "mean": -1.9594857142857145,
+    "pnl": -85735.0,
+    "losers": 28
+   }
+  },
+  "holdout": {
+   "book": {
+    "n": 40,
+    "win": 0.45,
+    "mean": -0.2472,
+    "pnl": 5674.5,
+    "losers": 22
+   },
+   "kept": {
+    "n": 28,
+    "win": 0.42857142857142855,
+    "mean": -0.8931428571428571,
+    "pnl": -21095.75,
+    "losers": 16
+   },
+   "removed": {
+    "n": 12,
+    "win": 0.5,
+    "mean": 1.26,
+    "pnl": 26770.25,
+    "losers": 6
+   }
+  },
+  "p": 0.275,
+  "shuffle_median": 0.33333333333333337,
+  "shuffle_max": 0.5192307692307692,
+  "verdict": "REJECTED",
+  "why": "shuffle p=0.275 >= 0.05; holdout kept win rate below the book's"
+ },
+ {
+  "book": "spot_dc12_t12_first_r003",
+  "rule": [
+   [
+    "oi_net_help5",
+    ">=",
+    128310.0
+   ]
+  ],
+  "rule_form": "AND",
+  "features": {
+   "oi_net_help5": "photo field as recorded (weather.py)"
+  },
+  "search": "S1 single, base fields, 5 lines",
+  "score": 0.19813074965746724,
+  "discovery": {
+   "book": {
+    "n": 418,
+    "win": 0.37320574162679426,
+    "mean": 0.21198564593301436,
+    "pnl": 52770.25,
+    "losers": 262
+   },
+   "kept": {
+    "n": 208,
+    "win": 0.46634615384615385,
+    "mean": 1.3938846153846154,
+    "pnl": 245498.5,
+    "losers": 111
+   },
+   "removed": {
+    "n": 210,
+    "win": 0.28095238095238095,
+    "mean": -0.9586571428571429,
+    "pnl": -192728.25,
+    "losers": 151
+   }
+  },
+  "holdout": {
+   "book": {
+    "n": 159,
+    "win": 0.37735849056603776,
+    "mean": -0.013767295597484307,
+    "pnl": -15486.25,
+    "losers": 99
+   },
+   "kept": {
+    "n": 79,
+    "win": 0.379746835443038,
+    "mean": 0.219632911392405,
+    "pnl": 13419.25,
+    "losers": 49
+   },
+   "removed": {
+    "n": 80,
+    "win": 0.375,
+    "mean": -0.24425,
+    "pnl": -28905.5,
+    "losers": 50
+   }
+  },
+  "p": 0.005,
+  "shuffle_median": 0.14782736347621847,
+  "shuffle_max": 0.21501272264631047,
+  "verdict": "PROPOSE",
+  "why": "passes 2-4"
+ },
+ {
+  "book": "spot_dc12_t12_first_r003",
+  "rule": [
+   [
+    "oi_net_help5",
+    ">=",
+    128310.0
+   ],
+   [
+    "fmv60",
+    ">=",
+    2.5820000000000003
+   ]
+  ],
+  "rule_form": "AND",
+  "features": {
+   "oi_net_help5": "photo field as recorded (weather.py)",
+   "fmv60": "photo field as recorded (weather.py)"
+  },
+  "search": "S2 pair, base fields, 5 lines",
+  "score": 0.22851830103738507,
+  "discovery": {
+   "book": {
+    "n": 418,
+    "win": 0.37320574162679426,
+    "mean": 0.21198564593301436,
+    "pnl": 52770.25,
+    "losers": 262
+   },
+   "kept": {
+    "n": 192,
+    "win": 0.4895833333333333,
+    "mean": 1.7510416666666666,
+    "pnl": 297381.5,
+    "losers": 98
+   },
+   "removed": {
+    "n": 226,
+    "win": 0.2743362831858407,
+    "mean": -1.0955309734513274,
+    "pnl": -244611.25,
+    "losers": 164
+   }
+  },
+  "holdout": {
+   "book": {
+    "n": 159,
+    "win": 0.37735849056603776,
+    "mean": -0.013767295597484307,
+    "pnl": -15486.25,
+    "losers": 99
+   },
+   "kept": {
+    "n": 69,
+    "win": 0.36231884057971014,
+    "mean": 0.55831884057971,
+    "pnl": 28635.75,
+    "losers": 44
+   },
+   "removed": {
+    "n": 90,
+    "win": 0.3888888888888889,
+    "mean": -0.4523666666666667,
+    "pnl": -44122.0,
+    "losers": 55
+   }
+  },
+  "p": 0.15,
+  "shuffle_median": 0.2106331963202192,
+  "shuffle_max": 0.27304756312389894,
+  "verdict": "REJECTED",
+  "why": "shuffle p=0.150 >= 0.05; holdout kept win rate below the book's"
+ },
+ {
+  "book": "spot_dc12_t12_first_r003",
+  "rule": [
+   [
+    "rk_mv60",
+    ">=",
+    0.2312217194570137
+   ]
+  ],
+  "rule_form": "AND",
+  "features": {
+   "rk_mv60": "share of the book's earlier trades that day with a lower value"
+  },
+  "search": "S3 single, derived fields (ratios/diffs/products/signed/z/bool), 5 lines",
+  "score": 0.1622137404580153,
+  "discovery": {
+   "book": {
+    "n": 418,
+    "win": 0.37320574162679426,
+    "mean": 0.21198564593301436,
+    "pnl": 52770.25,
+    "losers": 262
+   },
+   "kept": {
+    "n": 271,
+    "win": 0.4317343173431734,
+    "mean": 0.8536642066420664,
+    "pnl": 194265.5,
+    "losers": 154
+   },
+   "removed": {
+    "n": 147,
+    "win": 0.2653061224489796,
+    "mean": -0.9709727891156463,
+    "pnl": -141495.25,
+    "losers": 108
+   }
+  },
+  "holdout": {
+   "book": {
+    "n": 159,
+    "win": 0.37735849056603776,
+    "mean": -0.013767295597484307,
+    "pnl": -15486.25,
+    "losers": 99
+   },
+   "kept": {
+    "n": 100,
+    "win": 0.35,
+    "mean": -0.34438,
+    "pnl": -36858.25,
+    "losers": 65
+   },
+   "removed": {
+    "n": 59,
+    "win": 0.423728813559322,
+    "mean": 0.5465932203389829,
+    "pnl": 21372.0,
+    "losers": 34
+   }
+  },
+  "p": 0.155,
+  "shuffle_median": 0.14317870424740653,
+  "shuffle_max": 0.1943139557643374,
+  "verdict": "REJECTED",
+  "why": "shuffle p=0.155 >= 0.05; holdout kept win rate below the book's"
+ },
+ {
+  "book": "spot_dc12_t12_first_r003",
+  "rule": [
+   [
+    "oi_net_help5",
+    ">=",
+    128310.0
+   ],
+   [
+    "s_fut_imb_o",
+    "<",
+    0.412
+   ]
+  ],
+  "rule_form": "AND",
+  "features": {
+   "oi_net_help5": "photo field as recorded (weather.py)",
+   "s_fut_imb_o": "photo field times trade direction (+1 CE, -1 PE)"
+  },
+  "search": "S4 pair, all fields (base+derived+text), 5 lines, top 1500 masks",
+  "score": 0.23722842043452735,
+  "discovery": {
+   "book": {
+    "n": 418,
+    "win": 0.37320574162679426,
+    "mean": 0.21198564593301436,
+    "pnl": 52770.25,
+    "losers": 262
+   },
+   "kept": {
+    "n": 179,
+    "win": 0.5027932960893855,
+    "mean": 1.840413407821229,
+    "pnl": 282730.5,
+    "losers": 89
+   },
+   "removed": {
+    "n": 239,
+    "win": 0.27615062761506276,
+    "mean": -1.00763179916318,
+    "pnl": -229960.25,
+    "losers": 173
+   }
+  },
+  "holdout": {
+   "book": {
+    "n": 159,
+    "win": 0.37735849056603776,
+    "mean": -0.013767295597484307,
+    "pnl": -15486.25,
+    "losers": 99
+   },
+   "kept": {
+    "n": 69,
+    "win": 0.391304347826087,
+    "mean": 0.108463768115942,
+    "pnl": 1144.0,
+    "losers": 42
+   },
+   "removed": {
+    "n": 90,
+    "win": 0.36666666666666664,
+    "mean": -0.1074777777777778,
+    "pnl": -16630.25,
+    "losers": 57
+   }
+  },
+  "p": 0.165,
+  "shuffle_median": 0.22029751419064394,
+  "shuffle_max": 0.27304756312389894,
+  "verdict": "REJECTED",
+  "why": "shuffle p=0.165 >= 0.05"
+ },
+ {
+  "book": "spot_dc12_t12_first_r003",
+  "rule": [
+   [
+    "oi_net_help5",
+    ">=",
+    128310.0
+   ],
+   [
+    "r_fmv60_mv60",
+    ">=",
+    0.8723908004991977
+   ]
+  ],
+  "rule_form": "AND",
+  "features": {
+   "oi_net_help5": "photo field as recorded (weather.py)",
+   "r_fmv60_mv60": "ratio of the two named photo fields (a/b)"
+  },
+  "search": "S5 pair, all fields, 9 lines, top 1500 masks",
+  "score": 0.2511254648659229,
+  "discovery": {
+   "book": {
+    "n": 418,
+    "win": 0.37320574162679426,
+    "mean": 0.21198564593301436,
+    "pnl": 52770.25,
+    "losers": 262
+   },
+   "kept": {
+    "n": 170,
+    "win": 0.5176470588235295,
+    "mean": 2.1088117647058824,
+    "pnl": 338760.5,
+    "losers": 82
+   },
+   "removed": {
+    "n": 248,
+    "win": 0.27419354838709675,
+    "mean": -1.0882580645161288,
+    "pnl": -285990.25,
+    "losers": 180
+   }
+  },
+  "holdout": {
+   "book": {
+    "n": 159,
+    "win": 0.37735849056603776,
+    "mean": -0.013767295597484307,
+    "pnl": -15486.25,
+    "losers": 99
+   },
+   "kept": {
+    "n": 58,
+    "win": 0.3448275862068966,
+    "mean": 0.7680689655172412,
+    "pnl": 36419.5,
+    "losers": 38
+   },
+   "removed": {
+    "n": 101,
+    "win": 0.39603960396039606,
+    "mean": -0.46274257425742576,
+    "pnl": -51905.75,
+    "losers": 61
+   }
+  },
+  "p": 0.11,
+  "shuffle_median": 0.2301575650812292,
+  "shuffle_max": 0.27358582892934036,
+  "verdict": "REJECTED",
+  "why": "shuffle p=0.110 >= 0.05; holdout kept win rate below the book's"
+ },
+ {
+  "book": "spot_dc12_t12_first_r003",
+  "rule": [
+   [
+    "oi_net_help5",
+    ">=",
+    128310.0
+   ],
+   [
+    "s_fut_imb_o",
+    "<",
+    0.412
+   ],
+   [
+    "fmv60",
+    ">=",
+    2.5820000000000003
+   ]
+  ],
+  "rule_form": "AND",
+  "features": {
+   "oi_net_help5": "photo field as recorded (weather.py)",
+   "s_fut_imb_o": "photo field times trade direction (+1 CE, -1 PE)",
+   "fmv60": "photo field as recorded (weather.py)"
+  },
+  "search": "S6 greedy triple, all fields, 5 lines",
+  "score": 0.2676159718144451,
+  "discovery": {
+   "book": {
+    "n": 418,
+    "win": 0.37320574162679426,
+    "mean": 0.21198564593301436,
+    "pnl": 52770.25,
+    "losers": 262
+   },
+   "kept": {
+    "n": 163,
+    "win": 0.5337423312883436,
+    "mean": 2.304944785276074,
+    "pnl": 334613.5,
+    "losers": 76
+   },
+   "removed": {
+    "n": 255,
+    "win": 0.27058823529411763,
+    "mean": -1.1258666666666666,
+    "pnl": -281843.25,
+    "losers": 186
+   }
+  },
+  "holdout": {
+   "book": {
+    "n": 159,
+    "win": 0.37735849056603776,
+    "mean": -0.013767295597484307,
+    "pnl": -15486.25,
+    "losers": 99
+   },
+   "kept": {
+    "n": 59,
+    "win": 0.3728813559322034,
+    "mean": 0.4857118644067796,
+    "pnl": 16360.5,
+    "losers": 37
+   },
+   "removed": {
+    "n": 100,
+    "win": 0.38,
+    "mean": -0.30846,
+    "pnl": -31846.75,
+    "losers": 62
+   }
+  },
+  "p": 0.26,
+  "shuffle_median": 0.25650812292033665,
+  "shuffle_max": 0.3196320219220982,
+  "verdict": "REJECTED",
+  "why": "shuffle p=0.260 >= 0.05; holdout kept win rate below the book's"
+ },
+ {
+  "book": "spot_dc12_t12_first_r003",
+  "rule": [
+   [
+    "s_e_fut_ofi60",
+    "<",
+    -16.058
+   ],
+   [
+    "gaps_today",
+    "<",
+    6.0
+   ]
+  ],
+  "rule_form": "AND",
+  "features": {
+   "s_e_fut_ofi60": "photo field times trade direction (+1 CE, -1 PE)",
+   "gaps_today": "photo field as recorded (weather.py)"
+  },
+  "search": "S7 pair maximising kept win rate (kept>=30), all fields, 5 lines",
+  "score": 0.75,
+  "discovery": {
+   "book": {
+    "n": 418,
+    "win": 0.37320574162679426,
+    "mean": 0.21198564593301436,
+    "pnl": 52770.25,
+    "losers": 262
+   },
+   "kept": {
+    "n": 32,
+    "win": 0.75,
+    "mean": 3.64803125,
+    "pnl": 106291.25,
+    "losers": 8
+   },
+   "removed": {
+    "n": 386,
+    "win": 0.34196891191709844,
+    "mean": -0.0728678756476684,
+    "pnl": -53521.0,
+    "losers": 254
+   }
+  },
+  "holdout": {
+   "book": {
+    "n": 159,
+    "win": 0.37735849056603776,
+    "mean": -0.013767295597484307,
+    "pnl": -15486.25,
+    "losers": 99
+   },
+   "kept": {
+    "n": 2,
+    "win": 0.0,
+    "mean": -3.785,
+    "pnl": -5625.75,
+    "losers": 2
+   },
+   "removed": {
+    "n": 157,
+    "win": 0.3821656050955414,
+    "mean": 0.03427388535031844,
+    "pnl": -9860.5,
+    "losers": 97
+   }
+  },
+  "p": 0.265,
+  "shuffle_median": 0.7333333492279053,
+  "shuffle_max": 0.8125,
+  "verdict": "REJECTED",
+  "why": "shuffle p=0.265 >= 0.05; holdout kept win rate below the book's"
+ },
+ {
+  "book": "spot_dc12_t12_first_r003",
+  "rule": [
+   [
+    "oi_net_help5",
+    ">=",
+    128310.0
+   ],
+   [
+    "z_e_fut_ofi60",
+    ">=",
+    0.3696044553055973
+   ]
+  ],
+  "rule_form": "OR",
+  "features": {
+   "oi_net_help5": "photo field as recorded (weather.py)",
+   "z_e_fut_ofi60": "z-score of the field against the book's own EARLIER trades that day (>=3 earlier)"
+  },
+  "search": "S8 OR of two clauses, all fields, 5 lines, top 1200 masks",
+  "score": 0.24525347426110783,
+  "discovery": {
+   "book": {
+    "n": 418,
+    "win": 0.37320574162679426,
+    "mean": 0.21198564593301436,
+    "pnl": 52770.25,
+    "losers": 262
+   },
+   "kept": {
+    "n": 268,
+    "win": 0.4626865671641791,
+    "mean": 1.2125932835820896,
+    "pnl": 267777.25,
+    "losers": 144
+   },
+   "removed": {
+    "n": 150,
+    "win": 0.21333333333333335,
+    "mean": -1.5757666666666668,
+    "pnl": -215007.0,
+    "losers": 118
+   }
+  },
+  "holdout": {
+   "book": {
+    "n": 159,
+    "win": 0.37735849056603776,
+    "mean": -0.013767295597484307,
+    "pnl": -15486.25,
+    "losers": 99
+   },
+   "kept": {
+    "n": 104,
+    "win": 0.375,
+    "mean": 0.0499711538461538,
+    "pnl": -1150.5,
+    "losers": 65
+   },
+   "removed": {
+    "n": 55,
+    "win": 0.38181818181818183,
+    "mean": -0.1342909090909091,
+    "pnl": -14335.75,
+    "losers": 34
+   }
+  },
+  "p": 0.105,
+  "shuffle_median": 0.2190497161871208,
+  "shuffle_max": 0.2733900959091799,
+  "verdict": "REJECTED",
+  "why": "shuffle p=0.105 >= 0.05; holdout kept win rate below the book's"
+ },
+ {
+  "book": "spot_dc12_t12_first_r003",
+  "rule": [
+   [
+    "oi_net_help5",
+    ">=",
+    128310.0
+   ]
+  ],
+  "rule_form": "AND",
+  "features": {
+   "oi_net_help5": "photo field as recorded (weather.py)"
+  },
+  "search": "S9 single, all fields, 9 lines",
+  "score": 0.19813074965746724,
+  "discovery": {
+   "book": {
+    "n": 418,
+    "win": 0.37320574162679426,
+    "mean": 0.21198564593301436,
+    "pnl": 52770.25,
+    "losers": 262
+   },
+   "kept": {
+    "n": 208,
+    "win": 0.46634615384615385,
+    "mean": 1.3938846153846154,
+    "pnl": 245498.5,
+    "losers": 111
+   },
+   "removed": {
+    "n": 210,
+    "win": 0.28095238095238095,
+    "mean": -0.9586571428571429,
+    "pnl": -192728.25,
+    "losers": 151
+   }
+  },
+  "holdout": {
+   "book": {
+    "n": 159,
+    "win": 0.37735849056603776,
+    "mean": -0.013767295597484307,
+    "pnl": -15486.25,
+    "losers": 99
+   },
+   "kept": {
+    "n": 79,
+    "win": 0.379746835443038,
+    "mean": 0.219632911392405,
+    "pnl": 13419.25,
+    "losers": 49
+   },
+   "removed": {
+    "n": 80,
+    "win": 0.375,
+    "mean": -0.24425,
+    "pnl": -28905.5,
+    "losers": 50
+   }
+  },
+  "p": 0.02,
+  "shuffle_median": 0.1606723429242513,
+  "shuffle_max": 0.21922098257976114,
+  "verdict": "PROPOSE",
+  "why": "passes 2-4"
+ }
+]

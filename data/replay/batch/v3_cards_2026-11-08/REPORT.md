@@ -76,3 +76,7 @@ cannot be approached by a factor-line rule on this evidence; the losing trades o
 from their winning trades by anything the photograph records at the trigger second. The evidence stays (`book_cards.md`
 has every book's full card, all items), the 9 Nov live day adds the first out-of-sample day, and the cards are rebuilt
 each evening with one more day.
+
+## The 10-agent rule team (9 Nov) — `team/TEAM_REPORT.md`
+
+10 agents, 59 books, 871 rules (trend, speed, Greeks, flow, OI, derived mathematics, 2–3 clause combinations), each shuffle-tested and checked on the 4 held-out days. No rule removes any book's losses to near nil; 12 passed the written standard by the letter and none survives inspection as a loss remover. One honest observation for a shadow rule: when a free c20 council sibling (c20_9t or c20_9s) declines a trigger the rest of the family takes, c20_9y lost 12 of 12 times (1 of them on the held-out days). Details, every card and every rejected rule in `team/`.

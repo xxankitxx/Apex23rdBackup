@@ -1,0 +1,5042 @@
+[
+ {
+  "book": "lvl_trail",
+  "rule": [
+   [
+    "fut_spread",
+    ">=",
+    2.6
+   ]
+  ],
+  "combine": "AND",
+  "features": {
+   "fut_spread": "weather field as recorded at the trigger second"
+  },
+  "search": "single_raw: raw feature set (195 features), params default; score = share of losers removed - share of winners removed (rule_lab.score_masks), lines at quantiles 0.1..0.9, min kept 20 unless stated; shuffle = same search on 200 shufflings of discovery labels (seed 7)",
+  "discovery": {
+   "book": {
+    "n": 81,
+    "win": 0.5061728395061729,
+    "mean": 3.2838148148148143,
+    "pnl": 287209.0,
+    "losers": 40
+   },
+   "kept": {
+    "n": 57,
+    "win": 0.631578947368421,
+    "mean": 6.015561403508772,
+    "pnl": 358176.0,
+    "losers": 21
+   },
+   "removed": {
+    "n": 24,
+    "win": 0.20833333333333334,
+    "mean": -3.2040833333333336,
+    "pnl": -70967.0,
+    "losers": 19
+   }
+  },
+  "holdout": {
+   "book": {
+    "n": 24,
+    "win": 0.375,
+    "mean": -0.5014583333333332,
+    "pnl": -12229.75,
+    "losers": 15
+   },
+   "kept": {
+    "n": 16,
+    "win": 0.3125,
+    "mean": -1.663875,
+    "pnl": -25671.75,
+    "losers": 11
+   },
+   "removed": {
+    "n": 8,
+    "win": 0.5,
+    "mean": 1.823375,
+    "pnl": 13442.0,
+    "losers": 4
+   }
+  },
+  "p": 0.29,
+  "score": 0.35304878048780486,
+  "shuffle_median": 0.3286585365853658,
+  "shuffle_max": 0.4567073170731707,
+  "verdict": "REJECTED",
+  "why": "shuffle p=0.29: the same search finds as good a rule in random labels; holdout kept wins 31% vs book 38% (worse than the book); holdout removed side is profitable (Rs +13,442)"
+ },
+ {
+  "book": "lvl_trail",
+  "rule": [
+   [
+    "rv15_spot",
+    ">=",
+    12.04
+   ]
+  ],
+  "combine": "AND",
+  "features": {
+   "rv15_spot": "weather field as recorded at the trigger second"
+  },
+  "search": "single_hand: hand feature set (22 features), params default; score = share of losers removed - share of winners removed (rule_lab.score_masks), lines at quantiles 0.1..0.9, min kept 20 unless stated; shuffle = same search on 200 shufflings of discovery labels (seed 7)",
+  "discovery": {
+   "book": {
+    "n": 81,
+    "win": 0.5061728395061729,
+    "mean": 3.2838148148148143,
+    "pnl": 287209.0,
+    "losers": 40
+   },
+   "kept": {
+    "n": 25,
+    "win": 0.68,
+    "mean": 8.36552,
+    "pnl": 230425.0,
+    "losers": 8
+   },
+   "removed": {
+    "n": 56,
+    "win": 0.42857142857142855,
+    "mean": 1.0151964285714286,
+    "pnl": 56784.0,
+    "losers": 32
+   }
+  },
+  "holdout": {
+   "book": {
+    "n": 24,
+    "win": 0.375,
+    "mean": -0.5014583333333332,
+    "pnl": -12229.75,
+    "losers": 15
+   },
+   "kept": {
+    "n": 3,
+    "win": 0.3333333333333333,
+    "mean": -4.678333333333334,
+    "pnl": -13468.0,
+    "losers": 2
+   },
+   "removed": {
+    "n": 21,
+    "win": 0.38095238095238093,
+    "mean": 0.0952380952380953,
+    "pnl": 1238.25,
+    "losers": 13
+   }
+  },
+  "p": 0.755,
+  "score": 0.2146341463414635,
+  "shuffle_median": 0.2396341463414634,
+  "shuffle_max": 0.42743902439024395,
+  "verdict": "REJECTED",
+  "why": "shuffle p=0.76: the same search finds as good a rule in random labels; holdout kept wins 33% vs book 38% (worse than the book); holdout removed side is profitable (Rs +1,238)"
+ },
+ {
+  "book": "lvl_trail",
+  "rule": [
+   [
+    "e_fut_micro_with",
+    ">=",
+    0.2900000000000007
+   ]
+  ],
+  "combine": "AND",
+  "features": {
+   "e_fut_micro_with": "e_fut_micro * trade direction (+1 CE, -1 PE)"
+  },
+  "search": "single_derived: derived feature set (88 features), params default; score = share of losers removed - share of winners removed (rule_lab.score_masks), lines at quantiles 0.1..0.9, min kept 20 unless stated; shuffle = same search on 200 shufflings of discovery labels (seed 7)",
+  "discovery": {
+   "book": {
+    "n": 81,
+    "win": 0.5061728395061729,
+    "mean": 3.2838148148148143,
+    "pnl": 287209.0,
+    "losers": 40
+   },
+   "kept": {
+    "n": 24,
+    "win": 0.75,
+    "mean": 7.981625,
+    "pnl": 239109.0,
+    "losers": 6
+   },
+   "removed": {
+    "n": 57,
+    "win": 0.40350877192982454,
+    "mean": 1.3057894736842104,
+    "pnl": 48100.0,
+    "losers": 34
+   }
+  },
+  "holdout": {
+   "book": {
+    "n": 24,
+    "win": 0.375,
+    "mean": -0.5014583333333332,
+    "pnl": -12229.75,
+    "losers": 15
+   },
+   "kept": {
+    "n": 7,
+    "win": 0.42857142857142855,
+    "mean": -1.2384285714285714,
+    "pnl": -8479.25,
+    "losers": 4
+   },
+   "removed": {
+    "n": 17,
+    "win": 0.35294117647058826,
+    "mean": -0.19799999999999995,
+    "pnl": -3750.5,
+    "losers": 11
+   }
+  },
+  "p": 0.6,
+  "score": 0.28902439024390236,
+  "shuffle_median": 0.3036585365853659,
+  "shuffle_max": 0.4567073170731707,
+  "verdict": "REJECTED",
+  "why": "shuffle p=0.60: the same search finds as good a rule in random labels"
+ },
+ {
+  "book": "lvl_trail",
+  "rule": [
+   [
+    "opt_opp_q=REFILLING",
+    "<",
+    1.0
+   ]
+  ],
+  "combine": "AND",
+  "features": {
+   "opt_opp_q=REFILLING": "1 if weather['opt_opp_q'] == 'REFILLING' else 0"
+  },
+  "search": "single_text: text feature set (62 features), params default; score = share of losers removed - share of winners removed (rule_lab.score_masks), lines at quantiles 0.1..0.9, min kept 20 unless stated; shuffle = same search on 200 shufflings of discovery labels (seed 7)",
+  "discovery": {
+   "book": {
+    "n": 81,
+    "win": 0.5061728395061729,
+    "mean": 3.2838148148148143,
+    "pnl": 287209.0,
+    "losers": 40
+   },
+   "kept": {
+    "n": 47,
+    "win": 0.5957446808510638,
+    "mean": 5.378659574468085,
+    "pnl": 293020.0,
+    "losers": 19
+   },
+   "removed": {
+    "n": 34,
+    "win": 0.38235294117647056,
+    "mean": 0.38800000000000007,
+    "pnl": -5811.0,
+    "losers": 21
+   }
+  },
+  "holdout": {
+   "book": {
+    "n": 24,
+    "win": 0.375,
+    "mean": -0.5014583333333332,
+    "pnl": -12229.75,
+    "losers": 15
+   },
+   "kept": {
+    "n": 18,
+    "win": 0.3888888888888889,
+    "mean": 0.646611111111111,
+    "pnl": 10188.75,
+    "losers": 11
+   },
+   "removed": {
+    "n": 6,
+    "win": 0.3333333333333333,
+    "mean": -3.9456666666666664,
+    "pnl": -22418.5,
+    "losers": 4
+   }
+  },
+  "p": 0.57,
+  "score": 0.2079268292682927,
+  "shuffle_median": 0.21341463414634143,
+  "shuffle_max": 0.3542682926829268,
+  "verdict": "REJECTED",
+  "why": "shuffle p=0.57: the same search finds as good a rule in random labels"
+ },
+ {
+  "book": "lvl_trail",
+  "rule": [
+   [
+    "fut_spread",
+    ">=",
+    2.6
+   ]
+  ],
+  "combine": "AND",
+  "features": {
+   "fut_spread": "weather field as recorded at the trigger second"
+  },
+  "search": "single_all: all feature set (345 features), params default; score = share of losers removed - share of winners removed (rule_lab.score_masks), lines at quantiles 0.1..0.9, min kept 20 unless stated; shuffle = same search on 200 shufflings of discovery labels (seed 7)",
+  "discovery": {
+   "book": {
+    "n": 81,
+    "win": 0.5061728395061729,
+    "mean": 3.2838148148148143,
+    "pnl": 287209.0,
+    "losers": 40
+   },
+   "kept": {
+    "n": 57,
+    "win": 0.631578947368421,
+    "mean": 6.015561403508772,
+    "pnl": 358176.0,
+    "losers": 21
+   },
+   "removed": {
+    "n": 24,
+    "win": 0.20833333333333334,
+    "mean": -3.2040833333333336,
+    "pnl": -70967.0,
+    "losers": 19
+   }
+  },
+  "holdout": {
+   "book": {
+    "n": 24,
+    "win": 0.375,
+    "mean": -0.5014583333333332,
+    "pnl": -12229.75,
+    "losers": 15
+   },
+   "kept": {
+    "n": 16,
+    "win": 0.3125,
+    "mean": -1.663875,
+    "pnl": -25671.75,
+    "losers": 11
+   },
+   "removed": {
+    "n": 8,
+    "win": 0.5,
+    "mean": 1.823375,
+    "pnl": 13442.0,
+    "losers": 4
+   }
+  },
+  "p": 0.34,
+  "score": 0.35304878048780486,
+  "shuffle_median": 0.3335365853658537,
+  "shuffle_max": 0.4567073170731707,
+  "verdict": "REJECTED",
+  "why": "shuffle p=0.34: the same search finds as good a rule in random labels; holdout kept wins 31% vs book 38% (worse than the book); holdout removed side is profitable (Rs +13,442)"
+ },
+ {
+  "book": "lvl_trail",
+  "rule": [
+   [
+    "fut_spread",
+    ">=",
+    2.6
+   ]
+  ],
+  "combine": "AND",
+  "features": {
+   "fut_spread": "weather field as recorded at the trigger second"
+  },
+  "search": "single_all_9lines: all feature set (345 features), params {'n_lines': 9}; score = share of losers removed - share of winners removed (rule_lab.score_masks), lines at quantiles 0.1..0.9, min kept 20 unless stated; shuffle = same search on 200 shufflings of discovery labels (seed 7)",
+  "discovery": {
+   "book": {
+    "n": 81,
+    "win": 0.5061728395061729,
+    "mean": 3.2838148148148143,
+    "pnl": 287209.0,
+    "losers": 40
+   },
+   "kept": {
+    "n": 57,
+    "win": 0.631578947368421,
+    "mean": 6.015561403508772,
+    "pnl": 358176.0,
+    "losers": 21
+   },
+   "removed": {
+    "n": 24,
+    "win": 0.20833333333333334,
+    "mean": -3.2040833333333336,
+    "pnl": -70967.0,
+    "losers": 19
+   }
+  },
+  "holdout": {
+   "book": {
+    "n": 24,
+    "win": 0.375,
+    "mean": -0.5014583333333332,
+    "pnl": -12229.75,
+    "losers": 15
+   },
+   "kept": {
+    "n": 16,
+    "win": 0.3125,
+    "mean": -1.663875,
+    "pnl": -25671.75,
+    "losers": 11
+   },
+   "removed": {
+    "n": 8,
+    "win": 0.5,
+    "mean": 1.823375,
+    "pnl": 13442.0,
+    "losers": 4
+   }
+  },
+  "p": 0.49,
+  "score": 0.35304878048780486,
+  "shuffle_median": 0.33841463414634143,
+  "shuffle_max": 0.5042682926829268,
+  "verdict": "REJECTED",
+  "why": "shuffle p=0.49: the same search finds as good a rule in random labels; holdout kept wins 31% vs book 38% (worse than the book); holdout removed side is profitable (Rs +13,442)"
+ },
+ {
+  "book": "lvl_trail",
+  "rule": [
+   [
+    "fut_spread",
+    ">=",
+    2.6
+   ],
+   [
+    "chain_age",
+    ">=",
+    45.0
+   ]
+  ],
+  "combine": "AND",
+  "features": {
+   "fut_spread": "weather field as recorded at the trigger second",
+   "chain_age": "weather field as recorded at the trigger second"
+  },
+  "search": "pair_raw: raw feature set (195 features), params default; score = share of losers removed - share of winners removed (rule_lab.score_masks), lines at quantiles 0.1..0.9, min kept 20 unless stated; shuffle = same search on 200 shufflings of discovery labels (seed 7)",
+  "discovery": {
+   "book": {
+    "n": 81,
+    "win": 0.5061728395061729,
+    "mean": 3.2838148148148143,
+    "pnl": 287209.0,
+    "losers": 40
+   },
+   "kept": {
+    "n": 29,
+    "win": 0.8275862068965517,
+    "mean": 11.048620689655172,
+    "pnl": 365641.25,
+    "losers": 5
+   },
+   "removed": {
+    "n": 52,
+    "win": 0.3269230769230769,
+    "mean": -1.0465576923076925,
+    "pnl": -78432.25,
+    "losers": 35
+   }
+  },
+  "holdout": {
+   "book": {
+    "n": 24,
+    "win": 0.375,
+    "mean": -0.5014583333333332,
+    "pnl": -12229.75,
+    "losers": 15
+   },
+   "kept": {
+    "n": 9,
+    "win": 0.3333333333333333,
+    "mean": -0.23077777777777753,
+    "pnl": -2135.25,
+    "losers": 6
+   },
+   "removed": {
+    "n": 15,
+    "win": 0.4,
+    "mean": -0.6638666666666667,
+    "pnl": -10094.5,
+    "losers": 9
+   }
+  },
+  "p": 0.365,
+  "score": 0.4603658616542816,
+  "shuffle_median": 0.4560975432395935,
+  "shuffle_max": 0.579878032207489,
+  "verdict": "REJECTED",
+  "why": "shuffle p=0.36: the same search finds as good a rule in random labels; holdout kept wins 33% vs book 38% (worse than the book)"
+ },
+ {
+  "book": "lvl_trail",
+  "rule": [
+   [
+    "rv15_spot",
+    ">=",
+    12.04
+   ],
+   [
+    "trig_str",
+    "<",
+    125.6
+   ]
+  ],
+  "combine": "AND",
+  "features": {
+   "rv15_spot": "weather field as recorded at the trigger second",
+   "trig_str": "weather field as recorded at the trigger second"
+  },
+  "search": "pair_hand: hand feature set (22 features), params default; score = share of losers removed - share of winners removed (rule_lab.score_masks), lines at quantiles 0.1..0.9, min kept 20 unless stated; shuffle = same search on 200 shufflings of discovery labels (seed 7)",
+  "discovery": {
+   "book": {
+    "n": 81,
+    "win": 0.5061728395061729,
+    "mean": 3.2838148148148143,
+    "pnl": 287209.0,
+    "losers": 40
+   },
+   "kept": {
+    "n": 21,
+    "win": 0.8095238095238095,
+    "mean": 11.773619047619047,
+    "pnl": 266639.75,
+    "losers": 4
+   },
+   "removed": {
+    "n": 60,
+    "win": 0.4,
+    "mean": 0.31238333333333324,
+    "pnl": 20569.25,
+    "losers": 36
+   }
+  },
+  "holdout": {
+   "book": {
+    "n": 24,
+    "win": 0.375,
+    "mean": -0.5014583333333332,
+    "pnl": -12229.75,
+    "losers": 15
+   },
+   "kept": {
+    "n": 3,
+    "win": 0.3333333333333333,
+    "mean": -4.678333333333334,
+    "pnl": -13468.0,
+    "losers": 2
+   },
+   "removed": {
+    "n": 21,
+    "win": 0.38095238095238093,
+    "mean": 0.0952380952380953,
+    "pnl": 1238.25,
+    "losers": 13
+   }
+  },
+  "p": 0.615,
+  "score": 0.31463414430618286,
+  "shuffle_median": 0.3353658616542816,
+  "shuffle_max": 0.5030487775802612,
+  "verdict": "REJECTED",
+  "why": "shuffle p=0.61: the same search finds as good a rule in random labels; holdout kept wins 33% vs book 38% (worse than the book); holdout removed side is profitable (Rs +1,238)"
+ },
+ {
+  "book": "lvl_trail",
+  "rule": [
+   [
+    "fut_spread",
+    ">=",
+    2.6
+   ],
+   [
+    "imp_depth_with",
+    "<",
+    0.5124
+   ]
+  ],
+  "combine": "AND",
+  "features": {
+   "fut_spread": "weather field as recorded at the trigger second",
+   "imp_depth_with": "imp_depth signed + if imp_with else -"
+  },
+  "search": "pair_all: all feature set (345 features), params default; score = share of losers removed - share of winners removed (rule_lab.score_masks), lines at quantiles 0.1..0.9, min kept 20 unless stated; shuffle = same search on 200 shufflings of discovery labels (seed 7)",
+  "discovery": {
+   "book": {
+    "n": 81,
+    "win": 0.5061728395061729,
+    "mean": 3.2838148148148143,
+    "pnl": 287209.0,
+    "losers": 40
+   },
+   "kept": {
+    "n": 50,
+    "win": 0.7,
+    "mean": 7.49374,
+    "pnl": 396652.75,
+    "losers": 15
+   },
+   "removed": {
+    "n": 31,
+    "win": 0.1935483870967742,
+    "mean": -3.5063870967741937,
+    "pnl": -109443.75,
+    "losers": 25
+   }
+  },
+  "holdout": {
+   "book": {
+    "n": 24,
+    "win": 0.375,
+    "mean": -0.5014583333333332,
+    "pnl": -12229.75,
+    "losers": 15
+   },
+   "kept": {
+    "n": 15,
+    "win": 0.26666666666666666,
+    "mean": -3.3562,
+    "pnl": -43026.75,
+    "losers": 11
+   },
+   "removed": {
+    "n": 9,
+    "win": 0.5555555555555556,
+    "mean": 4.256444444444444,
+    "pnl": 30797.0,
+    "losers": 4
+   }
+  },
+  "p": 0.5,
+  "score": 0.4786585569381714,
+  "shuffle_median": 0.477743923664093,
+  "shuffle_max": 0.5835366249084473,
+  "verdict": "REJECTED",
+  "why": "shuffle p=0.50: the same search finds as good a rule in random labels; holdout kept wins 27% vs book 38% (worse than the book); holdout removed side is profitable (Rs +30,797)"
+ },
+ {
+  "book": "lvl_trail",
+  "rule": [
+   [
+    "fut_spread",
+    ">=",
+    2.6
+   ],
+   [
+    "imp_depth_with",
+    "<",
+    0.5124
+   ],
+   [
+    "ret_today",
+    "<",
+    83.398
+   ]
+  ],
+  "combine": "AND",
+  "features": {
+   "fut_spread": "weather field as recorded at the trigger second",
+   "imp_depth_with": "imp_depth signed + if imp_with else -",
+   "ret_today": "weather field as recorded at the trigger second"
+  },
+  "search": "triple_all: all feature set (345 features), params default; score = share of losers removed - share of winners removed (rule_lab.score_masks), lines at quantiles 0.1..0.9, min kept 20 unless stated; shuffle = same search on 200 shufflings of discovery labels (seed 7)",
+  "discovery": {
+   "book": {
+    "n": 81,
+    "win": 0.5061728395061729,
+    "mean": 3.2838148148148143,
+    "pnl": 287209.0,
+    "losers": 40
+   },
+   "kept": {
+    "n": 44,
+    "win": 0.7727272727272727,
+    "mean": 8.547113636363635,
+    "pnl": 406812.25,
+    "losers": 10
+   },
+   "removed": {
+    "n": 37,
+    "win": 0.1891891891891892,
+    "mean": -2.975243243243243,
+    "pnl": -119603.25,
+    "losers": 30
+   }
+  },
+  "holdout": {
+   "book": {
+    "n": 24,
+    "win": 0.375,
+    "mean": -0.5014583333333332,
+    "pnl": -12229.75,
+    "losers": 15
+   },
+   "kept": {
+    "n": 15,
+    "win": 0.26666666666666666,
+    "mean": -3.3562,
+    "pnl": -43026.75,
+    "losers": 11
+   },
+   "removed": {
+    "n": 9,
+    "win": 0.5555555555555556,
+    "mean": 4.256444444444444,
+    "pnl": 30797.0,
+    "losers": 4
+   }
+  },
+  "p": 0.235,
+  "score": 0.5792682926829268,
+  "shuffle_median": 0.5347560975609756,
+  "shuffle_max": 0.6567073170731708,
+  "verdict": "REJECTED",
+  "why": "shuffle p=0.23: the same search finds as good a rule in random labels; holdout kept wins 27% vs book 38% (worse than the book); holdout removed side is profitable (Rs +30,797)"
+ },
+ {
+  "book": "lvl_trail",
+  "rule": [
+   [
+    "oi_own_chg30",
+    ">=",
+    1244633.0000000002
+   ],
+   [
+    "e_fut_micro_with",
+    ">=",
+    0.2900000000000007
+   ]
+  ],
+  "combine": "OR",
+  "features": {
+   "oi_own_chg30": "weather field as recorded at the trigger second",
+   "e_fut_micro_with": "e_fut_micro * trade direction (+1 CE, -1 PE)"
+  },
+  "search": "or_all: all feature set (345 features), params default; score = share of losers removed - share of winners removed (rule_lab.score_masks), lines at quantiles 0.1..0.9, min kept 20 unless stated; shuffle = same search on 200 shufflings of discovery labels (seed 7)",
+  "discovery": {
+   "book": {
+    "n": 81,
+    "win": 0.5061728395061729,
+    "mean": 3.2838148148148143,
+    "pnl": 287209.0,
+    "losers": 40
+   },
+   "kept": {
+    "n": 39,
+    "win": 0.7435897435897436,
+    "mean": 8.779256410256409,
+    "pnl": 397335.25,
+    "losers": 10
+   },
+   "removed": {
+    "n": 42,
+    "win": 0.2857142857142857,
+    "mean": -1.819095238095238,
+    "pnl": -110126.25,
+    "losers": 30
+   }
+  },
+  "holdout": {
+   "book": {
+    "n": 24,
+    "win": 0.375,
+    "mean": -0.5014583333333332,
+    "pnl": -12229.75,
+    "losers": 15
+   },
+   "kept": {
+    "n": 10,
+    "win": 0.4,
+    "mean": -2.8987000000000003,
+    "pnl": -27979.25,
+    "losers": 6
+   },
+   "removed": {
+    "n": 14,
+    "win": 0.35714285714285715,
+    "mean": 1.210857142857143,
+    "pnl": 15749.5,
+    "losers": 9
+   }
+  },
+  "p": 0.435,
+  "score": 0.4573170840740204,
+  "shuffle_median": 0.4560975432395935,
+  "shuffle_max": 0.6054878234863281,
+  "verdict": "REJECTED",
+  "why": "shuffle p=0.43: the same search finds as good a rule in random labels; holdout removed side is profitable (Rs +15,750)"
+ },
+ {
+  "book": "lvl_trail",
+  "rule": [
+   [
+    "fut_spread",
+    ">=",
+    2.6
+   ]
+  ],
+  "combine": "AND",
+  "features": {
+   "fut_spread": "weather field as recorded at the trigger second"
+  },
+  "search": "single_all_keep30: all feature set (345 features), params {'min_keep': 30}; score = share of losers removed - share of winners removed (rule_lab.score_masks), lines at quantiles 0.1..0.9, min kept 20 unless stated; shuffle = same search on 200 shufflings of discovery labels (seed 7)",
+  "discovery": {
+   "book": {
+    "n": 81,
+    "win": 0.5061728395061729,
+    "mean": 3.2838148148148143,
+    "pnl": 287209.0,
+    "losers": 40
+   },
+   "kept": {
+    "n": 57,
+    "win": 0.631578947368421,
+    "mean": 6.015561403508772,
+    "pnl": 358176.0,
+    "losers": 21
+   },
+   "removed": {
+    "n": 24,
+    "win": 0.20833333333333334,
+    "mean": -3.2040833333333336,
+    "pnl": -70967.0,
+    "losers": 19
+   }
+  },
+  "holdout": {
+   "book": {
+    "n": 24,
+    "win": 0.375,
+    "mean": -0.5014583333333332,
+    "pnl": -12229.75,
+    "losers": 15
+   },
+   "kept": {
+    "n": 16,
+    "win": 0.3125,
+    "mean": -1.663875,
+    "pnl": -25671.75,
+    "losers": 11
+   },
+   "removed": {
+    "n": 8,
+    "win": 0.5,
+    "mean": 1.823375,
+    "pnl": 13442.0,
+    "losers": 4
+   }
+  },
+  "p": 0.315,
+  "score": 0.35304878048780486,
+  "shuffle_median": 0.33201219512195124,
+  "shuffle_max": 0.4567073170731707,
+  "verdict": "REJECTED",
+  "why": "shuffle p=0.32: the same search finds as good a rule in random labels; holdout kept wins 31% vs book 38% (worse than the book); holdout removed side is profitable (Rs +13,442)"
+ },
+ {
+  "book": "lvl_trail_be",
+  "rule": [
+   [
+    "e_rv15",
+    ">=",
+    12.094
+   ]
+  ],
+  "combine": "AND",
+  "features": {
+   "e_rv15": "weather field as recorded at the trigger second"
+  },
+  "search": "single_raw: raw feature set (195 features), params default; score = share of losers removed - share of winners removed (rule_lab.score_masks), lines at quantiles 0.1..0.9, min kept 20 unless stated; shuffle = same search on 200 shufflings of discovery labels (seed 7)",
+  "discovery": {
+   "book": {
+    "n": 84,
+    "win": 0.4880952380952381,
+    "mean": 2.8167976190476187,
+    "pnl": 259454.0,
+    "losers": 43
+   },
+   "kept": {
+    "n": 25,
+    "win": 0.76,
+    "mean": 10.074919999999999,
+    "pnl": 281437.0,
+    "losers": 6
+   },
+   "removed": {
+    "n": 59,
+    "win": 0.3728813559322034,
+    "mean": -0.258677966101695,
+    "pnl": -21983.0,
+    "losers": 37
+   }
+  },
+  "holdout": {
+   "book": {
+    "n": 24,
+    "win": 0.4583333333333333,
+    "mean": 0.408375,
+    "pnl": 11160.5,
+    "losers": 13
+   },
+   "kept": {
+    "n": 2,
+    "win": 0.5,
+    "mean": -5.163,
+    "pnl": -9828.0,
+    "losers": 1
+   },
+   "removed": {
+    "n": 22,
+    "win": 0.45454545454545453,
+    "mean": 0.9148636363636363,
+    "pnl": 20988.5,
+    "losers": 12
+   }
+  },
+  "p": 0.495,
+  "score": 0.3238797504254112,
+  "shuffle_median": 0.32076006806579693,
+  "shuffle_max": 0.4526375496313102,
+  "verdict": "REJECTED",
+  "why": "shuffle p=0.49: the same search finds as good a rule in random labels; holdout removed side is profitable (Rs +20,988)"
+ },
+ {
+  "book": "lvl_trail_be",
+  "rule": [
+   [
+    "rv15_spot",
+    ">=",
+    12.048
+   ]
+  ],
+  "combine": "AND",
+  "features": {
+   "rv15_spot": "weather field as recorded at the trigger second"
+  },
+  "search": "single_hand: hand feature set (22 features), params default; score = share of losers removed - share of winners removed (rule_lab.score_masks), lines at quantiles 0.1..0.9, min kept 20 unless stated; shuffle = same search on 200 shufflings of discovery labels (seed 7)",
+  "discovery": {
+   "book": {
+    "n": 84,
+    "win": 0.4880952380952381,
+    "mean": 2.8167976190476187,
+    "pnl": 259454.0,
+    "losers": 43
+   },
+   "kept": {
+    "n": 25,
+    "win": 0.76,
+    "mean": 10.074919999999999,
+    "pnl": 281437.0,
+    "losers": 6
+   },
+   "removed": {
+    "n": 59,
+    "win": 0.3728813559322034,
+    "mean": -0.258677966101695,
+    "pnl": -21983.0,
+    "losers": 37
+   }
+  },
+  "holdout": {
+   "book": {
+    "n": 24,
+    "win": 0.4583333333333333,
+    "mean": 0.408375,
+    "pnl": 11160.5,
+    "losers": 13
+   },
+   "kept": {
+    "n": 3,
+    "win": 0.3333333333333333,
+    "mean": -4.678333333333334,
+    "pnl": -13468.0,
+    "losers": 2
+   },
+   "removed": {
+    "n": 21,
+    "win": 0.47619047619047616,
+    "mean": 1.135047619047619,
+    "pnl": 24628.5,
+    "losers": 11
+   }
+  },
+  "p": 0.07,
+  "score": 0.3238797504254112,
+  "shuffle_median": 0.24787294384571754,
+  "shuffle_max": 0.40158820192853095,
+  "verdict": "REJECTED",
+  "why": "shuffle p=0.07: the same search finds as good a rule in random labels; holdout kept wins 33% vs book 46% (worse than the book); holdout removed side is profitable (Rs +24,628)"
+ },
+ {
+  "book": "lvl_trail_be",
+  "rule": [
+   [
+    "e_fut_micro_with",
+    ">=",
+    0.25400000000000034
+   ]
+  ],
+  "combine": "AND",
+  "features": {
+   "e_fut_micro_with": "e_fut_micro * trade direction (+1 CE, -1 PE)"
+  },
+  "search": "single_derived: derived feature set (88 features), params default; score = share of losers removed - share of winners removed (rule_lab.score_masks), lines at quantiles 0.1..0.9, min kept 20 unless stated; shuffle = same search on 200 shufflings of discovery labels (seed 7)",
+  "discovery": {
+   "book": {
+    "n": 84,
+    "win": 0.4880952380952381,
+    "mean": 2.8167976190476187,
+    "pnl": 259454.0,
+    "losers": 43
+   },
+   "kept": {
+    "n": 25,
+    "win": 0.76,
+    "mean": 9.02448,
+    "pnl": 277910.75,
+    "losers": 6
+   },
+   "removed": {
+    "n": 59,
+    "win": 0.3728813559322034,
+    "mean": 0.18642372881355931,
+    "pnl": -18456.75,
+    "losers": 37
+   }
+  },
+  "holdout": {
+   "book": {
+    "n": 24,
+    "win": 0.4583333333333333,
+    "mean": 0.408375,
+    "pnl": 11160.5,
+    "losers": 13
+   },
+   "kept": {
+    "n": 7,
+    "win": 0.5714285714285714,
+    "mean": 0.3504285714285715,
+    "pnl": 490.75,
+    "losers": 3
+   },
+   "removed": {
+    "n": 17,
+    "win": 0.4117647058823529,
+    "mean": 0.43223529411764705,
+    "pnl": 10669.75,
+    "losers": 10
+   }
+  },
+  "p": 0.285,
+  "score": 0.3238797504254112,
+  "shuffle_median": 0.2955190017016449,
+  "shuffle_max": 0.4526375496313102,
+  "verdict": "REJECTED",
+  "why": "shuffle p=0.28: the same search finds as good a rule in random labels; holdout removed side is profitable (Rs +10,670)"
+ },
+ {
+  "book": "lvl_trail_be",
+  "rule": [
+   [
+    "opt_opp_q=REFILLING",
+    "<",
+    1.0
+   ]
+  ],
+  "combine": "AND",
+  "features": {
+   "opt_opp_q=REFILLING": "1 if weather['opt_opp_q'] == 'REFILLING' else 0"
+  },
+  "search": "single_text: text feature set (62 features), params default; score = share of losers removed - share of winners removed (rule_lab.score_masks), lines at quantiles 0.1..0.9, min kept 20 unless stated; shuffle = same search on 200 shufflings of discovery labels (seed 7)",
+  "discovery": {
+   "book": {
+    "n": 84,
+    "win": 0.4880952380952381,
+    "mean": 2.8167976190476187,
+    "pnl": 259454.0,
+    "losers": 43
+   },
+   "kept": {
+    "n": 49,
+    "win": 0.5714285714285714,
+    "mean": 4.560102040816326,
+    "pnl": 270049.0,
+    "losers": 21
+   },
+   "removed": {
+    "n": 35,
+    "win": 0.37142857142857144,
+    "mean": 0.37617142857142866,
+    "pnl": -10595.0,
+    "losers": 22
+   }
+  },
+  "holdout": {
+   "book": {
+    "n": 24,
+    "win": 0.4583333333333333,
+    "mean": 0.408375,
+    "pnl": 11160.5,
+    "losers": 13
+   },
+   "kept": {
+    "n": 18,
+    "win": 0.4444444444444444,
+    "mean": 1.2645,
+    "pnl": 23705.5,
+    "losers": 10
+   },
+   "removed": {
+    "n": 6,
+    "win": 0.5,
+    "mean": -2.1599999999999997,
+    "pnl": -12545.0,
+    "losers": 3
+   }
+  },
+  "p": 0.75,
+  "score": 0.19455473624503689,
+  "shuffle_median": 0.2200794100964265,
+  "shuffle_max": 0.3397617697107203,
+  "verdict": "REJECTED",
+  "why": "shuffle p=0.75: the same search finds as good a rule in random labels; holdout kept wins 44% vs book 46% (worse than the book)"
+ },
+ {
+  "book": "lvl_trail_be",
+  "rule": [
+   [
+    "e_rv15",
+    ">=",
+    12.094
+   ]
+  ],
+  "combine": "AND",
+  "features": {
+   "e_rv15": "weather field as recorded at the trigger second"
+  },
+  "search": "single_all: all feature set (345 features), params default; score = share of losers removed - share of winners removed (rule_lab.score_masks), lines at quantiles 0.1..0.9, min kept 20 unless stated; shuffle = same search on 200 shufflings of discovery labels (seed 7)",
+  "discovery": {
+   "book": {
+    "n": 84,
+    "win": 0.4880952380952381,
+    "mean": 2.8167976190476187,
+    "pnl": 259454.0,
+    "losers": 43
+   },
+   "kept": {
+    "n": 25,
+    "win": 0.76,
+    "mean": 10.074919999999999,
+    "pnl": 281437.0,
+    "losers": 6
+   },
+   "removed": {
+    "n": 59,
+    "win": 0.3728813559322034,
+    "mean": -0.258677966101695,
+    "pnl": -21983.0,
+    "losers": 37
+   }
+  },
+  "holdout": {
+   "book": {
+    "n": 24,
+    "win": 0.4583333333333333,
+    "mean": 0.408375,
+    "pnl": 11160.5,
+    "losers": 13
+   },
+   "kept": {
+    "n": 2,
+    "win": 0.5,
+    "mean": -5.163,
+    "pnl": -9828.0,
+    "losers": 1
+   },
+   "removed": {
+    "n": 22,
+    "win": 0.45454545454545453,
+    "mean": 0.9148636363636363,
+    "pnl": 20988.5,
+    "losers": 12
+   }
+  },
+  "p": 0.63,
+  "score": 0.3238797504254112,
+  "shuffle_median": 0.3329551900170164,
+  "shuffle_max": 0.4526375496313102,
+  "verdict": "REJECTED",
+  "why": "shuffle p=0.63: the same search finds as good a rule in random labels; holdout removed side is profitable (Rs +20,988)"
+ },
+ {
+  "book": "lvl_trail_be",
+  "rule": [
+   [
+    "e_rv15",
+    ">=",
+    12.094
+   ]
+  ],
+  "combine": "AND",
+  "features": {
+   "e_rv15": "weather field as recorded at the trigger second"
+  },
+  "search": "single_all_9lines: all feature set (345 features), params {'n_lines': 9}; score = share of losers removed - share of winners removed (rule_lab.score_masks), lines at quantiles 0.1..0.9, min kept 20 unless stated; shuffle = same search on 200 shufflings of discovery labels (seed 7)",
+  "discovery": {
+   "book": {
+    "n": 84,
+    "win": 0.4880952380952381,
+    "mean": 2.8167976190476187,
+    "pnl": 259454.0,
+    "losers": 43
+   },
+   "kept": {
+    "n": 25,
+    "win": 0.76,
+    "mean": 10.074919999999999,
+    "pnl": 281437.0,
+    "losers": 6
+   },
+   "removed": {
+    "n": 59,
+    "win": 0.3728813559322034,
+    "mean": -0.258677966101695,
+    "pnl": -21983.0,
+    "losers": 37
+   }
+  },
+  "holdout": {
+   "book": {
+    "n": 24,
+    "win": 0.4583333333333333,
+    "mean": 0.408375,
+    "pnl": 11160.5,
+    "losers": 13
+   },
+   "kept": {
+    "n": 2,
+    "win": 0.5,
+    "mean": -5.163,
+    "pnl": -9828.0,
+    "losers": 1
+   },
+   "removed": {
+    "n": 22,
+    "win": 0.45454545454545453,
+    "mean": 0.9148636363636363,
+    "pnl": 20988.5,
+    "losers": 12
+   }
+  },
+  "p": 0.715,
+  "score": 0.3238797504254112,
+  "shuffle_median": 0.34997163925127617,
+  "shuffle_max": 0.45717526942711284,
+  "verdict": "REJECTED",
+  "why": "shuffle p=0.71: the same search finds as good a rule in random labels; holdout removed side is profitable (Rs +20,988)"
+ },
+ {
+  "book": "lvl_trail_be",
+  "rule": [
+   [
+    "oi_own_chg30",
+    ">=",
+    -20345.0
+   ],
+   [
+    "e_syn_dev",
+    ">=",
+    -1.4929999999999999
+   ]
+  ],
+  "combine": "AND",
+  "features": {
+   "oi_own_chg30": "weather field as recorded at the trigger second",
+   "e_syn_dev": "weather field as recorded at the trigger second"
+  },
+  "search": "pair_raw: raw feature set (195 features), params default; score = share of losers removed - share of winners removed (rule_lab.score_masks), lines at quantiles 0.1..0.9, min kept 20 unless stated; shuffle = same search on 200 shufflings of discovery labels (seed 7)",
+  "discovery": {
+   "book": {
+    "n": 84,
+    "win": 0.4880952380952381,
+    "mean": 2.8167976190476187,
+    "pnl": 259454.0,
+    "losers": 43
+   },
+   "kept": {
+    "n": 28,
+    "win": 0.8214285714285714,
+    "mean": 10.917535714285714,
+    "pnl": 351971.75,
+    "losers": 5
+   },
+   "removed": {
+    "n": 56,
+    "win": 0.32142857142857145,
+    "mean": -1.2335714285714285,
+    "pnl": -92517.75,
+    "losers": 38
+   }
+  },
+  "holdout": {
+   "book": {
+    "n": 24,
+    "win": 0.4583333333333333,
+    "mean": 0.408375,
+    "pnl": 11160.5,
+    "losers": 13
+   },
+   "kept": {
+    "n": 6,
+    "win": 0.3333333333333333,
+    "mean": -5.009833333333334,
+    "pnl": -28258.75,
+    "losers": 4
+   },
+   "removed": {
+    "n": 18,
+    "win": 0.5,
+    "mean": 2.214444444444444,
+    "pnl": 39419.25,
+    "losers": 9
+   }
+  },
+  "p": 0.56,
+  "score": 0.4446965456008911,
+  "shuffle_median": 0.449234277009964,
+  "shuffle_max": 0.5734543204307556,
+  "verdict": "REJECTED",
+  "why": "shuffle p=0.56: the same search finds as good a rule in random labels; holdout kept wins 33% vs book 46% (worse than the book); holdout removed side is profitable (Rs +39,419)"
+ },
+ {
+  "book": "lvl_trail_be",
+  "rule": [
+   [
+    "rv15_spot",
+    ">=",
+    12.048
+   ],
+   [
+    "trig_str",
+    "<",
+    125.12
+   ]
+  ],
+  "combine": "AND",
+  "features": {
+   "rv15_spot": "weather field as recorded at the trigger second",
+   "trig_str": "weather field as recorded at the trigger second"
+  },
+  "search": "pair_hand: hand feature set (22 features), params default; score = share of losers removed - share of winners removed (rule_lab.score_masks), lines at quantiles 0.1..0.9, min kept 20 unless stated; shuffle = same search on 200 shufflings of discovery labels (seed 7)",
+  "discovery": {
+   "book": {
+    "n": 84,
+    "win": 0.4880952380952381,
+    "mean": 2.8167976190476187,
+    "pnl": 259454.0,
+    "losers": 43
+   },
+   "kept": {
+    "n": 21,
+    "win": 0.8571428571428571,
+    "mean": 13.312190476190475,
+    "pnl": 309344.75,
+    "losers": 3
+   },
+   "removed": {
+    "n": 63,
+    "win": 0.36507936507936506,
+    "mean": -0.6816666666666668,
+    "pnl": -49890.75,
+    "losers": 40
+   }
+  },
+  "holdout": {
+   "book": {
+    "n": 24,
+    "win": 0.4583333333333333,
+    "mean": 0.408375,
+    "pnl": 11160.5,
+    "losers": 13
+   },
+   "kept": {
+    "n": 3,
+    "win": 0.3333333333333333,
+    "mean": -4.678333333333334,
+    "pnl": -13468.0,
+    "losers": 2
+   },
+   "removed": {
+    "n": 21,
+    "win": 0.47619047619047616,
+    "mean": 1.135047619047619,
+    "pnl": 24628.5,
+    "losers": 11
+   }
+  },
+  "p": 0.27,
+  "score": 0.36925697326660156,
+  "shuffle_median": 0.3306863307952881,
+  "shuffle_max": 0.5025524497032166,
+  "verdict": "REJECTED",
+  "why": "shuffle p=0.27: the same search finds as good a rule in random labels; holdout kept wins 33% vs book 46% (worse than the book); holdout removed side is profitable (Rs +24,628)"
+ },
+ {
+  "book": "lvl_trail_be",
+  "rule": [
+   [
+    "oi_own_chg30",
+    ">=",
+    -20345.0
+   ],
+   [
+    "e_syn_dev",
+    ">=",
+    -1.4929999999999999
+   ]
+  ],
+  "combine": "AND",
+  "features": {
+   "oi_own_chg30": "weather field as recorded at the trigger second",
+   "e_syn_dev": "weather field as recorded at the trigger second"
+  },
+  "search": "pair_all: all feature set (345 features), params default; score = share of losers removed - share of winners removed (rule_lab.score_masks), lines at quantiles 0.1..0.9, min kept 20 unless stated; shuffle = same search on 200 shufflings of discovery labels (seed 7)",
+  "discovery": {
+   "book": {
+    "n": 84,
+    "win": 0.4880952380952381,
+    "mean": 2.8167976190476187,
+    "pnl": 259454.0,
+    "losers": 43
+   },
+   "kept": {
+    "n": 28,
+    "win": 0.8214285714285714,
+    "mean": 10.917535714285714,
+    "pnl": 351971.75,
+    "losers": 5
+   },
+   "removed": {
+    "n": 56,
+    "win": 0.32142857142857145,
+    "mean": -1.2335714285714285,
+    "pnl": -92517.75,
+    "losers": 38
+   }
+  },
+  "holdout": {
+   "book": {
+    "n": 24,
+    "win": 0.4583333333333333,
+    "mean": 0.408375,
+    "pnl": 11160.5,
+    "losers": 13
+   },
+   "kept": {
+    "n": 6,
+    "win": 0.3333333333333333,
+    "mean": -5.009833333333334,
+    "pnl": -28258.75,
+    "losers": 4
+   },
+   "removed": {
+    "n": 18,
+    "win": 0.5,
+    "mean": 2.214444444444444,
+    "pnl": 39419.25,
+    "losers": 9
+   }
+  },
+  "p": 0.72,
+  "score": 0.4446965456008911,
+  "shuffle_median": 0.4560408592224121,
+  "shuffle_max": 0.5745887756347656,
+  "verdict": "REJECTED",
+  "why": "shuffle p=0.72: the same search finds as good a rule in random labels; holdout kept wins 33% vs book 46% (worse than the book); holdout removed side is profitable (Rs +39,419)"
+ },
+ {
+  "book": "lvl_trail_be",
+  "rule": [
+   [
+    "oi_own_chg30",
+    ">=",
+    -20345.0
+   ],
+   [
+    "e_syn_dev",
+    ">=",
+    -1.4929999999999999
+   ],
+   [
+    "bn300",
+    ">=",
+    -0.18389999999999998
+   ]
+  ],
+  "combine": "AND",
+  "features": {
+   "oi_own_chg30": "weather field as recorded at the trigger second",
+   "e_syn_dev": "weather field as recorded at the trigger second",
+   "bn300": "weather field as recorded at the trigger second"
+  },
+  "search": "triple_all: all feature set (345 features), params default; score = share of losers removed - share of winners removed (rule_lab.score_masks), lines at quantiles 0.1..0.9, min kept 20 unless stated; shuffle = same search on 200 shufflings of discovery labels (seed 7)",
+  "discovery": {
+   "book": {
+    "n": 84,
+    "win": 0.4880952380952381,
+    "mean": 2.8167976190476187,
+    "pnl": 259454.0,
+    "losers": 43
+   },
+   "kept": {
+    "n": 26,
+    "win": 0.8846153846153846,
+    "mean": 12.500692307692306,
+    "pnl": 371234.5,
+    "losers": 3
+   },
+   "removed": {
+    "n": 58,
+    "win": 0.3103448275862069,
+    "mean": -1.5242586206896551,
+    "pnl": -111780.5,
+    "losers": 40
+   }
+  },
+  "holdout": {
+   "book": {
+    "n": 24,
+    "win": 0.4583333333333333,
+    "mean": 0.408375,
+    "pnl": 11160.5,
+    "losers": 13
+   },
+   "kept": {
+    "n": 6,
+    "win": 0.3333333333333333,
+    "mean": -5.009833333333334,
+    "pnl": -28258.75,
+    "losers": 4
+   },
+   "removed": {
+    "n": 18,
+    "win": 0.5,
+    "mean": 2.214444444444444,
+    "pnl": 39419.25,
+    "losers": 9
+   }
+  },
+  "p": 0.89,
+  "score": 0.49120816789563243,
+  "shuffle_median": 0.5286443562110039,
+  "shuffle_max": 0.6420873511060692,
+  "verdict": "REJECTED",
+  "why": "shuffle p=0.89: the same search finds as good a rule in random labels; holdout kept wins 33% vs book 46% (worse than the book); holdout removed side is profitable (Rs +39,419)"
+ },
+ {
+  "book": "lvl_trail_be",
+  "rule": [
+   [
+    "e_fut_micro_with",
+    ">=",
+    0.25400000000000034
+   ],
+   [
+    "rv15_spot",
+    ">=",
+    12.048
+   ]
+  ],
+  "combine": "OR",
+  "features": {
+   "e_fut_micro_with": "e_fut_micro * trade direction (+1 CE, -1 PE)",
+   "rv15_spot": "weather field as recorded at the trigger second"
+  },
+  "search": "or_all: all feature set (345 features), params default; score = share of losers removed - share of winners removed (rule_lab.score_masks), lines at quantiles 0.1..0.9, min kept 20 unless stated; shuffle = same search on 200 shufflings of discovery labels (seed 7)",
+  "discovery": {
+   "book": {
+    "n": 84,
+    "win": 0.4880952380952381,
+    "mean": 2.8167976190476187,
+    "pnl": 259454.0,
+    "losers": 43
+   },
+   "kept": {
+    "n": 45,
+    "win": 0.7333333333333333,
+    "mean": 8.47188888888889,
+    "pnl": 430612.0,
+    "losers": 12
+   },
+   "removed": {
+    "n": 39,
+    "win": 0.20512820512820512,
+    "mean": -3.708307692307692,
+    "pnl": -171158.0,
+    "losers": 31
+   }
+  },
+  "holdout": {
+   "book": {
+    "n": 24,
+    "win": 0.4583333333333333,
+    "mean": 0.408375,
+    "pnl": 11160.5,
+    "losers": 13
+   },
+   "kept": {
+    "n": 10,
+    "win": 0.5,
+    "mean": -1.1582,
+    "pnl": -12977.25,
+    "losers": 5
+   },
+   "removed": {
+    "n": 14,
+    "win": 0.42857142857142855,
+    "mean": 1.5273571428571429,
+    "pnl": 24137.75,
+    "losers": 8
+   }
+  },
+  "p": 0.055,
+  "score": 0.5258082747459412,
+  "shuffle_median": 0.45717525482177734,
+  "shuffle_max": 0.595575749874115,
+  "verdict": "REJECTED",
+  "why": "shuffle p=0.06: the same search finds as good a rule in random labels; holdout removed side is profitable (Rs +24,138)"
+ },
+ {
+  "book": "lvl_trail_be",
+  "rule": [
+   [
+    "oi_own_chg30",
+    ">=",
+    -20345.0
+   ]
+  ],
+  "combine": "AND",
+  "features": {
+   "oi_own_chg30": "weather field as recorded at the trigger second"
+  },
+  "search": "single_all_keep30: all feature set (345 features), params {'min_keep': 30}; score = share of losers removed - share of winners removed (rule_lab.score_masks), lines at quantiles 0.1..0.9, min kept 20 unless stated; shuffle = same search on 200 shufflings of discovery labels (seed 7)",
+  "discovery": {
+   "book": {
+    "n": 84,
+    "win": 0.4880952380952381,
+    "mean": 2.8167976190476187,
+    "pnl": 259454.0,
+    "losers": 43
+   },
+   "kept": {
+    "n": 39,
+    "win": 0.6410256410256411,
+    "mean": 7.039153846153845,
+    "pnl": 317356.0,
+    "losers": 14
+   },
+   "removed": {
+    "n": 45,
+    "win": 0.35555555555555557,
+    "mean": -0.8425777777777779,
+    "pnl": -57902.0,
+    "losers": 29
+   }
+  },
+  "holdout": {
+   "book": {
+    "n": 24,
+    "win": 0.4583333333333333,
+    "mean": 0.408375,
+    "pnl": 11160.5,
+    "losers": 13
+   },
+   "kept": {
+    "n": 7,
+    "win": 0.2857142857142857,
+    "mean": -5.796428571428572,
+    "pnl": -38268.75,
+    "losers": 5
+   },
+   "removed": {
+    "n": 17,
+    "win": 0.5294117647058824,
+    "mean": 2.9632941176470586,
+    "pnl": 49429.25,
+    "losers": 8
+   }
+  },
+  "p": 0.895,
+  "score": 0.28417470221213836,
+  "shuffle_median": 0.3187748156551333,
+  "shuffle_max": 0.4526375496313102,
+  "verdict": "REJECTED",
+  "why": "shuffle p=0.90: the same search finds as good a rule in random labels; holdout kept wins 29% vs book 46% (worse than the book); holdout removed side is profitable (Rs +49,429)"
+ },
+ {
+  "book": "lvl_trail_re",
+  "rule": [
+   [
+    "fut_spread",
+    ">=",
+    2.6
+   ]
+  ],
+  "combine": "AND",
+  "features": {
+   "fut_spread": "weather field as recorded at the trigger second"
+  },
+  "search": "single_raw: raw feature set (193 features), params default; score = share of losers removed - share of winners removed (rule_lab.score_masks), lines at quantiles 0.1..0.9, min kept 20 unless stated; shuffle = same search on 200 shufflings of discovery labels (seed 7)",
+  "discovery": {
+   "book": {
+    "n": 76,
+    "win": 0.5263157894736842,
+    "mean": 3.876210526315789,
+    "pnl": 317570.5,
+    "losers": 36
+   },
+   "kept": {
+    "n": 54,
+    "win": 0.6481481481481481,
+    "mean": 6.691703703703703,
+    "pnl": 378998.75,
+    "losers": 19
+   },
+   "removed": {
+    "n": 22,
+    "win": 0.22727272727272727,
+    "mean": -3.0345454545454547,
+    "pnl": -61428.25,
+    "losers": 17
+   }
+  },
+  "holdout": {
+   "book": {
+    "n": 21,
+    "win": 0.42857142857142855,
+    "mean": 0.9552857142857143,
+    "pnl": 12837.5,
+    "losers": 12
+   },
+   "kept": {
+    "n": 13,
+    "win": 0.38461538461538464,
+    "mean": 0.42107692307692324,
+    "pnl": -604.5,
+    "losers": 8
+   },
+   "removed": {
+    "n": 8,
+    "win": 0.5,
+    "mean": 1.823375,
+    "pnl": 13442.0,
+    "losers": 4
+   }
+  },
+  "p": 0.385,
+  "score": 0.3472222222222222,
+  "shuffle_median": 0.32361111111111107,
+  "shuffle_max": 0.5277777777777778,
+  "verdict": "REJECTED",
+  "why": "shuffle p=0.39: the same search finds as good a rule in random labels; holdout kept wins 38% vs book 43% (worse than the book); holdout removed side is profitable (Rs +13,442)"
+ },
+ {
+  "book": "lvl_trail_re",
+  "rule": [
+   [
+    "pos_dir",
+    ">=",
+    0.4630500000000001
+   ]
+  ],
+  "combine": "AND",
+  "features": {
+   "pos_dir": "weather field as recorded at the trigger second"
+  },
+  "search": "single_hand: hand feature set (22 features), params default; score = share of losers removed - share of winners removed (rule_lab.score_masks), lines at quantiles 0.1..0.9, min kept 20 unless stated; shuffle = same search on 200 shufflings of discovery labels (seed 7)",
+  "discovery": {
+   "book": {
+    "n": 76,
+    "win": 0.5263157894736842,
+    "mean": 3.876210526315789,
+    "pnl": 317570.5,
+    "losers": 36
+   },
+   "kept": {
+    "n": 53,
+    "win": 0.6037735849056604,
+    "mean": 4.990679245283018,
+    "pnl": 287342.25,
+    "losers": 21
+   },
+   "removed": {
+    "n": 23,
+    "win": 0.34782608695652173,
+    "mean": 1.308086956521739,
+    "pnl": 30228.25,
+    "losers": 15
+   }
+  },
+  "holdout": {
+   "book": {
+    "n": 21,
+    "win": 0.42857142857142855,
+    "mean": 0.9552857142857143,
+    "pnl": 12837.5,
+    "losers": 12
+   },
+   "kept": {
+    "n": 12,
+    "win": 0.5833333333333334,
+    "mean": 3.465,
+    "pnl": 32646.25,
+    "losers": 5
+   },
+   "removed": {
+    "n": 9,
+    "win": 0.2222222222222222,
+    "mean": -2.391,
+    "pnl": -19808.75,
+    "losers": 7
+   }
+  },
+  "p": 0.775,
+  "score": 0.21666666666666667,
+  "shuffle_median": 0.2583333333333334,
+  "shuffle_max": 0.4555555555555556,
+  "verdict": "REJECTED",
+  "why": "shuffle p=0.78: the same search finds as good a rule in random labels"
+ },
+ {
+  "book": "lvl_trail_re",
+  "rule": [
+   [
+    "e_fut_micro_with",
+    ">=",
+    0.2700000000000003
+   ]
+  ],
+  "combine": "AND",
+  "features": {
+   "e_fut_micro_with": "e_fut_micro * trade direction (+1 CE, -1 PE)"
+  },
+  "search": "single_derived: derived feature set (88 features), params default; score = share of losers removed - share of winners removed (rule_lab.score_masks), lines at quantiles 0.1..0.9, min kept 20 unless stated; shuffle = same search on 200 shufflings of discovery labels (seed 7)",
+  "discovery": {
+   "book": {
+    "n": 76,
+    "win": 0.5263157894736842,
+    "mean": 3.876210526315789,
+    "pnl": 317570.5,
+    "losers": 36
+   },
+   "kept": {
+    "n": 23,
+    "win": 0.782608695652174,
+    "mean": 10.645304347826086,
+    "pnl": 294076.25,
+    "losers": 5
+   },
+   "removed": {
+    "n": 53,
+    "win": 0.41509433962264153,
+    "mean": 0.9386792452830188,
+    "pnl": 23494.25,
+    "losers": 31
+   }
+  },
+  "holdout": {
+   "book": {
+    "n": 21,
+    "win": 0.42857142857142855,
+    "mean": 0.9552857142857143,
+    "pnl": 12837.5,
+    "losers": 12
+   },
+   "kept": {
+    "n": 6,
+    "win": 0.5,
+    "mean": 0.3545,
+    "pnl": 871.0,
+    "losers": 3
+   },
+   "removed": {
+    "n": 15,
+    "win": 0.4,
+    "mean": 1.1956,
+    "pnl": 11966.5,
+    "losers": 9
+   }
+  },
+  "p": 0.6,
+  "score": 0.3111111111111111,
+  "shuffle_median": 0.31666666666666665,
+  "shuffle_max": 0.4555555555555556,
+  "verdict": "REJECTED",
+  "why": "shuffle p=0.60: the same search finds as good a rule in random labels; holdout removed side is profitable (Rs +11,966)"
+ },
+ {
+  "book": "lvl_trail_re",
+  "rule": [
+   [
+    "opt_opp_o=REFILLING",
+    "<",
+    1.0
+   ]
+  ],
+  "combine": "AND",
+  "features": {
+   "opt_opp_o=REFILLING": "1 if weather['opt_opp_o'] == 'REFILLING' else 0"
+  },
+  "search": "single_text: text feature set (62 features), params default; score = share of losers removed - share of winners removed (rule_lab.score_masks), lines at quantiles 0.1..0.9, min kept 20 unless stated; shuffle = same search on 200 shufflings of discovery labels (seed 7)",
+  "discovery": {
+   "book": {
+    "n": 76,
+    "win": 0.5263157894736842,
+    "mean": 3.876210526315789,
+    "pnl": 317570.5,
+    "losers": 36
+   },
+   "kept": {
+    "n": 49,
+    "win": 0.6122448979591837,
+    "mean": 4.567408163265306,
+    "pnl": 236925.0,
+    "losers": 19
+   },
+   "removed": {
+    "n": 27,
+    "win": 0.37037037037037035,
+    "mean": 2.621814814814815,
+    "pnl": 80645.5,
+    "losers": 17
+   }
+  },
+  "holdout": {
+   "book": {
+    "n": 21,
+    "win": 0.42857142857142855,
+    "mean": 0.9552857142857143,
+    "pnl": 12837.5,
+    "losers": 12
+   },
+   "kept": {
+    "n": 18,
+    "win": 0.4444444444444444,
+    "mean": 1.2141111111111114,
+    "pnl": 14410.5,
+    "losers": 10
+   },
+   "removed": {
+    "n": 3,
+    "win": 0.3333333333333333,
+    "mean": -0.5976666666666667,
+    "pnl": -1573.0,
+    "losers": 2
+   }
+  },
+  "p": 0.625,
+  "score": 0.2222222222222222,
+  "shuffle_median": 0.2277777777777778,
+  "shuffle_max": 0.43888888888888883,
+  "verdict": "REJECTED",
+  "why": "shuffle p=0.62: the same search finds as good a rule in random labels"
+ },
+ {
+  "book": "lvl_trail_re",
+  "rule": [
+   [
+    "fut_spread",
+    ">=",
+    2.6
+   ]
+  ],
+  "combine": "AND",
+  "features": {
+   "fut_spread": "weather field as recorded at the trigger second"
+  },
+  "search": "single_all: all feature set (343 features), params default; score = share of losers removed - share of winners removed (rule_lab.score_masks), lines at quantiles 0.1..0.9, min kept 20 unless stated; shuffle = same search on 200 shufflings of discovery labels (seed 7)",
+  "discovery": {
+   "book": {
+    "n": 76,
+    "win": 0.5263157894736842,
+    "mean": 3.876210526315789,
+    "pnl": 317570.5,
+    "losers": 36
+   },
+   "kept": {
+    "n": 54,
+    "win": 0.6481481481481481,
+    "mean": 6.691703703703703,
+    "pnl": 378998.75,
+    "losers": 19
+   },
+   "removed": {
+    "n": 22,
+    "win": 0.22727272727272727,
+    "mean": -3.0345454545454547,
+    "pnl": -61428.25,
+    "losers": 17
+   }
+  },
+  "holdout": {
+   "book": {
+    "n": 21,
+    "win": 0.42857142857142855,
+    "mean": 0.9552857142857143,
+    "pnl": 12837.5,
+    "losers": 12
+   },
+   "kept": {
+    "n": 13,
+    "win": 0.38461538461538464,
+    "mean": 0.42107692307692324,
+    "pnl": -604.5,
+    "losers": 8
+   },
+   "removed": {
+    "n": 8,
+    "win": 0.5,
+    "mean": 1.823375,
+    "pnl": 13442.0,
+    "losers": 4
+   }
+  },
+  "p": 0.485,
+  "score": 0.3472222222222222,
+  "shuffle_median": 0.3416666666666667,
+  "shuffle_max": 0.5277777777777778,
+  "verdict": "REJECTED",
+  "why": "shuffle p=0.48: the same search finds as good a rule in random labels; holdout kept wins 38% vs book 43% (worse than the book); holdout removed side is profitable (Rs +13,442)"
+ },
+ {
+  "book": "lvl_trail_re",
+  "rule": [
+   [
+    "fut_spread",
+    ">=",
+    2.6
+   ]
+  ],
+  "combine": "AND",
+  "features": {
+   "fut_spread": "weather field as recorded at the trigger second"
+  },
+  "search": "single_all_9lines: all feature set (343 features), params {'n_lines': 9}; score = share of losers removed - share of winners removed (rule_lab.score_masks), lines at quantiles 0.1..0.9, min kept 20 unless stated; shuffle = same search on 200 shufflings of discovery labels (seed 7)",
+  "discovery": {
+   "book": {
+    "n": 76,
+    "win": 0.5263157894736842,
+    "mean": 3.876210526315789,
+    "pnl": 317570.5,
+    "losers": 36
+   },
+   "kept": {
+    "n": 54,
+    "win": 0.6481481481481481,
+    "mean": 6.691703703703703,
+    "pnl": 378998.75,
+    "losers": 19
+   },
+   "removed": {
+    "n": 22,
+    "win": 0.22727272727272727,
+    "mean": -3.0345454545454547,
+    "pnl": -61428.25,
+    "losers": 17
+   }
+  },
+  "holdout": {
+   "book": {
+    "n": 21,
+    "win": 0.42857142857142855,
+    "mean": 0.9552857142857143,
+    "pnl": 12837.5,
+    "losers": 12
+   },
+   "kept": {
+    "n": 13,
+    "win": 0.38461538461538464,
+    "mean": 0.42107692307692324,
+    "pnl": -604.5,
+    "losers": 8
+   },
+   "removed": {
+    "n": 8,
+    "win": 0.5,
+    "mean": 1.823375,
+    "pnl": 13442.0,
+    "losers": 4
+   }
+  },
+  "p": 0.62,
+  "score": 0.3472222222222222,
+  "shuffle_median": 0.3638888888888888,
+  "shuffle_max": 0.5277777777777778,
+  "verdict": "REJECTED",
+  "why": "shuffle p=0.62: the same search finds as good a rule in random labels; holdout kept wins 38% vs book 43% (worse than the book); holdout removed side is profitable (Rs +13,442)"
+ },
+ {
+  "book": "lvl_trail_re",
+  "rule": [
+   [
+    "fut_spread",
+    ">=",
+    2.6
+   ],
+   [
+    "oi_net_help5",
+    ">=",
+    787865.0
+   ]
+  ],
+  "combine": "AND",
+  "features": {
+   "fut_spread": "weather field as recorded at the trigger second",
+   "oi_net_help5": "weather field as recorded at the trigger second"
+  },
+  "search": "pair_raw: raw feature set (193 features), params default; score = share of losers removed - share of winners removed (rule_lab.score_masks), lines at quantiles 0.1..0.9, min kept 20 unless stated; shuffle = same search on 200 shufflings of discovery labels (seed 7)",
+  "discovery": {
+   "book": {
+    "n": 76,
+    "win": 0.5263157894736842,
+    "mean": 3.876210526315789,
+    "pnl": 317570.5,
+    "losers": 36
+   },
+   "kept": {
+    "n": 30,
+    "win": 0.8333333333333334,
+    "mean": 9.935066666666668,
+    "pnl": 340525.25,
+    "losers": 5
+   },
+   "removed": {
+    "n": 46,
+    "win": 0.32608695652173914,
+    "mean": -0.07521739130434792,
+    "pnl": -22954.75,
+    "losers": 31
+   }
+  },
+  "holdout": {
+   "book": {
+    "n": 21,
+    "win": 0.42857142857142855,
+    "mean": 0.9552857142857143,
+    "pnl": 12837.5,
+    "losers": 12
+   },
+   "kept": {
+    "n": 5,
+    "win": 0.6,
+    "mean": 0.49219999999999997,
+    "pnl": -162.5,
+    "losers": 2
+   },
+   "removed": {
+    "n": 16,
+    "win": 0.375,
+    "mean": 1.1,
+    "pnl": 13000.0,
+    "losers": 10
+   }
+  },
+  "p": 0.3,
+  "score": 0.4861111044883728,
+  "shuffle_median": 0.46388888359069824,
+  "shuffle_max": 0.5972222089767456,
+  "verdict": "REJECTED",
+  "why": "shuffle p=0.30: the same search finds as good a rule in random labels; holdout removed side is profitable (Rs +13,000)"
+ },
+ {
+  "book": "lvl_trail_re",
+  "rule": [
+   [
+    "pos_dir",
+    ">=",
+    0.4630500000000001
+   ],
+   [
+    "ret_today",
+    "<",
+    81.799
+   ]
+  ],
+  "combine": "AND",
+  "features": {
+   "pos_dir": "weather field as recorded at the trigger second",
+   "ret_today": "weather field as recorded at the trigger second"
+  },
+  "search": "pair_hand: hand feature set (22 features), params default; score = share of losers removed - share of winners removed (rule_lab.score_masks), lines at quantiles 0.1..0.9, min kept 20 unless stated; shuffle = same search on 200 shufflings of discovery labels (seed 7)",
+  "discovery": {
+   "book": {
+    "n": 76,
+    "win": 0.5263157894736842,
+    "mean": 3.876210526315789,
+    "pnl": 317570.5,
+    "losers": 36
+   },
+   "kept": {
+    "n": 49,
+    "win": 0.6530612244897959,
+    "mean": 5.940795918367347,
+    "pnl": 344919.25,
+    "losers": 17
+   },
+   "removed": {
+    "n": 27,
+    "win": 0.2962962962962963,
+    "mean": 0.12937037037037033,
+    "pnl": -27348.75,
+    "losers": 19
+   }
+  },
+  "holdout": {
+   "book": {
+    "n": 21,
+    "win": 0.42857142857142855,
+    "mean": 0.9552857142857143,
+    "pnl": 12837.5,
+    "losers": 12
+   },
+   "kept": {
+    "n": 12,
+    "win": 0.5833333333333334,
+    "mean": 3.465,
+    "pnl": 32646.25,
+    "losers": 5
+   },
+   "removed": {
+    "n": 9,
+    "win": 0.2222222222222222,
+    "mean": -2.391,
+    "pnl": -19808.75,
+    "losers": 7
+   }
+  },
+  "p": 0.68,
+  "score": 0.32777780294418335,
+  "shuffle_median": 0.3472222089767456,
+  "shuffle_max": 0.5027778148651123,
+  "verdict": "REJECTED",
+  "why": "shuffle p=0.68: the same search finds as good a rule in random labels"
+ },
+ {
+  "book": "lvl_trail_re",
+  "rule": [
+   [
+    "fut_spread",
+    ">=",
+    2.6
+   ],
+   [
+    "oi_net_help5",
+    ">=",
+    787865.0
+   ]
+  ],
+  "combine": "AND",
+  "features": {
+   "fut_spread": "weather field as recorded at the trigger second",
+   "oi_net_help5": "weather field as recorded at the trigger second"
+  },
+  "search": "pair_all: all feature set (343 features), params default; score = share of losers removed - share of winners removed (rule_lab.score_masks), lines at quantiles 0.1..0.9, min kept 20 unless stated; shuffle = same search on 200 shufflings of discovery labels (seed 7)",
+  "discovery": {
+   "book": {
+    "n": 76,
+    "win": 0.5263157894736842,
+    "mean": 3.876210526315789,
+    "pnl": 317570.5,
+    "losers": 36
+   },
+   "kept": {
+    "n": 30,
+    "win": 0.8333333333333334,
+    "mean": 9.935066666666668,
+    "pnl": 340525.25,
+    "losers": 5
+   },
+   "removed": {
+    "n": 46,
+    "win": 0.32608695652173914,
+    "mean": -0.07521739130434792,
+    "pnl": -22954.75,
+    "losers": 31
+   }
+  },
+  "holdout": {
+   "book": {
+    "n": 21,
+    "win": 0.42857142857142855,
+    "mean": 0.9552857142857143,
+    "pnl": 12837.5,
+    "losers": 12
+   },
+   "kept": {
+    "n": 5,
+    "win": 0.6,
+    "mean": 0.49219999999999997,
+    "pnl": -162.5,
+    "losers": 2
+   },
+   "removed": {
+    "n": 16,
+    "win": 0.375,
+    "mean": 1.1,
+    "pnl": 13000.0,
+    "losers": 10
+   }
+  },
+  "p": 0.44,
+  "score": 0.4861111044883728,
+  "shuffle_median": 0.48055559396743774,
+  "shuffle_max": 0.6111111044883728,
+  "verdict": "REJECTED",
+  "why": "shuffle p=0.44: the same search finds as good a rule in random labels; holdout removed side is profitable (Rs +13,000)"
+ },
+ {
+  "book": "lvl_trail_re",
+  "rule": [
+   [
+    "fut_spread",
+    ">=",
+    2.6
+   ],
+   [
+    "oi_net_help5",
+    ">=",
+    787865.0
+   ],
+   [
+    "regime_ext_pct",
+    "<",
+    94.5
+   ]
+  ],
+  "combine": "AND",
+  "features": {
+   "fut_spread": "weather field as recorded at the trigger second",
+   "oi_net_help5": "weather field as recorded at the trigger second",
+   "regime_ext_pct": "weather field as recorded at the trigger second"
+  },
+  "search": "triple_all: all feature set (343 features), params default; score = share of losers removed - share of winners removed (rule_lab.score_masks), lines at quantiles 0.1..0.9, min kept 20 unless stated; shuffle = same search on 200 shufflings of discovery labels (seed 7)",
+  "discovery": {
+   "book": {
+    "n": 76,
+    "win": 0.5263157894736842,
+    "mean": 3.876210526315789,
+    "pnl": 317570.5,
+    "losers": 36
+   },
+   "kept": {
+    "n": 26,
+    "win": 0.9230769230769231,
+    "mean": 11.465307692307693,
+    "pnl": 329790.5,
+    "losers": 2
+   },
+   "removed": {
+    "n": 50,
+    "win": 0.32,
+    "mean": -0.07012000000000011,
+    "pnl": -12220.0,
+    "losers": 34
+   }
+  },
+  "holdout": {
+   "book": {
+    "n": 21,
+    "win": 0.42857142857142855,
+    "mean": 0.9552857142857143,
+    "pnl": 12837.5,
+    "losers": 12
+   },
+   "kept": {
+    "n": 4,
+    "win": 0.5,
+    "mean": 0.56775,
+    "pnl": -344.5,
+    "losers": 2
+   },
+   "removed": {
+    "n": 17,
+    "win": 0.4117647058823529,
+    "mean": 1.0464705882352943,
+    "pnl": 13182.0,
+    "losers": 10
+   }
+  },
+  "p": 0.595,
+  "score": 0.5444444444444444,
+  "shuffle_median": 0.5569444444444445,
+  "shuffle_max": 0.6805555555555556,
+  "verdict": "REJECTED",
+  "why": "shuffle p=0.59: the same search finds as good a rule in random labels; holdout removed side is profitable (Rs +13,182)"
+ },
+ {
+  "book": "lvl_trail_re",
+  "rule": [
+   [
+    "e_fut_micro_with",
+    ">=",
+    0.2700000000000003
+   ],
+   [
+    "agg_net",
+    ">=",
+    0.08650000000000002
+   ]
+  ],
+  "combine": "OR",
+  "features": {
+   "e_fut_micro_with": "e_fut_micro * trade direction (+1 CE, -1 PE)",
+   "agg_net": "weather field as recorded at the trigger second"
+  },
+  "search": "or_all: all feature set (343 features), params default; score = share of losers removed - share of winners removed (rule_lab.score_masks), lines at quantiles 0.1..0.9, min kept 20 unless stated; shuffle = same search on 200 shufflings of discovery labels (seed 7)",
+  "discovery": {
+   "book": {
+    "n": 76,
+    "win": 0.5263157894736842,
+    "mean": 3.876210526315789,
+    "pnl": 317570.5,
+    "losers": 36
+   },
+   "kept": {
+    "n": 40,
+    "win": 0.75,
+    "mean": 9.065325,
+    "pnl": 425503.0,
+    "losers": 10
+   },
+   "removed": {
+    "n": 36,
+    "win": 0.2777777777777778,
+    "mean": -1.8894722222222222,
+    "pnl": -107932.5,
+    "losers": 26
+   }
+  },
+  "holdout": {
+   "book": {
+    "n": 21,
+    "win": 0.42857142857142855,
+    "mean": 0.9552857142857143,
+    "pnl": 12837.5,
+    "losers": 12
+   },
+   "kept": {
+    "n": 10,
+    "win": 0.5,
+    "mean": 0.09169999999999993,
+    "pnl": -715.0,
+    "losers": 5
+   },
+   "removed": {
+    "n": 11,
+    "win": 0.36363636363636365,
+    "mean": 1.7403636363636366,
+    "pnl": 13552.5,
+    "losers": 7
+   }
+  },
+  "p": 0.555,
+  "score": 0.4722222089767456,
+  "shuffle_median": 0.4749999940395355,
+  "shuffle_max": 0.6083333492279053,
+  "verdict": "REJECTED",
+  "why": "shuffle p=0.56: the same search finds as good a rule in random labels; holdout removed side is profitable (Rs +13,552)"
+ },
+ {
+  "book": "lvl_trail_re",
+  "rule": [
+   [
+    "fut_spread",
+    ">=",
+    2.6
+   ]
+  ],
+  "combine": "AND",
+  "features": {
+   "fut_spread": "weather field as recorded at the trigger second"
+  },
+  "search": "single_all_keep30: all feature set (343 features), params {'min_keep': 30}; score = share of losers removed - share of winners removed (rule_lab.score_masks), lines at quantiles 0.1..0.9, min kept 20 unless stated; shuffle = same search on 200 shufflings of discovery labels (seed 7)",
+  "discovery": {
+   "book": {
+    "n": 76,
+    "win": 0.5263157894736842,
+    "mean": 3.876210526315789,
+    "pnl": 317570.5,
+    "losers": 36
+   },
+   "kept": {
+    "n": 54,
+    "win": 0.6481481481481481,
+    "mean": 6.691703703703703,
+    "pnl": 378998.75,
+    "losers": 19
+   },
+   "removed": {
+    "n": 22,
+    "win": 0.22727272727272727,
+    "mean": -3.0345454545454547,
+    "pnl": -61428.25,
+    "losers": 17
+   }
+  },
+  "holdout": {
+   "book": {
+    "n": 21,
+    "win": 0.42857142857142855,
+    "mean": 0.9552857142857143,
+    "pnl": 12837.5,
+    "losers": 12
+   },
+   "kept": {
+    "n": 13,
+    "win": 0.38461538461538464,
+    "mean": 0.42107692307692324,
+    "pnl": -604.5,
+    "losers": 8
+   },
+   "removed": {
+    "n": 8,
+    "win": 0.5,
+    "mean": 1.823375,
+    "pnl": 13442.0,
+    "losers": 4
+   }
+  },
+  "p": 0.405,
+  "score": 0.3472222222222222,
+  "shuffle_median": 0.3222222222222222,
+  "shuffle_max": 0.5277777777777778,
+  "verdict": "REJECTED",
+  "why": "shuffle p=0.41: the same search finds as good a rule in random labels; holdout kept wins 38% vs book 43% (worse than the book); holdout removed side is profitable (Rs +13,442)"
+ },
+ {
+  "book": "lvl_trail_rx",
+  "rule": [
+   [
+    "fut_spread",
+    ">=",
+    2.6
+   ]
+  ],
+  "combine": "AND",
+  "features": {
+   "fut_spread": "weather field as recorded at the trigger second"
+  },
+  "search": "single_raw: raw feature set (195 features), params default; score = share of losers removed - share of winners removed (rule_lab.score_masks), lines at quantiles 0.1..0.9, min kept 20 unless stated; shuffle = same search on 200 shufflings of discovery labels (seed 7)",
+  "discovery": {
+   "book": {
+    "n": 75,
+    "win": 0.52,
+    "mean": 3.790173333333333,
+    "pnl": 301398.5,
+    "losers": 36
+   },
+   "kept": {
+    "n": 53,
+    "win": 0.6415094339622641,
+    "mean": 6.623075471698113,
+    "pnl": 366164.5,
+    "losers": 19
+   },
+   "removed": {
+    "n": 22,
+    "win": 0.22727272727272727,
+    "mean": -3.0345454545454547,
+    "pnl": -64766.0,
+    "losers": 17
+   }
+  },
+  "holdout": {
+   "book": {
+    "n": 21,
+    "win": 0.42857142857142855,
+    "mean": 0.9552857142857143,
+    "pnl": 12837.5,
+    "losers": 12
+   },
+   "kept": {
+    "n": 13,
+    "win": 0.38461538461538464,
+    "mean": 0.42107692307692324,
+    "pnl": -604.5,
+    "losers": 8
+   },
+   "removed": {
+    "n": 8,
+    "win": 0.5,
+    "mean": 1.823375,
+    "pnl": 13442.0,
+    "losers": 4
+   }
+  },
+  "p": 0.38,
+  "score": 0.344017094017094,
+  "shuffle_median": 0.3333333333333333,
+  "shuffle_max": 0.6025641025641026,
+  "verdict": "REJECTED",
+  "why": "shuffle p=0.38: the same search finds as good a rule in random labels; holdout kept wins 38% vs book 43% (worse than the book); holdout removed side is profitable (Rs +13,442)"
+ },
+ {
+  "book": "lvl_trail_rx",
+  "rule": [
+   [
+    "streak",
+    "<",
+    1.0
+   ]
+  ],
+  "combine": "AND",
+  "features": {
+   "streak": "weather field as recorded at the trigger second"
+  },
+  "search": "single_hand: hand feature set (22 features), params default; score = share of losers removed - share of winners removed (rule_lab.score_masks), lines at quantiles 0.1..0.9, min kept 20 unless stated; shuffle = same search on 200 shufflings of discovery labels (seed 7)",
+  "discovery": {
+   "book": {
+    "n": 75,
+    "win": 0.52,
+    "mean": 3.790173333333333,
+    "pnl": 301398.5,
+    "losers": 36
+   },
+   "kept": {
+    "n": 42,
+    "win": 0.6190476190476191,
+    "mean": 4.417928571428571,
+    "pnl": 187011.5,
+    "losers": 16
+   },
+   "removed": {
+    "n": 33,
+    "win": 0.3939393939393939,
+    "mean": 2.991212121212121,
+    "pnl": 114387.0,
+    "losers": 20
+   }
+  },
+  "holdout": {
+   "book": {
+    "n": 21,
+    "win": 0.42857142857142855,
+    "mean": 0.9552857142857143,
+    "pnl": 12837.5,
+    "losers": 12
+   },
+   "kept": {
+    "n": 14,
+    "win": 0.42857142857142855,
+    "mean": 0.7625714285714286,
+    "pnl": 3952.0,
+    "losers": 8
+   },
+   "removed": {
+    "n": 7,
+    "win": 0.42857142857142855,
+    "mean": 1.340714285714286,
+    "pnl": 8885.5,
+    "losers": 4
+   }
+  },
+  "p": 0.77,
+  "score": 0.22222222222222227,
+  "shuffle_median": 0.2649572649572649,
+  "shuffle_max": 0.4615384615384615,
+  "verdict": "REJECTED",
+  "why": "shuffle p=0.77: the same search finds as good a rule in random labels; holdout removed side is profitable (Rs +8,886)"
+ },
+ {
+  "book": "lvl_trail_rx",
+  "rule": [
+   [
+    "e_fut_micro_with",
+    ">=",
+    0.37000000000000044
+   ]
+  ],
+  "combine": "AND",
+  "features": {
+   "e_fut_micro_with": "e_fut_micro * trade direction (+1 CE, -1 PE)"
+  },
+  "search": "single_derived: derived feature set (88 features), params default; score = share of losers removed - share of winners removed (rule_lab.score_masks), lines at quantiles 0.1..0.9, min kept 20 unless stated; shuffle = same search on 200 shufflings of discovery labels (seed 7)",
+  "discovery": {
+   "book": {
+    "n": 75,
+    "win": 0.52,
+    "mean": 3.790173333333333,
+    "pnl": 301398.5,
+    "losers": 36
+   },
+   "kept": {
+    "n": 23,
+    "win": 0.782608695652174,
+    "mean": 8.344086956521739,
+    "pnl": 231455.25,
+    "losers": 5
+   },
+   "removed": {
+    "n": 52,
+    "win": 0.40384615384615385,
+    "mean": 1.7759423076923075,
+    "pnl": 69943.25,
+    "losers": 31
+   }
+  },
+  "holdout": {
+   "book": {
+    "n": 21,
+    "win": 0.42857142857142855,
+    "mean": 0.9552857142857143,
+    "pnl": 12837.5,
+    "losers": 12
+   },
+   "kept": {
+    "n": 6,
+    "win": 0.5,
+    "mean": 0.3545,
+    "pnl": 871.0,
+    "losers": 3
+   },
+   "removed": {
+    "n": 15,
+    "win": 0.4,
+    "mean": 1.1956,
+    "pnl": 11966.5,
+    "losers": 9
+   }
+  },
+  "p": 0.455,
+  "score": 0.3226495726495727,
+  "shuffle_median": 0.31837606837606836,
+  "shuffle_max": 0.5256410256410257,
+  "verdict": "REJECTED",
+  "why": "shuffle p=0.46: the same search finds as good a rule in random labels; holdout removed side is profitable (Rs +11,966)"
+ },
+ {
+  "book": "lvl_trail_rx",
+  "rule": [
+   [
+    "opt_opp_o=REFILLING",
+    "<",
+    1.0
+   ]
+  ],
+  "combine": "AND",
+  "features": {
+   "opt_opp_o=REFILLING": "1 if weather['opt_opp_o'] == 'REFILLING' else 0"
+  },
+  "search": "single_text: text feature set (62 features), params default; score = share of losers removed - share of winners removed (rule_lab.score_masks), lines at quantiles 0.1..0.9, min kept 20 unless stated; shuffle = same search on 200 shufflings of discovery labels (seed 7)",
+  "discovery": {
+   "book": {
+    "n": 75,
+    "win": 0.52,
+    "mean": 3.790173333333333,
+    "pnl": 301398.5,
+    "losers": 36
+   },
+   "kept": {
+    "n": 47,
+    "win": 0.5957446808510638,
+    "mean": 4.459170212765957,
+    "pnl": 216115.25,
+    "losers": 19
+   },
+   "removed": {
+    "n": 28,
+    "win": 0.39285714285714285,
+    "mean": 2.667214285714286,
+    "pnl": 85283.25,
+    "losers": 17
+   }
+  },
+  "holdout": {
+   "book": {
+    "n": 21,
+    "win": 0.42857142857142855,
+    "mean": 0.9552857142857143,
+    "pnl": 12837.5,
+    "losers": 12
+   },
+   "kept": {
+    "n": 18,
+    "win": 0.4444444444444444,
+    "mean": 1.2141111111111114,
+    "pnl": 14410.5,
+    "losers": 10
+   },
+   "removed": {
+    "n": 3,
+    "win": 0.3333333333333333,
+    "mean": -0.5976666666666667,
+    "pnl": -1573.0,
+    "losers": 2
+   }
+  },
+  "p": 0.83,
+  "score": 0.19017094017094016,
+  "shuffle_median": 0.23504273504273504,
+  "shuffle_max": 0.41239316239316237,
+  "verdict": "REJECTED",
+  "why": "shuffle p=0.83: the same search finds as good a rule in random labels"
+ },
+ {
+  "book": "lvl_trail_rx",
+  "rule": [
+   [
+    "fut_spread",
+    ">=",
+    2.6
+   ]
+  ],
+  "combine": "AND",
+  "features": {
+   "fut_spread": "weather field as recorded at the trigger second"
+  },
+  "search": "single_all: all feature set (345 features), params default; score = share of losers removed - share of winners removed (rule_lab.score_masks), lines at quantiles 0.1..0.9, min kept 20 unless stated; shuffle = same search on 200 shufflings of discovery labels (seed 7)",
+  "discovery": {
+   "book": {
+    "n": 75,
+    "win": 0.52,
+    "mean": 3.790173333333333,
+    "pnl": 301398.5,
+    "losers": 36
+   },
+   "kept": {
+    "n": 53,
+    "win": 0.6415094339622641,
+    "mean": 6.623075471698113,
+    "pnl": 366164.5,
+    "losers": 19
+   },
+   "removed": {
+    "n": 22,
+    "win": 0.22727272727272727,
+    "mean": -3.0345454545454547,
+    "pnl": -64766.0,
+    "losers": 17
+   }
+  },
+  "holdout": {
+   "book": {
+    "n": 21,
+    "win": 0.42857142857142855,
+    "mean": 0.9552857142857143,
+    "pnl": 12837.5,
+    "losers": 12
+   },
+   "kept": {
+    "n": 13,
+    "win": 0.38461538461538464,
+    "mean": 0.42107692307692324,
+    "pnl": -604.5,
+    "losers": 8
+   },
+   "removed": {
+    "n": 8,
+    "win": 0.5,
+    "mean": 1.823375,
+    "pnl": 13442.0,
+    "losers": 4
+   }
+  },
+  "p": 0.52,
+  "score": 0.344017094017094,
+  "shuffle_median": 0.34615384615384615,
+  "shuffle_max": 0.6025641025641026,
+  "verdict": "REJECTED",
+  "why": "shuffle p=0.52: the same search finds as good a rule in random labels; holdout kept wins 38% vs book 43% (worse than the book); holdout removed side is profitable (Rs +13,442)"
+ },
+ {
+  "book": "lvl_trail_rx",
+  "rule": [
+   [
+    "fut_spread",
+    ">=",
+    2.6
+   ]
+  ],
+  "combine": "AND",
+  "features": {
+   "fut_spread": "weather field as recorded at the trigger second"
+  },
+  "search": "single_all_9lines: all feature set (345 features), params {'n_lines': 9}; score = share of losers removed - share of winners removed (rule_lab.score_masks), lines at quantiles 0.1..0.9, min kept 20 unless stated; shuffle = same search on 200 shufflings of discovery labels (seed 7)",
+  "discovery": {
+   "book": {
+    "n": 75,
+    "win": 0.52,
+    "mean": 3.790173333333333,
+    "pnl": 301398.5,
+    "losers": 36
+   },
+   "kept": {
+    "n": 53,
+    "win": 0.6415094339622641,
+    "mean": 6.623075471698113,
+    "pnl": 366164.5,
+    "losers": 19
+   },
+   "removed": {
+    "n": 22,
+    "win": 0.22727272727272727,
+    "mean": -3.0345454545454547,
+    "pnl": -64766.0,
+    "losers": 17
+   }
+  },
+  "holdout": {
+   "book": {
+    "n": 21,
+    "win": 0.42857142857142855,
+    "mean": 0.9552857142857143,
+    "pnl": 12837.5,
+    "losers": 12
+   },
+   "kept": {
+    "n": 13,
+    "win": 0.38461538461538464,
+    "mean": 0.42107692307692324,
+    "pnl": -604.5,
+    "losers": 8
+   },
+   "removed": {
+    "n": 8,
+    "win": 0.5,
+    "mean": 1.823375,
+    "pnl": 13442.0,
+    "losers": 4
+   }
+  },
+  "p": 0.68,
+  "score": 0.344017094017094,
+  "shuffle_median": 0.3611111111111111,
+  "shuffle_max": 0.6025641025641026,
+  "verdict": "REJECTED",
+  "why": "shuffle p=0.68: the same search finds as good a rule in random labels; holdout kept wins 38% vs book 43% (worse than the book); holdout removed side is profitable (Rs +13,442)"
+ },
+ {
+  "book": "lvl_trail_rx",
+  "rule": [
+   [
+    "fut_spread",
+    ">=",
+    2.6
+   ],
+   [
+    "ret_today",
+    "<",
+    75.2364
+   ]
+  ],
+  "combine": "AND",
+  "features": {
+   "fut_spread": "weather field as recorded at the trigger second",
+   "ret_today": "weather field as recorded at the trigger second"
+  },
+  "search": "pair_raw: raw feature set (195 features), params default; score = share of losers removed - share of winners removed (rule_lab.score_masks), lines at quantiles 0.1..0.9, min kept 20 unless stated; shuffle = same search on 200 shufflings of discovery labels (seed 7)",
+  "discovery": {
+   "book": {
+    "n": 75,
+    "win": 0.52,
+    "mean": 3.790173333333333,
+    "pnl": 301398.5,
+    "losers": 36
+   },
+   "kept": {
+    "n": 48,
+    "win": 0.7083333333333334,
+    "mean": 7.968125,
+    "pnl": 432766.75,
+    "losers": 14
+   },
+   "removed": {
+    "n": 27,
+    "win": 0.18518518518518517,
+    "mean": -3.6372962962962965,
+    "pnl": -131368.25,
+    "losers": 22
+   }
+  },
+  "holdout": {
+   "book": {
+    "n": 21,
+    "win": 0.42857142857142855,
+    "mean": 0.9552857142857143,
+    "pnl": 12837.5,
+    "losers": 12
+   },
+   "kept": {
+    "n": 13,
+    "win": 0.38461538461538464,
+    "mean": 0.42107692307692324,
+    "pnl": -604.5,
+    "losers": 8
+   },
+   "removed": {
+    "n": 8,
+    "win": 0.5,
+    "mean": 1.823375,
+    "pnl": 13442.0,
+    "losers": 4
+   }
+  },
+  "p": 0.355,
+  "score": 0.4829059839248657,
+  "shuffle_median": 0.470085471868515,
+  "shuffle_max": 0.6581196784973145,
+  "verdict": "REJECTED",
+  "why": "shuffle p=0.35: the same search finds as good a rule in random labels; holdout kept wins 38% vs book 43% (worse than the book); holdout removed side is profitable (Rs +13,442)"
+ },
+ {
+  "book": "lvl_trail_rx",
+  "rule": [
+   [
+    "pos_dir",
+    ">=",
+    0.4560600000000001
+   ],
+   [
+    "streak",
+    "<",
+    2.0
+   ]
+  ],
+  "combine": "AND",
+  "features": {
+   "pos_dir": "weather field as recorded at the trigger second",
+   "streak": "weather field as recorded at the trigger second"
+  },
+  "search": "pair_hand: hand feature set (22 features), params default; score = share of losers removed - share of winners removed (rule_lab.score_masks), lines at quantiles 0.1..0.9, min kept 20 unless stated; shuffle = same search on 200 shufflings of discovery labels (seed 7)",
+  "discovery": {
+   "book": {
+    "n": 75,
+    "win": 0.52,
+    "mean": 3.790173333333333,
+    "pnl": 301398.5,
+    "losers": 36
+   },
+   "kept": {
+    "n": 44,
+    "win": 0.6590909090909091,
+    "mean": 5.924386363636364,
+    "pnl": 296549.5,
+    "losers": 15
+   },
+   "removed": {
+    "n": 31,
+    "win": 0.3225806451612903,
+    "mean": 0.7609677419354838,
+    "pnl": 4849.0,
+    "losers": 21
+   }
+  },
+  "holdout": {
+   "book": {
+    "n": 21,
+    "win": 0.42857142857142855,
+    "mean": 0.9552857142857143,
+    "pnl": 12837.5,
+    "losers": 12
+   },
+   "kept": {
+    "n": 11,
+    "win": 0.6363636363636364,
+    "mean": 3.9353636363636366,
+    "pnl": 34206.25,
+    "losers": 4
+   },
+   "removed": {
+    "n": 10,
+    "win": 0.2,
+    "mean": -2.3228,
+    "pnl": -21368.75,
+    "losers": 8
+   }
+  },
+  "p": 0.74,
+  "score": 0.32692304253578186,
+  "shuffle_median": 0.35363246500492096,
+  "shuffle_max": 0.5491453409194946,
+  "verdict": "REJECTED",
+  "why": "shuffle p=0.74: the same search finds as good a rule in random labels"
+ },
+ {
+  "book": "lvl_trail_rx",
+  "rule": [
+   [
+    "fut_spread",
+    ">=",
+    2.6
+   ],
+   [
+    "ret_today",
+    "<",
+    75.2364
+   ]
+  ],
+  "combine": "AND",
+  "features": {
+   "fut_spread": "weather field as recorded at the trigger second",
+   "ret_today": "weather field as recorded at the trigger second"
+  },
+  "search": "pair_all: all feature set (345 features), params default; score = share of losers removed - share of winners removed (rule_lab.score_masks), lines at quantiles 0.1..0.9, min kept 20 unless stated; shuffle = same search on 200 shufflings of discovery labels (seed 7)",
+  "discovery": {
+   "book": {
+    "n": 75,
+    "win": 0.52,
+    "mean": 3.790173333333333,
+    "pnl": 301398.5,
+    "losers": 36
+   },
+   "kept": {
+    "n": 48,
+    "win": 0.7083333333333334,
+    "mean": 7.968125,
+    "pnl": 432766.75,
+    "losers": 14
+   },
+   "removed": {
+    "n": 27,
+    "win": 0.18518518518518517,
+    "mean": -3.6372962962962965,
+    "pnl": -131368.25,
+    "losers": 22
+   }
+  },
+  "holdout": {
+   "book": {
+    "n": 21,
+    "win": 0.42857142857142855,
+    "mean": 0.9552857142857143,
+    "pnl": 12837.5,
+    "losers": 12
+   },
+   "kept": {
+    "n": 13,
+    "win": 0.38461538461538464,
+    "mean": 0.42107692307692324,
+    "pnl": -604.5,
+    "losers": 8
+   },
+   "removed": {
+    "n": 8,
+    "win": 0.5,
+    "mean": 1.823375,
+    "pnl": 13442.0,
+    "losers": 4
+   }
+  },
+  "p": 0.54,
+  "score": 0.4829059839248657,
+  "shuffle_median": 0.4871795177459717,
+  "shuffle_max": 0.6581196784973145,
+  "verdict": "REJECTED",
+  "why": "shuffle p=0.54: the same search finds as good a rule in random labels; holdout kept wins 38% vs book 43% (worse than the book); holdout removed side is profitable (Rs +13,442)"
+ },
+ {
+  "book": "lvl_trail_rx",
+  "rule": [
+   [
+    "fut_spread",
+    ">=",
+    2.6
+   ],
+   [
+    "ret_today",
+    "<",
+    75.2364
+   ],
+   [
+    "imp_depth_with",
+    "<",
+    0.5105200000000001
+   ]
+  ],
+  "combine": "AND",
+  "features": {
+   "fut_spread": "weather field as recorded at the trigger second",
+   "ret_today": "weather field as recorded at the trigger second",
+   "imp_depth_with": "imp_depth signed + if imp_with else -"
+  },
+  "search": "triple_all: all feature set (345 features), params default; score = share of losers removed - share of winners removed (rule_lab.score_masks), lines at quantiles 0.1..0.9, min kept 20 unless stated; shuffle = same search on 200 shufflings of discovery labels (seed 7)",
+  "discovery": {
+   "book": {
+    "n": 75,
+    "win": 0.52,
+    "mean": 3.790173333333333,
+    "pnl": 301398.5,
+    "losers": 36
+   },
+   "kept": {
+    "n": 41,
+    "win": 0.7804878048780488,
+    "mean": 9.702463414634146,
+    "pnl": 454658.75,
+    "losers": 9
+   },
+   "removed": {
+    "n": 34,
+    "win": 0.20588235294117646,
+    "mean": -3.339352941176471,
+    "pnl": -153260.25,
+    "losers": 27
+   }
+  },
+  "holdout": {
+   "book": {
+    "n": 21,
+    "win": 0.42857142857142855,
+    "mean": 0.9552857142857143,
+    "pnl": 12837.5,
+    "losers": 12
+   },
+   "kept": {
+    "n": 12,
+    "win": 0.3333333333333333,
+    "mean": -1.5205833333333334,
+    "pnl": -17959.5,
+    "losers": 8
+   },
+   "removed": {
+    "n": 9,
+    "win": 0.5555555555555556,
+    "mean": 4.256444444444444,
+    "pnl": 30797.0,
+    "losers": 4
+   }
+  },
+  "p": 0.445,
+  "score": 0.5705128205128205,
+  "shuffle_median": 0.5576923076923077,
+  "shuffle_max": 0.688034188034188,
+  "verdict": "REJECTED",
+  "why": "shuffle p=0.45: the same search finds as good a rule in random labels; holdout kept wins 33% vs book 43% (worse than the book); holdout removed side is profitable (Rs +30,797)"
+ },
+ {
+  "book": "lvl_trail_rx",
+  "rule": [
+   [
+    "e_fut_micro_with",
+    ">=",
+    0.37000000000000044
+   ],
+   [
+    "e_rv15",
+    ">=",
+    12.122
+   ]
+  ],
+  "combine": "OR",
+  "features": {
+   "e_fut_micro_with": "e_fut_micro * trade direction (+1 CE, -1 PE)",
+   "e_rv15": "weather field as recorded at the trigger second"
+  },
+  "search": "or_all: all feature set (345 features), params default; score = share of losers removed - share of winners removed (rule_lab.score_masks), lines at quantiles 0.1..0.9, min kept 20 unless stated; shuffle = same search on 200 shufflings of discovery labels (seed 7)",
+  "discovery": {
+   "book": {
+    "n": 75,
+    "win": 0.52,
+    "mean": 3.790173333333333,
+    "pnl": 301398.5,
+    "losers": 36
+   },
+   "kept": {
+    "n": 42,
+    "win": 0.7380952380952381,
+    "mean": 8.897380952380953,
+    "pnl": 409994.0,
+    "losers": 11
+   },
+   "removed": {
+    "n": 33,
+    "win": 0.24242424242424243,
+    "mean": -2.709909090909091,
+    "pnl": -108595.5,
+    "losers": 25
+   }
+  },
+  "holdout": {
+   "book": {
+    "n": 21,
+    "win": 0.42857142857142855,
+    "mean": 0.9552857142857143,
+    "pnl": 12837.5,
+    "losers": 12
+   },
+   "kept": {
+    "n": 8,
+    "win": 0.5,
+    "mean": -1.024875,
+    "pnl": -8957.0,
+    "losers": 4
+   },
+   "removed": {
+    "n": 13,
+    "win": 0.38461538461538464,
+    "mean": 2.1738461538461538,
+    "pnl": 21794.5,
+    "losers": 8
+   }
+  },
+  "p": 0.415,
+  "score": 0.4893162250518799,
+  "shuffle_median": 0.4754273593425751,
+  "shuffle_max": 0.6431623697280884,
+  "verdict": "REJECTED",
+  "why": "shuffle p=0.41: the same search finds as good a rule in random labels; holdout removed side is profitable (Rs +21,794)"
+ },
+ {
+  "book": "lvl_trail_rx",
+  "rule": [
+   [
+    "fut_spread",
+    ">=",
+    2.6
+   ]
+  ],
+  "combine": "AND",
+  "features": {
+   "fut_spread": "weather field as recorded at the trigger second"
+  },
+  "search": "single_all_keep30: all feature set (345 features), params {'min_keep': 30}; score = share of losers removed - share of winners removed (rule_lab.score_masks), lines at quantiles 0.1..0.9, min kept 20 unless stated; shuffle = same search on 200 shufflings of discovery labels (seed 7)",
+  "discovery": {
+   "book": {
+    "n": 75,
+    "win": 0.52,
+    "mean": 3.790173333333333,
+    "pnl": 301398.5,
+    "losers": 36
+   },
+   "kept": {
+    "n": 53,
+    "win": 0.6415094339622641,
+    "mean": 6.623075471698113,
+    "pnl": 366164.5,
+    "losers": 19
+   },
+   "removed": {
+    "n": 22,
+    "win": 0.22727272727272727,
+    "mean": -3.0345454545454547,
+    "pnl": -64766.0,
+    "losers": 17
+   }
+  },
+  "holdout": {
+   "book": {
+    "n": 21,
+    "win": 0.42857142857142855,
+    "mean": 0.9552857142857143,
+    "pnl": 12837.5,
+    "losers": 12
+   },
+   "kept": {
+    "n": 13,
+    "win": 0.38461538461538464,
+    "mean": 0.42107692307692324,
+    "pnl": -604.5,
+    "losers": 8
+   },
+   "removed": {
+    "n": 8,
+    "win": 0.5,
+    "mean": 1.823375,
+    "pnl": 13442.0,
+    "losers": 4
+   }
+  },
+  "p": 0.465,
+  "score": 0.344017094017094,
+  "shuffle_median": 0.33547008547008544,
+  "shuffle_max": 0.6025641025641026,
+  "verdict": "REJECTED",
+  "why": "shuffle p=0.47: the same search finds as good a rule in random labels; holdout kept wins 38% vs book 43% (worse than the book); holdout removed side is profitable (Rs +13,442)"
+ },
+ {
+  "book": "lvl_trail_rx_be",
+  "rule": [
+   [
+    "e_rv15",
+    ">=",
+    12.126000000000001
+   ]
+  ],
+  "combine": "AND",
+  "features": {
+   "e_rv15": "weather field as recorded at the trigger second"
+  },
+  "search": "single_raw: raw feature set (195 features), params default; score = share of losers removed - share of winners removed (rule_lab.score_masks), lines at quantiles 0.1..0.9, min kept 20 unless stated; shuffle = same search on 200 shufflings of discovery labels (seed 7)",
+  "discovery": {
+   "book": {
+    "n": 78,
+    "win": 0.5,
+    "mean": 3.3157435897435894,
+    "pnl": 284553.75,
+    "losers": 39
+   },
+   "kept": {
+    "n": 24,
+    "win": 0.75,
+    "mean": 10.220291666666666,
+    "pnl": 272181.0,
+    "losers": 6
+   },
+   "removed": {
+    "n": 54,
+    "win": 0.3888888888888889,
+    "mean": 0.24705555555555545,
+    "pnl": 12372.75,
+    "losers": 33
+   }
+  },
+  "holdout": {
+   "book": {
+    "n": 21,
+    "win": 0.5238095238095238,
+    "mean": 1.995095238095238,
+    "pnl": 36227.75,
+    "losers": 10
+   },
+   "kept": {
+    "n": 2,
+    "win": 0.5,
+    "mean": -5.163,
+    "pnl": -9828.0,
+    "losers": 1
+   },
+   "removed": {
+    "n": 19,
+    "win": 0.5263157894736842,
+    "mean": 2.748578947368421,
+    "pnl": 46055.75,
+    "losers": 9
+   }
+  },
+  "p": 0.875,
+  "score": 0.3076923076923077,
+  "shuffle_median": 0.3333333333333333,
+  "shuffle_max": 0.4871794871794872,
+  "verdict": "REJECTED",
+  "why": "shuffle p=0.88: the same search finds as good a rule in random labels; holdout kept wins 50% vs book 52% (worse than the book); holdout removed side is profitable (Rs +46,056)"
+ },
+ {
+  "book": "lvl_trail_rx_be",
+  "rule": [
+   [
+    "rv15_spot",
+    ">=",
+    12.112
+   ]
+  ],
+  "combine": "AND",
+  "features": {
+   "rv15_spot": "weather field as recorded at the trigger second"
+  },
+  "search": "single_hand: hand feature set (22 features), params default; score = share of losers removed - share of winners removed (rule_lab.score_masks), lines at quantiles 0.1..0.9, min kept 20 unless stated; shuffle = same search on 200 shufflings of discovery labels (seed 7)",
+  "discovery": {
+   "book": {
+    "n": 78,
+    "win": 0.5,
+    "mean": 3.3157435897435894,
+    "pnl": 284553.75,
+    "losers": 39
+   },
+   "kept": {
+    "n": 24,
+    "win": 0.75,
+    "mean": 10.220291666666666,
+    "pnl": 272181.0,
+    "losers": 6
+   },
+   "removed": {
+    "n": 54,
+    "win": 0.3888888888888889,
+    "mean": 0.24705555555555545,
+    "pnl": 12372.75,
+    "losers": 33
+   }
+  },
+  "holdout": {
+   "book": {
+    "n": 21,
+    "win": 0.5238095238095238,
+    "mean": 1.995095238095238,
+    "pnl": 36227.75,
+    "losers": 10
+   },
+   "kept": {
+    "n": 2,
+    "win": 0.5,
+    "mean": -5.163,
+    "pnl": -9828.0,
+    "losers": 1
+   },
+   "removed": {
+    "n": 19,
+    "win": 0.5263157894736842,
+    "mean": 2.748578947368421,
+    "pnl": 46055.75,
+    "losers": 9
+   }
+  },
+  "p": 0.215,
+  "score": 0.3076923076923077,
+  "shuffle_median": 0.2564102564102564,
+  "shuffle_max": 0.4871794871794872,
+  "verdict": "REJECTED",
+  "why": "shuffle p=0.21: the same search finds as good a rule in random labels; holdout kept wins 50% vs book 52% (worse than the book); holdout removed side is profitable (Rs +46,056)"
+ },
+ {
+  "book": "lvl_trail_rx_be",
+  "rule": [
+   [
+    "e_fut_micro_with",
+    ">=",
+    0.24700000000000016
+   ]
+  ],
+  "combine": "AND",
+  "features": {
+   "e_fut_micro_with": "e_fut_micro * trade direction (+1 CE, -1 PE)"
+  },
+  "search": "single_derived: derived feature set (88 features), params default; score = share of losers removed - share of winners removed (rule_lab.score_masks), lines at quantiles 0.1..0.9, min kept 20 unless stated; shuffle = same search on 200 shufflings of discovery labels (seed 7)",
+  "discovery": {
+   "book": {
+    "n": 78,
+    "win": 0.5,
+    "mean": 3.3157435897435894,
+    "pnl": 284553.75,
+    "losers": 39
+   },
+   "kept": {
+    "n": 24,
+    "win": 0.75,
+    "mean": 8.862208333333333,
+    "pnl": 260958.75,
+    "losers": 6
+   },
+   "removed": {
+    "n": 54,
+    "win": 0.3888888888888889,
+    "mean": 0.850648148148148,
+    "pnl": 23595.0,
+    "losers": 33
+   }
+  },
+  "holdout": {
+   "book": {
+    "n": 21,
+    "win": 0.5238095238095238,
+    "mean": 1.995095238095238,
+    "pnl": 36227.75,
+    "losers": 10
+   },
+   "kept": {
+    "n": 6,
+    "win": 0.6666666666666666,
+    "mean": 2.2081666666666666,
+    "pnl": 9841.0,
+    "losers": 2
+   },
+   "removed": {
+    "n": 15,
+    "win": 0.4666666666666667,
+    "mean": 1.9098666666666666,
+    "pnl": 26386.75,
+    "losers": 8
+   }
+  },
+  "p": 0.61,
+  "score": 0.3076923076923077,
+  "shuffle_median": 0.3076923076923077,
+  "shuffle_max": 0.4871794871794872,
+  "verdict": "REJECTED",
+  "why": "shuffle p=0.61: the same search finds as good a rule in random labels; holdout removed side is profitable (Rs +26,387)"
+ },
+ {
+  "book": "lvl_trail_rx_be",
+  "rule": [
+   [
+    "opt_opp_o=REFILLING",
+    "<",
+    1.0
+   ]
+  ],
+  "combine": "AND",
+  "features": {
+   "opt_opp_o=REFILLING": "1 if weather['opt_opp_o'] == 'REFILLING' else 0"
+  },
+  "search": "single_text: text feature set (62 features), params default; score = share of losers removed - share of winners removed (rule_lab.score_masks), lines at quantiles 0.1..0.9, min kept 20 unless stated; shuffle = same search on 200 shufflings of discovery labels (seed 7)",
+  "discovery": {
+   "book": {
+    "n": 78,
+    "win": 0.5,
+    "mean": 3.3157435897435894,
+    "pnl": 284553.75,
+    "losers": 39
+   },
+   "kept": {
+    "n": 51,
+    "win": 0.5686274509803921,
+    "mean": 3.6831176470588236,
+    "pnl": 204067.5,
+    "losers": 22
+   },
+   "removed": {
+    "n": 27,
+    "win": 0.37037037037037035,
+    "mean": 2.621814814814815,
+    "pnl": 80486.25,
+    "losers": 17
+   }
+  },
+  "holdout": {
+   "book": {
+    "n": 21,
+    "win": 0.5238095238095238,
+    "mean": 1.995095238095238,
+    "pnl": 36227.75,
+    "losers": 10
+   },
+   "kept": {
+    "n": 18,
+    "win": 0.5555555555555556,
+    "mean": 2.427222222222222,
+    "pnl": 37833.25,
+    "losers": 8
+   },
+   "removed": {
+    "n": 3,
+    "win": 0.3333333333333333,
+    "mean": -0.5976666666666667,
+    "pnl": -1605.5,
+    "losers": 2
+   }
+  },
+  "p": 0.89,
+  "score": 0.17948717948717952,
+  "shuffle_median": 0.23076923076923078,
+  "shuffle_max": 0.4102564102564103,
+  "verdict": "REJECTED",
+  "why": "shuffle p=0.89: the same search finds as good a rule in random labels"
+ },
+ {
+  "book": "lvl_trail_rx_be",
+  "rule": [
+   [
+    "e_rv15",
+    ">=",
+    12.126000000000001
+   ]
+  ],
+  "combine": "AND",
+  "features": {
+   "e_rv15": "weather field as recorded at the trigger second"
+  },
+  "search": "single_all: all feature set (345 features), params default; score = share of losers removed - share of winners removed (rule_lab.score_masks), lines at quantiles 0.1..0.9, min kept 20 unless stated; shuffle = same search on 200 shufflings of discovery labels (seed 7)",
+  "discovery": {
+   "book": {
+    "n": 78,
+    "win": 0.5,
+    "mean": 3.3157435897435894,
+    "pnl": 284553.75,
+    "losers": 39
+   },
+   "kept": {
+    "n": 24,
+    "win": 0.75,
+    "mean": 10.220291666666666,
+    "pnl": 272181.0,
+    "losers": 6
+   },
+   "removed": {
+    "n": 54,
+    "win": 0.3888888888888889,
+    "mean": 0.24705555555555545,
+    "pnl": 12372.75,
+    "losers": 33
+   }
+  },
+  "holdout": {
+   "book": {
+    "n": 21,
+    "win": 0.5238095238095238,
+    "mean": 1.995095238095238,
+    "pnl": 36227.75,
+    "losers": 10
+   },
+   "kept": {
+    "n": 2,
+    "win": 0.5,
+    "mean": -5.163,
+    "pnl": -9828.0,
+    "losers": 1
+   },
+   "removed": {
+    "n": 19,
+    "win": 0.5263157894736842,
+    "mean": 2.748578947368421,
+    "pnl": 46055.75,
+    "losers": 9
+   }
+  },
+  "p": 0.945,
+  "score": 0.3076923076923077,
+  "shuffle_median": 0.358974358974359,
+  "shuffle_max": 0.4871794871794872,
+  "verdict": "REJECTED",
+  "why": "shuffle p=0.94: the same search finds as good a rule in random labels; holdout kept wins 50% vs book 52% (worse than the book); holdout removed side is profitable (Rs +46,056)"
+ },
+ {
+  "book": "lvl_trail_rx_be",
+  "rule": [
+   [
+    "e_rv15",
+    ">=",
+    11.533999999999999
+   ]
+  ],
+  "combine": "AND",
+  "features": {
+   "e_rv15": "weather field as recorded at the trigger second"
+  },
+  "search": "single_all_9lines: all feature set (345 features), params {'n_lines': 9}; score = share of losers removed - share of winners removed (rule_lab.score_masks), lines at quantiles 0.1..0.9, min kept 20 unless stated; shuffle = same search on 200 shufflings of discovery labels (seed 7)",
+  "discovery": {
+   "book": {
+    "n": 78,
+    "win": 0.5,
+    "mean": 3.3157435897435894,
+    "pnl": 284553.75,
+    "losers": 39
+   },
+   "kept": {
+    "n": 31,
+    "win": 0.7096774193548387,
+    "mean": 10.016806451612904,
+    "pnl": 350941.5,
+    "losers": 9
+   },
+   "removed": {
+    "n": 47,
+    "win": 0.3617021276595745,
+    "mean": -1.1041063829787237,
+    "pnl": -66387.75,
+    "losers": 30
+   }
+  },
+  "holdout": {
+   "book": {
+    "n": 21,
+    "win": 0.5238095238095238,
+    "mean": 1.995095238095238,
+    "pnl": 36227.75,
+    "losers": 10
+   },
+   "kept": {
+    "n": 6,
+    "win": 0.5,
+    "mean": -0.9876666666666667,
+    "pnl": -6701.5,
+    "losers": 3
+   },
+   "removed": {
+    "n": 15,
+    "win": 0.5333333333333333,
+    "mean": 3.1882,
+    "pnl": 42929.25,
+    "losers": 7
+   }
+  },
+  "p": 0.775,
+  "score": 0.33333333333333337,
+  "shuffle_median": 0.358974358974359,
+  "shuffle_max": 0.4871794871794872,
+  "verdict": "REJECTED",
+  "why": "shuffle p=0.78: the same search finds as good a rule in random labels; holdout kept wins 50% vs book 52% (worse than the book); holdout removed side is profitable (Rs +42,929)"
+ },
+ {
+  "book": "lvl_trail_rx_be",
+  "rule": [
+   [
+    "oi_own_chg30",
+    ">=",
+    -9490.0
+   ],
+   [
+    "e_syn_dev",
+    ">=",
+    -1.5119999999999996
+   ]
+  ],
+  "combine": "AND",
+  "features": {
+   "oi_own_chg30": "weather field as recorded at the trigger second",
+   "e_syn_dev": "weather field as recorded at the trigger second"
+  },
+  "search": "pair_raw: raw feature set (195 features), params default; score = share of losers removed - share of winners removed (rule_lab.score_masks), lines at quantiles 0.1..0.9, min kept 20 unless stated; shuffle = same search on 200 shufflings of discovery labels (seed 7)",
+  "discovery": {
+   "book": {
+    "n": 78,
+    "win": 0.5,
+    "mean": 3.3157435897435894,
+    "pnl": 284553.75,
+    "losers": 39
+   },
+   "kept": {
+    "n": 26,
+    "win": 0.8461538461538461,
+    "mean": 11.666615384615385,
+    "pnl": 344805.5,
+    "losers": 4
+   },
+   "removed": {
+    "n": 52,
+    "win": 0.3269230769230769,
+    "mean": -0.8596923076923079,
+    "pnl": -60251.75,
+    "losers": 35
+   }
+  },
+  "holdout": {
+   "book": {
+    "n": 21,
+    "win": 0.5238095238095238,
+    "mean": 1.995095238095238,
+    "pnl": 36227.75,
+    "losers": 10
+   },
+   "kept": {
+    "n": 4,
+    "win": 0.5,
+    "mean": -2.3177499999999998,
+    "pnl": -9236.5,
+    "losers": 2
+   },
+   "removed": {
+    "n": 17,
+    "win": 0.5294117647058824,
+    "mean": 3.0098823529411765,
+    "pnl": 45464.25,
+    "losers": 8
+   }
+  },
+  "p": 0.63,
+  "score": 0.4615384638309479,
+  "shuffle_median": 0.4615384638309479,
+  "shuffle_max": 0.5897436141967773,
+  "verdict": "REJECTED",
+  "why": "shuffle p=0.63: the same search finds as good a rule in random labels; holdout kept wins 50% vs book 52% (worse than the book); holdout removed side is profitable (Rs +45,464)"
+ },
+ {
+  "book": "lvl_trail_rx_be",
+  "rule": [
+   [
+    "rv15_spot",
+    ">=",
+    10.92
+   ],
+   [
+    "ret_today",
+    "<",
+    75.1662
+   ]
+  ],
+  "combine": "AND",
+  "features": {
+   "rv15_spot": "weather field as recorded at the trigger second",
+   "ret_today": "weather field as recorded at the trigger second"
+  },
+  "search": "pair_hand: hand feature set (22 features), params default; score = share of losers removed - share of winners removed (rule_lab.score_masks), lines at quantiles 0.1..0.9, min kept 20 unless stated; shuffle = same search on 200 shufflings of discovery labels (seed 7)",
+  "discovery": {
+   "book": {
+    "n": 78,
+    "win": 0.5,
+    "mean": 3.3157435897435894,
+    "pnl": 284553.75,
+    "losers": 39
+   },
+   "kept": {
+    "n": 36,
+    "win": 0.6944444444444444,
+    "mean": 8.438333333333333,
+    "pnl": 341172.0,
+    "losers": 11
+   },
+   "removed": {
+    "n": 42,
+    "win": 0.3333333333333333,
+    "mean": -1.0750476190476193,
+    "pnl": -56618.25,
+    "losers": 28
+   }
+  },
+  "holdout": {
+   "book": {
+    "n": 21,
+    "win": 0.5238095238095238,
+    "mean": 1.995095238095238,
+    "pnl": 36227.75,
+    "losers": 10
+   },
+   "kept": {
+    "n": 7,
+    "win": 0.42857142857142855,
+    "mean": -2.2462857142857144,
+    "pnl": -16269.5,
+    "losers": 4
+   },
+   "removed": {
+    "n": 14,
+    "win": 0.5714285714285714,
+    "mean": 4.115785714285715,
+    "pnl": 52497.25,
+    "losers": 6
+   }
+  },
+  "p": 0.58,
+  "score": 0.3589743673801422,
+  "shuffle_median": 0.3589743673801422,
+  "shuffle_max": 0.5641025304794312,
+  "verdict": "REJECTED",
+  "why": "shuffle p=0.58: the same search finds as good a rule in random labels; holdout kept wins 43% vs book 52% (worse than the book); holdout removed side is profitable (Rs +52,497)"
+ },
+ {
+  "book": "lvl_trail_rx_be",
+  "rule": [
+   [
+    "oi_own_chg30",
+    ">=",
+    -9490.0
+   ],
+   [
+    "e_syn_dev",
+    ">=",
+    -1.5119999999999996
+   ]
+  ],
+  "combine": "AND",
+  "features": {
+   "oi_own_chg30": "weather field as recorded at the trigger second",
+   "e_syn_dev": "weather field as recorded at the trigger second"
+  },
+  "search": "pair_all: all feature set (345 features), params default; score = share of losers removed - share of winners removed (rule_lab.score_masks), lines at quantiles 0.1..0.9, min kept 20 unless stated; shuffle = same search on 200 shufflings of discovery labels (seed 7)",
+  "discovery": {
+   "book": {
+    "n": 78,
+    "win": 0.5,
+    "mean": 3.3157435897435894,
+    "pnl": 284553.75,
+    "losers": 39
+   },
+   "kept": {
+    "n": 26,
+    "win": 0.8461538461538461,
+    "mean": 11.666615384615385,
+    "pnl": 344805.5,
+    "losers": 4
+   },
+   "removed": {
+    "n": 52,
+    "win": 0.3269230769230769,
+    "mean": -0.8596923076923079,
+    "pnl": -60251.75,
+    "losers": 35
+   }
+  },
+  "holdout": {
+   "book": {
+    "n": 21,
+    "win": 0.5238095238095238,
+    "mean": 1.995095238095238,
+    "pnl": 36227.75,
+    "losers": 10
+   },
+   "kept": {
+    "n": 4,
+    "win": 0.5,
+    "mean": -2.3177499999999998,
+    "pnl": -9236.5,
+    "losers": 2
+   },
+   "removed": {
+    "n": 17,
+    "win": 0.5294117647058824,
+    "mean": 3.0098823529411765,
+    "pnl": 45464.25,
+    "losers": 8
+   }
+  },
+  "p": 0.86,
+  "score": 0.4615384638309479,
+  "shuffle_median": 0.4871794879436493,
+  "shuffle_max": 0.5897436141967773,
+  "verdict": "REJECTED",
+  "why": "shuffle p=0.86: the same search finds as good a rule in random labels; holdout kept wins 50% vs book 52% (worse than the book); holdout removed side is profitable (Rs +45,464)"
+ },
+ {
+  "book": "lvl_trail_rx_be",
+  "rule": [
+   [
+    "oi_own_chg30",
+    ">=",
+    -9490.0
+   ],
+   [
+    "e_syn_dev",
+    ">=",
+    -1.5119999999999996
+   ],
+   [
+    "hrs_to_expiry",
+    "<",
+    146.17520000000002
+   ]
+  ],
+  "combine": "AND",
+  "features": {
+   "oi_own_chg30": "weather field as recorded at the trigger second",
+   "e_syn_dev": "weather field as recorded at the trigger second",
+   "hrs_to_expiry": "weather field as recorded at the trigger second"
+  },
+  "search": "triple_all: all feature set (345 features), params default; score = share of losers removed - share of winners removed (rule_lab.score_masks), lines at quantiles 0.1..0.9, min kept 20 unless stated; shuffle = same search on 200 shufflings of discovery labels (seed 7)",
+  "discovery": {
+   "book": {
+    "n": 78,
+    "win": 0.5,
+    "mean": 3.3157435897435894,
+    "pnl": 284553.75,
+    "losers": 39
+   },
+   "kept": {
+    "n": 25,
+    "win": 0.88,
+    "mean": 12.504959999999999,
+    "pnl": 354064.75,
+    "losers": 3
+   },
+   "removed": {
+    "n": 53,
+    "win": 0.32075471698113206,
+    "mean": -1.0187924528301888,
+    "pnl": -69511.0,
+    "losers": 36
+   }
+  },
+  "holdout": {
+   "book": {
+    "n": 21,
+    "win": 0.5238095238095238,
+    "mean": 1.995095238095238,
+    "pnl": 36227.75,
+    "losers": 10
+   },
+   "kept": {
+    "n": 4,
+    "win": 0.5,
+    "mean": -2.3177499999999998,
+    "pnl": -9236.5,
+    "losers": 2
+   },
+   "removed": {
+    "n": 17,
+    "win": 0.5294117647058824,
+    "mean": 3.0098823529411765,
+    "pnl": 45464.25,
+    "losers": 8
+   }
+  },
+  "p": 0.95,
+  "score": 0.4871794871794872,
+  "shuffle_median": 0.5384615384615385,
+  "shuffle_max": 0.6923076923076923,
+  "verdict": "REJECTED",
+  "why": "shuffle p=0.95: the same search finds as good a rule in random labels; holdout kept wins 50% vs book 52% (worse than the book); holdout removed side is profitable (Rs +45,464)"
+ },
+ {
+  "book": "lvl_trail_rx_be",
+  "rule": [
+   [
+    "e_fut_micro_with",
+    ">=",
+    0.24700000000000016
+   ],
+   [
+    "e_rv15",
+    ">=",
+    12.126000000000001
+   ]
+  ],
+  "combine": "OR",
+  "features": {
+   "e_fut_micro_with": "e_fut_micro * trade direction (+1 CE, -1 PE)",
+   "e_rv15": "weather field as recorded at the trigger second"
+  },
+  "search": "or_all: all feature set (345 features), params default; score = share of losers removed - share of winners removed (rule_lab.score_masks), lines at quantiles 0.1..0.9, min kept 20 unless stated; shuffle = same search on 200 shufflings of discovery labels (seed 7)",
+  "discovery": {
+   "book": {
+    "n": 78,
+    "win": 0.5,
+    "mean": 3.3157435897435894,
+    "pnl": 284553.75,
+    "losers": 39
+   },
+   "kept": {
+    "n": 43,
+    "win": 0.7209302325581395,
+    "mean": 8.412325581395349,
+    "pnl": 408479.5,
+    "losers": 12
+   },
+   "removed": {
+    "n": 35,
+    "win": 0.22857142857142856,
+    "mean": -2.9457714285714287,
+    "pnl": -123925.75,
+    "losers": 27
+   }
+  },
+  "holdout": {
+   "book": {
+    "n": 21,
+    "win": 0.5238095238095238,
+    "mean": 1.995095238095238,
+    "pnl": 36227.75,
+    "losers": 10
+   },
+   "kept": {
+    "n": 8,
+    "win": 0.625,
+    "mean": 0.36537499999999995,
+    "pnl": 13.0,
+    "losers": 3
+   },
+   "removed": {
+    "n": 13,
+    "win": 0.46153846153846156,
+    "mean": 2.998,
+    "pnl": 36214.75,
+    "losers": 7
+   }
+  },
+  "p": 0.455,
+  "score": 0.4871795177459717,
+  "shuffle_median": 0.46153849363327026,
+  "shuffle_max": 0.6410256624221802,
+  "verdict": "REJECTED",
+  "why": "shuffle p=0.46: the same search finds as good a rule in random labels; holdout removed side is profitable (Rs +36,215)"
+ },
+ {
+  "book": "lvl_trail_rx_be",
+  "rule": [
+   [
+    "oi_own_chg30",
+    ">=",
+    -9490.0
+   ]
+  ],
+  "combine": "AND",
+  "features": {
+   "oi_own_chg30": "weather field as recorded at the trigger second"
+  },
+  "search": "single_all_keep30: all feature set (345 features), params {'min_keep': 30}; score = share of losers removed - share of winners removed (rule_lab.score_masks), lines at quantiles 0.1..0.9, min kept 20 unless stated; shuffle = same search on 200 shufflings of discovery labels (seed 7)",
+  "discovery": {
+   "book": {
+    "n": 78,
+    "win": 0.5,
+    "mean": 3.3157435897435894,
+    "pnl": 284553.75,
+    "losers": 39
+   },
+   "kept": {
+    "n": 36,
+    "win": 0.6666666666666666,
+    "mean": 7.844555555555555,
+    "pnl": 318535.75,
+    "losers": 12
+   },
+   "removed": {
+    "n": 42,
+    "win": 0.35714285714285715,
+    "mean": -0.5660952380952382,
+    "pnl": -33982.0,
+    "losers": 27
+   }
+  },
+  "holdout": {
+   "book": {
+    "n": 21,
+    "win": 0.5238095238095238,
+    "mean": 1.995095238095238,
+    "pnl": 36227.75,
+    "losers": 10
+   },
+   "kept": {
+    "n": 5,
+    "win": 0.4,
+    "mean": -3.9574,
+    "pnl": -19246.5,
+    "losers": 3
+   },
+   "removed": {
+    "n": 16,
+    "win": 0.5625,
+    "mean": 3.85525,
+    "pnl": 55474.25,
+    "losers": 7
+   }
+  },
+  "p": 0.905,
+  "score": 0.30769230769230765,
+  "shuffle_median": 0.33333333333333337,
+  "shuffle_max": 0.4871794871794872,
+  "verdict": "REJECTED",
+  "why": "shuffle p=0.91: the same search finds as good a rule in random labels; holdout kept wins 40% vs book 52% (worse than the book); holdout removed side is profitable (Rs +55,474)"
+ },
+ {
+  "book": "lvl_trail_rx_c10",
+  "rule": [
+   [
+    "fut_spread",
+    ">=",
+    2.6
+   ]
+  ],
+  "combine": "AND",
+  "features": {
+   "fut_spread": "weather field as recorded at the trigger second"
+  },
+  "search": "single_raw: raw feature set (195 features), params default; score = share of losers removed - share of winners removed (rule_lab.score_masks), lines at quantiles 0.1..0.9, min kept 20 unless stated; shuffle = same search on 200 shufflings of discovery labels (seed 7)",
+  "discovery": {
+   "book": {
+    "n": 75,
+    "win": 0.52,
+    "mean": 3.910493333333333,
+    "pnl": 318636.5,
+    "losers": 36
+   },
+   "kept": {
+    "n": 53,
+    "win": 0.6415094339622641,
+    "mean": 6.793339622641509,
+    "pnl": 382840.25,
+    "losers": 19
+   },
+   "removed": {
+    "n": 22,
+    "win": 0.22727272727272727,
+    "mean": -3.0345454545454547,
+    "pnl": -64203.75,
+    "losers": 17
+   }
+  },
+  "holdout": {
+   "book": {
+    "n": 21,
+    "win": 0.42857142857142855,
+    "mean": 0.9552857142857143,
+    "pnl": 12837.5,
+    "losers": 12
+   },
+   "kept": {
+    "n": 13,
+    "win": 0.38461538461538464,
+    "mean": 0.42107692307692324,
+    "pnl": -604.5,
+    "losers": 8
+   },
+   "removed": {
+    "n": 8,
+    "win": 0.5,
+    "mean": 1.823375,
+    "pnl": 13442.0,
+    "losers": 4
+   }
+  },
+  "p": 0.39,
+  "score": 0.344017094017094,
+  "shuffle_median": 0.3333333333333333,
+  "shuffle_max": 0.6025641025641026,
+  "verdict": "REJECTED",
+  "why": "shuffle p=0.39: the same search finds as good a rule in random labels; holdout kept wins 38% vs book 43% (worse than the book); holdout removed side is profitable (Rs +13,442)"
+ },
+ {
+  "book": "lvl_trail_rx_c10",
+  "rule": [
+   [
+    "streak",
+    "<",
+    1.0
+   ]
+  ],
+  "combine": "AND",
+  "features": {
+   "streak": "weather field as recorded at the trigger second"
+  },
+  "search": "single_hand: hand feature set (22 features), params default; score = share of losers removed - share of winners removed (rule_lab.score_masks), lines at quantiles 0.1..0.9, min kept 20 unless stated; shuffle = same search on 200 shufflings of discovery labels (seed 7)",
+  "discovery": {
+   "book": {
+    "n": 75,
+    "win": 0.52,
+    "mean": 3.910493333333333,
+    "pnl": 318636.5,
+    "losers": 36
+   },
+   "kept": {
+    "n": 42,
+    "win": 0.6190476190476191,
+    "mean": 4.591928571428571,
+    "pnl": 200739.5,
+    "losers": 16
+   },
+   "removed": {
+    "n": 33,
+    "win": 0.3939393939393939,
+    "mean": 3.043212121212121,
+    "pnl": 117897.0,
+    "losers": 20
+   }
+  },
+  "holdout": {
+   "book": {
+    "n": 21,
+    "win": 0.42857142857142855,
+    "mean": 0.9552857142857143,
+    "pnl": 12837.5,
+    "losers": 12
+   },
+   "kept": {
+    "n": 14,
+    "win": 0.42857142857142855,
+    "mean": 0.7625714285714286,
+    "pnl": 3952.0,
+    "losers": 8
+   },
+   "removed": {
+    "n": 7,
+    "win": 0.42857142857142855,
+    "mean": 1.340714285714286,
+    "pnl": 8885.5,
+    "losers": 4
+   }
+  },
+  "p": 0.77,
+  "score": 0.22222222222222227,
+  "shuffle_median": 0.2649572649572649,
+  "shuffle_max": 0.4615384615384615,
+  "verdict": "REJECTED",
+  "why": "shuffle p=0.77: the same search finds as good a rule in random labels; holdout removed side is profitable (Rs +8,886)"
+ },
+ {
+  "book": "lvl_trail_rx_c10",
+  "rule": [
+   [
+    "e_fut_micro_with",
+    ">=",
+    0.37000000000000044
+   ]
+  ],
+  "combine": "AND",
+  "features": {
+   "e_fut_micro_with": "e_fut_micro * trade direction (+1 CE, -1 PE)"
+  },
+  "search": "single_derived: derived feature set (88 features), params default; score = share of losers removed - share of winners removed (rule_lab.score_masks), lines at quantiles 0.1..0.9, min kept 20 unless stated; shuffle = same search on 200 shufflings of discovery labels (seed 7)",
+  "discovery": {
+   "book": {
+    "n": 75,
+    "win": 0.52,
+    "mean": 3.910493333333333,
+    "pnl": 318636.5,
+    "losers": 36
+   },
+   "kept": {
+    "n": 23,
+    "win": 0.782608695652174,
+    "mean": 8.661826086956522,
+    "pnl": 245956.75,
+    "losers": 5
+   },
+   "removed": {
+    "n": 52,
+    "win": 0.40384615384615385,
+    "mean": 1.8089423076923077,
+    "pnl": 72679.75,
+    "losers": 31
+   }
+  },
+  "holdout": {
+   "book": {
+    "n": 21,
+    "win": 0.42857142857142855,
+    "mean": 0.9552857142857143,
+    "pnl": 12837.5,
+    "losers": 12
+   },
+   "kept": {
+    "n": 6,
+    "win": 0.5,
+    "mean": 0.3545,
+    "pnl": 871.0,
+    "losers": 3
+   },
+   "removed": {
+    "n": 15,
+    "win": 0.4,
+    "mean": 1.1956,
+    "pnl": 11966.5,
+    "losers": 9
+   }
+  },
+  "p": 0.44,
+  "score": 0.3226495726495727,
+  "shuffle_median": 0.31837606837606836,
+  "shuffle_max": 0.5256410256410257,
+  "verdict": "REJECTED",
+  "why": "shuffle p=0.44: the same search finds as good a rule in random labels; holdout removed side is profitable (Rs +11,966)"
+ },
+ {
+  "book": "lvl_trail_rx_c10",
+  "rule": [
+   [
+    "opt_opp_q=REFILLING",
+    "<",
+    1.0
+   ]
+  ],
+  "combine": "AND",
+  "features": {
+   "opt_opp_q=REFILLING": "1 if weather['opt_opp_q'] == 'REFILLING' else 0"
+  },
+  "search": "single_text: text feature set (62 features), params default; score = share of losers removed - share of winners removed (rule_lab.score_masks), lines at quantiles 0.1..0.9, min kept 20 unless stated; shuffle = same search on 200 shufflings of discovery labels (seed 7)",
+  "discovery": {
+   "book": {
+    "n": 75,
+    "win": 0.52,
+    "mean": 3.910493333333333,
+    "pnl": 318636.5,
+    "losers": 36
+   },
+   "kept": {
+    "n": 44,
+    "win": 0.6136363636363636,
+    "mean": 6.69284090909091,
+    "pnl": 368715.75,
+    "losers": 17
+   },
+   "removed": {
+    "n": 31,
+    "win": 0.3870967741935484,
+    "mean": -0.03864516129032248,
+    "pnl": -50079.25,
+    "losers": 19
+   }
+  },
+  "holdout": {
+   "book": {
+    "n": 21,
+    "win": 0.42857142857142855,
+    "mean": 0.9552857142857143,
+    "pnl": 12837.5,
+    "losers": 12
+   },
+   "kept": {
+    "n": 15,
+    "win": 0.4666666666666667,
+    "mean": 2.9156666666666666,
+    "pnl": 35256.0,
+    "losers": 8
+   },
+   "removed": {
+    "n": 6,
+    "win": 0.3333333333333333,
+    "mean": -3.9456666666666664,
+    "pnl": -22418.5,
+    "losers": 4
+   }
+  },
+  "p": 0.58,
+  "score": 0.22008547008547008,
+  "shuffle_median": 0.23504273504273504,
+  "shuffle_max": 0.41239316239316237,
+  "verdict": "REJECTED",
+  "why": "shuffle p=0.58: the same search finds as good a rule in random labels"
+ },
+ {
+  "book": "lvl_trail_rx_c10",
+  "rule": [
+   [
+    "fut_spread",
+    ">=",
+    2.6
+   ]
+  ],
+  "combine": "AND",
+  "features": {
+   "fut_spread": "weather field as recorded at the trigger second"
+  },
+  "search": "single_all: all feature set (345 features), params default; score = share of losers removed - share of winners removed (rule_lab.score_masks), lines at quantiles 0.1..0.9, min kept 20 unless stated; shuffle = same search on 200 shufflings of discovery labels (seed 7)",
+  "discovery": {
+   "book": {
+    "n": 75,
+    "win": 0.52,
+    "mean": 3.910493333333333,
+    "pnl": 318636.5,
+    "losers": 36
+   },
+   "kept": {
+    "n": 53,
+    "win": 0.6415094339622641,
+    "mean": 6.793339622641509,
+    "pnl": 382840.25,
+    "losers": 19
+   },
+   "removed": {
+    "n": 22,
+    "win": 0.22727272727272727,
+    "mean": -3.0345454545454547,
+    "pnl": -64203.75,
+    "losers": 17
+   }
+  },
+  "holdout": {
+   "book": {
+    "n": 21,
+    "win": 0.42857142857142855,
+    "mean": 0.9552857142857143,
+    "pnl": 12837.5,
+    "losers": 12
+   },
+   "kept": {
+    "n": 13,
+    "win": 0.38461538461538464,
+    "mean": 0.42107692307692324,
+    "pnl": -604.5,
+    "losers": 8
+   },
+   "removed": {
+    "n": 8,
+    "win": 0.5,
+    "mean": 1.823375,
+    "pnl": 13442.0,
+    "losers": 4
+   }
+  },
+  "p": 0.53,
+  "score": 0.344017094017094,
+  "shuffle_median": 0.3482905982905983,
+  "shuffle_max": 0.6025641025641026,
+  "verdict": "REJECTED",
+  "why": "shuffle p=0.53: the same search finds as good a rule in random labels; holdout kept wins 38% vs book 43% (worse than the book); holdout removed side is profitable (Rs +13,442)"
+ },
+ {
+  "book": "lvl_trail_rx_c10",
+  "rule": [
+   [
+    "fut_spread",
+    ">=",
+    2.6
+   ]
+  ],
+  "combine": "AND",
+  "features": {
+   "fut_spread": "weather field as recorded at the trigger second"
+  },
+  "search": "single_all_9lines: all feature set (345 features), params {'n_lines': 9}; score = share of losers removed - share of winners removed (rule_lab.score_masks), lines at quantiles 0.1..0.9, min kept 20 unless stated; shuffle = same search on 200 shufflings of discovery labels (seed 7)",
+  "discovery": {
+   "book": {
+    "n": 75,
+    "win": 0.52,
+    "mean": 3.910493333333333,
+    "pnl": 318636.5,
+    "losers": 36
+   },
+   "kept": {
+    "n": 53,
+    "win": 0.6415094339622641,
+    "mean": 6.793339622641509,
+    "pnl": 382840.25,
+    "losers": 19
+   },
+   "removed": {
+    "n": 22,
+    "win": 0.22727272727272727,
+    "mean": -3.0345454545454547,
+    "pnl": -64203.75,
+    "losers": 17
+   }
+  },
+  "holdout": {
+   "book": {
+    "n": 21,
+    "win": 0.42857142857142855,
+    "mean": 0.9552857142857143,
+    "pnl": 12837.5,
+    "losers": 12
+   },
+   "kept": {
+    "n": 13,
+    "win": 0.38461538461538464,
+    "mean": 0.42107692307692324,
+    "pnl": -604.5,
+    "losers": 8
+   },
+   "removed": {
+    "n": 8,
+    "win": 0.5,
+    "mean": 1.823375,
+    "pnl": 13442.0,
+    "losers": 4
+   }
+  },
+  "p": 0.68,
+  "score": 0.344017094017094,
+  "shuffle_median": 0.3611111111111111,
+  "shuffle_max": 0.6025641025641026,
+  "verdict": "REJECTED",
+  "why": "shuffle p=0.68: the same search finds as good a rule in random labels; holdout kept wins 38% vs book 43% (worse than the book); holdout removed side is profitable (Rs +13,442)"
+ },
+ {
+  "book": "lvl_trail_rx_c10",
+  "rule": [
+   [
+    "fut_spread",
+    ">=",
+    2.6
+   ],
+   [
+    "ret_today",
+    "<",
+    82.53900000000002
+   ]
+  ],
+  "combine": "AND",
+  "features": {
+   "fut_spread": "weather field as recorded at the trigger second",
+   "ret_today": "weather field as recorded at the trigger second"
+  },
+  "search": "pair_raw: raw feature set (195 features), params default; score = share of losers removed - share of winners removed (rule_lab.score_masks), lines at quantiles 0.1..0.9, min kept 20 unless stated; shuffle = same search on 200 shufflings of discovery labels (seed 7)",
+  "discovery": {
+   "book": {
+    "n": 75,
+    "win": 0.52,
+    "mean": 3.910493333333333,
+    "pnl": 318636.5,
+    "losers": 36
+   },
+   "kept": {
+    "n": 48,
+    "win": 0.7083333333333334,
+    "mean": 8.120375000000001,
+    "pnl": 449585.5,
+    "losers": 14
+   },
+   "removed": {
+    "n": 27,
+    "win": 0.18518518518518517,
+    "mean": -3.5737407407407407,
+    "pnl": -130949.0,
+    "losers": 22
+   }
+  },
+  "holdout": {
+   "book": {
+    "n": 21,
+    "win": 0.42857142857142855,
+    "mean": 0.9552857142857143,
+    "pnl": 12837.5,
+    "losers": 12
+   },
+   "kept": {
+    "n": 13,
+    "win": 0.38461538461538464,
+    "mean": 0.42107692307692324,
+    "pnl": -604.5,
+    "losers": 8
+   },
+   "removed": {
+    "n": 8,
+    "win": 0.5,
+    "mean": 1.823375,
+    "pnl": 13442.0,
+    "losers": 4
+   }
+  },
+  "p": 0.38,
+  "score": 0.4829059839248657,
+  "shuffle_median": 0.4711538553237915,
+  "shuffle_max": 0.6581196784973145,
+  "verdict": "REJECTED",
+  "why": "shuffle p=0.38: the same search finds as good a rule in random labels; holdout kept wins 38% vs book 43% (worse than the book); holdout removed side is profitable (Rs +13,442)"
+ },
+ {
+  "book": "lvl_trail_rx_c10",
+  "rule": [
+   [
+    "pos_dir",
+    ">=",
+    0.4560600000000001
+   ],
+   [
+    "streak",
+    "<",
+    2.0
+   ]
+  ],
+  "combine": "AND",
+  "features": {
+   "pos_dir": "weather field as recorded at the trigger second",
+   "streak": "weather field as recorded at the trigger second"
+  },
+  "search": "pair_hand: hand feature set (22 features), params default; score = share of losers removed - share of winners removed (rule_lab.score_masks), lines at quantiles 0.1..0.9, min kept 20 unless stated; shuffle = same search on 200 shufflings of discovery labels (seed 7)",
+  "discovery": {
+   "book": {
+    "n": 75,
+    "win": 0.52,
+    "mean": 3.910493333333333,
+    "pnl": 318636.5,
+    "losers": 36
+   },
+   "kept": {
+    "n": 44,
+    "win": 0.6590909090909091,
+    "mean": 6.090477272727273,
+    "pnl": 309608.0,
+    "losers": 15
+   },
+   "removed": {
+    "n": 31,
+    "win": 0.3225806451612903,
+    "mean": 0.8163225806451612,
+    "pnl": 9028.5,
+    "losers": 21
+   }
+  },
+  "holdout": {
+   "book": {
+    "n": 21,
+    "win": 0.42857142857142855,
+    "mean": 0.9552857142857143,
+    "pnl": 12837.5,
+    "losers": 12
+   },
+   "kept": {
+    "n": 11,
+    "win": 0.6363636363636364,
+    "mean": 3.9353636363636366,
+    "pnl": 34206.25,
+    "losers": 4
+   },
+   "removed": {
+    "n": 10,
+    "win": 0.2,
+    "mean": -2.3228,
+    "pnl": -21368.75,
+    "losers": 8
+   }
+  },
+  "p": 0.74,
+  "score": 0.32692304253578186,
+  "shuffle_median": 0.35363246500492096,
+  "shuffle_max": 0.5491453409194946,
+  "verdict": "REJECTED",
+  "why": "shuffle p=0.74: the same search finds as good a rule in random labels"
+ },
+ {
+  "book": "lvl_trail_rx_c10",
+  "rule": [
+   [
+    "fut_spread",
+    ">=",
+    2.6
+   ],
+   [
+    "ret_today",
+    "<",
+    82.53900000000002
+   ]
+  ],
+  "combine": "AND",
+  "features": {
+   "fut_spread": "weather field as recorded at the trigger second",
+   "ret_today": "weather field as recorded at the trigger second"
+  },
+  "search": "pair_all: all feature set (345 features), params default; score = share of losers removed - share of winners removed (rule_lab.score_masks), lines at quantiles 0.1..0.9, min kept 20 unless stated; shuffle = same search on 200 shufflings of discovery labels (seed 7)",
+  "discovery": {
+   "book": {
+    "n": 75,
+    "win": 0.52,
+    "mean": 3.910493333333333,
+    "pnl": 318636.5,
+    "losers": 36
+   },
+   "kept": {
+    "n": 48,
+    "win": 0.7083333333333334,
+    "mean": 8.120375000000001,
+    "pnl": 449585.5,
+    "losers": 14
+   },
+   "removed": {
+    "n": 27,
+    "win": 0.18518518518518517,
+    "mean": -3.5737407407407407,
+    "pnl": -130949.0,
+    "losers": 22
+   }
+  },
+  "holdout": {
+   "book": {
+    "n": 21,
+    "win": 0.42857142857142855,
+    "mean": 0.9552857142857143,
+    "pnl": 12837.5,
+    "losers": 12
+   },
+   "kept": {
+    "n": 13,
+    "win": 0.38461538461538464,
+    "mean": 0.42107692307692324,
+    "pnl": -604.5,
+    "losers": 8
+   },
+   "removed": {
+    "n": 8,
+    "win": 0.5,
+    "mean": 1.823375,
+    "pnl": 13442.0,
+    "losers": 4
+   }
+  },
+  "p": 0.55,
+  "score": 0.4829059839248657,
+  "shuffle_median": 0.4871795177459717,
+  "shuffle_max": 0.6581196784973145,
+  "verdict": "REJECTED",
+  "why": "shuffle p=0.55: the same search finds as good a rule in random labels; holdout kept wins 38% vs book 43% (worse than the book); holdout removed side is profitable (Rs +13,442)"
+ },
+ {
+  "book": "lvl_trail_rx_c10",
+  "rule": [
+   [
+    "fut_spread",
+    ">=",
+    2.6
+   ],
+   [
+    "ret_today",
+    "<",
+    82.53900000000002
+   ],
+   [
+    "po_a",
+    "<",
+    36.120000000000005
+   ]
+  ],
+  "combine": "AND",
+  "features": {
+   "fut_spread": "weather field as recorded at the trigger second",
+   "ret_today": "weather field as recorded at the trigger second",
+   "po_a": "weather field as recorded at the trigger second"
+  },
+  "search": "triple_all: all feature set (345 features), params default; score = share of losers removed - share of winners removed (rule_lab.score_masks), lines at quantiles 0.1..0.9, min kept 20 unless stated; shuffle = same search on 200 shufflings of discovery labels (seed 7)",
+  "discovery": {
+   "book": {
+    "n": 75,
+    "win": 0.52,
+    "mean": 3.910493333333333,
+    "pnl": 318636.5,
+    "losers": 36
+   },
+   "kept": {
+    "n": 41,
+    "win": 0.7804878048780488,
+    "mean": 10.043414634146341,
+    "pnl": 464870.25,
+    "losers": 9
+   },
+   "removed": {
+    "n": 34,
+    "win": 0.20588235294117646,
+    "mean": -3.4850882352941177,
+    "pnl": -146233.75,
+    "losers": 27
+   }
+  },
+  "holdout": {
+   "book": {
+    "n": 21,
+    "win": 0.42857142857142855,
+    "mean": 0.9552857142857143,
+    "pnl": 12837.5,
+    "losers": 12
+   },
+   "kept": {
+    "n": 13,
+    "win": 0.38461538461538464,
+    "mean": 0.42107692307692324,
+    "pnl": -604.5,
+    "losers": 8
+   },
+   "removed": {
+    "n": 8,
+    "win": 0.5,
+    "mean": 1.823375,
+    "pnl": 13442.0,
+    "losers": 4
+   }
+  },
+  "p": 0.435,
+  "score": 0.5705128205128205,
+  "shuffle_median": 0.5576923076923077,
+  "shuffle_max": 0.688034188034188,
+  "verdict": "REJECTED",
+  "why": "shuffle p=0.43: the same search finds as good a rule in random labels; holdout kept wins 38% vs book 43% (worse than the book); holdout removed side is profitable (Rs +13,442)"
+ },
+ {
+  "book": "lvl_trail_rx_c10",
+  "rule": [
+   [
+    "e_fut_micro_with",
+    ">=",
+    0.37000000000000044
+   ],
+   [
+    "rv15_spot",
+    ">=",
+    12.104
+   ]
+  ],
+  "combine": "OR",
+  "features": {
+   "e_fut_micro_with": "e_fut_micro * trade direction (+1 CE, -1 PE)",
+   "rv15_spot": "weather field as recorded at the trigger second"
+  },
+  "search": "or_all: all feature set (345 features), params default; score = share of losers removed - share of winners removed (rule_lab.score_masks), lines at quantiles 0.1..0.9, min kept 20 unless stated; shuffle = same search on 200 shufflings of discovery labels (seed 7)",
+  "discovery": {
+   "book": {
+    "n": 75,
+    "win": 0.52,
+    "mean": 3.910493333333333,
+    "pnl": 318636.5,
+    "losers": 36
+   },
+   "kept": {
+    "n": 42,
+    "win": 0.7380952380952381,
+    "mean": 9.071380952380952,
+    "pnl": 423943.0,
+    "losers": 11
+   },
+   "removed": {
+    "n": 33,
+    "win": 0.24242424242424243,
+    "mean": -2.657909090909091,
+    "pnl": -105306.5,
+    "losers": 25
+   }
+  },
+  "holdout": {
+   "book": {
+    "n": 21,
+    "win": 0.42857142857142855,
+    "mean": 0.9552857142857143,
+    "pnl": 12837.5,
+    "losers": 12
+   },
+   "kept": {
+    "n": 8,
+    "win": 0.5,
+    "mean": -1.024875,
+    "pnl": -8957.0,
+    "losers": 4
+   },
+   "removed": {
+    "n": 13,
+    "win": 0.38461538461538464,
+    "mean": 2.1738461538461538,
+    "pnl": 21794.5,
+    "losers": 8
+   }
+  },
+  "p": 0.41,
+  "score": 0.4893162250518799,
+  "shuffle_median": 0.470085471868515,
+  "shuffle_max": 0.6431623697280884,
+  "verdict": "REJECTED",
+  "why": "shuffle p=0.41: the same search finds as good a rule in random labels; holdout removed side is profitable (Rs +21,794)"
+ },
+ {
+  "book": "lvl_trail_rx_c10",
+  "rule": [
+   [
+    "fut_spread",
+    ">=",
+    2.6
+   ]
+  ],
+  "combine": "AND",
+  "features": {
+   "fut_spread": "weather field as recorded at the trigger second"
+  },
+  "search": "single_all_keep30: all feature set (345 features), params {'min_keep': 30}; score = share of losers removed - share of winners removed (rule_lab.score_masks), lines at quantiles 0.1..0.9, min kept 20 unless stated; shuffle = same search on 200 shufflings of discovery labels (seed 7)",
+  "discovery": {
+   "book": {
+    "n": 75,
+    "win": 0.52,
+    "mean": 3.910493333333333,
+    "pnl": 318636.5,
+    "losers": 36
+   },
+   "kept": {
+    "n": 53,
+    "win": 0.6415094339622641,
+    "mean": 6.793339622641509,
+    "pnl": 382840.25,
+    "losers": 19
+   },
+   "removed": {
+    "n": 22,
+    "win": 0.22727272727272727,
+    "mean": -3.0345454545454547,
+    "pnl": -64203.75,
+    "losers": 17
+   }
+  },
+  "holdout": {
+   "book": {
+    "n": 21,
+    "win": 0.42857142857142855,
+    "mean": 0.9552857142857143,
+    "pnl": 12837.5,
+    "losers": 12
+   },
+   "kept": {
+    "n": 13,
+    "win": 0.38461538461538464,
+    "mean": 0.42107692307692324,
+    "pnl": -604.5,
+    "losers": 8
+   },
+   "removed": {
+    "n": 8,
+    "win": 0.5,
+    "mean": 1.823375,
+    "pnl": 13442.0,
+    "losers": 4
+   }
+  },
+  "p": 0.49,
+  "score": 0.344017094017094,
+  "shuffle_median": 0.3408119658119658,
+  "shuffle_max": 0.6025641025641026,
+  "verdict": "REJECTED",
+  "why": "shuffle p=0.49: the same search finds as good a rule in random labels; holdout kept wins 38% vs book 43% (worse than the book); holdout removed side is profitable (Rs +13,442)"
+ }
+]

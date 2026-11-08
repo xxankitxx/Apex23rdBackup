@@ -1,0 +1,2509 @@
+[
+ {
+  "book": "fade_switch_r002",
+  "rule": [
+   [
+    "e_fut_imb5",
+    "<",
+    0.25000000000000017
+   ],
+   [
+    "range_now",
+    ">=",
+    191.1
+   ]
+  ],
+  "rule_text": "e_fut_imb5 < 0.25 AND range_now >= 191.1",
+  "features": {
+   "e_fut_imb5": "weather: 5-s futures depth imbalance",
+   "range_now": "weather field at the trigger second (apex/engine/weather.py)"
+  },
+  "search": "pair AND (min_keep=150, 5 quantile lines/field, 257 features, discovery days only, feature set stationary) ; shuffle test pooled over seed 7 (200) and seed 11 (400)",
+  "score": 0.25901032534580165,
+  "p": 0.0467,
+  "shuffle_median_best": 0.21712448860315603,
+  "shuffle_max_best": 0.2762517046561465,
+  "discovery": {
+   "book": {
+    "n": 351,
+    "win": 0.5042735042735043,
+    "mean": 0.06813675213675213,
+    "pnl": 144371.5,
+    "losers": 174
+   },
+   "kept": {
+    "n": 181,
+    "win": 0.6298342541436464,
+    "mean": 1.7301049723756907,
+    "pnl": 330008.25,
+    "losers": 67
+   },
+   "removed": {
+    "n": 170,
+    "win": 0.37058823529411766,
+    "mean": -1.701370588235294,
+    "pnl": -185636.75,
+    "losers": 107
+   }
+  },
+  "holdout": {
+   "book": {
+    "n": 118,
+    "win": 0.4661016949152542,
+    "mean": -0.25839830508474576,
+    "pnl": -32080.75,
+    "losers": 63
+   },
+   "kept": {
+    "n": 63,
+    "win": 0.47619047619047616,
+    "mean": -0.026793650793650817,
+    "pnl": 5203.25,
+    "losers": 33
+   },
+   "removed": {
+    "n": 55,
+    "win": 0.45454545454545453,
+    "mean": -0.5236909090909091,
+    "pnl": -37284.0,
+    "losers": 30
+   }
+  },
+  "verdict": "PROPOSE",
+  "why": "passes 2-4 by the letter: pooled shuffle p 0.047 (10/200 seed 7 + 18/400 seed 11); holdout kept win 47.6% vs book 46.6%, kept +5,203 Rs, removed -37,284. WEAK: kept side break-even on holdout (mean -0.03%, 33 losers / 63)"
+ },
+ {
+  "book": "fade_switch_r002",
+  "rule": [
+   [
+    "edge_imp_f",
+    ">=",
+    0.12440000000000004
+   ]
+  ],
+  "rule_text": "edge_imp_f >= 0.1244",
+  "features": {
+   "edge_imp_f": "trade record edge_trig.imp_f at the trigger: impulse pullback fraction"
+  },
+  "search": "single (min_keep=20, 5 quantile lines/field, 327 features, discovery days only)",
+  "score": 0.1875121761153322,
+  "p": 0.135,
+  "shuffle_median_best": 0.16238067406974482,
+  "shuffle_max_best": 0.24215858172608612,
+  "discovery": {
+   "book": {
+    "n": 351,
+    "win": 0.5042735042735043,
+    "mean": 0.06813675213675213,
+    "pnl": 144371.5,
+    "losers": 174
+   },
+   "kept": {
+    "n": 245,
+    "win": 0.5714285714285714,
+    "mean": 1.0332408163265305,
+    "pnl": 318932.25,
+    "losers": 105
+   },
+   "removed": {
+    "n": 106,
+    "win": 0.3490566037735849,
+    "mean": -2.1625283018867925,
+    "pnl": -174560.75,
+    "losers": 69
+   }
+  },
+  "holdout": {
+   "book": {
+    "n": 118,
+    "win": 0.4661016949152542,
+    "mean": -0.25839830508474576,
+    "pnl": -32080.75,
+    "losers": 63
+   },
+   "kept": {
+    "n": 75,
+    "win": 0.48,
+    "mean": -0.07000000000000003,
+    "pnl": -451.75,
+    "losers": 39
+   },
+   "removed": {
+    "n": 43,
+    "win": 0.4418604651162791,
+    "mean": -0.587,
+    "pnl": -31629.0,
+    "losers": 24
+   }
+  },
+  "verdict": "REJECTED",
+  "why": "shuffle p=0.135 >= 0.05"
+ },
+ {
+  "book": "fade_switch_r002",
+  "rule": [
+   [
+    "edge_imp_f",
+    ">=",
+    0.12440000000000004
+   ]
+  ],
+  "rule_text": "edge_imp_f >= 0.1244",
+  "features": {
+   "edge_imp_f": "trade record edge_trig.imp_f at the trigger: impulse pullback fraction"
+  },
+  "search": "single (min_keep=150, 5 quantile lines/field, 327 features, discovery days only)",
+  "score": 0.1875121761153322,
+  "p": 0.115,
+  "shuffle_median_best": 0.15673095655562053,
+  "shuffle_max_best": 0.24215858172608612,
+  "discovery": {
+   "book": {
+    "n": 351,
+    "win": 0.5042735042735043,
+    "mean": 0.06813675213675213,
+    "pnl": 144371.5,
+    "losers": 174
+   },
+   "kept": {
+    "n": 245,
+    "win": 0.5714285714285714,
+    "mean": 1.0332408163265305,
+    "pnl": 318932.25,
+    "losers": 105
+   },
+   "removed": {
+    "n": 106,
+    "win": 0.3490566037735849,
+    "mean": -2.1625283018867925,
+    "pnl": -174560.75,
+    "losers": 69
+   }
+  },
+  "holdout": {
+   "book": {
+    "n": 118,
+    "win": 0.4661016949152542,
+    "mean": -0.25839830508474576,
+    "pnl": -32080.75,
+    "losers": 63
+   },
+   "kept": {
+    "n": 75,
+    "win": 0.48,
+    "mean": -0.07000000000000003,
+    "pnl": -451.75,
+    "losers": 39
+   },
+   "removed": {
+    "n": 43,
+    "win": 0.4418604651162791,
+    "mean": -0.587,
+    "pnl": -31629.0,
+    "losers": 24
+   }
+  },
+  "verdict": "REJECTED",
+  "why": "shuffle p=0.115 >= 0.05"
+ },
+ {
+  "book": "fade_switch_r002",
+  "rule": [
+   [
+    "imp_depth",
+    ">=",
+    0.12381
+   ],
+   [
+    "oi_net_help5",
+    ">=",
+    -887379.9999999999
+   ]
+  ],
+  "rule_text": "imp_depth >= 0.1238 AND oi_net_help5 >= -8.874e+05",
+  "features": {
+   "imp_depth": "weather: pullback share of the current impulse",
+   "oi_net_help5": "weather: 5-min OI change of writers on the side that helps us (PE writers for CE trades)"
+  },
+  "search": "pair AND (min_keep=20, 5 quantile lines/field, 327 features, discovery days only)",
+  "score": 0.2593025521137736,
+  "p": 0.07,
+  "shuffle_median_best": 0.2261835184102864,
+  "shuffle_max_best": 0.3001168907071887,
+  "discovery": {
+   "book": {
+    "n": 351,
+    "win": 0.5042735042735043,
+    "mean": 0.06813675213675213,
+    "pnl": 144371.5,
+    "losers": 174
+   },
+   "kept": {
+    "n": 175,
+    "win": 0.6342857142857142,
+    "mean": 1.7544,
+    "pnl": 400858.25,
+    "losers": 64
+   },
+   "removed": {
+    "n": 176,
+    "win": 0.375,
+    "mean": -1.6085454545454545,
+    "pnl": -256486.75,
+    "losers": 110
+   }
+  },
+  "holdout": {
+   "book": {
+    "n": 118,
+    "win": 0.4661016949152542,
+    "mean": -0.25839830508474576,
+    "pnl": -32080.75,
+    "losers": 63
+   },
+   "kept": {
+    "n": 57,
+    "win": 0.42105263157894735,
+    "mean": -0.7043157894736842,
+    "pnl": -38008.75,
+    "losers": 33
+   },
+   "removed": {
+    "n": 61,
+    "win": 0.5081967213114754,
+    "mean": 0.15827868852459018,
+    "pnl": 5928.0,
+    "losers": 30
+   }
+  },
+  "verdict": "REJECTED",
+  "why": "shuffle p=0.070 >= 0.05; holdout kept win% below book or removed side profitable"
+ },
+ {
+  "book": "fade_switch_r002",
+  "rule": [
+   [
+    "imp_depth",
+    ">=",
+    0.12381
+   ],
+   [
+    "oi_net_help5",
+    ">=",
+    -887379.9999999999
+   ]
+  ],
+  "rule_text": "imp_depth >= 0.1238 AND oi_net_help5 >= -8.874e+05",
+  "features": {
+   "imp_depth": "weather: pullback share of the current impulse",
+   "oi_net_help5": "weather: 5-min OI change of writers on the side that helps us (PE writers for CE trades)"
+  },
+  "search": "pair AND (min_keep=150, 5 quantile lines/field, 327 features, discovery days only)",
+  "score": 0.2593025521137736,
+  "p": 0.06,
+  "shuffle_median_best": 0.22452756672511204,
+  "shuffle_max_best": 0.3001168907071887,
+  "discovery": {
+   "book": {
+    "n": 351,
+    "win": 0.5042735042735043,
+    "mean": 0.06813675213675213,
+    "pnl": 144371.5,
+    "losers": 174
+   },
+   "kept": {
+    "n": 175,
+    "win": 0.6342857142857142,
+    "mean": 1.7544,
+    "pnl": 400858.25,
+    "losers": 64
+   },
+   "removed": {
+    "n": 176,
+    "win": 0.375,
+    "mean": -1.6085454545454545,
+    "pnl": -256486.75,
+    "losers": 110
+   }
+  },
+  "holdout": {
+   "book": {
+    "n": 118,
+    "win": 0.4661016949152542,
+    "mean": -0.25839830508474576,
+    "pnl": -32080.75,
+    "losers": 63
+   },
+   "kept": {
+    "n": 57,
+    "win": 0.42105263157894735,
+    "mean": -0.7043157894736842,
+    "pnl": -38008.75,
+    "losers": 33
+   },
+   "removed": {
+    "n": 61,
+    "win": 0.5081967213114754,
+    "mean": 0.15827868852459018,
+    "pnl": 5928.0,
+    "losers": 30
+   }
+  },
+  "verdict": "REJECTED",
+  "why": "shuffle p=0.060 >= 0.05; holdout kept win% below book or removed side profitable"
+ },
+ {
+  "book": "fade_switch_r002",
+  "rule": [
+   [
+    "edge_imp_f",
+    ">=",
+    0.12440000000000004
+   ]
+  ],
+  "rule_text": "edge_imp_f >= 0.1244",
+  "features": {
+   "edge_imp_f": "trade record edge_trig.imp_f at the trigger: impulse pullback fraction"
+  },
+  "search": "single (min_keep=20, 5 quantile lines/field, 257 features, discovery days only, feature set stationary)",
+  "score": 0.1875121761153322,
+  "p": 0.095,
+  "shuffle_median_best": 0.15673095655562053,
+  "shuffle_max_best": 0.24215858172608612,
+  "discovery": {
+   "book": {
+    "n": 351,
+    "win": 0.5042735042735043,
+    "mean": 0.06813675213675213,
+    "pnl": 144371.5,
+    "losers": 174
+   },
+   "kept": {
+    "n": 245,
+    "win": 0.5714285714285714,
+    "mean": 1.0332408163265305,
+    "pnl": 318932.25,
+    "losers": 105
+   },
+   "removed": {
+    "n": 106,
+    "win": 0.3490566037735849,
+    "mean": -2.1625283018867925,
+    "pnl": -174560.75,
+    "losers": 69
+   }
+  },
+  "holdout": {
+   "book": {
+    "n": 118,
+    "win": 0.4661016949152542,
+    "mean": -0.25839830508474576,
+    "pnl": -32080.75,
+    "losers": 63
+   },
+   "kept": {
+    "n": 75,
+    "win": 0.48,
+    "mean": -0.07000000000000003,
+    "pnl": -451.75,
+    "losers": 39
+   },
+   "removed": {
+    "n": 43,
+    "win": 0.4418604651162791,
+    "mean": -0.587,
+    "pnl": -31629.0,
+    "losers": 24
+   }
+  },
+  "verdict": "REJECTED",
+  "why": "shuffle p=0.095 >= 0.05"
+ },
+ {
+  "book": "fade_switch_r002",
+  "rule": [
+   [
+    "edge_imp_f",
+    ">=",
+    0.12440000000000004
+   ]
+  ],
+  "rule_text": "edge_imp_f >= 0.1244",
+  "features": {
+   "edge_imp_f": "trade record edge_trig.imp_f at the trigger: impulse pullback fraction"
+  },
+  "search": "single (min_keep=150, 5 quantile lines/field, 257 features, discovery days only, feature set stationary)",
+  "score": 0.1875121761153322,
+  "p": 0.08,
+  "shuffle_median_best": 0.15332164426261444,
+  "shuffle_max_best": 0.24215858172608612,
+  "discovery": {
+   "book": {
+    "n": 351,
+    "win": 0.5042735042735043,
+    "mean": 0.06813675213675213,
+    "pnl": 144371.5,
+    "losers": 174
+   },
+   "kept": {
+    "n": 245,
+    "win": 0.5714285714285714,
+    "mean": 1.0332408163265305,
+    "pnl": 318932.25,
+    "losers": 105
+   },
+   "removed": {
+    "n": 106,
+    "win": 0.3490566037735849,
+    "mean": -2.1625283018867925,
+    "pnl": -174560.75,
+    "losers": 69
+   }
+  },
+  "holdout": {
+   "book": {
+    "n": 118,
+    "win": 0.4661016949152542,
+    "mean": -0.25839830508474576,
+    "pnl": -32080.75,
+    "losers": 63
+   },
+   "kept": {
+    "n": 75,
+    "win": 0.48,
+    "mean": -0.07000000000000003,
+    "pnl": -451.75,
+    "losers": 39
+   },
+   "removed": {
+    "n": 43,
+    "win": 0.4418604651162791,
+    "mean": -0.587,
+    "pnl": -31629.0,
+    "losers": 24
+   }
+  },
+  "verdict": "REJECTED",
+  "why": "shuffle p=0.080 >= 0.05"
+ },
+ {
+  "book": "fade_switch_r002",
+  "rule": [
+   [
+    "e_fut_imb5",
+    "<",
+    0.25000000000000017
+   ],
+   [
+    "range_now",
+    ">=",
+    191.1
+   ]
+  ],
+  "rule_text": "e_fut_imb5 < 0.25 AND range_now >= 191.1",
+  "features": {
+   "e_fut_imb5": "weather: 5-s futures depth imbalance",
+   "range_now": "weather field at the trigger second (apex/engine/weather.py)"
+  },
+  "search": "pair AND (min_keep=20, 5 quantile lines/field, 257 features, discovery days only, feature set stationary)",
+  "score": 0.25901032534580165,
+  "p": 0.055,
+  "shuffle_median_best": 0.2197058250535749,
+  "shuffle_max_best": 0.3001168907071887,
+  "discovery": {
+   "book": {
+    "n": 351,
+    "win": 0.5042735042735043,
+    "mean": 0.06813675213675213,
+    "pnl": 144371.5,
+    "losers": 174
+   },
+   "kept": {
+    "n": 181,
+    "win": 0.6298342541436464,
+    "mean": 1.7301049723756907,
+    "pnl": 330008.25,
+    "losers": 67
+   },
+   "removed": {
+    "n": 170,
+    "win": 0.37058823529411766,
+    "mean": -1.701370588235294,
+    "pnl": -185636.75,
+    "losers": 107
+   }
+  },
+  "holdout": {
+   "book": {
+    "n": 118,
+    "win": 0.4661016949152542,
+    "mean": -0.25839830508474576,
+    "pnl": -32080.75,
+    "losers": 63
+   },
+   "kept": {
+    "n": 63,
+    "win": 0.47619047619047616,
+    "mean": -0.026793650793650817,
+    "pnl": 5203.25,
+    "losers": 33
+   },
+   "removed": {
+    "n": 55,
+    "win": 0.45454545454545453,
+    "mean": -0.5236909090909091,
+    "pnl": -37284.0,
+    "losers": 30
+   }
+  },
+  "verdict": "REJECTED",
+  "why": "shuffle p=0.055 >= 0.05"
+ },
+ {
+  "book": "fade_switch_r002",
+  "rule": [
+   [
+    "e_fut_imb5",
+    "<",
+    0.25000000000000017
+   ],
+   [
+    "range_now",
+    ">=",
+    191.1
+   ]
+  ],
+  "rule_text": "e_fut_imb5 < 0.25 AND range_now >= 191.1",
+  "features": {
+   "e_fut_imb5": "weather: 5-s futures depth imbalance",
+   "range_now": "weather field at the trigger second (apex/engine/weather.py)"
+  },
+  "search": "pair AND (min_keep=150, 5 quantile lines/field, 257 features, discovery days only, feature set stationary)",
+  "score": 0.25901032534580165,
+  "p": 0.0467,
+  "shuffle_median_best": 0.21868303136567308,
+  "shuffle_max_best": 0.3001168907071887,
+  "discovery": {
+   "book": {
+    "n": 351,
+    "win": 0.5042735042735043,
+    "mean": 0.06813675213675213,
+    "pnl": 144371.5,
+    "losers": 174
+   },
+   "kept": {
+    "n": 181,
+    "win": 0.6298342541436464,
+    "mean": 1.7301049723756907,
+    "pnl": 330008.25,
+    "losers": 67
+   },
+   "removed": {
+    "n": 170,
+    "win": 0.37058823529411766,
+    "mean": -1.701370588235294,
+    "pnl": -185636.75,
+    "losers": 107
+   }
+  },
+  "holdout": {
+   "book": {
+    "n": 118,
+    "win": 0.4661016949152542,
+    "mean": -0.25839830508474576,
+    "pnl": -32080.75,
+    "losers": 63
+   },
+   "kept": {
+    "n": 63,
+    "win": 0.47619047619047616,
+    "mean": -0.026793650793650817,
+    "pnl": 5203.25,
+    "losers": 33
+   },
+   "removed": {
+    "n": 55,
+    "win": 0.45454545454545453,
+    "mean": -0.5236909090909091,
+    "pnl": -37284.0,
+    "losers": 30
+   }
+  },
+  "verdict": "PROPOSE",
+  "why": "passes 2-4 by the letter: pooled shuffle p 0.047 (10/200 seed 7 + 18/400 seed 11); holdout kept win 47.6% vs book 46.6%, kept +5,203 Rs, removed -37,284. WEAK: kept side break-even on holdout (mean -0.03%, 33 losers / 63)"
+ },
+ {
+  "book": "fade_switch_r002",
+  "rule": [
+   [
+    "edge_imp_f",
+    ">=",
+    0.12440000000000004
+   ],
+   [
+    "oi_net_help5",
+    ">=",
+    -887379.9999999999
+   ],
+   [
+    "p_kv_mv60",
+    ">=",
+    0.0
+   ]
+  ],
+  "rule_text": "edge_imp_f >= 0.1244 AND oi_net_help5 >= -8.874e+05 AND p_kv_mv60 >= 0",
+  "features": {
+   "edge_imp_f": "trade record edge_trig.imp_f at the trigger: impulse pullback fraction",
+   "oi_net_help5": "weather: 5-min OI change of writers on the side that helps us (PE writers for CE trades)",
+   "p_kv_mv60": "derived: kv * mv60 (Kalman velocity times 60-s spot move, both our way)"
+  },
+  "search": "triple AND (top100 pairs) (min_keep=20, 5 quantile lines/field, 327 features, discovery days only)",
+  "score": 0.3001168907071887,
+  "p": 0.075,
+  "shuffle_median_best": 0.2674849016169881,
+  "shuffle_max_best": 0.34171050068186243,
+  "discovery": {
+   "book": {
+    "n": 351,
+    "win": 0.5042735042735043,
+    "mean": 0.06813675213675213,
+    "pnl": 144371.5,
+    "losers": 174
+   },
+   "kept": {
+    "n": 156,
+    "win": 0.6730769230769231,
+    "mean": 2.1327564102564103,
+    "pnl": 415743.25,
+    "losers": 51
+   },
+   "removed": {
+    "n": 195,
+    "win": 0.36923076923076925,
+    "mean": -1.5835589743589742,
+    "pnl": -271371.75,
+    "losers": 123
+   }
+  },
+  "holdout": {
+   "book": {
+    "n": 118,
+    "win": 0.4661016949152542,
+    "mean": -0.25839830508474576,
+    "pnl": -32080.75,
+    "losers": 63
+   },
+   "kept": {
+    "n": 51,
+    "win": 0.47058823529411764,
+    "mean": -0.09756862745098042,
+    "pnl": -4426.5,
+    "losers": 27
+   },
+   "removed": {
+    "n": 67,
+    "win": 0.4626865671641791,
+    "mean": -0.38082089552238807,
+    "pnl": -27654.25,
+    "losers": 36
+   }
+  },
+  "verdict": "REJECTED",
+  "why": "shuffle p=0.075 >= 0.05"
+ },
+ {
+  "book": "fade_switch_r002",
+  "rule": {
+   "or": [
+    [
+     [
+      "e_fut_imb5",
+      "<",
+      0.25000000000000017
+     ]
+    ],
+    [
+     [
+      "d_vixchg5_vixchg15",
+      "<",
+      -0.039999999999999994
+     ]
+    ]
+   ]
+  },
+  "rule_text": "(e_fut_imb5 < 0.25) OR (d_vixchg5_vixchg15 < -0.04)",
+  "features": {
+   "e_fut_imb5": "weather: 5-s futures depth imbalance",
+   "d_vixchg5_vixchg15": "derived: vix_chg5 - vix_chg15"
+  },
+  "search": "OR of two (min_keep=60, 5 quantile lines/field, 327 features, discovery days only)",
+  "score": 0.22608610948762903,
+  "p": 0.535,
+  "shuffle_median_best": 0.2277907656341321,
+  "shuffle_max_best": 0.2758620689655173,
+  "discovery": {
+   "book": {
+    "n": 351,
+    "win": 0.5042735042735043,
+    "mean": 0.06813675213675213,
+    "pnl": 144371.5,
+    "losers": 174
+   },
+   "kept": {
+    "n": 272,
+    "win": 0.5772058823529411,
+    "mean": 0.9009191176470589,
+    "pnl": 362690.25,
+    "losers": 115
+   },
+   "removed": {
+    "n": 79,
+    "win": 0.25316455696202533,
+    "mean": -2.7991645569620256,
+    "pnl": -218318.75,
+    "losers": 59
+   }
+  },
+  "holdout": {
+   "book": {
+    "n": 118,
+    "win": 0.4661016949152542,
+    "mean": -0.25839830508474576,
+    "pnl": -32080.75,
+    "losers": 63
+   },
+   "kept": {
+    "n": 92,
+    "win": 0.5,
+    "mean": 0.15583695652173912,
+    "pnl": 25915.5,
+    "losers": 46
+   },
+   "removed": {
+    "n": 26,
+    "win": 0.34615384615384615,
+    "mean": -1.7241538461538464,
+    "pnl": -57996.25,
+    "losers": 17
+   }
+  },
+  "verdict": "REJECTED",
+  "why": "shuffle p=0.535 >= 0.05"
+ },
+ {
+  "book": "fade_switch_r002",
+  "rule": [
+   [
+    "e_fut_imb5",
+    "<",
+    0.25000000000000017
+   ],
+   [
+    "range_now",
+    ">=",
+    191.1
+   ],
+   [
+    "d_bn60_nifty60",
+    "<",
+    0.051
+   ]
+  ],
+  "rule_text": "e_fut_imb5 < 0.25 AND range_now >= 191.1 AND d_bn60_nifty60 < 0.051",
+  "features": {
+   "e_fut_imb5": "weather: 5-s futures depth imbalance",
+   "range_now": "weather field at the trigger second (apex/engine/weather.py)",
+   "d_bn60_nifty60": "derived in s1_search.py (DER table / within-day z-scores)"
+  },
+  "search": "triple AND (top100 pairs) (min_keep=20, 5 quantile lines/field, 257 features, discovery days only, feature set stationary)",
+  "score": 0.2997272550165595,
+  "p": 0.055,
+  "shuffle_median_best": 0.262517046561465,
+  "shuffle_max_best": 0.34171050068186243,
+  "discovery": {
+   "book": {
+    "n": 351,
+    "win": 0.5042735042735043,
+    "mean": 0.06813675213675213,
+    "pnl": 144371.5,
+    "losers": 174
+   },
+   "kept": {
+    "n": 164,
+    "win": 0.6646341463414634,
+    "mean": 2.0909085365853657,
+    "pnl": 365192.75,
+    "losers": 55
+   },
+   "removed": {
+    "n": 187,
+    "win": 0.36363636363636365,
+    "mean": -1.7058449197860963,
+    "pnl": -220821.25,
+    "losers": 119
+   }
+  },
+  "holdout": {
+   "book": {
+    "n": 118,
+    "win": 0.4661016949152542,
+    "mean": -0.25839830508474576,
+    "pnl": -32080.75,
+    "losers": 63
+   },
+   "kept": {
+    "n": 58,
+    "win": 0.5172413793103449,
+    "mean": 0.11179310344827585,
+    "pnl": 11352.25,
+    "losers": 28
+   },
+   "removed": {
+    "n": 60,
+    "win": 0.4166666666666667,
+    "mean": -0.6162500000000001,
+    "pnl": -43433.0,
+    "losers": 35
+   }
+  },
+  "verdict": "REJECTED",
+  "why": "shuffle p=0.055 >= 0.05"
+ },
+ {
+  "book": "fade_switch_r002",
+  "rule": {
+   "or": [
+    [
+     [
+      "edge_imp_f",
+      ">=",
+      0.12440000000000004
+     ]
+    ],
+    [
+     [
+      "mv120",
+      "<",
+      -18.62
+     ]
+    ]
+   ]
+  },
+  "rule_text": "(edge_imp_f >= 0.1244) OR (mv120 < -18.62)",
+  "features": {
+   "edge_imp_f": "trade record edge_trig.imp_f at the trigger: impulse pullback fraction",
+   "mv120": "weather field at the trigger second (apex/engine/weather.py)"
+  },
+  "search": "OR of two (min_keep=60, 5 quantile lines/field, 257 features, discovery days only, feature set stationary)",
+  "score": 0.22676797194623025,
+  "p": 0.425,
+  "shuffle_median_best": 0.2228716150399377,
+  "shuffle_max_best": 0.2752776154295733,
+  "discovery": {
+   "book": {
+    "n": 351,
+    "win": 0.5042735042735043,
+    "mean": 0.06813675213675213,
+    "pnl": 144371.5,
+    "losers": 174
+   },
+   "kept": {
+    "n": 258,
+    "win": 0.5813953488372093,
+    "mean": 1.1120077519379845,
+    "pnl": 349085.75,
+    "losers": 108
+   },
+   "removed": {
+    "n": 93,
+    "win": 0.2903225806451613,
+    "mean": -2.8277634408602155,
+    "pnl": -204714.25,
+    "losers": 66
+   }
+  },
+  "holdout": {
+   "book": {
+    "n": 118,
+    "win": 0.4661016949152542,
+    "mean": -0.25839830508474576,
+    "pnl": -32080.75,
+    "losers": 63
+   },
+   "kept": {
+    "n": 81,
+    "win": 0.48148148148148145,
+    "mean": -0.016851851851851878,
+    "pnl": 4147.0,
+    "losers": 42
+   },
+   "removed": {
+    "n": 37,
+    "win": 0.43243243243243246,
+    "mean": -0.7871891891891891,
+    "pnl": -36227.75,
+    "losers": 21
+   }
+  },
+  "verdict": "REJECTED",
+  "why": "shuffle p=0.425 >= 0.05"
+ },
+ {
+  "book": "fade_switch",
+  "rule": [
+   [
+    "oi_own_chg5",
+    "<",
+    125879.0
+   ]
+  ],
+  "rule_text": "oi_own_chg5 < 1.259e+05",
+  "features": {
+   "oi_own_chg5": "weather: change in OI of our own strike/side over the last 5 min (contracts)"
+  },
+  "search": "single (min_keep=20, 5 quantile lines/field, 328 features, discovery days only)",
+  "score": 0.14280661866868763,
+  "p": 0.165,
+  "shuffle_median_best": 0.12763673108500684,
+  "shuffle_max_best": 0.1785272199065302,
+  "discovery": {
+   "book": {
+    "n": 563,
+    "win": 0.5150976909413855,
+    "mean": 0.0531740674955595,
+    "pnl": 158050.75,
+    "losers": 273
+   },
+   "kept": {
+    "n": 392,
+    "win": 0.5663265306122449,
+    "mean": 0.6620892857142857,
+    "pnl": 395122.0,
+    "losers": 170
+   },
+   "removed": {
+    "n": 171,
+    "win": 0.39766081871345027,
+    "mean": -1.342701754385965,
+    "pnl": -237071.25,
+    "losers": 103
+   }
+  },
+  "holdout": {
+   "book": {
+    "n": 194,
+    "win": 0.4845360824742268,
+    "mean": -0.1785721649484536,
+    "pnl": -48363.25,
+    "losers": 100
+   },
+   "kept": {
+    "n": 139,
+    "win": 0.5035971223021583,
+    "mean": -0.011273381294964049,
+    "pnl": -11729.25,
+    "losers": 69
+   },
+   "removed": {
+    "n": 55,
+    "win": 0.43636363636363634,
+    "mean": -0.601381818181818,
+    "pnl": -36634.0,
+    "losers": 31
+   }
+  },
+  "verdict": "REJECTED",
+  "why": "shuffle p=0.165 >= 0.05"
+ },
+ {
+  "book": "fade_switch",
+  "rule": [
+   [
+    "oi_own_chg5",
+    "<",
+    125879.0
+   ]
+  ],
+  "rule_text": "oi_own_chg5 < 1.259e+05",
+  "features": {
+   "oi_own_chg5": "weather: change in OI of our own strike/side over the last 5 min (contracts)"
+  },
+  "search": "single (min_keep=150, 5 quantile lines/field, 328 features, discovery days only)",
+  "score": 0.14280661866868763,
+  "p": 0.16,
+  "shuffle_median_best": 0.1275293671845395,
+  "shuffle_max_best": 0.1785272199065302,
+  "discovery": {
+   "book": {
+    "n": 563,
+    "win": 0.5150976909413855,
+    "mean": 0.0531740674955595,
+    "pnl": 158050.75,
+    "losers": 273
+   },
+   "kept": {
+    "n": 392,
+    "win": 0.5663265306122449,
+    "mean": 0.6620892857142857,
+    "pnl": 395122.0,
+    "losers": 170
+   },
+   "removed": {
+    "n": 171,
+    "win": 0.39766081871345027,
+    "mean": -1.342701754385965,
+    "pnl": -237071.25,
+    "losers": 103
+   }
+  },
+  "holdout": {
+   "book": {
+    "n": 194,
+    "win": 0.4845360824742268,
+    "mean": -0.1785721649484536,
+    "pnl": -48363.25,
+    "losers": 100
+   },
+   "kept": {
+    "n": 139,
+    "win": 0.5035971223021583,
+    "mean": -0.011273381294964049,
+    "pnl": -11729.25,
+    "losers": 69
+   },
+   "removed": {
+    "n": 55,
+    "win": 0.43636363636363634,
+    "mean": -0.601381818181818,
+    "pnl": -36634.0,
+    "losers": 31
+   }
+  },
+  "verdict": "REJECTED",
+  "why": "shuffle p=0.160 >= 0.05"
+ },
+ {
+  "book": "fade_switch",
+  "rule": [
+   [
+    "oi_own_chg5",
+    "<",
+    125879.0
+   ],
+   [
+    "new_lows",
+    ">=",
+    26.0
+   ]
+  ],
+  "rule_text": "oi_own_chg5 < 1.259e+05 AND new_lows >= 26",
+  "features": {
+   "oi_own_chg5": "weather: change in OI of our own strike/side over the last 5 min (contracts)",
+   "new_lows": "weather: count of new session lows so far today"
+  },
+  "search": "pair AND (min_keep=20, 5 quantile lines/field, 328 features, discovery days only)",
+  "score": 0.2158267020335986,
+  "p": 0.02,
+  "shuffle_median_best": 0.17862826828344064,
+  "shuffle_max_best": 0.2242010862700518,
+  "discovery": {
+   "book": {
+    "n": 563,
+    "win": 0.5150976909413855,
+    "mean": 0.0531740674955595,
+    "pnl": 158050.75,
+    "losers": 273
+   },
+   "kept": {
+    "n": 308,
+    "win": 0.6136363636363636,
+    "mean": 1.2255584415584415,
+    "pnl": 427371.75,
+    "losers": 119
+   },
+   "removed": {
+    "n": 255,
+    "win": 0.396078431372549,
+    "mean": -1.3628823529411767,
+    "pnl": -269321.0,
+    "losers": 154
+   }
+  },
+  "holdout": {
+   "book": {
+    "n": 194,
+    "win": 0.4845360824742268,
+    "mean": -0.1785721649484536,
+    "pnl": -48363.25,
+    "losers": 100
+   },
+   "kept": {
+    "n": 0,
+    "win": null,
+    "mean": null,
+    "pnl": 0.0,
+    "losers": 0
+   },
+   "removed": {
+    "n": 194,
+    "win": 0.4845360824742268,
+    "mean": -0.1785721649484536,
+    "pnl": -48363.25,
+    "losers": 100
+   }
+  },
+  "verdict": "REJECTED",
+  "why": "holdout kept win% below book or removed side profitable"
+ },
+ {
+  "book": "fade_switch",
+  "rule": [
+   [
+    "oi_own_chg5",
+    "<",
+    125879.0
+   ],
+   [
+    "new_lows",
+    ">=",
+    26.0
+   ]
+  ],
+  "rule_text": "oi_own_chg5 < 1.259e+05 AND new_lows >= 26",
+  "features": {
+   "oi_own_chg5": "weather: change in OI of our own strike/side over the last 5 min (contracts)",
+   "new_lows": "weather: count of new session lows so far today"
+  },
+  "search": "pair AND (min_keep=150, 5 quantile lines/field, 328 features, discovery days only)",
+  "score": 0.2158267020335986,
+  "p": 0.02,
+  "shuffle_median_best": 0.1785209043829733,
+  "shuffle_max_best": 0.2242010862700518,
+  "discovery": {
+   "book": {
+    "n": 563,
+    "win": 0.5150976909413855,
+    "mean": 0.0531740674955595,
+    "pnl": 158050.75,
+    "losers": 273
+   },
+   "kept": {
+    "n": 308,
+    "win": 0.6136363636363636,
+    "mean": 1.2255584415584415,
+    "pnl": 427371.75,
+    "losers": 119
+   },
+   "removed": {
+    "n": 255,
+    "win": 0.396078431372549,
+    "mean": -1.3628823529411767,
+    "pnl": -269321.0,
+    "losers": 154
+   }
+  },
+  "holdout": {
+   "book": {
+    "n": 194,
+    "win": 0.4845360824742268,
+    "mean": -0.1785721649484536,
+    "pnl": -48363.25,
+    "losers": 100
+   },
+   "kept": {
+    "n": 0,
+    "win": null,
+    "mean": null,
+    "pnl": 0.0,
+    "losers": 0
+   },
+   "removed": {
+    "n": 194,
+    "win": 0.4845360824742268,
+    "mean": -0.1785721649484536,
+    "pnl": -48363.25,
+    "losers": 100
+   }
+  },
+  "verdict": "REJECTED",
+  "why": "holdout kept win% below book or removed side profitable"
+ },
+ {
+  "book": "fade_switch",
+  "rule": [
+   [
+    "opt_opp_o=REFILLING",
+    "<",
+    1.0
+   ]
+  ],
+  "rule_text": "opt_opp_o=REFILLING < 1",
+  "features": {
+   "opt_opp_o=REFILLING": "weather field at the trigger second (apex/engine/weather.py)"
+  },
+  "search": "single (min_keep=20, 5 quantile lines/field, 258 features, discovery days only, feature set stationary)",
+  "score": 0.13181760767967662,
+  "p": 0.27,
+  "shuffle_median_best": 0.12250852595680184,
+  "shuffle_max_best": 0.1716432992295061,
+  "discovery": {
+   "book": {
+    "n": 563,
+    "win": 0.5150976909413855,
+    "mean": 0.0531740674955595,
+    "pnl": 158050.75,
+    "losers": 273
+   },
+   "kept": {
+    "n": 395,
+    "win": 0.5620253164556962,
+    "mean": 0.48076708860759493,
+    "pnl": 303277.0,
+    "losers": 173
+   },
+   "removed": {
+    "n": 168,
+    "win": 0.40476190476190477,
+    "mean": -0.9521785714285714,
+    "pnl": -145226.25,
+    "losers": 100
+   }
+  },
+  "holdout": {
+   "book": {
+    "n": 194,
+    "win": 0.4845360824742268,
+    "mean": -0.1785721649484536,
+    "pnl": -48363.25,
+    "losers": 100
+   },
+   "kept": {
+    "n": 134,
+    "win": 0.4626865671641791,
+    "mean": -0.403,
+    "pnl": -61538.75,
+    "losers": 72
+   },
+   "removed": {
+    "n": 60,
+    "win": 0.5333333333333333,
+    "mean": 0.32265000000000005,
+    "pnl": 13175.5,
+    "losers": 28
+   }
+  },
+  "verdict": "REJECTED",
+  "why": "shuffle p=0.270 >= 0.05; holdout kept win% below book or removed side profitable"
+ },
+ {
+  "book": "fade_switch",
+  "rule": [
+   [
+    "opt_opp_o=REFILLING",
+    "<",
+    1.0
+   ]
+  ],
+  "rule_text": "opt_opp_o=REFILLING < 1",
+  "features": {
+   "opt_opp_o=REFILLING": "weather field at the trigger second (apex/engine/weather.py)"
+  },
+  "search": "single (min_keep=150, 5 quantile lines/field, 258 features, discovery days only, feature set stationary)",
+  "score": 0.13181760767967662,
+  "p": 0.26,
+  "shuffle_median_best": 0.12188328912466843,
+  "shuffle_max_best": 0.1716432992295061,
+  "discovery": {
+   "book": {
+    "n": 563,
+    "win": 0.5150976909413855,
+    "mean": 0.0531740674955595,
+    "pnl": 158050.75,
+    "losers": 273
+   },
+   "kept": {
+    "n": 395,
+    "win": 0.5620253164556962,
+    "mean": 0.48076708860759493,
+    "pnl": 303277.0,
+    "losers": 173
+   },
+   "removed": {
+    "n": 168,
+    "win": 0.40476190476190477,
+    "mean": -0.9521785714285714,
+    "pnl": -145226.25,
+    "losers": 100
+   }
+  },
+  "holdout": {
+   "book": {
+    "n": 194,
+    "win": 0.4845360824742268,
+    "mean": -0.1785721649484536,
+    "pnl": -48363.25,
+    "losers": 100
+   },
+   "kept": {
+    "n": 134,
+    "win": 0.4626865671641791,
+    "mean": -0.403,
+    "pnl": -61538.75,
+    "losers": 72
+   },
+   "removed": {
+    "n": 60,
+    "win": 0.5333333333333333,
+    "mean": 0.32265000000000005,
+    "pnl": 13175.5,
+    "losers": 28
+   }
+  },
+  "verdict": "REJECTED",
+  "why": "shuffle p=0.260 >= 0.05; holdout kept win% below book or removed side profitable"
+ },
+ {
+  "book": "fade_switch",
+  "rule": [
+   [
+    "atm_iv_med",
+    "<",
+    30.6
+   ],
+   [
+    "opt_opp_o=REFILLING",
+    "<",
+    1.0
+   ]
+  ],
+  "rule_text": "atm_iv_med < 30.6 AND opt_opp_o=REFILLING < 1",
+  "features": {
+   "atm_iv_med": "weather field at the trigger second (apex/engine/weather.py)",
+   "opt_opp_o=REFILLING": "weather field at the trigger second (apex/engine/weather.py)"
+  },
+  "search": "pair AND (min_keep=20, 5 quantile lines/field, 258 features, discovery days only, feature set stationary)",
+  "score": 0.18653530377668304,
+  "p": 0.23,
+  "shuffle_median_best": 0.17422003284072252,
+  "shuffle_max_best": 0.2242010862700518,
+  "discovery": {
+   "book": {
+    "n": 563,
+    "win": 0.5150976909413855,
+    "mean": 0.0531740674955595,
+    "pnl": 158050.75,
+    "losers": 273
+   },
+   "kept": {
+    "n": 349,
+    "win": 0.5902578796561605,
+    "mean": 0.9460200573065902,
+    "pnl": 354448.25,
+    "losers": 143
+   },
+   "removed": {
+    "n": 214,
+    "win": 0.3925233644859813,
+    "mean": -1.4029158878504673,
+    "pnl": -196397.5,
+    "losers": 130
+   }
+  },
+  "holdout": {
+   "book": {
+    "n": 194,
+    "win": 0.4845360824742268,
+    "mean": -0.1785721649484536,
+    "pnl": -48363.25,
+    "losers": 100
+   },
+   "kept": {
+    "n": 134,
+    "win": 0.4626865671641791,
+    "mean": -0.403,
+    "pnl": -61538.75,
+    "losers": 72
+   },
+   "removed": {
+    "n": 60,
+    "win": 0.5333333333333333,
+    "mean": 0.32265000000000005,
+    "pnl": 13175.5,
+    "losers": 28
+   }
+  },
+  "verdict": "REJECTED",
+  "why": "shuffle p=0.230 >= 0.05; holdout kept win% below book or removed side profitable"
+ },
+ {
+  "book": "fade_switch",
+  "rule": [
+   [
+    "atm_iv_med",
+    "<",
+    30.6
+   ],
+   [
+    "opt_opp_o=REFILLING",
+    "<",
+    1.0
+   ]
+  ],
+  "rule_text": "atm_iv_med < 30.6 AND opt_opp_o=REFILLING < 1",
+  "features": {
+   "atm_iv_med": "weather field at the trigger second (apex/engine/weather.py)",
+   "opt_opp_o=REFILLING": "weather field at the trigger second (apex/engine/weather.py)"
+  },
+  "search": "pair AND (min_keep=150, 5 quantile lines/field, 258 features, discovery days only, feature set stationary)",
+  "score": 0.18653530377668304,
+  "p": 0.23,
+  "shuffle_median_best": 0.17422003284072252,
+  "shuffle_max_best": 0.2242010862700518,
+  "discovery": {
+   "book": {
+    "n": 563,
+    "win": 0.5150976909413855,
+    "mean": 0.0531740674955595,
+    "pnl": 158050.75,
+    "losers": 273
+   },
+   "kept": {
+    "n": 349,
+    "win": 0.5902578796561605,
+    "mean": 0.9460200573065902,
+    "pnl": 354448.25,
+    "losers": 143
+   },
+   "removed": {
+    "n": 214,
+    "win": 0.3925233644859813,
+    "mean": -1.4029158878504673,
+    "pnl": -196397.5,
+    "losers": 130
+   }
+  },
+  "holdout": {
+   "book": {
+    "n": 194,
+    "win": 0.4845360824742268,
+    "mean": -0.1785721649484536,
+    "pnl": -48363.25,
+    "losers": 100
+   },
+   "kept": {
+    "n": 134,
+    "win": 0.4626865671641791,
+    "mean": -0.403,
+    "pnl": -61538.75,
+    "losers": 72
+   },
+   "removed": {
+    "n": 60,
+    "win": 0.5333333333333333,
+    "mean": 0.32265000000000005,
+    "pnl": 13175.5,
+    "losers": 28
+   }
+  },
+  "verdict": "REJECTED",
+  "why": "shuffle p=0.230 >= 0.05; holdout kept win% below book or removed side profitable"
+ },
+ {
+  "book": "fade_switch",
+  "rule": [
+   [
+    "oi_own_chg5",
+    "<",
+    125879.0
+   ],
+   [
+    "new_lows",
+    ">=",
+    26.0
+   ],
+   [
+    "fut_imb_o",
+    ">=",
+    -0.4432
+   ]
+  ],
+  "rule_text": "oi_own_chg5 < 1.259e+05 AND new_lows >= 26 AND fut_imb_o >= -0.4432",
+  "features": {
+   "oi_own_chg5": "weather: change in OI of our own strike/side over the last 5 min (contracts)",
+   "new_lows": "weather: count of new session lows so far today",
+   "fut_imb_o": "weather: futures order-count imbalance at the best quotes, in our direction"
+  },
+  "search": "triple AND (top100 pairs) (min_keep=20, 5 quantile lines/field, 328 features, discovery days only)",
+  "score": 0.24425918908677524,
+  "p": 0.02,
+  "shuffle_median_best": 0.214822533788051,
+  "shuffle_max_best": 0.25073891625615763,
+  "discovery": {
+   "book": {
+    "n": 563,
+    "win": 0.5150976909413855,
+    "mean": 0.0531740674955595,
+    "pnl": 158050.75,
+    "losers": 273
+   },
+   "kept": {
+    "n": 275,
+    "win": 0.64,
+    "mean": 1.5483018181818182,
+    "pnl": 478757.5,
+    "losers": 99
+   },
+   "removed": {
+    "n": 288,
+    "win": 0.3958333333333333,
+    "mean": -1.3744652777777777,
+    "pnl": -320706.75,
+    "losers": 174
+   }
+  },
+  "holdout": {
+   "book": {
+    "n": 194,
+    "win": 0.4845360824742268,
+    "mean": -0.1785721649484536,
+    "pnl": -48363.25,
+    "losers": 100
+   },
+   "kept": {
+    "n": 0,
+    "win": null,
+    "mean": null,
+    "pnl": 0.0,
+    "losers": 0
+   },
+   "removed": {
+    "n": 194,
+    "win": 0.4845360824742268,
+    "mean": -0.1785721649484536,
+    "pnl": -48363.25,
+    "losers": 100
+   }
+  },
+  "verdict": "REJECTED",
+  "why": "holdout kept win% below book or removed side profitable"
+ },
+ {
+  "book": "fade_switch",
+  "rule": {
+   "or": [
+    [
+     [
+      "oi_own_chg5",
+      "<",
+      -85825.99999999996
+     ]
+    ],
+    [
+     [
+      "max_pain_dist",
+      "<",
+      -41.779999999999994
+     ]
+    ]
+   ]
+  },
+  "rule_text": "(oi_own_chg5 < -8.583e+04) OR (max_pain_dist < -41.78)",
+  "features": {
+   "oi_own_chg5": "weather: change in OI of our own strike/side over the last 5 min (contracts)",
+   "max_pain_dist": "weather: (max-pain strike - spot) * direction, points"
+  },
+  "search": "OR of two (min_keep=60, 5 quantile lines/field, 328 features, discovery days only)",
+  "score": 0.18090185676392578,
+  "p": 0.395,
+  "shuffle_median_best": 0.17682202854616644,
+  "shuffle_max_best": 0.2435897435897436,
+  "discovery": {
+   "book": {
+    "n": 563,
+    "win": 0.5150976909413855,
+    "mean": 0.0531740674955595,
+    "pnl": 158050.75,
+    "losers": 273
+   },
+   "kept": {
+    "n": 269,
+    "win": 0.6096654275092936,
+    "mean": 1.03135687732342,
+    "pnl": 382869.5,
+    "losers": 105
+   },
+   "removed": {
+    "n": 294,
+    "win": 0.42857142857142855,
+    "mean": -0.8418299319727891,
+    "pnl": -224818.75,
+    "losers": 168
+   }
+  },
+  "holdout": {
+   "book": {
+    "n": 194,
+    "win": 0.4845360824742268,
+    "mean": -0.1785721649484536,
+    "pnl": -48363.25,
+    "losers": 100
+   },
+   "kept": {
+    "n": 103,
+    "win": 0.49514563106796117,
+    "mean": -0.03144660194174758,
+    "pnl": -17052.75,
+    "losers": 52
+   },
+   "removed": {
+    "n": 91,
+    "win": 0.4725274725274725,
+    "mean": -0.3450989010989011,
+    "pnl": -31310.5,
+    "losers": 48
+   }
+  },
+  "verdict": "REJECTED",
+  "why": "shuffle p=0.395 >= 0.05"
+ },
+ {
+  "book": "fade_switch",
+  "rule": [
+   [
+    "atm_iv_med",
+    "<",
+    30.6
+   ],
+   [
+    "opt_opp_o=REFILLING",
+    "<",
+    1.0
+   ],
+   [
+    "e_fut_tot_imb",
+    ">=",
+    -0.337
+   ]
+  ],
+  "rule_text": "atm_iv_med < 30.6 AND opt_opp_o=REFILLING < 1 AND e_fut_tot_imb >= -0.337",
+  "features": {
+   "atm_iv_med": "weather field at the trigger second (apex/engine/weather.py)",
+   "opt_opp_o=REFILLING": "weather field at the trigger second (apex/engine/weather.py)",
+   "e_fut_tot_imb": "weather field at the trigger second (apex/engine/weather.py)"
+  },
+  "search": "triple AND (top100 pairs) (min_keep=20, 5 quantile lines/field, 258 features, discovery days only, feature set stationary)",
+  "score": 0.2259568018188708,
+  "p": 0.13,
+  "shuffle_median_best": 0.20860805860805864,
+  "shuffle_max_best": 0.24750536819502333,
+  "discovery": {
+   "book": {
+    "n": 563,
+    "win": 0.5150976909413855,
+    "mean": 0.0531740674955595,
+    "pnl": 158050.75,
+    "losers": 273
+   },
+   "kept": {
+    "n": 313,
+    "win": 0.6166134185303515,
+    "mean": 1.1551597444089456,
+    "pnl": 389821.25,
+    "losers": 120
+   },
+   "removed": {
+    "n": 250,
+    "win": 0.388,
+    "mean": -1.326512,
+    "pnl": -231770.5,
+    "losers": 153
+   }
+  },
+  "holdout": {
+   "book": {
+    "n": 194,
+    "win": 0.4845360824742268,
+    "mean": -0.1785721649484536,
+    "pnl": -48363.25,
+    "losers": 100
+   },
+   "kept": {
+    "n": 111,
+    "win": 0.4774774774774775,
+    "mean": -0.3528288288288288,
+    "pnl": -48230.0,
+    "losers": 58
+   },
+   "removed": {
+    "n": 83,
+    "win": 0.4939759036144578,
+    "mean": 0.054469879518072306,
+    "pnl": -133.25,
+    "losers": 42
+   }
+  },
+  "verdict": "REJECTED",
+  "why": "shuffle p=0.130 >= 0.05; holdout kept win% below book or removed side profitable"
+ },
+ {
+  "book": "fade_switch",
+  "rule": {
+   "or": [
+    [
+     [
+      "breadth_dir",
+      "<",
+      0.23180000000000003
+     ]
+    ],
+    [
+     [
+      "sig_r15_dir",
+      "<",
+      -10.55
+     ]
+    ]
+   ]
+  },
+  "rule_text": "(breadth_dir < 0.2318) OR (sig_r15_dir < -10.55)",
+  "features": {
+   "breadth_dir": "weather field at the trigger second (apex/engine/weather.py)",
+   "sig_r15_dir": "derived in s1_search.py (DER table / within-day z-scores)"
+  },
+  "search": "OR of two (min_keep=60, 5 quantile lines/field, 258 features, discovery days only, feature set stationary)",
+  "score": 0.178539850953644,
+  "p": 0.335,
+  "shuffle_median_best": 0.17315902488316276,
+  "shuffle_max_best": 0.22465580396614876,
+  "discovery": {
+   "book": {
+    "n": 563,
+    "win": 0.5150976909413855,
+    "mean": 0.0531740674955595,
+    "pnl": 158050.75,
+    "losers": 273
+   },
+   "kept": {
+    "n": 291,
+    "win": 0.6013745704467354,
+    "mean": 0.7208384879725086,
+    "pnl": 285398.75,
+    "losers": 116
+   },
+   "removed": {
+    "n": 272,
+    "win": 0.4227941176470588,
+    "mean": -0.6611286764705883,
+    "pnl": -127348.0,
+    "losers": 157
+   }
+  },
+  "holdout": {
+   "book": {
+    "n": 194,
+    "win": 0.4845360824742268,
+    "mean": -0.1785721649484536,
+    "pnl": -48363.25,
+    "losers": 100
+   },
+   "kept": {
+    "n": 95,
+    "win": 0.49473684210526314,
+    "mean": -0.2854736842105263,
+    "pnl": -31099.25,
+    "losers": 48
+   },
+   "removed": {
+    "n": 99,
+    "win": 0.47474747474747475,
+    "mean": -0.07598989898989897,
+    "pnl": -17264.0,
+    "losers": 52
+   }
+  },
+  "verdict": "REJECTED",
+  "why": "shuffle p=0.335 >= 0.05"
+ },
+ {
+  "book": "fade_switch",
+  "rule": [
+   [
+    "opt_opp_o=REFILLING",
+    "<",
+    1.0
+   ]
+  ],
+  "rule_text": "opt_opp_o=REFILLING < 1",
+  "features": {
+   "opt_opp_o=REFILLING": "weather field at the trigger second (apex/engine/weather.py)"
+  },
+  "search": "best single clause over the 60 text indicators only (min_keep=20), discovery days",
+  "score": 0.13181760767967662,
+  "p": 0.03,
+  "shuffle_median_best": 0.08177971453833521,
+  "shuffle_max_best": 0.15332828091448786,
+  "discovery": {
+   "book": {
+    "n": 563,
+    "win": 0.5150976909413855,
+    "mean": 0.0531740674955595,
+    "pnl": 158050.75,
+    "losers": 273
+   },
+   "kept": {
+    "n": 395,
+    "win": 0.5620253164556962,
+    "mean": 0.48076708860759493,
+    "pnl": 303277.0,
+    "losers": 173
+   },
+   "removed": {
+    "n": 168,
+    "win": 0.40476190476190477,
+    "mean": -0.9521785714285714,
+    "pnl": -145226.25,
+    "losers": 100
+   }
+  },
+  "holdout": {
+   "book": {
+    "n": 194,
+    "win": 0.4845360824742268,
+    "mean": -0.1785721649484536,
+    "pnl": -48363.25,
+    "losers": 100
+   },
+   "kept": {
+    "n": 134,
+    "win": 0.4626865671641791,
+    "mean": -0.403,
+    "pnl": -61538.75,
+    "losers": 72
+   },
+   "removed": {
+    "n": 60,
+    "win": 0.5333333333333333,
+    "mean": 0.32265000000000005,
+    "pnl": 13175.5,
+    "losers": 28
+   }
+  },
+  "verdict": "REJECTED",
+  "why": "holdout kept win% below book and removed side profitable"
+ },
+ {
+  "book": "fade_switch",
+  "rule": [
+   [
+    "opt_opp_o=REFILLING",
+    "<",
+    1.0
+   ]
+  ],
+  "rule_text": "opt_opp_o=REFILLING < 1",
+  "features": {
+   "opt_opp_o=REFILLING": "weather field at the trigger second (apex/engine/weather.py)"
+  },
+  "search": "best single clause over the 60 text indicators only (min_keep=150), discovery days",
+  "score": 0.13181760767967662,
+  "p": 0.02,
+  "shuffle_median_best": 0.08038398383225967,
+  "shuffle_max_best": 0.15332828091448786,
+  "discovery": {
+   "book": {
+    "n": 563,
+    "win": 0.5150976909413855,
+    "mean": 0.0531740674955595,
+    "pnl": 158050.75,
+    "losers": 273
+   },
+   "kept": {
+    "n": 395,
+    "win": 0.5620253164556962,
+    "mean": 0.48076708860759493,
+    "pnl": 303277.0,
+    "losers": 173
+   },
+   "removed": {
+    "n": 168,
+    "win": 0.40476190476190477,
+    "mean": -0.9521785714285714,
+    "pnl": -145226.25,
+    "losers": 100
+   }
+  },
+  "holdout": {
+   "book": {
+    "n": 194,
+    "win": 0.4845360824742268,
+    "mean": -0.1785721649484536,
+    "pnl": -48363.25,
+    "losers": 100
+   },
+   "kept": {
+    "n": 134,
+    "win": 0.4626865671641791,
+    "mean": -0.403,
+    "pnl": -61538.75,
+    "losers": 72
+   },
+   "removed": {
+    "n": 60,
+    "win": 0.5333333333333333,
+    "mean": 0.32265000000000005,
+    "pnl": 13175.5,
+    "losers": 28
+   }
+  },
+  "verdict": "REJECTED",
+  "why": "holdout kept win% below book and removed side profitable"
+ },
+ {
+  "book": "fade_switch",
+  "rule": [
+   [
+    "regime=RANGE",
+    "<",
+    1.0
+   ]
+  ],
+  "rule_text": "regime=RANGE < 1",
+  "features": {
+   "regime=RANGE": "weather field at the trigger second (apex/engine/weather.py)"
+  },
+  "search": "HAND-PICKED after looking at both windows (not a search; no valid shuffle test)",
+  "score": null,
+  "p": null,
+  "shuffle_median_best": null,
+  "shuffle_max_best": null,
+  "discovery": {
+   "book": {
+    "n": 563,
+    "win": 0.5150976909413855,
+    "mean": 0.0531740674955595,
+    "pnl": 158050.75,
+    "losers": 273
+   },
+   "kept": {
+    "n": 453,
+    "win": 0.5386313465783664,
+    "mean": 0.3016247240618101,
+    "pnl": 222394.25,
+    "losers": 209
+   },
+   "removed": {
+    "n": 110,
+    "win": 0.41818181818181815,
+    "mean": -0.9699909090909091,
+    "pnl": -64343.5,
+    "losers": 64
+   }
+  },
+  "holdout": {
+   "book": {
+    "n": 194,
+    "win": 0.4845360824742268,
+    "mean": -0.1785721649484536,
+    "pnl": -48363.25,
+    "losers": 100
+   },
+   "kept": {
+    "n": 145,
+    "win": 0.503448275862069,
+    "mean": 0.046248275862068956,
+    "pnl": -1595.75,
+    "losers": 72
+   },
+   "removed": {
+    "n": 49,
+    "win": 0.42857142857142855,
+    "mean": -0.8438571428571428,
+    "pnl": -46767.5,
+    "losers": 28
+   }
+  },
+  "verdict": "REJECTED",
+  "why": "post-hoc observation: holdout was seen before the rule was written, so it has no honest holdout; needs new days"
+ },
+ {
+  "book": "fade_switch",
+  "rule": [
+   [
+    "regime=UNCERTAIN",
+    ">=",
+    1.0
+   ]
+  ],
+  "rule_text": "regime=UNCERTAIN >= 1",
+  "features": {
+   "regime=UNCERTAIN": "weather field at the trigger second (apex/engine/weather.py)"
+  },
+  "search": "HAND-PICKED after looking at both windows (not a search; no valid shuffle test)",
+  "score": null,
+  "p": null,
+  "shuffle_median_best": null,
+  "shuffle_max_best": null,
+  "discovery": {
+   "book": {
+    "n": 563,
+    "win": 0.5150976909413855,
+    "mean": 0.0531740674955595,
+    "pnl": 158050.75,
+    "losers": 273
+   },
+   "kept": {
+    "n": 89,
+    "win": 0.5617977528089888,
+    "mean": 0.6492808988764044,
+    "pnl": 70755.75,
+    "losers": 39
+   },
+   "removed": {
+    "n": 474,
+    "win": 0.5063291139240507,
+    "mean": -0.058753164556962015,
+    "pnl": 87295.0,
+    "losers": 234
+   }
+  },
+  "holdout": {
+   "book": {
+    "n": 194,
+    "win": 0.4845360824742268,
+    "mean": -0.1785721649484536,
+    "pnl": -48363.25,
+    "losers": 100
+   },
+   "kept": {
+    "n": 36,
+    "win": 0.6111111111111112,
+    "mean": 1.47525,
+    "pnl": 57235.75,
+    "losers": 14
+   },
+   "removed": {
+    "n": 158,
+    "win": 0.45569620253164556,
+    "mean": -0.5553924050632911,
+    "pnl": -105599.0,
+    "losers": 86
+   }
+  },
+  "verdict": "REJECTED",
+  "why": "post-hoc observation: holdout was seen before the rule was written, so it has no honest holdout; needs new days"
+ },
+ {
+  "book": "fade_switch",
+  "rule": [
+   [
+    "regime=RANGE",
+    "<",
+    1.0
+   ],
+   [
+    "phase_bucket=last_hour",
+    "<",
+    1.0
+   ]
+  ],
+  "rule_text": "regime=RANGE < 1 AND phase_bucket=last_hour < 1",
+  "features": {
+   "regime=RANGE": "weather field at the trigger second (apex/engine/weather.py)",
+   "phase_bucket=last_hour": "weather field at the trigger second (apex/engine/weather.py)"
+  },
+  "search": "HAND-PICKED after looking at both windows (not a search; no valid shuffle test)",
+  "score": null,
+  "p": null,
+  "shuffle_median_best": null,
+  "shuffle_max_best": null,
+  "discovery": {
+   "book": {
+    "n": 563,
+    "win": 0.5150976909413855,
+    "mean": 0.0531740674955595,
+    "pnl": 158050.75,
+    "losers": 273
+   },
+   "kept": {
+    "n": 428,
+    "win": 0.5327102803738317,
+    "mean": 0.22084579439252333,
+    "pnl": 193914.5,
+    "losers": 200
+   },
+   "removed": {
+    "n": 135,
+    "win": 0.45925925925925926,
+    "mean": -0.47840740740740734,
+    "pnl": -35863.75,
+    "losers": 73
+   }
+  },
+  "holdout": {
+   "book": {
+    "n": 194,
+    "win": 0.4845360824742268,
+    "mean": -0.1785721649484536,
+    "pnl": -48363.25,
+    "losers": 100
+   },
+   "kept": {
+    "n": 136,
+    "win": 0.5220588235294118,
+    "mean": 0.17378676470588234,
+    "pnl": 14192.75,
+    "losers": 65
+   },
+   "removed": {
+    "n": 58,
+    "win": 0.39655172413793105,
+    "mean": -1.0047931034482758,
+    "pnl": -62556.0,
+    "losers": 35
+   }
+  },
+  "verdict": "REJECTED",
+  "why": "post-hoc observation: holdout was seen before the rule was written, so it has no honest holdout; needs new days"
+ },
+ {
+  "book": "fade_switch_r002",
+  "rule": [
+   [
+    "opt_opp_o=REFILLING",
+    "<",
+    1.0
+   ]
+  ],
+  "rule_text": "opt_opp_o=REFILLING < 1",
+  "features": {
+   "opt_opp_o=REFILLING": "weather field at the trigger second (apex/engine/weather.py)"
+  },
+  "search": "best single clause over the 60 text indicators only (min_keep=20), discovery days",
+  "score": 0.14163257354373662,
+  "p": 0.085,
+  "shuffle_median_best": 0.10802649522696278,
+  "shuffle_max_best": 0.175725696473797,
+  "discovery": {
+   "book": {
+    "n": 351,
+    "win": 0.5042735042735043,
+    "mean": 0.06813675213675213,
+    "pnl": 144371.5,
+    "losers": 174
+   },
+   "kept": {
+    "n": 251,
+    "win": 0.5537848605577689,
+    "mean": 0.6073426294820717,
+    "pnl": 277351.75,
+    "losers": 112
+   },
+   "removed": {
+    "n": 100,
+    "win": 0.38,
+    "mean": -1.2852700000000001,
+    "pnl": -132980.25,
+    "losers": 62
+   }
+  },
+  "holdout": {
+   "book": {
+    "n": 118,
+    "win": 0.4661016949152542,
+    "mean": -0.25839830508474576,
+    "pnl": -32080.75,
+    "losers": 63
+   },
+   "kept": {
+    "n": 88,
+    "win": 0.4090909090909091,
+    "mean": -0.7433522727272728,
+    "pnl": -62562.5,
+    "losers": 52
+   },
+   "removed": {
+    "n": 30,
+    "win": 0.6333333333333333,
+    "mean": 1.1641333333333332,
+    "pnl": 30481.75,
+    "losers": 11
+   }
+  },
+  "verdict": "REJECTED",
+  "why": "shuffle p=0.085 >= 0.05; holdout kept win% below book and removed side profitable"
+ },
+ {
+  "book": "fade_switch_r002",
+  "rule": [
+   [
+    "opt_opp_o=REFILLING",
+    "<",
+    1.0
+   ]
+  ],
+  "rule_text": "opt_opp_o=REFILLING < 1",
+  "features": {
+   "opt_opp_o=REFILLING": "weather field at the trigger second (apex/engine/weather.py)"
+  },
+  "search": "best single clause over the 60 text indicators only (min_keep=150), discovery days",
+  "score": 0.14163257354373662,
+  "p": 0.06,
+  "shuffle_median_best": 0.09760374050263004,
+  "shuffle_max_best": 0.16803039158386912,
+  "discovery": {
+   "book": {
+    "n": 351,
+    "win": 0.5042735042735043,
+    "mean": 0.06813675213675213,
+    "pnl": 144371.5,
+    "losers": 174
+   },
+   "kept": {
+    "n": 251,
+    "win": 0.5537848605577689,
+    "mean": 0.6073426294820717,
+    "pnl": 277351.75,
+    "losers": 112
+   },
+   "removed": {
+    "n": 100,
+    "win": 0.38,
+    "mean": -1.2852700000000001,
+    "pnl": -132980.25,
+    "losers": 62
+   }
+  },
+  "holdout": {
+   "book": {
+    "n": 118,
+    "win": 0.4661016949152542,
+    "mean": -0.25839830508474576,
+    "pnl": -32080.75,
+    "losers": 63
+   },
+   "kept": {
+    "n": 88,
+    "win": 0.4090909090909091,
+    "mean": -0.7433522727272728,
+    "pnl": -62562.5,
+    "losers": 52
+   },
+   "removed": {
+    "n": 30,
+    "win": 0.6333333333333333,
+    "mean": 1.1641333333333332,
+    "pnl": 30481.75,
+    "losers": 11
+   }
+  },
+  "verdict": "REJECTED",
+  "why": "shuffle p=0.060 >= 0.05; holdout kept win% below book and removed side profitable"
+ },
+ {
+  "book": "fade_switch_r002",
+  "rule": [
+   [
+    "regime=RANGE",
+    "<",
+    1.0
+   ]
+  ],
+  "rule_text": "regime=RANGE < 1",
+  "features": {
+   "regime=RANGE": "weather field at the trigger second (apex/engine/weather.py)"
+  },
+  "search": "HAND-PICKED after looking at both windows (not a search; no valid shuffle test)",
+  "score": null,
+  "p": null,
+  "shuffle_median_best": null,
+  "shuffle_max_best": null,
+  "discovery": {
+   "book": {
+    "n": 351,
+    "win": 0.5042735042735043,
+    "mean": 0.06813675213675213,
+    "pnl": 144371.5,
+    "losers": 174
+   },
+   "kept": {
+    "n": 285,
+    "win": 0.5298245614035088,
+    "mean": 0.3557929824561403,
+    "pnl": 170826.5,
+    "losers": 134
+   },
+   "removed": {
+    "n": 66,
+    "win": 0.3939393939393939,
+    "mean": -1.1740151515151516,
+    "pnl": -26455.0,
+    "losers": 40
+   }
+  },
+  "holdout": {
+   "book": {
+    "n": 118,
+    "win": 0.4661016949152542,
+    "mean": -0.25839830508474576,
+    "pnl": -32080.75,
+    "losers": 63
+   },
+   "kept": {
+    "n": 85,
+    "win": 0.49411764705882355,
+    "mean": 0.09895294117647058,
+    "pnl": 6698.25,
+    "losers": 43
+   },
+   "removed": {
+    "n": 33,
+    "win": 0.3939393939393939,
+    "mean": -1.1788484848484848,
+    "pnl": -38779.0,
+    "losers": 20
+   }
+  },
+  "verdict": "REJECTED",
+  "why": "post-hoc observation: holdout was seen before the rule was written, so it has no honest holdout; needs new days"
+ },
+ {
+  "book": "fade_switch_r002",
+  "rule": [
+   [
+    "regime=UNCERTAIN",
+    ">=",
+    1.0
+   ]
+  ],
+  "rule_text": "regime=UNCERTAIN >= 1",
+  "features": {
+   "regime=UNCERTAIN": "weather field at the trigger second (apex/engine/weather.py)"
+  },
+  "search": "HAND-PICKED after looking at both windows (not a search; no valid shuffle test)",
+  "score": null,
+  "p": null,
+  "shuffle_median_best": null,
+  "shuffle_max_best": null,
+  "discovery": {
+   "book": {
+    "n": 351,
+    "win": 0.5042735042735043,
+    "mean": 0.06813675213675213,
+    "pnl": 144371.5,
+    "losers": 174
+   },
+   "kept": {
+    "n": 60,
+    "win": 0.6666666666666666,
+    "mean": 1.7027999999999999,
+    "pnl": 107116.75,
+    "losers": 20
+   },
+   "removed": {
+    "n": 291,
+    "win": 0.47079037800687284,
+    "mean": -0.26890721649484534,
+    "pnl": 37254.75,
+    "losers": 154
+   }
+  },
+  "holdout": {
+   "book": {
+    "n": 118,
+    "win": 0.4661016949152542,
+    "mean": -0.25839830508474576,
+    "pnl": -32080.75,
+    "losers": 63
+   },
+   "kept": {
+    "n": 18,
+    "win": 0.7222222222222222,
+    "mean": 2.455,
+    "pnl": 43722.25,
+    "losers": 5
+   },
+   "removed": {
+    "n": 100,
+    "win": 0.42,
+    "mean": -0.74681,
+    "pnl": -75803.0,
+    "losers": 58
+   }
+  },
+  "verdict": "REJECTED",
+  "why": "post-hoc observation: holdout was seen before the rule was written, so it has no honest holdout; needs new days"
+ },
+ {
+  "book": "fade_switch_r002",
+  "rule": [
+   [
+    "regime=RANGE",
+    "<",
+    1.0
+   ],
+   [
+    "phase_bucket=last_hour",
+    "<",
+    1.0
+   ]
+  ],
+  "rule_text": "regime=RANGE < 1 AND phase_bucket=last_hour < 1",
+  "features": {
+   "regime=RANGE": "weather field at the trigger second (apex/engine/weather.py)",
+   "phase_bucket=last_hour": "weather field at the trigger second (apex/engine/weather.py)"
+  },
+  "search": "HAND-PICKED after looking at both windows (not a search; no valid shuffle test)",
+  "score": null,
+  "p": null,
+  "shuffle_median_best": null,
+  "shuffle_max_best": null,
+  "discovery": {
+   "book": {
+    "n": 351,
+    "win": 0.5042735042735043,
+    "mean": 0.06813675213675213,
+    "pnl": 144371.5,
+    "losers": 174
+   },
+   "kept": {
+    "n": 267,
+    "win": 0.5205992509363296,
+    "mean": 0.24172659176029962,
+    "pnl": 151879.0,
+    "losers": 128
+   },
+   "removed": {
+    "n": 84,
+    "win": 0.4523809523809524,
+    "mean": -0.4836309523809523,
+    "pnl": -7507.5,
+    "losers": 46
+   }
+  },
+  "holdout": {
+   "book": {
+    "n": 118,
+    "win": 0.4661016949152542,
+    "mean": -0.25839830508474576,
+    "pnl": -32080.75,
+    "losers": 63
+   },
+   "kept": {
+    "n": 77,
+    "win": 0.5324675324675324,
+    "mean": 0.3554285714285714,
+    "pnl": 22165.0,
+    "losers": 36
+   },
+   "removed": {
+    "n": 41,
+    "win": 0.34146341463414637,
+    "mean": -1.4111951219512195,
+    "pnl": -54245.75,
+    "losers": 27
+   }
+  },
+  "verdict": "REJECTED",
+  "why": "post-hoc observation: holdout was seen before the rule was written, so it has no honest holdout; needs new days"
+ }
+]

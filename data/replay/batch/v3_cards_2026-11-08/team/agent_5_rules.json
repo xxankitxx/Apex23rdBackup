@@ -1,0 +1,7490 @@
+[
+ {
+  "book": "t28_d46",
+  "rule": [
+   [
+    "fut_spread",
+    ">=",
+    2.54
+   ]
+  ],
+  "features": {
+   "fut_spread": "weather field"
+  },
+  "rule_text": "fut_spread >= 2.54",
+  "rule_format": "[[feature, op, line], ...] AND-combined",
+  "search": "single/base253(196 numeric+text indicators)/5 quantile lines/min_keep 20; shuffle n=200",
+  "discovery": {
+   "book": {
+    "n": 79,
+    "win": 0.4936708860759494,
+    "mean": 3.2564810126582278,
+    "pnl": 274316.25,
+    "losers": 40
+   },
+   "kept": {
+    "n": 55,
+    "win": 0.6,
+    "mean": 5.753127272727273,
+    "pnl": 334850.75,
+    "losers": 22
+   },
+   "removed": {
+    "n": 24,
+    "win": 0.25,
+    "mean": -2.4650000000000003,
+    "pnl": -60534.5,
+    "losers": 18
+   }
+  },
+  "holdout": {
+   "book": {
+    "n": 21,
+    "win": 0.47619047619047616,
+    "mean": 1.2936666666666665,
+    "pnl": 27033.5,
+    "losers": 11
+   },
+   "kept": {
+    "n": 13,
+    "win": 0.46153846153846156,
+    "mean": 1.4270769230769231,
+    "pnl": 15674.75,
+    "losers": 7
+   },
+   "removed": {
+    "n": 8,
+    "win": 0.5,
+    "mean": 1.076875,
+    "pnl": 11358.75,
+    "losers": 4
+   }
+  },
+  "p": 0.81,
+  "score": 0.29615384615384616,
+  "verdict": "REJECTED",
+  "why": "shuffle p=0.810 >= 0.05: the same search finds this in random labels; holdout kept win 46% < book 48%"
+ },
+ {
+  "book": "t28_d46",
+  "rule": [
+   [
+    "oi_own_chg15",
+    ">=",
+    -1106040.0
+   ],
+   [
+    "swing_behind",
+    ">=",
+    23.480000000000004
+   ]
+  ],
+  "features": {
+   "oi_own_chg15": "weather field",
+   "swing_behind": "weather field"
+  },
+  "rule_text": "oi_own_chg15 >= -1.106e+06 AND swing_behind >= 23.48",
+  "rule_format": "[[feature, op, line], ...] AND-combined",
+  "search": "pair/base253/5 lines/min_keep 20/no truncation; shuffle n=200",
+  "discovery": {
+   "book": {
+    "n": 79,
+    "win": 0.4936708860759494,
+    "mean": 3.2564810126582278,
+    "pnl": 274316.25,
+    "losers": 40
+   },
+   "kept": {
+    "n": 45,
+    "win": 0.6888888888888889,
+    "mean": 7.178511111111112,
+    "pnl": 345904.0,
+    "losers": 14
+   },
+   "removed": {
+    "n": 34,
+    "win": 0.23529411764705882,
+    "mean": -1.9344411764705882,
+    "pnl": -71587.75,
+    "losers": 26
+   }
+  },
+  "holdout": {
+   "book": {
+    "n": 21,
+    "win": 0.47619047619047616,
+    "mean": 1.2936666666666665,
+    "pnl": 27033.5,
+    "losers": 11
+   },
+   "kept": {
+    "n": 10,
+    "win": 0.5,
+    "mean": 0.7038,
+    "pnl": 9558.25,
+    "losers": 5
+   },
+   "removed": {
+    "n": 11,
+    "win": 0.45454545454545453,
+    "mean": 1.8299090909090907,
+    "pnl": 17475.25,
+    "losers": 6
+   }
+  },
+  "p": 0.61,
+  "score": 0.4448717948717949,
+  "verdict": "REJECTED",
+  "why": "shuffle p=0.610 >= 0.05: the same search finds this in random labels; holdout removed side is profitable (+17,475)"
+ },
+ {
+  "book": "t28_d46",
+  "rule": [
+   [
+    "fut_spread",
+    ">=",
+    2.54
+   ]
+  ],
+  "features": {
+   "fut_spread": "weather field"
+  },
+  "rule_text": "fut_spread >= 2.54",
+  "rule_format": "[[feature, op, line], ...] AND-combined",
+  "search": "single/all351(base+derived)/5 lines/min_keep 20; shuffle n=200",
+  "discovery": {
+   "book": {
+    "n": 79,
+    "win": 0.4936708860759494,
+    "mean": 3.2564810126582278,
+    "pnl": 274316.25,
+    "losers": 40
+   },
+   "kept": {
+    "n": 55,
+    "win": 0.6,
+    "mean": 5.753127272727273,
+    "pnl": 334850.75,
+    "losers": 22
+   },
+   "removed": {
+    "n": 24,
+    "win": 0.25,
+    "mean": -2.4650000000000003,
+    "pnl": -60534.5,
+    "losers": 18
+   }
+  },
+  "holdout": {
+   "book": {
+    "n": 21,
+    "win": 0.47619047619047616,
+    "mean": 1.2936666666666665,
+    "pnl": 27033.5,
+    "losers": 11
+   },
+   "kept": {
+    "n": 13,
+    "win": 0.46153846153846156,
+    "mean": 1.4270769230769231,
+    "pnl": 15674.75,
+    "losers": 7
+   },
+   "removed": {
+    "n": 8,
+    "win": 0.5,
+    "mean": 1.076875,
+    "pnl": 11358.75,
+    "losers": 4
+   }
+  },
+  "p": 0.88,
+  "score": 0.29615384615384616,
+  "verdict": "REJECTED",
+  "why": "shuffle p=0.880 >= 0.05: the same search finds this in random labels; holdout kept win 46% < book 48%"
+ },
+ {
+  "book": "t28_d46",
+  "rule": [
+   [
+    "oi_own_chg15",
+    ">=",
+    -1106040.0
+   ],
+   [
+    "swing_behind",
+    ">=",
+    23.480000000000004
+   ]
+  ],
+  "features": {
+   "oi_own_chg15": "weather field",
+   "swing_behind": "weather field"
+  },
+  "rule_text": "oi_own_chg15 >= -1.106e+06 AND swing_behind >= 23.48",
+  "rule_format": "[[feature, op, line], ...] AND-combined",
+  "search": "pair/all351(base+derived)/5 lines/min_keep 20/no truncation; shuffle n=200",
+  "discovery": {
+   "book": {
+    "n": 79,
+    "win": 0.4936708860759494,
+    "mean": 3.2564810126582278,
+    "pnl": 274316.25,
+    "losers": 40
+   },
+   "kept": {
+    "n": 45,
+    "win": 0.6888888888888889,
+    "mean": 7.178511111111112,
+    "pnl": 345904.0,
+    "losers": 14
+   },
+   "removed": {
+    "n": 34,
+    "win": 0.23529411764705882,
+    "mean": -1.9344411764705882,
+    "pnl": -71587.75,
+    "losers": 26
+   }
+  },
+  "holdout": {
+   "book": {
+    "n": 21,
+    "win": 0.47619047619047616,
+    "mean": 1.2936666666666665,
+    "pnl": 27033.5,
+    "losers": 11
+   },
+   "kept": {
+    "n": 10,
+    "win": 0.5,
+    "mean": 0.7038,
+    "pnl": 9558.25,
+    "losers": 5
+   },
+   "removed": {
+    "n": 11,
+    "win": 0.45454545454545453,
+    "mean": 1.8299090909090907,
+    "pnl": 17475.25,
+    "losers": 6
+   }
+  },
+  "p": 0.7,
+  "score": 0.4448717948717949,
+  "verdict": "REJECTED",
+  "why": "shuffle p=0.700 >= 0.05: the same search finds this in random labels; holdout removed side is profitable (+17,475)"
+ },
+ {
+  "book": "t28_d46",
+  "rule": [
+   [
+    "oi_own_chg15",
+    ">=",
+    -1106040.0
+   ],
+   [
+    "swing_behind",
+    ">=",
+    23.480000000000004
+   ],
+   [
+    "fut_spread",
+    ">=",
+    1.08
+   ]
+  ],
+  "features": {
+   "oi_own_chg15": "weather field",
+   "swing_behind": "weather field",
+   "fut_spread": "weather field"
+  },
+  "rule_text": "oi_own_chg15 >= -1.106e+06 AND swing_behind >= 23.48 AND fut_spread >= 1.08",
+  "rule_format": "[[feature, op, line], ...] AND-combined",
+  "search": "triple-greedy/all351(base+derived)/5 lines/min_keep 20; shuffle n=200",
+  "discovery": {
+   "book": {
+    "n": 79,
+    "win": 0.4936708860759494,
+    "mean": 3.2564810126582278,
+    "pnl": 274316.25,
+    "losers": 40
+   },
+   "kept": {
+    "n": 40,
+    "win": 0.775,
+    "mean": 9.030125,
+    "pnl": 389129.0,
+    "losers": 9
+   },
+   "removed": {
+    "n": 39,
+    "win": 0.20512820512820512,
+    "mean": -2.665205128205128,
+    "pnl": -114812.75,
+    "losers": 31
+   }
+  },
+  "holdout": {
+   "book": {
+    "n": 21,
+    "win": 0.47619047619047616,
+    "mean": 1.2936666666666665,
+    "pnl": 27033.5,
+    "losers": 11
+   },
+   "kept": {
+    "n": 8,
+    "win": 0.625,
+    "mean": 3.421375,
+    "pnl": 27027.0,
+    "losers": 3
+   },
+   "removed": {
+    "n": 13,
+    "win": 0.38461538461538464,
+    "mean": -0.01569230769230774,
+    "pnl": 6.5,
+    "losers": 8
+   }
+  },
+  "p": 0.18,
+  "score": 0.5698717948717948,
+  "verdict": "REJECTED",
+  "why": "shuffle p=0.180 >= 0.05: the same search finds this in random labels; holdout removed side is profitable (+6)"
+ },
+ {
+  "book": "t28_d46",
+  "rule": [
+   [
+    "oi_own_chg15",
+    ">=",
+    -1106040.0
+   ],
+   [
+    "swing_behind",
+    ">=",
+    23.480000000000004
+   ]
+  ],
+  "features": {
+   "oi_own_chg15": "weather field",
+   "swing_behind": "weather field"
+  },
+  "rule_text": "oi_own_chg15 >= -1.106e+06 AND swing_behind >= 23.48",
+  "rule_format": "[[feature, op, line], ...] AND-combined",
+  "search": "pair/all351(base+derived)/5 lines/min_keep 30; shuffle n=200",
+  "discovery": {
+   "book": {
+    "n": 79,
+    "win": 0.4936708860759494,
+    "mean": 3.2564810126582278,
+    "pnl": 274316.25,
+    "losers": 40
+   },
+   "kept": {
+    "n": 45,
+    "win": 0.6888888888888889,
+    "mean": 7.178511111111112,
+    "pnl": 345904.0,
+    "losers": 14
+   },
+   "removed": {
+    "n": 34,
+    "win": 0.23529411764705882,
+    "mean": -1.9344411764705882,
+    "pnl": -71587.75,
+    "losers": 26
+   }
+  },
+  "holdout": {
+   "book": {
+    "n": 21,
+    "win": 0.47619047619047616,
+    "mean": 1.2936666666666665,
+    "pnl": 27033.5,
+    "losers": 11
+   },
+   "kept": {
+    "n": 10,
+    "win": 0.5,
+    "mean": 0.7038,
+    "pnl": 9558.25,
+    "losers": 5
+   },
+   "removed": {
+    "n": 11,
+    "win": 0.45454545454545453,
+    "mean": 1.8299090909090907,
+    "pnl": 17475.25,
+    "losers": 6
+   }
+  },
+  "p": 0.675,
+  "score": 0.4448717948717949,
+  "verdict": "REJECTED",
+  "why": "shuffle p=0.675 >= 0.05: the same search finds this in random labels; holdout removed side is profitable (+17,475)"
+ },
+ {
+  "book": "t28_d46",
+  "rule": [
+   [
+    "spread_over_prem",
+    ">=",
+    0.01940380173294896
+   ]
+  ],
+  "features": {
+   "spread_over_prem": "derived, see agent_5/search.py"
+  },
+  "rule_text": "spread_over_prem >= 0.0194",
+  "rule_format": "[[feature, op, line], ...] AND-combined",
+  "search": "single/derived-only98/9 lines/min_keep 20; shuffle n=200",
+  "discovery": {
+   "book": {
+    "n": 79,
+    "win": 0.4936708860759494,
+    "mean": 3.2564810126582278,
+    "pnl": 274316.25,
+    "losers": 40
+   },
+   "kept": {
+    "n": 55,
+    "win": 0.6,
+    "mean": 5.942909090909091,
+    "pnl": 355793.75,
+    "losers": 22
+   },
+   "removed": {
+    "n": 24,
+    "win": 0.25,
+    "mean": -2.8999166666666665,
+    "pnl": -81477.5,
+    "losers": 18
+   }
+  },
+  "holdout": {
+   "book": {
+    "n": 21,
+    "win": 0.47619047619047616,
+    "mean": 1.2936666666666665,
+    "pnl": 27033.5,
+    "losers": 11
+   },
+   "kept": {
+    "n": 14,
+    "win": 0.5,
+    "mean": 1.6551428571428572,
+    "pnl": 20094.75,
+    "losers": 7
+   },
+   "removed": {
+    "n": 7,
+    "win": 0.42857142857142855,
+    "mean": 0.5707142857142857,
+    "pnl": 6938.75,
+    "losers": 4
+   }
+  },
+  "p": 0.585,
+  "score": 0.29615384615384616,
+  "verdict": "REJECTED",
+  "why": "shuffle p=0.585 >= 0.05: the same search finds this in random labels; holdout removed side is profitable (+6,939)"
+ },
+ {
+  "book": "t28_d46",
+  "rule": [
+   [
+    "OR",
+    "agg_net",
+    ">=",
+    0.08680000000000003
+   ],
+   [
+    "OR",
+    "vixchg15_over_vix",
+    ">=",
+    -0.0011500862564692352
+   ]
+  ],
+  "features": {
+   "agg_net": "weather field",
+   "vixchg15_over_vix": "derived, see agent_5/search.py"
+  },
+  "rule_text": "OR: agg_net >= 0.0868 | OR: vixchg15_over_vix >= -0.00115",
+  "rule_format": "clauses prefixed 'OR' (keep if either) or 'IF <split>' / 'IF NOT <split>' (piecewise by the split indicator)",
+  "search": "OR-of-two-clauses/all351/5 lines/min_keep 20; shuffle n=200",
+  "discovery": {
+   "book": {
+    "n": 79,
+    "win": 0.4936708860759494,
+    "mean": 3.2564810126582278,
+    "pnl": 274316.25,
+    "losers": 40
+   },
+   "kept": {
+    "n": 52,
+    "win": 0.6538461538461539,
+    "mean": 7.107884615384616,
+    "pnl": 409110.0,
+    "losers": 18
+   },
+   "removed": {
+    "n": 27,
+    "win": 0.18518518518518517,
+    "mean": -4.161037037037037,
+    "pnl": -134793.75,
+    "losers": 22
+   }
+  },
+  "holdout": {
+   "book": {
+    "n": 21,
+    "win": 0.47619047619047616,
+    "mean": 1.2936666666666665,
+    "pnl": 27033.5,
+    "losers": 11
+   },
+   "kept": {
+    "n": 14,
+    "win": 0.5,
+    "mean": 1.320785714285714,
+    "pnl": 17446.0,
+    "losers": 7
+   },
+   "removed": {
+    "n": 7,
+    "win": 0.42857142857142855,
+    "mean": 1.2394285714285718,
+    "pnl": 9587.5,
+    "losers": 4
+   }
+  },
+  "p": 0.9,
+  "score": 0.42179487179487185,
+  "verdict": "REJECTED",
+  "why": "shuffle p=0.900 >= 0.05: the same search finds this in random labels; holdout removed side is profitable (+9,588)"
+ },
+ {
+  "book": "t28_d46",
+  "rule": [
+   [
+    "IF regime=DIRECTIONAL",
+    "opt_imb_chg30",
+    "<",
+    -0.003
+   ],
+   [
+    "IF NOT regime=DIRECTIONAL",
+    "e_basis_dev",
+    ">=",
+    -1.5099999999999998
+   ]
+  ],
+  "features": {
+   "opt_imb_chg30": "weather field",
+   "e_basis_dev": "weather field"
+  },
+  "rule_text": "IF regime=DIRECTIONAL: opt_imb_chg30 < -0.003 | IF NOT regime=DIRECTIONAL: e_basis_dev >= -1.51",
+  "rule_format": "clauses prefixed 'OR' (keep if either) or 'IF <split>' / 'IF NOT <split>' (piecewise by the split indicator)",
+  "search": "either/or by regime=DIRECTIONAL: best single clause per half/all351/5 lines; shuffle n=200",
+  "discovery": {
+   "book": {
+    "n": 79,
+    "win": 0.4936708860759494,
+    "mean": 3.2564810126582278,
+    "pnl": 274316.25,
+    "losers": 40
+   },
+   "kept": {
+    "n": 54,
+    "win": 0.6481481481481481,
+    "mean": 7.1033888888888885,
+    "pnl": 421651.75,
+    "losers": 19
+   },
+   "removed": {
+    "n": 25,
+    "win": 0.16,
+    "mean": -5.05284,
+    "pnl": -147335.5,
+    "losers": 21
+   }
+  },
+  "holdout": {
+   "book": {
+    "n": 21,
+    "win": 0.47619047619047616,
+    "mean": 1.2936666666666665,
+    "pnl": 27033.5,
+    "losers": 11
+   },
+   "kept": {
+    "n": 14,
+    "win": 0.35714285714285715,
+    "mean": -1.2253571428571426,
+    "pnl": -14651.0,
+    "losers": 9
+   },
+   "removed": {
+    "n": 7,
+    "win": 0.7142857142857143,
+    "mean": 6.331714285714285,
+    "pnl": 41684.5,
+    "losers": 2
+   }
+  },
+  "p": 0.895,
+  "score": 0.4224358974358975,
+  "verdict": "REJECTED",
+  "why": "shuffle p=0.895 >= 0.05: the same search finds this in random labels; holdout kept win 36% < book 48%"
+ },
+ {
+  "book": "t28_d46",
+  "rule": [
+   [
+    "IF is_CE",
+    "oi_net_help5",
+    ">=",
+    883967.5
+   ],
+   [
+    "IF NOT is_CE",
+    "depth_age_fut",
+    ">=",
+    0.9
+   ]
+  ],
+  "features": {
+   "oi_net_help5": "weather field",
+   "depth_age_fut": "weather field"
+  },
+  "rule_text": "IF is_CE: oi_net_help5 >= 8.84e+05 | IF NOT is_CE: depth_age_fut >= 0.9",
+  "rule_format": "clauses prefixed 'OR' (keep if either) or 'IF <split>' / 'IF NOT <split>' (piecewise by the split indicator)",
+  "search": "either/or by is_CE: best single clause per half/all351/5 lines; shuffle n=200",
+  "discovery": {
+   "book": {
+    "n": 79,
+    "win": 0.4936708860759494,
+    "mean": 3.2564810126582278,
+    "pnl": 274316.25,
+    "losers": 40
+   },
+   "kept": {
+    "n": 37,
+    "win": 0.7567567567567568,
+    "mean": 8.786648648648649,
+    "pnl": 364624.0,
+    "losers": 9
+   },
+   "removed": {
+    "n": 42,
+    "win": 0.2619047619047619,
+    "mean": -1.6153333333333335,
+    "pnl": -90307.75,
+    "losers": 31
+   }
+  },
+  "holdout": {
+   "book": {
+    "n": 21,
+    "win": 0.47619047619047616,
+    "mean": 1.2936666666666665,
+    "pnl": 27033.5,
+    "losers": 11
+   },
+   "kept": {
+    "n": 9,
+    "win": 0.5555555555555556,
+    "mean": -0.4764444444444444,
+    "pnl": -6659.25,
+    "losers": 4
+   },
+   "removed": {
+    "n": 12,
+    "win": 0.4166666666666667,
+    "mean": 2.62125,
+    "pnl": 33692.75,
+    "losers": 7
+   }
+  },
+  "p": 0.44,
+  "score": 0.492948717948718,
+  "verdict": "REJECTED",
+  "why": "shuffle p=0.440 >= 0.05: the same search finds this in random labels; holdout kept side loses rupees"
+ },
+ {
+  "book": "t28_d46",
+  "rule": [
+   [
+    "IF phase_bucket=open30",
+    "e_syn_dev",
+    ">=",
+    -1.3999999999999997
+   ],
+   [
+    "IF NOT phase_bucket=open30",
+    "oi_net_help5",
+    ">=",
+    883967.5
+   ]
+  ],
+  "features": {
+   "e_syn_dev": "weather field",
+   "oi_net_help5": "weather field"
+  },
+  "rule_text": "IF phase_bucket=open30: e_syn_dev >= -1.4 | IF NOT phase_bucket=open30: oi_net_help5 >= 8.84e+05",
+  "rule_format": "clauses prefixed 'OR' (keep if either) or 'IF <split>' / 'IF NOT <split>' (piecewise by the split indicator)",
+  "search": "either/or by phase_bucket=open30: best single clause per half/all351/5 lines; shuffle n=200",
+  "discovery": {
+   "book": {
+    "n": 79,
+    "win": 0.4936708860759494,
+    "mean": 3.2564810126582278,
+    "pnl": 274316.25,
+    "losers": 40
+   },
+   "kept": {
+    "n": 40,
+    "win": 0.7,
+    "mean": 6.964775,
+    "pnl": 290553.25,
+    "losers": 12
+   },
+   "removed": {
+    "n": 39,
+    "win": 0.28205128205128205,
+    "mean": -0.5468974358974359,
+    "pnl": -16237.0,
+    "losers": 28
+   }
+  },
+  "holdout": {
+   "book": {
+    "n": 21,
+    "win": 0.47619047619047616,
+    "mean": 1.2936666666666665,
+    "pnl": 27033.5,
+    "losers": 11
+   },
+   "kept": {
+    "n": 9,
+    "win": 0.5555555555555556,
+    "mean": -0.5588888888888888,
+    "pnl": -5408.0,
+    "losers": 4
+   },
+   "removed": {
+    "n": 12,
+    "win": 0.4166666666666667,
+    "mean": 2.6830833333333337,
+    "pnl": 32441.5,
+    "losers": 7
+   }
+  },
+  "p": 0.31,
+  "score": 0.4179487179487179,
+  "verdict": "REJECTED",
+  "why": "shuffle p=0.310 >= 0.05: the same search finds this in random labels; holdout kept side loses rupees"
+ },
+ {
+  "book": "t28_d46",
+  "rule": [
+   [
+    "IF b_expiry_day",
+    "kv_x_dir",
+    ">=",
+    -0.09159999999999995
+   ],
+   [
+    "IF NOT b_expiry_day",
+    "oi_net_help5",
+    ">=",
+    883967.5
+   ]
+  ],
+  "features": {
+   "kv_x_dir": "derived, see agent_5/search.py",
+   "oi_net_help5": "weather field"
+  },
+  "rule_text": "IF b_expiry_day: kv_x_dir >= -0.0916 | IF NOT b_expiry_day: oi_net_help5 >= 8.84e+05",
+  "rule_format": "clauses prefixed 'OR' (keep if either) or 'IF <split>' / 'IF NOT <split>' (piecewise by the split indicator)",
+  "search": "either/or by b_expiry_day: best single clause per half/all351/5 lines; shuffle n=200",
+  "discovery": {
+   "book": {
+    "n": 79,
+    "win": 0.4936708860759494,
+    "mean": 3.2564810126582278,
+    "pnl": 274316.25,
+    "losers": 40
+   },
+   "kept": {
+    "n": 51,
+    "win": 0.6666666666666666,
+    "mean": 7.123960784313725,
+    "pnl": 423579.0,
+    "losers": 17
+   },
+   "removed": {
+    "n": 28,
+    "win": 0.17857142857142858,
+    "mean": -3.787857142857143,
+    "pnl": -149262.75,
+    "losers": 23
+   }
+  },
+  "holdout": {
+   "book": {
+    "n": 21,
+    "win": 0.47619047619047616,
+    "mean": 1.2936666666666665,
+    "pnl": 27033.5,
+    "losers": 11
+   },
+   "kept": {
+    "n": 12,
+    "win": 0.4166666666666667,
+    "mean": -1.5009166666666667,
+    "pnl": -17628.0,
+    "losers": 7
+   },
+   "removed": {
+    "n": 9,
+    "win": 0.5555555555555556,
+    "mean": 5.019777777777778,
+    "pnl": 44661.5,
+    "losers": 4
+   }
+  },
+  "p": 0.775,
+  "score": 0.44679487179487176,
+  "verdict": "REJECTED",
+  "why": "shuffle p=0.775 >= 0.05: the same search finds this in random labels; holdout kept win 42% < book 48%"
+ },
+ {
+  "book": "t28_d46",
+  "rule": [
+   [
+    "IF adv_regime_veto",
+    "swing_behind",
+    ">=",
+    23.480000000000004
+   ],
+   [
+    "IF NOT adv_regime_veto",
+    "abs_delta",
+    "<",
+    0.739
+   ]
+  ],
+  "features": {
+   "swing_behind": "weather field",
+   "abs_delta": "derived, see agent_5/search.py"
+  },
+  "rule_text": "IF adv_regime_veto: swing_behind >= 23.48 | IF NOT adv_regime_veto: abs_delta < 0.739",
+  "rule_format": "clauses prefixed 'OR' (keep if either) or 'IF <split>' / 'IF NOT <split>' (piecewise by the split indicator)",
+  "search": "either/or by adv_regime_veto: best single clause per half/all351/5 lines; shuffle n=200",
+  "discovery": {
+   "book": {
+    "n": 79,
+    "win": 0.4936708860759494,
+    "mean": 3.2564810126582278,
+    "pnl": 274316.25,
+    "losers": 40
+   },
+   "kept": {
+    "n": 57,
+    "win": 0.5964912280701754,
+    "mean": 5.342350877192983,
+    "pnl": 331012.5,
+    "losers": 23
+   },
+   "removed": {
+    "n": 22,
+    "win": 0.22727272727272727,
+    "mean": -2.1478181818181814,
+    "pnl": -56696.25,
+    "losers": 17
+   }
+  },
+  "holdout": {
+   "book": {
+    "n": 21,
+    "win": 0.47619047619047616,
+    "mean": 1.2936666666666665,
+    "pnl": 27033.5,
+    "losers": 11
+   },
+   "kept": {
+    "n": 12,
+    "win": 0.5,
+    "mean": 0.45925,
+    "pnl": 6522.75,
+    "losers": 6
+   },
+   "removed": {
+    "n": 9,
+    "win": 0.4444444444444444,
+    "mean": 2.406222222222222,
+    "pnl": 20510.75,
+    "losers": 5
+   }
+  },
+  "p": 0.845,
+  "score": 0.2967948717948718,
+  "verdict": "REJECTED",
+  "why": "shuffle p=0.845 >= 0.05: the same search finds this in random labels; holdout removed side is profitable (+20,511)"
+ },
+ {
+  "book": "t28_d46_fill",
+  "rule": [
+   [
+    "oi_net_help5",
+    ">=",
+    1901412.5000000007
+   ]
+  ],
+  "features": {
+   "oi_net_help5": "weather field"
+  },
+  "rule_text": "oi_net_help5 >= 1.901e+06",
+  "rule_format": "[[feature, op, line], ...] AND-combined",
+  "search": "single/base256(196 numeric+text indicators)/5 quantile lines/min_keep 20; shuffle n=200",
+  "discovery": {
+   "book": {
+    "n": 167,
+    "win": 0.48502994011976047,
+    "mean": 2.1380419161676647,
+    "pnl": 436192.25,
+    "losers": 86
+   },
+   "kept": {
+    "n": 50,
+    "win": 0.66,
+    "mean": 4.79762,
+    "pnl": 252755.75,
+    "losers": 17
+   },
+   "removed": {
+    "n": 117,
+    "win": 0.41025641025641024,
+    "mean": 1.0014700854700855,
+    "pnl": 183436.5,
+    "losers": 69
+   }
+  },
+  "holdout": {
+   "book": {
+    "n": 49,
+    "win": 0.3877551020408163,
+    "mean": -0.9116122448979592,
+    "pnl": -47398.0,
+    "losers": 30
+   },
+   "kept": {
+    "n": 17,
+    "win": 0.6470588235294118,
+    "mean": 2.4499999999999997,
+    "pnl": 33520.5,
+    "losers": 6
+   },
+   "removed": {
+    "n": 32,
+    "win": 0.25,
+    "mean": -2.69746875,
+    "pnl": -80918.5,
+    "losers": 24
+   }
+  },
+  "p": 0.795,
+  "score": 0.20973298880275626,
+  "verdict": "REJECTED",
+  "why": "shuffle p=0.795 >= 0.05: the same search finds this in random labels"
+ },
+ {
+  "book": "t28_d46_fill",
+  "rule": [
+   [
+    "gap_pts",
+    "<",
+    17.5
+   ],
+   [
+    "oi_own_chg30",
+    ">=",
+    -927888.0
+   ]
+  ],
+  "features": {
+   "gap_pts": "weather field",
+   "oi_own_chg30": "weather field"
+  },
+  "rule_text": "gap_pts < 17.5 AND oi_own_chg30 >= -9.279e+05",
+  "rule_format": "[[feature, op, line], ...] AND-combined",
+  "search": "pair/base256/5 lines/min_keep 20/no truncation; shuffle n=200",
+  "discovery": {
+   "book": {
+    "n": 167,
+    "win": 0.48502994011976047,
+    "mean": 2.1380419161676647,
+    "pnl": 436192.25,
+    "losers": 86
+   },
+   "kept": {
+    "n": 93,
+    "win": 0.6129032258064516,
+    "mean": 4.673397849462365,
+    "pnl": 545772.5,
+    "losers": 36
+   },
+   "removed": {
+    "n": 74,
+    "win": 0.32432432432432434,
+    "mean": -1.048283783783784,
+    "pnl": -109580.25,
+    "losers": 50
+   }
+  },
+  "holdout": {
+   "book": {
+    "n": 49,
+    "win": 0.3877551020408163,
+    "mean": -0.9116122448979592,
+    "pnl": -47398.0,
+    "losers": 30
+   },
+   "kept": {
+    "n": 24,
+    "win": 0.3333333333333333,
+    "mean": -1.772375,
+    "pnl": -41392.0,
+    "losers": 16
+   },
+   "removed": {
+    "n": 25,
+    "win": 0.44,
+    "mean": -0.08528000000000004,
+    "pnl": -6006.0,
+    "losers": 14
+   }
+  },
+  "p": 0.965,
+  "score": 0.28509905254091306,
+  "verdict": "REJECTED",
+  "why": "shuffle p=0.965 >= 0.05: the same search finds this in random labels; holdout kept win 33% < book 39%"
+ },
+ {
+  "book": "t28_d46_fill",
+  "rule": [
+   [
+    "oi_net_help5",
+    ">=",
+    1901412.5000000007
+   ]
+  ],
+  "features": {
+   "oi_net_help5": "weather field"
+  },
+  "rule_text": "oi_net_help5 >= 1.901e+06",
+  "rule_format": "[[feature, op, line], ...] AND-combined",
+  "search": "single/all358(base+derived)/5 lines/min_keep 20; shuffle n=200",
+  "discovery": {
+   "book": {
+    "n": 167,
+    "win": 0.48502994011976047,
+    "mean": 2.1380419161676647,
+    "pnl": 436192.25,
+    "losers": 86
+   },
+   "kept": {
+    "n": 50,
+    "win": 0.66,
+    "mean": 4.79762,
+    "pnl": 252755.75,
+    "losers": 17
+   },
+   "removed": {
+    "n": 117,
+    "win": 0.41025641025641024,
+    "mean": 1.0014700854700855,
+    "pnl": 183436.5,
+    "losers": 69
+   }
+  },
+  "holdout": {
+   "book": {
+    "n": 49,
+    "win": 0.3877551020408163,
+    "mean": -0.9116122448979592,
+    "pnl": -47398.0,
+    "losers": 30
+   },
+   "kept": {
+    "n": 17,
+    "win": 0.6470588235294118,
+    "mean": 2.4499999999999997,
+    "pnl": 33520.5,
+    "losers": 6
+   },
+   "removed": {
+    "n": 32,
+    "win": 0.25,
+    "mean": -2.69746875,
+    "pnl": -80918.5,
+    "losers": 24
+   }
+  },
+  "p": 0.87,
+  "score": 0.20973298880275626,
+  "verdict": "REJECTED",
+  "why": "shuffle p=0.870 >= 0.05: the same search finds this in random labels"
+ },
+ {
+  "book": "t28_d46_fill",
+  "rule": [
+   [
+    "e_fut_tot_imb_x_dir",
+    "<",
+    -0.015799999999999984
+   ],
+   [
+    "ep_n_cross",
+    "<",
+    14.0
+   ]
+  ],
+  "features": {
+   "e_fut_tot_imb_x_dir": "derived, see agent_5/search.py",
+   "ep_n_cross": "weather field"
+  },
+  "rule_text": "e_fut_tot_imb_x_dir < -0.0158 AND ep_n_cross < 14",
+  "rule_format": "[[feature, op, line], ...] AND-combined",
+  "search": "pair/all358(base+derived)/5 lines/min_keep 20/no truncation; shuffle n=200",
+  "discovery": {
+   "book": {
+    "n": 167,
+    "win": 0.48502994011976047,
+    "mean": 2.1380419161676647,
+    "pnl": 436192.25,
+    "losers": 86
+   },
+   "kept": {
+    "n": 78,
+    "win": 0.6410256410256411,
+    "mean": 5.637102564102564,
+    "pnl": 494724.75,
+    "losers": 28
+   },
+   "removed": {
+    "n": 89,
+    "win": 0.34831460674157305,
+    "mean": -0.9285505617977529,
+    "pnl": -58532.5,
+    "losers": 58
+   }
+  },
+  "holdout": {
+   "book": {
+    "n": 49,
+    "win": 0.3877551020408163,
+    "mean": -0.9116122448979592,
+    "pnl": -47398.0,
+    "losers": 30
+   },
+   "kept": {
+    "n": 2,
+    "win": 0.0,
+    "mean": -5.636,
+    "pnl": -10660.0,
+    "losers": 2
+   },
+   "removed": {
+    "n": 47,
+    "win": 0.40425531914893614,
+    "mean": -0.7105744680851064,
+    "pnl": -36738.0,
+    "losers": 28
+   }
+  },
+  "p": 0.955,
+  "score": 0.29170255526844674,
+  "verdict": "REJECTED",
+  "why": "shuffle p=0.955 >= 0.05: the same search finds this in random labels; holdout kept win 0% < book 39%"
+ },
+ {
+  "book": "t28_d46_fill",
+  "rule": [
+   [
+    "e_fut_tot_imb_x_dir",
+    "<",
+    -0.015799999999999984
+   ],
+   [
+    "ep_n_cross",
+    "<",
+    14.0
+   ],
+   [
+    "oi_other_chg5",
+    ">=",
+    -186355.0
+   ]
+  ],
+  "features": {
+   "e_fut_tot_imb_x_dir": "derived, see agent_5/search.py",
+   "ep_n_cross": "weather field",
+   "oi_other_chg5": "weather field"
+  },
+  "rule_text": "e_fut_tot_imb_x_dir < -0.0158 AND ep_n_cross < 14 AND oi_other_chg5 >= -1.864e+05",
+  "rule_format": "[[feature, op, line], ...] AND-combined",
+  "search": "triple-greedy/all358(base+derived)/5 lines/min_keep 20; shuffle n=200",
+  "discovery": {
+   "book": {
+    "n": 167,
+    "win": 0.48502994011976047,
+    "mean": 2.1380419161676647,
+    "pnl": 436192.25,
+    "losers": 86
+   },
+   "kept": {
+    "n": 69,
+    "win": 0.7101449275362319,
+    "mean": 7.372782608695652,
+    "pnl": 583144.25,
+    "losers": 20
+   },
+   "removed": {
+    "n": 98,
+    "win": 0.32653061224489793,
+    "mean": -1.5476428571428573,
+    "pnl": -146952.0,
+    "losers": 66
+   }
+  },
+  "holdout": {
+   "book": {
+    "n": 49,
+    "win": 0.3877551020408163,
+    "mean": -0.9116122448979592,
+    "pnl": -47398.0,
+    "losers": 30
+   },
+   "kept": {
+    "n": 2,
+    "win": 0.0,
+    "mean": -5.636,
+    "pnl": -10660.0,
+    "losers": 2
+   },
+   "removed": {
+    "n": 47,
+    "win": 0.40425531914893614,
+    "mean": -0.7105744680851064,
+    "pnl": -36738.0,
+    "losers": 28
+   }
+  },
+  "p": 0.68,
+  "score": 0.3723801320700546,
+  "verdict": "REJECTED",
+  "why": "shuffle p=0.680 >= 0.05: the same search finds this in random labels; holdout kept win 0% < book 39%"
+ },
+ {
+  "book": "t28_d46_fill",
+  "rule": [
+   [
+    "e_fut_tot_imb_x_dir",
+    "<",
+    -0.015799999999999984
+   ],
+   [
+    "ep_n_cross",
+    "<",
+    14.0
+   ]
+  ],
+  "features": {
+   "e_fut_tot_imb_x_dir": "derived, see agent_5/search.py",
+   "ep_n_cross": "weather field"
+  },
+  "rule_text": "e_fut_tot_imb_x_dir < -0.0158 AND ep_n_cross < 14",
+  "rule_format": "[[feature, op, line], ...] AND-combined",
+  "search": "pair/all358(base+derived)/5 lines/min_keep 30; shuffle n=200",
+  "discovery": {
+   "book": {
+    "n": 167,
+    "win": 0.48502994011976047,
+    "mean": 2.1380419161676647,
+    "pnl": 436192.25,
+    "losers": 86
+   },
+   "kept": {
+    "n": 78,
+    "win": 0.6410256410256411,
+    "mean": 5.637102564102564,
+    "pnl": 494724.75,
+    "losers": 28
+   },
+   "removed": {
+    "n": 89,
+    "win": 0.34831460674157305,
+    "mean": -0.9285505617977529,
+    "pnl": -58532.5,
+    "losers": 58
+   }
+  },
+  "holdout": {
+   "book": {
+    "n": 49,
+    "win": 0.3877551020408163,
+    "mean": -0.9116122448979592,
+    "pnl": -47398.0,
+    "losers": 30
+   },
+   "kept": {
+    "n": 2,
+    "win": 0.0,
+    "mean": -5.636,
+    "pnl": -10660.0,
+    "losers": 2
+   },
+   "removed": {
+    "n": 47,
+    "win": 0.40425531914893614,
+    "mean": -0.7105744680851064,
+    "pnl": -36738.0,
+    "losers": 28
+   }
+  },
+  "p": 0.955,
+  "score": 0.29170255526844674,
+  "verdict": "REJECTED",
+  "why": "shuffle p=0.955 >= 0.05: the same search finds this in random labels; holdout kept win 0% < book 39%"
+ },
+ {
+  "book": "t28_d46_fill",
+  "rule": [
+   [
+    "optiv_minus_atmiv_chg5",
+    "<",
+    0.010000000000000009
+   ]
+  ],
+  "features": {
+   "optiv_minus_atmiv_chg5": "derived, see agent_5/search.py"
+  },
+  "rule_text": "optiv_minus_atmiv_chg5 < 0.01",
+  "rule_format": "[[feature, op, line], ...] AND-combined",
+  "search": "single/derived-only102/9 lines/min_keep 20; shuffle n=200",
+  "discovery": {
+   "book": {
+    "n": 167,
+    "win": 0.48502994011976047,
+    "mean": 2.1380419161676647,
+    "pnl": 436192.25,
+    "losers": 86
+   },
+   "kept": {
+    "n": 99,
+    "win": 0.5757575757575758,
+    "mean": 3.312212121212121,
+    "pnl": 395554.25,
+    "losers": 42
+   },
+   "removed": {
+    "n": 68,
+    "win": 0.35294117647058826,
+    "mean": 0.42858823529411766,
+    "pnl": 40638.0,
+    "losers": 44
+   }
+  },
+  "holdout": {
+   "book": {
+    "n": 49,
+    "win": 0.3877551020408163,
+    "mean": -0.9116122448979592,
+    "pnl": -47398.0,
+    "losers": 30
+   },
+   "kept": {
+    "n": 26,
+    "win": 0.2692307692307692,
+    "mean": -2.3188846153846154,
+    "pnl": -57606.25,
+    "losers": 19
+   },
+   "removed": {
+    "n": 23,
+    "win": 0.5217391304347826,
+    "mean": 0.6792173913043478,
+    "pnl": 10208.25,
+    "losers": 11
+   }
+  },
+  "p": 0.62,
+  "score": 0.21533161068044793,
+  "verdict": "REJECTED",
+  "why": "shuffle p=0.620 >= 0.05: the same search finds this in random labels; holdout kept win 27% < book 39%"
+ },
+ {
+  "book": "t28_d46_fill",
+  "rule": [
+   [
+    "OR",
+    "mv60_over_speed15",
+    ">=",
+    1.782130643401424
+   ],
+   [
+    "OR",
+    "oi_net_help5",
+    ">=",
+    1901412.5000000007
+   ]
+  ],
+  "features": {
+   "mv60_over_speed15": "derived, see agent_5/search.py",
+   "oi_net_help5": "weather field"
+  },
+  "rule_text": "OR: mv60_over_speed15 >= 1.782 | OR: oi_net_help5 >= 1.901e+06",
+  "rule_format": "clauses prefixed 'OR' (keep if either) or 'IF <split>' / 'IF NOT <split>' (piecewise by the split indicator)",
+  "search": "OR-of-two-clauses/all358/5 lines/min_keep 20; shuffle n=200",
+  "discovery": {
+   "book": {
+    "n": 167,
+    "win": 0.48502994011976047,
+    "mean": 2.1380419161676647,
+    "pnl": 436192.25,
+    "losers": 86
+   },
+   "kept": {
+    "n": 59,
+    "win": 0.6949152542372882,
+    "mean": 5.4972881355932195,
+    "pnl": 365196.0,
+    "losers": 18
+   },
+   "removed": {
+    "n": 108,
+    "win": 0.37037037037037035,
+    "mean": 0.3028981481481481,
+    "pnl": 70996.25,
+    "losers": 68
+   }
+  },
+  "holdout": {
+   "book": {
+    "n": 49,
+    "win": 0.3877551020408163,
+    "mean": -0.9116122448979592,
+    "pnl": -47398.0,
+    "losers": 30
+   },
+   "kept": {
+    "n": 22,
+    "win": 0.5909090909090909,
+    "mean": 1.8899545454545454,
+    "pnl": 28905.5,
+    "losers": 9
+   },
+   "removed": {
+    "n": 27,
+    "win": 0.2222222222222222,
+    "mean": -3.1943703703703705,
+    "pnl": -76303.5,
+    "losers": 21
+   }
+  },
+  "p": 0.935,
+  "score": 0.2968705139247775,
+  "verdict": "REJECTED",
+  "why": "shuffle p=0.935 >= 0.05: the same search finds this in random labels"
+ },
+ {
+  "book": "t28_d46_fill",
+  "rule": [
+   [
+    "IF regime=DIRECTIONAL",
+    "skew_atm",
+    ">=",
+    0.022000000000000172
+   ],
+   [
+    "IF NOT regime=DIRECTIONAL",
+    "round_dist",
+    "<",
+    74.21000000000004
+   ]
+  ],
+  "features": {
+   "skew_atm": "weather field",
+   "round_dist": "weather field"
+  },
+  "rule_text": "IF regime=DIRECTIONAL: skew_atm >= 0.022 | IF NOT regime=DIRECTIONAL: round_dist < 74.21",
+  "rule_format": "clauses prefixed 'OR' (keep if either) or 'IF <split>' / 'IF NOT <split>' (piecewise by the split indicator)",
+  "search": "either/or by regime=DIRECTIONAL: best single clause per half/all358/5 lines; shuffle n=200",
+  "discovery": {
+   "book": {
+    "n": 167,
+    "win": 0.48502994011976047,
+    "mean": 2.1380419161676647,
+    "pnl": 436192.25,
+    "losers": 86
+   },
+   "kept": {
+    "n": 88,
+    "win": 0.6477272727272727,
+    "mean": 5.2072045454545455,
+    "pnl": 526906.25,
+    "losers": 31
+   },
+   "removed": {
+    "n": 79,
+    "win": 0.3037974683544304,
+    "mean": -1.280772151898734,
+    "pnl": -90714.0,
+    "losers": 55
+   }
+  },
+  "holdout": {
+   "book": {
+    "n": 49,
+    "win": 0.3877551020408163,
+    "mean": -0.9116122448979592,
+    "pnl": -47398.0,
+    "losers": 30
+   },
+   "kept": {
+    "n": 26,
+    "win": 0.38461538461538464,
+    "mean": -0.8800384615384615,
+    "pnl": -21898.5,
+    "losers": 16
+   },
+   "removed": {
+    "n": 23,
+    "win": 0.391304347826087,
+    "mean": -0.947304347826087,
+    "pnl": -25499.5,
+    "losers": 14
+   }
+  },
+  "p": 0.32,
+  "score": 0.343238587424634,
+  "verdict": "REJECTED",
+  "why": "shuffle p=0.320 >= 0.05: the same search finds this in random labels; holdout kept win 38% < book 39%"
+ },
+ {
+  "book": "t28_d46_fill",
+  "rule": [
+   [
+    "IF is_CE",
+    "e_fut_micro",
+    ">=",
+    0.45
+   ],
+   [
+    "IF NOT is_CE",
+    "e_v_min30",
+    ">=",
+    75.711
+   ]
+  ],
+  "features": {
+   "e_fut_micro": "weather field",
+   "e_v_min30": "weather field"
+  },
+  "rule_text": "IF is_CE: e_fut_micro >= 0.45 | IF NOT is_CE: e_v_min30 >= 75.71",
+  "rule_format": "clauses prefixed 'OR' (keep if either) or 'IF <split>' / 'IF NOT <split>' (piecewise by the split indicator)",
+  "search": "either/or by is_CE: best single clause per half/all358/5 lines; shuffle n=200",
+  "discovery": {
+   "book": {
+    "n": 167,
+    "win": 0.48502994011976047,
+    "mean": 2.1380419161676647,
+    "pnl": 436192.25,
+    "losers": 86
+   },
+   "kept": {
+    "n": 70,
+    "win": 0.6714285714285714,
+    "mean": 5.6291142857142855,
+    "pnl": 473671.25,
+    "losers": 23
+   },
+   "removed": {
+    "n": 97,
+    "win": 0.35051546391752575,
+    "mean": -0.38128865979381443,
+    "pnl": -37479.0,
+    "losers": 63
+   }
+  },
+  "holdout": {
+   "book": {
+    "n": 49,
+    "win": 0.3877551020408163,
+    "mean": -0.9116122448979592,
+    "pnl": -47398.0,
+    "losers": 30
+   },
+   "kept": {
+    "n": 17,
+    "win": 0.4117647058823529,
+    "mean": -0.6044117647058824,
+    "pnl": -14592.5,
+    "losers": 10
+   },
+   "removed": {
+    "n": 32,
+    "win": 0.375,
+    "mean": -1.0748125,
+    "pnl": -32805.5,
+    "losers": 20
+   }
+  },
+  "p": 0.795,
+  "score": 0.3128050531151306,
+  "verdict": "REJECTED",
+  "why": "shuffle p=0.795 >= 0.05: the same search finds this in random labels; holdout kept side loses rupees"
+ },
+ {
+  "book": "t28_d46_fill",
+  "rule": [
+   [
+    "IF phase_bucket=open30",
+    "depth_age_fut",
+    ">=",
+    0.4800000000000004
+   ],
+   [
+    "IF NOT phase_bucket=open30",
+    "gex_flip_ahead",
+    ">=",
+    -14.1
+   ]
+  ],
+  "features": {
+   "depth_age_fut": "weather field",
+   "gex_flip_ahead": "weather field"
+  },
+  "rule_text": "IF phase_bucket=open30: depth_age_fut >= 0.48 | IF NOT phase_bucket=open30: gex_flip_ahead >= -14.1",
+  "rule_format": "clauses prefixed 'OR' (keep if either) or 'IF <split>' / 'IF NOT <split>' (piecewise by the split indicator)",
+  "search": "either/or by phase_bucket=open30: best single clause per half/all358/5 lines; shuffle n=200",
+  "discovery": {
+   "book": {
+    "n": 167,
+    "win": 0.48502994011976047,
+    "mean": 2.1380419161676647,
+    "pnl": 436192.25,
+    "losers": 86
+   },
+   "kept": {
+    "n": 88,
+    "win": 0.625,
+    "mean": 4.957340909090909,
+    "pnl": 518472.5,
+    "losers": 33
+   },
+   "removed": {
+    "n": 79,
+    "win": 0.3291139240506329,
+    "mean": -1.0024430379746836,
+    "pnl": -82280.25,
+    "losers": 53
+   }
+  },
+  "holdout": {
+   "book": {
+    "n": 49,
+    "win": 0.3877551020408163,
+    "mean": -0.9116122448979592,
+    "pnl": -47398.0,
+    "losers": 30
+   },
+   "kept": {
+    "n": 23,
+    "win": 0.43478260869565216,
+    "mean": -0.04600000000000005,
+    "pnl": -1904.5,
+    "losers": 13
+   },
+   "removed": {
+    "n": 26,
+    "win": 0.34615384615384615,
+    "mean": -1.677346153846154,
+    "pnl": -45493.5,
+    "losers": 17
+   }
+  },
+  "p": 0.485,
+  "score": 0.2952914154464542,
+  "verdict": "REJECTED",
+  "why": "shuffle p=0.485 >= 0.05: the same search finds this in random labels; holdout kept side loses rupees"
+ },
+ {
+  "book": "t28_d46_fill",
+  "rule": [
+   [
+    "IF b_expiry_day",
+    "accel30_x_dir",
+    ">=",
+    -0.2
+   ],
+   [
+    "IF NOT b_expiry_day",
+    "gap_pts",
+    "<",
+    -55.55
+   ]
+  ],
+  "features": {
+   "accel30_x_dir": "derived, see agent_5/search.py",
+   "gap_pts": "weather field"
+  },
+  "rule_text": "IF b_expiry_day: accel30_x_dir >= -0.2 | IF NOT b_expiry_day: gap_pts < -55.55",
+  "rule_format": "clauses prefixed 'OR' (keep if either) or 'IF <split>' / 'IF NOT <split>' (piecewise by the split indicator)",
+  "search": "either/or by b_expiry_day: best single clause per half/all358/5 lines; shuffle n=200",
+  "discovery": {
+   "book": {
+    "n": 167,
+    "win": 0.48502994011976047,
+    "mean": 2.1380419161676647,
+    "pnl": 436192.25,
+    "losers": 86
+   },
+   "kept": {
+    "n": 65,
+    "win": 0.6615384615384615,
+    "mean": 6.8821076923076925,
+    "pnl": 612040.0,
+    "losers": 22
+   },
+   "removed": {
+    "n": 102,
+    "win": 0.37254901960784315,
+    "mean": -0.8851372549019608,
+    "pnl": -175847.75,
+    "losers": 64
+   }
+  },
+  "holdout": {
+   "book": {
+    "n": 49,
+    "win": 0.3877551020408163,
+    "mean": -0.9116122448979592,
+    "pnl": -47398.0,
+    "losers": 30
+   },
+   "kept": {
+    "n": 10,
+    "win": 0.3,
+    "mean": -2.7738,
+    "pnl": -25844.0,
+    "losers": 7
+   },
+   "removed": {
+    "n": 39,
+    "win": 0.41025641025641024,
+    "mean": -0.43412820512820516,
+    "pnl": -21554.0,
+    "losers": 23
+   }
+  },
+  "p": 0.965,
+  "score": 0.2750502440424921,
+  "verdict": "REJECTED",
+  "why": "shuffle p=0.965 >= 0.05: the same search finds this in random labels; holdout kept win 30% < book 39%"
+ },
+ {
+  "book": "t28_d46_fill",
+  "rule": [
+   [
+    "IF adv_regime_veto",
+    "e_fut_micro_x_dir",
+    ">=",
+    0.0
+   ],
+   [
+    "IF NOT adv_regime_veto",
+    "gaps_today",
+    "<",
+    4.0
+   ]
+  ],
+  "features": {
+   "e_fut_micro_x_dir": "derived, see agent_5/search.py",
+   "gaps_today": "weather field"
+  },
+  "rule_text": "IF adv_regime_veto: e_fut_micro_x_dir >= 0 | IF NOT adv_regime_veto: gaps_today < 4",
+  "rule_format": "clauses prefixed 'OR' (keep if either) or 'IF <split>' / 'IF NOT <split>' (piecewise by the split indicator)",
+  "search": "either/or by adv_regime_veto: best single clause per half/all358/5 lines; shuffle n=200",
+  "discovery": {
+   "book": {
+    "n": 167,
+    "win": 0.48502994011976047,
+    "mean": 2.1380419161676647,
+    "pnl": 436192.25,
+    "losers": 86
+   },
+   "kept": {
+    "n": 87,
+    "win": 0.6436781609195402,
+    "mean": 4.842908045977011,
+    "pnl": 525837.0,
+    "losers": 31
+   },
+   "removed": {
+    "n": 80,
+    "win": 0.3125,
+    "mean": -0.8035,
+    "pnl": -89644.75,
+    "losers": 55
+   }
+  },
+  "holdout": {
+   "book": {
+    "n": 49,
+    "win": 0.3877551020408163,
+    "mean": -0.9116122448979592,
+    "pnl": -47398.0,
+    "losers": 30
+   },
+   "kept": {
+    "n": 28,
+    "win": 0.4642857142857143,
+    "mean": -0.03378571428571427,
+    "pnl": -6938.75,
+    "losers": 15
+   },
+   "removed": {
+    "n": 21,
+    "win": 0.2857142857142857,
+    "mean": -2.082047619047619,
+    "pnl": -40459.25,
+    "losers": 15
+   }
+  },
+  "p": 0.395,
+  "score": 0.3308929084122883,
+  "verdict": "REJECTED",
+  "why": "shuffle p=0.395 >= 0.05: the same search finds this in random labels; holdout kept side loses rupees"
+ },
+ {
+  "book": "t28_gap_ts",
+  "rule": [
+   [
+    "oi_own_chg30",
+    ">=",
+    27690.0
+   ]
+  ],
+  "features": {
+   "oi_own_chg30": "weather field"
+  },
+  "rule_text": "oi_own_chg30 >= 2.769e+04",
+  "rule_format": "[[feature, op, line], ...] AND-combined",
+  "search": "single/base254(196 numeric+text indicators)/5 quantile lines/min_keep 20; shuffle n=200",
+  "discovery": {
+   "book": {
+    "n": 74,
+    "win": 0.527027027027027,
+    "mean": 4.335027027027027,
+    "pnl": 342199.0,
+    "losers": 35
+   },
+   "kept": {
+    "n": 34,
+    "win": 0.7058823529411765,
+    "mean": 8.924588235294117,
+    "pnl": 353486.25,
+    "losers": 10
+   },
+   "removed": {
+    "n": 40,
+    "win": 0.375,
+    "mean": 0.43390000000000006,
+    "pnl": -11287.25,
+    "losers": 25
+   }
+  },
+  "holdout": {
+   "book": {
+    "n": 21,
+    "win": 0.42857142857142855,
+    "mean": 1.0017142857142858,
+    "pnl": 14306.5,
+    "losers": 12
+   },
+   "kept": {
+    "n": 5,
+    "win": 0.4,
+    "mean": -3.3128,
+    "pnl": -16178.5,
+    "losers": 3
+   },
+   "removed": {
+    "n": 16,
+    "win": 0.4375,
+    "mean": 2.35,
+    "pnl": 30485.0,
+    "losers": 9
+   }
+  },
+  "p": 0.605,
+  "score": 0.32967032967032966,
+  "verdict": "REJECTED",
+  "why": "shuffle p=0.605 >= 0.05: the same search finds this in random labels; holdout kept win 40% < book 43%"
+ },
+ {
+  "book": "t28_gap_ts",
+  "rule": [
+   [
+    "e_syn_dev",
+    ">=",
+    -1.44
+   ],
+   [
+    "oi_own_chg30",
+    ">=",
+    27690.0
+   ]
+  ],
+  "features": {
+   "e_syn_dev": "weather field",
+   "oi_own_chg30": "weather field"
+  },
+  "rule_text": "e_syn_dev >= -1.44 AND oi_own_chg30 >= 2.769e+04",
+  "rule_format": "[[feature, op, line], ...] AND-combined",
+  "search": "pair/base254/5 lines/min_keep 20/no truncation; shuffle n=200",
+  "discovery": {
+   "book": {
+    "n": 74,
+    "win": 0.527027027027027,
+    "mean": 4.335027027027027,
+    "pnl": 342199.0,
+    "losers": 35
+   },
+   "kept": {
+    "n": 27,
+    "win": 0.8518518518518519,
+    "mean": 11.702925925925925,
+    "pnl": 366223.0,
+    "losers": 4
+   },
+   "removed": {
+    "n": 47,
+    "win": 0.3404255319148936,
+    "mean": 0.10240425531914892,
+    "pnl": -24024.0,
+    "losers": 31
+   }
+  },
+  "holdout": {
+   "book": {
+    "n": 21,
+    "win": 0.42857142857142855,
+    "mean": 1.0017142857142858,
+    "pnl": 14306.5,
+    "losers": 12
+   },
+   "kept": {
+    "n": 4,
+    "win": 0.5,
+    "mean": -2.3177499999999998,
+    "pnl": -9236.5,
+    "losers": 2
+   },
+   "removed": {
+    "n": 17,
+    "win": 0.4117647058823529,
+    "mean": 1.782764705882353,
+    "pnl": 23543.0,
+    "losers": 10
+   }
+  },
+  "p": 0.48,
+  "score": 0.47545787545787543,
+  "verdict": "REJECTED",
+  "why": "shuffle p=0.480 >= 0.05: the same search finds this in random labels; holdout kept side loses rupees"
+ },
+ {
+  "book": "t28_gap_ts",
+  "rule": [
+   [
+    "oi_own_chg30",
+    ">=",
+    27690.0
+   ]
+  ],
+  "features": {
+   "oi_own_chg30": "weather field"
+  },
+  "rule_text": "oi_own_chg30 >= 2.769e+04",
+  "rule_format": "[[feature, op, line], ...] AND-combined",
+  "search": "single/all352(base+derived)/5 lines/min_keep 20; shuffle n=200",
+  "discovery": {
+   "book": {
+    "n": 74,
+    "win": 0.527027027027027,
+    "mean": 4.335027027027027,
+    "pnl": 342199.0,
+    "losers": 35
+   },
+   "kept": {
+    "n": 34,
+    "win": 0.7058823529411765,
+    "mean": 8.924588235294117,
+    "pnl": 353486.25,
+    "losers": 10
+   },
+   "removed": {
+    "n": 40,
+    "win": 0.375,
+    "mean": 0.43390000000000006,
+    "pnl": -11287.25,
+    "losers": 25
+   }
+  },
+  "holdout": {
+   "book": {
+    "n": 21,
+    "win": 0.42857142857142855,
+    "mean": 1.0017142857142858,
+    "pnl": 14306.5,
+    "losers": 12
+   },
+   "kept": {
+    "n": 5,
+    "win": 0.4,
+    "mean": -3.3128,
+    "pnl": -16178.5,
+    "losers": 3
+   },
+   "removed": {
+    "n": 16,
+    "win": 0.4375,
+    "mean": 2.35,
+    "pnl": 30485.0,
+    "losers": 9
+   }
+  },
+  "p": 0.69,
+  "score": 0.32967032967032966,
+  "verdict": "REJECTED",
+  "why": "shuffle p=0.690 >= 0.05: the same search finds this in random labels; holdout kept win 40% < book 43%"
+ },
+ {
+  "book": "t28_gap_ts",
+  "rule": [
+   [
+    "e_syn_dev",
+    ">=",
+    -1.44
+   ],
+   [
+    "oi_own_chg30",
+    ">=",
+    27690.0
+   ]
+  ],
+  "features": {
+   "e_syn_dev": "weather field",
+   "oi_own_chg30": "weather field"
+  },
+  "rule_text": "e_syn_dev >= -1.44 AND oi_own_chg30 >= 2.769e+04",
+  "rule_format": "[[feature, op, line], ...] AND-combined",
+  "search": "pair/all352(base+derived)/5 lines/min_keep 20/no truncation; shuffle n=200",
+  "discovery": {
+   "book": {
+    "n": 74,
+    "win": 0.527027027027027,
+    "mean": 4.335027027027027,
+    "pnl": 342199.0,
+    "losers": 35
+   },
+   "kept": {
+    "n": 27,
+    "win": 0.8518518518518519,
+    "mean": 11.702925925925925,
+    "pnl": 366223.0,
+    "losers": 4
+   },
+   "removed": {
+    "n": 47,
+    "win": 0.3404255319148936,
+    "mean": 0.10240425531914892,
+    "pnl": -24024.0,
+    "losers": 31
+   }
+  },
+  "holdout": {
+   "book": {
+    "n": 21,
+    "win": 0.42857142857142855,
+    "mean": 1.0017142857142858,
+    "pnl": 14306.5,
+    "losers": 12
+   },
+   "kept": {
+    "n": 4,
+    "win": 0.5,
+    "mean": -2.3177499999999998,
+    "pnl": -9236.5,
+    "losers": 2
+   },
+   "removed": {
+    "n": 17,
+    "win": 0.4117647058823529,
+    "mean": 1.782764705882353,
+    "pnl": 23543.0,
+    "losers": 10
+   }
+  },
+  "p": 0.63,
+  "score": 0.47545787545787543,
+  "verdict": "REJECTED",
+  "why": "shuffle p=0.630 >= 0.05: the same search finds this in random labels; holdout kept side loses rupees"
+ },
+ {
+  "book": "t28_gap_ts",
+  "rule": [
+   [
+    "e_syn_dev",
+    ">=",
+    -1.44
+   ],
+   [
+    "oi_own_chg30",
+    ">=",
+    27690.0
+   ],
+   [
+    "bn300",
+    ">=",
+    -0.17779999999999999
+   ]
+  ],
+  "features": {
+   "e_syn_dev": "weather field",
+   "oi_own_chg30": "weather field",
+   "bn300": "weather field"
+  },
+  "rule_text": "e_syn_dev >= -1.44 AND oi_own_chg30 >= 2.769e+04 AND bn300 >= -0.1778",
+  "rule_format": "[[feature, op, line], ...] AND-combined",
+  "search": "triple-greedy/all352(base+derived)/5 lines/min_keep 20; shuffle n=200",
+  "discovery": {
+   "book": {
+    "n": 74,
+    "win": 0.527027027027027,
+    "mean": 4.335027027027027,
+    "pnl": 342199.0,
+    "losers": 35
+   },
+   "kept": {
+    "n": 25,
+    "win": 0.92,
+    "mean": 13.28624,
+    "pnl": 382346.25,
+    "losers": 2
+   },
+   "removed": {
+    "n": 49,
+    "win": 0.32653061224489793,
+    "mean": -0.23191836734693883,
+    "pnl": -40147.25,
+    "losers": 33
+   }
+  },
+  "holdout": {
+   "book": {
+    "n": 21,
+    "win": 0.42857142857142855,
+    "mean": 1.0017142857142858,
+    "pnl": 14306.5,
+    "losers": 12
+   },
+   "kept": {
+    "n": 4,
+    "win": 0.5,
+    "mean": -2.3177499999999998,
+    "pnl": -9236.5,
+    "losers": 2
+   },
+   "removed": {
+    "n": 17,
+    "win": 0.4117647058823529,
+    "mean": 1.782764705882353,
+    "pnl": 23543.0,
+    "losers": 10
+   }
+  },
+  "p": 0.77,
+  "score": 0.5326007326007326,
+  "verdict": "REJECTED",
+  "why": "shuffle p=0.770 >= 0.05: the same search finds this in random labels; holdout kept side loses rupees"
+ },
+ {
+  "book": "t28_gap_ts",
+  "rule": [
+   [
+    "fut_spread",
+    ">=",
+    2.6
+   ],
+   [
+    "ret_today",
+    "<",
+    81.8458
+   ]
+  ],
+  "features": {
+   "fut_spread": "weather field",
+   "ret_today": "weather field"
+  },
+  "rule_text": "fut_spread >= 2.6 AND ret_today < 81.85",
+  "rule_format": "[[feature, op, line], ...] AND-combined",
+  "search": "pair/all352(base+derived)/5 lines/min_keep 30; shuffle n=200",
+  "discovery": {
+   "book": {
+    "n": 74,
+    "win": 0.527027027027027,
+    "mean": 4.335027027027027,
+    "pnl": 342199.0,
+    "losers": 35
+   },
+   "kept": {
+    "n": 48,
+    "win": 0.7083333333333334,
+    "mean": 8.333,
+    "pnl": 460729.75,
+    "losers": 14
+   },
+   "removed": {
+    "n": 26,
+    "win": 0.19230769230769232,
+    "mean": -3.045846153846154,
+    "pnl": -118530.75,
+    "losers": 21
+   }
+  },
+  "holdout": {
+   "book": {
+    "n": 21,
+    "win": 0.42857142857142855,
+    "mean": 1.0017142857142858,
+    "pnl": 14306.5,
+    "losers": 12
+   },
+   "kept": {
+    "n": 13,
+    "win": 0.38461538461538464,
+    "mean": 0.42107692307692324,
+    "pnl": -604.5,
+    "losers": 8
+   },
+   "removed": {
+    "n": 8,
+    "win": 0.5,
+    "mean": 1.94525,
+    "pnl": 14911.0,
+    "losers": 4
+   }
+  },
+  "p": 0.585,
+  "score": 0.4717948717948718,
+  "verdict": "REJECTED",
+  "why": "shuffle p=0.585 >= 0.05: the same search finds this in random labels; holdout kept win 38% < book 43%"
+ },
+ {
+  "book": "t28_gap_ts",
+  "rule": [
+   [
+    "spread_over_prem",
+    ">=",
+    0.01379243666213923
+   ]
+  ],
+  "features": {
+   "spread_over_prem": "derived, see agent_5/search.py"
+  },
+  "rule_text": "spread_over_prem >= 0.01379",
+  "rule_format": "[[feature, op, line], ...] AND-combined",
+  "search": "single/derived-only98/9 lines/min_keep 20; shuffle n=200",
+  "discovery": {
+   "book": {
+    "n": 74,
+    "win": 0.527027027027027,
+    "mean": 4.335027027027027,
+    "pnl": 342199.0,
+    "losers": 35
+   },
+   "kept": {
+    "n": 59,
+    "win": 0.6440677966101694,
+    "mean": 7.142830508474576,
+    "pnl": 452104.25,
+    "losers": 21
+   },
+   "removed": {
+    "n": 15,
+    "win": 0.06666666666666667,
+    "mean": -6.7090000000000005,
+    "pnl": -109905.25,
+    "losers": 14
+   }
+  },
+  "holdout": {
+   "book": {
+    "n": 21,
+    "win": 0.42857142857142855,
+    "mean": 1.0017142857142858,
+    "pnl": 14306.5,
+    "losers": 12
+   },
+   "kept": {
+    "n": 14,
+    "win": 0.42857142857142855,
+    "mean": 0.7210000000000001,
+    "pnl": 3815.5,
+    "losers": 8
+   },
+   "removed": {
+    "n": 7,
+    "win": 0.42857142857142855,
+    "mean": 1.5631428571428572,
+    "pnl": 10491.0,
+    "losers": 4
+   }
+  },
+  "p": 0.165,
+  "score": 0.37435897435897436,
+  "verdict": "REJECTED",
+  "why": "shuffle p=0.165 >= 0.05: the same search finds this in random labels; holdout removed side is profitable (+10,491)"
+ },
+ {
+  "book": "t28_gap_ts",
+  "rule": [
+   [
+    "OR",
+    "e_fut_micro_x_dir",
+    ">=",
+    0.39300000000000007
+   ],
+   [
+    "OR",
+    "oi_own_chg30",
+    ">=",
+    1419899.0000000005
+   ]
+  ],
+  "features": {
+   "e_fut_micro_x_dir": "derived, see agent_5/search.py",
+   "oi_own_chg30": "weather field"
+  },
+  "rule_text": "OR: e_fut_micro_x_dir >= 0.393 | OR: oi_own_chg30 >= 1.42e+06",
+  "rule_format": "clauses prefixed 'OR' (keep if either) or 'IF <split>' / 'IF NOT <split>' (piecewise by the split indicator)",
+  "search": "OR-of-two-clauses/all352/5 lines/min_keep 20; shuffle n=200",
+  "discovery": {
+   "book": {
+    "n": 74,
+    "win": 0.527027027027027,
+    "mean": 4.335027027027027,
+    "pnl": 342199.0,
+    "losers": 35
+   },
+   "kept": {
+    "n": 36,
+    "win": 0.7777777777777778,
+    "mean": 10.441722222222221,
+    "pnl": 452052.25,
+    "losers": 8
+   },
+   "removed": {
+    "n": 38,
+    "win": 0.2894736842105263,
+    "mean": -1.450263157894737,
+    "pnl": -109853.25,
+    "losers": 27
+   }
+  },
+  "holdout": {
+   "book": {
+    "n": 21,
+    "win": 0.42857142857142855,
+    "mean": 1.0017142857142858,
+    "pnl": 14306.5,
+    "losers": 12
+   },
+   "kept": {
+    "n": 8,
+    "win": 0.5,
+    "mean": -0.622,
+    "pnl": -5889.0,
+    "losers": 4
+   },
+   "removed": {
+    "n": 13,
+    "win": 0.38461538461538464,
+    "mean": 2.000923076923077,
+    "pnl": 20195.5,
+    "losers": 8
+   }
+  },
+  "p": 0.46,
+  "score": 0.4893772893772894,
+  "verdict": "REJECTED",
+  "why": "shuffle p=0.460 >= 0.05: the same search finds this in random labels; holdout kept side loses rupees"
+ },
+ {
+  "book": "t28_gap_ts",
+  "rule": [
+   [
+    "IF regime=DIRECTIONAL",
+    "pos_dir",
+    ">=",
+    0.5665
+   ],
+   [
+    "IF NOT regime=DIRECTIONAL",
+    "skew_chg5_x_dir",
+    "<",
+    0.02
+   ]
+  ],
+  "features": {
+   "pos_dir": "weather field",
+   "skew_chg5_x_dir": "derived, see agent_5/search.py"
+  },
+  "rule_text": "IF regime=DIRECTIONAL: pos_dir >= 0.5665 | IF NOT regime=DIRECTIONAL: skew_chg5_x_dir < 0.02",
+  "rule_format": "clauses prefixed 'OR' (keep if either) or 'IF <split>' / 'IF NOT <split>' (piecewise by the split indicator)",
+  "search": "either/or by regime=DIRECTIONAL: best single clause per half/all352/5 lines; shuffle n=200",
+  "discovery": {
+   "book": {
+    "n": 74,
+    "win": 0.527027027027027,
+    "mean": 4.335027027027027,
+    "pnl": 342199.0,
+    "losers": 35
+   },
+   "kept": {
+    "n": 36,
+    "win": 0.75,
+    "mean": 8.797083333333333,
+    "pnl": 368784.0,
+    "losers": 9
+   },
+   "removed": {
+    "n": 38,
+    "win": 0.3157894736842105,
+    "mean": 0.1078157894736843,
+    "pnl": -26585.0,
+    "losers": 26
+   }
+  },
+  "holdout": {
+   "book": {
+    "n": 21,
+    "win": 0.42857142857142855,
+    "mean": 1.0017142857142858,
+    "pnl": 14306.5,
+    "losers": 12
+   },
+   "kept": {
+    "n": 12,
+    "win": 0.4166666666666667,
+    "mean": 0.06375000000000013,
+    "pnl": -3539.25,
+    "losers": 7
+   },
+   "removed": {
+    "n": 9,
+    "win": 0.4444444444444444,
+    "mean": 2.2523333333333335,
+    "pnl": 17845.75,
+    "losers": 5
+   }
+  },
+  "p": 0.96,
+  "score": 0.4351648351648352,
+  "verdict": "REJECTED",
+  "why": "shuffle p=0.960 >= 0.05: the same search finds this in random labels; holdout kept win 42% < book 43%"
+ },
+ {
+  "book": "t28_gap_ts",
+  "rule": [
+   [
+    "IF is_CE",
+    "oi_net_help5",
+    ">=",
+    874315.0
+   ],
+   [
+    "IF NOT is_CE",
+    "e_v_min30",
+    ">=",
+    81.0175
+   ]
+  ],
+  "features": {
+   "oi_net_help5": "weather field",
+   "e_v_min30": "weather field"
+  },
+  "rule_text": "IF is_CE: oi_net_help5 >= 8.743e+05 | IF NOT is_CE: e_v_min30 >= 81.02",
+  "rule_format": "clauses prefixed 'OR' (keep if either) or 'IF <split>' / 'IF NOT <split>' (piecewise by the split indicator)",
+  "search": "either/or by is_CE: best single clause per half/all352/5 lines; shuffle n=200",
+  "discovery": {
+   "book": {
+    "n": 74,
+    "win": 0.527027027027027,
+    "mean": 4.335027027027027,
+    "pnl": 342199.0,
+    "losers": 35
+   },
+   "kept": {
+    "n": 36,
+    "win": 0.7777777777777778,
+    "mean": 10.030305555555556,
+    "pnl": 399431.5,
+    "losers": 8
+   },
+   "removed": {
+    "n": 38,
+    "win": 0.2894736842105263,
+    "mean": -1.0605,
+    "pnl": -57232.5,
+    "losers": 27
+   }
+  },
+  "holdout": {
+   "book": {
+    "n": 21,
+    "win": 0.42857142857142855,
+    "mean": 1.0017142857142858,
+    "pnl": 14306.5,
+    "losers": 12
+   },
+   "kept": {
+    "n": 7,
+    "win": 0.7142857142857143,
+    "mean": 4.254714285714285,
+    "pnl": 27075.75,
+    "losers": 2
+   },
+   "removed": {
+    "n": 14,
+    "win": 0.2857142857142857,
+    "mean": -0.6247857142857142,
+    "pnl": -12769.25,
+    "losers": 10
+   }
+  },
+  "p": 0.685,
+  "score": 0.4893772893772894,
+  "verdict": "REJECTED",
+  "why": "shuffle p=0.685 >= 0.05: the same search finds this in random labels"
+ },
+ {
+  "book": "t28_gap_ts",
+  "rule": [
+   [
+    "IF phase_bucket=open30",
+    "e_syn_dev",
+    ">=",
+    -1.44
+   ],
+   [
+    "IF NOT phase_bucket=open30",
+    "e_fut_micro_x_dir",
+    ">=",
+    0.39300000000000007
+   ]
+  ],
+  "features": {
+   "e_syn_dev": "weather field",
+   "e_fut_micro_x_dir": "derived, see agent_5/search.py"
+  },
+  "rule_text": "IF phase_bucket=open30: e_syn_dev >= -1.44 | IF NOT phase_bucket=open30: e_fut_micro_x_dir >= 0.393",
+  "rule_format": "clauses prefixed 'OR' (keep if either) or 'IF <split>' / 'IF NOT <split>' (piecewise by the split indicator)",
+  "search": "either/or by phase_bucket=open30: best single clause per half/all352/5 lines; shuffle n=200",
+  "discovery": {
+   "book": {
+    "n": 74,
+    "win": 0.527027027027027,
+    "mean": 4.335027027027027,
+    "pnl": 342199.0,
+    "losers": 35
+   },
+   "kept": {
+    "n": 30,
+    "win": 0.8333333333333334,
+    "mean": 12.000966666666667,
+    "pnl": 431960.75,
+    "losers": 5
+   },
+   "removed": {
+    "n": 44,
+    "win": 0.3181818181818182,
+    "mean": -0.89175,
+    "pnl": -89761.75,
+    "losers": 30
+   }
+  },
+  "holdout": {
+   "book": {
+    "n": 21,
+    "win": 0.42857142857142855,
+    "mean": 1.0017142857142858,
+    "pnl": 14306.5,
+    "losers": 12
+   },
+   "kept": {
+    "n": 7,
+    "win": 0.5714285714285714,
+    "mean": 0.33099999999999996,
+    "pnl": 1053.0,
+    "losers": 3
+   },
+   "removed": {
+    "n": 14,
+    "win": 0.35714285714285715,
+    "mean": 1.3370714285714287,
+    "pnl": 13253.5,
+    "losers": 9
+   }
+  },
+  "p": 0.04,
+  "score": 0.4981684981684981,
+  "verdict": "REJECTED",
+  "why": "holdout removed side is profitable (+13,254)"
+ },
+ {
+  "book": "t28_gap_ts",
+  "rule": [
+   [
+    "IF b_expiry_day",
+    "rv1_over_rv5",
+    "<",
+    0.9037896311481086
+   ],
+   [
+    "IF NOT b_expiry_day",
+    "oi_net_help5",
+    ">=",
+    874315.0
+   ]
+  ],
+  "features": {
+   "rv1_over_rv5": "derived, see agent_5/search.py",
+   "oi_net_help5": "weather field"
+  },
+  "rule_text": "IF b_expiry_day: rv1_over_rv5 < 0.9038 | IF NOT b_expiry_day: oi_net_help5 >= 8.743e+05",
+  "rule_format": "clauses prefixed 'OR' (keep if either) or 'IF <split>' / 'IF NOT <split>' (piecewise by the split indicator)",
+  "search": "either/or by b_expiry_day: best single clause per half/all352/5 lines; shuffle n=200",
+  "discovery": {
+   "book": {
+    "n": 74,
+    "win": 0.527027027027027,
+    "mean": 4.335027027027027,
+    "pnl": 342199.0,
+    "losers": 35
+   },
+   "kept": {
+    "n": 35,
+    "win": 0.7714285714285715,
+    "mean": 9.296885714285715,
+    "pnl": 381082.0,
+    "losers": 8
+   },
+   "removed": {
+    "n": 39,
+    "win": 0.3076923076923077,
+    "mean": -0.11792307692307702,
+    "pnl": -38883.0,
+    "losers": 27
+   }
+  },
+  "holdout": {
+   "book": {
+    "n": 21,
+    "win": 0.42857142857142855,
+    "mean": 1.0017142857142858,
+    "pnl": 14306.5,
+    "losers": 12
+   },
+   "kept": {
+    "n": 3,
+    "win": 0.6666666666666666,
+    "mean": 1.890666666666667,
+    "pnl": 5440.5,
+    "losers": 1
+   },
+   "removed": {
+    "n": 18,
+    "win": 0.3888888888888889,
+    "mean": 0.8535555555555556,
+    "pnl": 8866.0,
+    "losers": 11
+   }
+  },
+  "p": 0.855,
+  "score": 0.46373626373626375,
+  "verdict": "REJECTED",
+  "why": "shuffle p=0.855 >= 0.05: the same search finds this in random labels; holdout removed side is profitable (+8,866)"
+ },
+ {
+  "book": "t28_gap_ts",
+  "rule": [
+   [
+    "IF adv_regime_veto",
+    "streak",
+    "<",
+    1.0
+   ],
+   [
+    "IF NOT adv_regime_veto",
+    "abs_delta",
+    "<",
+    0.7415
+   ]
+  ],
+  "features": {
+   "streak": "weather field",
+   "abs_delta": "derived, see agent_5/search.py"
+  },
+  "rule_text": "IF adv_regime_veto: streak < 1 | IF NOT adv_regime_veto: abs_delta < 0.7415",
+  "rule_format": "clauses prefixed 'OR' (keep if either) or 'IF <split>' / 'IF NOT <split>' (piecewise by the split indicator)",
+  "search": "either/or by adv_regime_veto: best single clause per half/all352/5 lines; shuffle n=200",
+  "discovery": {
+   "book": {
+    "n": 74,
+    "win": 0.527027027027027,
+    "mean": 4.335027027027027,
+    "pnl": 342199.0,
+    "losers": 35
+   },
+   "kept": {
+    "n": 43,
+    "win": 0.6744186046511628,
+    "mean": 6.045162790697675,
+    "pnl": 287046.5,
+    "losers": 14
+   },
+   "removed": {
+    "n": 31,
+    "win": 0.3225806451612903,
+    "mean": 1.9629032258064514,
+    "pnl": 55152.5,
+    "losers": 21
+   }
+  },
+  "holdout": {
+   "book": {
+    "n": 21,
+    "win": 0.42857142857142855,
+    "mean": 1.0017142857142858,
+    "pnl": 14306.5,
+    "losers": 12
+   },
+   "kept": {
+    "n": 14,
+    "win": 0.42857142857142855,
+    "mean": 0.8322142857142857,
+    "pnl": 5421.0,
+    "losers": 8
+   },
+   "removed": {
+    "n": 7,
+    "win": 0.42857142857142855,
+    "mean": 1.340714285714286,
+    "pnl": 8885.5,
+    "losers": 4
+   }
+  },
+  "p": 0.58,
+  "score": 0.3435897435897436,
+  "verdict": "REJECTED",
+  "why": "shuffle p=0.580 >= 0.05: the same search finds this in random labels; holdout removed side is profitable (+8,886)"
+ },
+ {
+  "book": "t28_mh15",
+  "rule": [
+   [
+    "hw_book_chg30",
+    "<",
+    -0.009599999999999997
+   ]
+  ],
+  "features": {
+   "hw_book_chg30": "weather field"
+  },
+  "rule_text": "hw_book_chg30 < -0.0096",
+  "rule_format": "[[feature, op, line], ...] AND-combined",
+  "search": "single/base253(196 numeric+text indicators)/5 quantile lines/min_keep 20; shuffle n=200",
+  "discovery": {
+   "book": {
+    "n": 79,
+    "win": 0.5316455696202531,
+    "mean": 3.1286329113924047,
+    "pnl": 263276.0,
+    "losers": 37
+   },
+   "kept": {
+    "n": 24,
+    "win": 0.7916666666666666,
+    "mean": 7.05375,
+    "pnl": 160205.5,
+    "losers": 5
+   },
+   "removed": {
+    "n": 55,
+    "win": 0.41818181818181815,
+    "mean": 1.4158545454545453,
+    "pnl": 103070.5,
+    "losers": 32
+   }
+  },
+  "holdout": {
+   "book": {
+    "n": 21,
+    "win": 0.5238095238095238,
+    "mean": 1.358904761904762,
+    "pnl": 21264.75,
+    "losers": 10
+   },
+   "kept": {
+    "n": 9,
+    "win": 0.4444444444444444,
+    "mean": -1.1743333333333335,
+    "pnl": -11420.5,
+    "losers": 5
+   },
+   "removed": {
+    "n": 12,
+    "win": 0.5833333333333334,
+    "mean": 3.2588333333333335,
+    "pnl": 32685.25,
+    "losers": 5
+   }
+  },
+  "p": 0.71,
+  "score": 0.31724581724581724,
+  "verdict": "REJECTED",
+  "why": "shuffle p=0.710 >= 0.05: the same search finds this in random labels; holdout kept win 44% < book 52%"
+ },
+ {
+  "book": "t28_mh15",
+  "rule": [
+   [
+    "fut_spread",
+    ">=",
+    2.6
+   ],
+   [
+    "oi_own_chg5",
+    "<",
+    -12986.999999999982
+   ]
+  ],
+  "features": {
+   "fut_spread": "weather field",
+   "oi_own_chg5": "weather field"
+  },
+  "rule_text": "fut_spread >= 2.6 AND oi_own_chg5 < -1.299e+04",
+  "rule_format": "[[feature, op, line], ...] AND-combined",
+  "search": "pair/base253/5 lines/min_keep 20/no truncation; shuffle n=200",
+  "discovery": {
+   "book": {
+    "n": 79,
+    "win": 0.5316455696202531,
+    "mean": 3.1286329113924047,
+    "pnl": 263276.0,
+    "losers": 37
+   },
+   "kept": {
+    "n": 43,
+    "win": 0.7441860465116279,
+    "mean": 6.566999999999999,
+    "pnl": 324681.5,
+    "losers": 11
+   },
+   "removed": {
+    "n": 36,
+    "win": 0.2777777777777778,
+    "mean": -0.9783055555555558,
+    "pnl": -61405.5,
+    "losers": 26
+   }
+  },
+  "holdout": {
+   "book": {
+    "n": 21,
+    "win": 0.5238095238095238,
+    "mean": 1.358904761904762,
+    "pnl": 21264.75,
+    "losers": 10
+   },
+   "kept": {
+    "n": 10,
+    "win": 0.6,
+    "mean": 2.4953,
+    "pnl": 19750.25,
+    "losers": 4
+   },
+   "removed": {
+    "n": 11,
+    "win": 0.45454545454545453,
+    "mean": 0.32581818181818195,
+    "pnl": 1514.5,
+    "losers": 6
+   }
+  },
+  "p": 0.43,
+  "score": 0.46460746460746466,
+  "verdict": "REJECTED",
+  "why": "shuffle p=0.430 >= 0.05: the same search finds this in random labels; holdout removed side is profitable (+1,514)"
+ },
+ {
+  "book": "t28_mh15",
+  "rule": [
+   [
+    "vixchg15_over_vix",
+    ">=",
+    -0.0011500862564692352
+   ]
+  ],
+  "features": {
+   "vixchg15_over_vix": "derived, see agent_5/search.py"
+  },
+  "rule_text": "vixchg15_over_vix >= -0.00115",
+  "rule_format": "[[feature, op, line], ...] AND-combined",
+  "search": "single/all351(base+derived)/5 lines/min_keep 20; shuffle n=200",
+  "discovery": {
+   "book": {
+    "n": 79,
+    "win": 0.5316455696202531,
+    "mean": 3.1286329113924047,
+    "pnl": 263276.0,
+    "losers": 37
+   },
+   "kept": {
+    "n": 40,
+    "win": 0.725,
+    "mean": 6.688374999999999,
+    "pnl": 280741.5,
+    "losers": 11
+   },
+   "removed": {
+    "n": 39,
+    "win": 0.3333333333333333,
+    "mean": -0.5223846153846154,
+    "pnl": -17465.5,
+    "losers": 26
+   }
+  },
+  "holdout": {
+   "book": {
+    "n": 21,
+    "win": 0.5238095238095238,
+    "mean": 1.358904761904762,
+    "pnl": 21264.75,
+    "losers": 10
+   },
+   "kept": {
+    "n": 11,
+    "win": 0.6363636363636364,
+    "mean": 3.321636363636364,
+    "pnl": 29929.25,
+    "losers": 4
+   },
+   "removed": {
+    "n": 10,
+    "win": 0.4,
+    "mean": -0.8000999999999998,
+    "pnl": -8664.5,
+    "losers": 6
+   }
+  },
+  "p": 0.145,
+  "score": 0.3931788931788932,
+  "verdict": "REJECTED",
+  "why": "shuffle p=0.145 >= 0.05: the same search finds this in random labels"
+ },
+ {
+  "book": "t28_mh15",
+  "rule": [
+   [
+    "ret_today",
+    "<",
+    81.7288
+   ],
+   [
+    "vixchg15_over_vix",
+    ">=",
+    -0.0011500862564692352
+   ]
+  ],
+  "features": {
+   "ret_today": "weather field",
+   "vixchg15_over_vix": "derived, see agent_5/search.py"
+  },
+  "rule_text": "ret_today < 81.73 AND vixchg15_over_vix >= -0.00115",
+  "rule_format": "[[feature, op, line], ...] AND-combined",
+  "search": "pair/all351(base+derived)/5 lines/min_keep 20/no truncation; shuffle n=200",
+  "discovery": {
+   "book": {
+    "n": 79,
+    "win": 0.5316455696202531,
+    "mean": 3.1286329113924047,
+    "pnl": 263276.0,
+    "losers": 37
+   },
+   "kept": {
+    "n": 35,
+    "win": 0.8285714285714286,
+    "mean": 8.517257142857142,
+    "pnl": 348263.5,
+    "losers": 6
+   },
+   "removed": {
+    "n": 44,
+    "win": 0.29545454545454547,
+    "mean": -1.1577727272727274,
+    "pnl": -84987.5,
+    "losers": 31
+   }
+  },
+  "holdout": {
+   "book": {
+    "n": 21,
+    "win": 0.5238095238095238,
+    "mean": 1.358904761904762,
+    "pnl": 21264.75,
+    "losers": 10
+   },
+   "kept": {
+    "n": 11,
+    "win": 0.6363636363636364,
+    "mean": 3.321636363636364,
+    "pnl": 29929.25,
+    "losers": 4
+   },
+   "removed": {
+    "n": 10,
+    "win": 0.4,
+    "mean": -0.8000999999999998,
+    "pnl": -8664.5,
+    "losers": 6
+   }
+  },
+  "p": 0.12,
+  "score": 0.5283140283140283,
+  "verdict": "REJECTED",
+  "why": "shuffle p=0.120 >= 0.05: the same search finds this in random labels"
+ },
+ {
+  "book": "t28_mh15",
+  "rule": [
+   [
+    "ret_today",
+    "<",
+    81.7288
+   ],
+   [
+    "vixchg15_over_vix",
+    ">=",
+    -0.0011500862564692352
+   ],
+   [
+    "spread_pct",
+    ">=",
+    0.129
+   ]
+  ],
+  "features": {
+   "ret_today": "weather field",
+   "vixchg15_over_vix": "derived, see agent_5/search.py",
+   "spread_pct": "weather field"
+  },
+  "rule_text": "ret_today < 81.73 AND vixchg15_over_vix >= -0.00115 AND spread_pct >= 0.129",
+  "rule_format": "[[feature, op, line], ...] AND-combined",
+  "search": "triple-greedy/all351(base+derived)/5 lines/min_keep 20; shuffle n=200",
+  "discovery": {
+   "book": {
+    "n": 79,
+    "win": 0.5316455696202531,
+    "mean": 3.1286329113924047,
+    "pnl": 263276.0,
+    "losers": 37
+   },
+   "kept": {
+    "n": 31,
+    "win": 0.9032258064516129,
+    "mean": 9.093838709677419,
+    "pnl": 331171.75,
+    "losers": 3
+   },
+   "removed": {
+    "n": 48,
+    "win": 0.2916666666666667,
+    "mean": -0.7238958333333335,
+    "pnl": -67895.75,
+    "losers": 34
+   }
+  },
+  "holdout": {
+   "book": {
+    "n": 21,
+    "win": 0.5238095238095238,
+    "mean": 1.358904761904762,
+    "pnl": 21264.75,
+    "losers": 10
+   },
+   "kept": {
+    "n": 9,
+    "win": 0.6666666666666666,
+    "mean": 4.994555555555555,
+    "pnl": 38242.75,
+    "losers": 3
+   },
+   "removed": {
+    "n": 12,
+    "win": 0.4166666666666667,
+    "mean": -1.3678333333333332,
+    "pnl": -16978.0,
+    "losers": 7
+   }
+  },
+  "p": 0.17,
+  "score": 0.5855855855855856,
+  "verdict": "REJECTED",
+  "why": "shuffle p=0.170 >= 0.05: the same search finds this in random labels"
+ },
+ {
+  "book": "t28_mh15",
+  "rule": [
+   [
+    "ret_today",
+    "<",
+    81.7288
+   ],
+   [
+    "vixchg15_over_vix",
+    ">=",
+    -0.0011500862564692352
+   ]
+  ],
+  "features": {
+   "ret_today": "weather field",
+   "vixchg15_over_vix": "derived, see agent_5/search.py"
+  },
+  "rule_text": "ret_today < 81.73 AND vixchg15_over_vix >= -0.00115",
+  "rule_format": "[[feature, op, line], ...] AND-combined",
+  "search": "pair/all351(base+derived)/5 lines/min_keep 30; shuffle n=200",
+  "discovery": {
+   "book": {
+    "n": 79,
+    "win": 0.5316455696202531,
+    "mean": 3.1286329113924047,
+    "pnl": 263276.0,
+    "losers": 37
+   },
+   "kept": {
+    "n": 35,
+    "win": 0.8285714285714286,
+    "mean": 8.517257142857142,
+    "pnl": 348263.5,
+    "losers": 6
+   },
+   "removed": {
+    "n": 44,
+    "win": 0.29545454545454547,
+    "mean": -1.1577727272727274,
+    "pnl": -84987.5,
+    "losers": 31
+   }
+  },
+  "holdout": {
+   "book": {
+    "n": 21,
+    "win": 0.5238095238095238,
+    "mean": 1.358904761904762,
+    "pnl": 21264.75,
+    "losers": 10
+   },
+   "kept": {
+    "n": 11,
+    "win": 0.6363636363636364,
+    "mean": 3.321636363636364,
+    "pnl": 29929.25,
+    "losers": 4
+   },
+   "removed": {
+    "n": 10,
+    "win": 0.4,
+    "mean": -0.8000999999999998,
+    "pnl": -8664.5,
+    "losers": 6
+   }
+  },
+  "p": 0.11,
+  "score": 0.5283140283140283,
+  "verdict": "REJECTED",
+  "why": "shuffle p=0.110 >= 0.05: the same search finds this in random labels"
+ },
+ {
+  "book": "t28_mh15",
+  "rule": [
+   [
+    "vixchg15_over_vix",
+    ">=",
+    -0.0011500862564692352
+   ]
+  ],
+  "features": {
+   "vixchg15_over_vix": "derived, see agent_5/search.py"
+  },
+  "rule_text": "vixchg15_over_vix >= -0.00115",
+  "rule_format": "[[feature, op, line], ...] AND-combined",
+  "search": "single/derived-only98/9 lines/min_keep 20; shuffle n=200",
+  "discovery": {
+   "book": {
+    "n": 79,
+    "win": 0.5316455696202531,
+    "mean": 3.1286329113924047,
+    "pnl": 263276.0,
+    "losers": 37
+   },
+   "kept": {
+    "n": 40,
+    "win": 0.725,
+    "mean": 6.688374999999999,
+    "pnl": 280741.5,
+    "losers": 11
+   },
+   "removed": {
+    "n": 39,
+    "win": 0.3333333333333333,
+    "mean": -0.5223846153846154,
+    "pnl": -17465.5,
+    "losers": 26
+   }
+  },
+  "holdout": {
+   "book": {
+    "n": 21,
+    "win": 0.5238095238095238,
+    "mean": 1.358904761904762,
+    "pnl": 21264.75,
+    "losers": 10
+   },
+   "kept": {
+    "n": 11,
+    "win": 0.6363636363636364,
+    "mean": 3.321636363636364,
+    "pnl": 29929.25,
+    "losers": 4
+   },
+   "removed": {
+    "n": 10,
+    "win": 0.4,
+    "mean": -0.8000999999999998,
+    "pnl": -8664.5,
+    "losers": 6
+   }
+  },
+  "p": 0.075,
+  "score": 0.3931788931788932,
+  "verdict": "REJECTED",
+  "why": "shuffle p=0.075 >= 0.05: the same search finds this in random labels"
+ },
+ {
+  "book": "t28_mh15",
+  "rule": [
+   [
+    "OR",
+    "basis_chg300",
+    ">=",
+    6.7700000000000005
+   ],
+   [
+    "OR",
+    "vixchg15_over_vix",
+    ">=",
+    -0.0011500862564692352
+   ]
+  ],
+  "features": {
+   "basis_chg300": "weather field",
+   "vixchg15_over_vix": "derived, see agent_5/search.py"
+  },
+  "rule_text": "OR: basis_chg300 >= 6.77 | OR: vixchg15_over_vix >= -0.00115",
+  "rule_format": "clauses prefixed 'OR' (keep if either) or 'IF <split>' / 'IF NOT <split>' (piecewise by the split indicator)",
+  "search": "OR-of-two-clauses/all351/5 lines/min_keep 20; shuffle n=200",
+  "discovery": {
+   "book": {
+    "n": 79,
+    "win": 0.5316455696202531,
+    "mean": 3.1286329113924047,
+    "pnl": 263276.0,
+    "losers": 37
+   },
+   "kept": {
+    "n": 45,
+    "win": 0.7555555555555555,
+    "mean": 8.106555555555556,
+    "pnl": 384098.0,
+    "losers": 11
+   },
+   "removed": {
+    "n": 34,
+    "win": 0.23529411764705882,
+    "mean": -3.459794117647059,
+    "pnl": -120822.0,
+    "losers": 26
+   }
+  },
+  "holdout": {
+   "book": {
+    "n": 21,
+    "win": 0.5238095238095238,
+    "mean": 1.358904761904762,
+    "pnl": 21264.75,
+    "losers": 10
+   },
+   "kept": {
+    "n": 13,
+    "win": 0.5384615384615384,
+    "mean": 1.9435384615384617,
+    "pnl": 19269.25,
+    "losers": 6
+   },
+   "removed": {
+    "n": 8,
+    "win": 0.5,
+    "mean": 0.40887500000000015,
+    "pnl": 1995.5,
+    "losers": 4
+   }
+  },
+  "p": 0.15,
+  "score": 0.5122265122265123,
+  "verdict": "REJECTED",
+  "why": "shuffle p=0.150 >= 0.05: the same search finds this in random labels; holdout removed side is profitable (+1,996)"
+ },
+ {
+  "book": "t28_mh15",
+  "rule": [
+   [
+    "IF regime=DIRECTIONAL",
+    "pos_dir",
+    ">=",
+    0.5443
+   ],
+   [
+    "IF NOT regime=DIRECTIONAL",
+    "moneyness_pts",
+    ">=",
+    51.569999999999716
+   ]
+  ],
+  "features": {
+   "pos_dir": "weather field",
+   "moneyness_pts": "derived, see agent_5/search.py"
+  },
+  "rule_text": "IF regime=DIRECTIONAL: pos_dir >= 0.5443 | IF NOT regime=DIRECTIONAL: moneyness_pts >= 51.57",
+  "rule_format": "clauses prefixed 'OR' (keep if either) or 'IF <split>' / 'IF NOT <split>' (piecewise by the split indicator)",
+  "search": "either/or by regime=DIRECTIONAL: best single clause per half/all351/5 lines; shuffle n=200",
+  "discovery": {
+   "book": {
+    "n": 79,
+    "win": 0.5316455696202531,
+    "mean": 3.1286329113924047,
+    "pnl": 263276.0,
+    "losers": 37
+   },
+   "kept": {
+    "n": 48,
+    "win": 0.7291666666666666,
+    "mean": 6.7764999999999995,
+    "pnl": 371530.25,
+    "losers": 13
+   },
+   "removed": {
+    "n": 31,
+    "win": 0.22580645161290322,
+    "mean": -2.5196774193548386,
+    "pnl": -108254.25,
+    "losers": 24
+   }
+  },
+  "holdout": {
+   "book": {
+    "n": 21,
+    "win": 0.5238095238095238,
+    "mean": 1.358904761904762,
+    "pnl": 21264.75,
+    "losers": 10
+   },
+   "kept": {
+    "n": 15,
+    "win": 0.4666666666666667,
+    "mean": -0.6227333333333332,
+    "pnl": -12762.75,
+    "losers": 8
+   },
+   "removed": {
+    "n": 6,
+    "win": 0.6666666666666666,
+    "mean": 6.313,
+    "pnl": 34027.5,
+    "losers": 2
+   }
+  },
+  "p": 0.49,
+  "score": 0.48198198198198205,
+  "verdict": "REJECTED",
+  "why": "shuffle p=0.490 >= 0.05: the same search finds this in random labels; holdout kept win 47% < book 52%"
+ },
+ {
+  "book": "t28_mh15",
+  "rule": [
+   [
+    "IF is_CE",
+    "atm_iv_chg1",
+    ">=",
+    0.03
+   ],
+   [
+    "IF NOT is_CE",
+    "svi_res",
+    ">=",
+    0.01
+   ]
+  ],
+  "features": {
+   "atm_iv_chg1": "weather field",
+   "svi_res": "weather field"
+  },
+  "rule_text": "IF is_CE: atm_iv_chg1 >= 0.03 | IF NOT is_CE: svi_res >= 0.01",
+  "rule_format": "clauses prefixed 'OR' (keep if either) or 'IF <split>' / 'IF NOT <split>' (piecewise by the split indicator)",
+  "search": "either/or by is_CE: best single clause per half/all351/5 lines; shuffle n=200",
+  "discovery": {
+   "book": {
+    "n": 79,
+    "win": 0.5316455696202531,
+    "mean": 3.1286329113924047,
+    "pnl": 263276.0,
+    "losers": 37
+   },
+   "kept": {
+    "n": 39,
+    "win": 0.7692307692307693,
+    "mean": 7.754205128205128,
+    "pnl": 378319.5,
+    "losers": 9
+   },
+   "removed": {
+    "n": 40,
+    "win": 0.3,
+    "mean": -1.3813,
+    "pnl": -115043.5,
+    "losers": 28
+   }
+  },
+  "holdout": {
+   "book": {
+    "n": 21,
+    "win": 0.5238095238095238,
+    "mean": 1.358904761904762,
+    "pnl": 21264.75,
+    "losers": 10
+   },
+   "kept": {
+    "n": 8,
+    "win": 0.375,
+    "mean": -0.8623749999999996,
+    "pnl": -8053.5,
+    "losers": 5
+   },
+   "removed": {
+    "n": 13,
+    "win": 0.6153846153846154,
+    "mean": 2.725846153846154,
+    "pnl": 29318.25,
+    "losers": 5
+   }
+  },
+  "p": 0.63,
+  "score": 0.4710424710424711,
+  "verdict": "REJECTED",
+  "why": "shuffle p=0.630 >= 0.05: the same search finds this in random labels; holdout kept win 38% < book 52%"
+ },
+ {
+  "book": "t28_mh15",
+  "rule": [
+   [
+    "IF phase_bucket=open30",
+    "e_syn_dev",
+    ">=",
+    -1.44
+   ],
+   [
+    "IF NOT phase_bucket=open30",
+    "vixchg15_over_vix",
+    ">=",
+    -0.0011500862564692352
+   ]
+  ],
+  "features": {
+   "e_syn_dev": "weather field",
+   "vixchg15_over_vix": "derived, see agent_5/search.py"
+  },
+  "rule_text": "IF phase_bucket=open30: e_syn_dev >= -1.44 | IF NOT phase_bucket=open30: vixchg15_over_vix >= -0.00115",
+  "rule_format": "clauses prefixed 'OR' (keep if either) or 'IF <split>' / 'IF NOT <split>' (piecewise by the split indicator)",
+  "search": "either/or by phase_bucket=open30: best single clause per half/all351/5 lines; shuffle n=200",
+  "discovery": {
+   "book": {
+    "n": 79,
+    "win": 0.5316455696202531,
+    "mean": 3.1286329113924047,
+    "pnl": 263276.0,
+    "losers": 37
+   },
+   "kept": {
+    "n": 41,
+    "win": 0.7560975609756098,
+    "mean": 7.867024390243903,
+    "pnl": 337161.5,
+    "losers": 10
+   },
+   "removed": {
+    "n": 38,
+    "win": 0.2894736842105263,
+    "mean": -1.9838421052631579,
+    "pnl": -73885.5,
+    "losers": 27
+   }
+  },
+  "holdout": {
+   "book": {
+    "n": 21,
+    "win": 0.5238095238095238,
+    "mean": 1.358904761904762,
+    "pnl": 21264.75,
+    "losers": 10
+   },
+   "kept": {
+    "n": 10,
+    "win": 0.7,
+    "mean": 4.7054,
+    "pnl": 39939.25,
+    "losers": 3
+   },
+   "removed": {
+    "n": 11,
+    "win": 0.36363636363636365,
+    "mean": -1.6833636363636364,
+    "pnl": -18674.5,
+    "losers": 7
+   }
+  },
+  "p": 0.085,
+  "score": 0.4678249678249678,
+  "verdict": "REJECTED",
+  "why": "shuffle p=0.085 >= 0.05: the same search finds this in random labels"
+ },
+ {
+  "book": "t28_mh15",
+  "rule": [
+   [
+    "IF b_expiry_day",
+    "rv1_over_rv5",
+    "<",
+    0.9056456697426492
+   ],
+   [
+    "IF NOT b_expiry_day",
+    "vixchg15_over_vix",
+    ">=",
+    -0.0011500862564692352
+   ]
+  ],
+  "features": {
+   "rv1_over_rv5": "derived, see agent_5/search.py",
+   "vixchg15_over_vix": "derived, see agent_5/search.py"
+  },
+  "rule_text": "IF b_expiry_day: rv1_over_rv5 < 0.9056 | IF NOT b_expiry_day: vixchg15_over_vix >= -0.00115",
+  "rule_format": "clauses prefixed 'OR' (keep if either) or 'IF <split>' / 'IF NOT <split>' (piecewise by the split indicator)",
+  "search": "either/or by b_expiry_day: best single clause per half/all351/5 lines; shuffle n=200",
+  "discovery": {
+   "book": {
+    "n": 79,
+    "win": 0.5316455696202531,
+    "mean": 3.1286329113924047,
+    "pnl": 263276.0,
+    "losers": 37
+   },
+   "kept": {
+    "n": 36,
+    "win": 0.8055555555555556,
+    "mean": 7.752555555555555,
+    "pnl": 315536.0,
+    "losers": 7
+   },
+   "removed": {
+    "n": 43,
+    "win": 0.3023255813953488,
+    "mean": -0.7425581395348838,
+    "pnl": -52260.0,
+    "losers": 30
+   }
+  },
+  "holdout": {
+   "book": {
+    "n": 21,
+    "win": 0.5238095238095238,
+    "mean": 1.358904761904762,
+    "pnl": 21264.75,
+    "losers": 10
+   },
+   "kept": {
+    "n": 10,
+    "win": 0.6,
+    "mean": 2.6641000000000004,
+    "pnl": 21901.75,
+    "losers": 4
+   },
+   "removed": {
+    "n": 11,
+    "win": 0.45454545454545453,
+    "mean": 0.17236363636363639,
+    "pnl": -637.0,
+    "losers": 6
+   }
+  },
+  "p": 0.365,
+  "score": 0.5012870012870013,
+  "verdict": "REJECTED",
+  "why": "shuffle p=0.365 >= 0.05: the same search finds this in random labels"
+ },
+ {
+  "book": "t28_mh15",
+  "rule": [
+   [
+    "IF adv_regime_veto",
+    "vixchg15_over_vix",
+    ">=",
+    -0.0011500862564692352
+   ],
+   [
+    "IF NOT adv_regime_veto",
+    "abs_delta",
+    "<",
+    0.739
+   ]
+  ],
+  "features": {
+   "vixchg15_over_vix": "derived, see agent_5/search.py",
+   "abs_delta": "derived, see agent_5/search.py"
+  },
+  "rule_text": "IF adv_regime_veto: vixchg15_over_vix >= -0.00115 | IF NOT adv_regime_veto: abs_delta < 0.739",
+  "rule_format": "clauses prefixed 'OR' (keep if either) or 'IF <split>' / 'IF NOT <split>' (piecewise by the split indicator)",
+  "search": "either/or by adv_regime_veto: best single clause per half/all351/5 lines; shuffle n=200",
+  "discovery": {
+   "book": {
+    "n": 79,
+    "win": 0.5316455696202531,
+    "mean": 3.1286329113924047,
+    "pnl": 263276.0,
+    "losers": 37
+   },
+   "kept": {
+    "n": 42,
+    "win": 0.6904761904761905,
+    "mean": 5.897809523809523,
+    "pnl": 254549.75,
+    "losers": 13
+   },
+   "removed": {
+    "n": 37,
+    "win": 0.35135135135135137,
+    "mean": -0.014756756756756834,
+    "pnl": 8726.25,
+    "losers": 24
+   }
+  },
+  "holdout": {
+   "book": {
+    "n": 21,
+    "win": 0.5238095238095238,
+    "mean": 1.358904761904762,
+    "pnl": 21264.75,
+    "losers": 10
+   },
+   "kept": {
+    "n": 12,
+    "win": 0.5833333333333334,
+    "mean": 2.4145833333333333,
+    "pnl": 22909.25,
+    "losers": 5
+   },
+   "removed": {
+    "n": 9,
+    "win": 0.4444444444444444,
+    "mean": -0.04866666666666654,
+    "pnl": -1644.5,
+    "losers": 5
+   }
+  },
+  "p": 0.52,
+  "score": 0.33912483912483915,
+  "verdict": "REJECTED",
+  "why": "shuffle p=0.520 >= 0.05: the same search finds this in random labels"
+ },
+ {
+  "book": "t28_st20",
+  "rule": [
+   [
+    "fut_spread",
+    ">=",
+    2.6
+   ]
+  ],
+  "features": {
+   "fut_spread": "weather field"
+  },
+  "rule_text": "fut_spread >= 2.6",
+  "rule_format": "[[feature, op, line], ...] AND-combined",
+  "search": "single/base254(196 numeric+text indicators)/5 quantile lines/min_keep 20; shuffle n=200",
+  "discovery": {
+   "book": {
+    "n": 74,
+    "win": 0.5405405405405406,
+    "mean": 4.216459459459459,
+    "pnl": 318766.5,
+    "losers": 34
+   },
+   "kept": {
+    "n": 53,
+    "win": 0.6981132075471698,
+    "mean": 7.6626792452830195,
+    "pnl": 432448.25,
+    "losers": 16
+   },
+   "removed": {
+    "n": 21,
+    "win": 0.14285714285714285,
+    "mean": -4.481142857142857,
+    "pnl": -113681.75,
+    "losers": 18
+   }
+  },
+  "holdout": {
+   "book": {
+    "n": 21,
+    "win": 0.42857142857142855,
+    "mean": -0.10414285714285709,
+    "pnl": -5359.25,
+    "losers": 12
+   },
+   "kept": {
+    "n": 13,
+    "win": 0.38461538461538464,
+    "mean": -0.8914615384615383,
+    "pnl": -14654.25,
+    "losers": 8
+   },
+   "removed": {
+    "n": 8,
+    "win": 0.5,
+    "mean": 1.1752500000000001,
+    "pnl": 9295.0,
+    "losers": 4
+   }
+  },
+  "p": 0.01,
+  "score": 0.45441176470588235,
+  "verdict": "REJECTED",
+  "why": "holdout kept win 38% < book 43%"
+ },
+ {
+  "book": "t28_st20",
+  "rule": [
+   [
+    "fut_spread",
+    ">=",
+    2.6
+   ],
+   [
+    "fut_ttq60",
+    ">=",
+    3120.0
+   ]
+  ],
+  "features": {
+   "fut_spread": "weather field",
+   "fut_ttq60": "weather field"
+  },
+  "rule_text": "fut_spread >= 2.6 AND fut_ttq60 >= 3120",
+  "rule_format": "[[feature, op, line], ...] AND-combined",
+  "search": "pair/base254/5 lines/min_keep 20/no truncation; shuffle n=200",
+  "discovery": {
+   "book": {
+    "n": 74,
+    "win": 0.5405405405405406,
+    "mean": 4.216459459459459,
+    "pnl": 318766.5,
+    "losers": 34
+   },
+   "kept": {
+    "n": 48,
+    "win": 0.75,
+    "mean": 8.864520833333334,
+    "pnl": 451145.5,
+    "losers": 12
+   },
+   "removed": {
+    "n": 26,
+    "win": 0.15384615384615385,
+    "mean": -4.364576923076923,
+    "pnl": -132379.0,
+    "losers": 22
+   }
+  },
+  "holdout": {
+   "book": {
+    "n": 21,
+    "win": 0.42857142857142855,
+    "mean": -0.10414285714285709,
+    "pnl": -5359.25,
+    "losers": 12
+   },
+   "kept": {
+    "n": 13,
+    "win": 0.38461538461538464,
+    "mean": -0.8914615384615383,
+    "pnl": -14654.25,
+    "losers": 8
+   },
+   "removed": {
+    "n": 8,
+    "win": 0.5,
+    "mean": 1.1752500000000001,
+    "pnl": 9295.0,
+    "losers": 4
+   }
+  },
+  "p": 0.08,
+  "score": 0.5470588235294118,
+  "verdict": "REJECTED",
+  "why": "shuffle p=0.080 >= 0.05: the same search finds this in random labels; holdout kept win 38% < book 43%"
+ },
+ {
+  "book": "t28_st20",
+  "rule": [
+   [
+    "fut_spread",
+    ">=",
+    2.6
+   ]
+  ],
+  "features": {
+   "fut_spread": "weather field"
+  },
+  "rule_text": "fut_spread >= 2.6",
+  "rule_format": "[[feature, op, line], ...] AND-combined",
+  "search": "single/all352(base+derived)/5 lines/min_keep 20; shuffle n=200",
+  "discovery": {
+   "book": {
+    "n": 74,
+    "win": 0.5405405405405406,
+    "mean": 4.216459459459459,
+    "pnl": 318766.5,
+    "losers": 34
+   },
+   "kept": {
+    "n": 53,
+    "win": 0.6981132075471698,
+    "mean": 7.6626792452830195,
+    "pnl": 432448.25,
+    "losers": 16
+   },
+   "removed": {
+    "n": 21,
+    "win": 0.14285714285714285,
+    "mean": -4.481142857142857,
+    "pnl": -113681.75,
+    "losers": 18
+   }
+  },
+  "holdout": {
+   "book": {
+    "n": 21,
+    "win": 0.42857142857142855,
+    "mean": -0.10414285714285709,
+    "pnl": -5359.25,
+    "losers": 12
+   },
+   "kept": {
+    "n": 13,
+    "win": 0.38461538461538464,
+    "mean": -0.8914615384615383,
+    "pnl": -14654.25,
+    "losers": 8
+   },
+   "removed": {
+    "n": 8,
+    "win": 0.5,
+    "mean": 1.1752500000000001,
+    "pnl": 9295.0,
+    "losers": 4
+   }
+  },
+  "p": 0.02,
+  "score": 0.45441176470588235,
+  "verdict": "REJECTED",
+  "why": "holdout kept win 38% < book 43%"
+ },
+ {
+  "book": "t28_st20",
+  "rule": [
+   [
+    "abs_delta",
+    ">=",
+    0.53
+   ],
+   [
+    "fut_spread",
+    ">=",
+    2.6
+   ]
+  ],
+  "features": {
+   "abs_delta": "derived, see agent_5/search.py",
+   "fut_spread": "weather field"
+  },
+  "rule_text": "abs_delta >= 0.53 AND fut_spread >= 2.6",
+  "rule_format": "[[feature, op, line], ...] AND-combined",
+  "search": "pair/all352(base+derived)/5 lines/min_keep 20/no truncation; shuffle n=200",
+  "discovery": {
+   "book": {
+    "n": 74,
+    "win": 0.5405405405405406,
+    "mean": 4.216459459459459,
+    "pnl": 318766.5,
+    "losers": 34
+   },
+   "kept": {
+    "n": 46,
+    "win": 0.7608695652173914,
+    "mean": 9.661673913043478,
+    "pnl": 466846.25,
+    "losers": 11
+   },
+   "removed": {
+    "n": 28,
+    "win": 0.17857142857142858,
+    "mean": -4.7292499999999995,
+    "pnl": -148079.75,
+    "losers": 23
+   }
+  },
+  "holdout": {
+   "book": {
+    "n": 21,
+    "win": 0.42857142857142855,
+    "mean": -0.10414285714285709,
+    "pnl": -5359.25,
+    "losers": 12
+   },
+   "kept": {
+    "n": 13,
+    "win": 0.38461538461538464,
+    "mean": -0.8914615384615383,
+    "pnl": -14654.25,
+    "losers": 8
+   },
+   "removed": {
+    "n": 8,
+    "win": 0.5,
+    "mean": 1.1752500000000001,
+    "pnl": 9295.0,
+    "losers": 4
+   }
+  },
+  "p": 0.085,
+  "score": 0.5514705882352942,
+  "verdict": "REJECTED",
+  "why": "shuffle p=0.085 >= 0.05: the same search finds this in random labels; holdout kept win 38% < book 43%"
+ },
+ {
+  "book": "t28_st20",
+  "rule": [
+   [
+    "abs_delta",
+    ">=",
+    0.53
+   ],
+   [
+    "fut_spread",
+    ">=",
+    2.6
+   ],
+   [
+    "hw_book_imb_t",
+    ">=",
+    -0.33
+   ]
+  ],
+  "features": {
+   "abs_delta": "derived, see agent_5/search.py",
+   "fut_spread": "weather field",
+   "hw_book_imb_t": "weather field"
+  },
+  "rule_text": "abs_delta >= 0.53 AND fut_spread >= 2.6 AND hw_book_imb_t >= -0.33",
+  "rule_format": "[[feature, op, line], ...] AND-combined",
+  "search": "triple-greedy/all352(base+derived)/5 lines/min_keep 20; shuffle n=200",
+  "discovery": {
+   "book": {
+    "n": 74,
+    "win": 0.5405405405405406,
+    "mean": 4.216459459459459,
+    "pnl": 318766.5,
+    "losers": 34
+   },
+   "kept": {
+    "n": 40,
+    "win": 0.825,
+    "mean": 11.0913,
+    "pnl": 470863.25,
+    "losers": 7
+   },
+   "removed": {
+    "n": 34,
+    "win": 0.20588235294117646,
+    "mean": -3.871588235294117,
+    "pnl": -152096.75,
+    "losers": 27
+   }
+  },
+  "holdout": {
+   "book": {
+    "n": 21,
+    "win": 0.42857142857142855,
+    "mean": -0.10414285714285709,
+    "pnl": -5359.25,
+    "losers": 12
+   },
+   "kept": {
+    "n": 13,
+    "win": 0.38461538461538464,
+    "mean": -0.8914615384615383,
+    "pnl": -14654.25,
+    "losers": 8
+   },
+   "removed": {
+    "n": 8,
+    "win": 0.5,
+    "mean": 1.1752500000000001,
+    "pnl": 9295.0,
+    "losers": 4
+   }
+  },
+  "p": 0.12,
+  "score": 0.6191176470588236,
+  "verdict": "REJECTED",
+  "why": "shuffle p=0.120 >= 0.05: the same search finds this in random labels; holdout kept win 38% < book 43%"
+ },
+ {
+  "book": "t28_st20",
+  "rule": [
+   [
+    "abs_delta",
+    ">=",
+    0.53
+   ],
+   [
+    "fut_spread",
+    ">=",
+    2.6
+   ]
+  ],
+  "features": {
+   "abs_delta": "derived, see agent_5/search.py",
+   "fut_spread": "weather field"
+  },
+  "rule_text": "abs_delta >= 0.53 AND fut_spread >= 2.6",
+  "rule_format": "[[feature, op, line], ...] AND-combined",
+  "search": "pair/all352(base+derived)/5 lines/min_keep 30; shuffle n=200",
+  "discovery": {
+   "book": {
+    "n": 74,
+    "win": 0.5405405405405406,
+    "mean": 4.216459459459459,
+    "pnl": 318766.5,
+    "losers": 34
+   },
+   "kept": {
+    "n": 46,
+    "win": 0.7608695652173914,
+    "mean": 9.661673913043478,
+    "pnl": 466846.25,
+    "losers": 11
+   },
+   "removed": {
+    "n": 28,
+    "win": 0.17857142857142858,
+    "mean": -4.7292499999999995,
+    "pnl": -148079.75,
+    "losers": 23
+   }
+  },
+  "holdout": {
+   "book": {
+    "n": 21,
+    "win": 0.42857142857142855,
+    "mean": -0.10414285714285709,
+    "pnl": -5359.25,
+    "losers": 12
+   },
+   "kept": {
+    "n": 13,
+    "win": 0.38461538461538464,
+    "mean": -0.8914615384615383,
+    "pnl": -14654.25,
+    "losers": 8
+   },
+   "removed": {
+    "n": 8,
+    "win": 0.5,
+    "mean": 1.1752500000000001,
+    "pnl": 9295.0,
+    "losers": 4
+   }
+  },
+  "p": 0.075,
+  "score": 0.5514705882352942,
+  "verdict": "REJECTED",
+  "why": "shuffle p=0.075 >= 0.05: the same search finds this in random labels; holdout kept win 38% < book 43%"
+ },
+ {
+  "book": "t28_st20",
+  "rule": [
+   [
+    "spread_over_prem",
+    ">=",
+    0.01379243666213923
+   ]
+  ],
+  "features": {
+   "spread_over_prem": "derived, see agent_5/search.py"
+  },
+  "rule_text": "spread_over_prem >= 0.01379",
+  "rule_format": "[[feature, op, line], ...] AND-combined",
+  "search": "single/derived-only98/9 lines/min_keep 20; shuffle n=200",
+  "discovery": {
+   "book": {
+    "n": 74,
+    "win": 0.5405405405405406,
+    "mean": 4.216459459459459,
+    "pnl": 318766.5,
+    "losers": 34
+   },
+   "kept": {
+    "n": 59,
+    "win": 0.6779661016949152,
+    "mean": 7.512067796610169,
+    "pnl": 466820.25,
+    "losers": 19
+   },
+   "removed": {
+    "n": 15,
+    "win": 0.0,
+    "mean": -8.746266666666665,
+    "pnl": -148053.75,
+    "losers": 15
+   }
+  },
+  "holdout": {
+   "book": {
+    "n": 21,
+    "win": 0.42857142857142855,
+    "mean": -0.10414285714285709,
+    "pnl": -5359.25,
+    "losers": 12
+   },
+   "kept": {
+    "n": 14,
+    "win": 0.42857142857142855,
+    "mean": -0.3774999999999999,
+    "pnl": -9376.25,
+    "losers": 8
+   },
+   "removed": {
+    "n": 7,
+    "win": 0.42857142857142855,
+    "mean": 0.44257142857142856,
+    "pnl": 4017.0,
+    "losers": 4
+   }
+  },
+  "p": 0.04,
+  "score": 0.4411764705882353,
+  "verdict": "REJECTED",
+  "why": "holdout kept side loses rupees"
+ },
+ {
+  "book": "t28_st20",
+  "rule": [
+   [
+    "OR",
+    "b_ep_with",
+    ">=",
+    1.0
+   ],
+   [
+    "OR",
+    "e_fut_micro_x_dir",
+    ">=",
+    0.3000000000000001
+   ]
+  ],
+  "features": {
+   "b_ep_with": "derived, see agent_5/search.py",
+   "e_fut_micro_x_dir": "derived, see agent_5/search.py"
+  },
+  "rule_text": "OR: b_ep_with >= 1 | OR: e_fut_micro_x_dir >= 0.3",
+  "rule_format": "clauses prefixed 'OR' (keep if either) or 'IF <split>' / 'IF NOT <split>' (piecewise by the split indicator)",
+  "search": "OR-of-two-clauses/all352/5 lines/min_keep 20; shuffle n=200",
+  "discovery": {
+   "book": {
+    "n": 74,
+    "win": 0.5405405405405406,
+    "mean": 4.216459459459459,
+    "pnl": 318766.5,
+    "losers": 34
+   },
+   "kept": {
+    "n": 43,
+    "win": 0.7674418604651163,
+    "mean": 9.048930232558138,
+    "pnl": 428431.25,
+    "losers": 10
+   },
+   "removed": {
+    "n": 31,
+    "win": 0.22580645161290322,
+    "mean": -2.4866451612903226,
+    "pnl": -109664.75,
+    "losers": 24
+   }
+  },
+  "holdout": {
+   "book": {
+    "n": 21,
+    "win": 0.42857142857142855,
+    "mean": -0.10414285714285709,
+    "pnl": -5359.25,
+    "losers": 12
+   },
+   "kept": {
+    "n": 11,
+    "win": 0.45454545454545453,
+    "mean": -2.148090909090909,
+    "pnl": -21453.25,
+    "losers": 6
+   },
+   "removed": {
+    "n": 10,
+    "win": 0.4,
+    "mean": 2.1442,
+    "pnl": 16094.0,
+    "losers": 6
+   }
+  },
+  "p": 0.2,
+  "score": 0.5308823529411766,
+  "verdict": "REJECTED",
+  "why": "shuffle p=0.200 >= 0.05: the same search finds this in random labels; holdout kept side loses rupees"
+ },
+ {
+  "book": "t28_st20",
+  "rule": [
+   [
+    "IF regime=DIRECTIONAL",
+    "pos_dir",
+    ">=",
+    0.5665
+   ],
+   [
+    "IF NOT regime=DIRECTIONAL",
+    "fut_spread",
+    ">=",
+    2.6
+   ]
+  ],
+  "features": {
+   "pos_dir": "weather field",
+   "fut_spread": "weather field"
+  },
+  "rule_text": "IF regime=DIRECTIONAL: pos_dir >= 0.5665 | IF NOT regime=DIRECTIONAL: fut_spread >= 2.6",
+  "rule_format": "clauses prefixed 'OR' (keep if either) or 'IF <split>' / 'IF NOT <split>' (piecewise by the split indicator)",
+  "search": "either/or by regime=DIRECTIONAL: best single clause per half/all352/5 lines; shuffle n=200",
+  "discovery": {
+   "book": {
+    "n": 74,
+    "win": 0.5405405405405406,
+    "mean": 4.216459459459459,
+    "pnl": 318766.5,
+    "losers": 34
+   },
+   "kept": {
+    "n": 45,
+    "win": 0.7555555555555555,
+    "mean": 8.644555555555556,
+    "pnl": 436016.75,
+    "losers": 11
+   },
+   "removed": {
+    "n": 29,
+    "win": 0.20689655172413793,
+    "mean": -2.6547241379310345,
+    "pnl": -117250.25,
+    "losers": 23
+   }
+  },
+  "holdout": {
+   "book": {
+    "n": 21,
+    "win": 0.42857142857142855,
+    "mean": -0.10414285714285709,
+    "pnl": -5359.25,
+    "losers": 12
+   },
+   "kept": {
+    "n": 13,
+    "win": 0.38461538461538464,
+    "mean": -0.9925384615384616,
+    "pnl": -15028.0,
+    "losers": 8
+   },
+   "removed": {
+    "n": 8,
+    "win": 0.5,
+    "mean": 1.3395000000000001,
+    "pnl": 9668.75,
+    "losers": 4
+   }
+  },
+  "p": 0.245,
+  "score": 0.5264705882352941,
+  "verdict": "REJECTED",
+  "why": "shuffle p=0.245 >= 0.05: the same search finds this in random labels; holdout kept win 38% < book 43%"
+ },
+ {
+  "book": "t28_st20",
+  "rule": [
+   [
+    "IF is_CE",
+    "quote_age",
+    ">=",
+    0.44
+   ],
+   [
+    "IF NOT is_CE",
+    "fut_spread",
+    ">=",
+    2.6
+   ]
+  ],
+  "features": {
+   "quote_age": "weather field",
+   "fut_spread": "weather field"
+  },
+  "rule_text": "IF is_CE: quote_age >= 0.44 | IF NOT is_CE: fut_spread >= 2.6",
+  "rule_format": "clauses prefixed 'OR' (keep if either) or 'IF <split>' / 'IF NOT <split>' (piecewise by the split indicator)",
+  "search": "either/or by is_CE: best single clause per half/all352/5 lines; shuffle n=200",
+  "discovery": {
+   "book": {
+    "n": 74,
+    "win": 0.5405405405405406,
+    "mean": 4.216459459459459,
+    "pnl": 318766.5,
+    "losers": 34
+   },
+   "kept": {
+    "n": 43,
+    "win": 0.7906976744186046,
+    "mean": 10.25406976744186,
+    "pnl": 484250.0,
+    "losers": 9
+   },
+   "removed": {
+    "n": 31,
+    "win": 0.1935483870967742,
+    "mean": -4.158290322580646,
+    "pnl": -165483.5,
+    "losers": 25
+   }
+  },
+  "holdout": {
+   "book": {
+    "n": 21,
+    "win": 0.42857142857142855,
+    "mean": -0.10414285714285709,
+    "pnl": -5359.25,
+    "losers": 12
+   },
+   "kept": {
+    "n": 11,
+    "win": 0.45454545454545453,
+    "mean": -1.1296363636363635,
+    "pnl": -10075.0,
+    "losers": 6
+   },
+   "removed": {
+    "n": 10,
+    "win": 0.4,
+    "mean": 1.0239,
+    "pnl": 4715.75,
+    "losers": 6
+   }
+  },
+  "p": 0.05,
+  "score": 0.5852941176470589,
+  "verdict": "REJECTED",
+  "why": "shuffle p=0.050 >= 0.05: the same search finds this in random labels; holdout kept side loses rupees"
+ },
+ {
+  "book": "t28_st20",
+  "rule": [
+   [
+    "IF phase_bucket=open30",
+    "e_syn_dev",
+    ">=",
+    -1.44
+   ],
+   [
+    "IF NOT phase_bucket=open30",
+    "e_fut_micro_x_dir",
+    ">=",
+    0.3000000000000001
+   ]
+  ],
+  "features": {
+   "e_syn_dev": "weather field",
+   "e_fut_micro_x_dir": "derived, see agent_5/search.py"
+  },
+  "rule_text": "IF phase_bucket=open30: e_syn_dev >= -1.44 | IF NOT phase_bucket=open30: e_fut_micro_x_dir >= 0.3",
+  "rule_format": "clauses prefixed 'OR' (keep if either) or 'IF <split>' / 'IF NOT <split>' (piecewise by the split indicator)",
+  "search": "either/or by phase_bucket=open30: best single clause per half/all352/5 lines; shuffle n=200",
+  "discovery": {
+   "book": {
+    "n": 74,
+    "win": 0.5405405405405406,
+    "mean": 4.216459459459459,
+    "pnl": 318766.5,
+    "losers": 34
+   },
+   "kept": {
+    "n": 30,
+    "win": 0.8666666666666667,
+    "mean": 11.827066666666667,
+    "pnl": 392297.75,
+    "losers": 4
+   },
+   "removed": {
+    "n": 44,
+    "win": 0.3181818181818182,
+    "mean": -0.9725909090909091,
+    "pnl": -73531.25,
+    "losers": 30
+   }
+  },
+  "holdout": {
+   "book": {
+    "n": 21,
+    "win": 0.42857142857142855,
+    "mean": -0.10414285714285709,
+    "pnl": -5359.25,
+    "losers": 12
+   },
+   "kept": {
+    "n": 7,
+    "win": 0.5714285714285714,
+    "mean": -0.20628571428571435,
+    "pnl": -3350.75,
+    "losers": 3
+   },
+   "removed": {
+    "n": 14,
+    "win": 0.35714285714285715,
+    "mean": -0.05307142857142847,
+    "pnl": -2008.5,
+    "losers": 9
+   }
+  },
+  "p": 0.01,
+  "score": 0.5323529411764706,
+  "verdict": "REJECTED",
+  "why": "holdout kept side loses rupees"
+ },
+ {
+  "book": "t28_st20",
+  "rule": [
+   [
+    "IF b_expiry_day",
+    "fut_spread",
+    ">=",
+    2.6
+   ],
+   [
+    "IF NOT b_expiry_day",
+    "oi_net_help5",
+    ">=",
+    874315.0
+   ]
+  ],
+  "features": {
+   "fut_spread": "weather field",
+   "oi_net_help5": "weather field"
+  },
+  "rule_text": "IF b_expiry_day: fut_spread >= 2.6 | IF NOT b_expiry_day: oi_net_help5 >= 8.743e+05",
+  "rule_format": "clauses prefixed 'OR' (keep if either) or 'IF <split>' / 'IF NOT <split>' (piecewise by the split indicator)",
+  "search": "either/or by b_expiry_day: best single clause per half/all352/5 lines; shuffle n=200",
+  "discovery": {
+   "book": {
+    "n": 74,
+    "win": 0.5405405405405406,
+    "mean": 4.216459459459459,
+    "pnl": 318766.5,
+    "losers": 34
+   },
+   "kept": {
+    "n": 46,
+    "win": 0.7391304347826086,
+    "mean": 8.272,
+    "pnl": 409366.75,
+    "losers": 12
+   },
+   "removed": {
+    "n": 28,
+    "win": 0.21428571428571427,
+    "mean": -2.446214285714286,
+    "pnl": -90600.25,
+    "losers": 22
+   }
+  },
+  "holdout": {
+   "book": {
+    "n": 21,
+    "win": 0.42857142857142855,
+    "mean": -0.10414285714285709,
+    "pnl": -5359.25,
+    "losers": 12
+   },
+   "kept": {
+    "n": 9,
+    "win": 0.3333333333333333,
+    "mean": -3.095222222222222,
+    "pnl": -26627.25,
+    "losers": 6
+   },
+   "removed": {
+    "n": 12,
+    "win": 0.5,
+    "mean": 2.1391666666666667,
+    "pnl": 21268.0,
+    "losers": 6
+   }
+  },
+  "p": 0.545,
+  "score": 0.4970588235294118,
+  "verdict": "REJECTED",
+  "why": "shuffle p=0.545 >= 0.05: the same search finds this in random labels; holdout kept win 33% < book 43%"
+ },
+ {
+  "book": "t28_st20",
+  "rule": [
+   [
+    "IF adv_regime_veto",
+    "fut_spread",
+    ">=",
+    2.6
+   ],
+   [
+    "IF NOT adv_regime_veto",
+    "abs_delta",
+    "<",
+    0.7415
+   ]
+  ],
+  "features": {
+   "fut_spread": "weather field",
+   "abs_delta": "derived, see agent_5/search.py"
+  },
+  "rule_text": "IF adv_regime_veto: fut_spread >= 2.6 | IF NOT adv_regime_veto: abs_delta < 0.7415",
+  "rule_format": "clauses prefixed 'OR' (keep if either) or 'IF <split>' / 'IF NOT <split>' (piecewise by the split indicator)",
+  "search": "either/or by adv_regime_veto: best single clause per half/all352/5 lines; shuffle n=200",
+  "discovery": {
+   "book": {
+    "n": 74,
+    "win": 0.5405405405405406,
+    "mean": 4.216459459459459,
+    "pnl": 318766.5,
+    "losers": 34
+   },
+   "kept": {
+    "n": 53,
+    "win": 0.6981132075471698,
+    "mean": 7.697207547169811,
+    "pnl": 443885.0,
+    "losers": 16
+   },
+   "removed": {
+    "n": 21,
+    "win": 0.14285714285714285,
+    "mean": -4.5682857142857145,
+    "pnl": -125118.5,
+    "losers": 18
+   }
+  },
+  "holdout": {
+   "book": {
+    "n": 21,
+    "win": 0.42857142857142855,
+    "mean": -0.10414285714285709,
+    "pnl": -5359.25,
+    "losers": 12
+   },
+   "kept": {
+    "n": 12,
+    "win": 0.4166666666666667,
+    "mean": -0.05049999999999988,
+    "pnl": -4631.25,
+    "losers": 7
+   },
+   "removed": {
+    "n": 9,
+    "win": 0.4444444444444444,
+    "mean": -0.17566666666666672,
+    "pnl": -728.0,
+    "losers": 5
+   }
+  },
+  "p": 0.04,
+  "score": 0.45441176470588235,
+  "verdict": "REJECTED",
+  "why": "holdout kept win 42% < book 43%"
+ },
+ {
+  "book": "t28_ts",
+  "rule": [
+   [
+    "oi_own_chg30",
+    ">=",
+    -7605.0
+   ]
+  ],
+  "features": {
+   "oi_own_chg30": "weather field"
+  },
+  "rule_text": "oi_own_chg30 >= -7605",
+  "rule_format": "[[feature, op, line], ...] AND-combined",
+  "search": "single/base252(196 numeric+text indicators)/5 quantile lines/min_keep 20; shuffle n=200",
+  "discovery": {
+   "book": {
+    "n": 76,
+    "win": 0.5131578947368421,
+    "mean": 4.181105263157895,
+    "pnl": 339563.25,
+    "losers": 37
+   },
+   "kept": {
+    "n": 35,
+    "win": 0.7142857142857143,
+    "mean": 8.887771428571428,
+    "pnl": 363333.75,
+    "losers": 10
+   },
+   "removed": {
+    "n": 41,
+    "win": 0.34146341463414637,
+    "mean": 0.16321951219512196,
+    "pnl": -23770.5,
+    "losers": 27
+   }
+  },
+  "holdout": {
+   "book": {
+    "n": 21,
+    "win": 0.42857142857142855,
+    "mean": 1.0017142857142858,
+    "pnl": 14306.5,
+    "losers": 12
+   },
+   "kept": {
+    "n": 5,
+    "win": 0.4,
+    "mean": -3.3128,
+    "pnl": -16178.5,
+    "losers": 3
+   },
+   "removed": {
+    "n": 16,
+    "win": 0.4375,
+    "mean": 2.35,
+    "pnl": 30485.0,
+    "losers": 9
+   }
+  },
+  "p": 0.2,
+  "score": 0.37075537075537074,
+  "verdict": "REJECTED",
+  "why": "shuffle p=0.200 >= 0.05: the same search finds this in random labels; holdout kept win 40% < book 43%"
+ },
+ {
+  "book": "t28_ts",
+  "rule": [
+   [
+    "e_syn_dev",
+    ">=",
+    -1.3899999999999997
+   ],
+   [
+    "oi_own_chg30",
+    ">=",
+    -7605.0
+   ]
+  ],
+  "features": {
+   "e_syn_dev": "weather field",
+   "oi_own_chg30": "weather field"
+  },
+  "rule_text": "e_syn_dev >= -1.39 AND oi_own_chg30 >= -7605",
+  "rule_format": "[[feature, op, line], ...] AND-combined",
+  "search": "pair/base252/5 lines/min_keep 20/no truncation; shuffle n=200",
+  "discovery": {
+   "book": {
+    "n": 76,
+    "win": 0.5131578947368421,
+    "mean": 4.181105263157895,
+    "pnl": 339563.25,
+    "losers": 37
+   },
+   "kept": {
+    "n": 27,
+    "win": 0.8518518518518519,
+    "mean": 11.702925925925925,
+    "pnl": 366223.0,
+    "losers": 4
+   },
+   "removed": {
+    "n": 49,
+    "win": 0.32653061224489793,
+    "mean": 0.036428571428571394,
+    "pnl": -26659.75,
+    "losers": 33
+   }
+  },
+  "holdout": {
+   "book": {
+    "n": 21,
+    "win": 0.42857142857142855,
+    "mean": 1.0017142857142858,
+    "pnl": 14306.5,
+    "losers": 12
+   },
+   "kept": {
+    "n": 4,
+    "win": 0.5,
+    "mean": -2.3177499999999998,
+    "pnl": -9236.5,
+    "losers": 2
+   },
+   "removed": {
+    "n": 17,
+    "win": 0.4117647058823529,
+    "mean": 1.782764705882353,
+    "pnl": 23543.0,
+    "losers": 10
+   }
+  },
+  "p": 0.285,
+  "score": 0.48163548163548164,
+  "verdict": "REJECTED",
+  "why": "shuffle p=0.285 >= 0.05: the same search finds this in random labels; holdout kept side loses rupees"
+ },
+ {
+  "book": "t28_ts",
+  "rule": [
+   [
+    "oi_own_chg30",
+    ">=",
+    -7605.0
+   ]
+  ],
+  "features": {
+   "oi_own_chg30": "weather field"
+  },
+  "rule_text": "oi_own_chg30 >= -7605",
+  "rule_format": "[[feature, op, line], ...] AND-combined",
+  "search": "single/all349(base+derived)/5 lines/min_keep 20; shuffle n=200",
+  "discovery": {
+   "book": {
+    "n": 76,
+    "win": 0.5131578947368421,
+    "mean": 4.181105263157895,
+    "pnl": 339563.25,
+    "losers": 37
+   },
+   "kept": {
+    "n": 35,
+    "win": 0.7142857142857143,
+    "mean": 8.887771428571428,
+    "pnl": 363333.75,
+    "losers": 10
+   },
+   "removed": {
+    "n": 41,
+    "win": 0.34146341463414637,
+    "mean": 0.16321951219512196,
+    "pnl": -23770.5,
+    "losers": 27
+   }
+  },
+  "holdout": {
+   "book": {
+    "n": 21,
+    "win": 0.42857142857142855,
+    "mean": 1.0017142857142858,
+    "pnl": 14306.5,
+    "losers": 12
+   },
+   "kept": {
+    "n": 5,
+    "win": 0.4,
+    "mean": -3.3128,
+    "pnl": -16178.5,
+    "losers": 3
+   },
+   "removed": {
+    "n": 16,
+    "win": 0.4375,
+    "mean": 2.35,
+    "pnl": 30485.0,
+    "losers": 9
+   }
+  },
+  "p": 0.265,
+  "score": 0.37075537075537074,
+  "verdict": "REJECTED",
+  "why": "shuffle p=0.265 >= 0.05: the same search finds this in random labels; holdout kept win 40% < book 43%"
+ },
+ {
+  "book": "t28_ts",
+  "rule": [
+   [
+    "e_syn_dev",
+    ">=",
+    -1.3899999999999997
+   ],
+   [
+    "oi_own_chg30",
+    ">=",
+    -7605.0
+   ]
+  ],
+  "features": {
+   "e_syn_dev": "weather field",
+   "oi_own_chg30": "weather field"
+  },
+  "rule_text": "e_syn_dev >= -1.39 AND oi_own_chg30 >= -7605",
+  "rule_format": "[[feature, op, line], ...] AND-combined",
+  "search": "pair/all349(base+derived)/5 lines/min_keep 20/no truncation; shuffle n=200",
+  "discovery": {
+   "book": {
+    "n": 76,
+    "win": 0.5131578947368421,
+    "mean": 4.181105263157895,
+    "pnl": 339563.25,
+    "losers": 37
+   },
+   "kept": {
+    "n": 27,
+    "win": 0.8518518518518519,
+    "mean": 11.702925925925925,
+    "pnl": 366223.0,
+    "losers": 4
+   },
+   "removed": {
+    "n": 49,
+    "win": 0.32653061224489793,
+    "mean": 0.036428571428571394,
+    "pnl": -26659.75,
+    "losers": 33
+   }
+  },
+  "holdout": {
+   "book": {
+    "n": 21,
+    "win": 0.42857142857142855,
+    "mean": 1.0017142857142858,
+    "pnl": 14306.5,
+    "losers": 12
+   },
+   "kept": {
+    "n": 4,
+    "win": 0.5,
+    "mean": -2.3177499999999998,
+    "pnl": -9236.5,
+    "losers": 2
+   },
+   "removed": {
+    "n": 17,
+    "win": 0.4117647058823529,
+    "mean": 1.782764705882353,
+    "pnl": 23543.0,
+    "losers": 10
+   }
+  },
+  "p": 0.415,
+  "score": 0.48163548163548164,
+  "verdict": "REJECTED",
+  "why": "shuffle p=0.415 >= 0.05: the same search finds this in random labels; holdout kept side loses rupees"
+ },
+ {
+  "book": "t28_ts",
+  "rule": [
+   [
+    "e_syn_dev",
+    ">=",
+    -1.3899999999999997
+   ],
+   [
+    "oi_own_chg30",
+    ">=",
+    -7605.0
+   ],
+   [
+    "bn300",
+    ">=",
+    -0.1825
+   ]
+  ],
+  "features": {
+   "e_syn_dev": "weather field",
+   "oi_own_chg30": "weather field",
+   "bn300": "weather field"
+  },
+  "rule_text": "e_syn_dev >= -1.39 AND oi_own_chg30 >= -7605 AND bn300 >= -0.1825",
+  "rule_format": "[[feature, op, line], ...] AND-combined",
+  "search": "triple-greedy/all349(base+derived)/5 lines/min_keep 20; shuffle n=200",
+  "discovery": {
+   "book": {
+    "n": 76,
+    "win": 0.5131578947368421,
+    "mean": 4.181105263157895,
+    "pnl": 339563.25,
+    "losers": 37
+   },
+   "kept": {
+    "n": 25,
+    "win": 0.92,
+    "mean": 13.28624,
+    "pnl": 382346.25,
+    "losers": 2
+   },
+   "removed": {
+    "n": 51,
+    "win": 0.3137254901960784,
+    "mean": -0.28219607843137257,
+    "pnl": -42783.0,
+    "losers": 35
+   }
+  },
+  "holdout": {
+   "book": {
+    "n": 21,
+    "win": 0.42857142857142855,
+    "mean": 1.0017142857142858,
+    "pnl": 14306.5,
+    "losers": 12
+   },
+   "kept": {
+    "n": 4,
+    "win": 0.5,
+    "mean": -2.3177499999999998,
+    "pnl": -9236.5,
+    "losers": 2
+   },
+   "removed": {
+    "n": 17,
+    "win": 0.4117647058823529,
+    "mean": 1.782764705882353,
+    "pnl": 23543.0,
+    "losers": 10
+   }
+  },
+  "p": 0.57,
+  "score": 0.5356895356895357,
+  "verdict": "REJECTED",
+  "why": "shuffle p=0.570 >= 0.05: the same search finds this in random labels; holdout kept side loses rupees"
+ },
+ {
+  "book": "t28_ts",
+  "rule": [
+   [
+    "fut_spread",
+    ">=",
+    2.6
+   ],
+   [
+    "ret_today",
+    "<",
+    81.799
+   ]
+  ],
+  "features": {
+   "fut_spread": "weather field",
+   "ret_today": "weather field"
+  },
+  "rule_text": "fut_spread >= 2.6 AND ret_today < 81.8",
+  "rule_format": "[[feature, op, line], ...] AND-combined",
+  "search": "pair/all349(base+derived)/5 lines/min_keep 30; shuffle n=200",
+  "discovery": {
+   "book": {
+    "n": 76,
+    "win": 0.5131578947368421,
+    "mean": 4.181105263157895,
+    "pnl": 339563.25,
+    "losers": 37
+   },
+   "kept": {
+    "n": 49,
+    "win": 0.6938775510204082,
+    "mean": 8.13804081632653,
+    "pnl": 459751.5,
+    "losers": 15
+   },
+   "removed": {
+    "n": 27,
+    "win": 0.18518518518518517,
+    "mean": -3.0,
+    "pnl": -120188.25,
+    "losers": 22
+   }
+  },
+  "holdout": {
+   "book": {
+    "n": 21,
+    "win": 0.42857142857142855,
+    "mean": 1.0017142857142858,
+    "pnl": 14306.5,
+    "losers": 12
+   },
+   "kept": {
+    "n": 13,
+    "win": 0.38461538461538464,
+    "mean": 0.42107692307692324,
+    "pnl": -604.5,
+    "losers": 8
+   },
+   "removed": {
+    "n": 8,
+    "win": 0.5,
+    "mean": 1.94525,
+    "pnl": 14911.0,
+    "losers": 4
+   }
+  },
+  "p": 0.605,
+  "score": 0.46638946638946643,
+  "verdict": "REJECTED",
+  "why": "shuffle p=0.605 >= 0.05: the same search finds this in random labels; holdout kept win 38% < book 43%"
+ },
+ {
+  "book": "t28_ts",
+  "rule": [
+   [
+    "spread_over_prem",
+    ">=",
+    0.013006503251625813
+   ]
+  ],
+  "features": {
+   "spread_over_prem": "derived, see agent_5/search.py"
+  },
+  "rule_text": "spread_over_prem >= 0.01301",
+  "rule_format": "[[feature, op, line], ...] AND-combined",
+  "search": "single/derived-only97/9 lines/min_keep 20; shuffle n=200",
+  "discovery": {
+   "book": {
+    "n": 76,
+    "win": 0.5131578947368421,
+    "mean": 4.181105263157895,
+    "pnl": 339563.25,
+    "losers": 37
+   },
+   "kept": {
+    "n": 61,
+    "win": 0.6229508196721312,
+    "mean": 6.7239180327868855,
+    "pnl": 442048.75,
+    "losers": 23
+   },
+   "removed": {
+    "n": 15,
+    "win": 0.06666666666666667,
+    "mean": -6.159666666666666,
+    "pnl": -102485.5,
+    "losers": 14
+   }
+  },
+  "holdout": {
+   "book": {
+    "n": 21,
+    "win": 0.42857142857142855,
+    "mean": 1.0017142857142858,
+    "pnl": 14306.5,
+    "losers": 12
+   },
+   "kept": {
+    "n": 14,
+    "win": 0.42857142857142855,
+    "mean": 0.7210000000000001,
+    "pnl": 3815.5,
+    "losers": 8
+   },
+   "removed": {
+    "n": 7,
+    "win": 0.42857142857142855,
+    "mean": 1.5631428571428572,
+    "pnl": 10491.0,
+    "losers": 4
+   }
+  },
+  "p": 0.23,
+  "score": 0.35273735273735274,
+  "verdict": "REJECTED",
+  "why": "shuffle p=0.230 >= 0.05: the same search finds this in random labels; holdout removed side is profitable (+10,491)"
+ },
+ {
+  "book": "t28_ts",
+  "rule": [
+   [
+    "OR",
+    "e_fut_micro_x_dir",
+    ">=",
+    1.6800000000000002
+   ],
+   [
+    "OR",
+    "oi_own_chg30",
+    ">=",
+    -7605.0
+   ]
+  ],
+  "features": {
+   "e_fut_micro_x_dir": "derived, see agent_5/search.py",
+   "oi_own_chg30": "weather field"
+  },
+  "rule_text": "OR: e_fut_micro_x_dir >= 1.68 | OR: oi_own_chg30 >= -7605",
+  "rule_format": "clauses prefixed 'OR' (keep if either) or 'IF <split>' / 'IF NOT <split>' (piecewise by the split indicator)",
+  "search": "OR-of-two-clauses/all349/5 lines/min_keep 20; shuffle n=200",
+  "discovery": {
+   "book": {
+    "n": 76,
+    "win": 0.5131578947368421,
+    "mean": 4.181105263157895,
+    "pnl": 339563.25,
+    "losers": 37
+   },
+   "kept": {
+    "n": 40,
+    "win": 0.75,
+    "mean": 9.275625,
+    "pnl": 423449.0,
+    "losers": 10
+   },
+   "removed": {
+    "n": 36,
+    "win": 0.25,
+    "mean": -1.4794722222222223,
+    "pnl": -83885.75,
+    "losers": 27
+   }
+  },
+  "holdout": {
+   "book": {
+    "n": 21,
+    "win": 0.42857142857142855,
+    "mean": 1.0017142857142858,
+    "pnl": 14306.5,
+    "losers": 12
+   },
+   "kept": {
+    "n": 6,
+    "win": 0.3333333333333333,
+    "mean": -4.428999999999999,
+    "pnl": -24251.5,
+    "losers": 4
+   },
+   "removed": {
+    "n": 15,
+    "win": 0.4666666666666667,
+    "mean": 3.174,
+    "pnl": 38558.0,
+    "losers": 8
+   }
+  },
+  "p": 0.37,
+  "score": 0.49896049896049893,
+  "verdict": "REJECTED",
+  "why": "shuffle p=0.370 >= 0.05: the same search finds this in random labels; holdout kept win 33% < book 43%"
+ },
+ {
+  "book": "t28_ts",
+  "rule": [
+   [
+    "IF regime=DIRECTIONAL",
+    "oi_own_chg30",
+    ">=",
+    -7605.0
+   ],
+   [
+    "IF NOT regime=DIRECTIONAL",
+    "skew_chg5_x_dir",
+    "<",
+    0.02
+   ]
+  ],
+  "features": {
+   "oi_own_chg30": "weather field",
+   "skew_chg5_x_dir": "derived, see agent_5/search.py"
+  },
+  "rule_text": "IF regime=DIRECTIONAL: oi_own_chg30 >= -7605 | IF NOT regime=DIRECTIONAL: skew_chg5_x_dir < 0.02",
+  "rule_format": "clauses prefixed 'OR' (keep if either) or 'IF <split>' / 'IF NOT <split>' (piecewise by the split indicator)",
+  "search": "either/or by regime=DIRECTIONAL: best single clause per half/all349/5 lines; shuffle n=200",
+  "discovery": {
+   "book": {
+    "n": 76,
+    "win": 0.5131578947368421,
+    "mean": 4.181105263157895,
+    "pnl": 339563.25,
+    "losers": 37
+   },
+   "kept": {
+    "n": 35,
+    "win": 0.7428571428571429,
+    "mean": 8.337485714285714,
+    "pnl": 359459.75,
+    "losers": 9
+   },
+   "removed": {
+    "n": 41,
+    "win": 0.3170731707317073,
+    "mean": 0.6329756097560976,
+    "pnl": -19896.5,
+    "losers": 28
+   }
+  },
+  "holdout": {
+   "book": {
+    "n": 21,
+    "win": 0.42857142857142855,
+    "mean": 1.0017142857142858,
+    "pnl": 14306.5,
+    "losers": 12
+   },
+   "kept": {
+    "n": 7,
+    "win": 0.2857142857142857,
+    "mean": -5.2341428571428565,
+    "pnl": -34508.5,
+    "losers": 5
+   },
+   "removed": {
+    "n": 14,
+    "win": 0.5,
+    "mean": 4.119642857142857,
+    "pnl": 48815.0,
+    "losers": 7
+   }
+  },
+  "p": 0.98,
+  "score": 0.4234234234234235,
+  "verdict": "REJECTED",
+  "why": "shuffle p=0.980 >= 0.05: the same search finds this in random labels; holdout kept win 29% < book 43%"
+ },
+ {
+  "book": "t28_ts",
+  "rule": [
+   [
+    "IF is_CE",
+    "oi_net_help5",
+    ">=",
+    787865.0
+   ],
+   [
+    "IF NOT is_CE",
+    "depth_age_fut",
+    ">=",
+    0.8500000000000001
+   ]
+  ],
+  "features": {
+   "oi_net_help5": "weather field",
+   "depth_age_fut": "weather field"
+  },
+  "rule_text": "IF is_CE: oi_net_help5 >= 7.879e+05 | IF NOT is_CE: depth_age_fut >= 0.85",
+  "rule_format": "clauses prefixed 'OR' (keep if either) or 'IF <split>' / 'IF NOT <split>' (piecewise by the split indicator)",
+  "search": "either/or by is_CE: best single clause per half/all349/5 lines; shuffle n=200",
+  "discovery": {
+   "book": {
+    "n": 76,
+    "win": 0.5131578947368421,
+    "mean": 4.181105263157895,
+    "pnl": 339563.25,
+    "losers": 37
+   },
+   "kept": {
+    "n": 37,
+    "win": 0.7567567567567568,
+    "mean": 9.142324324324324,
+    "pnl": 391751.75,
+    "losers": 9
+   },
+   "removed": {
+    "n": 39,
+    "win": 0.28205128205128205,
+    "mean": -0.5256923076923078,
+    "pnl": -52188.5,
+    "losers": 28
+   }
+  },
+  "holdout": {
+   "book": {
+    "n": 21,
+    "win": 0.42857142857142855,
+    "mean": 1.0017142857142858,
+    "pnl": 14306.5,
+    "losers": 12
+   },
+   "kept": {
+    "n": 9,
+    "win": 0.4444444444444444,
+    "mean": -1.988777777777778,
+    "pnl": -17264.0,
+    "losers": 5
+   },
+   "removed": {
+    "n": 12,
+    "win": 0.4166666666666667,
+    "mean": 3.2445833333333334,
+    "pnl": 31570.5,
+    "losers": 7
+   }
+  },
+  "p": 0.67,
+  "score": 0.47470547470547475,
+  "verdict": "REJECTED",
+  "why": "shuffle p=0.670 >= 0.05: the same search finds this in random labels; holdout kept side loses rupees"
+ },
+ {
+  "book": "t28_ts",
+  "rule": [
+   [
+    "IF phase_bucket=open30",
+    "e_syn_dev",
+    ">=",
+    -1.3899999999999997
+   ],
+   [
+    "IF NOT phase_bucket=open30",
+    "e_fut_micro_x_dir",
+    ">=",
+    0.3400000000000007
+   ]
+  ],
+  "features": {
+   "e_syn_dev": "weather field",
+   "e_fut_micro_x_dir": "derived, see agent_5/search.py"
+  },
+  "rule_text": "IF phase_bucket=open30: e_syn_dev >= -1.39 | IF NOT phase_bucket=open30: e_fut_micro_x_dir >= 0.34",
+  "rule_format": "clauses prefixed 'OR' (keep if either) or 'IF <split>' / 'IF NOT <split>' (piecewise by the split indicator)",
+  "search": "either/or by phase_bucket=open30: best single clause per half/all349/5 lines; shuffle n=200",
+  "discovery": {
+   "book": {
+    "n": 76,
+    "win": 0.5131578947368421,
+    "mean": 4.181105263157895,
+    "pnl": 339563.25,
+    "losers": 37
+   },
+   "kept": {
+    "n": 31,
+    "win": 0.8064516129032258,
+    "mean": 11.309064516129032,
+    "pnl": 411034.0,
+    "losers": 6
+   },
+   "removed": {
+    "n": 45,
+    "win": 0.3111111111111111,
+    "mean": -0.7292666666666666,
+    "pnl": -71470.75,
+    "losers": 31
+   }
+  },
+  "holdout": {
+   "book": {
+    "n": 21,
+    "win": 0.42857142857142855,
+    "mean": 1.0017142857142858,
+    "pnl": 14306.5,
+    "losers": 12
+   },
+   "kept": {
+    "n": 7,
+    "win": 0.5714285714285714,
+    "mean": 0.33099999999999996,
+    "pnl": 1053.0,
+    "losers": 3
+   },
+   "removed": {
+    "n": 14,
+    "win": 0.35714285714285715,
+    "mean": 1.3370714285714287,
+    "pnl": 13253.5,
+    "losers": 9
+   }
+  },
+  "p": 0.08,
+  "score": 0.47886347886347885,
+  "verdict": "REJECTED",
+  "why": "shuffle p=0.080 >= 0.05: the same search finds this in random labels; holdout removed side is profitable (+13,254)"
+ },
+ {
+  "book": "t28_ts",
+  "rule": [
+   [
+    "IF b_expiry_day",
+    "absmv60_minus_thetabe15",
+    ">=",
+    -3.914999999999996
+   ],
+   [
+    "IF NOT b_expiry_day",
+    "oi_other_chg5",
+    ">=",
+    108810.0
+   ]
+  ],
+  "features": {
+   "absmv60_minus_thetabe15": "derived, see agent_5/search.py",
+   "oi_other_chg5": "weather field"
+  },
+  "rule_text": "IF b_expiry_day: absmv60_minus_thetabe15 >= -3.915 | IF NOT b_expiry_day: oi_other_chg5 >= 1.088e+05",
+  "rule_format": "clauses prefixed 'OR' (keep if either) or 'IF <split>' / 'IF NOT <split>' (piecewise by the split indicator)",
+  "search": "either/or by b_expiry_day: best single clause per half/all349/5 lines; shuffle n=200",
+  "discovery": {
+   "book": {
+    "n": 76,
+    "win": 0.5131578947368421,
+    "mean": 4.181105263157895,
+    "pnl": 339563.25,
+    "losers": 37
+   },
+   "kept": {
+    "n": 32,
+    "win": 0.78125,
+    "mean": 9.62425,
+    "pnl": 365631.5,
+    "losers": 7
+   },
+   "removed": {
+    "n": 44,
+    "win": 0.3181818181818182,
+    "mean": 0.22245454545454546,
+    "pnl": -26068.25,
+    "losers": 30
+   }
+  },
+  "holdout": {
+   "book": {
+    "n": 21,
+    "win": 0.42857142857142855,
+    "mean": 1.0017142857142858,
+    "pnl": 14306.5,
+    "losers": 12
+   },
+   "kept": {
+    "n": 9,
+    "win": 0.3333333333333333,
+    "mean": -3.4595555555555553,
+    "pnl": -28288.0,
+    "losers": 6
+   },
+   "removed": {
+    "n": 12,
+    "win": 0.5,
+    "mean": 4.347666666666667,
+    "pnl": 42594.5,
+    "losers": 6
+   }
+  },
+  "p": 0.86,
+  "score": 0.4518364518364519,
+  "verdict": "REJECTED",
+  "why": "shuffle p=0.860 >= 0.05: the same search finds this in random labels; holdout kept win 33% < book 43%"
+ },
+ {
+  "book": "t28_ts",
+  "rule": [
+   [
+    "IF adv_regime_veto",
+    "fut_spread",
+    ">=",
+    2.6
+   ],
+   [
+    "IF NOT adv_regime_veto",
+    "abs_delta",
+    "<",
+    0.7404999999999999
+   ]
+  ],
+  "features": {
+   "fut_spread": "weather field",
+   "abs_delta": "derived, see agent_5/search.py"
+  },
+  "rule_text": "IF adv_regime_veto: fut_spread >= 2.6 | IF NOT adv_regime_veto: abs_delta < 0.7405",
+  "rule_format": "clauses prefixed 'OR' (keep if either) or 'IF <split>' / 'IF NOT <split>' (piecewise by the split indicator)",
+  "search": "either/or by adv_regime_veto: best single clause per half/all349/5 lines; shuffle n=200",
+  "discovery": {
+   "book": {
+    "n": 76,
+    "win": 0.5131578947368421,
+    "mean": 4.181105263157895,
+    "pnl": 339563.25,
+    "losers": 37
+   },
+   "kept": {
+    "n": 54,
+    "win": 0.6296296296296297,
+    "mean": 6.7320925925925925,
+    "pnl": 393464.5,
+    "losers": 20
+   },
+   "removed": {
+    "n": 22,
+    "win": 0.22727272727272727,
+    "mean": -2.0804090909090913,
+    "pnl": -53901.25,
+    "losers": 17
+   }
+  },
+  "holdout": {
+   "book": {
+    "n": 21,
+    "win": 0.42857142857142855,
+    "mean": 1.0017142857142858,
+    "pnl": 14306.5,
+    "losers": 12
+   },
+   "kept": {
+    "n": 12,
+    "win": 0.4166666666666667,
+    "mean": 0.5985833333333335,
+    "pnl": 955.5,
+    "losers": 7
+   },
+   "removed": {
+    "n": 9,
+    "win": 0.4444444444444444,
+    "mean": 1.5392222222222223,
+    "pnl": 13351.0,
+    "losers": 5
+   }
+  },
+  "p": 0.69,
+  "score": 0.3312543312543313,
+  "verdict": "REJECTED",
+  "why": "shuffle p=0.690 >= 0.05: the same search finds this in random labels; holdout kept win 42% < book 43%"
+ },
+ {
+  "book": "t28_tt8",
+  "rule": [
+   [
+    "hw_book_chg30",
+    "<",
+    -0.01
+   ]
+  ],
+  "features": {
+   "hw_book_chg30": "weather field"
+  },
+  "rule_text": "hw_book_chg30 < -0.01",
+  "rule_format": "[[feature, op, line], ...] AND-combined",
+  "search": "single/base254(196 numeric+text indicators)/5 quantile lines/min_keep 20; shuffle n=200",
+  "discovery": {
+   "book": {
+    "n": 79,
+    "win": 0.5949367088607594,
+    "mean": 2.322518987341772,
+    "pnl": 195357.5,
+    "losers": 32
+   },
+   "kept": {
+    "n": 23,
+    "win": 0.8695652173913043,
+    "mean": 5.860608695652173,
+    "pnl": 135417.75,
+    "losers": 3
+   },
+   "removed": {
+    "n": 56,
+    "win": 0.48214285714285715,
+    "mean": 0.8693749999999999,
+    "pnl": 59939.75,
+    "losers": 29
+   }
+  },
+  "holdout": {
+   "book": {
+    "n": 21,
+    "win": 0.5238095238095238,
+    "mean": 1.6816190476190476,
+    "pnl": 27264.25,
+    "losers": 10
+   },
+   "kept": {
+    "n": 8,
+    "win": 0.5,
+    "mean": 0.056624999999999925,
+    "pnl": -1046.5,
+    "losers": 4
+   },
+   "removed": {
+    "n": 13,
+    "win": 0.5384615384615384,
+    "mean": 2.6816153846153843,
+    "pnl": 28310.75,
+    "losers": 6
+   }
+  },
+  "p": 0.505,
+  "score": 0.33178191489361697,
+  "verdict": "REJECTED",
+  "why": "shuffle p=0.505 >= 0.05: the same search finds this in random labels; holdout kept win 50% < book 52%"
+ },
+ {
+  "book": "t28_tt8",
+  "rule": [
+   [
+    "regime_ext_pct",
+    "<",
+    94.2
+   ],
+   [
+    "opt_opp_o=REFILLING",
+    "<",
+    1.0
+   ]
+  ],
+  "features": {
+   "regime_ext_pct": "weather field",
+   "opt_opp_o=REFILLING": "text indicator field=value"
+  },
+  "rule_text": "regime_ext_pct < 94.2 AND opt_opp_o=REFILLING < 1",
+  "rule_format": "[[feature, op, line], ...] AND-combined",
+  "search": "pair/base254/5 lines/min_keep 20/no truncation; shuffle n=200",
+  "discovery": {
+   "book": {
+    "n": 79,
+    "win": 0.5949367088607594,
+    "mean": 2.322518987341772,
+    "pnl": 195357.5,
+    "losers": 32
+   },
+   "kept": {
+    "n": 47,
+    "win": 0.7659574468085106,
+    "mean": 5.41995744680851,
+    "pnl": 290693.0,
+    "losers": 11
+   },
+   "removed": {
+    "n": 32,
+    "win": 0.34375,
+    "mean": -2.22684375,
+    "pnl": -95335.5,
+    "losers": 21
+   }
+  },
+  "holdout": {
+   "book": {
+    "n": 21,
+    "win": 0.5238095238095238,
+    "mean": 1.6816190476190476,
+    "pnl": 27264.25,
+    "losers": 10
+   },
+   "kept": {
+    "n": 17,
+    "win": 0.5294117647058824,
+    "mean": 1.9429999999999998,
+    "pnl": 24856.0,
+    "losers": 8
+   },
+   "removed": {
+    "n": 4,
+    "win": 0.5,
+    "mean": 0.5707499999999999,
+    "pnl": 2408.25,
+    "losers": 2
+   }
+  },
+  "p": 0.885,
+  "score": 0.42220744680851063,
+  "verdict": "REJECTED",
+  "why": "shuffle p=0.885 >= 0.05: the same search finds this in random labels; holdout removed side is profitable (+2,408)"
+ },
+ {
+  "book": "t28_tt8",
+  "rule": [
+   [
+    "hw_book_chg30",
+    "<",
+    -0.01
+   ]
+  ],
+  "features": {
+   "hw_book_chg30": "weather field"
+  },
+  "rule_text": "hw_book_chg30 < -0.01",
+  "rule_format": "[[feature, op, line], ...] AND-combined",
+  "search": "single/all352(base+derived)/5 lines/min_keep 20; shuffle n=200",
+  "discovery": {
+   "book": {
+    "n": 79,
+    "win": 0.5949367088607594,
+    "mean": 2.322518987341772,
+    "pnl": 195357.5,
+    "losers": 32
+   },
+   "kept": {
+    "n": 23,
+    "win": 0.8695652173913043,
+    "mean": 5.860608695652173,
+    "pnl": 135417.75,
+    "losers": 3
+   },
+   "removed": {
+    "n": 56,
+    "win": 0.48214285714285715,
+    "mean": 0.8693749999999999,
+    "pnl": 59939.75,
+    "losers": 29
+   }
+  },
+  "holdout": {
+   "book": {
+    "n": 21,
+    "win": 0.5238095238095238,
+    "mean": 1.6816190476190476,
+    "pnl": 27264.25,
+    "losers": 10
+   },
+   "kept": {
+    "n": 8,
+    "win": 0.5,
+    "mean": 0.056624999999999925,
+    "pnl": -1046.5,
+    "losers": 4
+   },
+   "removed": {
+    "n": 13,
+    "win": 0.5384615384615384,
+    "mean": 2.6816153846153843,
+    "pnl": 28310.75,
+    "losers": 6
+   }
+  },
+  "p": 0.59,
+  "score": 0.33178191489361697,
+  "verdict": "REJECTED",
+  "why": "shuffle p=0.590 >= 0.05: the same search finds this in random labels; holdout kept win 50% < book 52%"
+ },
+ {
+  "book": "t28_tt8",
+  "rule": [
+   [
+    "iv_minus_rv",
+    "<",
+    19.084
+   ],
+   [
+    "opt_opp_o=REFILLING",
+    "<",
+    1.0
+   ]
+  ],
+  "features": {
+   "iv_minus_rv": "derived, see agent_5/search.py",
+   "opt_opp_o=REFILLING": "text indicator field=value"
+  },
+  "rule_text": "iv_minus_rv < 19.08 AND opt_opp_o=REFILLING < 1",
+  "rule_format": "[[feature, op, line], ...] AND-combined",
+  "search": "pair/all352(base+derived)/5 lines/min_keep 20/no truncation; shuffle n=200",
+  "discovery": {
+   "book": {
+    "n": 79,
+    "win": 0.5949367088607594,
+    "mean": 2.322518987341772,
+    "pnl": 195357.5,
+    "losers": 32
+   },
+   "kept": {
+    "n": 35,
+    "win": 0.8571428571428571,
+    "mean": 6.328057142857143,
+    "pnl": 241267.0,
+    "losers": 5
+   },
+   "removed": {
+    "n": 44,
+    "win": 0.38636363636363635,
+    "mean": -0.8637045454545457,
+    "pnl": -45909.5,
+    "losers": 27
+   }
+  },
+  "holdout": {
+   "book": {
+    "n": 21,
+    "win": 0.5238095238095238,
+    "mean": 1.6816190476190476,
+    "pnl": 27264.25,
+    "losers": 10
+   },
+   "kept": {
+    "n": 15,
+    "win": 0.6,
+    "mean": 3.244066666666667,
+    "pnl": 40699.75,
+    "losers": 6
+   },
+   "removed": {
+    "n": 6,
+    "win": 0.3333333333333333,
+    "mean": -2.2245,
+    "pnl": -13435.5,
+    "losers": 4
+   }
+  },
+  "p": 0.5,
+  "score": 0.4820478723404255,
+  "verdict": "REJECTED",
+  "why": "shuffle p=0.500 >= 0.05: the same search finds this in random labels"
+ },
+ {
+  "book": "t28_tt8",
+  "rule": [
+   [
+    "iv_minus_rv",
+    "<",
+    19.084
+   ],
+   [
+    "opt_opp_o=REFILLING",
+    "<",
+    1.0
+   ],
+   [
+    "po_b",
+    "<",
+    37.82
+   ]
+  ],
+  "features": {
+   "iv_minus_rv": "derived, see agent_5/search.py",
+   "opt_opp_o=REFILLING": "text indicator field=value",
+   "po_b": "weather field"
+  },
+  "rule_text": "iv_minus_rv < 19.08 AND opt_opp_o=REFILLING < 1 AND po_b < 37.82",
+  "rule_format": "[[feature, op, line], ...] AND-combined",
+  "search": "triple-greedy/all352(base+derived)/5 lines/min_keep 20; shuffle n=200",
+  "discovery": {
+   "book": {
+    "n": 79,
+    "win": 0.5949367088607594,
+    "mean": 2.322518987341772,
+    "pnl": 195357.5,
+    "losers": 32
+   },
+   "kept": {
+    "n": 32,
+    "win": 0.90625,
+    "mean": 7.33621875,
+    "pnl": 256018.75,
+    "losers": 3
+   },
+   "removed": {
+    "n": 47,
+    "win": 0.3829787234042553,
+    "mean": -1.0910638297872342,
+    "pnl": -60661.25,
+    "losers": 29
+   }
+  },
+  "holdout": {
+   "book": {
+    "n": 21,
+    "win": 0.5238095238095238,
+    "mean": 1.6816190476190476,
+    "pnl": 27264.25,
+    "losers": 10
+   },
+   "kept": {
+    "n": 14,
+    "win": 0.5714285714285714,
+    "mean": 1.952142857142857,
+    "pnl": 21089.25,
+    "losers": 6
+   },
+   "removed": {
+    "n": 7,
+    "win": 0.42857142857142855,
+    "mean": 1.1405714285714286,
+    "pnl": 6175.0,
+    "losers": 4
+   }
+  },
+  "p": 0.73,
+  "score": 0.5232712765957447,
+  "verdict": "REJECTED",
+  "why": "shuffle p=0.730 >= 0.05: the same search finds this in random labels; holdout removed side is profitable (+6,175)"
+ },
+ {
+  "book": "t28_tt8",
+  "rule": [
+   [
+    "iv_minus_rv",
+    "<",
+    19.084
+   ],
+   [
+    "opt_opp_o=REFILLING",
+    "<",
+    1.0
+   ]
+  ],
+  "features": {
+   "iv_minus_rv": "derived, see agent_5/search.py",
+   "opt_opp_o=REFILLING": "text indicator field=value"
+  },
+  "rule_text": "iv_minus_rv < 19.08 AND opt_opp_o=REFILLING < 1",
+  "rule_format": "[[feature, op, line], ...] AND-combined",
+  "search": "pair/all352(base+derived)/5 lines/min_keep 30; shuffle n=200",
+  "discovery": {
+   "book": {
+    "n": 79,
+    "win": 0.5949367088607594,
+    "mean": 2.322518987341772,
+    "pnl": 195357.5,
+    "losers": 32
+   },
+   "kept": {
+    "n": 35,
+    "win": 0.8571428571428571,
+    "mean": 6.328057142857143,
+    "pnl": 241267.0,
+    "losers": 5
+   },
+   "removed": {
+    "n": 44,
+    "win": 0.38636363636363635,
+    "mean": -0.8637045454545457,
+    "pnl": -45909.5,
+    "losers": 27
+   }
+  },
+  "holdout": {
+   "book": {
+    "n": 21,
+    "win": 0.5238095238095238,
+    "mean": 1.6816190476190476,
+    "pnl": 27264.25,
+    "losers": 10
+   },
+   "kept": {
+    "n": 15,
+    "win": 0.6,
+    "mean": 3.244066666666667,
+    "pnl": 40699.75,
+    "losers": 6
+   },
+   "removed": {
+    "n": 6,
+    "win": 0.3333333333333333,
+    "mean": -2.2245,
+    "pnl": -13435.5,
+    "losers": 4
+   }
+  },
+  "p": 0.49,
+  "score": 0.4820478723404255,
+  "verdict": "REJECTED",
+  "why": "shuffle p=0.490 >= 0.05: the same search finds this in random labels"
+ },
+ {
+  "book": "t28_tt8",
+  "rule": [
+   [
+    "vixchg15_over_vix",
+    ">=",
+    -0.0011500862564692352
+   ]
+  ],
+  "features": {
+   "vixchg15_over_vix": "derived, see agent_5/search.py"
+  },
+  "rule_text": "vixchg15_over_vix >= -0.00115",
+  "rule_format": "[[feature, op, line], ...] AND-combined",
+  "search": "single/derived-only98/9 lines/min_keep 20; shuffle n=200",
+  "discovery": {
+   "book": {
+    "n": 79,
+    "win": 0.5949367088607594,
+    "mean": 2.322518987341772,
+    "pnl": 195357.5,
+    "losers": 32
+   },
+   "kept": {
+    "n": 40,
+    "win": 0.75,
+    "mean": 5.566025,
+    "pnl": 239577.0,
+    "losers": 10
+   },
+   "removed": {
+    "n": 39,
+    "win": 0.4358974358974359,
+    "mean": -1.0041538461538462,
+    "pnl": -44219.5,
+    "losers": 22
+   }
+  },
+  "holdout": {
+   "book": {
+    "n": 21,
+    "win": 0.5238095238095238,
+    "mean": 1.6816190476190476,
+    "pnl": 27264.25,
+    "losers": 10
+   },
+   "kept": {
+    "n": 11,
+    "win": 0.6363636363636364,
+    "mean": 4.165454545454545,
+    "pnl": 38034.75,
+    "losers": 4
+   },
+   "removed": {
+    "n": 10,
+    "win": 0.4,
+    "mean": -1.0506,
+    "pnl": -10770.5,
+    "losers": 6
+   }
+  },
+  "p": 0.4,
+  "score": 0.3257978723404255,
+  "verdict": "REJECTED",
+  "why": "shuffle p=0.400 >= 0.05: the same search finds this in random labels"
+ },
+ {
+  "book": "t28_tt8",
+  "rule": [
+   [
+    "OR",
+    "e_fut_micro_x_dir",
+    ">=",
+    0.26200000000000057
+   ],
+   [
+    "OR",
+    "e_rv15",
+    ">=",
+    12.114
+   ]
+  ],
+  "features": {
+   "e_fut_micro_x_dir": "derived, see agent_5/search.py",
+   "e_rv15": "weather field"
+  },
+  "rule_text": "OR: e_fut_micro_x_dir >= 0.262 | OR: e_rv15 >= 12.11",
+  "rule_format": "clauses prefixed 'OR' (keep if either) or 'IF <split>' / 'IF NOT <split>' (piecewise by the split indicator)",
+  "search": "OR-of-two-clauses/all352/5 lines/min_keep 20; shuffle n=200",
+  "discovery": {
+   "book": {
+    "n": 79,
+    "win": 0.5949367088607594,
+    "mean": 2.322518987341772,
+    "pnl": 195357.5,
+    "losers": 32
+   },
+   "kept": {
+    "n": 43,
+    "win": 0.813953488372093,
+    "mean": 6.304790697674418,
+    "pnl": 308480.25,
+    "losers": 8
+   },
+   "removed": {
+    "n": 36,
+    "win": 0.3333333333333333,
+    "mean": -2.4340833333333336,
+    "pnl": -113122.75,
+    "losers": 24
+   }
+  },
+  "holdout": {
+   "book": {
+    "n": 21,
+    "win": 0.5238095238095238,
+    "mean": 1.6816190476190476,
+    "pnl": 27264.25,
+    "losers": 10
+   },
+   "kept": {
+    "n": 8,
+    "win": 0.625,
+    "mean": 1.07925,
+    "pnl": 5482.75,
+    "losers": 3
+   },
+   "removed": {
+    "n": 13,
+    "win": 0.46153846153846156,
+    "mean": 2.0523076923076924,
+    "pnl": 21781.5,
+    "losers": 7
+   }
+  },
+  "p": 0.375,
+  "score": 0.4946808510638298,
+  "verdict": "REJECTED",
+  "why": "shuffle p=0.375 >= 0.05: the same search finds this in random labels; holdout removed side is profitable (+21,782)"
+ },
+ {
+  "book": "t28_tt8",
+  "rule": [
+   [
+    "IF regime=DIRECTIONAL",
+    "pos_dir",
+    ">=",
+    0.5443
+   ],
+   [
+    "IF NOT regime=DIRECTIONAL",
+    "e_basis_dev",
+    ">=",
+    0.85
+   ]
+  ],
+  "features": {
+   "pos_dir": "weather field",
+   "e_basis_dev": "weather field"
+  },
+  "rule_text": "IF regime=DIRECTIONAL: pos_dir >= 0.5443 | IF NOT regime=DIRECTIONAL: e_basis_dev >= 0.85",
+  "rule_format": "clauses prefixed 'OR' (keep if either) or 'IF <split>' / 'IF NOT <split>' (piecewise by the split indicator)",
+  "search": "either/or by regime=DIRECTIONAL: best single clause per half/all352/5 lines; shuffle n=200",
+  "discovery": {
+   "book": {
+    "n": 79,
+    "win": 0.5949367088607594,
+    "mean": 2.322518987341772,
+    "pnl": 195357.5,
+    "losers": 32
+   },
+   "kept": {
+    "n": 43,
+    "win": 0.813953488372093,
+    "mean": 6.627302325581395,
+    "pnl": 321096.75,
+    "losers": 8
+   },
+   "removed": {
+    "n": 36,
+    "win": 0.3333333333333333,
+    "mean": -2.8193055555555557,
+    "pnl": -125739.25,
+    "losers": 24
+   }
+  },
+  "holdout": {
+   "book": {
+    "n": 21,
+    "win": 0.5238095238095238,
+    "mean": 1.6816190476190476,
+    "pnl": 27264.25,
+    "losers": 10
+   },
+   "kept": {
+    "n": 13,
+    "win": 0.5384615384615384,
+    "mean": 1.2313076923076922,
+    "pnl": 12060.75,
+    "losers": 6
+   },
+   "removed": {
+    "n": 8,
+    "win": 0.5,
+    "mean": 2.413375,
+    "pnl": 15203.5,
+    "losers": 4
+   }
+  },
+  "p": 0.465,
+  "score": 0.4946808510638298,
+  "verdict": "REJECTED",
+  "why": "shuffle p=0.465 >= 0.05: the same search finds this in random labels; holdout removed side is profitable (+15,204)"
+ },
+ {
+  "book": "t28_tt8",
+  "rule": [
+   [
+    "IF is_CE",
+    "opt_opp_o=REFILLING",
+    "<",
+    1.0
+   ],
+   [
+    "IF NOT is_CE",
+    "moneyness_pts",
+    ">=",
+    51.569999999999716
+   ]
+  ],
+  "features": {
+   "opt_opp_o=REFILLING": "text indicator field=value",
+   "moneyness_pts": "derived, see agent_5/search.py"
+  },
+  "rule_text": "IF is_CE: opt_opp_o=REFILLING < 1 | IF NOT is_CE: moneyness_pts >= 51.57",
+  "rule_format": "clauses prefixed 'OR' (keep if either) or 'IF <split>' / 'IF NOT <split>' (piecewise by the split indicator)",
+  "search": "either/or by is_CE: best single clause per half/all352/5 lines; shuffle n=200",
+  "discovery": {
+   "book": {
+    "n": 79,
+    "win": 0.5949367088607594,
+    "mean": 2.322518987341772,
+    "pnl": 195357.5,
+    "losers": 32
+   },
+   "kept": {
+    "n": 54,
+    "win": 0.7592592592592593,
+    "mean": 4.973092592592592,
+    "pnl": 312890.5,
+    "losers": 13
+   },
+   "removed": {
+    "n": 25,
+    "win": 0.24,
+    "mean": -3.40272,
+    "pnl": -117533.0,
+    "losers": 19
+   }
+  },
+  "holdout": {
+   "book": {
+    "n": 21,
+    "win": 0.5238095238095238,
+    "mean": 1.6816190476190476,
+    "pnl": 27264.25,
+    "losers": 10
+   },
+   "kept": {
+    "n": 16,
+    "win": 0.4375,
+    "mean": 0.15012499999999993,
+    "pnl": -2856.75,
+    "losers": 9
+   },
+   "removed": {
+    "n": 5,
+    "win": 0.8,
+    "mean": 6.5824,
+    "pnl": 30121.0,
+    "losers": 1
+   }
+  },
+  "p": 0.765,
+  "score": 0.46609042553191493,
+  "verdict": "REJECTED",
+  "why": "shuffle p=0.765 >= 0.05: the same search finds this in random labels; holdout kept win 44% < book 52%"
+ },
+ {
+  "book": "t28_tt8",
+  "rule": [
+   [
+    "IF phase_bucket=open30",
+    "e_syn_dev",
+    ">=",
+    -1.47
+   ],
+   [
+    "IF NOT phase_bucket=open30",
+    "ep_age_s",
+    ">=",
+    109.4
+   ]
+  ],
+  "features": {
+   "e_syn_dev": "weather field",
+   "ep_age_s": "weather field"
+  },
+  "rule_text": "IF phase_bucket=open30: e_syn_dev >= -1.47 | IF NOT phase_bucket=open30: ep_age_s >= 109.4",
+  "rule_format": "clauses prefixed 'OR' (keep if either) or 'IF <split>' / 'IF NOT <split>' (piecewise by the split indicator)",
+  "search": "either/or by phase_bucket=open30: best single clause per half/all352/5 lines; shuffle n=200",
+  "discovery": {
+   "book": {
+    "n": 79,
+    "win": 0.5949367088607594,
+    "mean": 2.322518987341772,
+    "pnl": 195357.5,
+    "losers": 32
+   },
+   "kept": {
+    "n": 37,
+    "win": 0.8378378378378378,
+    "mean": 6.677810810810811,
+    "pnl": 265170.75,
+    "losers": 6
+   },
+   "removed": {
+    "n": 42,
+    "win": 0.38095238095238093,
+    "mean": -1.5142857142857145,
+    "pnl": -69813.25,
+    "losers": 26
+   }
+  },
+  "holdout": {
+   "book": {
+    "n": 21,
+    "win": 0.5238095238095238,
+    "mean": 1.6816190476190476,
+    "pnl": 27264.25,
+    "losers": 10
+   },
+   "kept": {
+    "n": 9,
+    "win": 0.4444444444444444,
+    "mean": 1.1529999999999998,
+    "pnl": 5430.75,
+    "losers": 5
+   },
+   "removed": {
+    "n": 12,
+    "win": 0.5833333333333334,
+    "mean": 2.0780833333333333,
+    "pnl": 21833.5,
+    "losers": 5
+   }
+  },
+  "p": 0.11,
+  "score": 0.4720744680851064,
+  "verdict": "REJECTED",
+  "why": "shuffle p=0.110 >= 0.05: the same search finds this in random labels; holdout kept win 44% < book 52%"
+ },
+ {
+  "book": "t28_tt8",
+  "rule": [
+   [
+    "IF b_expiry_day",
+    "rv1_over_rv5",
+    "<",
+    0.9056456697426492
+   ],
+   [
+    "IF NOT b_expiry_day",
+    "opt_opp_o=REFILLING",
+    "<",
+    1.0
+   ]
+  ],
+  "features": {
+   "rv1_over_rv5": "derived, see agent_5/search.py",
+   "opt_opp_o=REFILLING": "text indicator field=value"
+  },
+  "rule_text": "IF b_expiry_day: rv1_over_rv5 < 0.9056 | IF NOT b_expiry_day: opt_opp_o=REFILLING < 1",
+  "rule_format": "clauses prefixed 'OR' (keep if either) or 'IF <split>' / 'IF NOT <split>' (piecewise by the split indicator)",
+  "search": "either/or by b_expiry_day: best single clause per half/all352/5 lines; shuffle n=200",
+  "discovery": {
+   "book": {
+    "n": 79,
+    "win": 0.5949367088607594,
+    "mean": 2.322518987341772,
+    "pnl": 195357.5,
+    "losers": 32
+   },
+   "kept": {
+    "n": 40,
+    "win": 0.825,
+    "mean": 6.0694,
+    "pnl": 273620.75,
+    "losers": 7
+   },
+   "removed": {
+    "n": 39,
+    "win": 0.358974358974359,
+    "mean": -1.5204358974358976,
+    "pnl": -78263.25,
+    "losers": 25
+   }
+  },
+  "holdout": {
+   "book": {
+    "n": 21,
+    "win": 0.5238095238095238,
+    "mean": 1.6816190476190476,
+    "pnl": 27264.25,
+    "losers": 10
+   },
+   "kept": {
+    "n": 11,
+    "win": 0.7272727272727273,
+    "mean": 4.877090909090909,
+    "pnl": 45834.75,
+    "losers": 3
+   },
+   "removed": {
+    "n": 10,
+    "win": 0.3,
+    "mean": -1.8334,
+    "pnl": -18570.5,
+    "losers": 7
+   }
+  },
+  "p": 0.52,
+  "score": 0.4833776595744681,
+  "verdict": "REJECTED",
+  "why": "shuffle p=0.520 >= 0.05: the same search finds this in random labels"
+ },
+ {
+  "book": "t28_tt8",
+  "rule": [
+   [
+    "IF adv_regime_veto",
+    "hw_book_chg30",
+    "<",
+    -0.01
+   ],
+   [
+    "IF NOT adv_regime_veto",
+    "abs_delta",
+    "<",
+    0.739
+   ]
+  ],
+  "features": {
+   "hw_book_chg30": "weather field",
+   "abs_delta": "derived, see agent_5/search.py"
+  },
+  "rule_text": "IF adv_regime_veto: hw_book_chg30 < -0.01 | IF NOT adv_regime_veto: abs_delta < 0.739",
+  "rule_format": "clauses prefixed 'OR' (keep if either) or 'IF <split>' / 'IF NOT <split>' (piecewise by the split indicator)",
+  "search": "either/or by adv_regime_veto: best single clause per half/all352/5 lines; shuffle n=200",
+  "discovery": {
+   "book": {
+    "n": 79,
+    "win": 0.5949367088607594,
+    "mean": 2.322518987341772,
+    "pnl": 195357.5,
+    "losers": 32
+   },
+   "kept": {
+    "n": 28,
+    "win": 0.8214285714285714,
+    "mean": 5.9149642857142855,
+    "pnl": 167579.75,
+    "losers": 5
+   },
+   "removed": {
+    "n": 51,
+    "win": 0.47058823529411764,
+    "mean": 0.3501960784313724,
+    "pnl": 27777.75,
+    "losers": 27
+   }
+  },
+  "holdout": {
+   "book": {
+    "n": 21,
+    "win": 0.5238095238095238,
+    "mean": 1.6816190476190476,
+    "pnl": 27264.25,
+    "losers": 10
+   },
+   "kept": {
+    "n": 10,
+    "win": 0.6,
+    "mean": 0.5373,
+    "pnl": 3175.25,
+    "losers": 4
+   },
+   "removed": {
+    "n": 11,
+    "win": 0.45454545454545453,
+    "mean": 2.7219090909090906,
+    "pnl": 24089.0,
+    "losers": 6
+   }
+  },
+  "p": 0.685,
+  "score": 0.3331117021276596,
+  "verdict": "REJECTED",
+  "why": "shuffle p=0.685 >= 0.05: the same search finds this in random labels; holdout removed side is profitable (+24,089)"
+ },
+ {
+  "book": "t28_cheapK",
+  "rule": [
+   [
+    "basis_chg300",
+    ">=",
+    0.4
+   ]
+  ],
+  "features": {
+   "basis_chg300": "weather field"
+  },
+  "rule_text": "basis_chg300 >= 0.4",
+  "rule_format": "[[feature, op, line], ...] AND-combined",
+  "search": "single/base253(196 numeric+text indicators)/5 quantile lines/min_keep 20; shuffle n=200",
+  "discovery": {
+   "book": {
+    "n": 74,
+    "win": 0.5540540540540541,
+    "mean": 4.573324324324324,
+    "pnl": 388888.5,
+    "losers": 33
+   },
+   "kept": {
+    "n": 37,
+    "win": 0.7027027027027027,
+    "mean": 8.524189189189189,
+    "pnl": 414576.5,
+    "losers": 11
+   },
+   "removed": {
+    "n": 37,
+    "win": 0.40540540540540543,
+    "mean": 0.6224594594594596,
+    "pnl": -25688.0,
+    "losers": 22
+   }
+  },
+  "holdout": {
+   "book": {
+    "n": 20,
+    "win": 0.4,
+    "mean": 1.5054000000000003,
+    "pnl": 22161.75,
+    "losers": 12
+   },
+   "kept": {
+    "n": 10,
+    "win": 0.3,
+    "mean": -3.2131999999999996,
+    "pnl": -31850.0,
+    "losers": 7
+   },
+   "removed": {
+    "n": 10,
+    "win": 0.5,
+    "mean": 6.224,
+    "pnl": 54011.75,
+    "losers": 5
+   }
+  },
+  "p": 0.9,
+  "score": 0.30081300813008127,
+  "verdict": "REJECTED",
+  "why": "shuffle p=0.900 >= 0.05: the same search finds this in random labels; holdout kept win 30% < book 40%"
+ },
+ {
+  "book": "t28_cheapK",
+  "rule": [
+   [
+    "fut_spread",
+    ">=",
+    2.6
+   ],
+   [
+    "ret_today",
+    "<",
+    104.7633
+   ]
+  ],
+  "features": {
+   "fut_spread": "weather field",
+   "ret_today": "weather field"
+  },
+  "rule_text": "fut_spread >= 2.6 AND ret_today < 104.8",
+  "rule_format": "[[feature, op, line], ...] AND-combined",
+  "search": "pair/base253/5 lines/min_keep 20/no truncation; shuffle n=200",
+  "discovery": {
+   "book": {
+    "n": 74,
+    "win": 0.5540540540540541,
+    "mean": 4.573324324324324,
+    "pnl": 388888.5,
+    "losers": 33
+   },
+   "kept": {
+    "n": 49,
+    "win": 0.7142857142857143,
+    "mean": 8.518877551020408,
+    "pnl": 517088.0,
+    "losers": 14
+   },
+   "removed": {
+    "n": 25,
+    "win": 0.24,
+    "mean": -3.15996,
+    "pnl": -128199.5,
+    "losers": 19
+   }
+  },
+  "holdout": {
+   "book": {
+    "n": 20,
+    "win": 0.4,
+    "mean": 1.5054000000000003,
+    "pnl": 22161.75,
+    "losers": 12
+   },
+   "kept": {
+    "n": 12,
+    "win": 0.3333333333333333,
+    "mean": 1.1133333333333337,
+    "pnl": 6535.75,
+    "losers": 8
+   },
+   "removed": {
+    "n": 8,
+    "win": 0.5,
+    "mean": 2.0934999999999997,
+    "pnl": 15626.0,
+    "losers": 4
+   }
+  },
+  "p": 0.94,
+  "score": 0.42941611234294164,
+  "verdict": "REJECTED",
+  "why": "shuffle p=0.940 >= 0.05: the same search finds this in random labels; holdout kept win 33% < book 40%"
+ },
+ {
+  "book": "t28_cheapK",
+  "rule": [
+   [
+    "basis_chg300",
+    ">=",
+    0.4
+   ]
+  ],
+  "features": {
+   "basis_chg300": "weather field"
+  },
+  "rule_text": "basis_chg300 >= 0.4",
+  "rule_format": "[[feature, op, line], ...] AND-combined",
+  "search": "single/all350(base+derived)/5 lines/min_keep 20; shuffle n=200",
+  "discovery": {
+   "book": {
+    "n": 74,
+    "win": 0.5540540540540541,
+    "mean": 4.573324324324324,
+    "pnl": 388888.5,
+    "losers": 33
+   },
+   "kept": {
+    "n": 37,
+    "win": 0.7027027027027027,
+    "mean": 8.524189189189189,
+    "pnl": 414576.5,
+    "losers": 11
+   },
+   "removed": {
+    "n": 37,
+    "win": 0.40540540540540543,
+    "mean": 0.6224594594594596,
+    "pnl": -25688.0,
+    "losers": 22
+   }
+  },
+  "holdout": {
+   "book": {
+    "n": 20,
+    "win": 0.4,
+    "mean": 1.5054000000000003,
+    "pnl": 22161.75,
+    "losers": 12
+   },
+   "kept": {
+    "n": 10,
+    "win": 0.3,
+    "mean": -3.2131999999999996,
+    "pnl": -31850.0,
+    "losers": 7
+   },
+   "removed": {
+    "n": 10,
+    "win": 0.5,
+    "mean": 6.224,
+    "pnl": 54011.75,
+    "losers": 5
+   }
+  },
+  "p": 0.95,
+  "score": 0.30081300813008127,
+  "verdict": "REJECTED",
+  "why": "shuffle p=0.950 >= 0.05: the same search finds this in random labels; holdout kept win 30% < book 40%"
+ },
+ {
+  "book": "t28_cheapK",
+  "rule": [
+   [
+    "accel30_x_dir",
+    ">=",
+    -1.055
+   ],
+   [
+    "swing_behind",
+    ">=",
+    25.085
+   ]
+  ],
+  "features": {
+   "accel30_x_dir": "derived, see agent_5/search.py",
+   "swing_behind": "weather field"
+  },
+  "rule_text": "accel30_x_dir >= -1.055 AND swing_behind >= 25.09",
+  "rule_format": "[[feature, op, line], ...] AND-combined",
+  "search": "pair/all350(base+derived)/5 lines/min_keep 20/no truncation; shuffle n=200",
+  "discovery": {
+   "book": {
+    "n": 74,
+    "win": 0.5540540540540541,
+    "mean": 4.573324324324324,
+    "pnl": 388888.5,
+    "losers": 33
+   },
+   "kept": {
+    "n": 35,
+    "win": 0.8,
+    "mean": 11.529457142857144,
+    "pnl": 526623.5,
+    "losers": 7
+   },
+   "removed": {
+    "n": 39,
+    "win": 0.3333333333333333,
+    "mean": -1.669358974358974,
+    "pnl": -137735.0,
+    "losers": 26
+   }
+  },
+  "holdout": {
+   "book": {
+    "n": 20,
+    "win": 0.4,
+    "mean": 1.5054000000000003,
+    "pnl": 22161.75,
+    "losers": 12
+   },
+   "kept": {
+    "n": 7,
+    "win": 0.5714285714285714,
+    "mean": 3.6892857142857145,
+    "pnl": 24118.25,
+    "losers": 3
+   },
+   "removed": {
+    "n": 13,
+    "win": 0.3076923076923077,
+    "mean": 0.3294615384615386,
+    "pnl": -1956.5,
+    "losers": 9
+   }
+  },
+  "p": 0.77,
+  "score": 0.4708056171470805,
+  "verdict": "REJECTED",
+  "why": "shuffle p=0.770 >= 0.05: the same search finds this in random labels"
+ },
+ {
+  "book": "t28_cheapK",
+  "rule": [
+   [
+    "accel30_x_dir",
+    ">=",
+    -1.055
+   ],
+   [
+    "swing_behind",
+    ">=",
+    25.085
+   ],
+   [
+    "fut_imb_t_chg30",
+    ">=",
+    -0.044399999999999995
+   ]
+  ],
+  "features": {
+   "accel30_x_dir": "derived, see agent_5/search.py",
+   "swing_behind": "weather field",
+   "fut_imb_t_chg30": "weather field"
+  },
+  "rule_text": "accel30_x_dir >= -1.055 AND swing_behind >= 25.09 AND fut_imb_t_chg30 >= -0.0444",
+  "rule_format": "[[feature, op, line], ...] AND-combined",
+  "search": "triple-greedy/all350(base+derived)/5 lines/min_keep 20; shuffle n=200",
+  "discovery": {
+   "book": {
+    "n": 74,
+    "win": 0.5540540540540541,
+    "mean": 4.573324324324324,
+    "pnl": 388888.5,
+    "losers": 33
+   },
+   "kept": {
+    "n": 29,
+    "win": 0.896551724137931,
+    "mean": 12.755241379310345,
+    "pnl": 490681.75,
+    "losers": 3
+   },
+   "removed": {
+    "n": 45,
+    "win": 0.3333333333333333,
+    "mean": -0.6994666666666667,
+    "pnl": -101793.25,
+    "losers": 30
+   }
+  },
+  "holdout": {
+   "book": {
+    "n": 20,
+    "win": 0.4,
+    "mean": 1.5054000000000003,
+    "pnl": 22161.75,
+    "losers": 12
+   },
+   "kept": {
+    "n": 7,
+    "win": 0.5714285714285714,
+    "mean": 3.6892857142857145,
+    "pnl": 24118.25,
+    "losers": 3
+   },
+   "removed": {
+    "n": 13,
+    "win": 0.3076923076923077,
+    "mean": 0.3294615384615386,
+    "pnl": -1956.5,
+    "losers": 9
+   }
+  },
+  "p": 0.73,
+  "score": 0.5432372505543237,
+  "verdict": "REJECTED",
+  "why": "shuffle p=0.730 >= 0.05: the same search finds this in random labels"
+ },
+ {
+  "book": "t28_cheapK",
+  "rule": [
+   [
+    "accel30_x_dir",
+    ">=",
+    -1.055
+   ],
+   [
+    "swing_behind",
+    ">=",
+    25.085
+   ]
+  ],
+  "features": {
+   "accel30_x_dir": "derived, see agent_5/search.py",
+   "swing_behind": "weather field"
+  },
+  "rule_text": "accel30_x_dir >= -1.055 AND swing_behind >= 25.09",
+  "rule_format": "[[feature, op, line], ...] AND-combined",
+  "search": "pair/all350(base+derived)/5 lines/min_keep 30; shuffle n=200",
+  "discovery": {
+   "book": {
+    "n": 74,
+    "win": 0.5540540540540541,
+    "mean": 4.573324324324324,
+    "pnl": 388888.5,
+    "losers": 33
+   },
+   "kept": {
+    "n": 35,
+    "win": 0.8,
+    "mean": 11.529457142857144,
+    "pnl": 526623.5,
+    "losers": 7
+   },
+   "removed": {
+    "n": 39,
+    "win": 0.3333333333333333,
+    "mean": -1.669358974358974,
+    "pnl": -137735.0,
+    "losers": 26
+   }
+  },
+  "holdout": {
+   "book": {
+    "n": 20,
+    "win": 0.4,
+    "mean": 1.5054000000000003,
+    "pnl": 22161.75,
+    "losers": 12
+   },
+   "kept": {
+    "n": 7,
+    "win": 0.5714285714285714,
+    "mean": 3.6892857142857145,
+    "pnl": 24118.25,
+    "losers": 3
+   },
+   "removed": {
+    "n": 13,
+    "win": 0.3076923076923077,
+    "mean": 0.3294615384615386,
+    "pnl": -1956.5,
+    "losers": 9
+   }
+  },
+  "p": 0.75,
+  "score": 0.4708056171470805,
+  "verdict": "REJECTED",
+  "why": "shuffle p=0.750 >= 0.05: the same search finds this in random labels"
+ },
+ {
+  "book": "t28_cheapK",
+  "rule": [
+   [
+    "spread_over_prem",
+    ">=",
+    0.013045738555552288
+   ]
+  ],
+  "features": {
+   "spread_over_prem": "derived, see agent_5/search.py"
+  },
+  "rule_text": "spread_over_prem >= 0.01305",
+  "rule_format": "[[feature, op, line], ...] AND-combined",
+  "search": "single/derived-only97/9 lines/min_keep 20; shuffle n=200",
+  "discovery": {
+   "book": {
+    "n": 74,
+    "win": 0.5540540540540541,
+    "mean": 4.573324324324324,
+    "pnl": 388888.5,
+    "losers": 33
+   },
+   "kept": {
+    "n": 59,
+    "win": 0.6610169491525424,
+    "mean": 7.626983050847458,
+    "pnl": 518215.75,
+    "losers": 20
+   },
+   "removed": {
+    "n": 15,
+    "win": 0.13333333333333333,
+    "mean": -7.437733333333333,
+    "pnl": -129327.25,
+    "losers": 13
+   }
+  },
+  "holdout": {
+   "book": {
+    "n": 20,
+    "win": 0.4,
+    "mean": 1.5054000000000003,
+    "pnl": 22161.75,
+    "losers": 12
+   },
+   "kept": {
+    "n": 13,
+    "win": 0.38461538461538464,
+    "mean": 1.2793076923076927,
+    "pnl": 10023.0,
+    "losers": 8
+   },
+   "removed": {
+    "n": 7,
+    "win": 0.42857142857142855,
+    "mean": 1.9252857142857143,
+    "pnl": 12138.75,
+    "losers": 4
+   }
+  },
+  "p": 0.465,
+  "score": 0.3451589061345159,
+  "verdict": "REJECTED",
+  "why": "shuffle p=0.465 >= 0.05: the same search finds this in random labels; holdout kept win 38% < book 40%"
+ },
+ {
+  "book": "t28_cheapK",
+  "rule": [
+   [
+    "OR",
+    "agg_net",
+    ">=",
+    0.08530000000000001
+   ],
+   [
+    "OR",
+    "vixchg15_over_vix",
+    ">=",
+    -0.0011731292526365317
+   ]
+  ],
+  "features": {
+   "agg_net": "weather field",
+   "vixchg15_over_vix": "derived, see agent_5/search.py"
+  },
+  "rule_text": "OR: agg_net >= 0.0853 | OR: vixchg15_over_vix >= -0.001173",
+  "rule_format": "clauses prefixed 'OR' (keep if either) or 'IF <split>' / 'IF NOT <split>' (piecewise by the split indicator)",
+  "search": "OR-of-two-clauses/all350/5 lines/min_keep 20; shuffle n=200",
+  "discovery": {
+   "book": {
+    "n": 74,
+    "win": 0.5540540540540541,
+    "mean": 4.573324324324324,
+    "pnl": 388888.5,
+    "losers": 33
+   },
+   "kept": {
+    "n": 48,
+    "win": 0.7291666666666666,
+    "mean": 8.285104166666667,
+    "pnl": 466433.5,
+    "losers": 13
+   },
+   "removed": {
+    "n": 26,
+    "win": 0.23076923076923078,
+    "mean": -2.2791923076923077,
+    "pnl": -77545.0,
+    "losers": 20
+   }
+  },
+  "holdout": {
+   "book": {
+    "n": 20,
+    "win": 0.4,
+    "mean": 1.5054000000000003,
+    "pnl": 22161.75,
+    "losers": 12
+   },
+   "kept": {
+    "n": 13,
+    "win": 0.38461538461538464,
+    "mean": 1.481846153846154,
+    "pnl": 14241.5,
+    "losers": 8
+   },
+   "removed": {
+    "n": 7,
+    "win": 0.42857142857142855,
+    "mean": 1.5491428571428574,
+    "pnl": 7920.25,
+    "losers": 4
+   }
+  },
+  "p": 0.845,
+  "score": 0.4597191426459719,
+  "verdict": "REJECTED",
+  "why": "shuffle p=0.845 >= 0.05: the same search finds this in random labels; holdout kept win 38% < book 40%"
+ },
+ {
+  "book": "t28_cheapK",
+  "rule": [
+   [
+    "IF regime=DIRECTIONAL",
+    "pos_dir",
+    ">=",
+    0.5665
+   ],
+   [
+    "IF NOT regime=DIRECTIONAL",
+    "e_basis_dev",
+    ">=",
+    0.7
+   ]
+  ],
+  "features": {
+   "pos_dir": "weather field",
+   "e_basis_dev": "weather field"
+  },
+  "rule_text": "IF regime=DIRECTIONAL: pos_dir >= 0.5665 | IF NOT regime=DIRECTIONAL: e_basis_dev >= 0.7",
+  "rule_format": "clauses prefixed 'OR' (keep if either) or 'IF <split>' / 'IF NOT <split>' (piecewise by the split indicator)",
+  "search": "either/or by regime=DIRECTIONAL: best single clause per half/all350/5 lines; shuffle n=200",
+  "discovery": {
+   "book": {
+    "n": 74,
+    "win": 0.5540540540540541,
+    "mean": 4.573324324324324,
+    "pnl": 388888.5,
+    "losers": 33
+   },
+   "kept": {
+    "n": 39,
+    "win": 0.7948717948717948,
+    "mean": 11.021974358974358,
+    "pnl": 529509.5,
+    "losers": 8
+   },
+   "removed": {
+    "n": 35,
+    "win": 0.2857142857142857,
+    "mean": -2.6123142857142856,
+    "pnl": -140621.0,
+    "losers": 25
+   }
+  },
+  "holdout": {
+   "book": {
+    "n": 20,
+    "win": 0.4,
+    "mean": 1.5054000000000003,
+    "pnl": 22161.75,
+    "losers": 12
+   },
+   "kept": {
+    "n": 12,
+    "win": 0.5,
+    "mean": 3.376833333333334,
+    "pnl": 32165.25,
+    "losers": 6
+   },
+   "removed": {
+    "n": 8,
+    "win": 0.25,
+    "mean": -1.3017499999999997,
+    "pnl": -10003.5,
+    "losers": 6
+   }
+  },
+  "p": 0.405,
+  "score": 0.5136733185513673,
+  "verdict": "REJECTED",
+  "why": "shuffle p=0.405 >= 0.05: the same search finds this in random labels"
+ },
+ {
+  "book": "t28_cheapK",
+  "rule": [
+   [
+    "IF is_CE",
+    "oi_net_help5",
+    ">=",
+    874315.0
+   ],
+   [
+    "IF NOT is_CE",
+    "depth_age_fut",
+    ">=",
+    0.9
+   ]
+  ],
+  "features": {
+   "oi_net_help5": "weather field",
+   "depth_age_fut": "weather field"
+  },
+  "rule_text": "IF is_CE: oi_net_help5 >= 8.743e+05 | IF NOT is_CE: depth_age_fut >= 0.9",
+  "rule_format": "clauses prefixed 'OR' (keep if either) or 'IF <split>' / 'IF NOT <split>' (piecewise by the split indicator)",
+  "search": "either/or by is_CE: best single clause per half/all350/5 lines; shuffle n=200",
+  "discovery": {
+   "book": {
+    "n": 74,
+    "win": 0.5540540540540541,
+    "mean": 4.573324324324324,
+    "pnl": 388888.5,
+    "losers": 33
+   },
+   "kept": {
+    "n": 37,
+    "win": 0.7837837837837838,
+    "mean": 9.904486486486487,
+    "pnl": 456982.5,
+    "losers": 8
+   },
+   "removed": {
+    "n": 37,
+    "win": 0.32432432432432434,
+    "mean": -0.7578378378378378,
+    "pnl": -68094.0,
+    "losers": 25
+   }
+  },
+  "holdout": {
+   "book": {
+    "n": 20,
+    "win": 0.4,
+    "mean": 1.5054000000000003,
+    "pnl": 22161.75,
+    "losers": 12
+   },
+   "kept": {
+    "n": 9,
+    "win": 0.3333333333333333,
+    "mean": -2.278222222222222,
+    "pnl": -20055.75,
+    "losers": 6
+   },
+   "removed": {
+    "n": 11,
+    "win": 0.45454545454545453,
+    "mean": 4.601090909090909,
+    "pnl": 42217.5,
+    "losers": 6
+   }
+  },
+  "p": 0.855,
+  "score": 0.4648928307464893,
+  "verdict": "REJECTED",
+  "why": "shuffle p=0.855 >= 0.05: the same search finds this in random labels; holdout kept win 33% < book 40%"
+ },
+ {
+  "book": "t28_cheapK",
+  "rule": [
+   [
+    "IF phase_bucket=open30",
+    "e_syn_dev",
+    ">=",
+    -1.44
+   ],
+   [
+    "IF NOT phase_bucket=open30",
+    "e_fut_micro_x_dir",
+    ">=",
+    0.3000000000000001
+   ]
+  ],
+  "features": {
+   "e_syn_dev": "weather field",
+   "e_fut_micro_x_dir": "derived, see agent_5/search.py"
+  },
+  "rule_text": "IF phase_bucket=open30: e_syn_dev >= -1.44 | IF NOT phase_bucket=open30: e_fut_micro_x_dir >= 0.3",
+  "rule_format": "clauses prefixed 'OR' (keep if either) or 'IF <split>' / 'IF NOT <split>' (piecewise by the split indicator)",
+  "search": "either/or by phase_bucket=open30: best single clause per half/all350/5 lines; shuffle n=200",
+  "discovery": {
+   "book": {
+    "n": 74,
+    "win": 0.5540540540540541,
+    "mean": 4.573324324324324,
+    "pnl": 388888.5,
+    "losers": 33
+   },
+   "kept": {
+    "n": 30,
+    "win": 0.8333333333333334,
+    "mean": 11.4141,
+    "pnl": 417807.0,
+    "losers": 5
+   },
+   "removed": {
+    "n": 44,
+    "win": 0.36363636363636365,
+    "mean": -0.09084090909090901,
+    "pnl": -28918.5,
+    "losers": 28
+   }
+  },
+  "holdout": {
+   "book": {
+    "n": 20,
+    "win": 0.4,
+    "mean": 1.5054000000000003,
+    "pnl": 22161.75,
+    "losers": 12
+   },
+   "kept": {
+    "n": 7,
+    "win": 0.42857142857142855,
+    "mean": 0.8167142857142861,
+    "pnl": 5603.0,
+    "losers": 4
+   },
+   "removed": {
+    "n": 13,
+    "win": 0.38461538461538464,
+    "mean": 1.8762307692307694,
+    "pnl": 16558.75,
+    "losers": 8
+   }
+  },
+  "p": 0.24,
+  "score": 0.4582409460458241,
+  "verdict": "REJECTED",
+  "why": "shuffle p=0.240 >= 0.05: the same search finds this in random labels; holdout removed side is profitable (+16,559)"
+ },
+ {
+  "book": "t28_cheapK",
+  "rule": [
+   [
+    "IF b_expiry_day",
+    "kv_x_dir",
+    ">=",
+    -0.1122
+   ],
+   [
+    "IF NOT b_expiry_day",
+    "oi_net_help5",
+    ">=",
+    874315.0
+   ]
+  ],
+  "features": {
+   "kv_x_dir": "derived, see agent_5/search.py",
+   "oi_net_help5": "weather field"
+  },
+  "rule_text": "IF b_expiry_day: kv_x_dir >= -0.1122 | IF NOT b_expiry_day: oi_net_help5 >= 8.743e+05",
+  "rule_format": "clauses prefixed 'OR' (keep if either) or 'IF <split>' / 'IF NOT <split>' (piecewise by the split indicator)",
+  "search": "either/or by b_expiry_day: best single clause per half/all350/5 lines; shuffle n=200",
+  "discovery": {
+   "book": {
+    "n": 74,
+    "win": 0.5540540540540541,
+    "mean": 4.573324324324324,
+    "pnl": 388888.5,
+    "losers": 33
+   },
+   "kept": {
+    "n": 51,
+    "win": 0.7254901960784313,
+    "mean": 8.346196078431372,
+    "pnl": 531654.5,
+    "losers": 14
+   },
+   "removed": {
+    "n": 23,
+    "win": 0.17391304347826086,
+    "mean": -3.792608695652174,
+    "pnl": -142766.0,
+    "losers": 19
+   }
+  },
+  "holdout": {
+   "book": {
+    "n": 20,
+    "win": 0.4,
+    "mean": 1.5054000000000003,
+    "pnl": 22161.75,
+    "losers": 12
+   },
+   "kept": {
+    "n": 11,
+    "win": 0.36363636363636365,
+    "mean": 0.16918181818181843,
+    "pnl": -718.25,
+    "losers": 7
+   },
+   "removed": {
+    "n": 9,
+    "win": 0.4444444444444444,
+    "mean": 3.1385555555555555,
+    "pnl": 22880.0,
+    "losers": 5
+   }
+  },
+  "p": 0.765,
+  "score": 0.47819660014781973,
+  "verdict": "REJECTED",
+  "why": "shuffle p=0.765 >= 0.05: the same search finds this in random labels; holdout kept win 36% < book 40%"
+ },
+ {
+  "book": "t28_cheapK",
+  "rule": [
+   [
+    "IF adv_regime_veto",
+    "e_basis_dev",
+    ">=",
+    0.7
+   ],
+   [
+    "IF NOT adv_regime_veto",
+    "abs_delta",
+    ">=",
+    0.5253
+   ]
+  ],
+  "features": {
+   "e_basis_dev": "weather field",
+   "abs_delta": "derived, see agent_5/search.py"
+  },
+  "rule_text": "IF adv_regime_veto: e_basis_dev >= 0.7 | IF NOT adv_regime_veto: abs_delta >= 0.5253",
+  "rule_format": "clauses prefixed 'OR' (keep if either) or 'IF <split>' / 'IF NOT <split>' (piecewise by the split indicator)",
+  "search": "either/or by adv_regime_veto: best single clause per half/all350/5 lines; shuffle n=200",
+  "discovery": {
+   "book": {
+    "n": 74,
+    "win": 0.5540540540540541,
+    "mean": 4.573324324324324,
+    "pnl": 388888.5,
+    "losers": 33
+   },
+   "kept": {
+    "n": 39,
+    "win": 0.717948717948718,
+    "mean": 9.715846153846154,
+    "pnl": 459052.75,
+    "losers": 11
+   },
+   "removed": {
+    "n": 35,
+    "win": 0.37142857142857144,
+    "mean": -1.1569142857142856,
+    "pnl": -70164.25,
+    "losers": 22
+   }
+  },
+  "holdout": {
+   "book": {
+    "n": 20,
+    "win": 0.4,
+    "mean": 1.5054000000000003,
+    "pnl": 22161.75,
+    "losers": 12
+   },
+   "kept": {
+    "n": 13,
+    "win": 0.46153846153846156,
+    "mean": 1.9316923076923078,
+    "pnl": 21086.0,
+    "losers": 7
+   },
+   "removed": {
+    "n": 7,
+    "win": 0.2857142857142857,
+    "mean": 0.7137142857142857,
+    "pnl": 1075.75,
+    "losers": 5
+   }
+  },
+  "p": 0.56,
+  "score": 0.3495934959349593,
+  "verdict": "REJECTED",
+  "why": "shuffle p=0.560 >= 0.05: the same search finds this in random labels; holdout removed side is profitable (+1,076)"
+ }
+]

@@ -1,0 +1,5662 @@
+[
+ {
+  "book": "c20_9y",
+  "family": "F1 single, raw weather",
+  "rule": [
+   [
+    "agree_same",
+    ">=",
+    7.0
+   ]
+  ],
+  "features": {
+   "agree_same": "raw weather field (apex/engine/weather.py)"
+  },
+  "search": "best_single over 189 features (1858 single masks), n_lines=5 (quantiles 10..90 % of discovery values), min_keep=20, score = share of losers removed - share of winners removed, discovery days only; shuffle = same search on 200 shufflings of discovery outcomes (seed 7)",
+  "score": 0.46176470588235297,
+  "p": 0.245,
+  "shuffle_median_best": 0.40294117647058825,
+  "shuffle_max_best": 0.6647058823529413,
+  "discovery": {
+   "book": {
+    "n": 54,
+    "win": 0.6296296296296297,
+    "mean": 14.040592592592592,
+    "pnl": 1078008.75,
+    "losers": 20
+   },
+   "kept": {
+    "n": 40,
+    "win": 0.775,
+    "mean": 20.368075,
+    "pnl": 1145686.75,
+    "losers": 9
+   },
+   "removed": {
+    "n": 14,
+    "win": 0.21428571428571427,
+    "mean": -4.037928571428572,
+    "pnl": -67678.0,
+    "losers": 11
+   }
+  },
+  "holdout": {
+   "book": {
+    "n": 18,
+    "win": 0.5555555555555556,
+    "mean": 2.7627222222222216,
+    "pnl": 59299.5,
+    "losers": 8
+   },
+   "kept": {
+    "n": 17,
+    "win": 0.5882352941176471,
+    "mean": 3.0853529411764704,
+    "pnl": 61678.5,
+    "losers": 7
+   },
+   "removed": {
+    "n": 1,
+    "win": 0.0,
+    "mean": -2.722,
+    "pnl": -2379.0,
+    "losers": 1
+   }
+  },
+  "all": {
+   "book": {
+    "n": 72,
+    "win": 0.6111111111111112,
+    "mean": 11.221125,
+    "pnl": 1137308.25,
+    "losers": 28
+   },
+   "kept": {
+    "n": 57,
+    "win": 0.7192982456140351,
+    "mean": 15.21357894736842,
+    "pnl": 1207365.25,
+    "losers": 16
+   },
+   "removed": {
+    "n": 15,
+    "win": 0.2,
+    "mean": -3.9502,
+    "pnl": -70057.0,
+    "losers": 12
+   }
+  },
+  "verdict": "REJECTED",
+  "why": "shuffle p=0.245 >= 0.05"
+ },
+ {
+  "book": "c20_9y",
+  "family": "F2 pair, raw weather",
+  "rule": [
+   [
+    "agree_same",
+    ">=",
+    7.0
+   ],
+   [
+    "sl_room_dn_pct",
+    ">=",
+    0.8730000000000001
+   ]
+  ],
+  "features": {
+   "agree_same": "raw weather field (apex/engine/weather.py)",
+   "sl_room_dn_pct": "raw weather field (apex/engine/weather.py)"
+  },
+  "search": "best_pair over 189 features (1858 single masks), n_lines=5 (quantiles 10..90 % of discovery values), min_keep=20, score = share of losers removed - share of winners removed, discovery days only; shuffle = same search on 200 shufflings of discovery outcomes (seed 7)",
+  "score": 0.6647058725357056,
+  "p": 0.04,
+  "shuffle_median_best": 0.5735294222831726,
+  "shuffle_max_best": 0.7352941036224365,
+  "discovery": {
+   "book": {
+    "n": 54,
+    "win": 0.6296296296296297,
+    "mean": 14.040592592592592,
+    "pnl": 1078008.75,
+    "losers": 20
+   },
+   "kept": {
+    "n": 28,
+    "win": 0.9285714285714286,
+    "mean": 26.40425,
+    "pnl": 1075473.75,
+    "losers": 2
+   },
+   "removed": {
+    "n": 26,
+    "win": 0.3076923076923077,
+    "mean": 0.7258846153846151,
+    "pnl": 2535.0,
+    "losers": 18
+   }
+  },
+  "holdout": {
+   "book": {
+    "n": 18,
+    "win": 0.5555555555555556,
+    "mean": 2.7627222222222216,
+    "pnl": 59299.5,
+    "losers": 8
+   },
+   "kept": {
+    "n": 16,
+    "win": 0.5625,
+    "mean": 2.8774374999999996,
+    "pnl": 56400.5,
+    "losers": 7
+   },
+   "removed": {
+    "n": 2,
+    "win": 0.5,
+    "mean": 1.845,
+    "pnl": 2899.0,
+    "losers": 1
+   }
+  },
+  "all": {
+   "book": {
+    "n": 72,
+    "win": 0.6111111111111112,
+    "mean": 11.221125,
+    "pnl": 1137308.25,
+    "losers": 28
+   },
+   "kept": {
+    "n": 44,
+    "win": 0.7954545454545454,
+    "mean": 17.849045454545458,
+    "pnl": 1131874.25,
+    "losers": 9
+   },
+   "removed": {
+    "n": 28,
+    "win": 0.32142857142857145,
+    "mean": 0.8058214285714284,
+    "pnl": 5434.0,
+    "losers": 19
+   }
+  },
+  "verdict": "REJECTED",
+  "why": "holdout: kept win rate below book's or removed side profitable"
+ },
+ {
+  "book": "c20_9y",
+  "family": "F3 single, raw+derived+text+trigger",
+  "rule": [
+   [
+    "agree_same",
+    ">=",
+    7.0
+   ]
+  ],
+  "features": {
+   "agree_same": "raw weather field (apex/engine/weather.py)"
+  },
+  "search": "best_single over 282 features (2462 single masks), n_lines=5 (quantiles 10..90 % of discovery values), min_keep=20, score = share of losers removed - share of winners removed, discovery days only; shuffle = same search on 200 shufflings of discovery outcomes (seed 7)",
+  "score": 0.46176470588235297,
+  "p": 0.295,
+  "shuffle_median_best": 0.40294117647058825,
+  "shuffle_max_best": 0.6647058823529413,
+  "discovery": {
+   "book": {
+    "n": 54,
+    "win": 0.6296296296296297,
+    "mean": 14.040592592592592,
+    "pnl": 1078008.75,
+    "losers": 20
+   },
+   "kept": {
+    "n": 40,
+    "win": 0.775,
+    "mean": 20.368075,
+    "pnl": 1145686.75,
+    "losers": 9
+   },
+   "removed": {
+    "n": 14,
+    "win": 0.21428571428571427,
+    "mean": -4.037928571428572,
+    "pnl": -67678.0,
+    "losers": 11
+   }
+  },
+  "holdout": {
+   "book": {
+    "n": 18,
+    "win": 0.5555555555555556,
+    "mean": 2.7627222222222216,
+    "pnl": 59299.5,
+    "losers": 8
+   },
+   "kept": {
+    "n": 17,
+    "win": 0.5882352941176471,
+    "mean": 3.0853529411764704,
+    "pnl": 61678.5,
+    "losers": 7
+   },
+   "removed": {
+    "n": 1,
+    "win": 0.0,
+    "mean": -2.722,
+    "pnl": -2379.0,
+    "losers": 1
+   }
+  },
+  "all": {
+   "book": {
+    "n": 72,
+    "win": 0.6111111111111112,
+    "mean": 11.221125,
+    "pnl": 1137308.25,
+    "losers": 28
+   },
+   "kept": {
+    "n": 57,
+    "win": 0.7192982456140351,
+    "mean": 15.21357894736842,
+    "pnl": 1207365.25,
+    "losers": 16
+   },
+   "removed": {
+    "n": 15,
+    "win": 0.2,
+    "mean": -3.9502,
+    "pnl": -70057.0,
+    "losers": 12
+   }
+  },
+  "verdict": "REJECTED",
+  "why": "shuffle p=0.295 >= 0.05"
+ },
+ {
+  "book": "c20_9y",
+  "family": "F4 pair, raw+derived+text+trigger",
+  "rule": [
+   [
+    "agree_same",
+    ">=",
+    7.0
+   ],
+   [
+    "opt_opp_o=DRAIN-FAST",
+    "<",
+    1.0
+   ]
+  ],
+  "features": {
+   "agree_same": "raw weather field (apex/engine/weather.py)",
+   "opt_opp_o=DRAIN-FAST": "indicator: 1 when weather text field opt_opp_o == DRAIN-FAST"
+  },
+  "search": "best_pair over 282 features (2462 single masks), n_lines=5 (quantiles 10..90 % of discovery values), min_keep=20, score = share of losers removed - share of winners removed, discovery days only; shuffle = same search on 200 shufflings of discovery outcomes (seed 7)",
+  "score": 0.7029411792755127,
+  "p": 0.01,
+  "shuffle_median_best": 0.5764705538749695,
+  "shuffle_max_best": 0.7352941036224365,
+  "discovery": {
+   "book": {
+    "n": 54,
+    "win": 0.6296296296296297,
+    "mean": 14.040592592592592,
+    "pnl": 1078008.75,
+    "losers": 20
+   },
+   "kept": {
+    "n": 32,
+    "win": 0.90625,
+    "mean": 23.93975,
+    "pnl": 932811.75,
+    "losers": 3
+   },
+   "removed": {
+    "n": 22,
+    "win": 0.22727272727272727,
+    "mean": -0.35818181818181805,
+    "pnl": 145197.0,
+    "losers": 17
+   }
+  },
+  "holdout": {
+   "book": {
+    "n": 18,
+    "win": 0.5555555555555556,
+    "mean": 2.7627222222222216,
+    "pnl": 59299.5,
+    "losers": 8
+   },
+   "kept": {
+    "n": 11,
+    "win": 0.45454545454545453,
+    "mean": -3.2820000000000005,
+    "pnl": -32961.5,
+    "losers": 6
+   },
+   "removed": {
+    "n": 7,
+    "win": 0.7142857142857143,
+    "mean": 12.261571428571427,
+    "pnl": 92261.0,
+    "losers": 2
+   }
+  },
+  "all": {
+   "book": {
+    "n": 72,
+    "win": 0.6111111111111112,
+    "mean": 11.221125,
+    "pnl": 1137308.25,
+    "losers": 28
+   },
+   "kept": {
+    "n": 43,
+    "win": 0.7906976744186046,
+    "mean": 16.976046511627906,
+    "pnl": 899850.25,
+    "losers": 9
+   },
+   "removed": {
+    "n": 29,
+    "win": 0.3448275862068966,
+    "mean": 2.687965517241379,
+    "pnl": 237458.0,
+    "losers": 19
+   }
+  },
+  "verdict": "REJECTED",
+  "why": "holdout: kept win rate below book's or removed side profitable"
+ },
+ {
+  "book": "c20_9y",
+  "family": "F5 greedy triple, raw+derived+text+trigger",
+  "rule": [
+   [
+    "agree_same",
+    ">=",
+    7.0
+   ],
+   [
+    "opt_opp_o=DRAIN-FAST",
+    "<",
+    1.0
+   ],
+   [
+    "theta_be",
+    ">=",
+    0.0693
+   ]
+  ],
+  "features": {
+   "agree_same": "raw weather field (apex/engine/weather.py)",
+   "opt_opp_o=DRAIN-FAST": "indicator: 1 when weather text field opt_opp_o == DRAIN-FAST",
+   "theta_be": "raw weather field (apex/engine/weather.py)"
+  },
+  "search": "best_pair then best third clause over 282 features (2462 single masks), n_lines=5 (quantiles 10..90 % of discovery values), min_keep=20, score = share of losers removed - share of winners removed, discovery days only; shuffle = same search on 200 shufflings of discovery outcomes (seed 7)",
+  "score": 0.7735294117647058,
+  "p": 0.02,
+  "shuffle_median_best": 0.6558823529411764,
+  "shuffle_max_best": 0.8029411764705882,
+  "discovery": {
+   "book": {
+    "n": 54,
+    "win": 0.6296296296296297,
+    "mean": 14.040592592592592,
+    "pnl": 1078008.75,
+    "losers": 20
+   },
+   "kept": {
+    "n": 29,
+    "win": 0.9655172413793104,
+    "mean": 24.112068965517242,
+    "pnl": 879242.0,
+    "losers": 1
+   },
+   "removed": {
+    "n": 25,
+    "win": 0.24,
+    "mean": 2.35768,
+    "pnl": 198766.75,
+    "losers": 19
+   }
+  },
+  "holdout": {
+   "book": {
+    "n": 18,
+    "win": 0.5555555555555556,
+    "mean": 2.7627222222222216,
+    "pnl": 59299.5,
+    "losers": 8
+   },
+   "kept": {
+    "n": 11,
+    "win": 0.45454545454545453,
+    "mean": -3.2820000000000005,
+    "pnl": -32961.5,
+    "losers": 6
+   },
+   "removed": {
+    "n": 7,
+    "win": 0.7142857142857143,
+    "mean": 12.261571428571427,
+    "pnl": 92261.0,
+    "losers": 2
+   }
+  },
+  "all": {
+   "book": {
+    "n": 72,
+    "win": 0.6111111111111112,
+    "mean": 11.221125,
+    "pnl": 1137308.25,
+    "losers": 28
+   },
+   "kept": {
+    "n": 40,
+    "win": 0.825,
+    "mean": 16.5787,
+    "pnl": 846280.5,
+    "losers": 7
+   },
+   "removed": {
+    "n": 32,
+    "win": 0.34375,
+    "mean": 4.52415625,
+    "pnl": 291027.75,
+    "losers": 21
+   }
+  },
+  "verdict": "REJECTED",
+  "why": "holdout: kept win rate below book's or removed side profitable"
+ },
+ {
+  "book": "c20_9y",
+  "family": "F6 single, raw+derived+text+trigger, 9 lines",
+  "rule": [
+   [
+    "agree_same",
+    ">=",
+    7.0
+   ]
+  ],
+  "features": {
+   "agree_same": "raw weather field (apex/engine/weather.py)"
+  },
+  "search": "best_single over 282 features (4204 single masks), n_lines=9 (quantiles 10..90 % of discovery values), min_keep=20, score = share of losers removed - share of winners removed, discovery days only; shuffle = same search on 200 shufflings of discovery outcomes (seed 7)",
+  "score": 0.46176470588235297,
+  "p": 0.41,
+  "shuffle_median_best": 0.4176470588235295,
+  "shuffle_max_best": 0.6647058823529413,
+  "discovery": {
+   "book": {
+    "n": 54,
+    "win": 0.6296296296296297,
+    "mean": 14.040592592592592,
+    "pnl": 1078008.75,
+    "losers": 20
+   },
+   "kept": {
+    "n": 40,
+    "win": 0.775,
+    "mean": 20.368075,
+    "pnl": 1145686.75,
+    "losers": 9
+   },
+   "removed": {
+    "n": 14,
+    "win": 0.21428571428571427,
+    "mean": -4.037928571428572,
+    "pnl": -67678.0,
+    "losers": 11
+   }
+  },
+  "holdout": {
+   "book": {
+    "n": 18,
+    "win": 0.5555555555555556,
+    "mean": 2.7627222222222216,
+    "pnl": 59299.5,
+    "losers": 8
+   },
+   "kept": {
+    "n": 17,
+    "win": 0.5882352941176471,
+    "mean": 3.0853529411764704,
+    "pnl": 61678.5,
+    "losers": 7
+   },
+   "removed": {
+    "n": 1,
+    "win": 0.0,
+    "mean": -2.722,
+    "pnl": -2379.0,
+    "losers": 1
+   }
+  },
+  "all": {
+   "book": {
+    "n": 72,
+    "win": 0.6111111111111112,
+    "mean": 11.221125,
+    "pnl": 1137308.25,
+    "losers": 28
+   },
+   "kept": {
+    "n": 57,
+    "win": 0.7192982456140351,
+    "mean": 15.21357894736842,
+    "pnl": 1207365.25,
+    "losers": 16
+   },
+   "removed": {
+    "n": 15,
+    "win": 0.2,
+    "mean": -3.9502,
+    "pnl": -70057.0,
+    "losers": 12
+   }
+  },
+  "verdict": "REJECTED",
+  "why": "shuffle p=0.410 >= 0.05"
+ },
+ {
+  "book": "c20_9y",
+  "family": "F7 pair, raw+derived+text+trigger, 9 lines",
+  "rule": [
+   [
+    "agree_same",
+    ">=",
+    7.0
+   ],
+   [
+    "opt_opp_o=DRAIN-FAST",
+    "<",
+    0.4000000000000057
+   ]
+  ],
+  "features": {
+   "agree_same": "raw weather field (apex/engine/weather.py)",
+   "opt_opp_o=DRAIN-FAST": "indicator: 1 when weather text field opt_opp_o == DRAIN-FAST"
+  },
+  "search": "best_pair over 282 features (4204 single masks), n_lines=9 (quantiles 10..90 % of discovery values), min_keep=20, score = share of losers removed - share of winners removed, discovery days only; shuffle = same search on 200 shufflings of discovery outcomes (seed 7)",
+  "score": 0.7029411792755127,
+  "p": 0.015,
+  "shuffle_median_best": 0.6058822870254517,
+  "shuffle_max_best": 0.7352941036224365,
+  "discovery": {
+   "book": {
+    "n": 54,
+    "win": 0.6296296296296297,
+    "mean": 14.040592592592592,
+    "pnl": 1078008.75,
+    "losers": 20
+   },
+   "kept": {
+    "n": 32,
+    "win": 0.90625,
+    "mean": 23.93975,
+    "pnl": 932811.75,
+    "losers": 3
+   },
+   "removed": {
+    "n": 22,
+    "win": 0.22727272727272727,
+    "mean": -0.35818181818181805,
+    "pnl": 145197.0,
+    "losers": 17
+   }
+  },
+  "holdout": {
+   "book": {
+    "n": 18,
+    "win": 0.5555555555555556,
+    "mean": 2.7627222222222216,
+    "pnl": 59299.5,
+    "losers": 8
+   },
+   "kept": {
+    "n": 11,
+    "win": 0.45454545454545453,
+    "mean": -3.2820000000000005,
+    "pnl": -32961.5,
+    "losers": 6
+   },
+   "removed": {
+    "n": 7,
+    "win": 0.7142857142857143,
+    "mean": 12.261571428571427,
+    "pnl": 92261.0,
+    "losers": 2
+   }
+  },
+  "all": {
+   "book": {
+    "n": 72,
+    "win": 0.6111111111111112,
+    "mean": 11.221125,
+    "pnl": 1137308.25,
+    "losers": 28
+   },
+   "kept": {
+    "n": 43,
+    "win": 0.7906976744186046,
+    "mean": 16.976046511627906,
+    "pnl": 899850.25,
+    "losers": 9
+   },
+   "removed": {
+    "n": 29,
+    "win": 0.3448275862068966,
+    "mean": 2.687965517241379,
+    "pnl": 237458.0,
+    "losers": 19
+   }
+  },
+  "verdict": "REJECTED",
+  "why": "holdout: kept win rate below book's or removed side profitable"
+ },
+ {
+  "book": "c20_9y",
+  "family": "F8 pair, derived mathematics only",
+  "rule": [
+   [
+    "mv60_minus_mv300",
+    "<",
+    18.160000000000004
+   ],
+   [
+    "optrun_x_optimb",
+    "<",
+    0.43213940000000006
+   ]
+  ],
+  "features": {
+   "mv60_minus_mv300": "mv60 - mv300 (deceleration of the move)",
+   "optrun_x_optimb": "opt_run * opt_book_imb"
+  },
+  "search": "best_pair over 43 features (420 single masks), n_lines=5 (quantiles 10..90 % of discovery values), min_keep=20, score = share of losers removed - share of winners removed, discovery days only; shuffle = same search on 200 shufflings of discovery outcomes (seed 7)",
+  "score": 0.520588219165802,
+  "p": 0.215,
+  "shuffle_median_best": 0.47647058963775635,
+  "shuffle_max_best": 0.6941176056861877,
+  "discovery": {
+   "book": {
+    "n": 54,
+    "win": 0.6296296296296297,
+    "mean": 14.040592592592592,
+    "pnl": 1078008.75,
+    "losers": 20
+   },
+   "kept": {
+    "n": 42,
+    "win": 0.7857142857142857,
+    "mean": 20.20154761904762,
+    "pnl": 1224509.0,
+    "losers": 9
+   },
+   "removed": {
+    "n": 12,
+    "win": 0.08333333333333333,
+    "mean": -7.522749999999999,
+    "pnl": -146500.25,
+    "losers": 11
+   }
+  },
+  "holdout": {
+   "book": {
+    "n": 18,
+    "win": 0.5555555555555556,
+    "mean": 2.7627222222222216,
+    "pnl": 59299.5,
+    "losers": 8
+   },
+   "kept": {
+    "n": 15,
+    "win": 0.5333333333333333,
+    "mean": -1.3159999999999998,
+    "pnl": -18716.75,
+    "losers": 7
+   },
+   "removed": {
+    "n": 3,
+    "win": 0.6666666666666666,
+    "mean": 23.156333333333333,
+    "pnl": 78016.25,
+    "losers": 1
+   }
+  },
+  "all": {
+   "book": {
+    "n": 72,
+    "win": 0.6111111111111112,
+    "mean": 11.221125,
+    "pnl": 1137308.25,
+    "losers": 28
+   },
+   "kept": {
+    "n": 57,
+    "win": 0.7192982456140351,
+    "mean": 14.539035087719299,
+    "pnl": 1205792.25,
+    "losers": 16
+   },
+   "removed": {
+    "n": 15,
+    "win": 0.2,
+    "mean": -1.386933333333334,
+    "pnl": -68484.0,
+    "losers": 12
+   }
+  },
+  "verdict": "REJECTED",
+  "why": "shuffle p=0.215 >= 0.05; holdout: kept win rate below book's or removed side profitable"
+ },
+ {
+  "book": "c20_9y",
+  "family": "F9 pair, book's own situation + calendar",
+  "rule": [
+   [
+    "agree_same",
+    ">=",
+    7.0
+   ],
+   [
+    "adv_vetoes_raw",
+    ">=",
+    2.0
+   ]
+  ],
+  "features": {
+   "agree_same": "raw weather field (apex/engine/weather.py)",
+   "adv_vetoes_raw": "adv_vetoes (number of advisors vetoing our direction)"
+  },
+  "search": "best_pair over 25 features (176 single masks), n_lines=5 (quantiles 10..90 % of discovery values), min_keep=20, score = share of losers removed - share of winners removed, discovery days only; shuffle = same search on 200 shufflings of discovery outcomes (seed 7)",
+  "score": 0.5441176295280457,
+  "p": 0.03,
+  "shuffle_median_best": 0.38823530077934265,
+  "shuffle_max_best": 0.5970587730407715,
+  "discovery": {
+   "book": {
+    "n": 54,
+    "win": 0.6296296296296297,
+    "mean": 14.040592592592592,
+    "pnl": 1078008.75,
+    "losers": 20
+   },
+   "kept": {
+    "n": 32,
+    "win": 0.84375,
+    "mean": 21.15821875,
+    "pnl": 1031439.5,
+    "losers": 5
+   },
+   "removed": {
+    "n": 22,
+    "win": 0.3181818181818182,
+    "mean": 3.6876818181818183,
+    "pnl": 46569.25,
+    "losers": 15
+   }
+  },
+  "holdout": {
+   "book": {
+    "n": 18,
+    "win": 0.5555555555555556,
+    "mean": 2.7627222222222216,
+    "pnl": 59299.5,
+    "losers": 8
+   },
+   "kept": {
+    "n": 16,
+    "win": 0.625,
+    "mean": 3.3129375,
+    "pnl": 62234.25,
+    "losers": 6
+   },
+   "removed": {
+    "n": 2,
+    "win": 0.0,
+    "mean": -1.639,
+    "pnl": -2934.75,
+    "losers": 2
+   }
+  },
+  "all": {
+   "book": {
+    "n": 72,
+    "win": 0.6111111111111112,
+    "mean": 11.221125,
+    "pnl": 1137308.25,
+    "losers": 28
+   },
+   "kept": {
+    "n": 48,
+    "win": 0.7708333333333334,
+    "mean": 15.209791666666668,
+    "pnl": 1093673.75,
+    "losers": 11
+   },
+   "removed": {
+    "n": 24,
+    "win": 0.2916666666666667,
+    "mean": 3.2437916666666666,
+    "pnl": 43634.5,
+    "losers": 17
+   }
+  },
+  "verdict": "PROPOSE",
+  "why": "passes discovery, shuffle and holdout",
+  "caveat": "The adv_vetoes >= 2 clause is a passenger (removes 4W/4L more on discovery, reads backwards); the work is done by agree_same >= 7."
+ },
+ {
+  "book": "c20_9y",
+  "family": "F10 single, agree_same only (family unanimity)",
+  "rule": [
+   [
+    "agree_same",
+    ">=",
+    7.0
+   ]
+  ],
+  "features": {
+   "agree_same": "raw weather field (apex/engine/weather.py)"
+  },
+  "search": "best_single over the ONE feature agree_same (4 single masks), n_lines=5 (quantiles 10..90 % of discovery values), min_keep=20, score = share of losers removed - share of winners removed, discovery days only; shuffle = same search on 200 shufflings (seed 7)",
+  "score": 0.46176470588235297,
+  "p": 0.0,
+  "shuffle_median_best": 0.06470588235294117,
+  "shuffle_max_best": 0.38235294117647056,
+  "discovery": {
+   "book": {
+    "n": 54,
+    "win": 0.6296296296296297,
+    "mean": 14.040592592592592,
+    "pnl": 1078008.75,
+    "losers": 20
+   },
+   "kept": {
+    "n": 40,
+    "win": 0.775,
+    "mean": 20.368075,
+    "pnl": 1145686.75,
+    "losers": 9
+   },
+   "removed": {
+    "n": 14,
+    "win": 0.21428571428571427,
+    "mean": -4.037928571428572,
+    "pnl": -67678.0,
+    "losers": 11
+   }
+  },
+  "holdout": {
+   "book": {
+    "n": 18,
+    "win": 0.5555555555555556,
+    "mean": 2.7627222222222216,
+    "pnl": 59299.5,
+    "losers": 8
+   },
+   "kept": {
+    "n": 17,
+    "win": 0.5882352941176471,
+    "mean": 3.0853529411764704,
+    "pnl": 61678.5,
+    "losers": 7
+   },
+   "removed": {
+    "n": 1,
+    "win": 0.0,
+    "mean": -2.722,
+    "pnl": -2379.0,
+    "losers": 1
+   }
+  },
+  "all": {
+   "book": {
+    "n": 72,
+    "win": 0.6111111111111112,
+    "mean": 11.221125,
+    "pnl": 1137308.25,
+    "losers": 28
+   },
+   "kept": {
+    "n": 57,
+    "win": 0.7192982456140351,
+    "mean": 15.21357894736842,
+    "pnl": 1207365.25,
+    "losers": 16
+   },
+   "removed": {
+    "n": 15,
+    "win": 0.2,
+    "mean": -3.9502,
+    "pnl": -70057.0,
+    "losers": 12
+   }
+  },
+  "verdict": "PROPOSE",
+  "why": "passes discovery, shuffle and holdout",
+  "caveat": "POST-HOC: this one-feature search was chosen after the pre-registered F1-F9 searches pointed at agree_same, so its p is flattering. The fair p for c20_9y is the pre-registered F9 pair (0.030) / F9 single (0.055). agree_same = other books firing this step and last (docs/27 item 67); on c20_9y the removed trades are exactly those where c20_9s or c20_9t did not fire."
+ },
+ {
+  "book": "c20_9s",
+  "family": "F1 single, raw weather",
+  "rule": [
+   [
+    "dist_hi",
+    "<",
+    153.43
+   ]
+  ],
+  "features": {
+   "dist_hi": "raw weather field (apex/engine/weather.py)"
+  },
+  "search": "best_single over 188 features (1852 single masks), n_lines=5 (quantiles 10..90 % of discovery values), min_keep=20, score = share of losers removed - share of winners removed, discovery days only; shuffle = same search on 200 shufflings of discovery outcomes (seed 7)",
+  "score": 0.4696969696969697,
+  "p": 0.145,
+  "shuffle_median_best": 0.393939393939394,
+  "shuffle_max_best": 0.6212121212121212,
+  "discovery": {
+   "book": {
+    "n": 55,
+    "win": 0.6,
+    "mean": 13.525636363636366,
+    "pnl": 1054823.25,
+    "losers": 22
+   },
+   "kept": {
+    "n": 38,
+    "win": 0.7631578947368421,
+    "mean": 18.84771052631579,
+    "pnl": 1094291.25,
+    "losers": 9
+   },
+   "removed": {
+    "n": 17,
+    "win": 0.23529411764705882,
+    "mean": 1.6292352941176473,
+    "pnl": -39468.0,
+    "losers": 13
+   }
+  },
+  "holdout": {
+   "book": {
+    "n": 20,
+    "win": 0.5,
+    "mean": 0.16209999999999974,
+    "pnl": 21820.5,
+    "losers": 10
+   },
+   "kept": {
+    "n": 19,
+    "win": 0.47368421052631576,
+    "mean": 0.12147368421052605,
+    "pnl": 21203.0,
+    "losers": 10
+   },
+   "removed": {
+    "n": 1,
+    "win": 1.0,
+    "mean": 0.934,
+    "pnl": 617.5,
+    "losers": 0
+   }
+  },
+  "all": {
+   "book": {
+    "n": 75,
+    "win": 0.5733333333333334,
+    "mean": 9.962026666666667,
+    "pnl": 1076643.75,
+    "losers": 32
+   },
+   "kept": {
+    "n": 57,
+    "win": 0.6666666666666666,
+    "mean": 12.605631578947367,
+    "pnl": 1115494.25,
+    "losers": 19
+   },
+   "removed": {
+    "n": 18,
+    "win": 0.2777777777777778,
+    "mean": 1.5906111111111114,
+    "pnl": -38850.5,
+    "losers": 13
+   }
+  },
+  "verdict": "REJECTED",
+  "why": "shuffle p=0.145 >= 0.05; holdout: kept win rate below book's or removed side profitable"
+ },
+ {
+  "book": "c20_9s",
+  "family": "F2 pair, raw weather",
+  "rule": [
+   [
+    "dist_hi",
+    "<",
+    153.43
+   ],
+   [
+    "opt_run",
+    "<",
+    0.5164000000000001
+   ]
+  ],
+  "features": {
+   "dist_hi": "raw weather field (apex/engine/weather.py)",
+   "opt_run": "raw weather field (apex/engine/weather.py)"
+  },
+  "search": "best_pair over 188 features (1852 single masks), n_lines=5 (quantiles 10..90 % of discovery values), min_keep=20, score = share of losers removed - share of winners removed, discovery days only; shuffle = same search on 200 shufflings of discovery outcomes (seed 7)",
+  "score": 0.6060606241226196,
+  "p": 0.195,
+  "shuffle_median_best": 0.5606060028076172,
+  "shuffle_max_best": 0.7121212482452393,
+  "discovery": {
+   "book": {
+    "n": 55,
+    "win": 0.6,
+    "mean": 13.525636363636366,
+    "pnl": 1054823.25,
+    "losers": 22
+   },
+   "kept": {
+    "n": 35,
+    "win": 0.8285714285714286,
+    "mean": 20.996714285714287,
+    "pnl": 1117376.0,
+    "losers": 6
+   },
+   "removed": {
+    "n": 20,
+    "win": 0.2,
+    "mean": 0.4512500000000002,
+    "pnl": -62552.75,
+    "losers": 16
+   }
+  },
+  "holdout": {
+   "book": {
+    "n": 20,
+    "win": 0.5,
+    "mean": 0.16209999999999974,
+    "pnl": 21820.5,
+    "losers": 10
+   },
+   "kept": {
+    "n": 18,
+    "win": 0.4444444444444444,
+    "mean": 0.09588888888888862,
+    "pnl": 20631.0,
+    "losers": 10
+   },
+   "removed": {
+    "n": 2,
+    "win": 1.0,
+    "mean": 0.758,
+    "pnl": 1189.5,
+    "losers": 0
+   }
+  },
+  "all": {
+   "book": {
+    "n": 75,
+    "win": 0.5733333333333334,
+    "mean": 9.962026666666667,
+    "pnl": 1076643.75,
+    "losers": 32
+   },
+   "kept": {
+    "n": 53,
+    "win": 0.6981132075471698,
+    "mean": 13.89832075471698,
+    "pnl": 1138007.0,
+    "losers": 16
+   },
+   "removed": {
+    "n": 22,
+    "win": 0.2727272727272727,
+    "mean": 0.4791363636363638,
+    "pnl": -61363.25,
+    "losers": 16
+   }
+  },
+  "verdict": "REJECTED",
+  "why": "shuffle p=0.195 >= 0.05; holdout: kept win rate below book's or removed side profitable"
+ },
+ {
+  "book": "c20_9s",
+  "family": "F3 single, raw+derived+text+trigger",
+  "rule": [
+   [
+    "dist_hi",
+    "<",
+    153.43
+   ]
+  ],
+  "features": {
+   "dist_hi": "raw weather field (apex/engine/weather.py)"
+  },
+  "search": "best_single over 281 features (2456 single masks), n_lines=5 (quantiles 10..90 % of discovery values), min_keep=20, score = share of losers removed - share of winners removed, discovery days only; shuffle = same search on 200 shufflings of discovery outcomes (seed 7)",
+  "score": 0.4696969696969697,
+  "p": 0.18,
+  "shuffle_median_best": 0.393939393939394,
+  "shuffle_max_best": 0.6212121212121212,
+  "discovery": {
+   "book": {
+    "n": 55,
+    "win": 0.6,
+    "mean": 13.525636363636366,
+    "pnl": 1054823.25,
+    "losers": 22
+   },
+   "kept": {
+    "n": 38,
+    "win": 0.7631578947368421,
+    "mean": 18.84771052631579,
+    "pnl": 1094291.25,
+    "losers": 9
+   },
+   "removed": {
+    "n": 17,
+    "win": 0.23529411764705882,
+    "mean": 1.6292352941176473,
+    "pnl": -39468.0,
+    "losers": 13
+   }
+  },
+  "holdout": {
+   "book": {
+    "n": 20,
+    "win": 0.5,
+    "mean": 0.16209999999999974,
+    "pnl": 21820.5,
+    "losers": 10
+   },
+   "kept": {
+    "n": 19,
+    "win": 0.47368421052631576,
+    "mean": 0.12147368421052605,
+    "pnl": 21203.0,
+    "losers": 10
+   },
+   "removed": {
+    "n": 1,
+    "win": 1.0,
+    "mean": 0.934,
+    "pnl": 617.5,
+    "losers": 0
+   }
+  },
+  "all": {
+   "book": {
+    "n": 75,
+    "win": 0.5733333333333334,
+    "mean": 9.962026666666667,
+    "pnl": 1076643.75,
+    "losers": 32
+   },
+   "kept": {
+    "n": 57,
+    "win": 0.6666666666666666,
+    "mean": 12.605631578947367,
+    "pnl": 1115494.25,
+    "losers": 19
+   },
+   "removed": {
+    "n": 18,
+    "win": 0.2777777777777778,
+    "mean": 1.5906111111111114,
+    "pnl": -38850.5,
+    "losers": 13
+   }
+  },
+  "verdict": "REJECTED",
+  "why": "shuffle p=0.180 >= 0.05; holdout: kept win rate below book's or removed side profitable"
+ },
+ {
+  "book": "c20_9s",
+  "family": "F4 pair, raw+derived+text+trigger",
+  "rule": [
+   [
+    "dist_hi",
+    "<",
+    153.43
+   ],
+   [
+    "optrun_x_optimb",
+    "<",
+    0.4537472
+   ]
+  ],
+  "features": {
+   "dist_hi": "raw weather field (apex/engine/weather.py)",
+   "optrun_x_optimb": "opt_run * opt_book_imb"
+  },
+  "search": "best_pair over 281 features (2456 single masks), n_lines=5 (quantiles 10..90 % of discovery values), min_keep=20, score = share of losers removed - share of winners removed, discovery days only; shuffle = same search on 200 shufflings of discovery outcomes (seed 7)",
+  "score": 0.6515151262283325,
+  "p": 0.085,
+  "shuffle_median_best": 0.560606062412262,
+  "shuffle_max_best": 0.7121212482452393,
+  "discovery": {
+   "book": {
+    "n": 55,
+    "win": 0.6,
+    "mean": 13.525636363636366,
+    "pnl": 1054823.25,
+    "losers": 22
+   },
+   "kept": {
+    "n": 34,
+    "win": 0.8529411764705882,
+    "mean": 22.043176470588236,
+    "pnl": 1137396.0,
+    "losers": 5
+   },
+   "removed": {
+    "n": 21,
+    "win": 0.19047619047619047,
+    "mean": -0.2646666666666665,
+    "pnl": -82572.75,
+    "losers": 17
+   }
+  },
+  "holdout": {
+   "book": {
+    "n": 20,
+    "win": 0.5,
+    "mean": 0.16209999999999974,
+    "pnl": 21820.5,
+    "losers": 10
+   },
+   "kept": {
+    "n": 18,
+    "win": 0.4444444444444444,
+    "mean": 0.09588888888888862,
+    "pnl": 20631.0,
+    "losers": 10
+   },
+   "removed": {
+    "n": 2,
+    "win": 1.0,
+    "mean": 0.758,
+    "pnl": 1189.5,
+    "losers": 0
+   }
+  },
+  "all": {
+   "book": {
+    "n": 75,
+    "win": 0.5733333333333334,
+    "mean": 9.962026666666667,
+    "pnl": 1076643.75,
+    "losers": 32
+   },
+   "kept": {
+    "n": 52,
+    "win": 0.7115384615384616,
+    "mean": 14.44603846153846,
+    "pnl": 1158027.0,
+    "losers": 15
+   },
+   "removed": {
+    "n": 23,
+    "win": 0.2608695652173913,
+    "mean": -0.17573913043478245,
+    "pnl": -81383.25,
+    "losers": 17
+   }
+  },
+  "verdict": "REJECTED",
+  "why": "shuffle p=0.085 >= 0.05; holdout: kept win rate below book's or removed side profitable"
+ },
+ {
+  "book": "c20_9s",
+  "family": "F5 greedy triple, raw+derived+text+trigger",
+  "rule": [
+   [
+    "dist_hi",
+    "<",
+    153.43
+   ],
+   [
+    "optrun_x_optimb",
+    "<",
+    0.4537472
+   ],
+   [
+    "e_iv_atm",
+    ">=",
+    14.132
+   ]
+  ],
+  "features": {
+   "dist_hi": "raw weather field (apex/engine/weather.py)",
+   "optrun_x_optimb": "opt_run * opt_book_imb",
+   "e_iv_atm": "raw weather field (apex/engine/weather.py)"
+  },
+  "search": "best_pair then best third clause over 281 features (2456 single masks), n_lines=5 (quantiles 10..90 % of discovery values), min_keep=20, score = share of losers removed - share of winners removed, discovery days only; shuffle = same search on 200 shufflings of discovery outcomes (seed 7)",
+  "score": 0.7272727272727273,
+  "p": 0.075,
+  "shuffle_median_best": 0.6515151515151515,
+  "shuffle_max_best": 0.7575757575757576,
+  "discovery": {
+   "book": {
+    "n": 55,
+    "win": 0.6,
+    "mean": 13.525636363636366,
+    "pnl": 1054823.25,
+    "losers": 22
+   },
+   "kept": {
+    "n": 29,
+    "win": 0.9310344827586207,
+    "mean": 25.464724137931032,
+    "pnl": 1120008.5,
+    "losers": 2
+   },
+   "removed": {
+    "n": 26,
+    "win": 0.23076923076923078,
+    "mean": 0.2089615384615386,
+    "pnl": -65185.25,
+    "losers": 20
+   }
+  },
+  "holdout": {
+   "book": {
+    "n": 20,
+    "win": 0.5,
+    "mean": 0.16209999999999974,
+    "pnl": 21820.5,
+    "losers": 10
+   },
+   "kept": {
+    "n": 18,
+    "win": 0.4444444444444444,
+    "mean": 0.09588888888888862,
+    "pnl": 20631.0,
+    "losers": 10
+   },
+   "removed": {
+    "n": 2,
+    "win": 1.0,
+    "mean": 0.758,
+    "pnl": 1189.5,
+    "losers": 0
+   }
+  },
+  "all": {
+   "book": {
+    "n": 75,
+    "win": 0.5733333333333334,
+    "mean": 9.962026666666667,
+    "pnl": 1076643.75,
+    "losers": 32
+   },
+   "kept": {
+    "n": 47,
+    "win": 0.7446808510638298,
+    "mean": 15.748999999999999,
+    "pnl": 1140639.5,
+    "losers": 12
+   },
+   "removed": {
+    "n": 28,
+    "win": 0.2857142857142857,
+    "mean": 0.24817857142857155,
+    "pnl": -63995.75,
+    "losers": 20
+   }
+  },
+  "verdict": "REJECTED",
+  "why": "shuffle p=0.075 >= 0.05; holdout: kept win rate below book's or removed side profitable"
+ },
+ {
+  "book": "c20_9s",
+  "family": "F6 single, raw+derived+text+trigger, 9 lines",
+  "rule": [
+   [
+    "dist_hi",
+    "<",
+    153.43
+   ]
+  ],
+  "features": {
+   "dist_hi": "raw weather field (apex/engine/weather.py)"
+  },
+  "search": "best_single over 281 features (4200 single masks), n_lines=9 (quantiles 10..90 % of discovery values), min_keep=20, score = share of losers removed - share of winners removed, discovery days only; shuffle = same search on 200 shufflings of discovery outcomes (seed 7)",
+  "score": 0.4696969696969697,
+  "p": 0.21,
+  "shuffle_median_best": 0.4242424242424242,
+  "shuffle_max_best": 0.6212121212121212,
+  "discovery": {
+   "book": {
+    "n": 55,
+    "win": 0.6,
+    "mean": 13.525636363636366,
+    "pnl": 1054823.25,
+    "losers": 22
+   },
+   "kept": {
+    "n": 38,
+    "win": 0.7631578947368421,
+    "mean": 18.84771052631579,
+    "pnl": 1094291.25,
+    "losers": 9
+   },
+   "removed": {
+    "n": 17,
+    "win": 0.23529411764705882,
+    "mean": 1.6292352941176473,
+    "pnl": -39468.0,
+    "losers": 13
+   }
+  },
+  "holdout": {
+   "book": {
+    "n": 20,
+    "win": 0.5,
+    "mean": 0.16209999999999974,
+    "pnl": 21820.5,
+    "losers": 10
+   },
+   "kept": {
+    "n": 19,
+    "win": 0.47368421052631576,
+    "mean": 0.12147368421052605,
+    "pnl": 21203.0,
+    "losers": 10
+   },
+   "removed": {
+    "n": 1,
+    "win": 1.0,
+    "mean": 0.934,
+    "pnl": 617.5,
+    "losers": 0
+   }
+  },
+  "all": {
+   "book": {
+    "n": 75,
+    "win": 0.5733333333333334,
+    "mean": 9.962026666666667,
+    "pnl": 1076643.75,
+    "losers": 32
+   },
+   "kept": {
+    "n": 57,
+    "win": 0.6666666666666666,
+    "mean": 12.605631578947367,
+    "pnl": 1115494.25,
+    "losers": 19
+   },
+   "removed": {
+    "n": 18,
+    "win": 0.2777777777777778,
+    "mean": 1.5906111111111114,
+    "pnl": -38850.5,
+    "losers": 13
+   }
+  },
+  "verdict": "REJECTED",
+  "why": "shuffle p=0.210 >= 0.05; holdout: kept win rate below book's or removed side profitable"
+ },
+ {
+  "book": "c20_9s",
+  "family": "F7 pair, raw+derived+text+trigger, 9 lines",
+  "rule": [
+   [
+    "dist_hi",
+    "<",
+    153.43
+   ],
+   [
+    "optrun_x_optimb",
+    "<",
+    0.4537472
+   ]
+  ],
+  "features": {
+   "dist_hi": "raw weather field (apex/engine/weather.py)",
+   "optrun_x_optimb": "opt_run * opt_book_imb"
+  },
+  "search": "best_pair over 281 features (4200 single masks), n_lines=9 (quantiles 10..90 % of discovery values), min_keep=20, score = share of losers removed - share of winners removed, discovery days only; shuffle = same search on 200 shufflings of discovery outcomes (seed 7)",
+  "score": 0.6515151262283325,
+  "p": 0.165,
+  "shuffle_median_best": 0.5909091234207153,
+  "shuffle_max_best": 0.7575757503509521,
+  "discovery": {
+   "book": {
+    "n": 55,
+    "win": 0.6,
+    "mean": 13.525636363636366,
+    "pnl": 1054823.25,
+    "losers": 22
+   },
+   "kept": {
+    "n": 34,
+    "win": 0.8529411764705882,
+    "mean": 22.043176470588236,
+    "pnl": 1137396.0,
+    "losers": 5
+   },
+   "removed": {
+    "n": 21,
+    "win": 0.19047619047619047,
+    "mean": -0.2646666666666665,
+    "pnl": -82572.75,
+    "losers": 17
+   }
+  },
+  "holdout": {
+   "book": {
+    "n": 20,
+    "win": 0.5,
+    "mean": 0.16209999999999974,
+    "pnl": 21820.5,
+    "losers": 10
+   },
+   "kept": {
+    "n": 18,
+    "win": 0.4444444444444444,
+    "mean": 0.09588888888888862,
+    "pnl": 20631.0,
+    "losers": 10
+   },
+   "removed": {
+    "n": 2,
+    "win": 1.0,
+    "mean": 0.758,
+    "pnl": 1189.5,
+    "losers": 0
+   }
+  },
+  "all": {
+   "book": {
+    "n": 75,
+    "win": 0.5733333333333334,
+    "mean": 9.962026666666667,
+    "pnl": 1076643.75,
+    "losers": 32
+   },
+   "kept": {
+    "n": 52,
+    "win": 0.7115384615384616,
+    "mean": 14.44603846153846,
+    "pnl": 1158027.0,
+    "losers": 15
+   },
+   "removed": {
+    "n": 23,
+    "win": 0.2608695652173913,
+    "mean": -0.17573913043478245,
+    "pnl": -81383.25,
+    "losers": 17
+   }
+  },
+  "verdict": "REJECTED",
+  "why": "shuffle p=0.165 >= 0.05; holdout: kept win rate below book's or removed side profitable"
+ },
+ {
+  "book": "c20_9s",
+  "family": "F8 pair, derived mathematics only",
+  "rule": [
+   [
+    "gamma_x_mv30",
+    ">=",
+    0.0039183
+   ],
+   [
+    "optrun_x_optimb",
+    "<",
+    0.4537472
+   ]
+  ],
+  "features": {
+   "gamma_x_mv30": "gamma * mv30",
+   "optrun_x_optimb": "opt_run * opt_book_imb"
+  },
+  "search": "best_pair over 43 features (420 single masks), n_lines=5 (quantiles 10..90 % of discovery values), min_keep=20, score = share of losers removed - share of winners removed, discovery days only; shuffle = same search on 200 shufflings of discovery outcomes (seed 7)",
+  "score": 0.43939393758773804,
+  "p": 0.785,
+  "shuffle_median_best": 0.469696968793869,
+  "shuffle_max_best": 0.6363636255264282,
+  "discovery": {
+   "book": {
+    "n": 55,
+    "win": 0.6,
+    "mean": 13.525636363636366,
+    "pnl": 1054823.25,
+    "losers": 22
+   },
+   "kept": {
+    "n": 32,
+    "win": 0.78125,
+    "mean": 21.4908125,
+    "pnl": 828776.0,
+    "losers": 7
+   },
+   "removed": {
+    "n": 23,
+    "win": 0.34782608695652173,
+    "mean": 2.4436521739130437,
+    "pnl": 226047.25,
+    "losers": 15
+   }
+  },
+  "holdout": {
+   "book": {
+    "n": 20,
+    "win": 0.5,
+    "mean": 0.16209999999999974,
+    "pnl": 21820.5,
+    "losers": 10
+   },
+   "kept": {
+    "n": 10,
+    "win": 0.5,
+    "mean": -3.2817,
+    "pnl": -26653.25,
+    "losers": 5
+   },
+   "removed": {
+    "n": 10,
+    "win": 0.5,
+    "mean": 3.6058999999999997,
+    "pnl": 48473.75,
+    "losers": 5
+   }
+  },
+  "all": {
+   "book": {
+    "n": 75,
+    "win": 0.5733333333333334,
+    "mean": 9.962026666666667,
+    "pnl": 1076643.75,
+    "losers": 32
+   },
+   "kept": {
+    "n": 42,
+    "win": 0.7142857142857143,
+    "mean": 15.592595238095239,
+    "pnl": 802122.75,
+    "losers": 12
+   },
+   "removed": {
+    "n": 33,
+    "win": 0.3939393939393939,
+    "mean": 2.7958484848484844,
+    "pnl": 274521.0,
+    "losers": 20
+   }
+  },
+  "verdict": "REJECTED",
+  "why": "shuffle p=0.785 >= 0.05; holdout: kept win rate below book's or removed side profitable"
+ },
+ {
+  "book": "c20_9s",
+  "family": "F9 pair, book's own situation + calendar",
+  "rule": [
+   [
+    "weekday",
+    "<",
+    4.0
+   ],
+   [
+    "n_today",
+    "<",
+    11.0
+   ]
+  ],
+  "features": {
+   "weekday": "raw weather field (apex/engine/weather.py)",
+   "n_today": "raw weather field (apex/engine/weather.py)"
+  },
+  "search": "best_pair over 24 features (166 single masks), n_lines=5 (quantiles 10..90 % of discovery values), min_keep=20, score = share of losers removed - share of winners removed, discovery days only; shuffle = same search on 200 shufflings of discovery outcomes (seed 7)",
+  "score": 0.4545454680919647,
+  "p": 0.19,
+  "shuffle_median_best": 0.3787878751754761,
+  "shuffle_max_best": 0.6363636255264282,
+  "discovery": {
+   "book": {
+    "n": 55,
+    "win": 0.6,
+    "mean": 13.525636363636366,
+    "pnl": 1054823.25,
+    "losers": 22
+   },
+   "kept": {
+    "n": 40,
+    "win": 0.75,
+    "mean": 15.843125,
+    "pnl": 792853.75,
+    "losers": 10
+   },
+   "removed": {
+    "n": 15,
+    "win": 0.2,
+    "mean": 7.345666666666668,
+    "pnl": 261969.5,
+    "losers": 12
+   }
+  },
+  "holdout": {
+   "book": {
+    "n": 20,
+    "win": 0.5,
+    "mean": 0.16209999999999974,
+    "pnl": 21820.5,
+    "losers": 10
+   },
+   "kept": {
+    "n": 16,
+    "win": 0.4375,
+    "mean": -4.2719375,
+    "pnl": -62192.0,
+    "losers": 9
+   },
+   "removed": {
+    "n": 4,
+    "win": 0.75,
+    "mean": 17.898249999999997,
+    "pnl": 84012.5,
+    "losers": 1
+   }
+  },
+  "all": {
+   "book": {
+    "n": 75,
+    "win": 0.5733333333333334,
+    "mean": 9.962026666666667,
+    "pnl": 1076643.75,
+    "losers": 32
+   },
+   "kept": {
+    "n": 56,
+    "win": 0.6607142857142857,
+    "mean": 10.095964285714286,
+    "pnl": 730661.75,
+    "losers": 19
+   },
+   "removed": {
+    "n": 19,
+    "win": 0.3157894736842105,
+    "mean": 9.567263157894738,
+    "pnl": 345982.0,
+    "losers": 13
+   }
+  },
+  "verdict": "REJECTED",
+  "why": "shuffle p=0.190 >= 0.05; holdout: kept win rate below book's or removed side profitable"
+ },
+ {
+  "book": "c20_9s",
+  "family": "F10 single, agree_same only (family unanimity)",
+  "rule": [
+   [
+    "agree_same",
+    ">=",
+    6.0
+   ]
+  ],
+  "features": {
+   "agree_same": "raw weather field (apex/engine/weather.py)"
+  },
+  "search": "best_single over the ONE feature agree_same (4 single masks), n_lines=5 (quantiles 10..90 % of discovery values), min_keep=20, score = share of losers removed - share of winners removed, discovery days only; shuffle = same search on 200 shufflings (seed 7)",
+  "score": 0.30303030303030304,
+  "p": 0.005,
+  "shuffle_median_best": 0.015151515151515152,
+  "shuffle_max_best": 0.30303030303030304,
+  "discovery": {
+   "book": {
+    "n": 55,
+    "win": 0.6,
+    "mean": 13.525636363636366,
+    "pnl": 1054823.25,
+    "losers": 22
+   },
+   "kept": {
+    "n": 45,
+    "win": 0.6888888888888889,
+    "mean": 17.44528888888889,
+    "pnl": 1087589.75,
+    "losers": 14
+   },
+   "removed": {
+    "n": 10,
+    "win": 0.2,
+    "mean": -4.1128,
+    "pnl": -32766.5,
+    "losers": 8
+   }
+  },
+  "holdout": {
+   "book": {
+    "n": 20,
+    "win": 0.5,
+    "mean": 0.16209999999999974,
+    "pnl": 21820.5,
+    "losers": 10
+   },
+   "kept": {
+    "n": 18,
+    "win": 0.5555555555555556,
+    "mean": 2.075055555555555,
+    "pnl": 51454.0,
+    "losers": 8
+   },
+   "removed": {
+    "n": 2,
+    "win": 0.0,
+    "mean": -17.0545,
+    "pnl": -29633.5,
+    "losers": 2
+   }
+  },
+  "all": {
+   "book": {
+    "n": 75,
+    "win": 0.5733333333333334,
+    "mean": 9.962026666666667,
+    "pnl": 1076643.75,
+    "losers": 32
+   },
+   "kept": {
+    "n": 63,
+    "win": 0.6507936507936508,
+    "mean": 13.05379365079365,
+    "pnl": 1139043.75,
+    "losers": 22
+   },
+   "removed": {
+    "n": 12,
+    "win": 0.16666666666666666,
+    "mean": -6.269749999999999,
+    "pnl": -62400.0,
+    "losers": 10
+   }
+  },
+  "verdict": "PROPOSE",
+  "why": "passes discovery, shuffle and holdout",
+  "caveat": "POST-HOC: this one-feature search was chosen after the pre-registered F1-F9 searches pointed at agree_same, so its p is flattering. The fair p for c20_9y is the pre-registered F9 pair (0.030) / F9 single (0.055). agree_same = other books firing this step and last (docs/27 item 67); on c20_9y the removed trades are exactly those where c20_9s or c20_9t did not fire."
+ },
+ {
+  "book": "c20_9v",
+  "family": "F1 single, raw weather",
+  "rule": [
+   [
+    "er_day",
+    "<",
+    0.09161000000000001
+   ]
+  ],
+  "features": {
+   "er_day": "raw weather field (apex/engine/weather.py)"
+  },
+  "search": "best_single over 189 features (1852 single masks), n_lines=5 (quantiles 10..90 % of discovery values), min_keep=20, score = share of losers removed - share of winners removed, discovery days only; shuffle = same search on 200 shufflings of discovery outcomes (seed 7)",
+  "score": 0.3464285714285714,
+  "p": 0.845,
+  "shuffle_median_best": 0.3964285714285714,
+  "shuffle_max_best": 0.5416666666666666,
+  "discovery": {
+   "book": {
+    "n": 61,
+    "win": 0.6557377049180327,
+    "mean": 11.667098360655737,
+    "pnl": 1029902.25,
+    "losers": 21
+   },
+   "kept": {
+    "n": 40,
+    "win": 0.775,
+    "mean": 17.508575,
+    "pnl": 1071804.5,
+    "losers": 9
+   },
+   "removed": {
+    "n": 21,
+    "win": 0.42857142857142855,
+    "mean": 0.5404761904761903,
+    "pnl": -41902.25,
+    "losers": 12
+   }
+  },
+  "holdout": {
+   "book": {
+    "n": 21,
+    "win": 0.5238095238095238,
+    "mean": 0.6483333333333331,
+    "pnl": 32305.0,
+    "losers": 10
+   },
+   "kept": {
+    "n": 3,
+    "win": 0.3333333333333333,
+    "mean": -6.008333333333333,
+    "pnl": -14017.25,
+    "losers": 2
+   },
+   "removed": {
+    "n": 18,
+    "win": 0.5555555555555556,
+    "mean": 1.7577777777777774,
+    "pnl": 46322.25,
+    "losers": 8
+   }
+  },
+  "all": {
+   "book": {
+    "n": 82,
+    "win": 0.6219512195121951,
+    "mean": 8.845219512195122,
+    "pnl": 1062207.25,
+    "losers": 31
+   },
+   "kept": {
+    "n": 43,
+    "win": 0.7441860465116279,
+    "mean": 15.867860465116278,
+    "pnl": 1057787.25,
+    "losers": 11
+   },
+   "removed": {
+    "n": 39,
+    "win": 0.48717948717948717,
+    "mean": 1.102307692307692,
+    "pnl": 4420.0,
+    "losers": 20
+   }
+  },
+  "verdict": "REJECTED",
+  "why": "shuffle p=0.845 >= 0.05; holdout: kept win rate below book's or removed side profitable"
+ },
+ {
+  "book": "c20_9v",
+  "family": "F2 pair, raw weather",
+  "rule": [
+   [
+    "oi_own_chg15",
+    ">=",
+    -457040.9999999999
+   ],
+   [
+    "opt_run",
+    "<",
+    0.502
+   ]
+  ],
+  "features": {
+   "oi_own_chg15": "raw weather field (apex/engine/weather.py)",
+   "opt_run": "raw weather field (apex/engine/weather.py)"
+  },
+  "search": "best_pair over 189 features (1852 single masks), n_lines=5 (quantiles 10..90 % of discovery values), min_keep=20, score = share of losers removed - share of winners removed, discovery days only; shuffle = same search on 200 shufflings of discovery outcomes (seed 7)",
+  "score": 0.5595238208770752,
+  "p": 0.345,
+  "shuffle_median_best": 0.5369048118591309,
+  "shuffle_max_best": 0.6595238447189331,
+  "discovery": {
+   "book": {
+    "n": 61,
+    "win": 0.6557377049180327,
+    "mean": 11.667098360655737,
+    "pnl": 1029902.25,
+    "losers": 21
+   },
+   "kept": {
+    "n": 34,
+    "win": 0.8823529411764706,
+    "mean": 20.397470588235294,
+    "pnl": 981025.5,
+    "losers": 4
+   },
+   "removed": {
+    "n": 27,
+    "win": 0.37037037037037035,
+    "mean": 0.6732962962962961,
+    "pnl": 48876.75,
+    "losers": 17
+   }
+  },
+  "holdout": {
+   "book": {
+    "n": 21,
+    "win": 0.5238095238095238,
+    "mean": 0.6483333333333331,
+    "pnl": 32305.0,
+    "losers": 10
+   },
+   "kept": {
+    "n": 11,
+    "win": 0.45454545454545453,
+    "mean": -3.192181818181818,
+    "pnl": -33052.5,
+    "losers": 6
+   },
+   "removed": {
+    "n": 10,
+    "win": 0.6,
+    "mean": 4.8729,
+    "pnl": 65357.5,
+    "losers": 4
+   }
+  },
+  "all": {
+   "book": {
+    "n": 82,
+    "win": 0.6219512195121951,
+    "mean": 8.845219512195122,
+    "pnl": 1062207.25,
+    "losers": 31
+   },
+   "kept": {
+    "n": 45,
+    "win": 0.7777777777777778,
+    "mean": 14.63111111111111,
+    "pnl": 947973.0,
+    "losers": 10
+   },
+   "removed": {
+    "n": 37,
+    "win": 0.43243243243243246,
+    "mean": 1.8083243243243239,
+    "pnl": 114234.25,
+    "losers": 21
+   }
+  },
+  "verdict": "REJECTED",
+  "why": "shuffle p=0.345 >= 0.05; holdout: kept win rate below book's or removed side profitable"
+ },
+ {
+  "book": "c20_9v",
+  "family": "F3 single, raw+derived+text+trigger",
+  "rule": [
+   [
+    "opt_opp_q=DRAIN-FAST",
+    "<",
+    1.0
+   ]
+  ],
+  "features": {
+   "opt_opp_q=DRAIN-FAST": "indicator: 1 when weather text field opt_opp_q == DRAIN-FAST"
+  },
+  "search": "best_single over 276 features (2428 single masks), n_lines=5 (quantiles 10..90 % of discovery values), min_keep=20, score = share of losers removed - share of winners removed, discovery days only; shuffle = same search on 200 shufflings of discovery outcomes (seed 7)",
+  "score": 0.3738095238095238,
+  "p": 0.715,
+  "shuffle_median_best": 0.3964285714285714,
+  "shuffle_max_best": 0.5440476190476191,
+  "discovery": {
+   "book": {
+    "n": 61,
+    "win": 0.6557377049180327,
+    "mean": 11.667098360655737,
+    "pnl": 1029902.25,
+    "losers": 21
+   },
+   "kept": {
+    "n": 44,
+    "win": 0.7727272727272727,
+    "mean": 16.233840909090908,
+    "pnl": 893412.0,
+    "losers": 10
+   },
+   "removed": {
+    "n": 17,
+    "win": 0.35294117647058826,
+    "mean": -0.15270588235294102,
+    "pnl": 136490.25,
+    "losers": 11
+   }
+  },
+  "holdout": {
+   "book": {
+    "n": 21,
+    "win": 0.5238095238095238,
+    "mean": 0.6483333333333331,
+    "pnl": 32305.0,
+    "losers": 10
+   },
+   "kept": {
+    "n": 15,
+    "win": 0.4,
+    "mean": -4.705133333333333,
+    "pnl": -59722.0,
+    "losers": 9
+   },
+   "removed": {
+    "n": 6,
+    "win": 0.8333333333333334,
+    "mean": 14.031999999999998,
+    "pnl": 92027.0,
+    "losers": 1
+   }
+  },
+  "all": {
+   "book": {
+    "n": 82,
+    "win": 0.6219512195121951,
+    "mean": 8.845219512195122,
+    "pnl": 1062207.25,
+    "losers": 31
+   },
+   "kept": {
+    "n": 59,
+    "win": 0.6779661016949152,
+    "mean": 10.910372881355933,
+    "pnl": 833690.0,
+    "losers": 19
+   },
+   "removed": {
+    "n": 23,
+    "win": 0.4782608695652174,
+    "mean": 3.5476521739130438,
+    "pnl": 228517.25,
+    "losers": 12
+   }
+  },
+  "verdict": "REJECTED",
+  "why": "shuffle p=0.715 >= 0.05; holdout: kept win rate below book's or removed side profitable"
+ },
+ {
+  "book": "c20_9v",
+  "family": "F4 pair, raw+derived+text+trigger",
+  "rule": [
+   [
+    "oi_own_chg15",
+    ">=",
+    -457040.9999999999
+   ],
+   [
+    "opt_run",
+    "<",
+    0.502
+   ]
+  ],
+  "features": {
+   "oi_own_chg15": "raw weather field (apex/engine/weather.py)",
+   "opt_run": "raw weather field (apex/engine/weather.py)"
+  },
+  "search": "best_pair over 276 features (2428 single masks), n_lines=5 (quantiles 10..90 % of discovery values), min_keep=20, score = share of losers removed - share of winners removed, discovery days only; shuffle = same search on 200 shufflings of discovery outcomes (seed 7)",
+  "score": 0.5595238208770752,
+  "p": 0.46,
+  "shuffle_median_best": 0.5571428537368774,
+  "shuffle_max_best": 0.6619047522544861,
+  "discovery": {
+   "book": {
+    "n": 61,
+    "win": 0.6557377049180327,
+    "mean": 11.667098360655737,
+    "pnl": 1029902.25,
+    "losers": 21
+   },
+   "kept": {
+    "n": 34,
+    "win": 0.8823529411764706,
+    "mean": 20.397470588235294,
+    "pnl": 981025.5,
+    "losers": 4
+   },
+   "removed": {
+    "n": 27,
+    "win": 0.37037037037037035,
+    "mean": 0.6732962962962961,
+    "pnl": 48876.75,
+    "losers": 17
+   }
+  },
+  "holdout": {
+   "book": {
+    "n": 21,
+    "win": 0.5238095238095238,
+    "mean": 0.6483333333333331,
+    "pnl": 32305.0,
+    "losers": 10
+   },
+   "kept": {
+    "n": 11,
+    "win": 0.45454545454545453,
+    "mean": -3.192181818181818,
+    "pnl": -33052.5,
+    "losers": 6
+   },
+   "removed": {
+    "n": 10,
+    "win": 0.6,
+    "mean": 4.8729,
+    "pnl": 65357.5,
+    "losers": 4
+   }
+  },
+  "all": {
+   "book": {
+    "n": 82,
+    "win": 0.6219512195121951,
+    "mean": 8.845219512195122,
+    "pnl": 1062207.25,
+    "losers": 31
+   },
+   "kept": {
+    "n": 45,
+    "win": 0.7777777777777778,
+    "mean": 14.63111111111111,
+    "pnl": 947973.0,
+    "losers": 10
+   },
+   "removed": {
+    "n": 37,
+    "win": 0.43243243243243246,
+    "mean": 1.8083243243243239,
+    "pnl": 114234.25,
+    "losers": 21
+   }
+  },
+  "verdict": "REJECTED",
+  "why": "shuffle p=0.460 >= 0.05; holdout: kept win rate below book's or removed side profitable"
+ },
+ {
+  "book": "c20_9v",
+  "family": "F5 greedy triple, raw+derived+text+trigger",
+  "rule": [
+   [
+    "oi_own_chg15",
+    ">=",
+    -457040.9999999999
+   ],
+   [
+    "opt_run",
+    "<",
+    0.502
+   ],
+   [
+    "skew_atm",
+    "<",
+    0.17
+   ]
+  ],
+  "features": {
+   "oi_own_chg15": "raw weather field (apex/engine/weather.py)",
+   "opt_run": "raw weather field (apex/engine/weather.py)",
+   "skew_atm": "raw weather field (apex/engine/weather.py)"
+  },
+  "search": "best_pair then best third clause over 276 features (2428 single masks), n_lines=5 (quantiles 10..90 % of discovery values), min_keep=20, score = share of losers removed - share of winners removed, discovery days only; shuffle = same search on 200 shufflings of discovery outcomes (seed 7)",
+  "score": 0.6297619047619047,
+  "p": 0.55,
+  "shuffle_median_best": 0.6297619047619047,
+  "shuffle_max_best": 0.7797619047619048,
+  "discovery": {
+   "book": {
+    "n": 61,
+    "win": 0.6557377049180327,
+    "mean": 11.667098360655737,
+    "pnl": 1029902.25,
+    "losers": 21
+   },
+   "kept": {
+    "n": 31,
+    "win": 0.9354838709677419,
+    "mean": 21.732032258064514,
+    "pnl": 963062.75,
+    "losers": 2
+   },
+   "removed": {
+    "n": 30,
+    "win": 0.36666666666666664,
+    "mean": 1.2666666666666664,
+    "pnl": 66839.5,
+    "losers": 19
+   }
+  },
+  "holdout": {
+   "book": {
+    "n": 21,
+    "win": 0.5238095238095238,
+    "mean": 0.6483333333333331,
+    "pnl": 32305.0,
+    "losers": 10
+   },
+   "kept": {
+    "n": 10,
+    "win": 0.5,
+    "mean": -2.1635999999999997,
+    "pnl": -20462.0,
+    "losers": 5
+   },
+   "removed": {
+    "n": 11,
+    "win": 0.5454545454545454,
+    "mean": 3.2046363636363635,
+    "pnl": 52767.0,
+    "losers": 5
+   }
+  },
+  "all": {
+   "book": {
+    "n": 82,
+    "win": 0.6219512195121951,
+    "mean": 8.845219512195122,
+    "pnl": 1062207.25,
+    "losers": 31
+   },
+   "kept": {
+    "n": 41,
+    "win": 0.8292682926829268,
+    "mean": 15.903829268292684,
+    "pnl": 942600.75,
+    "losers": 7
+   },
+   "removed": {
+    "n": 41,
+    "win": 0.4146341463414634,
+    "mean": 1.7866097560975607,
+    "pnl": 119606.5,
+    "losers": 24
+   }
+  },
+  "verdict": "REJECTED",
+  "why": "shuffle p=0.550 >= 0.05; holdout: kept win rate below book's or removed side profitable"
+ },
+ {
+  "book": "c20_9v",
+  "family": "F6 single, raw+derived+text+trigger, 9 lines",
+  "rule": [
+   [
+    "opt_opp_q=DRAIN-FAST",
+    "<",
+    1.0
+   ]
+  ],
+  "features": {
+   "opt_opp_q=DRAIN-FAST": "indicator: 1 when weather text field opt_opp_q == DRAIN-FAST"
+  },
+  "search": "best_single over 276 features (4150 single masks), n_lines=9 (quantiles 10..90 % of discovery values), min_keep=20, score = share of losers removed - share of winners removed, discovery days only; shuffle = same search on 200 shufflings of discovery outcomes (seed 7)",
+  "score": 0.3738095238095238,
+  "p": 0.865,
+  "shuffle_median_best": 0.41309523809523807,
+  "shuffle_max_best": 0.5440476190476191,
+  "discovery": {
+   "book": {
+    "n": 61,
+    "win": 0.6557377049180327,
+    "mean": 11.667098360655737,
+    "pnl": 1029902.25,
+    "losers": 21
+   },
+   "kept": {
+    "n": 44,
+    "win": 0.7727272727272727,
+    "mean": 16.233840909090908,
+    "pnl": 893412.0,
+    "losers": 10
+   },
+   "removed": {
+    "n": 17,
+    "win": 0.35294117647058826,
+    "mean": -0.15270588235294102,
+    "pnl": 136490.25,
+    "losers": 11
+   }
+  },
+  "holdout": {
+   "book": {
+    "n": 21,
+    "win": 0.5238095238095238,
+    "mean": 0.6483333333333331,
+    "pnl": 32305.0,
+    "losers": 10
+   },
+   "kept": {
+    "n": 15,
+    "win": 0.4,
+    "mean": -4.705133333333333,
+    "pnl": -59722.0,
+    "losers": 9
+   },
+   "removed": {
+    "n": 6,
+    "win": 0.8333333333333334,
+    "mean": 14.031999999999998,
+    "pnl": 92027.0,
+    "losers": 1
+   }
+  },
+  "all": {
+   "book": {
+    "n": 82,
+    "win": 0.6219512195121951,
+    "mean": 8.845219512195122,
+    "pnl": 1062207.25,
+    "losers": 31
+   },
+   "kept": {
+    "n": 59,
+    "win": 0.6779661016949152,
+    "mean": 10.910372881355933,
+    "pnl": 833690.0,
+    "losers": 19
+   },
+   "removed": {
+    "n": 23,
+    "win": 0.4782608695652174,
+    "mean": 3.5476521739130438,
+    "pnl": 228517.25,
+    "losers": 12
+   }
+  },
+  "verdict": "REJECTED",
+  "why": "shuffle p=0.865 >= 0.05; holdout: kept win rate below book's or removed side profitable"
+ },
+ {
+  "book": "c20_9v",
+  "family": "F7 pair, raw+derived+text+trigger, 9 lines",
+  "rule": [
+   [
+    "pos_in_range",
+    ">=",
+    0.1085
+   ],
+   [
+    "spread_pct",
+    ">=",
+    0.172
+   ]
+  ],
+  "features": {
+   "pos_in_range": "raw weather field (apex/engine/weather.py)",
+   "spread_pct": "raw weather field (apex/engine/weather.py)"
+  },
+  "search": "best_pair over 276 features (4150 single masks), n_lines=9 (quantiles 10..90 % of discovery values), min_keep=20, score = share of losers removed - share of winners removed, discovery days only; shuffle = same search on 200 shufflings of discovery outcomes (seed 7)",
+  "score": 0.561904788017273,
+  "p": 0.655,
+  "shuffle_median_best": 0.580952376127243,
+  "shuffle_max_best": 0.7321428656578064,
+  "discovery": {
+   "book": {
+    "n": 61,
+    "win": 0.6557377049180327,
+    "mean": 11.667098360655737,
+    "pnl": 1029902.25,
+    "losers": 21
+   },
+   "kept": {
+    "n": 37,
+    "win": 0.8648648648648649,
+    "mean": 17.94024324324324,
+    "pnl": 845497.25,
+    "losers": 5
+   },
+   "removed": {
+    "n": 24,
+    "win": 0.3333333333333333,
+    "mean": 1.9959999999999998,
+    "pnl": 184405.0,
+    "losers": 16
+   }
+  },
+  "holdout": {
+   "book": {
+    "n": 21,
+    "win": 0.5238095238095238,
+    "mean": 0.6483333333333331,
+    "pnl": 32305.0,
+    "losers": 10
+   },
+   "kept": {
+    "n": 18,
+    "win": 0.5,
+    "mean": 0.26188888888888856,
+    "pnl": 23114.0,
+    "losers": 9
+   },
+   "removed": {
+    "n": 3,
+    "win": 0.6666666666666666,
+    "mean": 2.967,
+    "pnl": 9191.0,
+    "losers": 1
+   }
+  },
+  "all": {
+   "book": {
+    "n": 82,
+    "win": 0.6219512195121951,
+    "mean": 8.845219512195122,
+    "pnl": 1062207.25,
+    "losers": 31
+   },
+   "kept": {
+    "n": 55,
+    "win": 0.7454545454545455,
+    "mean": 12.1546,
+    "pnl": 868611.25,
+    "losers": 14
+   },
+   "removed": {
+    "n": 27,
+    "win": 0.37037037037037035,
+    "mean": 2.1038888888888887,
+    "pnl": 193596.0,
+    "losers": 17
+   }
+  },
+  "verdict": "REJECTED",
+  "why": "shuffle p=0.655 >= 0.05; holdout: kept win rate below book's or removed side profitable"
+ },
+ {
+  "book": "c20_9v",
+  "family": "F8 pair, derived mathematics only",
+  "rule": [
+   [
+    "kv_x_kvt",
+    ">=",
+    0.0221
+   ],
+   [
+    "optrun_x_optimb",
+    "<",
+    0.439736
+   ]
+  ],
+  "features": {
+   "kv_x_kvt": "kv * kvt (Kalman velocity weighted by its t-stat)",
+   "optrun_x_optimb": "opt_run * opt_book_imb"
+  },
+  "search": "best_pair over 43 features (420 single masks), n_lines=5 (quantiles 10..90 % of discovery values), min_keep=20, score = share of losers removed - share of winners removed, discovery days only; shuffle = same search on 200 shufflings of discovery outcomes (seed 7)",
+  "score": 0.47380954027175903,
+  "p": 0.455,
+  "shuffle_median_best": 0.4642857313156128,
+  "shuffle_max_best": 0.6547619104385376,
+  "discovery": {
+   "book": {
+    "n": 61,
+    "win": 0.6557377049180327,
+    "mean": 11.667098360655737,
+    "pnl": 1029902.25,
+    "losers": 21
+   },
+   "kept": {
+    "n": 48,
+    "win": 0.7916666666666666,
+    "mean": 14.459958333333333,
+    "pnl": 1067862.25,
+    "losers": 10
+   },
+   "removed": {
+    "n": 13,
+    "win": 0.15384615384615385,
+    "mean": 1.355,
+    "pnl": -37960.0,
+    "losers": 11
+   }
+  },
+  "holdout": {
+   "book": {
+    "n": 21,
+    "win": 0.5238095238095238,
+    "mean": 0.6483333333333331,
+    "pnl": 32305.0,
+    "losers": 10
+   },
+   "kept": {
+    "n": 17,
+    "win": 0.47058823529411764,
+    "mean": -3.9075294117647057,
+    "pnl": -55516.5,
+    "losers": 9
+   },
+   "removed": {
+    "n": 4,
+    "win": 0.75,
+    "mean": 20.010749999999998,
+    "pnl": 87821.5,
+    "losers": 1
+   }
+  },
+  "all": {
+   "book": {
+    "n": 82,
+    "win": 0.6219512195121951,
+    "mean": 8.845219512195122,
+    "pnl": 1062207.25,
+    "losers": 31
+   },
+   "kept": {
+    "n": 65,
+    "win": 0.7076923076923077,
+    "mean": 9.656153846153845,
+    "pnl": 1012345.75,
+    "losers": 19
+   },
+   "removed": {
+    "n": 17,
+    "win": 0.29411764705882354,
+    "mean": 5.744588235294117,
+    "pnl": 49861.5,
+    "losers": 12
+   }
+  },
+  "verdict": "REJECTED",
+  "why": "shuffle p=0.455 >= 0.05; holdout: kept win rate below book's or removed side profitable"
+ },
+ {
+  "book": "c20_9v",
+  "family": "F9 pair, book's own situation + calendar",
+  "rule": [
+   [
+    "agree_same",
+    ">=",
+    3.0
+   ],
+   [
+    "adv_vetoes_raw",
+    ">=",
+    2.0
+   ]
+  ],
+  "features": {
+   "agree_same": "raw weather field (apex/engine/weather.py)",
+   "adv_vetoes_raw": "adv_vetoes (number of advisors vetoing our direction)"
+  },
+  "search": "best_pair over 25 features (168 single masks), n_lines=5 (quantiles 10..90 % of discovery values), min_keep=20, score = share of losers removed - share of winners removed, discovery days only; shuffle = same search on 200 shufflings of discovery outcomes (seed 7)",
+  "score": 0.34642860293388367,
+  "p": 0.705,
+  "shuffle_median_best": 0.3797619342803955,
+  "shuffle_max_best": 0.6321429014205933,
+  "discovery": {
+   "book": {
+    "n": 61,
+    "win": 0.6557377049180327,
+    "mean": 11.667098360655737,
+    "pnl": 1029902.25,
+    "losers": 21
+   },
+   "kept": {
+    "n": 40,
+    "win": 0.775,
+    "mean": 15.28255,
+    "pnl": 949055.25,
+    "losers": 9
+   },
+   "removed": {
+    "n": 21,
+    "win": 0.42857142857142855,
+    "mean": 4.780523809523809,
+    "pnl": 80847.0,
+    "losers": 12
+   }
+  },
+  "holdout": {
+   "book": {
+    "n": 21,
+    "win": 0.5238095238095238,
+    "mean": 0.6483333333333331,
+    "pnl": 32305.0,
+    "losers": 10
+   },
+   "kept": {
+    "n": 18,
+    "win": 0.6111111111111112,
+    "mean": 2.682222222222222,
+    "pnl": 62494.25,
+    "losers": 7
+   },
+   "removed": {
+    "n": 3,
+    "win": 0.0,
+    "mean": -11.555,
+    "pnl": -30189.25,
+    "losers": 3
+   }
+  },
+  "all": {
+   "book": {
+    "n": 82,
+    "win": 0.6219512195121951,
+    "mean": 8.845219512195122,
+    "pnl": 1062207.25,
+    "losers": 31
+   },
+   "kept": {
+    "n": 58,
+    "win": 0.7241379310344828,
+    "mean": 11.372103448275862,
+    "pnl": 1011549.5,
+    "losers": 16
+   },
+   "removed": {
+    "n": 24,
+    "win": 0.375,
+    "mean": 2.738583333333333,
+    "pnl": 50657.75,
+    "losers": 15
+   }
+  },
+  "verdict": "REJECTED",
+  "why": "shuffle p=0.705 >= 0.05"
+ },
+ {
+  "book": "c20_9v",
+  "family": "F10 single, agree_same only (family unanimity)",
+  "rule": [
+   [
+    "agree_same",
+    ">=",
+    3.0
+   ]
+  ],
+  "features": {
+   "agree_same": "raw weather field (apex/engine/weather.py)"
+  },
+  "search": "best_single over the ONE feature agree_same (4 single masks), n_lines=5 (quantiles 10..90 % of discovery values), min_keep=20, score = share of losers removed - share of winners removed, discovery days only; shuffle = same search on 200 shufflings (seed 7)",
+  "score": 0.2333333333333333,
+  "p": 0.05,
+  "shuffle_median_best": 0.015476190476190477,
+  "shuffle_max_best": 0.3059523809523809,
+  "discovery": {
+   "book": {
+    "n": 61,
+    "win": 0.6557377049180327,
+    "mean": 11.667098360655737,
+    "pnl": 1029902.25,
+    "losers": 21
+   },
+   "kept": {
+    "n": 50,
+    "win": 0.72,
+    "mean": 14.586960000000001,
+    "pnl": 1037049.0,
+    "losers": 14
+   },
+   "removed": {
+    "n": 11,
+    "win": 0.36363636363636365,
+    "mean": -1.6050000000000002,
+    "pnl": -7146.75,
+    "losers": 7
+   }
+  },
+  "holdout": {
+   "book": {
+    "n": 21,
+    "win": 0.5238095238095238,
+    "mean": 0.6483333333333331,
+    "pnl": 32305.0,
+    "losers": 10
+   },
+   "kept": {
+    "n": 19,
+    "win": 0.5789473684210527,
+    "mean": 2.5117894736842103,
+    "pnl": 61938.5,
+    "losers": 8
+   },
+   "removed": {
+    "n": 2,
+    "win": 0.0,
+    "mean": -17.0545,
+    "pnl": -29633.5,
+    "losers": 2
+   }
+  },
+  "all": {
+   "book": {
+    "n": 82,
+    "win": 0.6219512195121951,
+    "mean": 8.845219512195122,
+    "pnl": 1062207.25,
+    "losers": 31
+   },
+   "kept": {
+    "n": 69,
+    "win": 0.6811594202898551,
+    "mean": 11.26191304347826,
+    "pnl": 1098987.5,
+    "losers": 22
+   },
+   "removed": {
+    "n": 13,
+    "win": 0.3076923076923077,
+    "mean": -3.981846153846154,
+    "pnl": -36780.25,
+    "losers": 9
+   }
+  },
+  "verdict": "REJECTED",
+  "why": "shuffle p=0.050 >= 0.05",
+  "caveat": "POST-HOC: this one-feature search was chosen after the pre-registered F1-F9 searches pointed at agree_same, so its p is flattering. The fair p for c20_9y is the pre-registered F9 pair (0.030) / F9 single (0.055). agree_same = other books firing this step and last (docs/27 item 67); on c20_9y the removed trades are exactly those where c20_9s or c20_9t did not fire."
+ },
+ {
+  "book": "c20_9x",
+  "family": "F1 single, raw weather",
+  "rule": [
+   [
+    "dist_hi",
+    "<",
+    153.005
+   ]
+  ],
+  "features": {
+   "dist_hi": "raw weather field (apex/engine/weather.py)"
+  },
+  "search": "best_single over 188 features (1856 single masks), n_lines=5 (quantiles 10..90 % of discovery values), min_keep=20, score = share of losers removed - share of winners removed, discovery days only; shuffle = same search on 200 shufflings of discovery outcomes (seed 7)",
+  "score": 0.3973063973063973,
+  "p": 0.37,
+  "shuffle_median_best": 0.3703703703703704,
+  "shuffle_max_best": 0.5589225589225588,
+  "discovery": {
+   "book": {
+    "n": 60,
+    "win": 0.55,
+    "mean": 11.598899999999999,
+    "pnl": 985367.5,
+    "losers": 27
+   },
+   "kept": {
+    "n": 42,
+    "win": 0.6904761904761905,
+    "mean": 15.949880952380951,
+    "pnl": 1027123.5,
+    "losers": 13
+   },
+   "removed": {
+    "n": 18,
+    "win": 0.2222222222222222,
+    "mean": 1.4466111111111113,
+    "pnl": -41756.0,
+    "losers": 14
+   }
+  },
+  "holdout": {
+   "book": {
+    "n": 21,
+    "win": 0.47619047619047616,
+    "mean": 0.02476190476190453,
+    "pnl": 19441.5,
+    "losers": 11
+   },
+   "kept": {
+    "n": 20,
+    "win": 0.45,
+    "mean": -0.02070000000000025,
+    "pnl": 18824.0,
+    "losers": 11
+   },
+   "removed": {
+    "n": 1,
+    "win": 1.0,
+    "mean": 0.934,
+    "pnl": 617.5,
+    "losers": 0
+   }
+  },
+  "all": {
+   "book": {
+    "n": 81,
+    "win": 0.5308641975308642,
+    "mean": 8.598197530864198,
+    "pnl": 1004809.0,
+    "losers": 38
+   },
+   "kept": {
+    "n": 62,
+    "win": 0.6129032258064516,
+    "mean": 10.79808064516129,
+    "pnl": 1045947.5,
+    "losers": 24
+   },
+   "removed": {
+    "n": 19,
+    "win": 0.2631578947368421,
+    "mean": 1.4196315789473688,
+    "pnl": -41138.5,
+    "losers": 14
+   }
+  },
+  "verdict": "REJECTED",
+  "why": "shuffle p=0.370 >= 0.05; holdout: kept win rate below book's or removed side profitable"
+ },
+ {
+  "book": "c20_9x",
+  "family": "F2 pair, raw weather",
+  "rule": [
+   [
+    "dist_hi",
+    "<",
+    153.005
+   ],
+   [
+    "spread_pct",
+    ">=",
+    0.1419
+   ]
+  ],
+  "features": {
+   "dist_hi": "raw weather field (apex/engine/weather.py)",
+   "spread_pct": "raw weather field (apex/engine/weather.py)"
+  },
+  "search": "best_pair over 188 features (1856 single masks), n_lines=5 (quantiles 10..90 % of discovery values), min_keep=20, score = share of losers removed - share of winners removed, discovery days only; shuffle = same search on 200 shufflings of discovery outcomes (seed 7)",
+  "score": 0.552188515663147,
+  "p": 0.265,
+  "shuffle_median_best": 0.5252525210380554,
+  "shuffle_max_best": 0.6531985998153687,
+  "discovery": {
+   "book": {
+    "n": 60,
+    "win": 0.55,
+    "mean": 11.598899999999999,
+    "pnl": 985367.5,
+    "losers": 27
+   },
+   "kept": {
+    "n": 36,
+    "win": 0.7777777777777778,
+    "mean": 17.861611111111113,
+    "pnl": 811271.5,
+    "losers": 8
+   },
+   "removed": {
+    "n": 24,
+    "win": 0.20833333333333334,
+    "mean": 2.2048333333333336,
+    "pnl": 174096.0,
+    "losers": 19
+   }
+  },
+  "holdout": {
+   "book": {
+    "n": 21,
+    "win": 0.47619047619047616,
+    "mean": 0.02476190476190453,
+    "pnl": 19441.5,
+    "losers": 11
+   },
+   "kept": {
+    "n": 18,
+    "win": 0.4444444444444444,
+    "mean": -0.17955555555555583,
+    "pnl": 15639.0,
+    "losers": 10
+   },
+   "removed": {
+    "n": 3,
+    "win": 0.6666666666666666,
+    "mean": 1.2506666666666668,
+    "pnl": 3802.5,
+    "losers": 1
+   }
+  },
+  "all": {
+   "book": {
+    "n": 81,
+    "win": 0.5308641975308642,
+    "mean": 8.598197530864198,
+    "pnl": 1004809.0,
+    "losers": 38
+   },
+   "kept": {
+    "n": 54,
+    "win": 0.6666666666666666,
+    "mean": 11.84788888888889,
+    "pnl": 826910.5,
+    "losers": 18
+   },
+   "removed": {
+    "n": 27,
+    "win": 0.25925925925925924,
+    "mean": 2.098814814814815,
+    "pnl": 177898.5,
+    "losers": 20
+   }
+  },
+  "verdict": "REJECTED",
+  "why": "shuffle p=0.265 >= 0.05; holdout: kept win rate below book's or removed side profitable"
+ },
+ {
+  "book": "c20_9x",
+  "family": "F3 single, raw+derived+text+trigger",
+  "rule": [
+   [
+    "opt_opp_q=DRAIN-FAST",
+    "<",
+    1.0
+   ]
+  ],
+  "features": {
+   "opt_opp_q=DRAIN-FAST": "indicator: 1 when weather text field opt_opp_q == DRAIN-FAST"
+  },
+  "search": "best_single over 281 features (2458 single masks), n_lines=5 (quantiles 10..90 % of discovery values), min_keep=20, score = share of losers removed - share of winners removed, discovery days only; shuffle = same search on 200 shufflings of discovery outcomes (seed 7)",
+  "score": 0.42760942760942755,
+  "p": 0.245,
+  "shuffle_median_best": 0.3703703703703704,
+  "shuffle_max_best": 0.5589225589225588,
+  "discovery": {
+   "book": {
+    "n": 60,
+    "win": 0.55,
+    "mean": 11.598899999999999,
+    "pnl": 985367.5,
+    "losers": 27
+   },
+   "kept": {
+    "n": 43,
+    "win": 0.6976744186046512,
+    "mean": 16.965325581395348,
+    "pnl": 886622.75,
+    "losers": 13
+   },
+   "removed": {
+    "n": 17,
+    "win": 0.17647058823529413,
+    "mean": -1.9749999999999996,
+    "pnl": 98744.75,
+    "losers": 14
+   }
+  },
+  "holdout": {
+   "book": {
+    "n": 21,
+    "win": 0.47619047619047616,
+    "mean": 0.02476190476190453,
+    "pnl": 19441.5,
+    "losers": 11
+   },
+   "kept": {
+    "n": 15,
+    "win": 0.4,
+    "mean": -4.7738,
+    "pnl": -60677.5,
+    "losers": 9
+   },
+   "removed": {
+    "n": 6,
+    "win": 0.6666666666666666,
+    "mean": 12.021166666666666,
+    "pnl": 80119.0,
+    "losers": 2
+   }
+  },
+  "all": {
+   "book": {
+    "n": 81,
+    "win": 0.5308641975308642,
+    "mean": 8.598197530864198,
+    "pnl": 1004809.0,
+    "losers": 38
+   },
+   "kept": {
+    "n": 58,
+    "win": 0.6206896551724138,
+    "mean": 11.343137931034484,
+    "pnl": 825945.25,
+    "losers": 22
+   },
+   "removed": {
+    "n": 23,
+    "win": 0.30434782608695654,
+    "mean": 1.6761739130434783,
+    "pnl": 178863.75,
+    "losers": 16
+   }
+  },
+  "verdict": "REJECTED",
+  "why": "shuffle p=0.245 >= 0.05; holdout: kept win rate below book's or removed side profitable"
+ },
+ {
+  "book": "c20_9x",
+  "family": "F4 pair, raw+derived+text+trigger",
+  "rule": [
+   [
+    "hw_book_imb_t",
+    ">=",
+    -0.2908
+   ],
+   [
+    "opt_opp_q=DRAIN-FAST",
+    "<",
+    1.0
+   ]
+  ],
+  "features": {
+   "hw_book_imb_t": "raw weather field (apex/engine/weather.py)",
+   "opt_opp_q=DRAIN-FAST": "indicator: 1 when weather text field opt_opp_q == DRAIN-FAST"
+  },
+  "search": "best_pair over 281 features (2458 single masks), n_lines=5 (quantiles 10..90 % of discovery values), min_keep=20, score = share of losers removed - share of winners removed, discovery days only; shuffle = same search on 200 shufflings of discovery outcomes (seed 7)",
+  "score": 0.6127946376800537,
+  "p": 0.05,
+  "shuffle_median_best": 0.5319864749908447,
+  "shuffle_max_best": 0.6531985998153687,
+  "discovery": {
+   "book": {
+    "n": 60,
+    "win": 0.55,
+    "mean": 11.598899999999999,
+    "pnl": 985367.5,
+    "losers": 27
+   },
+   "kept": {
+    "n": 38,
+    "win": 0.7894736842105263,
+    "mean": 20.70313157894737,
+    "pnl": 963722.5,
+    "losers": 8
+   },
+   "removed": {
+    "n": 22,
+    "win": 0.13636363636363635,
+    "mean": -4.1265909090909085,
+    "pnl": 21645.0,
+    "losers": 19
+   }
+  },
+  "holdout": {
+   "book": {
+    "n": 21,
+    "win": 0.47619047619047616,
+    "mean": 0.02476190476190453,
+    "pnl": 19441.5,
+    "losers": 11
+   },
+   "kept": {
+    "n": 15,
+    "win": 0.4,
+    "mean": -4.7738,
+    "pnl": -60677.5,
+    "losers": 9
+   },
+   "removed": {
+    "n": 6,
+    "win": 0.6666666666666666,
+    "mean": 12.021166666666666,
+    "pnl": 80119.0,
+    "losers": 2
+   }
+  },
+  "all": {
+   "book": {
+    "n": 81,
+    "win": 0.5308641975308642,
+    "mean": 8.598197530864198,
+    "pnl": 1004809.0,
+    "losers": 38
+   },
+   "kept": {
+    "n": 53,
+    "win": 0.6792452830188679,
+    "mean": 13.492679245283018,
+    "pnl": 903045.0,
+    "losers": 17
+   },
+   "removed": {
+    "n": 28,
+    "win": 0.25,
+    "mean": -0.6663571428571429,
+    "pnl": 101764.0,
+    "losers": 21
+   }
+  },
+  "verdict": "REJECTED",
+  "why": "shuffle p=0.050 >= 0.05; holdout: kept win rate below book's or removed side profitable"
+ },
+ {
+  "book": "c20_9x",
+  "family": "F5 greedy triple, raw+derived+text+trigger",
+  "rule": [
+   [
+    "hw_book_imb_t",
+    ">=",
+    -0.2908
+   ],
+   [
+    "opt_opp_q=DRAIN-FAST",
+    "<",
+    1.0
+   ],
+   [
+    "regime_ext_pct",
+    "<",
+    95.1
+   ]
+  ],
+  "features": {
+   "hw_book_imb_t": "raw weather field (apex/engine/weather.py)",
+   "opt_opp_q=DRAIN-FAST": "indicator: 1 when weather text field opt_opp_q == DRAIN-FAST",
+   "regime_ext_pct": "raw weather field (apex/engine/weather.py)"
+  },
+  "search": "best_pair then best third clause over 281 features (2458 single masks), n_lines=5 (quantiles 10..90 % of discovery values), min_keep=20, score = share of losers removed - share of winners removed, discovery days only; shuffle = same search on 200 shufflings of discovery outcomes (seed 7)",
+  "score": 0.6936026936026936,
+  "p": 0.05,
+  "shuffle_median_best": 0.6161616161616161,
+  "shuffle_max_best": 0.7306397306397306,
+  "discovery": {
+   "book": {
+    "n": 60,
+    "win": 0.55,
+    "mean": 11.598899999999999,
+    "pnl": 985367.5,
+    "losers": 27
+   },
+   "kept": {
+    "n": 34,
+    "win": 0.8529411764705882,
+    "mean": 23.81679411764706,
+    "pnl": 995146.75,
+    "losers": 5
+   },
+   "removed": {
+    "n": 26,
+    "win": 0.15384615384615385,
+    "mean": -4.378346153846154,
+    "pnl": -9779.25,
+    "losers": 22
+   }
+  },
+  "holdout": {
+   "book": {
+    "n": 21,
+    "win": 0.47619047619047616,
+    "mean": 0.02476190476190453,
+    "pnl": 19441.5,
+    "losers": 11
+   },
+   "kept": {
+    "n": 14,
+    "win": 0.35714285714285715,
+    "mean": -5.521999999999999,
+    "pnl": -65669.5,
+    "losers": 9
+   },
+   "removed": {
+    "n": 7,
+    "win": 0.7142857142857143,
+    "mean": 11.118285714285713,
+    "pnl": 85111.0,
+    "losers": 2
+   }
+  },
+  "all": {
+   "book": {
+    "n": 81,
+    "win": 0.5308641975308642,
+    "mean": 8.598197530864198,
+    "pnl": 1004809.0,
+    "losers": 38
+   },
+   "kept": {
+    "n": 48,
+    "win": 0.7083333333333334,
+    "mean": 15.259645833333336,
+    "pnl": 929477.25,
+    "losers": 14
+   },
+   "removed": {
+    "n": 33,
+    "win": 0.2727272727272727,
+    "mean": -1.0911818181818183,
+    "pnl": 75331.75,
+    "losers": 24
+   }
+  },
+  "verdict": "REJECTED",
+  "why": "shuffle p=0.050 >= 0.05; holdout: kept win rate below book's or removed side profitable"
+ },
+ {
+  "book": "c20_9x",
+  "family": "F6 single, raw+derived+text+trigger, 9 lines",
+  "rule": [
+   [
+    "opt_opp_q=DRAIN-FAST",
+    "<",
+    1.0
+   ]
+  ],
+  "features": {
+   "opt_opp_q=DRAIN-FAST": "indicator: 1 when weather text field opt_opp_q == DRAIN-FAST"
+  },
+  "search": "best_single over 281 features (4208 single masks), n_lines=9 (quantiles 10..90 % of discovery values), min_keep=20, score = share of losers removed - share of winners removed, discovery days only; shuffle = same search on 200 shufflings of discovery outcomes (seed 7)",
+  "score": 0.42760942760942755,
+  "p": 0.315,
+  "shuffle_median_best": 0.3973063973063973,
+  "shuffle_max_best": 0.5892255892255892,
+  "discovery": {
+   "book": {
+    "n": 60,
+    "win": 0.55,
+    "mean": 11.598899999999999,
+    "pnl": 985367.5,
+    "losers": 27
+   },
+   "kept": {
+    "n": 43,
+    "win": 0.6976744186046512,
+    "mean": 16.965325581395348,
+    "pnl": 886622.75,
+    "losers": 13
+   },
+   "removed": {
+    "n": 17,
+    "win": 0.17647058823529413,
+    "mean": -1.9749999999999996,
+    "pnl": 98744.75,
+    "losers": 14
+   }
+  },
+  "holdout": {
+   "book": {
+    "n": 21,
+    "win": 0.47619047619047616,
+    "mean": 0.02476190476190453,
+    "pnl": 19441.5,
+    "losers": 11
+   },
+   "kept": {
+    "n": 15,
+    "win": 0.4,
+    "mean": -4.7738,
+    "pnl": -60677.5,
+    "losers": 9
+   },
+   "removed": {
+    "n": 6,
+    "win": 0.6666666666666666,
+    "mean": 12.021166666666666,
+    "pnl": 80119.0,
+    "losers": 2
+   }
+  },
+  "all": {
+   "book": {
+    "n": 81,
+    "win": 0.5308641975308642,
+    "mean": 8.598197530864198,
+    "pnl": 1004809.0,
+    "losers": 38
+   },
+   "kept": {
+    "n": 58,
+    "win": 0.6206896551724138,
+    "mean": 11.343137931034484,
+    "pnl": 825945.25,
+    "losers": 22
+   },
+   "removed": {
+    "n": 23,
+    "win": 0.30434782608695654,
+    "mean": 1.6761739130434783,
+    "pnl": 178863.75,
+    "losers": 16
+   }
+  },
+  "verdict": "REJECTED",
+  "why": "shuffle p=0.315 >= 0.05; holdout: kept win rate below book's or removed side profitable"
+ },
+ {
+  "book": "c20_9x",
+  "family": "F7 pair, raw+derived+text+trigger, 9 lines",
+  "rule": [
+   [
+    "opt_opp_q=DRAIN-FAST",
+    "<",
+    1.0
+   ],
+   [
+    "hw_book_imb_t",
+    ">=",
+    -0.2908
+   ]
+  ],
+  "features": {
+   "opt_opp_q=DRAIN-FAST": "indicator: 1 when weather text field opt_opp_q == DRAIN-FAST",
+   "hw_book_imb_t": "raw weather field (apex/engine/weather.py)"
+  },
+  "search": "best_pair over 281 features (4208 single masks), n_lines=9 (quantiles 10..90 % of discovery values), min_keep=20, score = share of losers removed - share of winners removed, discovery days only; shuffle = same search on 200 shufflings of discovery outcomes (seed 7)",
+  "score": 0.6127946376800537,
+  "p": 0.145,
+  "shuffle_median_best": 0.5572390556335449,
+  "shuffle_max_best": 0.7239056825637817,
+  "discovery": {
+   "book": {
+    "n": 60,
+    "win": 0.55,
+    "mean": 11.598899999999999,
+    "pnl": 985367.5,
+    "losers": 27
+   },
+   "kept": {
+    "n": 38,
+    "win": 0.7894736842105263,
+    "mean": 20.70313157894737,
+    "pnl": 963722.5,
+    "losers": 8
+   },
+   "removed": {
+    "n": 22,
+    "win": 0.13636363636363635,
+    "mean": -4.1265909090909085,
+    "pnl": 21645.0,
+    "losers": 19
+   }
+  },
+  "holdout": {
+   "book": {
+    "n": 21,
+    "win": 0.47619047619047616,
+    "mean": 0.02476190476190453,
+    "pnl": 19441.5,
+    "losers": 11
+   },
+   "kept": {
+    "n": 15,
+    "win": 0.4,
+    "mean": -4.7738,
+    "pnl": -60677.5,
+    "losers": 9
+   },
+   "removed": {
+    "n": 6,
+    "win": 0.6666666666666666,
+    "mean": 12.021166666666666,
+    "pnl": 80119.0,
+    "losers": 2
+   }
+  },
+  "all": {
+   "book": {
+    "n": 81,
+    "win": 0.5308641975308642,
+    "mean": 8.598197530864198,
+    "pnl": 1004809.0,
+    "losers": 38
+   },
+   "kept": {
+    "n": 53,
+    "win": 0.6792452830188679,
+    "mean": 13.492679245283018,
+    "pnl": 903045.0,
+    "losers": 17
+   },
+   "removed": {
+    "n": 28,
+    "win": 0.25,
+    "mean": -0.6663571428571429,
+    "pnl": 101764.0,
+    "losers": 21
+   }
+  },
+  "verdict": "REJECTED",
+  "why": "shuffle p=0.145 >= 0.05; holdout: kept win rate below book's or removed side profitable"
+ },
+ {
+  "book": "c20_9x",
+  "family": "F8 pair, derived mathematics only",
+  "rule": [
+   [
+    "oi_help5_over_own5",
+    "<",
+    6.3795966785290625
+   ],
+   [
+    "optrun_x_optimb",
+    "<",
+    0.44207120000000005
+   ]
+  ],
+  "features": {
+   "oi_help5_over_own5": "oi_net_help5 / |oi_own_chg5|",
+   "optrun_x_optimb": "opt_run * opt_book_imb"
+  },
+  "search": "best_pair over 43 features (420 single masks), n_lines=5 (quantiles 10..90 % of discovery values), min_keep=20, score = share of losers removed - share of winners removed, discovery days only; shuffle = same search on 200 shufflings of discovery outcomes (seed 7)",
+  "score": 0.38383838534355164,
+  "p": 0.93,
+  "shuffle_median_best": 0.4511784315109253,
+  "shuffle_max_best": 0.6262626647949219,
+  "discovery": {
+   "book": {
+    "n": 60,
+    "win": 0.55,
+    "mean": 11.598899999999999,
+    "pnl": 985367.5,
+    "losers": 27
+   },
+   "kept": {
+    "n": 26,
+    "win": 0.7692307692307693,
+    "mean": 20.51780769230769,
+    "pnl": 746369.0,
+    "losers": 6
+   },
+   "removed": {
+    "n": 34,
+    "win": 0.38235294117647056,
+    "mean": 4.778558823529412,
+    "pnl": 238998.5,
+    "losers": 21
+   }
+  },
+  "holdout": {
+   "book": {
+    "n": 21,
+    "win": 0.47619047619047616,
+    "mean": 0.02476190476190453,
+    "pnl": 19441.5,
+    "losers": 11
+   },
+   "kept": {
+    "n": 12,
+    "win": 0.5,
+    "mean": 3.1418333333333326,
+    "pnl": 48327.5,
+    "losers": 6
+   },
+   "removed": {
+    "n": 9,
+    "win": 0.4444444444444444,
+    "mean": -4.131333333333334,
+    "pnl": -28886.0,
+    "losers": 5
+   }
+  },
+  "all": {
+   "book": {
+    "n": 81,
+    "win": 0.5308641975308642,
+    "mean": 8.598197530864198,
+    "pnl": 1004809.0,
+    "losers": 38
+   },
+   "kept": {
+    "n": 38,
+    "win": 0.6842105263157895,
+    "mean": 15.03065789473684,
+    "pnl": 794696.5,
+    "losers": 12
+   },
+   "removed": {
+    "n": 43,
+    "win": 0.3953488372093023,
+    "mean": 2.913697674418605,
+    "pnl": 210112.5,
+    "losers": 26
+   }
+  },
+  "verdict": "REJECTED",
+  "why": "shuffle p=0.930 >= 0.05"
+ },
+ {
+  "book": "c20_9x",
+  "family": "F9 pair, book's own situation + calendar",
+  "rule": [
+   [
+    "weekday",
+    "<",
+    4.0
+   ],
+   [
+    "ret_today",
+    "<",
+    38.466
+   ]
+  ],
+  "features": {
+   "weekday": "raw weather field (apex/engine/weather.py)",
+   "ret_today": "raw weather field (apex/engine/weather.py)"
+  },
+  "search": "best_pair over 24 features (168 single masks), n_lines=5 (quantiles 10..90 % of discovery values), min_keep=20, score = share of losers removed - share of winners removed, discovery days only; shuffle = same search on 200 shufflings of discovery outcomes (seed 7)",
+  "score": 0.38383838534355164,
+  "p": 0.39,
+  "shuffle_median_best": 0.36026933789253235,
+  "shuffle_max_best": 0.5420875549316406,
+  "discovery": {
+   "book": {
+    "n": 60,
+    "win": 0.55,
+    "mean": 11.598899999999999,
+    "pnl": 985367.5,
+    "losers": 27
+   },
+   "kept": {
+    "n": 26,
+    "win": 0.7692307692307693,
+    "mean": 19.001730769230768,
+    "pnl": 485823.0,
+    "losers": 6
+   },
+   "removed": {
+    "n": 34,
+    "win": 0.38235294117647056,
+    "mean": 5.937911764705882,
+    "pnl": 499544.5,
+    "losers": 21
+   }
+  },
+  "holdout": {
+   "book": {
+    "n": 21,
+    "win": 0.47619047619047616,
+    "mean": 0.02476190476190453,
+    "pnl": 19441.5,
+    "losers": 11
+   },
+   "kept": {
+    "n": 18,
+    "win": 0.3888888888888889,
+    "mean": -4.787388888888889,
+    "pnl": -74795.5,
+    "losers": 11
+   },
+   "removed": {
+    "n": 3,
+    "win": 1.0,
+    "mean": 28.897666666666666,
+    "pnl": 94237.0,
+    "losers": 0
+   }
+  },
+  "all": {
+   "book": {
+    "n": 81,
+    "win": 0.5308641975308642,
+    "mean": 8.598197530864198,
+    "pnl": 1004809.0,
+    "losers": 38
+   },
+   "kept": {
+    "n": 44,
+    "win": 0.6136363636363636,
+    "mean": 9.269818181818183,
+    "pnl": 411027.5,
+    "losers": 17
+   },
+   "removed": {
+    "n": 37,
+    "win": 0.43243243243243246,
+    "mean": 7.799513513513514,
+    "pnl": 593781.5,
+    "losers": 21
+   }
+  },
+  "verdict": "REJECTED",
+  "why": "shuffle p=0.390 >= 0.05; holdout: kept win rate below book's or removed side profitable"
+ },
+ {
+  "book": "c20_9x",
+  "family": "F10 single, agree_same only (family unanimity)",
+  "rule": [
+   [
+    "agree_same",
+    ">=",
+    1.0
+   ]
+  ],
+  "features": {
+   "agree_same": "raw weather field (apex/engine/weather.py)"
+  },
+  "search": "best_single over the ONE feature agree_same (2 single masks), n_lines=5 (quantiles 10..90 % of discovery values), min_keep=20, score = share of losers removed - share of winners removed, discovery days only; shuffle = same search on 200 shufflings (seed 7)",
+  "score": 0.006734006734006731,
+  "p": 0.645,
+  "shuffle_median_best": 0.006734006734006731,
+  "shuffle_max_best": 0.07407407407407407,
+  "discovery": {
+   "book": {
+    "n": 60,
+    "win": 0.55,
+    "mean": 11.598899999999999,
+    "pnl": 985367.5,
+    "losers": 27
+   },
+   "kept": {
+    "n": 58,
+    "win": 0.5517241379310345,
+    "mean": 12.028120689655172,
+    "pnl": 992247.75,
+    "losers": 26
+   },
+   "removed": {
+    "n": 2,
+    "win": 0.5,
+    "mean": -0.8484999999999996,
+    "pnl": -6880.25,
+    "losers": 1
+   }
+  },
+  "holdout": {
+   "book": {
+    "n": 21,
+    "win": 0.47619047619047616,
+    "mean": 0.02476190476190453,
+    "pnl": 19441.5,
+    "losers": 11
+   },
+   "kept": {
+    "n": 19,
+    "win": 0.5263157894736842,
+    "mean": 1.8225789473684209,
+    "pnl": 49075.0,
+    "losers": 9
+   },
+   "removed": {
+    "n": 2,
+    "win": 0.0,
+    "mean": -17.0545,
+    "pnl": -29633.5,
+    "losers": 2
+   }
+  },
+  "all": {
+   "book": {
+    "n": 81,
+    "win": 0.5308641975308642,
+    "mean": 8.598197530864198,
+    "pnl": 1004809.0,
+    "losers": 38
+   },
+   "kept": {
+    "n": 77,
+    "win": 0.5454545454545454,
+    "mean": 9.50987012987013,
+    "pnl": 1041322.75,
+    "losers": 35
+   },
+   "removed": {
+    "n": 4,
+    "win": 0.25,
+    "mean": -8.9515,
+    "pnl": -36513.75,
+    "losers": 3
+   }
+  },
+  "verdict": "REJECTED",
+  "why": "discovery standard not met; shuffle p=0.645 >= 0.05",
+  "caveat": "POST-HOC: this one-feature search was chosen after the pre-registered F1-F9 searches pointed at agree_same, so its p is flattering. The fair p for c20_9y is the pre-registered F9 pair (0.030) / F9 single (0.055). agree_same = other books firing this step and last (docs/27 item 67); on c20_9y the removed trades are exactly those where c20_9s or c20_9t did not fire."
+ },
+ {
+  "book": "c20_9t",
+  "family": "F1 single, raw weather",
+  "rule": [
+   [
+    "vix_chg5",
+    ">=",
+    0.0
+   ]
+  ],
+  "features": {
+   "vix_chg5": "raw weather field (apex/engine/weather.py)"
+  },
+  "search": "best_single over 191 features (1878 single masks), n_lines=5 (quantiles 10..90 % of discovery values), min_keep=20, score = share of losers removed - share of winners removed, discovery days only; shuffle = same search on 200 shufflings of discovery outcomes (seed 7)",
+  "score": 0.487938596491228,
+  "p": 0.05,
+  "shuffle_median_best": 0.393640350877193,
+  "shuffle_max_best": 0.5405701754385965,
+  "discovery": {
+   "book": {
+    "n": 67,
+    "win": 0.7164179104477612,
+    "mean": 5.303402985074627,
+    "pnl": 383324.5,
+    "losers": 19
+   },
+   "kept": {
+    "n": 34,
+    "win": 0.9117647058823529,
+    "mean": 8.253529411764706,
+    "pnl": 291742.75,
+    "losers": 3
+   },
+   "removed": {
+    "n": 33,
+    "win": 0.5151515151515151,
+    "mean": 2.263878787878788,
+    "pnl": 91581.75,
+    "losers": 16
+   }
+  },
+  "holdout": {
+   "book": {
+    "n": 23,
+    "win": 0.6521739130434783,
+    "mean": -0.3527826086956522,
+    "pnl": -10991.5,
+    "losers": 8
+   },
+   "kept": {
+    "n": 10,
+    "win": 0.8,
+    "mean": 2.2099,
+    "pnl": 18625.75,
+    "losers": 2
+   },
+   "removed": {
+    "n": 13,
+    "win": 0.5384615384615384,
+    "mean": -2.324076923076923,
+    "pnl": -29617.25,
+    "losers": 6
+   }
+  },
+  "all": {
+   "book": {
+    "n": 90,
+    "win": 0.7,
+    "mean": 3.8579333333333334,
+    "pnl": 372333.0,
+    "losers": 27
+   },
+   "kept": {
+    "n": 44,
+    "win": 0.8863636363636364,
+    "mean": 6.879977272727273,
+    "pnl": 310368.5,
+    "losers": 5
+   },
+   "removed": {
+    "n": 46,
+    "win": 0.5217391304347826,
+    "mean": 0.9672826086956523,
+    "pnl": 61964.5,
+    "losers": 22
+   }
+  },
+  "verdict": "REJECTED",
+  "why": "discovery standard not met; shuffle p=0.050 >= 0.05"
+ },
+ {
+  "book": "c20_9t",
+  "family": "F2 pair, raw weather",
+  "rule": [
+   [
+    "fut_vol_surge",
+    "<",
+    1.3066
+   ],
+   [
+    "swing_behind",
+    ">=",
+    23.64
+   ]
+  ],
+  "features": {
+   "fut_vol_surge": "raw weather field (apex/engine/weather.py)",
+   "swing_behind": "raw weather field (apex/engine/weather.py)"
+  },
+  "search": "best_pair over 191 features (1878 single masks), n_lines=5 (quantiles 10..90 % of discovery values), min_keep=20, score = share of losers removed - share of winners removed, discovery days only; shuffle = same search on 200 shufflings of discovery outcomes (seed 7)",
+  "score": 0.6337719559669495,
+  "p": 0.06,
+  "shuffle_median_best": 0.5493420958518982,
+  "shuffle_max_best": 0.6864035129547119,
+  "discovery": {
+   "book": {
+    "n": 67,
+    "win": 0.7164179104477612,
+    "mean": 5.303402985074627,
+    "pnl": 383324.5,
+    "losers": 19
+   },
+   "kept": {
+    "n": 41,
+    "win": 0.926829268292683,
+    "mean": 7.2062682926829265,
+    "pnl": 331763.25,
+    "losers": 3
+   },
+   "removed": {
+    "n": 26,
+    "win": 0.38461538461538464,
+    "mean": 2.3027307692307697,
+    "pnl": 51561.25,
+    "losers": 16
+   }
+  },
+  "holdout": {
+   "book": {
+    "n": 23,
+    "win": 0.6521739130434783,
+    "mean": -0.3527826086956522,
+    "pnl": -10991.5,
+    "losers": 8
+   },
+   "kept": {
+    "n": 12,
+    "win": 0.5833333333333334,
+    "mean": -3.46125,
+    "pnl": -36803.0,
+    "losers": 5
+   },
+   "removed": {
+    "n": 11,
+    "win": 0.7272727272727273,
+    "mean": 3.038272727272727,
+    "pnl": 25811.5,
+    "losers": 3
+   }
+  },
+  "all": {
+   "book": {
+    "n": 90,
+    "win": 0.7,
+    "mean": 3.8579333333333334,
+    "pnl": 372333.0,
+    "losers": 27
+   },
+   "kept": {
+    "n": 53,
+    "win": 0.8490566037735849,
+    "mean": 4.790981132075472,
+    "pnl": 294960.25,
+    "losers": 8
+   },
+   "removed": {
+    "n": 37,
+    "win": 0.4864864864864865,
+    "mean": 2.5214054054054054,
+    "pnl": 77372.75,
+    "losers": 19
+   }
+  },
+  "verdict": "REJECTED",
+  "why": "shuffle p=0.060 >= 0.05; holdout: kept win rate below book's or removed side profitable"
+ },
+ {
+  "book": "c20_9t",
+  "family": "F3 single, raw+derived+text+trigger",
+  "rule": [
+   [
+    "vix_chg5",
+    ">=",
+    0.0
+   ]
+  ],
+  "features": {
+   "vix_chg5": "raw weather field (apex/engine/weather.py)"
+  },
+  "search": "best_single over 285 features (2478 single masks), n_lines=5 (quantiles 10..90 % of discovery values), min_keep=20, score = share of losers removed - share of winners removed, discovery days only; shuffle = same search on 200 shufflings of discovery outcomes (seed 7)",
+  "score": 0.487938596491228,
+  "p": 0.065,
+  "shuffle_median_best": 0.393640350877193,
+  "shuffle_max_best": 0.5405701754385965,
+  "discovery": {
+   "book": {
+    "n": 67,
+    "win": 0.7164179104477612,
+    "mean": 5.303402985074627,
+    "pnl": 383324.5,
+    "losers": 19
+   },
+   "kept": {
+    "n": 34,
+    "win": 0.9117647058823529,
+    "mean": 8.253529411764706,
+    "pnl": 291742.75,
+    "losers": 3
+   },
+   "removed": {
+    "n": 33,
+    "win": 0.5151515151515151,
+    "mean": 2.263878787878788,
+    "pnl": 91581.75,
+    "losers": 16
+   }
+  },
+  "holdout": {
+   "book": {
+    "n": 23,
+    "win": 0.6521739130434783,
+    "mean": -0.3527826086956522,
+    "pnl": -10991.5,
+    "losers": 8
+   },
+   "kept": {
+    "n": 10,
+    "win": 0.8,
+    "mean": 2.2099,
+    "pnl": 18625.75,
+    "losers": 2
+   },
+   "removed": {
+    "n": 13,
+    "win": 0.5384615384615384,
+    "mean": -2.324076923076923,
+    "pnl": -29617.25,
+    "losers": 6
+   }
+  },
+  "all": {
+   "book": {
+    "n": 90,
+    "win": 0.7,
+    "mean": 3.8579333333333334,
+    "pnl": 372333.0,
+    "losers": 27
+   },
+   "kept": {
+    "n": 44,
+    "win": 0.8863636363636364,
+    "mean": 6.879977272727273,
+    "pnl": 310368.5,
+    "losers": 5
+   },
+   "removed": {
+    "n": 46,
+    "win": 0.5217391304347826,
+    "mean": 0.9672826086956523,
+    "pnl": 61964.5,
+    "losers": 22
+   }
+  },
+  "verdict": "REJECTED",
+  "why": "discovery standard not met; shuffle p=0.065 >= 0.05"
+ },
+ {
+  "book": "c20_9t",
+  "family": "F4 pair, raw+derived+text+trigger",
+  "rule": [
+   [
+    "fut_vol_surge",
+    "<",
+    1.3066
+   ],
+   [
+    "swing_behind",
+    ">=",
+    23.64
+   ]
+  ],
+  "features": {
+   "fut_vol_surge": "raw weather field (apex/engine/weather.py)",
+   "swing_behind": "raw weather field (apex/engine/weather.py)"
+  },
+  "search": "best_pair over 285 features (2478 single masks), n_lines=5 (quantiles 10..90 % of discovery values), min_keep=20, score = share of losers removed - share of winners removed, discovery days only; shuffle = same search on 200 shufflings of discovery outcomes (seed 7)",
+  "score": 0.6337719559669495,
+  "p": 0.085,
+  "shuffle_median_best": 0.5614035129547119,
+  "shuffle_max_best": 0.6864035129547119,
+  "discovery": {
+   "book": {
+    "n": 67,
+    "win": 0.7164179104477612,
+    "mean": 5.303402985074627,
+    "pnl": 383324.5,
+    "losers": 19
+   },
+   "kept": {
+    "n": 41,
+    "win": 0.926829268292683,
+    "mean": 7.2062682926829265,
+    "pnl": 331763.25,
+    "losers": 3
+   },
+   "removed": {
+    "n": 26,
+    "win": 0.38461538461538464,
+    "mean": 2.3027307692307697,
+    "pnl": 51561.25,
+    "losers": 16
+   }
+  },
+  "holdout": {
+   "book": {
+    "n": 23,
+    "win": 0.6521739130434783,
+    "mean": -0.3527826086956522,
+    "pnl": -10991.5,
+    "losers": 8
+   },
+   "kept": {
+    "n": 12,
+    "win": 0.5833333333333334,
+    "mean": -3.46125,
+    "pnl": -36803.0,
+    "losers": 5
+   },
+   "removed": {
+    "n": 11,
+    "win": 0.7272727272727273,
+    "mean": 3.038272727272727,
+    "pnl": 25811.5,
+    "losers": 3
+   }
+  },
+  "all": {
+   "book": {
+    "n": 90,
+    "win": 0.7,
+    "mean": 3.8579333333333334,
+    "pnl": 372333.0,
+    "losers": 27
+   },
+   "kept": {
+    "n": 53,
+    "win": 0.8490566037735849,
+    "mean": 4.790981132075472,
+    "pnl": 294960.25,
+    "losers": 8
+   },
+   "removed": {
+    "n": 37,
+    "win": 0.4864864864864865,
+    "mean": 2.5214054054054054,
+    "pnl": 77372.75,
+    "losers": 19
+   }
+  },
+  "verdict": "REJECTED",
+  "why": "shuffle p=0.085 >= 0.05; holdout: kept win rate below book's or removed side profitable"
+ },
+ {
+  "book": "c20_9t",
+  "family": "F5 greedy triple, raw+derived+text+trigger",
+  "rule": [
+   [
+    "fut_vol_surge",
+    "<",
+    1.3066
+   ],
+   [
+    "swing_behind",
+    ">=",
+    23.64
+   ],
+   [
+    "max_pain_dist",
+    "<",
+    65.66
+   ]
+  ],
+  "features": {
+   "fut_vol_surge": "raw weather field (apex/engine/weather.py)",
+   "swing_behind": "raw weather field (apex/engine/weather.py)",
+   "max_pain_dist": "raw weather field (apex/engine/weather.py)"
+  },
+  "search": "best_pair then best third clause over 285 features (2478 single masks), n_lines=5 (quantiles 10..90 % of discovery values), min_keep=20, score = share of losers removed - share of winners removed, discovery days only; shuffle = same search on 200 shufflings of discovery outcomes (seed 7)",
+  "score": 0.6973684210526315,
+  "p": 0.13,
+  "shuffle_median_best": 0.625,
+  "shuffle_max_best": 0.8015350877192982,
+  "discovery": {
+   "book": {
+    "n": 67,
+    "win": 0.7164179104477612,
+    "mean": 5.303402985074627,
+    "pnl": 383324.5,
+    "losers": 19
+   },
+   "kept": {
+    "n": 37,
+    "win": 0.972972972972973,
+    "mean": 8.241675675675676,
+    "pnl": 342277.0,
+    "losers": 1
+   },
+   "removed": {
+    "n": 30,
+    "win": 0.4,
+    "mean": 1.6795333333333338,
+    "pnl": 41047.5,
+    "losers": 18
+   }
+  },
+  "holdout": {
+   "book": {
+    "n": 23,
+    "win": 0.6521739130434783,
+    "mean": -0.3527826086956522,
+    "pnl": -10991.5,
+    "losers": 8
+   },
+   "kept": {
+    "n": 9,
+    "win": 0.4444444444444444,
+    "mean": -6.270222222222222,
+    "pnl": -52211.25,
+    "losers": 5
+   },
+   "removed": {
+    "n": 14,
+    "win": 0.7857142857142857,
+    "mean": 3.451285714285714,
+    "pnl": 41219.75,
+    "losers": 3
+   }
+  },
+  "all": {
+   "book": {
+    "n": 90,
+    "win": 0.7,
+    "mean": 3.8579333333333334,
+    "pnl": 372333.0,
+    "losers": 27
+   },
+   "kept": {
+    "n": 46,
+    "win": 0.8695652173913043,
+    "mean": 5.402391304347826,
+    "pnl": 290065.75,
+    "losers": 6
+   },
+   "removed": {
+    "n": 44,
+    "win": 0.5227272727272727,
+    "mean": 2.2432727272727275,
+    "pnl": 82267.25,
+    "losers": 21
+   }
+  },
+  "verdict": "REJECTED",
+  "why": "shuffle p=0.130 >= 0.05; holdout: kept win rate below book's or removed side profitable"
+ },
+ {
+  "book": "c20_9t",
+  "family": "F6 single, raw+derived+text+trigger, 9 lines",
+  "rule": [
+   [
+    "vix_chg5",
+    ">=",
+    0.0
+   ]
+  ],
+  "features": {
+   "vix_chg5": "raw weather field (apex/engine/weather.py)"
+  },
+  "search": "best_single over 285 features (4232 single masks), n_lines=9 (quantiles 10..90 % of discovery values), min_keep=20, score = share of losers removed - share of winners removed, discovery days only; shuffle = same search on 200 shufflings of discovery outcomes (seed 7)",
+  "score": 0.487938596491228,
+  "p": 0.1,
+  "shuffle_median_best": 0.4144736842105263,
+  "shuffle_max_best": 0.5405701754385965,
+  "discovery": {
+   "book": {
+    "n": 67,
+    "win": 0.7164179104477612,
+    "mean": 5.303402985074627,
+    "pnl": 383324.5,
+    "losers": 19
+   },
+   "kept": {
+    "n": 34,
+    "win": 0.9117647058823529,
+    "mean": 8.253529411764706,
+    "pnl": 291742.75,
+    "losers": 3
+   },
+   "removed": {
+    "n": 33,
+    "win": 0.5151515151515151,
+    "mean": 2.263878787878788,
+    "pnl": 91581.75,
+    "losers": 16
+   }
+  },
+  "holdout": {
+   "book": {
+    "n": 23,
+    "win": 0.6521739130434783,
+    "mean": -0.3527826086956522,
+    "pnl": -10991.5,
+    "losers": 8
+   },
+   "kept": {
+    "n": 10,
+    "win": 0.8,
+    "mean": 2.2099,
+    "pnl": 18625.75,
+    "losers": 2
+   },
+   "removed": {
+    "n": 13,
+    "win": 0.5384615384615384,
+    "mean": -2.324076923076923,
+    "pnl": -29617.25,
+    "losers": 6
+   }
+  },
+  "all": {
+   "book": {
+    "n": 90,
+    "win": 0.7,
+    "mean": 3.8579333333333334,
+    "pnl": 372333.0,
+    "losers": 27
+   },
+   "kept": {
+    "n": 44,
+    "win": 0.8863636363636364,
+    "mean": 6.879977272727273,
+    "pnl": 310368.5,
+    "losers": 5
+   },
+   "removed": {
+    "n": 46,
+    "win": 0.5217391304347826,
+    "mean": 0.9672826086956523,
+    "pnl": 61964.5,
+    "losers": 22
+   }
+  },
+  "verdict": "REJECTED",
+  "why": "discovery standard not met; shuffle p=0.100 >= 0.05"
+ },
+ {
+  "book": "c20_9t",
+  "family": "F7 pair, raw+derived+text+trigger, 9 lines",
+  "rule": [
+   [
+    "fut_vol_surge",
+    "<",
+    1.3066
+   ],
+   [
+    "swing_behind",
+    ">=",
+    23.64
+   ]
+  ],
+  "features": {
+   "fut_vol_surge": "raw weather field (apex/engine/weather.py)",
+   "swing_behind": "raw weather field (apex/engine/weather.py)"
+  },
+  "search": "best_pair over 285 features (4232 single masks), n_lines=9 (quantiles 10..90 % of discovery values), min_keep=20, score = share of losers removed - share of winners removed, discovery days only; shuffle = same search on 200 shufflings of discovery outcomes (seed 7)",
+  "score": 0.6337719559669495,
+  "p": 0.18,
+  "shuffle_median_best": 0.5833333730697632,
+  "shuffle_max_best": 0.6973684430122375,
+  "discovery": {
+   "book": {
+    "n": 67,
+    "win": 0.7164179104477612,
+    "mean": 5.303402985074627,
+    "pnl": 383324.5,
+    "losers": 19
+   },
+   "kept": {
+    "n": 41,
+    "win": 0.926829268292683,
+    "mean": 7.2062682926829265,
+    "pnl": 331763.25,
+    "losers": 3
+   },
+   "removed": {
+    "n": 26,
+    "win": 0.38461538461538464,
+    "mean": 2.3027307692307697,
+    "pnl": 51561.25,
+    "losers": 16
+   }
+  },
+  "holdout": {
+   "book": {
+    "n": 23,
+    "win": 0.6521739130434783,
+    "mean": -0.3527826086956522,
+    "pnl": -10991.5,
+    "losers": 8
+   },
+   "kept": {
+    "n": 12,
+    "win": 0.5833333333333334,
+    "mean": -3.46125,
+    "pnl": -36803.0,
+    "losers": 5
+   },
+   "removed": {
+    "n": 11,
+    "win": 0.7272727272727273,
+    "mean": 3.038272727272727,
+    "pnl": 25811.5,
+    "losers": 3
+   }
+  },
+  "all": {
+   "book": {
+    "n": 90,
+    "win": 0.7,
+    "mean": 3.8579333333333334,
+    "pnl": 372333.0,
+    "losers": 27
+   },
+   "kept": {
+    "n": 53,
+    "win": 0.8490566037735849,
+    "mean": 4.790981132075472,
+    "pnl": 294960.25,
+    "losers": 8
+   },
+   "removed": {
+    "n": 37,
+    "win": 0.4864864864864865,
+    "mean": 2.5214054054054054,
+    "pnl": 77372.75,
+    "losers": 19
+   }
+  },
+  "verdict": "REJECTED",
+  "why": "shuffle p=0.180 >= 0.05; holdout: kept win rate below book's or removed side profitable"
+ },
+ {
+  "book": "c20_9t",
+  "family": "F8 pair, derived mathematics only",
+  "rule": [
+   [
+    "hwvol_x_futvol_surge",
+    "<",
+    1.295689
+   ],
+   [
+    "swing_ahead_over_behind",
+    "<",
+    0.7953482328482329
+   ]
+  ],
+  "features": {
+   "hwvol_x_futvol_surge": "hw_vol_surge * fut_vol_surge",
+   "swing_ahead_over_behind": "swing_ahead / swing_behind"
+  },
+  "search": "best_pair over 43 features (418 single masks), n_lines=5 (quantiles 10..90 % of discovery values), min_keep=20, score = share of losers removed - share of winners removed, discovery days only; shuffle = same search on 200 shufflings of discovery outcomes (seed 7)",
+  "score": 0.5822368264198303,
+  "p": 0.01,
+  "shuffle_median_best": 0.4572368264198303,
+  "shuffle_max_best": 0.6546052694320679,
+  "discovery": {
+   "book": {
+    "n": 67,
+    "win": 0.7164179104477612,
+    "mean": 5.303402985074627,
+    "pnl": 383324.5,
+    "losers": 19
+   },
+   "kept": {
+    "n": 35,
+    "win": 0.9428571428571428,
+    "mean": 9.1454,
+    "pnl": 385817.25,
+    "losers": 2
+   },
+   "removed": {
+    "n": 32,
+    "win": 0.46875,
+    "mean": 1.1012187500000001,
+    "pnl": -2492.75,
+    "losers": 17
+   }
+  },
+  "holdout": {
+   "book": {
+    "n": 23,
+    "win": 0.6521739130434783,
+    "mean": -0.3527826086956522,
+    "pnl": -10991.5,
+    "losers": 8
+   },
+   "kept": {
+    "n": 10,
+    "win": 0.7,
+    "mean": -0.9690000000000001,
+    "pnl": -7312.5,
+    "losers": 3
+   },
+   "removed": {
+    "n": 13,
+    "win": 0.6153846153846154,
+    "mean": 0.12123076923076917,
+    "pnl": -3679.0,
+    "losers": 5
+   }
+  },
+  "all": {
+   "book": {
+    "n": 90,
+    "win": 0.7,
+    "mean": 3.8579333333333334,
+    "pnl": 372333.0,
+    "losers": 27
+   },
+   "kept": {
+    "n": 45,
+    "win": 0.8888888888888888,
+    "mean": 6.897755555555555,
+    "pnl": 378504.75,
+    "losers": 5
+   },
+   "removed": {
+    "n": 45,
+    "win": 0.5111111111111111,
+    "mean": 0.818111111111111,
+    "pnl": -6171.75,
+    "losers": 22
+   }
+  },
+  "verdict": "PROPOSE",
+  "why": "passes discovery, shuffle and holdout",
+  "caveat": "Passes by the letter; holdout kept side is 10 trades and LOST Rs 7,312; frozen on the five siblings the holdout removed side is profitable on four of five. Weak proposal."
+ },
+ {
+  "book": "c20_9t",
+  "family": "F9 pair, book's own situation + calendar",
+  "rule": [
+   [
+    "ret_today",
+    "<",
+    45.16360000000002
+   ],
+   [
+    "ret_today_per_trade",
+    "<",
+    6.0684000000000005
+   ]
+  ],
+  "features": {
+   "ret_today": "raw weather field (apex/engine/weather.py)",
+   "ret_today_per_trade": "ret_today / max(n_today, 1)"
+  },
+  "search": "best_pair over 24 features (168 single masks), n_lines=5 (quantiles 10..90 % of discovery values), min_keep=20, score = share of losers removed - share of winners removed, discovery days only; shuffle = same search on 200 shufflings of discovery outcomes (seed 7)",
+  "score": 0.37171053886413574,
+  "p": 0.55,
+  "shuffle_median_best": 0.38212718069553375,
+  "shuffle_max_best": 0.5405701398849487,
+  "discovery": {
+   "book": {
+    "n": 67,
+    "win": 0.7164179104477612,
+    "mean": 5.303402985074627,
+    "pnl": 383324.5,
+    "losers": 19
+   },
+   "kept": {
+    "n": 39,
+    "win": 0.8461538461538461,
+    "mean": 9.134461538461538,
+    "pnl": 350629.5,
+    "losers": 6
+   },
+   "removed": {
+    "n": 28,
+    "win": 0.5357142857142857,
+    "mean": -0.03271428571428568,
+    "pnl": 32695.0,
+    "losers": 13
+   }
+  },
+  "holdout": {
+   "book": {
+    "n": 23,
+    "win": 0.6521739130434783,
+    "mean": -0.3527826086956522,
+    "pnl": -10991.5,
+    "losers": 8
+   },
+   "kept": {
+    "n": 22,
+    "win": 0.6363636363636364,
+    "mean": -0.5782727272727274,
+    "pnl": -15619.5,
+    "losers": 8
+   },
+   "removed": {
+    "n": 1,
+    "win": 1.0,
+    "mean": 4.608,
+    "pnl": 4628.0,
+    "losers": 0
+   }
+  },
+  "all": {
+   "book": {
+    "n": 90,
+    "win": 0.7,
+    "mean": 3.8579333333333334,
+    "pnl": 372333.0,
+    "losers": 27
+   },
+   "kept": {
+    "n": 61,
+    "win": 0.7704918032786885,
+    "mean": 5.631508196721311,
+    "pnl": 335010.0,
+    "losers": 14
+   },
+   "removed": {
+    "n": 29,
+    "win": 0.5517241379310345,
+    "mean": 0.12731034482758624,
+    "pnl": 37323.0,
+    "losers": 13
+   }
+  },
+  "verdict": "REJECTED",
+  "why": "discovery standard not met; shuffle p=0.550 >= 0.05; holdout: kept win rate below book's or removed side profitable"
+ },
+ {
+  "book": "c20_9t",
+  "family": "F10 single, agree_same only (family unanimity)",
+  "rule": [
+   [
+    "agree_same",
+    ">=",
+    2.0
+   ]
+  ],
+  "features": {
+   "agree_same": "raw weather field (apex/engine/weather.py)"
+  },
+  "search": "best_single over the ONE feature agree_same (4 single masks), n_lines=5 (quantiles 10..90 % of discovery values), min_keep=20, score = share of losers removed - share of winners removed, discovery days only; shuffle = same search on 200 shufflings (seed 7)",
+  "score": 0.2543859649122807,
+  "p": 0.03,
+  "shuffle_median_best": 0.03399122807017543,
+  "shuffle_max_best": 0.32785087719298245,
+  "discovery": {
+   "book": {
+    "n": 67,
+    "win": 0.7164179104477612,
+    "mean": 5.303402985074627,
+    "pnl": 383324.5,
+    "losers": 19
+   },
+   "kept": {
+    "n": 51,
+    "win": 0.7843137254901961,
+    "mean": 7.712411764705883,
+    "pnl": 442802.75,
+    "losers": 11
+   },
+   "removed": {
+    "n": 16,
+    "win": 0.5,
+    "mean": -2.3753125,
+    "pnl": -59478.25,
+    "losers": 8
+   }
+  },
+  "holdout": {
+   "book": {
+    "n": 23,
+    "win": 0.6521739130434783,
+    "mean": -0.3527826086956522,
+    "pnl": -10991.5,
+    "losers": 8
+   },
+   "kept": {
+    "n": 19,
+    "win": 0.6842105263157895,
+    "mean": 0.516157894736842,
+    "pnl": 6188.0,
+    "losers": 6
+   },
+   "removed": {
+    "n": 4,
+    "win": 0.5,
+    "mean": -4.48025,
+    "pnl": -17179.5,
+    "losers": 2
+   }
+  },
+  "all": {
+   "book": {
+    "n": 90,
+    "win": 0.7,
+    "mean": 3.8579333333333334,
+    "pnl": 372333.0,
+    "losers": 27
+   },
+   "kept": {
+    "n": 70,
+    "win": 0.7571428571428571,
+    "mean": 5.759142857142857,
+    "pnl": 448990.75,
+    "losers": 17
+   },
+   "removed": {
+    "n": 20,
+    "win": 0.5,
+    "mean": -2.7963,
+    "pnl": -76657.75,
+    "losers": 10
+   }
+  },
+  "verdict": "REJECTED",
+  "why": "discovery standard not met",
+  "caveat": "POST-HOC: this one-feature search was chosen after the pre-registered F1-F9 searches pointed at agree_same, so its p is flattering. The fair p for c20_9y is the pre-registered F9 pair (0.030) / F9 single (0.055). agree_same = other books firing this step and last (docs/27 item 67); on c20_9y the removed trades are exactly those where c20_9s or c20_9t did not fire."
+ },
+ {
+  "book": "c20_8x",
+  "family": "F1 single, raw weather",
+  "rule": [
+   [
+    "dist_hi",
+    "<",
+    152.07
+   ]
+  ],
+  "features": {
+   "dist_hi": "raw weather field (apex/engine/weather.py)"
+  },
+  "search": "best_single over 188 features (1854 single masks), n_lines=5 (quantiles 10..90 % of discovery values), min_keep=20, score = share of losers removed - share of winners removed, discovery days only; shuffle = same search on 200 shufflings of discovery outcomes (seed 7)",
+  "score": 0.3029953917050692,
+  "p": 0.955,
+  "shuffle_median_best": 0.3709677419354839,
+  "shuffle_max_best": 0.5276497695852534,
+  "discovery": {
+   "book": {
+    "n": 59,
+    "win": 0.5254237288135594,
+    "mean": 11.105067796610168,
+    "pnl": 821908.75,
+    "losers": 28
+   },
+   "kept": {
+    "n": 41,
+    "win": 0.6341463414634146,
+    "mean": 14.589536585365854,
+    "pnl": 818801.75,
+    "losers": 15
+   },
+   "removed": {
+    "n": 18,
+    "win": 0.2777777777777778,
+    "mean": 3.168222222222222,
+    "pnl": 3107.0,
+    "losers": 13
+   }
+  },
+  "holdout": {
+   "book": {
+    "n": 23,
+    "win": 0.43478260869565216,
+    "mean": -1.1036521739130438,
+    "pnl": 6321.25,
+    "losers": 13
+   },
+   "kept": {
+    "n": 22,
+    "win": 0.4090909090909091,
+    "mean": -1.2018636363636366,
+    "pnl": 5622.5,
+    "losers": 13
+   },
+   "removed": {
+    "n": 1,
+    "win": 1.0,
+    "mean": 1.057,
+    "pnl": 698.75,
+    "losers": 0
+   }
+  },
+  "all": {
+   "book": {
+    "n": 82,
+    "win": 0.5,
+    "mean": 7.680670731707316,
+    "pnl": 828230.0,
+    "losers": 41
+   },
+   "kept": {
+    "n": 63,
+    "win": 0.5555555555555556,
+    "mean": 9.075079365079365,
+    "pnl": 824424.25,
+    "losers": 28
+   },
+   "removed": {
+    "n": 19,
+    "win": 0.3157894736842105,
+    "mean": 3.0571052631578945,
+    "pnl": 3805.75,
+    "losers": 13
+   }
+  },
+  "verdict": "REJECTED",
+  "why": "shuffle p=0.955 >= 0.05; holdout: kept win rate below book's or removed side profitable"
+ },
+ {
+  "book": "c20_8x",
+  "family": "F2 pair, raw weather",
+  "rule": [
+   [
+    "pos_in_range",
+    ">=",
+    0.19938000000000003
+   ],
+   [
+    "vix",
+    ">=",
+    15.98
+   ]
+  ],
+  "features": {
+   "pos_in_range": "raw weather field (apex/engine/weather.py)",
+   "vix": "raw weather field (apex/engine/weather.py)"
+  },
+  "search": "best_pair over 188 features (1854 single masks), n_lines=5 (quantiles 10..90 % of discovery values), min_keep=20, score = share of losers removed - share of winners removed, discovery days only; shuffle = same search on 200 shufflings of discovery outcomes (seed 7)",
+  "score": 0.5057603716850281,
+  "p": 0.625,
+  "shuffle_median_best": 0.5276497602462769,
+  "shuffle_max_best": 0.6532257795333862,
+  "discovery": {
+   "book": {
+    "n": 59,
+    "win": 0.5254237288135594,
+    "mean": 11.105067796610168,
+    "pnl": 821908.75,
+    "losers": 28
+   },
+   "kept": {
+    "n": 22,
+    "win": 0.8636363636363636,
+    "mean": 23.41168181818182,
+    "pnl": 772768.75,
+    "losers": 3
+   },
+   "removed": {
+    "n": 37,
+    "win": 0.32432432432432434,
+    "mean": 3.7876216216216214,
+    "pnl": 49140.0,
+    "losers": 25
+   }
+  },
+  "holdout": {
+   "book": {
+    "n": 23,
+    "win": 0.43478260869565216,
+    "mean": -1.1036521739130438,
+    "pnl": 6321.25,
+    "losers": 13
+   },
+   "kept": {
+    "n": 9,
+    "win": 0.6666666666666666,
+    "mean": 5.400888888888889,
+    "pnl": 68263.0,
+    "losers": 3
+   },
+   "removed": {
+    "n": 14,
+    "win": 0.2857142857142857,
+    "mean": -5.285142857142858,
+    "pnl": -61941.75,
+    "losers": 10
+   }
+  },
+  "all": {
+   "book": {
+    "n": 82,
+    "win": 0.5,
+    "mean": 7.680670731707316,
+    "pnl": 828230.0,
+    "losers": 41
+   },
+   "kept": {
+    "n": 31,
+    "win": 0.8064516129032258,
+    "mean": 18.182741935483868,
+    "pnl": 841031.75,
+    "losers": 6
+   },
+   "removed": {
+    "n": 51,
+    "win": 0.3137254901960784,
+    "mean": 1.2970588235294116,
+    "pnl": -12801.75,
+    "losers": 35
+   }
+  },
+  "verdict": "REJECTED",
+  "why": "shuffle p=0.625 >= 0.05"
+ },
+ {
+  "book": "c20_8x",
+  "family": "F3 single, raw+derived+text+trigger",
+  "rule": [
+   [
+    "opt_opp_q=DRAIN-FAST",
+    "<",
+    1.0
+   ]
+  ],
+  "features": {
+   "opt_opp_q=DRAIN-FAST": "indicator: 1 when weather text field opt_opp_q == DRAIN-FAST"
+  },
+  "search": "best_single over 280 features (2454 single masks), n_lines=5 (quantiles 10..90 % of discovery values), min_keep=20, score = share of losers removed - share of winners removed, discovery days only; shuffle = same search on 200 shufflings of discovery outcomes (seed 7)",
+  "score": 0.3675115207373272,
+  "p": 0.625,
+  "shuffle_median_best": 0.3709677419354839,
+  "shuffle_max_best": 0.5276497695852534,
+  "discovery": {
+   "book": {
+    "n": 59,
+    "win": 0.5254237288135594,
+    "mean": 11.105067796610168,
+    "pnl": 821908.75,
+    "losers": 28
+   },
+   "kept": {
+    "n": 43,
+    "win": 0.6511627906976745,
+    "mean": 15.725627906976744,
+    "pnl": 810810.0,
+    "losers": 15
+   },
+   "removed": {
+    "n": 16,
+    "win": 0.1875,
+    "mean": -1.3126874999999998,
+    "pnl": 11098.75,
+    "losers": 13
+   }
+  },
+  "holdout": {
+   "book": {
+    "n": 23,
+    "win": 0.43478260869565216,
+    "mean": -1.1036521739130438,
+    "pnl": 6321.25,
+    "losers": 13
+   },
+   "kept": {
+    "n": 17,
+    "win": 0.35294117647058826,
+    "mean": -5.740117647058824,
+    "pnl": -73914.75,
+    "losers": 11
+   },
+   "removed": {
+    "n": 6,
+    "win": 0.6666666666666666,
+    "mean": 12.033,
+    "pnl": 80236.0,
+    "losers": 2
+   }
+  },
+  "all": {
+   "book": {
+    "n": 82,
+    "win": 0.5,
+    "mean": 7.680670731707316,
+    "pnl": 828230.0,
+    "losers": 41
+   },
+   "kept": {
+    "n": 60,
+    "win": 0.5666666666666667,
+    "mean": 9.643666666666666,
+    "pnl": 736895.25,
+    "losers": 26
+   },
+   "removed": {
+    "n": 22,
+    "win": 0.3181818181818182,
+    "mean": 2.3270454545454546,
+    "pnl": 91334.75,
+    "losers": 15
+   }
+  },
+  "verdict": "REJECTED",
+  "why": "shuffle p=0.625 >= 0.05; holdout: kept win rate below book's or removed side profitable"
+ },
+ {
+  "book": "c20_8x",
+  "family": "F4 pair, raw+derived+text+trigger",
+  "rule": [
+   [
+    "hw_book_imb_t",
+    ">=",
+    -0.29159999999999997
+   ],
+   [
+    "opt_opp_q=DRAIN-FAST",
+    "<",
+    1.0
+   ]
+  ],
+  "features": {
+   "hw_book_imb_t": "raw weather field (apex/engine/weather.py)",
+   "opt_opp_q=DRAIN-FAST": "indicator: 1 when weather text field opt_opp_q == DRAIN-FAST"
+  },
+  "search": "best_pair over 280 features (2454 single masks), n_lines=5 (quantiles 10..90 % of discovery values), min_keep=20, score = share of losers removed - share of winners removed, discovery days only; shuffle = same search on 200 shufflings of discovery outcomes (seed 7)",
+  "score": 0.5460829734802246,
+  "p": 0.4,
+  "shuffle_median_best": 0.5311059951782227,
+  "shuffle_max_best": 0.6532257795333862,
+  "discovery": {
+   "book": {
+    "n": 59,
+    "win": 0.5254237288135594,
+    "mean": 11.105067796610168,
+    "pnl": 821908.75,
+    "losers": 28
+   },
+   "kept": {
+    "n": 38,
+    "win": 0.7368421052631579,
+    "mean": 19.298973684210527,
+    "pnl": 897009.75,
+    "losers": 10
+   },
+   "removed": {
+    "n": 21,
+    "win": 0.14285714285714285,
+    "mean": -3.7219999999999995,
+    "pnl": -75101.0,
+    "losers": 18
+   }
+  },
+  "holdout": {
+   "book": {
+    "n": 23,
+    "win": 0.43478260869565216,
+    "mean": -1.1036521739130438,
+    "pnl": 6321.25,
+    "losers": 13
+   },
+   "kept": {
+    "n": 17,
+    "win": 0.35294117647058826,
+    "mean": -5.740117647058824,
+    "pnl": -73914.75,
+    "losers": 11
+   },
+   "removed": {
+    "n": 6,
+    "win": 0.6666666666666666,
+    "mean": 12.033,
+    "pnl": 80236.0,
+    "losers": 2
+   }
+  },
+  "all": {
+   "book": {
+    "n": 82,
+    "win": 0.5,
+    "mean": 7.680670731707316,
+    "pnl": 828230.0,
+    "losers": 41
+   },
+   "kept": {
+    "n": 55,
+    "win": 0.6181818181818182,
+    "mean": 11.559618181818182,
+    "pnl": 823095.0,
+    "losers": 21
+   },
+   "removed": {
+    "n": 27,
+    "win": 0.25925925925925924,
+    "mean": -0.220888888888889,
+    "pnl": 5135.0,
+    "losers": 20
+   }
+  },
+  "verdict": "REJECTED",
+  "why": "shuffle p=0.400 >= 0.05; holdout: kept win rate below book's or removed side profitable"
+ },
+ {
+  "book": "c20_8x",
+  "family": "F5 greedy triple, raw+derived+text+trigger",
+  "rule": [
+   [
+    "hw_book_imb_t",
+    ">=",
+    -0.29159999999999997
+   ],
+   [
+    "opt_opp_q=DRAIN-FAST",
+    "<",
+    1.0
+   ],
+   [
+    "e_fut_tot_imb",
+    "<",
+    0.42560000000000003
+   ]
+  ],
+  "features": {
+   "hw_book_imb_t": "raw weather field (apex/engine/weather.py)",
+   "opt_opp_q=DRAIN-FAST": "indicator: 1 when weather text field opt_opp_q == DRAIN-FAST",
+   "e_fut_tot_imb": "raw weather field (apex/engine/weather.py)"
+  },
+  "search": "best_pair then best third clause over 280 features (2454 single masks), n_lines=5 (quantiles 10..90 % of discovery values), min_keep=20, score = share of losers removed - share of winners removed, discovery days only; shuffle = same search on 200 shufflings of discovery outcomes (seed 7)",
+  "score": 0.6532258064516129,
+  "p": 0.205,
+  "shuffle_median_best": 0.6059907834101383,
+  "shuffle_max_best": 0.7350230414746544,
+  "discovery": {
+   "book": {
+    "n": 59,
+    "win": 0.5254237288135594,
+    "mean": 11.105067796610168,
+    "pnl": 821908.75,
+    "losers": 28
+   },
+   "kept": {
+    "n": 35,
+    "win": 0.8,
+    "mean": 21.422285714285714,
+    "pnl": 946799.75,
+    "losers": 7
+   },
+   "removed": {
+    "n": 24,
+    "win": 0.125,
+    "mean": -3.940875,
+    "pnl": -124891.0,
+    "losers": 21
+   }
+  },
+  "holdout": {
+   "book": {
+    "n": 23,
+    "win": 0.43478260869565216,
+    "mean": -1.1036521739130438,
+    "pnl": 6321.25,
+    "losers": 13
+   },
+   "kept": {
+    "n": 17,
+    "win": 0.35294117647058826,
+    "mean": -5.740117647058824,
+    "pnl": -73914.75,
+    "losers": 11
+   },
+   "removed": {
+    "n": 6,
+    "win": 0.6666666666666666,
+    "mean": 12.033,
+    "pnl": 80236.0,
+    "losers": 2
+   }
+  },
+  "all": {
+   "book": {
+    "n": 82,
+    "win": 0.5,
+    "mean": 7.680670731707316,
+    "pnl": 828230.0,
+    "losers": 41
+   },
+   "kept": {
+    "n": 52,
+    "win": 0.6538461538461539,
+    "mean": 12.54226923076923,
+    "pnl": 872885.0,
+    "losers": 18
+   },
+   "removed": {
+    "n": 30,
+    "win": 0.23333333333333334,
+    "mean": -0.7461000000000001,
+    "pnl": -44655.0,
+    "losers": 23
+   }
+  },
+  "verdict": "REJECTED",
+  "why": "shuffle p=0.205 >= 0.05; holdout: kept win rate below book's or removed side profitable"
+ },
+ {
+  "book": "c20_8x",
+  "family": "F6 single, raw+derived+text+trigger, 9 lines",
+  "rule": [
+   [
+    "opt_opp_q=DRAIN-FAST",
+    "<",
+    1.0
+   ]
+  ],
+  "features": {
+   "opt_opp_q=DRAIN-FAST": "indicator: 1 when weather text field opt_opp_q == DRAIN-FAST"
+  },
+  "search": "best_single over 280 features (4180 single masks), n_lines=9 (quantiles 10..90 % of discovery values), min_keep=20, score = share of losers removed - share of winners removed, discovery days only; shuffle = same search on 200 shufflings of discovery outcomes (seed 7)",
+  "score": 0.3675115207373272,
+  "p": 0.78,
+  "shuffle_median_best": 0.391705069124424,
+  "shuffle_max_best": 0.5276497695852534,
+  "discovery": {
+   "book": {
+    "n": 59,
+    "win": 0.5254237288135594,
+    "mean": 11.105067796610168,
+    "pnl": 821908.75,
+    "losers": 28
+   },
+   "kept": {
+    "n": 43,
+    "win": 0.6511627906976745,
+    "mean": 15.725627906976744,
+    "pnl": 810810.0,
+    "losers": 15
+   },
+   "removed": {
+    "n": 16,
+    "win": 0.1875,
+    "mean": -1.3126874999999998,
+    "pnl": 11098.75,
+    "losers": 13
+   }
+  },
+  "holdout": {
+   "book": {
+    "n": 23,
+    "win": 0.43478260869565216,
+    "mean": -1.1036521739130438,
+    "pnl": 6321.25,
+    "losers": 13
+   },
+   "kept": {
+    "n": 17,
+    "win": 0.35294117647058826,
+    "mean": -5.740117647058824,
+    "pnl": -73914.75,
+    "losers": 11
+   },
+   "removed": {
+    "n": 6,
+    "win": 0.6666666666666666,
+    "mean": 12.033,
+    "pnl": 80236.0,
+    "losers": 2
+   }
+  },
+  "all": {
+   "book": {
+    "n": 82,
+    "win": 0.5,
+    "mean": 7.680670731707316,
+    "pnl": 828230.0,
+    "losers": 41
+   },
+   "kept": {
+    "n": 60,
+    "win": 0.5666666666666667,
+    "mean": 9.643666666666666,
+    "pnl": 736895.25,
+    "losers": 26
+   },
+   "removed": {
+    "n": 22,
+    "win": 0.3181818181818182,
+    "mean": 2.3270454545454546,
+    "pnl": 91334.75,
+    "losers": 15
+   }
+  },
+  "verdict": "REJECTED",
+  "why": "shuffle p=0.780 >= 0.05; holdout: kept win rate below book's or removed side profitable"
+ },
+ {
+  "book": "c20_8x",
+  "family": "F7 pair, raw+derived+text+trigger, 9 lines",
+  "rule": [
+   [
+    "pos_in_range",
+    ">=",
+    0.11756000000000003
+   ],
+   [
+    "e_iv_atm",
+    ">=",
+    14.790000000000001
+   ]
+  ],
+  "features": {
+   "pos_in_range": "raw weather field (apex/engine/weather.py)",
+   "e_iv_atm": "raw weather field (apex/engine/weather.py)"
+  },
+  "search": "best_pair over 280 features (4180 single masks), n_lines=9 (quantiles 10..90 % of discovery values), min_keep=20, score = share of losers removed - share of winners removed, discovery days only; shuffle = same search on 200 shufflings of discovery outcomes (seed 7)",
+  "score": 0.5495391488075256,
+  "p": 0.605,
+  "shuffle_median_best": 0.5633640885353088,
+  "shuffle_max_best": 0.6993087530136108,
+  "discovery": {
+   "book": {
+    "n": 59,
+    "win": 0.5254237288135594,
+    "mean": 11.105067796610168,
+    "pnl": 821908.75,
+    "losers": 28
+   },
+   "kept": {
+    "n": 36,
+    "win": 0.75,
+    "mean": 18.1165,
+    "pnl": 912879.5,
+    "losers": 9
+   },
+   "removed": {
+    "n": 23,
+    "win": 0.17391304347826086,
+    "mean": 0.13065217391304335,
+    "pnl": -90970.75,
+    "losers": 19
+   }
+  },
+  "holdout": {
+   "book": {
+    "n": 23,
+    "win": 0.43478260869565216,
+    "mean": -1.1036521739130438,
+    "pnl": 6321.25,
+    "losers": 13
+   },
+   "kept": {
+    "n": 22,
+    "win": 0.45454545454545453,
+    "mean": -0.8819090909090911,
+    "pnl": 12223.25,
+    "losers": 12
+   },
+   "removed": {
+    "n": 1,
+    "win": 0.0,
+    "mean": -5.982,
+    "pnl": -5902.0,
+    "losers": 1
+   }
+  },
+  "all": {
+   "book": {
+    "n": 82,
+    "win": 0.5,
+    "mean": 7.680670731707316,
+    "pnl": 828230.0,
+    "losers": 41
+   },
+   "kept": {
+    "n": 58,
+    "win": 0.6379310344827587,
+    "mean": 10.910206896551724,
+    "pnl": 925102.75,
+    "losers": 21
+   },
+   "removed": {
+    "n": 24,
+    "win": 0.16666666666666666,
+    "mean": -0.12404166666666681,
+    "pnl": -96872.75,
+    "losers": 20
+   }
+  },
+  "verdict": "REJECTED",
+  "why": "shuffle p=0.605 >= 0.05"
+ },
+ {
+  "book": "c20_8x",
+  "family": "F8 pair, derived mathematics only",
+  "rule": [
+   [
+    "gamma_x_mv30",
+    ">=",
+    0.0038821999999999997
+   ],
+   [
+    "optrun_x_optimb",
+    "<",
+    0.4194784000000001
+   ]
+  ],
+  "features": {
+   "gamma_x_mv30": "gamma * mv30",
+   "optrun_x_optimb": "opt_run * opt_book_imb"
+  },
+  "search": "best_pair over 43 features (420 single masks), n_lines=5 (quantiles 10..90 % of discovery values), min_keep=20, score = share of losers removed - share of winners removed, discovery days only; shuffle = same search on 200 shufflings of discovery outcomes (seed 7)",
+  "score": 0.44930875301361084,
+  "p": 0.475,
+  "shuffle_median_best": 0.4395161420106888,
+  "shuffle_max_best": 0.5921658873558044,
+  "discovery": {
+   "book": {
+    "n": 59,
+    "win": 0.5254237288135594,
+    "mean": 11.105067796610168,
+    "pnl": 821908.75,
+    "losers": 28
+   },
+   "kept": {
+    "n": 35,
+    "win": 0.7142857142857143,
+    "mean": 18.387114285714286,
+    "pnl": 749866.0,
+    "losers": 10
+   },
+   "removed": {
+    "n": 24,
+    "win": 0.25,
+    "mean": 0.4854166666666668,
+    "pnl": 72042.75,
+    "losers": 18
+   }
+  },
+  "holdout": {
+   "book": {
+    "n": 23,
+    "win": 0.43478260869565216,
+    "mean": -1.1036521739130438,
+    "pnl": 6321.25,
+    "losers": 13
+   },
+   "kept": {
+    "n": 12,
+    "win": 0.4166666666666667,
+    "mean": -4.886916666666667,
+    "pnl": -42513.25,
+    "losers": 7
+   },
+   "removed": {
+    "n": 11,
+    "win": 0.45454545454545453,
+    "mean": 3.023545454545454,
+    "pnl": 48834.5,
+    "losers": 6
+   }
+  },
+  "all": {
+   "book": {
+    "n": 82,
+    "win": 0.5,
+    "mean": 7.680670731707316,
+    "pnl": 828230.0,
+    "losers": 41
+   },
+   "kept": {
+    "n": 47,
+    "win": 0.6382978723404256,
+    "mean": 12.444808510638296,
+    "pnl": 707352.75,
+    "losers": 17
+   },
+   "removed": {
+    "n": 35,
+    "win": 0.3142857142857143,
+    "mean": 1.2831142857142857,
+    "pnl": 120877.25,
+    "losers": 24
+   }
+  },
+  "verdict": "REJECTED",
+  "why": "shuffle p=0.475 >= 0.05; holdout: kept win rate below book's or removed side profitable"
+ },
+ {
+  "book": "c20_8x",
+  "family": "F9 pair, book's own situation + calendar",
+  "rule": [
+   [
+    "hrs_to_expiry",
+    ">=",
+    2.2590000000000003
+   ],
+   [
+    "dte",
+    "<",
+    4.0
+   ]
+  ],
+  "features": {
+   "hrs_to_expiry": "raw weather field (apex/engine/weather.py)",
+   "dte": "raw weather field (apex/engine/weather.py)"
+  },
+  "search": "best_pair over 24 features (168 single masks), n_lines=5 (quantiles 10..90 % of discovery values), min_keep=20, score = share of losers removed - share of winners removed, discovery days only; shuffle = same search on 200 shufflings of discovery outcomes (seed 7)",
+  "score": 0.35599076747894287,
+  "p": 0.545,
+  "shuffle_median_best": 0.3629032373428345,
+  "shuffle_max_best": 0.5380184650421143,
+  "discovery": {
+   "book": {
+    "n": 59,
+    "win": 0.5254237288135594,
+    "mean": 11.105067796610168,
+    "pnl": 821908.75,
+    "losers": 28
+   },
+   "kept": {
+    "n": 30,
+    "win": 0.7,
+    "mean": 14.769033333333333,
+    "pnl": 574684.5,
+    "losers": 9
+   },
+   "removed": {
+    "n": 29,
+    "win": 0.3448275862068966,
+    "mean": 7.314758620689655,
+    "pnl": 247224.25,
+    "losers": 19
+   }
+  },
+  "holdout": {
+   "book": {
+    "n": 23,
+    "win": 0.43478260869565216,
+    "mean": -1.1036521739130438,
+    "pnl": 6321.25,
+    "losers": 13
+   },
+   "kept": {
+    "n": 12,
+    "win": 0.6666666666666666,
+    "mean": 5.5835,
+    "pnl": 73596.25,
+    "losers": 4
+   },
+   "removed": {
+    "n": 11,
+    "win": 0.18181818181818182,
+    "mean": -8.398727272727273,
+    "pnl": -67275.0,
+    "losers": 9
+   }
+  },
+  "all": {
+   "book": {
+    "n": 82,
+    "win": 0.5,
+    "mean": 7.680670731707316,
+    "pnl": 828230.0,
+    "losers": 41
+   },
+   "kept": {
+    "n": 42,
+    "win": 0.6904761904761905,
+    "mean": 12.144595238095238,
+    "pnl": 648280.75,
+    "losers": 13
+   },
+   "removed": {
+    "n": 40,
+    "win": 0.3,
+    "mean": 2.99355,
+    "pnl": 179949.25,
+    "losers": 28
+   }
+  },
+  "verdict": "REJECTED",
+  "why": "shuffle p=0.545 >= 0.05"
+ },
+ {
+  "book": "c20_8x",
+  "family": "F10 single, agree_same only (family unanimity)",
+  "rule": [
+   [
+    "agree_same",
+    ">=",
+    0.0
+   ]
+  ],
+  "features": {
+   "agree_same": "raw weather field (apex/engine/weather.py)"
+  },
+  "search": "best_single over the ONE feature agree_same (2 single masks), n_lines=5 (quantiles 10..90 % of discovery values), min_keep=20, score = share of losers removed - share of winners removed, discovery days only; shuffle = same search on 200 shufflings (seed 7)",
+  "score": 0.0,
+  "p": 1.0,
+  "shuffle_median_best": 0.0,
+  "shuffle_max_best": 0.0,
+  "discovery": {
+   "book": {
+    "n": 59,
+    "win": 0.5254237288135594,
+    "mean": 11.105067796610168,
+    "pnl": 821908.75,
+    "losers": 28
+   },
+   "kept": {
+    "n": 59,
+    "win": 0.5254237288135594,
+    "mean": 11.105067796610168,
+    "pnl": 821908.75,
+    "losers": 28
+   },
+   "removed": {
+    "n": 0,
+    "win": null,
+    "mean": null,
+    "pnl": 0.0,
+    "losers": 0
+   }
+  },
+  "holdout": {
+   "book": {
+    "n": 23,
+    "win": 0.43478260869565216,
+    "mean": -1.1036521739130438,
+    "pnl": 6321.25,
+    "losers": 13
+   },
+   "kept": {
+    "n": 23,
+    "win": 0.43478260869565216,
+    "mean": -1.1036521739130438,
+    "pnl": 6321.25,
+    "losers": 13
+   },
+   "removed": {
+    "n": 0,
+    "win": null,
+    "mean": null,
+    "pnl": 0.0,
+    "losers": 0
+   }
+  },
+  "all": {
+   "book": {
+    "n": 82,
+    "win": 0.5,
+    "mean": 7.680670731707316,
+    "pnl": 828230.0,
+    "losers": 41
+   },
+   "kept": {
+    "n": 82,
+    "win": 0.5,
+    "mean": 7.680670731707316,
+    "pnl": 828230.0,
+    "losers": 41
+   },
+   "removed": {
+    "n": 0,
+    "win": null,
+    "mean": null,
+    "pnl": 0.0,
+    "losers": 0
+   }
+  },
+  "verdict": "REJECTED",
+  "why": "discovery standard not met; shuffle p=1.000 >= 0.05",
+  "caveat": "POST-HOC: this one-feature search was chosen after the pre-registered F1-F9 searches pointed at agree_same, so its p is flattering. The fair p for c20_9y is the pre-registered F9 pair (0.030) / F9 single (0.055). agree_same = other books firing this step and last (docs/27 item 67); on c20_9y the removed trades are exactly those where c20_9s or c20_9t did not fire."
+ }
+]
