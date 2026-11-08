@@ -1,0 +1,11 @@
+{"t": "09:00:00", "k": "SYSTEM", "x": "day 2026-11-06 \u00b7 champion c20_9x \u00b7 gates none \u00b7 capital \u20b9100,000", "mkt_t": 1793935800.7}
+{"t": "09:15:00", "k": "DATA", "x": "NIFTY index not trusted: spot 24538.2 is -108 pts off its usual spread to the future", "mkt_t": 1793936700.0}
+{"t": "09:15:00", "k": "GAP", "x": "data gap: feed stale: futures quote 307 s old \u2014 entries paused until 20 s of fresh data", "mkt_t": 1793936700.0}
+{"t": "09:15:00", "k": "DATA", "x": "NIFTY index trusted again", "mkt_t": 1793936700.8}
+{"t": "09:15:20", "k": "GAP", "x": "data back after 21 s (feed stale: futures quote 308 s old); entries resume", "mkt_t": 1793936720.7}
+{"t": "09:17:02", "k": "SHIFT", "x": "ATM rolled 24500 \u2192 24400: straddle 357.0 \u2192 349.9 (spot settled at the new strike)", "mkt_t": 1793936822.3}
+{"t": "09:20:42", "k": "SHIFT", "x": "ATM rolled 24400 \u2192 24500: straddle 367.3 \u2192 358.9 (spot settled at the new strike)", "mkt_t": 1793937042.2}
+{"t": "09:25:53", "k": "SHIFT", "x": "ATM rolled 24500 \u2192 24400: straddle 352.7 \u2192 349.4 (spot settled at the new strike)", "mkt_t": 1793937353.9}
+{"t": "09:28:28", "k": "SHIFT", "x": "ATM rolled 24400 \u2192 24500: straddle 355.2 \u2192 347.5 (spot settled at the new strike)", "mkt_t": 1793937508.7}
+{"t": "09:46:42", "k": "SHIFT", "x": "ATM rolled 24500 \u2192 24600: straddle 343.3 \u2192 337.6 (spot settled at the new strike)", "mkt_t": 1793938602.8}
+{"t": "09:50:00", "k": "GAP", "x": "data gap: feed not live \u2014 entries paused until 20 s of fresh data", "mkt_t": 1793938800.1}

@@ -31,8 +31,92 @@ from .diary import family
 # have no rows falls back to its member with the most rows (flagged on the card).
 REPRESENTATIVES = ("spot_pb45", "spot_dc12_t12", "spot_dc12_t12_first", "spot_orb45", "m1.5_s0.4", "gap3_s0.4",
                    "straddle_spike", "fade_switch", "c20_9x", "t28_fwd")
-DAY_FACTORS = {"expiry_day", "day_before_expiry", "after_break", "event", "weekday", "dte", "gap_pts", "gap_filled"}
-SKIP = {"v", "v2_error"}
+DAY_FACTORS = {"expiry_day", "day_before_expiry", "after_break", "event", "weekday", "dte", "gap_pts", "gap_filled",
+               "vix", "vix_chg_open", "hrs_to_expiry", "norm_days"}   # day-type weather: counted in DAYS, not trades
+SKIP = {"v", "v2_error", "v3_error"}                                   # housekeeping on the photo, not weather
+# 8 Nov (owner): EVERY docs/27 item is weather and every photo field is searched; nothing is set aside. This table
+# only names the docs/27 item each field belongs to, for the cards (tests/test_weather.py checks every photo field
+# has an item). An "adv_" prefix covers the advisors (item 61).
+ITEMS = {
+    1: ("Day type", ("expiry_day", "day_before_expiry", "after_break", "event", "weekday", "dte")),
+    2: ("Time to expiry", ("hrs_to_expiry",)),
+    3: ("Clock", ("mins_open", "mins_to_flat")),
+    4: ("Session phase", ("phase", "phase_bucket")),
+    5: ("Opening gap", ("gap_pts", "gap_filled")),
+    6: ("Opening range", ("or_pos", "or15_pos", "or30_pos", "or45_pos", "or_late")),
+    7: ("Range so far vs earlier days", ("range_now", "range_vs_norm", "norm_days")),
+    8: ("Position in the range", ("pos_in_range", "pos_dir", "give", "range_on", "dist_hi", "dist_lo")),
+    9: ("Trend or range day so far", ("er30", "er60", "dir60", "er_day", "new_highs", "new_lows", "reversals60")),
+    10: ("VWAP", ("vwap_ext", "vwap_side_with", "vwap_side_min")),
+    11: ("Previous day's levels", ("to_pdh", "to_pdl", "to_pdc")),
+    12: ("Extremes' age", ("hi_age_min", "lo_age_min")),
+    13: ("Speed", ("mv5", "mv10", "mv30", "mv60", "mv120", "mv300", "nifty60", "fmv60", "fmv300")),
+    14: ("Acceleration", ("accel15", "accel30")),
+    15: ("Current impulse", ("imp_rng", "imp_with", "imp_age_min", "imp_depth")),
+    16: ("Swing distance", ("swing_ahead", "swing_behind")),
+    17: ("Realised volatility", ("rv1", "rv5", "rv15_spot", "rv5_vs_norm")),
+    18: ("Jump and drift change", ("jump_z", "cusum", "kv", "kvt", "bp_sig")),
+    19: ("Choppiness", ("chop30", "chop60")),
+    20: ("Spot / futures / forward agreement", ("basis", "basis_chg60", "basis_chg300", "e_basis_dev", "e_syn_dev")),
+    21: ("Order-flow imbalance", ("e_fut_ofi60", "e_fut_micro")),
+    22: ("Depth imbalance", ("e_fut_imb5", "e_fut_tot_imb", "fut_imb_q", "fut_imb_o", "fut_imb_t_chg30", "fut_lead")),
+    23: ("Resting value", ("rest_with_rs", "rest_opp_rs", "rest_round_rs", "round_dist")),
+    24: ("Refill vs withdrawal", ("fut_opp_q", "fut_opp_o", "fut_pulled", "force_rho", "force_pi")),
+    25: ("Traded volume", ("fut_vol_surge", "fut_vol60", "fut_ttq60", "fut_vol_vs_norm", "agg_with_rs", "agg_net")),
+    26: ("Absorption", ("absorb60",)),
+    27: ("Price impact and spread", ("kyle_lambda", "fut_spread")),
+    28: ("Weighted move", ("wmove10", "wmove30", "wmove60")),
+    29: ("Breadth", ("breadth_dir", "breadth_n")),
+    30: ("Sector split", ("wmove60_bank", "wmove60_it", "wmove60_energy", "wmove60_other")),
+    31: ("Who moved first", ("ep_first", "lead_s", "ep_n_cross")),
+    32: ("Basket gap", ("basket_gap",)),
+    33: ("Heavyweight books", ("hw_book_imb", "hw_book_imb_t", "hw_book_chg30")),
+    34: ("Heavyweight volume", ("hw_vol_surge", "hw_vol60", "hw_vol_vs_norm")),
+    35: ("Sister indices", ("bn60", "bn300", "bank_z", "fn60", "fn300")),
+    36: ("OI walls", ("wall_up", "wall_dn", "wall_room")),
+    37: ("OI change", ("oi_own_chg5", "oi_own_chg15", "oi_own_chg30", "oi_other_chg5", "oi_other_chg15", "oi_other_chg30",
+                       "oi_net_help5", "oi_net_help15", "oi_net_help30", "oi_own_chg_open")),
+    38: ("Put/call ratio, max pain", ("pcr", "pcr_chg30", "e_pcr", "max_pain_dist")),
+    39: ("Gamma map", ("gex_regime", "gex_balance", "gex_flip_ahead", "gex_wall_ahead", "gex_wall_behind")),
+    40: ("Call vs put activity", ("vol_ratio_with", "prem_ratio_with")),
+    41: ("Straddle", ("strad_chg5", "strad_excess", "strad_expanding", "strad_state")),
+    42: ("IV skew", ("skew_atm", "skew_chg5")),
+    43: ("IV term structure", ("term_atm", "term_chg5")),
+    44: ("Smile position", ("svi_res",)),
+    45: ("Premium and quote", ("premium", "spread_pct", "quote_age")),
+    46: ("First-order Greeks", ("delta", "gamma", "theta_min", "theta_pct", "vega")),
+    47: ("Higher-order Greeks", ("vanna", "charm_min", "speed_g", "color_min", "vomma", "zomma")),
+    48: ("Breakeven", ("theta_be", "theta_be15", "theta_ratio", "speed15")),
+    49: ("IV", ("iv_vs_med", "opt_iv_chg1", "opt_iv_chg5", "atm_iv_chg1", "atm_iv_chg5", "atm_iv_med", "e_iv_atm", "e_iv_chg5")),
+    50: ("Premium momentum", ("prem_chg1_pct", "opt_vol1", "opt_vol_chg1")),
+    51: ("Premium response", ("prem_resp1",)),
+    52: ("Option book", ("opt_book_imb", "opt_imb_chg30", "opt_opp_q", "opt_opp_o", "opt_lead", "opt_run")),
+    53: ("Option's own levels", ("sl_room_up_pct", "sl_room_dn_pct", "sl_n_res", "sl_n_sup", "sl_next_res")),
+    54: ("Premium race odds", ("po_up1", "po_up5", "po_up15", "po_dn15", "po_ever", "po_a", "po_b")),
+    55: ("VIX", ("vix", "vix_chg_open", "vix_chg5", "vix_chg15", "vix_chg30")),
+    56: ("IV vs realised", ("e_iv_rv", "e_rv15", "e_v_min30")),
+    57: ("Hidden regime", ("hmm_state", "hmm_p", "hmm_run_min", "hmm_left_min", "hmm_drift")),
+    58: ("Order-flow chain reaction", ("hk_buy", "hk_sell", "hk_ratio")),
+    59: ("Regime label", ("regime", "regime_with", "regime_ext_pct", "regime_broke")),
+    60: ("Domino episode", ("ep_type", "ep_with", "ep_age_s", "ep_max_s", "sync_dir", "dom_z", "sigma15")),
+    61: ("Advisors", ("adv_vetoes",)),
+    62: ("Level force", ("force_verdict", "force_with", "force_level_dist")),
+    63: ("Trigger", ("trigger", "trig_str", "trig_unit")),
+    64: ("Last trade", ("last_exit_s", "last_won", "last_reason")),
+    65: ("Direction history", ("last_same_side",)),
+    66: ("Today so far", ("n_today", "ret_today", "streak")),
+    67: ("Agreement", ("agree_same", "agree_other")),
+    68: ("Feed health", ("fut_age", "spot_age", "gaps_today", "gap_s_today", "reconnects", "feed_state", "chain_age",
+                         "depth_age_fut", "n_hero_stale", "n_hero_wide")),
+}
+ITEM_OF = {k: n for n, (_lab, ks) in ITEMS.items() for k in ks}
+
+
+def item_of(factor):
+    """(item number, label) for a photo field (a category field arrives as 'name=value'); (None, '?') if unmapped."""
+    k = factor.split("=")[0]
+    n = ITEM_OF.get(k, 61 if k.startswith("adv_") else None)
+    return (n, ITEMS[n][0]) if n else (None, "?")
 QUANTILES = tuple(q / 10 for q in range(2, 9))
 MIN_N, MIN_DAYS, BIG_SHARE = 15.0, 5, 2.0 / 3.0
 
@@ -54,7 +138,7 @@ def features(rows):
     for r in rows:
         keys |= set((r.get("weather") or {}).keys())
     out = {}
-    for k in sorted(keys - SKIP):
+    for k in sorted(keys - SKIP):                      # 8 Nov: every photo field is searched; nothing set aside
         vals = [(r.get("weather") or {}).get(k) for r in rows]
         if all(v is None for v in vals):
             continue

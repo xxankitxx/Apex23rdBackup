@@ -1,0 +1,43 @@
+16:27:41 REPLAY meta {"schema": 1, "apex": "1.2.1", "git": null, "cfg": "cc96b9276e5782791f4f221f1c9852e7175ea475", "part": 1}
+16:27:41 REPLAY registry: 121 instruments
+16:27:41 ENGINE registry v1: 121 instruments, weekly 2026-10-19, next 2026-10-27
+16:36:21 REPLAY registry: 137 instruments
+16:36:21 mkt=09:00:04 ENGINE registry v2: 137 instruments, weekly 2026-10-19, next 2026-10-27
+16:37:26 REPLAY registry: 137 instruments
+16:37:26 mkt=09:07:09 ENGINE registry v3: 137 instruments, weekly 2026-10-19, next 2026-10-27
+16:42:19 REPLAY registry: 153 instruments
+16:42:19 mkt=09:29:09 ENGINE registry v4: 153 instruments, weekly 2026-10-19, next 2026-10-27
+16:44:45 REPLAY registry: 153 instruments
+16:44:46 mkt=09:35:45 ENGINE registry v5: 153 instruments, weekly 2026-10-19, next 2026-10-27
+17:37:59 REPLAY registry: 153 instruments
+17:37:59 mkt=12:04:14 ENGINE registry v6: 153 instruments, weekly 2026-10-19, next 2026-10-27
+17:56:08 REPLAY meta {"end": 1, "part": 1, "dropped": 0, "lines": 2244072}
+17:56:08 REPLAY part 2 begins
+17:56:08 REPLAY meta {"schema": 1, "apex": "1.3.0", "git": null, "src": "d6dce5c31c0e", "cfg": "eef495c72990d6b452a412e409eb960e3141a4e1", "part": 2}
+17:56:18 REPLAY registry: 121 instruments
+17:56:18 mkt=12:47:40 ENGINE instrument ids changed — resetting price history
+17:56:18 mkt=12:47:40 ENGINE registry v7: 121 instruments, weekly 2026-10-19, next 2026-10-27
+18:04:40 REPLAY meta {"end": 1, "part": 2, "dropped": 0, "lines": 265530}
+18:04:40 REPLAY part 3 begins
+18:04:40 REPLAY meta {"schema": 1, "apex": "1.3.0", "git": null, "src": "fa249e602e7f", "cfg": "eef495c72990d6b452a412e409eb960e3141a4e1", "part": 3}
+18:04:44 REPLAY registry: 121 instruments
+18:04:44 mkt=13:12:11 ENGINE instrument ids changed — resetting price history
+18:04:44 mkt=13:12:11 ENGINE registry v8: 121 instruments, weekly 2026-10-19, next 2026-10-27
+18:17:16 REPLAY meta {"end": 1, "part": 3, "dropped": 0, "lines": 368629}
+18:17:16 REPLAY part 4 begins
+18:17:16 REPLAY meta {"schema": 1, "apex": "1.3.0", "git": null, "src": "50fc089e907c", "cfg": "eef495c72990d6b452a412e409eb960e3141a4e1", "part": 4}
+18:17:16 REPLAY meta {"end": 1, "part": 4, "dropped": 0, "lines": 2}
+18:17:16 REPLAY part 5 begins
+18:17:16 REPLAY meta {"schema": 1, "apex": "1.3.0", "git": null, "src": "50fc089e907c", "cfg": "eef495c72990d6b452a412e409eb960e3141a4e1", "part": 5}
+18:17:31 REPLAY registry: 121 instruments
+18:17:31 mkt=13:46:19 ENGINE instrument ids changed — resetting price history
+18:17:31 mkt=13:46:19 ENGINE registry v9: 121 instruments, weekly 2026-10-19, next 2026-10-27
+18:59:25 REPLAY registry: 141 instruments
+18:59:25 mkt=15:20:33 ENGINE registry v10: 141 instruments, weekly 2026-10-19, next 2026-10-27
+19:02:04 REPLAY registry: 141 instruments
+19:02:04 mkt=15:27:28 ENGINE registry v11: 141 instruments, weekly 2026-10-19, next 2026-10-27
+19:07:47 REPLAY meta {"end": 1, "part": 5, "dropped": 0, "lines": 1216432}
+19:07:47 REPLAY done: 4093920 packets
+19:08:11 mkt=15:40:37 ENGINE day 2026-10-19 closed and learned
+19:08:11 REPLAY fast replay: 285031 engine steps in 9630 s wall (31.25 ms per step, 4093920 packets)
+19:08:11 mkt=15:40:37 ENGINE stopped

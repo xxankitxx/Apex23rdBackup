@@ -1,0 +1,32 @@
+{
+ "date": "2026-11-06",
+ "rows": 104,
+ "episodes_by_book": {
+  "RAW": 1,
+  "c20_8x": 1,
+  "c20_9e": 1,
+  "c20_9h": 1,
+  "c20_9s": 1,
+  "c20_9x": 1,
+  "c20_9x_r004": 1,
+  "c20_9y": 1,
+  "edge_breakout": 5,
+  "fade_switch": 23,
+  "fade_switch_r002": 1,
+  "premium_momentum": 1,
+  "spot_dc12_t12": 5,
+  "spot_dc12_t12_1130": 5,
+  "spot_dc12_t12_first": 4,
+  "spot_dc12_t12_first_r003": 4,
+  "spot_dc12_t12_nolock": 5,
+  "spot_ft_prem10": 14,
+  "t28_all": 7,
+  "t28_core_fill": 7,
+  "t28_d46_fill": 7,
+  "t28_fill": 8
+ },
+ "cf_errors": 0,
+ "recorder_faults": 0,
+ "copies": 369,
+ "copy_seconds": 0.363
+}

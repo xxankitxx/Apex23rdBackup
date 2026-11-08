@@ -1,0 +1,680 @@
+{
+ "today": "2026-11-08",
+ "rules": [
+  {
+   "id": "R-019",
+   "name": "BOOK:edge_bracket_only: opt_vol1 < 2.7688e+06",
+   "kind": "entry",
+   "family": "BOOK:edge_bracket_only",
+   "factor": "opt_vol1",
+   "op": "<",
+   "line": 2768805.0,
+   "condition": "enter only if weather_trig.opt_vol1 < 2.7688e+06 at the trigger second (docs/27, apex/engine/weather.py); a missing value blocks the entry",
+   "restricted_book": "edge_bracket_only via the Conductor pool",
+   "free_book": "edge_bracket_only",
+   "frozen": "2026-11-08",
+   "first_test_day": "2026-11-09",
+   "source": "weather card: found by searching the past (apex/conductor/search.py)",
+   "reason": "book card 8 Nov (all 68 items, 200 shuffles): kept 79.5 trades, 49% winners, mean +2.8 %; other side 20.5, 5%, -8.7 %; never-worked losses on the hurt side 16 of 52; beats luck; item 50 Premium momentum",
+   "item": 50,
+   "item_label": "Premium momentum",
+   "card": {
+    "kept_n": 79.5,
+    "kept_sr": 0.4906,
+    "kept_ret": 2.8222,
+    "other_n": 20.5,
+    "other_sr": 0.0488,
+    "other_ret": -8.6673,
+    "score": 0.4418,
+    "beats_luck": true
+   }
+  },
+  {
+   "id": "R-020",
+   "name": "BOOK:edge_breakout: vomma >= 0.00646",
+   "kind": "entry",
+   "family": "BOOK:edge_breakout",
+   "factor": "vomma",
+   "op": ">=",
+   "line": 0.00646,
+   "condition": "enter only if weather_trig.vomma >= 0.00646 at the trigger second (docs/27, apex/engine/weather.py); a missing value blocks the entry",
+   "restricted_book": "edge_breakout via the Conductor pool",
+   "free_book": "edge_breakout",
+   "frozen": "2026-11-08",
+   "first_test_day": "2026-11-09",
+   "source": "weather card: found by searching the past (apex/conductor/search.py)",
+   "reason": "book card 8 Nov (all 68 items, 200 shuffles): kept 84 trades, 46% winners, mean +1.7 %; other side 36, 11%, -6.8 %; never-worked losses on the hurt side 35 of 85; beats luck; item 47 Higher-order Greeks",
+   "item": 47,
+   "item_label": "Higher-order Greeks",
+   "card": {
+    "kept_n": 84.0,
+    "kept_sr": 0.4643,
+    "kept_ret": 1.7007,
+    "other_n": 36.0,
+    "other_sr": 0.1111,
+    "other_ret": -6.7586,
+    "score": 0.3532,
+    "beats_luck": true
+   }
+  }
+ ],
+ "entries": [
+  {
+   "book": "edge_bracket_only",
+   "rule": "R-019",
+   "standing": "low",
+   "ret_per_trade": 2.8222,
+   "ret_basis": "discovery days (in-sample)",
+   "from": "2026-11-09",
+   "note": "opt_vol1 < 2.7688e+06 (item 50 Premium momentum); in-sample"
+  },
+  {
+   "book": "edge_breakout",
+   "rule": "R-020",
+   "standing": "low",
+   "ret_per_trade": 1.7007,
+   "ret_basis": "discovery days (in-sample)",
+   "from": "2026-11-09",
+   "note": "vomma >= 0.00646 (item 47 Higher-order Greeks); in-sample"
+  }
+ ],
+ "free": [
+  {
+   "book": "fade_switch",
+   "n_real": 702,
+   "n_days": 13,
+   "real_win": 0.5014,
+   "real_mean": -0.145,
+   "never_worked": 343,
+   "gave_back": 7
+  },
+  {
+   "book": "spot_dc12_t12_first",
+   "n_real": 571,
+   "n_days": 13,
+   "real_win": 0.3783,
+   "real_mean": 0.047,
+   "never_worked": 285,
+   "gave_back": 70
+  },
+  {
+   "book": "spot_dc12_t12_first_r003",
+   "n_real": 545,
+   "n_days": 13,
+   "real_win": 0.367,
+   "real_mean": 0.032,
+   "never_worked": 277,
+   "gave_back": 68
+  },
+  {
+   "book": "fade_switch_r002",
+   "n_real": 414,
+   "n_days": 13,
+   "real_win": 0.4831,
+   "real_mean": -0.25,
+   "never_worked": 207,
+   "gave_back": 7
+  },
+  {
+   "book": "spot_ft_prem10",
+   "n_real": 413,
+   "n_days": 13,
+   "real_win": 0.5424,
+   "real_mean": 0.988,
+   "never_worked": 182,
+   "gave_back": 7
+  },
+  {
+   "book": "spot_dc12_t12",
+   "n_real": 274,
+   "n_days": 13,
+   "real_win": 0.354,
+   "real_mean": 0.281,
+   "never_worked": 145,
+   "gave_back": 32
+  },
+  {
+   "book": "spot_dc12_t12_nolock",
+   "n_real": 274,
+   "n_days": 13,
+   "real_win": 0.354,
+   "real_mean": 0.455,
+   "never_worked": 145,
+   "gave_back": 32
+  },
+  {
+   "book": "spot_dc12_t12_1130",
+   "n_real": 254,
+   "n_days": 13,
+   "real_win": 0.3543,
+   "real_mean": 0.45,
+   "never_worked": 134,
+   "gave_back": 30
+  },
+  {
+   "book": "t28_d46_fill",
+   "n_real": 198,
+   "n_days": 13,
+   "real_win": 0.4545,
+   "real_mean": 1.052,
+   "never_worked": 94,
+   "gave_back": 14
+  },
+  {
+   "book": "t28_all",
+   "n_real": 191,
+   "n_days": 13,
+   "real_win": 0.4607,
+   "real_mean": 1.13,
+   "never_worked": 90,
+   "gave_back": 13
+  },
+  {
+   "book": "t28_core_fill",
+   "n_real": 190,
+   "n_days": 13,
+   "real_win": 0.4526,
+   "real_mean": 1.012,
+   "never_worked": 91,
+   "gave_back": 13
+  },
+  {
+   "book": "t28_fill",
+   "n_real": 181,
+   "n_days": 13,
+   "real_win": 0.4862,
+   "real_mean": 1.306,
+   "never_worked": 82,
+   "gave_back": 11
+  },
+  {
+   "book": "spot_dc12_t12_first_r002",
+   "n_real": 99,
+   "n_days": 12,
+   "real_win": 0.4141,
+   "real_mean": 0.736,
+   "never_worked": 39,
+   "gave_back": 19
+  },
+  {
+   "book": "lvl_trail_be",
+   "n_real": 90,
+   "n_days": 13,
+   "real_win": 0.4667,
+   "real_mean": 1.563,
+   "never_worked": 40,
+   "gave_back": 8
+  },
+  {
+   "book": "lvl_trail",
+   "n_real": 87,
+   "n_days": 13,
+   "real_win": 0.4598,
+   "real_mean": 1.703,
+   "never_worked": 38,
+   "gave_back": 9
+  },
+  {
+   "book": "t28_fwd",
+   "n_real": 86,
+   "n_days": 13,
+   "real_win": 0.5,
+   "real_mean": 1.396,
+   "never_worked": 39,
+   "gave_back": 4
+  },
+  {
+   "book": "lvl_trail_rx_be",
+   "n_real": 82,
+   "n_days": 13,
+   "real_win": 0.5,
+   "real_mean": 2.476,
+   "never_worked": 34,
+   "gave_back": 7
+  },
+  {
+   "book": "t28_d46",
+   "n_real": 82,
+   "n_days": 13,
+   "real_win": 0.4756,
+   "real_mean": 2.2,
+   "never_worked": 36,
+   "gave_back": 7
+  },
+  {
+   "book": "t28_tt8",
+   "n_real": 82,
+   "n_days": 13,
+   "real_win": 0.5854,
+   "real_mean": 1.399,
+   "never_worked": 30,
+   "gave_back": 4
+  },
+  {
+   "book": "t28_mh15",
+   "n_real": 82,
+   "n_days": 13,
+   "real_win": 0.5244,
+   "real_mean": 2.093,
+   "never_worked": 33,
+   "gave_back": 6
+  },
+  {
+   "book": "spot_dual",
+   "n_real": 79,
+   "n_days": 13,
+   "real_win": 0.481,
+   "real_mean": 1.4,
+   "never_worked": 35,
+   "gave_back": 6
+  },
+  {
+   "book": "lvl_trail_re",
+   "n_real": 79,
+   "n_days": 13,
+   "real_win": 0.4937,
+   "real_mean": 2.666,
+   "never_worked": 32,
+   "gave_back": 8
+  },
+  {
+   "book": "lvl_trail_rx",
+   "n_real": 79,
+   "n_days": 13,
+   "real_win": 0.4937,
+   "real_mean": 2.619,
+   "never_worked": 32,
+   "gave_back": 8
+  },
+  {
+   "book": "lvl_trail_rx_c10",
+   "n_real": 79,
+   "n_days": 13,
+   "real_win": 0.4937,
+   "real_mean": 2.619,
+   "never_worked": 32,
+   "gave_back": 8
+  },
+  {
+   "book": "t28_ts",
+   "n_real": 79,
+   "n_days": 13,
+   "real_win": 0.481,
+   "real_mean": 2.972,
+   "never_worked": 33,
+   "gave_back": 8
+  },
+  {
+   "book": "t28_st20",
+   "n_real": 77,
+   "n_days": 13,
+   "real_win": 0.5065,
+   "real_mean": 2.946,
+   "never_worked": 31,
+   "gave_back": 7
+  },
+  {
+   "book": "t28_gap",
+   "n_real": 77,
+   "n_days": 13,
+   "real_win": 0.5065,
+   "real_mean": 2.988,
+   "never_worked": 30,
+   "gave_back": 8
+  },
+  {
+   "book": "t28_gap_ts",
+   "n_real": 77,
+   "n_days": 13,
+   "real_win": 0.4935,
+   "real_mean": 3.088,
+   "never_worked": 31,
+   "gave_back": 8
+  },
+  {
+   "book": "spot_dual_lvl",
+   "n_real": 76,
+   "n_days": 13,
+   "real_win": 0.4868,
+   "real_mean": 1.109,
+   "never_worked": 32,
+   "gave_back": 7
+  },
+  {
+   "book": "t28_cheapK",
+   "n_real": 76,
+   "n_days": 13,
+   "real_win": 0.5132,
+   "real_mean": 3.259,
+   "never_worked": 31,
+   "gave_back": 6
+  },
+  {
+   "book": "t28_bidpile",
+   "n_real": 75,
+   "n_days": 13,
+   "real_win": 0.5067,
+   "real_mean": 2.867,
+   "never_worked": 29,
+   "gave_back": 8
+  },
+  {
+   "book": "c20_9e",
+   "n_real": 74,
+   "n_days": 13,
+   "real_win": 0.5946,
+   "real_mean": 7.002,
+   "never_worked": 25,
+   "gave_back": 5
+  },
+  {
+   "book": "t28_nohigh",
+   "n_real": 74,
+   "n_days": 13,
+   "real_win": 0.5,
+   "real_mean": 3.207,
+   "never_worked": 28,
+   "gave_back": 9
+  },
+  {
+   "book": "spot_dual_rg",
+   "n_real": 72,
+   "n_days": 13,
+   "real_win": 0.4861,
+   "real_mean": 1.442,
+   "never_worked": 31,
+   "gave_back": 6
+  },
+  {
+   "book": "c20_9h",
+   "n_real": 71,
+   "n_days": 13,
+   "real_win": 0.5493,
+   "real_mean": 6.519,
+   "never_worked": 26,
+   "gave_back": 6
+  },
+  {
+   "book": "c20_9t",
+   "n_real": 71,
+   "n_days": 13,
+   "real_win": 0.7324,
+   "real_mean": 4.385,
+   "never_worked": 18,
+   "gave_back": 1
+  },
+  {
+   "book": "t28_req",
+   "n_real": 69,
+   "n_days": 13,
+   "real_win": 0.5362,
+   "real_mean": 3.907,
+   "never_worked": 25,
+   "gave_back": 7
+  },
+  {
+   "book": "c20_8x",
+   "n_real": 67,
+   "n_days": 13,
+   "real_win": 0.5075,
+   "real_mean": 7.82,
+   "never_worked": 23,
+   "gave_back": 10
+  },
+  {
+   "book": "t28_cheap",
+   "n_real": 67,
+   "n_days": 13,
+   "real_win": 0.5224,
+   "real_mean": 3.994,
+   "never_worked": 24,
+   "gave_back": 8
+  },
+  {
+   "book": "c20_9v",
+   "n_real": 66,
+   "n_days": 13,
+   "real_win": 0.6667,
+   "real_mean": 9.897,
+   "never_worked": 18,
+   "gave_back": 4
+  },
+  {
+   "book": "c20_9x",
+   "n_real": 65,
+   "n_days": 13,
+   "real_win": 0.5538,
+   "real_mean": 9.605,
+   "never_worked": 22,
+   "gave_back": 7
+  },
+  {
+   "book": "t28_ivfall",
+   "n_real": 65,
+   "n_days": 13,
+   "real_win": 0.5692,
+   "real_mean": 3.94,
+   "never_worked": 23,
+   "gave_back": 5
+  },
+  {
+   "book": "t28_dur20",
+   "n_real": 62,
+   "n_days": 13,
+   "real_win": 0.5,
+   "real_mean": 3.28,
+   "never_worked": 25,
+   "gave_back": 6
+  },
+  {
+   "book": "t28_core",
+   "n_real": 62,
+   "n_days": 13,
+   "real_win": 0.5,
+   "real_mean": 2.817,
+   "never_worked": 25,
+   "gave_back": 6
+  },
+  {
+   "book": "c20_9s",
+   "n_real": 59,
+   "n_days": 13,
+   "real_win": 0.6102,
+   "real_mean": 11.441,
+   "never_worked": 17,
+   "gave_back": 6
+  },
+  {
+   "book": "c20_9y",
+   "n_real": 58,
+   "n_days": 13,
+   "real_win": 0.6379,
+   "real_mean": 12.088,
+   "never_worked": 15,
+   "gave_back": 6
+  },
+  {
+   "book": "spot_pb45",
+   "n_real": 52,
+   "n_days": 13,
+   "real_win": 0.5192,
+   "real_mean": -0.226,
+   "never_worked": 20,
+   "gave_back": 1
+  },
+  {
+   "book": "c20_9x_r004",
+   "n_real": 47,
+   "n_days": 12,
+   "real_win": 0.5532,
+   "real_mean": 9.721,
+   "never_worked": 16,
+   "gave_back": 5
+  },
+  {
+   "book": "spot_dc12_t12_r002",
+   "n_real": 43,
+   "n_days": 7,
+   "real_win": 0.4186,
+   "real_mean": -0.082,
+   "never_worked": 19,
+   "gave_back": 6
+  },
+  {
+   "book": "edge_gate_trail",
+   "n_real": 43,
+   "n_days": 13,
+   "real_win": 0.5349,
+   "real_mean": 3.308,
+   "never_worked": 16,
+   "gave_back": 4
+  },
+  {
+   "book": "edge_gate_only",
+   "n_real": 38,
+   "n_days": 13,
+   "real_win": 0.5789,
+   "real_mean": 2.71,
+   "never_worked": 14,
+   "gave_back": 2
+  },
+  {
+   "book": "apex_edge",
+   "n_real": 37,
+   "n_days": 13,
+   "real_win": 0.4595,
+   "real_mean": 1.781,
+   "never_worked": 17,
+   "gave_back": 3
+  },
+  {
+   "book": "straddle_spike",
+   "n_real": 35,
+   "n_days": 8,
+   "real_win": 0.3143,
+   "real_mean": -1.847,
+   "never_worked": 12,
+   "gave_back": 2
+  },
+  {
+   "book": "m2.0_s0.5_novol",
+   "n_real": 33,
+   "n_days": 11,
+   "real_win": 0.4242,
+   "real_mean": 0.291,
+   "never_worked": 16,
+   "gave_back": 1
+  },
+  {
+   "book": "c20_9x_r002",
+   "n_real": 25,
+   "n_days": 2,
+   "real_win": 0.64,
+   "real_mean": 7.353,
+   "never_worked": 7,
+   "gave_back": 2
+  }
+ ],
+ "skipped": [
+  [
+   "m1.5_s0.4",
+   "too few rows"
+  ],
+  [
+   "m2.0_s0.4",
+   "too few rows"
+  ],
+  [
+   "m2.5_s0.4",
+   "too few rows"
+  ],
+  [
+   "m1.5_s0.4_r003",
+   "too few rows"
+  ],
+  [
+   "m2.0_s0.5_tvfast",
+   "too few rows"
+  ],
+  [
+   "m2.0_s0.5_bookexit",
+   "too few rows"
+  ],
+  [
+   "m1.5_s0.5",
+   "too few rows"
+  ],
+  [
+   "m2.0_s0.5",
+   "too few rows"
+  ],
+  [
+   "m2.5_s0.5",
+   "too few rows"
+  ],
+  [
+   "m2.0_s0.5_ivinterp",
+   "too few rows"
+  ],
+  [
+   "m2.0_s0.5_d20",
+   "too few rows"
+  ],
+  [
+   "spot_orb45",
+   "too few rows"
+  ],
+  [
+   "spot_orb45_r005",
+   "too few rows"
+  ],
+  [
+   "spot_orb45_r003",
+   "too few rows"
+  ],
+  [
+   "m2.0_s0.5_trend",
+   "too few rows"
+  ],
+  [
+   "m1.5_s0.6",
+   "too few rows"
+  ],
+  [
+   "m2.0_s0.6",
+   "too few rows"
+  ],
+  [
+   "m2.5_s0.6",
+   "too few rows"
+  ],
+  [
+   "spot_pb45_r002",
+   "too few rows"
+  ],
+  [
+   "gap3_s0.4",
+   "too few rows"
+  ],
+  [
+   "gap5_s0.4",
+   "too few rows"
+  ],
+  [
+   "gap3_s0.4_r003",
+   "too few rows"
+  ],
+  [
+   "m1.5_s0.4_r002",
+   "too few rows"
+  ],
+  [
+   "spot_orb45_r002",
+   "too few rows"
+  ],
+  [
+   "gap3_s0.4_r002",
+   "too few rows"
+  ]
+ ]
+}

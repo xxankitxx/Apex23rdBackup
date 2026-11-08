@@ -55,7 +55,8 @@ class Book:
                 "pos": self.pos, "trades": self.trades, "fired": sorted(self.fired_episodes),
                 "last_exit_s": getattr(self, "last_exit_s", None), "swing_last": self.ctl.get("swing_last"),
                 "pb_done": self.ctl.get("pb_done"), "orb_done": self.ctl.get("orb_done"),
-                "reentry": self.ctl.get("reentry")}
+                "reentry": self.ctl.get("reentry"),
+                "owner": self.ctl.get("owner")}      # 8 Nov: the Conductor's pending owner (apex/engine/conductor.py)
 
     @classmethod
     def from_json(cls, d):
@@ -72,6 +73,8 @@ class Book:
             b.ctl["orb_done"] = d["orb_done"]
         if d.get("reentry"):
             b.ctl["reentry"] = d["reentry"]
+        if d.get("owner"):
+            b.ctl["owner"] = d["owner"]
         return b
 
     # ── stats ──────────────────────────────────────────────────────────────
@@ -1065,9 +1068,13 @@ def request_entry(book, ctx, opt, reason):
         edge_trig = None
     try:                                               # 7 Nov (stage 2): the weather photograph, same moment
         from .weather import photo as _weather_photo
-        weather_trig = _weather_photo(ctx, d, opt, book)
+        weather_trig = _weather_photo(ctx, d, opt, book, reason)
     except Exception:
         weather_trig = None
+    fires = ctx.get("fires")                           # 8 Nov (docs/27 item 67): how many books fire this step
+    if fires is not None and not book.name.endswith("#cf"):
+        cur = fires.setdefault("cur", {})
+        cur[opt.get("rr")] = cur.get(opt.get("rr"), 0) + 1
     book.ctl["pending_entry"] = {"t": ctx["now_s"], "time": ctx["now_dt"].strftime("%H:%M:%S"), "key": opt["key"],
                                  "id": opt["id"], "why": reason, "trigger_ltp": opt.get("ltp"),
                                  "signal_trig": _signal_snapshot(ctx, d), "edge_trig": edge_trig,

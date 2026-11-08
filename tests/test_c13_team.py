@@ -39,7 +39,7 @@ def _chain(*deltas):
 
 
 def test_registered():
-    assert config.validate() == [] and len(config.VARIANTS) == 85        # 67 + c20_9e, c20_9h (3 Nov), c20_9s (3 Nov night), c20_9y (4 Nov) + 14 restricted (7 Nov; spot_pb45_r003 off 8 Nov)
+    assert config.validate() == [] and len(config.VARIANTS) == 86        # 67 + c20_9e, c20_9h (3 Nov), c20_9s (3 Nov night), c20_9y (4 Nov) + 14 restricted (7 Nov; spot_pb45_r003 off 8 Nov) + conductor (8 Nov)
     names = list(config.VARIANTS)
     assert names[names.index("c20_9e"):names.index("c20_9y") + 1] == ["c20_9e", "c20_9h", "c20_9s", "c20_9y"]
     assert sum(1 for p in config.VARIANTS.values() if p.get("rules")) == 14                 # spot_pb45_r003 off 8 Nov

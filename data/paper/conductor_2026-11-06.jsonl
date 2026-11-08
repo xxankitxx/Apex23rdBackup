@@ -1,0 +1,10 @@
+{"t": 1793941200.0, "time": "10:30:00", "event": "owner", "book": "A", "rule": null, "standing": "low", "key": "NIFTY|OPT|2026-11-11|24000|CE", "why": "SPOT brk"}
+{"t": 1793941201.0, "time": "10:30:01", "event": "entry", "book": "A", "rule": null, "key": "NIFTY|OPT|2026-11-11|24000|CE", "entry": 100.0, "lots": 15, "why": "SPOT brk", "fill_delay_s": 1.0}
+{"t": 1793941300.0, "time": "10:31:40", "event": "exit", "book": "A", "rule": null, "key": "NIFTY|OPT|2026-11-11|24000|CE", "exit": 110.0, "reason": "TRAIL", "pnl_rs": 9750.0, "ret_pct": 10.0, "capital": 109750.0}
+{"t": 1793941300.0, "time": "10:31:40", "event": "flat", "why": "flat: no eligible trigger"}
+{"t": 1793941500.0, "time": "10:35:00", "event": "lost_priority", "book": "A", "rule": null, "key": "NIFTY|OPT|2026-11-11|24000|CE", "to": "B"}
+{"t": 1793941500.0, "time": "10:35:00", "event": "owner", "book": "B", "rule": null, "standing": "full", "key": "NIFTY|OPT|2026-11-11|23900|PE", "why": "SPOT brk"}
+{"t": 1793941501.0, "time": "10:35:01", "event": "entry", "book": "B", "rule": null, "key": "NIFTY|OPT|2026-11-11|23900|PE", "entry": 120.0, "lots": 14, "why": "SPOT brk", "fill_delay_s": 1.0}
+{"t": 1793941700.0, "time": "10:38:20", "event": "occupied", "book": "A", "rule": null, "key": "NIFTY|OPT|2026-11-11|24000|CE", "by": "B", "since": "10:35:01"}
+{"t": 1793941800.0, "time": "10:40:00", "event": "exit", "book": "B", "rule": null, "key": "NIFTY|OPT|2026-11-11|23900|PE", "exit": 110.0, "reason": "STOP", "pnl_rs": -9100.0, "ret_pct": -8.333, "capital": 100650.0}
+{"t": 1793941800.0, "time": "10:40:00", "event": "flat", "why": "flat: no eligible trigger"}

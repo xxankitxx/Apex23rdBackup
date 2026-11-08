@@ -26,10 +26,10 @@ the trigger second; `tests/test_weather.py` is the leak test.
 
 | Status | Groups |
 |---|---|
-| **In the photograph** (version 2) | A 1–4 · B 5, 6 (15 / 30 / 45 min), 8, 9 (30 / 60 min, new highs and lows; reversals not counted), 10, 11, 12 · C 13 (spot, 5 s – 5 min), 14, 15, 16, 17 (1 / 5 / 15 min; "vs its normal" not yet) · E 28, 29, 30 (bank / IT / energy / other), 32, 35 (Bank Nifty) · F 36, 41, 42 (ATM), 43 (ATM) · G 45, 46 (no vega), 48 · H 55 · J 64, 65, 66 · K 68 (futures and spot age, data gaps today) |
-| **Already on every trade, elsewhere** | C 20, D 21, D 22, F 38, H 56 (`edge_trig`: basis, OFI, depth imbalance, PCR, IV / RV) · I 59, 60 (`signal_trig`: regime, episode type) · I 61 (the position's advisors) · J 63 (`trig_str`) |
-| **Not yet: needs data the engine does not keep** | B 7 (earlier days at the same clock) · C 18 · D 23–27 · E 31, 33, 34 · F 37, 39, 40, 44 · G 47, 49–54 · H 57, 58 · I 62 · J 67 (needs every book's same-second entries) |
-| **Not covered** | Fin Nifty in E 35 (Bank Nifty only) |
+| **In the photograph** (version 3, 8 Nov) | **All 68 items**, in the photo itself (about 230 fields), on every position and every missed-signal row. The field-to-item table is `apex/conductor/search.py` `ITEMS`; `tests/test_weather.py` fails if a photo field has no item. Version 2 (7 Nov) had 31 items in the photo, 9 recorded elsewhere on the trade and 25 unbuilt, and the 7–8 Nov search ran on a reduced set: withdrawn (docs/28 §11). |
+| **Measured against earlier days** | B 7, C 17 "vs its normal", D 25 and E 34 "vs normal": the median of the EARLIER recorded days at the same clock minute (`apex/conductor/clock_norms.py`, `data/learning/clock_norms.json`); undefined until three earlier days exist (`norm_days`) |
+| **From the engine's own per-second state** | C 18 (Kalman velocity, bipower noise, jump z, CUSUM), F 39 (gamma map), F 44 (SVI smile), G 54 (race odds, computed for the chosen contract at the trigger), H 57 (HMM), H 58 (Hawkes on every hero contract), I 62 (level force), I 61 (every advisor's verdict for both directions, once a second) |
+| **Approximations, said plainly** | D 23 "next round level": depth levels at or beyond the next round 100 in the trade's direction (five levels, so the value is a floor) · D 25 "aggressor-side value": the flow module's 10-s EWMA of aggressive volume x price · J 67: the books that fired in this engine step and the one before it (not a whole second) · E 35 Fin Nifty: its futures when registered, else its spot |
 
 ## A. Calendar and clock
 

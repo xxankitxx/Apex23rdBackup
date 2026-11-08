@@ -33,10 +33,14 @@ from .engine.regime import Regime
 from .engine import missed as missed_mod      # 7 Nov: missed-signal recorder (replays, APEX_RECORD_MISSED=1)
 try:                                     # 5 Nov: display-only quant evidence (needs scipy)
     from .engine.quantview import QuantView
-except Exception:                        # pragma: no cover - a missing scipy must never stop the engine
+    QUANT_IMPORT_ERROR = None
+except Exception as _e:                  # pragma: no cover - reported at new_day (docs/34 F05): the photograph's model items would be empty
     QuantView = None
+    QUANT_IMPORT_ERROR = f"{type(_e).__name__}: {_e}"
 from .engine.impulse import ImpulseWindow
 from .engine.weather import Weather   # 7 Nov: stage 2, the weather photograph (observer)
+from .engine import weather as weather_mod
+from .engine import conductor as conductor_mod   # 8 Nov: the Conductor's account (docs/28 §7)
 from .engine.daystate import DayState, load_prior, save_day
 from .engine import strike_levels as sl_mod
 from .engine import ideas as ideas_mod
@@ -165,12 +169,13 @@ class Engine:
         self._pb_view = {"ok": False}
         self.day_state = None                 # D-141: session extremes, range mode, opening range, prior-day levels
         self.spot_hist = deque()              # D-116: (t, Nifty spot) at 1 Hz, in session, SPOT_DC_S long
-        self.oi_hist = deque(maxlen=400)     # (t, {id: oi}) at 1 Hz (heroes + futures)
-        self._ohist = {}                     # 28 Oct night: option id -> deque of (t, iv, tbq) at 1 Hz (paper.flow_veto)
+        self.oi_hist = deque(maxlen=1900)    # (t, {id: oi}) at 1 Hz (heroes + futures); 8 Nov: 30 min for docs/27 item 37
+        self._ohist = {}                     # 28 Oct night: option id -> deque of (t, iv, tbq, mid, delta, gamma, theta, ttq) at 1 Hz
         self._ohist_t = -1e9
-        self._ohist_on = any(v.get("iv_fall_rel15") is not None or v.get("skip_bid_pile")
-                             or v.get("entry_hi5_veto_pct") or v.get("req_move_veto") or v.get("cheap_strike")
-                             for v in config.VARIANTS.values())
+        self._ohist_on = True                # 8 Nov: always on, the weather photograph reads it (docs/27 items 49-52)
+        self._wf3_t = -1e9                   # 8 Nov: the photograph's v3 per-second feed and views
+        self._adv_t, self._adv_dir = -1e9, {}
+        self._fires_prev = {}
         # 29 Oct midday: books with spot_src="fwd" read a spot-unit put-call-parity forward instead of Nifty spot
         self._fwd_on = any(v.get("spot_src") == "fwd" for v in config.VARIANTS.values())
         self._reset_fwd()
@@ -284,13 +289,23 @@ class Engine:
         books = {}
         for name, params in config.VARIANTS.items():
             books[name] = (loaded or {}).get(name) or paper.Book(name, params, day)
-        books["RAW"] = (loaded or {}).get("RAW") or paper.Book("RAW", config.VARIANTS[champ], day)
+        base = config.VARIANTS[champ].get("raw_of") or champ   # 8 Nov: with the Conductor as champion, RAW stays c20_9x's ungated twin
+        books["RAW"] = (loaded or {}).get("RAW") or paper.Book("RAW", config.VARIANTS[base], day)
         # D-067: each CANDIDATE advisor trades as a hard gate on its own copy of the champion
         for a in self.lstate.get("candidates", {}):
             name = learning.GATED_PREFIX + a
-            books[name] = (loaded or {}).get(name) or paper.Book(name, config.VARIANTS[champ], day)
+            books[name] = (loaded or {}).get(name) or paper.Book(name, config.VARIANTS[base], day)
         self.books = books
         self.champion = champ
+        # 8 Nov (owner): the Conductor's account mirrors the pool books (apex/engine/conductor.py); the book order
+        # here is the same-tick tiebreak order, recorded in every run manifest
+        self.conductor = None
+        if any(b.p.get("conductor") for b in books.values()):
+            self.conductor = conductor_mod.Conductor(day, list(books))
+            log(f"CONDUCTOR pool as of {day}: {len(self.conductor.members)} pair(s)"
+                + (f" (APEX_POOL_ASOF={self.conductor.asof})" if self.conductor.asof else "")
+                + "".join(f" · {m['book']}+{m.get('rule') or 'free'}/{m.get('standing')}" for m in self.conductor.members))
+        self._photo_checked = False
         self.gates = list(self.lstate.get("gates", []))
         self.guard.new_day()
         self._day_hi = self._day_lo = None
@@ -304,6 +319,13 @@ class Engine:
         self._reset_fwd()
         self.day_state = DayState(day, load_prior(day))     # D-141
         self.weather = Weather(day)                          # 7 Nov (stage 2): the photograph's histories, per day
+        probs = weather_mod.static_check()                   # 8 Nov (owner): never run without the whole photograph
+        if QuantView is None:                                # docs/34 F05: a missing scipy must be visible, not silent
+            probs = list(probs) + [f"quant models unavailable (QuantView import failed: {QUANT_IMPORT_ERROR}); "
+                                   "the HMM / Hawkes / GEX / SVI items of the photograph would be empty — pip install -r requirements.txt"]
+        if probs:
+            log("WEATHER photograph incomplete — refusing to run: " + "; ".join(probs))
+            raise RuntimeError("weather photograph incomplete: " + "; ".join(probs))
         self.strike_lv = self._safe("strike levels", lambda: sl_mod.StrikeLevels(day, sl_mod.load_prior(day)), None)
         self._sl_last = 0.0                                  # 27 Oct: each strike's own support / resistance
         self._restore_warm(day)                  # D-120: a same-day restart keeps the regime and the price histories
@@ -569,6 +591,8 @@ class Engine:
             ctx["fwd_over"] = self._safe("forward view", lambda: self._fwd_view(now_s), None)
         ctx["by_id"] = {o["id"]: o for o in ctx["options"]}
         ctx["by_key"] = {o["key"]: o for o in ctx["options"]}
+        if getattr(self, "weather", None) is not None:       # 8 Nov (v3): the per-second feeds the photo needs
+            self._safe("weather feed v3", lambda: self._weather_feed3(now_s, snap, ctx))
         ctx["weather"] = (self._safe("weather base", lambda: self.weather.base(now_s), {})   # 7 Nov (stage 2)
                           if getattr(self, "weather", None) is not None else {})
         if self._ohist_on:
@@ -585,6 +609,14 @@ class Engine:
         if ctx["episode"]:
             ctx["advisors"] = self._safe("advise", lambda: self.advise(ctx, ctx["episode"]["dir"]), {})
         self.advisors = ctx["advisors"]
+        # 8 Nov (docs/27 item 61): every advisor's verdict for BOTH directions, once a second, for the photograph
+        if now_s - self._adv_t >= 1.0 and ctx["options"]:
+            self._adv_t = now_s
+            self._adv_dir = {1: self._safe("advise up", lambda: self.advise(ctx, 1), {}),
+                             -1: self._safe("advise dn", lambda: self.advise(ctx, -1), {})}
+        ctx["advisors_dir"] = self._adv_dir
+        ctx["fires"] = {"prev": self._fires_prev, "cur": {}}     # item 67: books firing this step and the last
+        self._fires_prev = ctx["fires"]["cur"]
         self._safe("maybe_arm", lambda: self.maybe_arm(ctx))
         self.run_books(ctx)
         try:
@@ -800,6 +832,91 @@ class Engine:
         if dm is not None and dm.bn_fut is not None:
             self.weather.feed_bn(now_s, float(snap["ltp"][dm.bn_fut]))
         self.weather.feed_vix(float(self.t.c("vix")), int(self.t.c("vix_ns")))
+
+    def _weather_feed3(self, now_s, snap, ctx):
+        """8 Nov (photo v3, docs/27 all items): the per-second series the base needs (forward, basis, VWAP side, skew
+        and term, PCR, ATM IV, Fin Nifty, the hero band's volume by side, the ATM premiums, futures and heavyweight
+        volume) and the per-second views the photo reads (the market object, flow, OI history, force, gamma map,
+        pressure, quant, the heavyweights' futures rows, feed health). Views are references to objects the engine
+        already keeps; nothing here is computed twice."""
+        w = self.weather
+        m, fid = self.m, self.fut_id
+        ctx["_m"], ctx["_flow"], ctx["fut_id"] = m, self.flow, fid
+        ctx["oi_hist"] = self.oi_hist
+        ctx["fwd"] = getattr(self, "fwd", None)
+        ctx["force"] = self.force.view()
+        ctx["gex"] = self.gex.v
+        ctx["bank"] = self.bank.view() if getattr(self, "bank", None) is not None else {}
+        ctx["quant"] = self.quant.view() if getattr(self, "quant", None) is not None else {}
+        heroes = self.heroes()
+        ctx["hero_ids"] = [(i, rr) for i, rr, _ in heroes]
+        dm = self.domino
+        if dm is not None and len(dm.eq_ids):
+            cache = getattr(self, "_eq_fut", None)
+            if cache is None or cache[0] is not dm.eq_sym or cache[1] != len(self.key):
+                fids = np.array([self.key.get(f"{s}|FUT", -1) for s in dm.eq_sym], int)
+                cache = self._eq_fut = (dm.eq_sym, len(self.key), (fids, np.asarray(dm.eq_w, float), np.asarray(dm.eq_ids, int)))
+            ctx["eq_fut"] = cache[2]
+        if now_s - self._wf3_t < 1.0:
+            ctx["chain_view"] = getattr(self, "_chain_view", None)
+            ctx["feed"] = getattr(self, "_feed_health", None)
+            return
+        self._wf3_t = now_s
+        spot = ctx.get("spot")
+        self._chain_view = ctx["chain_view"] = self.pressure.chain_view(spot, 10) if spot else None
+        vals = {"fwd": ctx["fwd"], "ext": (ctx.get("regime") or {}).get("ext"), "pcr": self.pressure.pcr,
+                "atm_iv": self.atm_iv * 100 if getattr(self, "atm_iv", None) else None}
+        fm = ctx.get("fut_mid")
+        if fm and spot:
+            vals["basis"] = float(fm) - float(spot)
+        from .engine.weather import _atm_iv
+        ce0, pe0 = _atm_iv(ctx["options"], spot, 0)
+        ce1, pe1 = _atm_iv(ctx["options"], spot, 1)
+        if ce0 is not None and pe0 is not None:
+            vals["skew"] = pe0 - ce0
+            if ce1 is not None and pe1 is not None:
+                vals["term"] = (ce0 + pe0) / 2 - (ce1 + pe1) / 2
+        fn = self.key.get("FINNIFTY|FUT")
+        if fn is None:
+            fn = self.key.get("FINNIFTY|SPOT")
+        if fn is not None and snap["ltp"][fn] > 0:
+            vals["fn"] = float(snap["ltp"][fn])
+        if heroes:
+            ttq = snap["ttq"]
+            vals["ce_ttq"] = float(sum(ttq[i] for i, rr, _ in heroes if rr == "CE" and ttq[i] >= 0))
+            vals["pe_ttq"] = float(sum(ttq[i] for i, rr, _ in heroes if rr == "PE" and ttq[i] >= 0))
+            atm = getattr(self, "atm", None)
+            for i, rr, k in heroes:
+                if atm is not None and k == atm and snap["ltp"][i] > 0:
+                    vals["atm_ce" if rr == "CE" else "atm_pe"] = float(snap["ltp"][i])
+        if fid is not None and snap["ttq"][fid] >= 0:
+            vals["fut_ttq"] = float(snap["ttq"][fid])
+        if dm is not None and len(dm.eq_ids):
+            q = snap["ttq"][dm.eq_ids]
+            vals["hw_ttq"] = float(np.sum(q[q >= 0]))
+        w.feed_misc(now_s, vals)
+        # feed health (item 68)
+        stale = wide = 0
+        hero_set = {i for i, _, _ in heroes}
+        for o in ctx["options"]:
+            if o["id"] in hero_set:
+                if (o.get("age") or 0) > config.EXIT_QUOTE_STALE_S:
+                    stale += 1
+                b_, a_ = o.get("bid"), o.get("ask")
+                if b_ and a_ and a_ >= b_ > 0 and 100 * (a_ - b_) / ((a_ + b_) / 2) > 2.0:
+                    wide += 1
+        da = None
+        try:
+            age = m.depth_age(now_s)
+            if age is not None and fid is not None and np.isfinite(age[fid]):
+                da = round(float(age[fid]), 1)
+        except Exception:
+            da = None
+        self._feed_health = ctx["feed"] = {
+            "reconnects": int(self.t.c("reconnects")), "feed_state": int(self.t.c("feed_state")),
+            "chain_age": (round(float(self.pressure.chain_age), 0) if self.pressure.chain_age is not None else None),
+            "depth_age_fut": da, "n_hero_stale": stale, "n_hero_wide": wide,
+            "gap_s_today": (ctx.get("blackout") or {}).get("gap_s_today")}
 
     def _frozen_tape(self, snap):
         """D-103 on the event tape. 7 Nov (review 4.1): run once per MARKET second from step(), not from publish()
@@ -1096,6 +1213,8 @@ class Engine:
         a["force"] = self._safe("advisor force", force, F("force"))
 
         def episode():
+            if not ctx.get("episode"):                   # 8 Nov: asked for both directions every second (photo item 61)
+                return {"veto": False, "why": "no episode"}
             et = ctx["episode"]["type"]
             return {"veto": et in ("FUTURES-LED", "SINGLE-NAME"), "why": f"episode {et}"}
         a["episode"] = self._safe("advisor episode", episode, F("episode"))
@@ -1249,6 +1368,8 @@ class Engine:
         changed = False
         fctx = None
         for name, b in self.books.items():
+            if b.p.get("conductor"):                   # 8 Nov: the Conductor runs after every pool book (below)
+                continue
             bctx = ctx
             if b.p.get("spot_src") == "fwd":           # 29 Oct midday: this shadow reads the forward as its spot
                 if fctx is None:
@@ -1285,6 +1406,13 @@ class Engine:
                 self._fault(f"entry {name}")
             if self.missed is not None:              # 7 Nov: observer only (docs/29)
                 self._safe("missed paper", lambda: self.missed.step_paper(self, name, b, bctx))
+        if self.conductor is not None:
+            try:
+                changed = self._conductor_step(ctx) or changed
+            except Exception:
+                self._fault("conductor")
+        if not self._photo_checked:
+            self._safe("photo check", lambda: self._photo_check(ctx))
         if self.missed is not None:
             self._safe("missed advance", lambda: self.missed.advance(self, ctx))
         sig = self._exit_signature()
@@ -1301,6 +1429,59 @@ class Engine:
         if getattr(self, "commentary", None) is not None:
             self._safe("commentary", lambda: self.commentary.update(ctx, self))   # observer: never a decision
 
+    def _conductor_step(self, ctx):
+        """8 Nov: the Conductor's account after every pool book has run this step. True if its books changed."""
+        cb = self.books.get(conductor_mod.BOOK)
+        if cb is None:
+            return False
+        res = self.conductor.step(cb, self.books, ctx)
+        champ = cb.name == self.champion
+        if champ:
+            self.last_reason = self.conductor.reason
+        if res is None:
+            return False
+        kind, x = res
+        if kind == "entry":
+            if champ:
+                audio.play("entry")
+            self.ev("ENTRY" if champ else "COND-ENTRY",
+                    f"BUY {x['lots']} lots NIFTY {x['strike']:.0f} {x['rr']} ({x['expiry']}) @ {x['entry']:.2f} · "
+                    f"{x.get('why')} · via {x.get('src')}" + (f" [{x['rule']}]" if x.get("rule") else ""))
+        elif kind == "exit":
+            if champ:
+                audio.play("win" if x["pnl_pts"] > 0 else "loss")
+            self.ev("EXIT" if champ else "COND-EXIT",
+                    f"{x['rr']} {x['strike']:.0f} {x['lots']} lots · {x['entry']:.2f} → {x['exit']:.2f} "
+                    f"= {x['pnl_pts']:+.2f} pts / ₹{x['pnl_rs']:+,.0f} · {x['reason']} · via {x.get('src')} · capital ₹{cb.capital:,.0f}")
+        return True                                    # an owner set / released must survive a restart too
+
+    def _conductor_view(self):
+        c = getattr(self, "conductor", None)
+        if c is None:
+            return None
+        cb = self.books.get(conductor_mod.BOOK)
+        return {"members": [{"book": m["book"], "rule": m.get("rule"), "standing": m.get("standing"),
+                             "ret_per_trade": m.get("ret_per_trade"), "ret_basis": m.get("ret_basis")} for m in c.members],
+                "reason": c.reason, "asof": c.asof,
+                "owner": ((cb.ctl.get("owner") or {}).get("book") if cb else None),
+                "src": ((cb.pos or {}).get("src") if cb else None)}
+
+    def _photo_check(self, ctx):
+        """8 Nov (owner): the first photograph of the day is counted — fields and docs/27 items — and logged."""
+        for name, b in self.books.items():
+            w = (b.ctl.get("pending_entry") or {}).get("weather_trig") or (b.pos or {}).get("weather_trig")
+            if w:
+                probs, warns = weather_mod.check_photo(w)
+                n = len([k for k in w if k not in weather_mod.SKIP_FIELDS])
+                msg = f"first photograph ({name}): {n} fields, version {w.get('v')}"
+                if probs:
+                    log("WEATHER " + msg + " — INCOMPLETE: " + "; ".join(probs))
+                    self.ev("SYSTEM", "WEATHER photograph incomplete: " + "; ".join(probs))
+                else:
+                    log("WEATHER " + msg + (" · not yet filled: " + ", ".join(warns) if warns else " · every item present"))
+                self._photo_checked = True
+                return
+
     def _feed_ohist(self, snap, ctx):
         """1 Hz (t, iv, tbq) per option row for paper.flow_veto; 16 min kept."""
         now = ctx["now_s"]
@@ -1315,8 +1496,9 @@ class Engine:
                     h = self._ohist[i] = deque(maxlen=1000)
                 b_, a_ = o.get("bid"), o.get("ask")
                 mid = (b_ + a_) / 2.0 if (b_ and a_ and a_ >= b_ > 0) else o.get("ltp")
+                tq = float(snap["ttq"][i])
                 h.append((now, o.get("iv"), q if q == q and q > 0 else None, mid,
-                          o.get("delta"), o.get("gamma"), o.get("theta_min")))
+                          o.get("delta"), o.get("gamma"), o.get("theta_min"), tq if tq == tq and tq >= 0 else None))
             if ctx.get("spot"):
                 sh = self._ohist.get("spot")
                 if sh is None:
@@ -1608,6 +1790,7 @@ class Engine:
                            "age": fnum(ctx.get("spot_age"), 1),                                      # spot books see
                            "swing_last": (champ.ctl.get("swing_last") if champ else None)},
             "champion": self.champion, "gates": self.gates,
+            "conductor": self._conductor_view(),   # 8 Nov: the pool and the account's state, for the dashboard
             "learning": {k: self.lstate.get(k) for k in ("status", "scoreboard", "champion_since", "retired", "candidates")},
             "controls": list(config.CONTROLS),
             "blackout": self.guard.view(self.now_s),

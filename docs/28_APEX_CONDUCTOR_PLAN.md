@@ -339,6 +339,35 @@ from the same permutation, counted over families.
   position, long holders own their stretch of the day and fast families fill the gaps. The Conductor replay measures
   collisions and occupancy before any trades-a-day goal is expected.
 
+**Built 8 Nov (`apex/engine/conductor.py`; owner: live on paper from 9 Nov, no waiting period).** The Conductor is a
+book that never decides an entry or an exit itself: it **mirrors** the pool books. When a pool book fires (its pending
+entry carries the photograph taken at the trigger second), the pair's rule is checked on that photograph; if it
+passes and the account is flat, that book **owns** the account for this trade. The owner's own fill (first print after
+the trigger) is the Conductor's fill (same contract, same price, the Conductor's own capital); the owner's exit (price,
+reason) is the Conductor's exit. A lapsed or rejected entry releases the account at once. So every pool book's state
+machine runs exactly as it does alone, and the Conductor's record is the composition of theirs. Same-tick priority as
+above (full standing, test-day return per trade, the run's book order). Every trigger it could not take is logged in
+`paper/conductor_<day>.jsonl` with why: occupied (by which book, since when), pending, lost priority (to whom), rule
+blocked (rule and value), unaffordable; and the standing reason while flat (pool empty, no eligible trigger, data
+blackout). The pool (`apex/rules/pool.json`) is add-only and dated: a replay of an earlier day runs the pool as it
+stood then (`APEX_POOL_ASOF=all` for an in-sample study, which the output says). `apex/conductor/account_sim.py`
+computes the same account offline from a run's saved trades and agrees with the engine path to the trade
+(`tests/test_conductor.py`); it is how the Conductor is scored on past days without another engine replay.
+Rules a weather card states as `factor op line` are checked straight from the register by `apex/engine/rules.py`
+(a missing value blocks); `apex/conductor/pool_builder.py` turns each book's card into proposed rules and pool pairs
+for the owner to admit. As champion, the Conductor is "the" account on the dashboard; `RAW` stays c20_9x's ungated twin.
+
+**Semantics the owner chose (8 Nov, in answer to docs/34).** The Conductor *mirrors* independently running pool
+books; it is not a restricted strategy run on an account whose own past trades shape its next signal. So a pool book
+may take a trade the account rejected, stay occupied, and not fire again while the Conductor is already free — that
+trigger is simply not there to copy, and the abstention log shows it. The owner accepts this: every pool book's record
+stays exactly what it would be alone, which is what the seven tests score, and the account's record is their
+composition. Also from docs/34: a released owner (lapsed, rejected, unaffordable) frees the account on the same step and
+the triggers that fired on that step are still admitted (F01, regression in `tests/test_conductor.py`); pool rows
+carry an optional `to` date and the latest row of a pair is its state as of the day, so promotion and retirement are
+new dated rows (F03). The protected-phase reservation above (a lower-ranked trade likely to overlap a covered phase)
+is **deferred by the owner** for the 9 Nov account version: same-tick priority only, no hold-duration check yet (F08).
+
 ---
 
 ## 8. Every evening
@@ -400,27 +429,32 @@ from their bases only by exits, on identical triggers, so they are a ready-made 
 
 ## 11. Which weather numbers are searched (docs/27)
 
-**Searched:**
+**All of them (owner, 8 Nov).** Every one of the 68 items in docs/27 is weather. Each is measured at the trigger
+second of every trade and every missed signal, for every book, and every one is searched for every book. **No item
+is set aside without the owner's decision.** The earlier version of this section set six groups aside (the book's
+own trigger measurements, its own history, the engine's verdicts, the higher-order Greeks, the model outputs, feed
+health); that was the system's own simplification, withdrawn on 8 Nov, and the search found on 7–8 Nov with the
+reduced set does not count.
 
-* time of day and the expiry calendar;
-* the day's shape so far: trend or chop, position in the range, side of VWAP, the opening range;
-* realised volatility;
-* big-stock breadth and leadership;
-* room to the nearest OI wall;
-* whether the straddle is expanding;
-* the option's breakeven against theta;
-* VIX.
+How the items reach the search:
 
-**Set aside:**
+* **The photograph** (`apex/engine/weather.py`, version 3) carries all 68 items, about 230 fields, on every position
+  (`weather_trig`) and every missed-signal row (`weather`). The field-to-item table is `apex/conductor/search.py`
+  `ITEMS`; `tests/test_weather.py` fails if a photo field has no item.
+* **Per book, not per family.** `apex/conductor/book_cards.py` searches every book on its own trades and missed
+  signals over every field and every line, with the checks of §2 (15+ trades a side, day-type fields counted in days,
+  the line holds when moved, two-thirds of the big wins kept, luck by 200 shuffles). The family search (`search.py`)
+  stays for the register's proposals. Each book's card lists its helped conditions, the hurt side of each, how many
+  of its never-worked losses fall on the hurt side, and whether the line beats luck.
+* **"Vs normal" items** (7 range so far, 17 realised volatility, 25 futures volume, 34 heavyweight volume) compare
+  with the median of the EARLIER recorded days at the same clock minute (`apex/conductor/clock_norms.py`, written
+  from the tapes; a day reads only days before it). They are undefined until three earlier days exist (`norm_days`).
+* **Items that need the engine's own models** (18 jump / CUSUM / Kalman velocity, 39 gamma map, 44 smile, 54 race
+  odds, 57 hidden regime, 58 Hawkes, 62 level force) read the per-second state the engine already keeps for its
+  dashboard; nothing is recomputed twice, and nothing in the photo decides a trade.
 
-| Group | Why |
-|---|---|
-| The book's own trigger measurements | they are the entry rule (exception: one "strong triggers only" rule per family) |
-| The book's own recent history | the Conductor replaces per-book habits; counterfactual rows have none |
-| The engine's verdicts (regime label, advisors) | derived from the other numbers; kept as report labels |
-| Five higher-order Greeks | largely one fact (time to expiry); one is kept |
-| Model outputs (premium race, hidden regime, Hawkes, gamma map) | predictions with tuned parameters; each tested alone |
-| Feed health, option spread | safety vetoes for every book |
+What the recorded data cannot give: nothing in docs/27 is left unmeasured. Items that depend on the same-second
+state of other books (67 agreement) count the books that fired in this engine step and the one before it.
 
 ---
 
@@ -450,13 +484,13 @@ from their bases only by exits, on identical triggers, so they are a ready-made 
 | # | Stage | Status |
 |---|---|---|
 | 1 | Missed-signal recorder | built and unit-tested (docs/29); proven on two tape slices; full-tape proof at the Conductor build |
-| 2 | Weather snapshot engine on the existing entry hook (`open_trade` already records `signal`, `edge_in`, `advisors`, `regime`, `phase_in`, `sr_in`; counterfactuals carry the same), **leak test** by arrival time. The eight shortlisted factors first: calendar/phase, day efficiency, position in range, breadth, room to OI wall, straddle expanding, theta breakeven, VIX | **built 7 Nov**: the eight, then version 2 with about 40 more from docs/27 (its build-status table lists what is in, what is already on every trade elsewhere, and what needs data the engine does not keep yet); `apex/engine/weather.py`, `weather_trig` on every position and missed row, leak test by arrival time in tests/test_weather.py; the full-tape leak test (a replay truncated at each trigger) runs at the Conductor build |
+| 2 | Weather snapshot engine on the existing entry hook (`open_trade` already records `signal`, `edge_in`, `advisors`, `regime`, `phase_in`, `sr_in`; counterfactuals carry the same), **leak test** by arrival time. The eight shortlisted factors first: calendar/phase, day efficiency, position in range, breadth, room to OI wall, straddle expanding, theta breakeven, VIX | **built 7 Nov**: the eight, then version 2 with about 40 more from docs/27 (its build-status table lists what is in, what is already on every trade elsewhere, and what needs data the engine does not keep yet); `apex/engine/weather.py`, `weather_trig` on every position and missed row, leak test by arrival time in tests/test_weather.py; **version 3 (8 Nov, owner): all 68 docs/27 items in the photo, about 270 fields, every one mapped to its item (§11)**; the full-tape leak test (a replay truncated at each trigger) runs at the Conductor build |
 | 3 | Diaries, loss labels (per-family threshold), family search with luck check, weather cards, rule register | **built 7 Nov** (`apex/conductor/`: `diary.py` reads paper/<day>.json and missed_<day>.jsonl; `search.py` writes cards.json / cards.md; `register.py` proposes, adds and tracks rules, register add-only, status in `apex/rules/status.jsonl`). Runs on the replayed days at the Conductor build |
 | 4 | Hand-written rules, dated and frozen now (they need no search). Candidates: spot retest on expiry days before 11:30; normal days only after a trending last 60 min; breakout and impulse families only with breadth ≥ 60 %; council-normal mornings only; no entries in the last 45 min for families holding > 15 min | **frozen 7 Nov** with exact formulas: docs/31, `apex/rules/register.json` (R-001 to R-005, plus the seeded pairs R-006 to R-018) |
-| 5 | Restricted-book machinery; Conductor code (pool, priority, protected phases) | **restricted books built 7 Nov**: the frozen rules as code (`apex/engine/rules.py`), 15 restricted shadow books for R-002 to R-005 (docs/31; spot_pb45_r003 off 8 Nov, 14 run); **scoring built** (`apex/conductor/score.py`: windows, the seven tests, verdicts, the e-value watch); the Conductor itself still to build |
+| 5 | Restricted-book machinery; Conductor code (pool, priority, protected phases) | **restricted books built 7 Nov**: the frozen rules as code (`apex/engine/rules.py`), 15 restricted shadow books for R-002 to R-005 (docs/31; spot_pb45_r003 off 8 Nov, 14 run); **scoring built** (`apex/conductor/score.py`: windows, the seven tests, verdicts, the e-value watch); **Conductor built 8 Nov** (`apex/engine/conductor.py`, §7: pool, priority, ownership, mirror fills and exits, abstention log; `account_sim.py` the offline oracle; `pool_builder.py` cards to proposed pairs) |
 | 6 | **Conductor build — all replays together:** the recorder gate on two full tapes (docs/29); pre-flight (books load, double replay identical, anchor check against live days); one tape for sign-off; full replay of every book on all recorded days with the run manifest (commit, book registry, fixed book order); diaries; the whole-pipeline control run; scoring every frozen rule on its test days; the Conductor's own replay | at the Conductor build |
 | 7 | Forward tests continue on each new day; first passes | weeks; low-frequency families 20+ days; expiry-day rules 2+ months |
-| 8 | Conductor live as a shadow; switching trial | after the first passes |
+| 8 | Conductor live as a shadow; switching trial | **owner, 8 Nov: the Conductor runs LIVE on paper from 9 Nov on the pairs the 14-day cards support, every other book in shadow; no proof period as a gate: the standard scores every pair as it goes and the pool is improved each evening.** Switching trial still a candidate rule |
 | 9 | Exit candidates (§10), starting with the existing variants | in parallel from stage 3 |
 
 ---

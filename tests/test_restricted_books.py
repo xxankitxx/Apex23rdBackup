@@ -79,7 +79,7 @@ def test_check_through_a_book_and_an_unknown_rule():
     assert rules.check(free, ctx, opt) is None
     assert rules.check(rb, ctx, opt).startswith("R-005")
     odd = paper.Book("x", dict(config.VARIANTS["spot_orb45"], rules=("R-999",)), "2026-11-09")
-    assert rules.check(odd, ctx, opt) == "R-999: not a coded rule"
+    assert rules.check(odd, ctx, opt) == "R-999: not in the register"   # 8 Nov: register-stated rules are checked too
     c = paper.Book("c20_9x_r004", config.VARIANTS["c20_9x_r004"], "2026-11-09")
     w = dict(_ctx(12, 30), now_s=0.0, weather={}, w0="2026-11-10")              # 10 Nov expiry: a normal day
     assert rules.check(c, w, opt, "COUNCIL NORM pb v=+12").startswith("R-004")

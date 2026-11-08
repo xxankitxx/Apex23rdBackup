@@ -401,6 +401,11 @@ for _rid, _reps in RESTRICTED.items():
     for _rep in _reps:
         VARIANTS[f"{_rep}_r{_rid[2:]}"] = dict(VARIANTS[_rep], rules=(_rid,))
 
+# 8 Nov (owner): the Conductor's account (apex/engine/conductor.py, docs/28 §7). It mirrors the pool books
+# (apex/rules/pool.json: book + rule pairs, dated) — one account, one position, first eligible trigger takes it.
+# raw_of: the book RAW (and the gate: books) copy when the Conductor is champion — RAW stays c20_9x's ungated twin.
+VARIANTS["conductor"] = dict(_G, conductor=True, raw_of="c20_9x")
+
 CHAMPION_DEFAULT = "c20_9x"  # 1 Nov (owner): back from c20_9t after its 8-day replay; before: c20_9t (31 Oct, never live), t28_gap (29 Oct 11:40), t28_cheap (29 Oct morning), t28_gap (28 Oct evening), lvl_trail_re (28 Oct), edge_gate_trail and edge_gate_only (27 Oct), spot_dual_lvl (D-142), edge_gate_trail and edge_gate_only (27 Oct), spot_dual_lvl (D-142)
 # D-124 (owner, 20 Oct 16:16: "Apply spot_dc12_t12 thoroughly on my code"): the champion is the owner's choice.
 # learning.load_state applies it ONCE to an existing state (the champion lives in data/learning/state.json,
@@ -643,7 +648,8 @@ VARIANT_KEYS = frozenset(("m_star", "s_star", "L_star", "d_star", "s_exit", "iv_
                           "iv_fall_rel15", "skip_bid_pile", "bid_pile_lookback_s", "bid_pile_max",
                           "entry_hi5_veto_pct", "req_move_veto", "req_move_k",
                           "cheap_strike", "cheap_anchor_s", "cheap_dte0_only", "spot_src", "council",
-                          "rules"))   # 7 Nov: a restricted book's frozen rule ids (apex/engine/rules.py)   # 27 Oct: buyer edge; 30 Oct: council books
+                          "rules",    # 7 Nov: a restricted book's frozen rule ids (apex/engine/rules.py)
+                          "conductor", "raw_of"))   # 8 Nov: the Conductor's account (apex/engine/conductor.py)   # 27 Oct: buyer edge; 30 Oct: council books
 VARIANT_MODES = ("gap_star", "exit_book", "spike", "random", "momentum", "spot_dc", "fade_switch")   # at most one per variant
 
 
@@ -724,6 +730,15 @@ def validate() -> list:
         bad.append("ENTRY_FILL_MAX_S must be > 0")
     if CHAMPION_OWNER and (CHAMPION_OWNER[0] not in VARIANTS or CHAMPION_OWNER[0] in CONTROLS):
         bad.append(f"CHAMPION_OWNER {CHAMPION_OWNER[0]!r} is not a registered non-control variant")
+    for name, p in VARIANTS.items():                    # 8 Nov: the Conductor's RAW base and its pool file
+        if p.get("raw_of") is not None and (p["raw_of"] not in VARIANTS or VARIANTS[p["raw_of"]].get("conductor")):
+            bad.append(f"variant {name}: raw_of {p['raw_of']!r} is not a registered plain variant")
+        if p.get("conductor"):
+            try:
+                from .engine import conductor as _cond
+                bad.extend(f"pool.json: {x}" for x in _cond.pool_problems(_cond.load_pool()))
+            except Exception as e:          # noqa: BLE001 — a broken pool file is a configuration problem
+                bad.append(f"pool.json unreadable: {e}")
     if CHAMPION_DEFAULT not in VARIANTS or CHAMPION_DEFAULT in CONTROLS:
         bad.append(f"CHAMPION_DEFAULT {CHAMPION_DEFAULT!r} is not a registered non-control variant")
     if not (0 < CHALLENGER_ALPHA < 0.5 and CHALLENGER_MIN_DAYS >= 3 and PROMOTE_STREAK >= 1):

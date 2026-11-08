@@ -1,0 +1,16 @@
+14:20:34 REPLAY meta {"schema": 1, "apex": "1.9.0", "git": "f164660", "src": "5f1d47c4b7c0", "cfg": "d5be18c6ad3cceeebdee42c6c58d02633cabe9b8", "part": 1}
+14:20:34 REPLAY registry: 121 instruments
+14:20:35 ENGINE registry v1: 121 instruments, weekly 2026-11-03, next 2026-11-09
+14:20:35 mkt=08:23:12 ENGINE CONDUCTOR pool as of 2026-11-02: 0 pair(s)
+14:35:05 REPLAY registry: 137 instruments
+14:35:05 mkt=09:15:43 ENGINE registry v2: 137 instruments, weekly 2026-11-03, next 2026-11-09
+14:39:36 mkt=09:25:08 ENGINE WEATHER first photograph (spot_pb45): 268 fields, version 3 · not yet filled: 64 Last trade, 65 Direction history
+18:39:15 REPLAY registry: 173 instruments
+18:39:15 mkt=15:20:32 ENGINE registry v3: 173 instruments, weekly 2026-11-03, next 2026-11-09
+18:42:08 REPLAY registry: 173 instruments
+18:42:08 mkt=15:26:28 ENGINE registry v4: 173 instruments, weekly 2026-11-03, next 2026-11-09
+18:42:52 REPLAY part 1 ends early (2026-11-02.jsonl.gz): EOFError: Compressed file ended before the end-of-stream marker was reached
+18:42:52 REPLAY done: 4343295 packets
+18:43:00 mkt=15:28:11 ENGINE day 2026-11-02 closed and learned
+18:43:00 REPLAY fast replay: 254987 engine steps in 15745 s wall (56.93 ms per step, 4343295 packets)
+18:43:00 mkt=15:28:11 ENGINE stopped

@@ -1,0 +1,10 @@
+09:17:42 REPLAY meta {"schema": 1, "apex": "1.9.0", "git": "1224d70", "src": "30da2d423d59", "cfg": "80c82bd31795158cf85336a168f6b1cbf1a0dadb", "part": 1}
+09:17:42 REPLAY registry: 121 instruments
+09:17:42 ENGINE registry v1: 121 instruments, weekly 2026-11-09, next 2026-11-17
+09:17:42 mkt=09:00:00 ENGINE advisor episode faulted: TypeError: 'NoneType' object is not subscriptable
+09:19:04 mkt=09:18:49 ENGINE advisor episode faulted: TypeError: 'NoneType' object is not subscriptable
+09:21:26 mkt=09:40:09 ENGINE advisor episode faulted: TypeError: 'NoneType' object is not subscriptable
+09:22:33 REPLAY done: 431839 packets
+09:22:33 mkt=09:50:00 ENGINE day 2026-11-06 was already learned — recorded, decisions not repeated
+09:22:33 REPLAY fast replay: 29995 engine steps in 291 s wall (8.90 ms per step, 431839 packets)
+09:22:33 mkt=09:50:00 ENGINE stopped

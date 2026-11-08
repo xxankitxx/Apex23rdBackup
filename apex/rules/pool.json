@@ -1,0 +1,4 @@
+{
+ "about": "The Conductor's pool (docs/28 §7, apex/engine/conductor.py). Book-plus-rule pairs, add-only, every entry dated: an entry is in the pool from its `from` date (a replay of an earlier day runs the pool as it stood then). rule = a register id (apex/rules/register.json; coded R-00x or a factor/op/line rule from a weather card) or null for the book unrestricted. standing: full | low (same-tick priority, then ret_per_trade = the pair's test-day return per trade, then the engine's book order). Owner, 8 Nov 2026: the pool is filled from the 14-day all-item cards and the Conductor runs live on paper from 9 Nov; the official standard scores every pair as it goes.",
+ "entries": []
+}

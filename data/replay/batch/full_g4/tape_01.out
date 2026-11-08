@@ -1,0 +1,16 @@
+18:59:29 REPLAY meta {"schema": 1, "apex": "1.9.0", "git": "1224d70", "src": "30da2d423d59", "cfg": "80c82bd31795158cf85336a168f6b1cbf1a0dadb", "part": 1}
+18:59:29 REPLAY registry: 121 instruments
+18:59:29 ENGINE registry v1: 121 instruments, weekly 2026-11-09, next 2026-11-17
+20:44:46 REPLAY registry: 137 instruments
+20:44:46 mkt=13:16:19 ENGINE registry v2: 137 instruments, weekly 2026-11-09, next 2026-11-17
+21:26:16 REPLAY registry: 153 instruments
+21:26:16 mkt=15:08:15 ENGINE registry v3: 153 instruments, weekly 2026-11-09, next 2026-11-17
+21:30:07 REPLAY registry: 181 instruments
+21:30:07 mkt=15:20:33 ENGINE registry v4: 181 instruments, weekly 2026-11-09, next 2026-11-17
+21:31:54 REPLAY registry: 181 instruments
+21:31:54 mkt=15:26:10 ENGINE registry v5: 181 instruments, weekly 2026-11-09, next 2026-11-17
+21:36:24 mkt=15:41:00 ENGINE day 2026-11-06 closed and learned
+21:44:34 REPLAY meta {"end": 1, "part": 1, "dropped": 0, "lines": 4442578}
+21:44:34 REPLAY done: 4441815 packets
+21:44:35 REPLAY fast replay: 274827 engine steps in 9906 s wall (33.11 ms per step, 4441815 packets)
+21:44:35 mkt=16:38:03 ENGINE stopped

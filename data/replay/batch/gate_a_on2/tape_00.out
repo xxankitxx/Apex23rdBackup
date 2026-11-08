@@ -1,0 +1,7 @@
+15:03:42 REPLAY meta {"schema": 1, "apex": "1.9.0", "git": "1224d70", "src": "30da2d423d59", "cfg": "80c82bd31795158cf85336a168f6b1cbf1a0dadb", "part": 1}
+15:03:42 REPLAY registry: 121 instruments
+15:03:42 ENGINE registry v1: 121 instruments, weekly 2026-11-09, next 2026-11-17
+15:46:50 REPLAY done: 1337428 packets
+15:46:51 mkt=11:15:00 ENGINE day 2026-11-06 was already learned — recorded, decisions not repeated
+15:46:51 REPLAY fast replay: 80995 engine steps in 2589 s wall (29.18 ms per step, 1337428 packets)
+15:46:51 mkt=11:15:00 ENGINE stopped

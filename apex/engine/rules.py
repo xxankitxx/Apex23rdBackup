@@ -10,6 +10,9 @@ The code below is the register's text, nothing more: R-002 and R-003 read the sa
 the photograph records, with the register's numbers. tests/test_restricted_books.py checks every coded rule
 against the register (id present, frozen, condition numbers) so the two cannot drift apart.
 """
+import json
+import os
+
 TREND_PATTERNS = ("SPOT-BREAKOUT", "SPOT-RETEST", "SPOT-RETEST-FILL", "SPOT-PULLBACK", "ORB", "CO-FIRST", "FORMING",
                   "BASKET-LED", "FUTURES-LED", "FOLLOW", "COUNCIL-NORM")
 IMPULSE_PATTERNS = ("SPOT-BREAKOUT", "ORB", "SPOT-PULLBACK", "CO-FIRST", "FORMING", "BASKET-LED", "FUTURES-LED")
@@ -82,6 +85,63 @@ def r005(w, ctx, pattern):
 
 CODED = {"R-002": r002, "R-003": r003, "R-004": r004, "R-005": r005}
 
+# 8 Nov (Conductor): a rule the register states as factor / op / line (register.propose, the weather cards) is checked
+# here straight from the photograph: `weather_trig.<factor> <op> <line>`; a missing value blocks the entry, like
+# R-002's unknown trend. An indicator factor "field=value" (search.features) is 1.0 when str(field) == value.
+REGISTER = os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), "rules", "register.json")
+_REG = {"path": None, "mtime": None, "rules": {}}
+
+
+def register_rules(path=REGISTER):
+    """{id: rule} from the register (re-read when the file changes; the register is add-only)."""
+    try:
+        mt = os.path.getmtime(path)
+    except OSError:
+        return {}
+    if _REG["path"] != path or _REG["mtime"] != mt:
+        with open(path, encoding="utf-8") as fh:
+            _REG["rules"] = {r["id"]: r for r in json.load(fh)["rules"]}
+        _REG["path"], _REG["mtime"] = path, mt
+    return _REG["rules"]
+
+
+def factor_value(w, factor):
+    """The photo's value for a card factor: a field, or an indicator 'field=value' (1.0 / 0.0); None if unknown."""
+    if "=" in factor:
+        k, c = factor.split("=", 1)
+        v = (w or {}).get(k)
+        return None if v is None else (1.0 if str(v) == c else 0.0)
+    v = (w or {}).get(factor)
+    if v is None or isinstance(v, bool):
+        return None if v is None else (1.0 if v else 0.0)
+    try:
+        return float(v)
+    except (TypeError, ValueError):
+        return None
+
+
+def generic(rule, w):
+    """A factor/op/line rule on a photograph: None = allowed, else the refusal text."""
+    f, op, line = rule.get("factor"), rule.get("op"), rule.get("line")
+    if f is None or op not in (">=", "<") or line is None:
+        return f"{rule.get('id')}: not a factor rule"
+    v = factor_value(w, f)
+    if v is None:
+        return f"{rule['id']}: {f} unknown at the trigger"
+    ok = v >= float(line) if op == ">=" else v < float(line)
+    return None if ok else f"{rule['id']}: {f} = {v:g}, needs {op} {float(line):g}"
+
+
+def check_rule(rid, w, ctx, pattern, reg=None):
+    """One rule id on one photograph: None = allowed, else the refusal text. Coded rules first, then the register."""
+    fn = CODED.get(rid)
+    if fn is not None:
+        return fn(w, ctx, pattern)
+    r = (reg if reg is not None else register_rules()).get(rid)
+    if r is None:
+        return f"{rid}: not in the register"           # never trade on a rule that cannot be checked
+    return generic(r, w)
+
 
 def check(book, ctx, opt, why=None):
     """None if every rule on the book allows this entry; else the first refusal's text."""
@@ -92,11 +152,9 @@ def check(book, ctx, opt, why=None):
     d = 1 if (opt or {}).get("rr") == "CE" else -1
     w = photo(ctx, d, opt, book)
     pattern = entry_pattern(book, ctx, why)
+    reg = register_rules()
     for rid in ids:
-        fn = CODED.get(rid)
-        if fn is None:
-            return f"{rid}: not a coded rule"        # never trade a restricted book whose rule cannot be checked
-        msg = fn(w, ctx, pattern)
+        msg = check_rule(rid, w, ctx, pattern, reg)
         if msg:
             return msg
     return None

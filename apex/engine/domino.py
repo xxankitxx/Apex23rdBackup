@@ -225,7 +225,8 @@ class Domino:
         if not ep:
             return None
         return {"id": ep["id"], "age": now_s - ep["t0"], "dir": ep["dir"], "type": ep["type"],
-                "first": ep["first"], "fut0": ep["fut0"], "n_cross": len(ep["stock_cross"]),
+                "first": ep["first"], "first_t": ep.get("first_t"), "fut_cross_t": ep.get("fut_cross_t"),   # 8 Nov: item 31
+                "fut0": ep["fut0"], "n_cross": len(ep["stock_cross"]),
                 "max_S": ep["max_S"], "gap": bool(ep.get("gap"))}
 
 

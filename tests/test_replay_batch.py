@@ -49,7 +49,7 @@ def test_one_folder_per_run_and_manifest(monkeypatch):
     assert m["switches"]["APEX_RECORD_MISSED"] and m["switches"]["APEX_FAST"]
     assert m["results"][0]["books"] == ["t28_core", "RAW"]
     assert m["totals"] == {"trades": 4, "missed_rows": 5, "cf_errors": 0, "recorder_faults": 0}
-    env = calls[0]
+    env = next(e for e in calls if e is not None)      # the child's call (a git call records env=None; docs/34)
     assert env["APEX_DATA"] == run_dir and env["APEX_PORT"] != "8780"
     # a second run with the same id is refused: never two runs in one folder
     with pytest.raises(SystemExit):

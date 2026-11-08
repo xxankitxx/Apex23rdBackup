@@ -64,6 +64,8 @@ class QuantView:
             self.hmm.reset()
         self.po_hist = {"CE": deque(maxlen=31), "PE": deque(maxlen=31)}
         self.svi_p, self.svi_t = None, -1e9
+        self.kl = micro.KyleLambda(n=120)   # 8 Nov (docs/27 item 27): price impact per unit of signed flow, the future
+        self.kprev = None                   # (mid, ttq) a second ago
         self.v = {}
 
     # ------------------------------------------------------------------ inputs
@@ -144,6 +146,26 @@ class QuantView:
                                      "ever": _f(o["up_ever"], 3), "a": _f(o["a"], 1), "b": _f(o["b"], 1),
                                      "decay30": _f(hist[0] - h5, 3) if len(hist) == hist.maxlen else None,
                                      "mu_eff": _f(o["mu_eff"], 3)}
+        # 8 Nov (docs/27 item 58): Hawkes excitation on EVERY hero contract, by row id, for the weather photograph
+        fb = {}
+        for i, rr, _k in (getattr(eng, "heroes", None) or (lambda: []))():
+            self._flow(f"id{i}", i, snap, now_s)
+            st = self.flow.get(f"id{i}")
+            if st:
+                fb[str(i)] = {"buy": _f(st["hb"], 3), "sell": _f(st["hs"], 3),
+                              "ratio": _f((st["hb"] + 1e-3) / (st["hs"] + 1e-3), 2)}
+        out["flow_by_id"] = fb
+        # item 27: Kyle's lambda on the future (price change per unit of signed traded volume, 120-s window)
+        fid = getattr(eng, "fut_id", None)
+        if fid is not None:
+            bid, ask, ltp, ttq = (float(snap[k][fid]) for k in ("bid", "ask", "ltp", "ttq"))
+            mid = (bid + ask) / 2 if bid > 0 and ask >= bid else ltp
+            pk = self.kprev
+            if pk is not None and mid > 0 and pk[0] > 0 and ttq >= pk[1] >= 0:
+                self.kl.add(mid - pk[0], (1.0 if ltp >= pk[0] else -1.0) * (ttq - pk[1]))
+            self.kprev = (mid, ttq)
+            kl = self.kl.value()
+            out["kyle"] = _f(kl, 6) if math.isfinite(kl) else None
         # third-order Greeks: the held option if the champion holds one, else the ATM pair
         held = None
         champ = eng.books.get(eng.champion) if getattr(eng, "books", None) else None

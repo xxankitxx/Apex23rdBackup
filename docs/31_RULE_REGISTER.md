@@ -18,6 +18,14 @@ implements docs/28 §6 ("Writing a rule", "Frozen") and §16a (the seeded regist
   seven tests of docs/28 §2. A restricted book is a full replay of the free book with the condition switched on, not
   a filter of its trades (blocking one trade can free the book for a later one).
 
+## Factor rules (8 Nov)
+
+A rule the register states as `factor`, `op` (`>=` or `<`) and `line`, the form the weather cards produce
+(`register.propose`), is checked by `apex/engine/rules.py` straight from `register.json`: `weather_trig.<factor>
+<op> <line>` on the photograph taken at the trigger second; a missing value blocks the entry (as R-002's unknown trend
+does); an indicator factor `field=value` is 1 when the field equals the value. The Conductor's pool
+(`apex/rules/pool.json`) pairs a book with such a rule; a restricted book can carry one in `rules=(...)` too.
+
 ## Shared definitions
 
 | Term | Definition |

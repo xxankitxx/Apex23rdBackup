@@ -443,7 +443,12 @@ function renderVerdict(s) {
     return `<li class="${cls}${gates.includes(k) ? " gate" : ""}" title="${x ? x.why.replace(/"/g, "'") : "waits for a move"}">${ADV[k]}${gates.includes(k) ? " (rule)" : ""}${x && x.veto ? ": no" : ""}</li>`;
   }).join("");
   const p = s.params || {};
-  if (p.council) $("champ").textContent = councilText(s);
+  if (p.conductor) {
+    const cd = s.conductor || {}, mem = cd.members || [];
+    const pairs = mem.length ? mem.map(m => `${m.book}${m.rule ? " [" + m.rule + "]" : ""}`).join(", ") : "none yet";
+    $("champ").textContent = `Conductor: one account, one position, all-in. It takes the first pool book whose trigger passes its rule and copies that book's fill and exit. Pool (${mem.length}): ${pairs}. ` +
+      (cd.src ? `Holding via ${cd.src}.` : cd.owner ? `Entry pending via ${cd.owner}.` : `${cd.reason || "Flat."}`);
+  } else if (p.council) $("champ").textContent = councilText(s);
   else if (isSpotMode(s)) {
     const r = s.spot_range || {}, c2 = c;
     $("champ").textContent = `Lead book ${s.champion}: buys a CE when Nifty spot breaks above its ${Math.round(p.spot_dc / 60)}-minute high, a PE below its low; exits ${p.spot_trail} spot points off the best. ` +
@@ -1283,7 +1288,7 @@ function renderTrades(s) {
 function renderBooks(s) {
   const vs = s.variants || [], mx = Math.max(1, ...vs.map(v => Math.abs(v.pnl_pts)));
   const CTRL = { futures_only: "control: futures only", random_entry: "control: random entry", premium_momentum: "control: premium momentum" };
-  const name = (n) => CTRL[n] ? CTRL[n] : n.startsWith("gate:") ? `champion + gate ${ADV[n.slice(5)] || n.slice(5)}` : n === "RAW" ? "No rules (RAW)" : n === "straddle_spike" ? "straddle spike leg" : n === "spot_dual_lvl" ? "dual + range mode + level booking" : n === "spot_dual_rg" ? "dual + range mode" : n === "spot_orb45" ? "opening-range breakout, level booking" : n === "spot_ft_prem10" ? "first touch, ±10 % premium" : n === "spot_dual" ? "dual: retest on expiry day, pullback otherwise" : n === "spot_pb45" ? "pullback of a 45-min impulse" : n === "spot_dc12_t12" ? "spot breakout, retest entry" : n === "spot_dc12_t12_first" ? "spot breakout, first touch (old entry)" : n === "spot_dc12_t12_1130" ? "spot breakout, expiry entries to 11:30" : n === "fade_switch" ? "follow / fade switch" : n.startsWith("gap") ? n.replace(/^gap([\d.]+)_s([\d.]+)$/, (_, g, x) => `basket gap ${g}, ${Math.round(x * 100)}%`)
+  const name = (n) => CTRL[n] ? CTRL[n] : n.startsWith("gate:") ? `champion + gate ${ADV[n.slice(5)] || n.slice(5)}` : n === "RAW" ? "No rules (RAW)" : n === "conductor" ? "Conductor (pool account)" : n === "straddle_spike" ? "straddle spike leg" : n === "spot_dual_lvl" ? "dual + range mode + level booking" : n === "spot_dual_rg" ? "dual + range mode" : n === "spot_orb45" ? "opening-range breakout, level booking" : n === "spot_ft_prem10" ? "first touch, ±10 % premium" : n === "spot_dual" ? "dual: retest on expiry day, pullback otherwise" : n === "spot_pb45" ? "pullback of a 45-min impulse" : n === "spot_dc12_t12" ? "spot breakout, retest entry" : n === "spot_dc12_t12_first" ? "spot breakout, first touch (old entry)" : n === "spot_dc12_t12_1130" ? "spot breakout, expiry entries to 11:30" : n === "fade_switch" ? "follow / fade switch" : n.startsWith("gap") ? n.replace(/^gap([\d.]+)_s([\d.]+)$/, (_, g, x) => `basket gap ${g}, ${Math.round(x * 100)}%`)
     : n.endsWith("_bookexit") ? "push 2.0, 50% + book exit" : n.replace(/^m([\d.]+)_s([\d.]+)$/, (_, m, x) => `push ${m}, ${Math.round(x * 100)}%`);
   $("books").innerHTML = vs.map(v => {
     const wd = Math.abs(v.pnl_pts) / mx * 50;

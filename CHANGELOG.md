@@ -1,5 +1,53 @@
 # Changelog
 
+## 8 Nov 2026 (evening) — the Conductor's account
+- **Owner's decision:** the Conductor runs live on paper from Mon 9 Nov on the pairs the 14-day all-item cards
+  support; every other book in shadow; no proof period as a gate; the pool is improved every evening. "No losing
+  trade" is the aim the rules serve. Every weather item must be captured live.
+- **`apex/engine/conductor.py`:** one account, one position, all-in; the pool (`apex/rules/pool.json`, add-only,
+  dated, read as of the day) holds book-plus-rule pairs; the first pool book whose trigger passes its rule owns the
+  account; the owner's own fill and exit are the Conductor's; same-tick priority (standing, test-day return per
+  trade, book order); every trigger it could not take is logged with why (`paper/conductor_<day>.jsonl`); a lapsed
+  owner releases the account. `engine_main` runs it after every pool book; as champion it is "the" account (RAW
+  stays c20_9x's ungated twin via `raw_of`); the dashboard describes it and its pool.
+- **`apex/engine/rules.py`:** register-stated factor rules (`factor op line`, the cards' form) checked straight from
+  the register; an unknown rule id never trades.
+- **`apex/conductor/account_sim.py`:** the same account offline from a run's saved trades (the oracle for the engine
+  path, `tests/test_conductor.py`); **`apex/conductor/pool_builder.py`:** each book's card to proposed rules and pool
+  pairs for the owner to admit (`--apply` freezes them).
+- **docs/34 audit, same evening:** F01 fixed (a released owner frees the account on the same step; competing
+  triggers of that step are admitted; regression test); F03 (pool rows take an optional `to` date, latest row per
+  pair is its state as of the day); F05 (SciPy in `requirements.txt`; a failed QuantView import now refuses to start
+  the engine with the reason instead of silently emptying the model items); F02 noted (quant parameters fitted 5 Nov
+  on sessions through 4 Nov are used on October replays — pairs proposed on HMM / Hawkes factors are flagged, dated
+  artifacts are a docs/33 Wave 1 item); F08 deferred by the owner; F09 closed by the owner (deliberate). Second pass: an expired latest pool row retires
+  the pair instead of reviving an older row; HMM / Hawkes lines are excluded before the best line is chosen
+  (`--allow-fitted` to admit, flagged); a vanished source position is an integrity fault that keeps the account open
+  until a fresh quote, then a flagged recovery adjustment that scoring ignores (F04); pool entries state the basis of
+  their priority figure (`ret_basis`).
+- **Capture guard (owner):** `weather.static_check` refuses to start the engine unless the photograph defines all
+  68 items and 200+ fields; the first photograph of the day is counted and logged (`weather.check_photo`).
+
+## 8 Nov 2026 — weather photograph v3: every docs/27 item, every book
+- **Owner's correction:** the 7–8 Nov search had reduced "weather" to 22 of the 68 docs/27 items and one book per
+  family. Withdrawn. Every item is weather; nothing is set aside without the owner (docs/28 §11 rewritten, docs/27
+  build status rewritten).
+- **`apex/engine/weather.py` v3:** the remaining 37 items in the photo (about 230 fields): range / rv / volume vs
+  earlier days at the same clock, reversals, choppiness, VWAP side and its age, the forward's moves and
+  acceleration, basis and its changes, the Nifty futures book (resting rupees, next round level, refill / withdrawal
+  classes, aggressive flow, volume surge, absorption, Kyle's lambda, spread), the heavyweights' books and volume, who
+  moved first, Fin Nifty, OI change by strike over 5 / 15 / 30 min and since the open, PCR change, max pain, the
+  gamma map, call / put activity, skew and term changes, the smile residual, vega and the higher Greeks, the
+  option's IV / premium / volume history, premium response, the option's book and own levels, race odds, the
+  forward's Kalman / jump / CUSUM state, the hidden regime, Hawkes on the chosen contract, regime and episode labels,
+  every advisor's verdict, level force, the trigger, agreement across books, feed health. Per-second feeds in
+  `engine_main._weather_feed3`; `oi_hist` 30 min; the option history always on (+ ttq); `quantview` Hawkes per hero
+  and Kyle's lambda; `domino.episode_view` first_t / fut_cross_t; `paper.request_entry` counts fires.
+- **`apex/conductor/clock_norms.py`:** the earlier-days norms from the tapes (14 processes, ~5 min); seeded into
+  replays; a day reads only days before it.
+- **`apex/conductor/book_cards.py`:** each BOOK's card over every field; `search.ITEMS` maps every field to its
+  docs/27 item (test enforced); the family search no longer filters fields.
+
 ## 7 Nov 2026 (night) — rule scoring
 - **`apex/conductor/score.py`**: each frozen rule's restricted book against its free book on test days only.
   Windows per docs/28 §6 (30 trades or 15 trading days, whichever later; the second the same again; never extended);

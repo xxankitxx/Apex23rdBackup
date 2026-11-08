@@ -31,7 +31,8 @@ import sys
 import time
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-SEED_FILES = ("state.json", "days.jsonl", "day_levels.json", "strike_levels.json", "defects.json")
+SEED_FILES = ("state.json", "days.jsonl", "day_levels.json", "strike_levels.json", "defects.json",
+              "clock_norms.json")      # 8 Nov: earlier days' clock norms (weather items 7, 17, 25, 34); read for days < today only
 
 
 def _sha256(path):

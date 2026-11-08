@@ -40,7 +40,8 @@ SWITCH_OFF_E = 20.0
 
 
 def _ok_trades(trades, day, q, is_cas):
-    return [t for t in trades or [] if t.get("ret_pct") is not None and not q.reason(day, t) and not is_cas(t)]
+    return [t for t in trades or [] if t.get("ret_pct") is not None and not q.reason(day, t) and not is_cas(t)
+            and not t.get("adjustment")]      # docs/34 F04: a recovery exit is an accounting adjustment, not a fill
 
 
 def evidence(books, rb, fb, days, declared=None):

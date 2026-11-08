@@ -1,0 +1,61 @@
+{"t": 1793935800.7, "time": "09:00:00", "event": "flat", "why": "flat: data blackout"}
+{"t": 1793935820.7, "time": "09:00:20", "event": "flat", "why": "flat: no eligible trigger"}
+{"t": 1793935880.7, "time": "09:01:20", "event": "flat", "why": "flat: no eligible trigger"}
+{"t": 1793935940.7, "time": "09:02:20", "event": "flat", "why": "flat: no eligible trigger"}
+{"t": 1793936000.7, "time": "09:03:20", "event": "flat", "why": "flat: no eligible trigger"}
+{"t": 1793936060.7, "time": "09:04:20", "event": "flat", "why": "flat: no eligible trigger"}
+{"t": 1793936120.7, "time": "09:05:20", "event": "flat", "why": "flat: no eligible trigger"}
+{"t": 1793936180.7, "time": "09:06:20", "event": "flat", "why": "flat: no eligible trigger"}
+{"t": 1793936240.7, "time": "09:07:20", "event": "flat", "why": "flat: no eligible trigger"}
+{"t": 1793936300.7, "time": "09:08:20", "event": "flat", "why": "flat: no eligible trigger"}
+{"t": 1793936360.7, "time": "09:09:20", "event": "flat", "why": "flat: no eligible trigger"}
+{"t": 1793936420.7, "time": "09:10:20", "event": "flat", "why": "flat: no eligible trigger"}
+{"t": 1793936480.7, "time": "09:11:20", "event": "flat", "why": "flat: no eligible trigger"}
+{"t": 1793936540.7, "time": "09:12:20", "event": "flat", "why": "flat: no eligible trigger"}
+{"t": 1793936600.7, "time": "09:13:20", "event": "flat", "why": "flat: no eligible trigger"}
+{"t": 1793936660.7, "time": "09:14:20", "event": "flat", "why": "flat: no eligible trigger"}
+{"t": 1793936700.0, "time": "09:15:00", "event": "flat", "why": "flat: data blackout"}
+{"t": 1793936720.7, "time": "09:15:20", "event": "flat", "why": "flat: no eligible trigger"}
+{"t": 1793936780.7, "time": "09:16:20", "event": "flat", "why": "flat: no eligible trigger"}
+{"t": 1793936840.7, "time": "09:17:20", "event": "flat", "why": "flat: no eligible trigger"}
+{"t": 1793936900.7, "time": "09:18:20", "event": "flat", "why": "flat: no eligible trigger"}
+{"t": 1793936960.7, "time": "09:19:20", "event": "flat", "why": "flat: no eligible trigger"}
+{"t": 1793937020.7, "time": "09:20:20", "event": "flat", "why": "flat: no eligible trigger"}
+{"t": 1793937080.7, "time": "09:21:20", "event": "flat", "why": "flat: no eligible trigger"}
+{"t": 1793937140.7, "time": "09:22:20", "event": "flat", "why": "flat: no eligible trigger"}
+{"t": 1793937200.7, "time": "09:23:20", "event": "flat", "why": "flat: no eligible trigger"}
+{"t": 1793937260.7, "time": "09:24:20", "event": "flat", "why": "flat: no eligible trigger"}
+{"t": 1793937320.7, "time": "09:25:20", "event": "flat", "why": "flat: no eligible trigger"}
+{"t": 1793937380.7, "time": "09:26:20", "event": "flat", "why": "flat: no eligible trigger"}
+{"t": 1793937440.7, "time": "09:27:20", "event": "flat", "why": "flat: no eligible trigger"}
+{"t": 1793937500.7, "time": "09:28:20", "event": "flat", "why": "flat: no eligible trigger"}
+{"t": 1793937560.7, "time": "09:29:20", "event": "flat", "why": "flat: no eligible trigger"}
+{"t": 1793937620.7, "time": "09:30:20", "event": "flat", "why": "flat: no eligible trigger"}
+{"t": 1793937680.7, "time": "09:31:20", "event": "flat", "why": "flat: no eligible trigger"}
+{"t": 1793937740.7, "time": "09:32:20", "event": "flat", "why": "flat: no eligible trigger"}
+{"t": 1793937780.7, "time": "09:33:00", "event": "owner", "book": "spot_dc12_t12_first", "rule": null, "standing": "low", "key": "NIFTY|OPT|2026-11-09|24450|CE", "why": "spot 24528.7 broke its 12-min high 24528.6"}
+{"t": 1793937780.8, "time": "09:33:00", "event": "entry", "book": "spot_dc12_t12_first", "rule": null, "key": "NIFTY|OPT|2026-11-09|24450|CE", "entry": 193.2, "lots": 7, "why": "spot 24528.7 broke its 12-min high 24528.6", "fill_delay_s": 0.1}
+{"t": 1793937791.3, "time": "09:33:11", "event": "occupied", "book": "spot_dc12_t12", "rule": null, "key": "NIFTY|OPT|2026-11-09|24450|CE", "by": "spot_dc12_t12_first", "since": "09:33:00"}
+{"t": 1793937792.6, "time": "09:33:12", "event": "exit", "book": "spot_dc12_t12_first", "rule": null, "key": "NIFTY|OPT|2026-11-09|24450|CE", "exit": 193.5, "reason": "TRAIL", "pnl_rs": 136.5, "ret_pct": 0.155, "capital": 100136.5}
+{"t": 1793937792.6, "time": "09:33:12", "event": "flat", "why": "flat: no eligible trigger"}
+{"t": 1793937840.2, "time": "09:34:00", "event": "owner", "book": "spot_dc12_t12_first", "rule": null, "standing": "low", "key": "NIFTY|OPT|2026-11-09|24450|CE", "why": "spot 24537.9 broke its 12-min high 24537.8"}
+{"t": 1793937840.5, "time": "09:34:00", "event": "entry", "book": "spot_dc12_t12_first", "rule": null, "key": "NIFTY|OPT|2026-11-09|24450|CE", "entry": 201.65, "lots": 7, "why": "spot 24537.9 broke its 12-min high 24537.8", "fill_delay_s": 0.3}
+{"t": 1793938026.0, "time": "09:37:06", "event": "exit", "book": "spot_dc12_t12_first", "rule": null, "key": "NIFTY|OPT|2026-11-09|24450|CE", "exit": 216.5, "reason": "TRAIL", "pnl_rs": 6756.75, "ret_pct": 7.364, "capital": 106893.25}
+{"t": 1793938026.0, "time": "09:37:06", "event": "flat", "why": "flat: no eligible trigger"}
+{"t": 1793938086.0, "time": "09:38:06", "event": "flat", "why": "flat: no eligible trigger"}
+{"t": 1793938146.0, "time": "09:39:06", "event": "flat", "why": "flat: no eligible trigger"}
+{"t": 1793938206.0, "time": "09:40:06", "event": "flat", "why": "flat: no eligible trigger"}
+{"t": 1793938266.0, "time": "09:41:06", "event": "flat", "why": "flat: no eligible trigger"}
+{"t": 1793938326.0, "time": "09:42:06", "event": "flat", "why": "flat: no eligible trigger"}
+{"t": 1793938386.0, "time": "09:43:06", "event": "flat", "why": "flat: no eligible trigger"}
+{"t": 1793938446.0, "time": "09:44:06", "event": "flat", "why": "flat: no eligible trigger"}
+{"t": 1793938506.0, "time": "09:45:06", "event": "flat", "why": "flat: no eligible trigger"}
+{"t": 1793938534.7, "time": "09:45:34", "event": "owner", "book": "spot_dc12_t12_first", "rule": null, "standing": "low", "key": "NIFTY|OPT|2026-11-09|24500|CE", "why": "spot 24582.2 broke its 12-min high 24581.7"}
+{"t": 1793938534.8, "time": "09:45:34", "event": "entry", "book": "spot_dc12_t12_first", "rule": null, "key": "NIFTY|OPT|2026-11-09|24500|CE", "entry": 195.5, "lots": 8, "why": "spot 24582.2 broke its 12-min high 24581.7", "fill_delay_s": 0.1}
+{"t": 1793938638.1, "time": "09:47:18", "event": "exit", "book": "spot_dc12_t12_first", "rule": null, "key": "NIFTY|OPT|2026-11-09|24500|CE", "exit": 210.85, "reason": "TRAIL", "pnl_rs": 7982.0, "ret_pct": 7.852, "capital": 114875.25}
+{"t": 1793938638.1, "time": "09:47:18", "event": "flat", "why": "flat: no eligible trigger"}
+{"t": 1793938676.6, "time": "09:47:56", "event": "owner", "book": "spot_dc12_t12_first", "rule": null, "standing": "low", "key": "NIFTY|OPT|2026-11-09|24550|CE", "why": "spot 24617.4 broke its 12-min high 24617.3"}
+{"t": 1793938677.0, "time": "09:47:57", "event": "entry", "book": "spot_dc12_t12_first", "rule": null, "key": "NIFTY|OPT|2026-11-09|24550|CE", "entry": 188.6, "lots": 9, "why": "spot 24617.4 broke its 12-min high 24617.3", "fill_delay_s": 0.4}
+{"t": 1793938757.1, "time": "09:49:17", "event": "exit", "book": "spot_dc12_t12_first", "rule": null, "key": "NIFTY|OPT|2026-11-09|24550|CE", "exit": 195.05, "reason": "TRAIL", "pnl_rs": 3773.25, "ret_pct": 3.42, "capital": 118648.5}
+{"t": 1793938757.1, "time": "09:49:17", "event": "flat", "why": "flat: no eligible trigger"}
+{"t": 1793938800.1, "time": "09:50:00", "event": "flat", "why": "flat: data blackout"}

@@ -1,0 +1,14 @@
+09:25:18 REPLAY meta {"schema": 1, "apex": "1.9.0", "git": "e1ff7a1", "src": "fb80fa2e8db8", "cfg": "beacb9662454b4d091d925322af763cc6567d528", "part": 1}
+09:25:18 REPLAY registry: 121 instruments
+09:25:18 ENGINE registry v1: 121 instruments, weekly 2026-10-27, next 2026-11-03
+09:33:36 REPLAY registry: 137 instruments
+09:33:36 mkt=09:21:35 ENGINE registry v2: 137 instruments, weekly 2026-10-27, next 2026-11-03
+09:54:57 REPLAY registry: 137 instruments
+09:54:57 mkt=09:56:48 ENGINE registry v3: 137 instruments, weekly 2026-10-27, next 2026-11-03
+14:03:10 REPLAY registry: 157 instruments
+14:03:10 mkt=15:20:31 ENGINE registry v4: 157 instruments, weekly 2026-10-27, next 2026-11-03
+14:21:37 mkt=15:41:00 ENGINE day 2026-10-26 closed and learned
+14:27:35 REPLAY part 1 ends early (2026-10-26.jsonl.gz): EOFError: Compressed file ended before the end-of-stream marker was reached
+14:27:35 REPLAY done: 4658974 packets
+14:27:39 REPLAY fast replay: 265219 engine steps in 18141 s wall (63.27 ms per step, 4658974 packets)
+14:27:39 mkt=15:53:20 ENGINE stopped

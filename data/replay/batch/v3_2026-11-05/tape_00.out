@@ -1,0 +1,16 @@
+14:41:31 REPLAY meta {"schema": 1, "apex": "1.9.0", "git": "1224d70", "src": "30da2d423d59", "cfg": "80c82bd31795158cf85336a168f6b1cbf1a0dadb", "part": 1}
+14:41:31 REPLAY registry: 121 instruments
+14:41:31 ENGINE registry v1: 121 instruments, weekly 2026-11-09, next 2026-11-17
+14:41:31 mkt=08:31:26 ENGINE CONDUCTOR pool as of 2026-11-05: 0 pair(s)
+14:50:59 REPLAY registry: 149 instruments
+14:50:59 mkt=09:15:30 ENGINE registry v2: 149 instruments, weekly 2026-11-09, next 2026-11-17
+14:56:48 mkt=09:30:08 ENGINE WEATHER first photograph (fade_switch): 268 fields, version 3 · not yet filled: 64 Last trade, 65 Direction history
+17:41:35 REPLAY registry: 165 instruments
+17:41:35 mkt=13:19:16 ENGINE registry v3: 165 instruments, weekly 2026-11-09, next 2026-11-17
+18:58:57 REPLAY registry: 181 instruments
+18:58:57 mkt=15:21:10 ENGINE registry v4: 181 instruments, weekly 2026-11-09, next 2026-11-17
+19:05:39 mkt=15:41:00 ENGINE day 2026-11-05 closed and learned
+19:05:42 REPLAY meta {"end": 1, "part": 1, "dropped": 0, "lines": 4989579}
+19:05:42 REPLAY done: 4988870 packets
+19:05:43 REPLAY fast replay: 257873 engine steps in 15852 s wall (56.50 ms per step, 4988870 packets)
+19:05:43 mkt=15:41:13 ENGINE stopped

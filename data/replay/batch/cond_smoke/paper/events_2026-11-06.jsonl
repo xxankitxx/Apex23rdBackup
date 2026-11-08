@@ -1,0 +1,19 @@
+{"t": "09:00:00", "k": "SYSTEM", "x": "day 2026-11-06 \u00b7 champion c20_9x \u00b7 gates none \u00b7 capital \u20b9100,000", "mkt_t": 1793935800.7}
+{"t": "09:15:00", "k": "DATA", "x": "NIFTY index not trusted: spot 24538.2 is -108 pts off its usual spread to the future", "mkt_t": 1793936700.0}
+{"t": "09:15:00", "k": "GAP", "x": "data gap: feed stale: futures quote 307 s old \u2014 entries paused until 20 s of fresh data", "mkt_t": 1793936700.0}
+{"t": "09:15:00", "k": "DATA", "x": "NIFTY index trusted again", "mkt_t": 1793936700.8}
+{"t": "09:15:20", "k": "GAP", "x": "data back after 21 s (feed stale: futures quote 308 s old); entries resume", "mkt_t": 1793936720.7}
+{"t": "09:17:02", "k": "SHIFT", "x": "ATM rolled 24500 \u2192 24400: straddle 357.0 \u2192 349.9 (spot settled at the new strike)", "mkt_t": 1793936822.3}
+{"t": "09:20:42", "k": "SHIFT", "x": "ATM rolled 24400 \u2192 24500: straddle 367.3 \u2192 358.9 (spot settled at the new strike)", "mkt_t": 1793937042.2}
+{"t": "09:25:53", "k": "SHIFT", "x": "ATM rolled 24500 \u2192 24400: straddle 352.7 \u2192 349.4 (spot settled at the new strike)", "mkt_t": 1793937353.9}
+{"t": "09:28:28", "k": "SHIFT", "x": "ATM rolled 24400 \u2192 24500: straddle 355.2 \u2192 347.5 (spot settled at the new strike)", "mkt_t": 1793937508.7}
+{"t": "09:33:00", "k": "COND-ENTRY", "x": "BUY 7 lots NIFTY 24450 CE (2026-11-09) @ 193.20 \u00b7 spot 24528.7 broke its 12-min high 24528.6 \u00b7 via spot_dc12_t12_first", "mkt_t": 1793937780.8}
+{"t": "09:33:12", "k": "COND-EXIT", "x": "CE 24450 7 lots \u00b7 193.20 \u2192 193.50 = +0.30 pts / \u20b9+136 \u00b7 TRAIL \u00b7 via spot_dc12_t12_first \u00b7 capital \u20b9100,136", "mkt_t": 1793937792.6}
+{"t": "09:34:00", "k": "COND-ENTRY", "x": "BUY 7 lots NIFTY 24450 CE (2026-11-09) @ 201.65 \u00b7 spot 24537.9 broke its 12-min high 24537.8 \u00b7 via spot_dc12_t12_first", "mkt_t": 1793937840.5}
+{"t": "09:37:06", "k": "COND-EXIT", "x": "CE 24450 7 lots \u00b7 201.65 \u2192 216.50 = +14.85 pts / \u20b9+6,757 \u00b7 TRAIL \u00b7 via spot_dc12_t12_first \u00b7 capital \u20b9106,893", "mkt_t": 1793938026.0}
+{"t": "09:45:34", "k": "COND-ENTRY", "x": "BUY 8 lots NIFTY 24500 CE (2026-11-09) @ 195.50 \u00b7 spot 24582.2 broke its 12-min high 24581.7 \u00b7 via spot_dc12_t12_first", "mkt_t": 1793938534.8}
+{"t": "09:46:42", "k": "SHIFT", "x": "ATM rolled 24500 \u2192 24600: straddle 343.3 \u2192 337.6 (spot settled at the new strike)", "mkt_t": 1793938602.8}
+{"t": "09:47:18", "k": "COND-EXIT", "x": "CE 24500 8 lots \u00b7 195.50 \u2192 210.85 = +15.35 pts / \u20b9+7,982 \u00b7 TRAIL \u00b7 via spot_dc12_t12_first \u00b7 capital \u20b9114,875", "mkt_t": 1793938638.1}
+{"t": "09:47:57", "k": "COND-ENTRY", "x": "BUY 9 lots NIFTY 24550 CE (2026-11-09) @ 188.60 \u00b7 spot 24617.4 broke its 12-min high 24617.3 \u00b7 via spot_dc12_t12_first", "mkt_t": 1793938677.0}
+{"t": "09:49:17", "k": "COND-EXIT", "x": "CE 24550 9 lots \u00b7 188.60 \u2192 195.05 = +6.45 pts / \u20b9+3,773 \u00b7 TRAIL \u00b7 via spot_dc12_t12_first \u00b7 capital \u20b9118,648", "mkt_t": 1793938757.1}
+{"t": "09:50:00", "k": "GAP", "x": "data gap: feed not live \u2014 entries paused until 20 s of fresh data", "mkt_t": 1793938800.1}

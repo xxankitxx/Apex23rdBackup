@@ -1,0 +1,29 @@
+23:34:50 REPLAY meta {"schema": 1, "apex": "1.9.0", "git": "162321d", "src": "3a0939a5942d", "cfg": "f7e9448e3fe20f36872afe6d272f9d33b4ffe09a", "part": 1}
+23:34:50 REPLAY registry: 121 instruments
+23:34:50 ENGINE registry v1: 121 instruments, weekly 2026-11-03, next 2026-11-09
+23:36:07 REPLAY meta {"end": 1, "part": 1, "dropped": 0, "lines": 15956}
+23:36:07 REPLAY part 2 begins
+23:36:07 REPLAY meta {"schema": 1, "apex": "1.9.0", "git": "162321d", "src": "3a0939a5942d", "cfg": "f7e9448e3fe20f36872afe6d272f9d33b4ffe09a", "part": 2}
+23:36:28 REPLAY registry: 121 instruments
+23:36:28 mkt=08:35:38 ENGINE registry v2: 121 instruments, weekly 2026-11-03, next 2026-11-09
+23:36:45 REPLAY part 2 ends early (2026-10-29.p2.jsonl.gz): EOFError: Compressed file ended before the end-of-stream marker was reached
+23:36:45 REPLAY part 3 begins
+23:36:45 REPLAY meta {"schema": 1, "apex": "1.9.0", "git": "162321d", "src": "3a0939a5942d", "cfg": "f7e9448e3fe20f36872afe6d272f9d33b4ffe09a", "part": 3}
+23:36:49 REPLAY registry: 121 instruments
+23:36:49 mkt=08:39:30 ENGINE registry v3: 121 instruments, weekly 2026-11-03, next 2026-11-09
+00:41:33 REPLAY meta {"end": 1, "part": 3, "dropped": 0, "lines": 1525167}
+00:41:33 REPLAY part 4 begins
+00:41:33 REPLAY meta {"schema": 1, "apex": "1.9.0", "git": "162321d", "src": "89bd0dbf22e4", "cfg": "f7e9448e3fe20f36872afe6d272f9d33b4ffe09a", "part": 4}
+00:41:47 REPLAY registry: 121 instruments
+00:41:47 mkt=11:42:39 ENGINE instrument ids changed — resetting price history
+00:41:47 mkt=11:42:39 ENGINE registry v4: 121 instruments, weekly 2026-11-03, next 2026-11-09
+00:59:59 REPLAY meta {"end": 1, "part": 4, "dropped": 0, "lines": 434759}
+00:59:59 REPLAY part 5 begins
+00:59:59 REPLAY meta {"schema": 1, "apex": "1.9.0", "git": "162321d", "src": "f2bc23aacb88", "cfg": "6cdd27c280701e8c380d7140fdfdbb8ec365fd09", "part": 5}
+01:00:05 REPLAY registry: 121 instruments
+01:00:05 mkt=12:27:33 ENGINE registry v5: 121 instruments, weekly 2026-11-03, next 2026-11-09
+01:52:33 mkt=15:41:00 ENGINE day 2026-10-29 closed and learned
+01:53:00 REPLAY meta {"end": 1, "part": 5, "dropped": 0, "lines": 1887292}
+01:53:00 REPLAY done: 3866251 packets
+01:53:00 REPLAY fast replay: 267441 engine steps in 8290 s wall (28.74 ms per step, 3866251 packets)
+01:53:00 mkt=15:44:22 ENGINE stopped

@@ -1,5 +1,6 @@
 breeze-connect>=1.0.69
 numpy>=1.26
+scipy>=1.11          # apex/quant (hawkes, greeks_hi), apex/greeks, learning: the model groups are unavailable without it (docs/34 F05)
 fastapi>=0.110
 uvicorn[standard]>=0.29
 wsproto>=1.2

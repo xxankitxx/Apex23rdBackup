@@ -1,0 +1,21 @@
+09:25:18 REPLAY meta {"schema": 1, "apex": "1.9.0", "git": "e1ff7a1", "src": "fb80fa2e8db8", "cfg": "beacb9662454b4d091d925322af763cc6567d528", "part": 1}
+09:25:18 REPLAY meta {"end": 1, "part": 1, "dropped": 0, "lines": 2}
+09:25:18 REPLAY part 2 begins
+09:25:18 REPLAY meta {"schema": 1, "apex": "1.9.0", "git": "e1ff7a1", "src": "fb80fa2e8db8", "cfg": "beacb9662454b4d091d925322af763cc6567d528", "part": 2}
+09:25:18 REPLAY registry: 121 instruments
+09:25:18 ENGINE registry v1: 121 instruments, weekly 2026-10-27, next 2026-11-03
+12:46:10 REPLAY part 2 ends early (2026-10-27.p2.jsonl.gz): EOFError: Compressed file ended before the end-of-stream marker was reached
+12:46:10 REPLAY part 3 begins
+12:46:10 REPLAY meta {"schema": 1, "apex": "1.9.0", "git": "e1ff7a1", "src": "fb80fa2e8db8", "cfg": "beacb9662454b4d091d925322af763cc6567d528", "part": 3}
+12:48:07 REPLAY registry: 121 instruments
+12:48:07 mkt=13:39:20 ENGINE instrument ids changed — resetting price history
+12:48:07 mkt=13:39:20 ENGINE registry v2: 121 instruments, weekly 2026-10-27, next 2026-11-03
+14:19:21 REPLAY registry: 149 instruments
+14:19:22 mkt=15:20:31 ENGINE registry v3: 149 instruments, weekly 2026-10-27, next 2026-11-03
+14:20:54 REPLAY registry: 149 instruments
+14:20:54 mkt=15:22:14 ENGINE registry v4: 149 instruments, weekly 2026-10-27, next 2026-11-03
+14:34:26 mkt=15:41:00 ENGINE day 2026-10-27 closed and learned
+14:35:10 REPLAY meta {"end": 1, "part": 3, "dropped": 0, "lines": 1233807}
+14:35:10 REPLAY done: 3928473 packets
+14:35:18 REPLAY fast replay: 265981 engine steps in 18601 s wall (65.44 ms per step, 3928473 packets)
+14:35:18 mkt=15:42:16 ENGINE stopped
