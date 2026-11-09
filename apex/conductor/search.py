@@ -32,8 +32,8 @@ from .diary import family
 REPRESENTATIVES = ("spot_pb45", "spot_dc12_t12", "spot_dc12_t12_first", "spot_orb45", "m1.5_s0.4", "gap3_s0.4",
                    "straddle_spike", "fade_switch", "c20_9x", "t28_fwd")
 DAY_FACTORS = {"expiry_day", "day_before_expiry", "after_break", "event", "weekday", "dte", "gap_pts", "gap_filled",
-               "vix", "vix_chg_open", "hrs_to_expiry", "norm_days"}   # day-type weather: counted in DAYS, not trades
-SKIP = {"v", "v2_error", "v3_error"}                                   # housekeeping on the photo, not weather
+               "vix", "vix_chg_open", "hrs_to_expiry", "norm_days", "pd_range"}   # day-type weather: counted in DAYS, not trades
+SKIP = {"v", "v2_error", "v3_error", "v4_error"}                                   # housekeeping on the photo, not weather
 # 8 Nov (owner): EVERY docs/27 item is weather and every photo field is searched; nothing is set aside. This table
 # only names the docs/27 item each field belongs to, for the cards (tests/test_weather.py checks every photo field
 # has an item). An "adv_" prefix covers the advisors (item 61).
@@ -108,6 +108,46 @@ ITEMS = {
     67: ("Agreement", ("agree_same", "agree_other")),
     68: ("Feed health", ("fut_age", "spot_age", "gaps_today", "gap_s_today", "reconnects", "feed_state", "chain_age",
                          "depth_age_fut", "n_hero_stale", "n_hero_wide")),
+    # 9 Nov (photo v4, owner: "add at least 30-40 more different kind of items"): apex/engine/weather4.py
+    69: ("Yesterday's shape", ("pd_range", "pd_close_pos", "inside_pd", "range_vs_pd")),
+    70: ("Pivot levels", ("pivot_dist", "piv_next_ahead")),
+    71: ("Strike grid", ("strike50_ahead", "strike_pin")),
+    72: ("The last bars", ("bar5_body", "bar5_body_share", "bar5_wick_ahead", "bar1_body", "bar1_range_vs15")),
+    73: ("Bar runs", ("run1_with", "with_share30", "hh_hl5")),
+    74: ("Position in recent windows", ("pos5", "pos15", "pos60")),
+    75: ("Oscillators", ("rsi14_1m", "rsi14_5m", "z20")),
+    76: ("Moving averages", ("ma5_dist", "ma20_dist", "ma60_dist", "ma_stack", "ma20_slope")),
+    77: ("Compression", ("range5", "range15", "range60", "squeeze", "atr1_15", "rv_ratio")),
+    78: ("The day's net move", ("day_move", "day_move_share", "open_side_min")),
+    79: ("Persistence", ("ac1_30", "vr5_60")),
+    80: ("The adverse path", ("max_adv1_15", "adv_bars15")),
+    81: ("Sister divergence", ("bn_minus_nifty60", "bn_minus_nifty300", "bn_corr30")),
+    82: ("The VIX path", ("vix_day_pos", "vix_spot_same5")),
+    83: ("Breadth at other horizons", ("breadth60_dir", "breadth900_dir", "breadth_net", "breadth_chg5")),
+    84: ("Dispersion and concentration", ("hw_disp300", "hw_top3_share", "hw_n_with", "hw_at_ext30")),
+    85: ("The leaders", ("lead1_move60", "lead1_move300", "lead3_agree")),
+    86: ("Moneyness", ("moneyness_pts", "moneyness_pct", "intrinsic", "extrinsic", "extrinsic_pct")),
+    87: ("Gearing", ("gearing", "gamma_theta", "gamma_1pct", "spread_be_pts")),
+    88: ("Implied move used", ("strad_now", "strad_vs_open_pct", "range_vs_strad", "day_move_vs_strad")),
+    89: ("The opposite leg", ("opp_prem_chg1_pct", "opp_prem_chg5_pct", "opp_iv_chg1", "pair_chg1")),
+    90: ("The premium's own path", ("prem_chg5_pct", "prem_chg15_pct", "prem_pos15", "prem_off_hi15_pct", "prem_rv5")),
+    91: ("Entry liquidity", ("opt_ask_rs", "opt_ask5_rs", "opt_bid5_rs", "opt_depth_ratio")),
+    92: ("The IV path", ("atm_iv_day_pos", "iv_spot_corr15", "opt_iv_vs_atm")),
+    93: ("The wings", ("rr100", "fly100")),
+    94: ("Own-strike OI", ("own_oi", "own_vol_oi", "own_oi_share", "own_vs_opp_oi")),
+    95: ("Futures OI build-up", ("fut_oi_chg5", "fut_oi_chg30", "fut_buildup", "fut_buildup_with")),
+    96: ("Volume acceleration", ("fut_vol_accel", "hw_vol_accel", "band_vol_accel", "fut_vol300")),
+    97: ("Up-volume share", ("with_vol_share60", "with_vol_share300")),
+    98: ("VWAP stretch", ("vwap_z", "vwap_cross_n", "vwap_stretch_share")),
+    99: ("Call/put flow tilt", ("cp_vol_tilt60", "cp_vol_tilt_chg")),
+    100: ("Other books' positions", ("held_same", "held_other", "held_same_winning", "fam_n", "fam_busy", "fam_free")),
+    101: ("Other books' results today", ("all_n_today", "all_win_today", "all_last_same_s", "all_last_same_won",
+                                         "all_last5_same_win")),
+    102: ("Trigger density", ("fires5_same", "fires5_other", "fires30_same", "fires30_other", "flip_n15",
+                              "last_fire_other_s")),
+    103: ("Re-entry context", ("n_same_side_today", "n_losses_today", "since_last_loss_s", "last_ret_pct", "last_peak_pts",
+                               "last_hold_s", "same_key_as_last", "prem_vs_last_exit_pct", "prem_vs_last_entry_pct")),
+    104: ("The day's P&L shape", ("best_today", "worst_today", "ret_last3", "win_share_today", "dd_today")),
 }
 ITEM_OF = {k: n for n, (_lab, ks) in ITEMS.items() for k in ks}
 

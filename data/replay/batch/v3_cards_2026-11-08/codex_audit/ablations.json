@@ -1,0 +1,44 @@
+{
+ "9y_alone": {
+  "trades": 72,
+  "wins": 44,
+  "losses": 28,
+  "pnl": 1137308.25,
+  "losing_days": 4
+ },
+ "B_without_c20_9y": {
+  "trades": 89,
+  "wins": 50,
+  "losses": 39,
+  "pnl": 1057657.25,
+  "losing_days": 4
+ },
+ "B_without_c20_9s": {
+  "trades": 89,
+  "wins": 53,
+  "losses": 36,
+  "pnl": 1098321.25,
+  "losing_days": 3
+ },
+ "B_without_c20_9v": {
+  "trades": 88,
+  "wins": 48,
+  "losses": 40,
+  "pnl": 1035794.5,
+  "losing_days": 4
+ },
+ "B_without_c20_9x": {
+  "trades": 89,
+  "wins": 49,
+  "losses": 40,
+  "pnl": 1044251.0,
+  "losing_days": 4
+ },
+ "B_without_c20_9t": {
+  "trades": 82,
+  "wins": 44,
+  "losses": 38,
+  "pnl": 1013818.0,
+  "losing_days": 4
+ }
+}

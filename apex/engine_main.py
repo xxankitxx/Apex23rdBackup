@@ -593,6 +593,7 @@ class Engine:
         ctx["by_key"] = {o["key"]: o for o in ctx["options"]}
         if getattr(self, "weather", None) is not None:       # 8 Nov (v3): the per-second feeds the photo needs
             self._safe("weather feed v3", lambda: self._weather_feed3(now_s, snap, ctx))
+        ctx["_wx"], ctx["_books"] = getattr(self, "weather", None), self.books   # 9 Nov (photo v4): histories, the books
         ctx["weather"] = (self._safe("weather base", lambda: self.weather.base(now_s), {})   # 7 Nov (stage 2)
                           if getattr(self, "weather", None) is not None else {})
         if self._ohist_on:

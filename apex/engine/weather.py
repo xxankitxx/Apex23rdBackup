@@ -73,6 +73,10 @@ photo itself so one record carries all 68 items (numbers = docs/27):
      _level_dist
   J  63 trigger, trig_str, trig_unit; 67 agree_same / agree_other (other books firing this step and the last)
   K  68 reconnects, feed_state, chain_age, depth_age_fut, n_hero_stale, n_hero_wide, gap_s_today
+Version 4 (9 Nov, owner: "67-68 items ... are not enough ... add at least 30-40 more different kind of items"):
+36 more items, docs/27 numbers 69-104, in apex/engine/weather4.py (field list in its docstring and in
+apex/conductor/search.py ITEMS): L the tape's structure (69-80), M across markets (81-85), N the option and the chain
+(86-95), O flow through time (96-99), P the books around this one (100-102), Q this book's day (103-104).
 Not available from the recorded data (said plainly, not skipped quietly): nothing in docs/27 is left unbuilt; the
 "vs normal" norms exist only once three earlier days are recorded (norm_days says how many).
 """
@@ -82,9 +86,10 @@ import numpy as np
 
 from .. import config
 
-VERSION = 3
-SKIP_FIELDS = frozenset(("v", "v2_error", "v3_error"))     # bookkeeping keys, not weather
-MIN_FIELDS = 200                                            # v3 writes about 270 fields on a full engine
+VERSION = 4
+N_ITEMS = 104                                               # docs/27: 68 (v3) + 36 (v4, 9 Nov)
+SKIP_FIELDS = frozenset(("v", "v2_error", "v3_error", "v4_error"))     # bookkeeping keys, not weather
+MIN_FIELDS = 280                                            # v3 wrote about 270 fields on a full engine; v4 about 390
 
 
 def static_check():
@@ -96,10 +101,16 @@ def static_check():
         from ..conductor import search
     except Exception as e:          # noqa: BLE001
         return [f"item map unavailable: {e}"]
-    if VERSION != 3:
-        probs.append(f"photo version {VERSION}, expected 3")
-    if len(search.ITEMS) != 68:
-        probs.append(f"{len(search.ITEMS)} docs/27 items mapped, expected 68")
+    if VERSION != 4:
+        probs.append(f"photo version {VERSION}, expected 4")
+    if len(search.ITEMS) != N_ITEMS or sorted(search.ITEMS) != list(range(1, N_ITEMS + 1)):
+        probs.append(f"{len(search.ITEMS)} docs/27 items mapped, expected {N_ITEMS}")
+    try:
+        from . import weather4
+        if weather4.N_ITEMS != N_ITEMS:
+            probs.append(f"weather4 builds {weather4.N_ITEMS} items, expected {N_ITEMS}")
+    except Exception as e:          # noqa: BLE001
+        probs.append(f"weather4 unavailable: {e}")
     fields = {f for _label, fs in search.ITEMS.values() for f in fs}
     if len(fields) < MIN_FIELDS:
         probs.append(f"{len(fields)} fields mapped to items, expected at least {MIN_FIELDS}")
@@ -119,7 +130,7 @@ def check_photo(w):
         return ["no photograph"], []
     if w.get("v") != VERSION:
         probs.append(f"version {w.get('v')}, expected {VERSION}")
-    for k in ("v2_error", "v3_error"):
+    for k in ("v2_error", "v3_error", "v4_error"):
         if k in w:
             probs.append(f"{k}: {w[k]}")
     keys = [k for k in w if k not in SKIP_FIELDS]
@@ -589,6 +600,11 @@ def photo(ctx, d, opt=None, book=None, why=None):
         _photo_v3(out, ctx, d, opt, book, b, sp, why)
     except Exception:
         out["v3_error"] = True
+    try:                                               # 9 Nov (v4): items 69-104, each block guarded on its own
+        from .weather4 import photo_v4
+        photo_v4(out, ctx, d, opt, book, b, sp)
+    except Exception:
+        out["v4_error"] = "photo_v4"
     return out
 
 

@@ -1,5 +1,25 @@
 # Changelog
 
+## 9 Nov 2026 (pre-open, 08:35 IST) — weather photograph version 4: 36 more items (69–104)
+- **Owner:** "67-68 items that you are capturing are not enough to identify a bad trade from a good trade. So add some
+  more from now on ... at least 30-40 more different kind of items."
+- **`apex/engine/weather4.py` (new), photo `VERSION = 4`:** docs/27 items 69–104, about 140 more fields, in six new
+  groups: L the tape's structure (yesterday's shape, pivots, strike grid, bars, runs, window positions, oscillators,
+  moving averages, compression, the day's net move, persistence, the adverse path), M across markets (Bank Nifty
+  divergence, the VIX path, breadth at 1 and 15 min, dispersion and concentration, the leaders), N the option and the
+  chain (moneyness, gearing, implied move used, the opposite leg, the premium's own path, entry liquidity, the IV path,
+  the wings, own-strike OI, futures OI build-up), O flow through time (volume acceleration, up-volume share, VWAP
+  stretch, call/put tilt), P the books around this one (other books' positions with the family's busy / free count,
+  other books' results today, trigger density), Q this book's day (re-entry context, the day's P&L shape).
+- **Observer only, no look-ahead:** no book reads it; every history read is at or before the trigger second; the
+  direction-free part is computed only when a photograph is taken (about 10 ms, once per market second). A failing
+  block is named in `v4_error` and never stops an entry.
+- **`search.ITEMS` has 104 items;** `weather.static_check` refuses to start the engine on anything else. The engine
+  passes the histories and the books to the photograph (`ctx["_wx"]`, `ctx["_books"]`).
+- **Not in the recorded days:** photographs before 9 Nov are version 3. The 14 replayed days carry the new items only
+  after a re-replay (not run).
+- **Tests:** `tests/test_weather_v4.py` (leak test, definitions, the books' block, a broken block, the real engine rig).
+
 ## 9 Nov 2026 (pre-open, 05:20 IST) — the pool is applied; the Conductor is the champion
 - **Owner ("Yes, apply pool"):** `apex/rules/pool.json` holds the c20 family unrestricted from 9 Nov: c20_9y, c20_9s,
   c20_9v, c20_9x, c20_9t (standing low; same-tick priority by the 14-day card's mean return per trade, in-sample).

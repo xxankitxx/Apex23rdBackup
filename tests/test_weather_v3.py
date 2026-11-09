@@ -86,7 +86,7 @@ def test_photo_v3_direction_contract_and_none_without_the_market_object():
     bk.ctl["trig_str"], bk.ctl["trig_unit"] = 12.0, "pt impulse"
     ce = weather.photo(ctx, 1, o, bk, "SPOT brk v=+20")
     pe = weather.photo(ctx, -1, dict(o, rr="PE", delta=-0.55), bk, "SPOT brk")
-    assert ce["v"] == 3 and "v3_error" not in ce and "v2_error" not in ce
+    assert ce["v"] == 4 and "v3_error" not in ce and "v2_error" not in ce
     assert ce["gex_flip_ahead"] == -62.0 and pe["gex_flip_ahead"] == 62.0
     assert ce["gex_wall_ahead"] == 238.0 and pe["gex_wall_ahead"] == 262.0 and ce["max_pain_dist"] == 50.0
     assert ce["lead_s"] == 15.0 and ce["ep_with"] is True and pe["ep_with"] is False and ce["sync_dir"] == 0.7
@@ -114,7 +114,7 @@ def test_every_photo_field_belongs_to_a_docs27_item():
     keys = set(weather.photo(ctx, 1, o, bk, "t")) | set(V3_MARKET)
     missing = sorted(k for k in keys if k not in search.SKIP and search.item_of(k)[0] is None)
     assert not missing, missing
-    assert len(search.ITEMS) == 68 and search.item_of("adv_room") == (61, "Advisors")
+    assert len(search.ITEMS) == 104 and search.item_of("adv_room") == (61, "Advisors")
     assert len(keys - search.SKIP) >= 200
 
 

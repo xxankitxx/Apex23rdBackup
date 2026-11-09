@@ -27,6 +27,7 @@ the trigger second; `tests/test_weather.py` is the leak test.
 | Status | Groups |
 |---|---|
 | **In the photograph** (version 3, 8 Nov) | **All 68 items**, in the photo itself (about 230 fields), on every position and every missed-signal row. The field-to-item table is `apex/conductor/search.py` `ITEMS`; `tests/test_weather.py` fails if a photo field has no item. Version 2 (7 Nov) had 31 items in the photo, 9 recorded elsewhere on the trade and 25 unbuilt, and the 7–8 Nov search ran on a reduced set: withdrawn (docs/28 §11). |
+| **Added 9 Nov (version 4)** | **Items 69–104** (groups L–Q below, about 140 more fields), `apex/engine/weather4.py`, on every position and every missed-signal row from 9 Nov. Owner: "67-68 items ... are not enough to identify a bad trade from a good trade ... add at least 30-40 more different kind of items". Photographs taken before 9 Nov do not carry them; the 14 replayed days would need a re-replay to have them. `tests/test_weather_v4.py` is the leak test and the definitions |
 | **Measured against earlier days** | B 7, C 17 "vs its normal", D 25 and E 34 "vs normal": the median of the EARLIER recorded days at the same clock minute (`apex/conductor/clock_norms.py`, `data/learning/clock_norms.json`); undefined until three earlier days exist (`norm_days`) |
 | **From the engine's own per-second state** | C 18 (Kalman velocity, bipower noise, jump z, CUSUM), F 39 (gamma map), F 44 (SVI smile), G 54 (race odds, computed for the chosen contract at the trigger), H 57 (HMM), H 58 (Hawkes on every hero contract), I 62 (level force), I 61 (every advisor's verdict for both directions, once a second) |
 | **Approximations, said plainly** | D 23 "next round level": depth levels at or beyond the next round 100 in the trade's direction (five levels, so the value is a floor) · D 25 "aggressor-side value": the flow module's 10-s EWMA of aggressive volume x price · J 67: the books that fired in this engine step and the one before it (not a whole second) · E 35 Fin Nifty: its futures when registered, else its spot |
@@ -154,6 +155,72 @@ the trigger second; `tests/test_weather.py` is the leak test.
 |---|---|---|
 | 68 | Feed health | feed age, stale option legs, data gaps today, reconnects, abnormal spreads |
 
+## L. The tape's structure (added 9 Nov, photo version 4)
+
+| # | Factor | How it is measured |
+|---|---|---|
+| 69 | Yesterday's shape | yesterday's range; where yesterday closed inside it (for the trade); spot inside or outside yesterday's range; today's range ÷ yesterday's |
+| 70 | Pivot levels | floor pivots from yesterday's high, low, close (S2, S1, P, R1, R2): distance from P for the trade; points to the next level ahead |
+| 71 | Strike grid | points to the next 50-point strike ahead of spot; distance to the nearest strike (pinning) |
+| 72 | The last bars | the last 5 min and 1 min as a bar: body for the trade, body ÷ range, the wick on the side ahead; the last minute's range ÷ the mean of the 15 before it |
+| 73 | Bar runs | consecutive 1-min closes for the trade (negative = against); share of the last 30 one-minute moves for the trade; of the last five 5-min windows, how many made a higher high and higher low for the trade |
+| 74 | Position in recent windows | spot inside the 5 / 15 / 60-min range (1 = at the extreme in the trade's direction) |
+| 75 | Oscillators | RSI(14) on 1-min and on 5-min marks, for the trade; z-score of spot against its last 20 one-minute marks |
+| 76 | Moving averages | spot minus the 5 / 20 / 60-min average, for the trade; how many of the three it is beyond; the 20-min average's 5-min slope |
+| 77 | Compression | the 5 / 15 / 60-min range in points; 15-min ÷ 60-min range (squeeze); mean 1-min range over 15 min; 1-min ÷ 15-min realised vol |
+| 78 | The day's net move | spot minus the first print, for the trade; that as a share of the day's range; minutes continuously on this side of the open |
+| 79 | Persistence | lag-1 autocorrelation of 1-min moves over 30 min; variance ratio of 5-min to 1-min moves over 60 min (above 1 = trending, below = reverting) |
+| 80 | The adverse path | the largest 1-min move against the trade in the last 15 min; how many of those 15 minutes went against it |
+
+## M. Across markets (added 9 Nov)
+
+| # | Factor | How it is measured |
+|---|---|---|
+| 81 | Sister divergence | Bank Nifty futures % minus Nifty % over 1 and 5 min, for the trade; correlation of their 10-s moves over 30 min |
+| 82 | The VIX path | where VIX sits in its own range today; did VIX and spot move the same way over 5 min |
+| 83 | Breadth at other horizons | share of heavyweight weight moving the trade's way over 1 min and 15 min (item 29 is 5 min); up minus down share; the change in 5-min breadth over the last 5 min |
+| 84 | Dispersion and concentration | weighted spread of the heavyweights' 5-min returns; share of the weighted move from its three largest contributors; stocks moving the trade's way; share of weight at its 30-min extreme in the trade's direction |
+| 85 | The leaders | the heaviest stock's move over 1 and 5 min, for the trade; how many of the three heaviest moved the trade's way over 1 min |
+
+## N. The option and the chain (added 9 Nov)
+
+| # | Factor | How it is measured |
+|---|---|---|
+| 86 | Moneyness | points and % in the money (forward against strike); intrinsic and time value; time value as % of the premium |
+| 87 | Gearing | delta × forward ÷ premium; gamma per rupee of theta per minute; delta change for a 1 % move; spot points needed to earn back the spread |
+| 88 | Implied move used | the ATM straddle now and against the day's first; today's range ÷ the opening straddle; the day's net move ÷ the opening straddle, for the trade |
+| 89 | The opposite leg | the same strike's other option: premium change over 1 and 5 min, IV change over 1 min; both legs' 1-min change added (positive = both bid) |
+| 90 | The premium's own path | the contract's premium change over 5 and 15 min; position in its own 15-min range; % below its 15-min high; its own 5-min volatility |
+| 91 | Entry liquidity | rupees resting at the best ask; at five ask levels; at five bid levels; bid ÷ ask depth |
+| 92 | The IV path | where ATM IV sits in its range today; correlation of 1-min IV and spot moves over 15 min; the contract's IV minus ATM IV |
+| 93 | The wings | put IV 100 points below spot minus call IV 100 above; their mean minus ATM IV |
+| 94 | Own-strike OI | the contract's OI; today's volume ÷ OI; its share of the hero band's OI on its side; against the other leg's OI |
+| 95 | Futures OI build-up | futures OI change over 5 and 30 min; long build-up / short covering / short build-up / long unwinding (5-min price and OI together); fresh positions in the trade's direction, yes or no |
+
+## O. Flow through time (added 9 Nov)
+
+| # | Factor | How it is measured |
+|---|---|---|
+| 96 | Volume acceleration | last minute's volume ÷ the minute before: futures, heavyweights, the option band; futures volume over 5 min |
+| 97 | Up-volume share | share of futures volume traded in the seconds the forward moved the trade's way, over 1 and 5 min |
+| 98 | VWAP stretch | futures minus VWAP as a z-score of today's own stretch, for the trade; VWAP crossings today; the stretch now ÷ the furthest today on this side |
+| 99 | Call/put flow tilt | the trade's side's share of option-band volume over the last minute; that minus its 5-min share |
+
+## P. The books around this one (added 9 Nov)
+
+| # | Factor | How it is measured |
+|---|---|---|
+| 100 | Other books' positions | books holding the same side / the other side now; share of the same-side holders in profit; the book's family (same name prefix): members, busy in a trade, free (docs/35 §7: a silent sibling that is busy is not a veto) |
+| 101 | Other books' results today | closed trades and win share across all other books; seconds since the last closed trade on this side and whether it won; wins among the last five on this side |
+| 102 | Trigger density | seconds with a trigger (any book, taken or not) in the last 5 and 30 min, same side and other side; direction flips among the last 15 minutes' triggers; seconds since the last opposite trigger |
+
+## Q. This book's day (added 9 Nov)
+
+| # | Factor | How it is measured |
+|---|---|---|
+| 103 | Re-entry context | trades on this side today; losses today; seconds since the last loss; the last trade's return, hold time and peak; same contract as the last trade, and the premium now against that trade's exit and entry |
+| 104 | The day's P&L shape | best and worst trade today; the last three trades' return; win share; return below the day's high-water mark |
+
 **Not recorded today:** GIFT Nifty, global markets, news. They would have to be added to the feed first.
 
-About 68 groups, roughly 150 individual numbers, per trade.
+104 items (68 to 8 Nov, 36 added 9 Nov), about 390 individual fields, per trade.
