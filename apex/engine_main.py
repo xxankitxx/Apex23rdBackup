@@ -40,6 +40,7 @@ except Exception as _e:                  # pragma: no cover - reported at new_da
 from .engine.impulse import ImpulseWindow
 from .engine.weather import Weather   # 7 Nov: stage 2, the weather photograph (observer)
 from .engine import weather as weather_mod
+from .engine import weather5                  # 10 Nov: photo v5 (docs/38 section 6)
 from .engine import conductor as conductor_mod   # 8 Nov: the Conductor's account (docs/28 §7)
 from .engine.daystate import DayState, load_prior, save_day
 from .engine import strike_levels as sl_mod
@@ -64,7 +65,8 @@ MKT = {"dt": None}                         # C-77: the engine's market clock, fo
 def log(msg):
     mdt = MKT.get("dt")
     mkt = f" mkt={mdt.strftime('%H:%M:%S')}" if mdt is not None else ""
-    line = f"{datetime.now(config.IST).strftime('%H:%M:%S')}{mkt} ENGINE {msg}"
+    # 10 Nov: the date is on every line (the log is appended across days; 9 Nov's lines could not be told from 8 Nov's)
+    line = f"{datetime.now(config.IST).strftime('%Y-%m-%d %H:%M:%S')}{mkt} ENGINE {msg}"
     print(line, flush=True)
     try:
         LOG.write(line + "\n"); LOG.flush()
@@ -216,14 +218,37 @@ class Engine:
             self._kill_v = bool(config.KILL_FILE and os.path.exists(config.KILL_FILE))
         return self._kill_v
 
+    # ── where the time goes (10 Nov) ───────────────────────────────────────
+    # On 9 Nov the engine stood still for up to 8.5 s per step and nothing said why: the tick-time line gave three
+    # numbers and no cause. Every step now carries its own account: exclusive laps of step() ("step:<part>", they add
+    # up to the step), every _safe() call by name, every book by name, the save, the publish. _loop_stat() reports it.
+    _ph = None                          # this tick's {phase: seconds}; None = not measuring
+    _lap_t = 0.0
+    perf = None                         # the last finished minute, published with the state
+
+    def _ph_add(self, name, dt):
+        ph = self._ph
+        if ph is not None:
+            ph[name] = ph.get(name, 0.0) + dt
+
+    def _lap(self, name):
+        """Close one exclusive part of step(): the time since the previous lap goes to "step:<name>"."""
+        now = time.perf_counter()
+        self._ph_add("step:" + name, now - self._lap_t)
+        self._lap_t = now
+
     def _safe(self, name, fn, default=None):
         """Run fn(); on an exception log it (at most once a minute per name) and return default.
-        Advisors and observers go through here so one fault can never skip the books' exits."""
+        Advisors and observers go through here so one fault can never skip the books' exits.
+        10 Nov: the call is timed under its name (see _loop_stat)."""
+        t0 = time.perf_counter()
         try:
             return fn()
         except Exception:
             self._fault(name)
             return default
+        finally:
+            self._ph_add(name, time.perf_counter() - t0)
 
     def _fault(self, name):
         """Log the exception being handled, at most once a minute per name."""
@@ -281,7 +306,11 @@ class Engine:
         self.ideas = (self._safe("ideas board", lambda: ideas_mod.Board(day, log=log), None)
                       if getattr(config, "IDEAS_ON", False) else None)
         self.lstate = learning.load_state()
+        for note in (self._safe("stale tmp cleanup", paper.clean_stale_tmp, None) or []):
+            log(note)                                # 10 Nov: a torn .tmp from a killed process is removed, and said
         loaded = paper.load_books(day)
+        if paper.LAST_LOAD_NOTE:
+            log(paper.LAST_LOAD_NOTE)
         champ = self.lstate["champion"]
         if champ not in config.VARIANTS or champ in config.CONTROLS:
             log(f"learning state names champion {champ!r}, not a registered variant — using {config.CHAMPION_DEFAULT}")
@@ -319,6 +348,13 @@ class Engine:
         self._reset_fwd()
         self.day_state = DayState(day, load_prior(day))     # D-141
         self.weather = Weather(day)                          # 7 Nov (stage 2): the photograph's histories, per day
+        from .engine.gen2 import Gen2                        # 9 Nov (docs/37): the second-generation books' signals
+        self.gen2 = Gen2()
+        from .engine.gen3 import Gen3                        # 10 Nov (docs/38 s7): S01 and S03 shadow signals
+        self.gen3 = Gen3()
+        from .engine.pred import Pred                        # 10 Nov (docs/41): prediction-driven shadow signals
+        self.pred = self._safe("pred start", lambda: Pred(config.PREDICT_MODEL, config.PAPER_DIR, day, ranges_path=config.PREDICT_RANGES), None)
+        self._pred_sec, self._pred_grid = None, None
         probs = weather_mod.static_check()                   # 8 Nov (owner): never run without the whole photograph
         if QuantView is None:                                # docs/34 F05: a missing scipy must be visible, not silent
             probs = list(probs) + [f"quant models unavailable (QuantView import failed: {QUANT_IMPORT_ERROR}); "
@@ -405,7 +441,7 @@ class Engine:
         if not self.books or getattr(self, "_learned", "") == self.day:
             return
         self._learned = self.day
-        paper.save_books(self.books, self.day)
+        paper.save_books(self.books, self.day, full=True)    # 10 Nov: the day's last file never comes from the cache
         paper.write_trades_csv(self.books[self.champion], self.day)
         save_day(self.day_state)                 # D-141: tomorrow's prior-day levels
         self._safe("strike levels save", lambda: sl_mod.save_day(getattr(self, "strike_lv", None)))
@@ -432,6 +468,7 @@ class Engine:
 
     # ── main step ──────────────────────────────────────────────────────────
     def step(self):
+        self._lap_t = time.perf_counter()
         now_ns = self.t.now_ns()
         now_s = now_ns / 1e9
         self.now_s = now_s
@@ -446,6 +483,7 @@ class Engine:
         elif config.hm(self.now_dt) >= config.mins(config.MARKET_CLOSE) + 1:   # D-094: F&O close 15:40
             self.end_day()
 
+        self._lap("day")
         snap = self.t.snapshot()
         dt = now_s - self.m.now if self.m.now else 0.1
         self.m.push(snap, now_s)
@@ -456,14 +494,20 @@ class Engine:
         if not np.isfinite(fut):
             fut = spot
         self._spot_guard(now_s, spot, fut, snap)          # D-132: every step, before anything reads the index
+        self._lap("market")
         if now_s - self.last_greeks >= 0.25:
             self.last_greeks = now_s
             self.compute_greeks(spot, fut)
+        self._lap("greeks")
         if now_s - self.last_1hz >= 1.0:
             self.last_1hz = now_s
             self.iv_hist.append((now_s, self.atm_iv))
             if getattr(self, "weather", None) is not None:        # 7 Nov (stage 2): heavyweights and VIX, 1 Hz
                 self._safe("weather feed", lambda: self._weather_feed(now_s, snap), None)
+            if getattr(self, "gen2", None) is not None and in_session(self.now_dt):   # 9 Nov: 1 Hz, observer of the tape
+                self._safe("gen2", lambda: self._gen2_feed(now_s, snap), None)
+            if getattr(self, "gen3", None) is not None and in_session(self.now_dt):   # 10 Nov: 1 Hz, observer
+                self._safe("gen3", lambda: self._gen3_feed(now_s, snap), None)
             if np.isfinite(spot) and in_session(self.now_dt) and self._spot_age(snap) <= config.SPOT_STALE_S:
                 if self.spot_hist and now_s - self.spot_hist[-1][0] > 60:
                     self.spot_hist.clear()                        # D-124: a > 60-s hole restarts the range (no stitching)
@@ -488,8 +532,10 @@ class Engine:
             self._hist_cols = None                               # T02: the 1-Hz histories changed
             self.oi_hist.append((now_s, {it["id"]: float(snap["oi"][it["id"]])
                                          for it in self.items if it["kind"] in ("opt", "fut", "sfut")}))
+        self._lap("one-hz")
         self.pressure.refresh(self.t, spot)
         self.update_gex(fut)
+        self._lap("pressure-gex")
         fid = self.fut_id if self.fut_id is not None else self.spot_id
         rn = int(snap["recv_ns"][fid]) if fid is not None else 0
         fut_age = (now_ns - rn) / 1e9 if rn else None
@@ -501,6 +547,7 @@ class Engine:
             self._day_lo = min(self._day_lo or fl, fl, fpx0)
         step_gap = (now_s - self._last_step_s) if self._last_step_s else 0.0
         self._last_step_s = now_s
+        self.step_gap = step_gap
         rmax = int(snap["recv_ns"].max()) if len(snap) else 0
         feed_age = (now_ns - rmax) / 1e9 if rmax else None          # D-097: newest quote on ANY row
         self.feed_age = feed_age
@@ -542,6 +589,7 @@ class Engine:
             ep["iv0_interp"] = self.atm_iv_interp     # O-1 observer only: the trigger reads iv0
         K_up, K_dn = self.coherence()
         d = dom.get("dir", 1)
+        self._lap("guard-domino-regime")
         self._safe("straddle", lambda: self.straddle.update(self.m, snap, self.key, getattr(self, "atm", None),
                                                             self.w0, now_s))
         try:
@@ -556,6 +604,7 @@ class Engine:
         self._safe("lag", lambda: self.lag.update(ep))
         self._safe("force", lambda: self.force.update(self.m, self.flow, self.fut_id, spot, self.pressure,
                                                       K_up if d > 0 else K_dn, now_s))
+        self._lap("observers")
         if not np.isfinite(fut):
             return
         spot_rng = self._spot_range()
@@ -586,14 +635,27 @@ class Engine:
             "range15": self._fut_range(now_s, 900, full=True),   # D-121: 15-min high-low (None until 15 min held)
             "fut_ltp": float(snap["ltp"][fid]) if fid is not None else None,   # the raw last print (D-110 keeps the mid in "fut")
             "kill": self._kill_on(),             # 5 Nov: stat at most twice a second (was every step)
+            "step_gap": step_gap,                # 10 Nov: market seconds since the previous step (a stalled engine shows here)
         }
         if self._fwd_on:
             ctx["fwd_over"] = self._safe("forward view", lambda: self._fwd_view(now_s), None)
         ctx["by_id"] = {o["id"]: o for o in ctx["options"]}
         ctx["by_key"] = {o["key"]: o for o in ctx["options"]}
+        self._lap("ctx")
         if getattr(self, "weather", None) is not None:       # 8 Nov (v3): the per-second feeds the photo needs
             self._safe("weather feed v3", lambda: self._weather_feed3(now_s, snap, ctx))
         ctx["_wx"], ctx["_books"] = getattr(self, "weather", None), self.books   # 9 Nov (photo v4): histories, the books
+        ctx["gen3"] = getattr(self, "gen3", None)                                # 10 Nov (docs/38 s7)
+        ctx["pred"] = getattr(self, "pred", None)                                # 10 Nov (docs/41): forecast shadows
+        if ctx["pred"] is not None and in_session(self.now_dt) and int(now_s) != self._pred_sec:
+            self._pred_sec = int(now_s)                                          # once per second, observer
+            self._safe("pred", lambda: self._pred_feed(now_s, snap, ctx), None)
+        ctx["gen2"] = getattr(self, "gen2", None)                                # 9 Nov (docs/37): second-generation signals
+        # 10 Nov (photo v5): what the engine knows about itself, for the photograph only (no decision reads it)
+        ctx["_eng"] = {"spot_id": self.spot_id, "atm": getattr(self, "atm", None), "perf": getattr(self, "perf", None),
+                       "feed_age": getattr(self, "feed_age", None), "pool_cutoff": self._pool_cutoff()}
+        if ctx["_wx"] is not None:
+            self._safe("weather tick v5", lambda: weather5.tick(ctx["_wx"], now_s, ctx["_eng"]["atm"]))
         ctx["weather"] = (self._safe("weather base", lambda: self.weather.base(now_s), {})   # 7 Nov (stage 2)
                           if getattr(self, "weather", None) is not None else {})
         if self._ohist_on:
@@ -619,7 +681,9 @@ class Engine:
         ctx["fires"] = {"prev": self._fires_prev, "cur": {}}     # item 67: books firing this step and the last
         self._fires_prev = ctx["fires"]["cur"]
         self._safe("maybe_arm", lambda: self.maybe_arm(ctx))
+        self._lap("pre-books")
         self.run_books(ctx)
+        self._lap("books")
         try:
             self.ledger.update(ctx, self.books[self.champion], getattr(self, "last_reason", ""), ctx["regime"])
         except Exception:
@@ -630,6 +694,7 @@ class Engine:
             self._safe("episode log", lambda: self.eplog.update(ctx, self))
         if self.ideas is not None:                 # 29 Oct: after the books, observers only
             self._safe("ideas", lambda: self.ideas.step(self, ctx, snap))
+        self._lap("post-books")
 
     def _strike_levels(self, ctx):
         """27 Oct: feed every fresh option print to the per-strike levels; tape the breaks of near-ATM strikes and of
@@ -833,6 +898,181 @@ class Engine:
         if dm is not None and dm.bn_fut is not None:
             self.weather.feed_bn(now_s, float(snap["ltp"][dm.bn_fut]))
         self.weather.feed_vix(float(self.t.c("vix")), int(self.t.c("vix_ns")))
+
+    def _gen2_feed(self, now_s, snap):
+        """9 Nov (docs/37): one second of the Nifty future's quote, its standing 5-level depth and the heavyweights'
+        prices into the second-generation signal engine. Reads the snapshot only; a blackout restarts its windows."""
+        fid = self.fut_id
+        if fid is None:
+            return
+        dm = self.domino
+        hw = (snap["ltp"][dm.eq_ids].astype(float), dm.eq_w, self.weather.hw_g) if (dm is not None and len(dm.eq_ids))             else (None, None, None)
+        # 10 Nov (docs/38 O5): every input carries its own age. A live feed can hold a stale future, an old depth
+        # snapshot or stale stocks; the global blackout cannot certify each of them
+        now_ns = now_s * 1e9
+        rn = int(snap["recv_ns"][fid])
+        q_age = (now_ns - rn) / 1e9 if rn > 0 else None
+        dn = int(snap["depth_ns"][fid])
+        d_age = (now_ns - dn) / 1e9 if dn > 0 else None
+        bq, aq = float(np.nansum(snap["bq"][fid])), float(np.nansum(snap["aq"][fid]))
+        lvl = 5
+        if bq <= 0 or aq <= 0 or d_age is None or d_age > self.GEN2_DEPTH_FRESH_S:
+            bq, aq, lvl = float(snap["bqty"][fid]), float(snap["aqty"][fid]), 1    # no (fresh) depth packet: the best
+        hw_age = None                                                               # level's size, tagged as such
+        if hw[0] is not None:
+            hr = snap["recv_ns"][dm.eq_ids].astype(float)
+            hw_age = np.where(hr > 0, (now_ns - hr) / 1e9, np.inf).tolist()
+        self.gen2.update(now_s, float(snap["bid"][fid]), float(snap["ask"][fid]), float(snap["ltp"][fid]),
+                         float(snap["ttq"][fid]), bq, aq, hw[0], hw[1], hw[2], ok=not self._gap_on,
+                         q_age=q_age, depth_lvl=lvl, hw_age=hw_age)
+
+    def _gen3_feed(self, now_s, snap):
+        """10 Nov (docs/38 section 7): one second of the Nifty future's quote and, per heavyweight, its cash price and
+        its own future's two-sided quote, each with its own age. A stock with no future is NaN and counts as missing."""
+        fid, dm = self.fut_id, self.domino
+        if fid is None or dm is None or not len(dm.eq_ids):
+            return
+        cache = getattr(self, "_g3_ids", None)
+        if cache is None or cache[0] is not dm.eq_sym or cache[1] != len(self.key):
+            cache = self._g3_ids = (dm.eq_sym, len(self.key),
+                                    np.array([self.key.get(f"{s}|FUT", -1) for s in dm.eq_sym], int))
+        fids = cache[2]
+        has = fids >= 0
+        fi = np.where(has, fids, 0)
+        now_ns = now_s * 1e9
+        rn = int(snap["recv_ns"][fid])
+        q_age = (now_ns - rn) / 1e9 if rn > 0 else None
+        age = lambda ids: np.where(snap["recv_ns"][ids] > 0, (now_ns - snap["recv_ns"][ids].astype(float)) / 1e9, np.inf)
+        sb = np.where(has, snap["bid"][fi].astype(float), np.nan)
+        sa = np.where(has, snap["ask"][fi].astype(float), np.nan)
+        self.gen3.update(now_s, float(snap["bid"][fid]), float(snap["ask"][fid]), q_age,
+                         snap["ltp"][dm.eq_ids].astype(float), age(dm.eq_ids), sb, sa, np.where(has, age(fi), np.inf),
+                         dm.eq_w, ok=not self._gap_on)
+
+    PRED_HELD_CAP = 24          # held or pending contracts scored each second besides the near four and the executable two
+
+    def _pred_feed(self, now_s, snap, ctx):
+        """10 Nov (docs/41): one second into the prediction service: the Nifty future's quote, last price, volume and
+        depth, each heavyweight's cash price and own future, and the near week's option quotes on a fixed strike grid
+        (so a registry that grows does not restart the histories). Every input carries its own age."""
+        from .predict import features as PF
+        fid, dm = self.fut_id, self.domino
+        if fid is None or dm is None or not len(dm.eq_ids) or not self.w0:
+            return
+        cache = getattr(self, "_g3_ids", None)
+        if cache is None or cache[0] is not dm.eq_sym or cache[1] != len(self.key):
+            cache = self._g3_ids = (dm.eq_sym, len(self.key),
+                                    np.array([self.key.get(f"{s}|FUT", -1) for s in dm.eq_sym], int))
+        fids = cache[2]
+        has = fids >= 0
+        fi = np.where(has, fids, 0)
+        now_ns = now_s * 1e9
+        rn = int(snap["recv_ns"][fid])
+        q_age = (now_ns - rn) / 1e9 if rn > 0 else 9e9
+        age = lambda ids: np.where(snap["recv_ns"][ids] > 0, (now_ns - snap["recv_ns"][ids].astype(float)) / 1e9, np.inf)
+        fb, fa = float(snap["bid"][fid]), float(snap["ask"][fid])
+        grid = self._pred_grid
+        if grid is None or grid[0] != self.w0:
+            if not (fb > 0 and fa >= fb):
+                return
+            c = round(0.5 * (fb + fa) / config.STRIKE_STEP) * config.STRIKE_STEP
+            K = np.array([c + j * config.STRIKE_STEP for j in range(-30, 31)], float)
+            grid = self._pred_grid = (self.w0, K, {float(k): j for j, k in enumerate(K)})
+        K, kix = grid[1], grid[2]
+        ob = np.full((len(K), 2), np.nan)
+        oa = np.full((len(K), 2), np.nan)
+        og = np.full((len(K), 2), 9e9)
+        for o in ctx["options"]:
+            if o["week"] != 0:
+                continue
+            j = kix.get(float(o["strike"]))
+            if j is None or o["bid"] is None or o["ask"] is None:
+                continue
+            r = 0 if o["rr"] == "CE" else 1
+            ob[j, r], oa[j, r], og[j, r] = o["bid"], o["ask"], o["age"]
+        dn = int(snap["depth_ns"][fid])
+        d_age = (now_ns - dn) / 1e9 if dn > 0 else 9e9
+        bq, aq = float(np.nansum(snap["bq"][fid])), float(np.nansum(snap["aq"][fid]))
+        dte = PF.dte_days(self.day, self.w0)
+        tod = (self.now_dt.hour * 3600 + self.now_dt.minute * 60 + self.now_dt.second) - (9 * 3600 + 15 * 60)
+        p = self.pred
+        extra = []                                  # 11 Nov (docs/42 A, C): score what the engine would buy and what is held
+        for d in (1, -1):
+            o, _ = paper.choose_contract(ctx, d)
+            if o is not None and o.get("week") == 0:
+                extra.append((float(o["strike"]), 0 if o["rr"] == "CE" else 1, "exe"))
+        held = {}                                   # contract -> priority: the account first, then the books that
+        for nm, b in self.books.items():            # act on a forecast, then every other book (docs/42 review, 11 Nov)
+            ps = b.pos or (b.ctl.get("pending_entry") and {"key": b.ctl["pending_entry"]["key"]})
+            if not ps:
+                continue
+            if ps.get("strike") is None:            # a pending entry: the contract is in its key
+                kp = str(ps.get("key", "")).split("|")
+                if len(kp) != 5 or kp[2] != self.w0:
+                    continue
+                c = (float(kp[3]), 0 if kp[4] == "CE" else 1)
+            elif ps.get("expiry") == self.w0:
+                c = (float(ps["strike"]), 0 if ps.get("rr") == "CE" else 1)
+            else:
+                continue
+            pr = 0 if nm in (self.champion, "conductor") else \
+                1 if (b.p.get("gen") in config.PRED_BOOKS or b.p.get("fc_exit") or b.p.get("fc_hold")) else 2
+            held[c] = min(pr, held.get(c, 9))
+        order = sorted(held, key=lambda c: (held[c], c))
+        extra += [(s, r, "held") for s, r in order[:self.PRED_HELD_CAP]]
+        if len(order) > self.PRED_HELD_CAP:         # never silent: how many held contracts went unscored, and whose
+            p.stats["held_over_cap_s"] = p.stats.get("held_over_cap_s", 0) + 1
+            p.stats["held_over_cap_max"] = max(p.stats.get("held_over_cap_max", 0), len(order) - self.PRED_HELD_CAP)
+            for c in order[self.PRED_HELD_CAP:]:
+                p.miss_cap = getattr(p, "miss_cap", set()) | {c}
+        else:
+            p.miss_cap = set()
+        p.update(now_s, fb, fa, q_age, snap["ltp"][dm.eq_ids].astype(float), age(dm.eq_ids),
+                 np.where(has, snap["bid"][fi].astype(float), np.nan), np.where(has, snap["ask"][fi].astype(float), np.nan),
+                 np.where(has, age(fi), np.inf), dm.eq_w, K, ob, oa, og, dte, dte == 0, tod, ok=not self._gap_on,
+                 f_ltp=float(snap["ltp"][fid]), f_vol=float(snap["ttq"][fid]), bq=bq, aq=aq, d_age=d_age, extra=extra, expiry=self.w0)
+        for c in getattr(p, "miss_cap", ()):
+            if c not in p.cur:
+                p.miss[c] = "more held contracts than the forecaster's capacity this second"
+        if int(now_s) % 10 == 0:
+            p.flush()                                         # a few appended lines, no fsync: off the trade path
+
+    def _pred_note(self, name, b, pos, ctx):
+        """10 Nov (docs/41, P01 forecast_select as a record, not a gate): what the forecast said about a champion
+        family entry at its fill. Written to the forecast ledger and, as a few numbers, on the position. Nothing
+        reads it for a decision."""
+        p = self.pred
+        if p is None or pos.get("expiry") != self.w0:
+            return
+        rr = 0 if pos.get("rr") == "CE" else 1
+        ok, e, why = p.admit(pos.get("strike"), rr)
+        c = p.cur.get((float(pos.get("strike") or 0), rr))
+        if c is None:
+            pos["fc"] = {"edge": None, "why": p.why_none(pos.get("strike") or 0, rr)}
+            return
+        hm = max(c["f"]["pT"])
+        pos["fc"] = {"edge": round(float(e), 4), "admit": bool(ok), "pT": round(c["f"]["pT"][hm], 4),
+                     "pA": round(c["f"]["pA"][hm], 4), "model": p.fc.hash}
+        if p.led is not None:
+            from .engine import pred as _pm
+            pos["fc"]["id"] = p.led.issue(ctx["now_s"], pos.get("key"), c["x"], p.rec(c["x"], c["f"]),
+                                          "admit" if ok else "reject", why, "p01_select", p.fc.hash,
+                                          (p.fc.art or {}).get("training_cutoff"),
+                                          extra={"book": name, "entry": pos.get("entry")})
+
+    GEN2_DEPTH_FRESH_S = 5.0     # a five-level depth snapshot older than this is not used (best level instead, tagged)
+
+    def _pool_cutoff(self):
+        """The newest `from` date among the pool rows in force today (photo item 128), computed once."""
+        c = getattr(self, "_pool_cut", False)
+        if c is False:
+            try:
+                ms = getattr(self.conductor, "members", None) or []
+                c = max((m.get("from") for m in ms if m.get("from")), default=None)
+            except Exception:                      # noqa: BLE001
+                c = None
+            self._pool_cut = c
+        return c
 
     def _weather_feed3(self, now_s, snap, ctx):
         """8 Nov (photo v3, docs/27 all items): the per-second series the base needs (forward, basis, VWAP side, skew
@@ -1368,7 +1608,15 @@ class Engine:
     def run_books(self, ctx):
         changed = False
         fctx = None
+        pc, ph = time.perf_counter, self._ph
+        tb = pc()
         for name, b in self.books.items():
+            if ph is not None:                         # 10 Nov: each book's own time (the previous book ends here)
+                tn = pc()
+                if tn - tb > 0.002:                    # only what matters: a book over 2 ms this step
+                    ph["book:" + self._pb_name] = ph.get("book:" + self._pb_name, 0.0) + (tn - tb)
+                tb = tn
+                self._pb_name = name
             if b.p.get("conductor"):                   # 8 Nov: the Conductor runs after every pool book (below)
                 continue
             bctx = ctx
@@ -1407,24 +1655,30 @@ class Engine:
                 self._fault(f"entry {name}")
             if self.missed is not None:              # 7 Nov: observer only (docs/29)
                 self._safe("missed paper", lambda: self.missed.step_paper(self, name, b, bctx))
+        if ph is not None and pc() - tb > 0.002:
+            ph["book:" + self._pb_name] = ph.get("book:" + self._pb_name, 0.0) + (pc() - tb)
         if self.conductor is not None:
+            tc = pc()
             try:
                 changed = self._conductor_step(ctx) or changed
             except Exception:
                 self._fault("conductor")
+            self._ph_add("conductor", pc() - tc)
         if not self._photo_checked:
             self._safe("photo check", lambda: self._photo_check(ctx))
         if self.missed is not None:
             self._safe("missed advance", lambda: self.missed.advance(self, ctx))
         sig = self._exit_signature()
         if changed:
-            paper.save_books(self.books, self.day)
+            ts = pc()
+            paper.save_books_async(self.books, self.day)     # 9 Nov: the disk write no longer holds the step
+            self._ph_add("save books (trade)", pc() - ts)
             self._exit_sig, self._exit_sig_t = sig, ctx["now_s"]
         elif sig != self._exit_sig and (self._exit_sig_t is None or ctx["now_s"] - self._exit_sig_t >= 1.0) \
                 and not config.REPLAY_FAST:
             # C-11: an armed trail, a new best or a committed exit must survive a restart (≤ 1 save/s).
             # T02: not in a --fast replay (never restarted; the books are saved on every trade and at the stop)
-            if self._safe("save exit state", lambda: paper.save_books(self.books, self.day) or True, False):
+            if self._safe("save exit state", lambda: paper.save_books_async(self.books, self.day) or True, False):
                 self._exit_sig, self._exit_sig_t = sig, ctx["now_s"]
         self._safe("decision tape", lambda: self._tape_decision(ctx))
         if getattr(self, "commentary", None) is not None:
@@ -1605,6 +1859,8 @@ class Engine:
             a = ad[name] = council.Adapter(b.p["council"], self.day, self.w0)
         n0, had = len(b.trades), b.pos
         traded = a.step(self, b, ctx)
+        if b.pos and b.pos is not had and getattr(self, "pred", None) is not None:   # 10 Nov (docs/41): record only
+            self._safe("pred note", lambda: self._pred_note(name, b, b.pos, ctx))
         if not traded or name not in (self.champion, "RAW"):
             return traded
         champ = name == self.champion
@@ -1638,19 +1894,100 @@ class Engine:
     DEC_MAX_LINES = 3000                         # hard cap per day: a flip-flopping reason cannot fill the disk
 
     _lp = None
+    _pb_name = ""
+    SLOW_TICK_MS = 1000.0                        # a tick this long is reported at once, with where the time went
+    SLOW_P50_MS = 150.0                          # a minute whose median tick is over this is an event on the dashboard
+    _slow_log_t = -1e18
+    _slow_ev_t = -1e18
+    _stall_seen = 0
+
+    @staticmethod
+    def _top_phases(ph, n=6, prefix=None, skip=None):
+        """[(name, seconds)] the n largest phases (optionally only those starting with prefix / not with skip)."""
+        it = [(k, v) for k, v in ph.items()
+              if (prefix is None or k.startswith(prefix)) and (skip is None or not k.startswith(skip))]
+        return sorted(it, key=lambda kv: -kv[1])[:n]
 
     def _loop_stat(self, ms):
-        """3 Nov: once a minute, log the tick time (p50 / p95 / max) when any tick in the minute took over 300 ms.
-        Live ticks that run late (book saves, audio) shift fills by a print; the fast replay never has them."""
+        """The engine's own account of its time. Every tick: its phases (step laps, _safe calls, books, save, publish)
+        are added to the minute. A tick over SLOW_TICK_MS is logged at once with its largest phases. Each minute: one
+        log line (always in a live session; elsewhere only when a tick passed 300 ms), one line in
+        data/logs/perf_<day>.jsonl (live always; a replay with APEX_PROFILE=1, per market minute), and self.perf for the
+        dashboard. 3 Nov: the first version logged p50 / p95 / max only; on 9 Nov that could not say what was slow."""
+        ph, self._ph = (self._ph or {}), {}
+        live = self.mode == "live"
+        prof = live or os.environ.get("APEX_PROFILE", "") == "1"
         lp = self._lp
-        now = time.perf_counter()
-        if lp is None or now - lp["t0"] >= 60.0:
-            if lp and lp["xs"] and max(lp["xs"]) > 300.0:
-                xs = sorted(lp["xs"])
-                log(f"ENGINE tick time last minute: p50 {xs[len(xs) // 2]:.0f} ms, p95 {xs[int(len(xs) * 0.95)]:.0f} ms, "
-                    f"max {xs[-1]:.0f} ms over {len(xs)} ticks (over 300 ms: {sum(1 for x in xs if x > 300.0)})")
-            self._lp = lp = {"t0": now, "xs": []}
+        key = time.perf_counter() // 60.0 if live else int((getattr(self, "now_s", 0.0) or 0.0) // 60)
+        if lp is None or key != lp["key"]:
+            if lp and lp["xs"]:
+                self._safe("perf minute", lambda: self._perf_minute(lp, live, prof))
+            self._lp = lp = {"key": key, "xs": [], "ph": {}, "mx": {}, "slow": 0,
+                             "mkt": self.now_dt.strftime("%H:%M") if hasattr(self, "now_dt") else ""}
         lp["xs"].append(ms)
+        acc, mx = lp["ph"], lp["mx"]
+        for k, v in ph.items():
+            acc[k] = acc.get(k, 0.0) + v
+            if v > mx.get(k, 0.0):
+                mx[k] = v
+        if ms > self.SLOW_TICK_MS:
+            lp["slow"] += 1
+            now = time.monotonic()
+            if now - self._slow_log_t >= 5.0:               # at most one such line every 5 s
+                self._slow_log_t = now
+                laps = ", ".join(f"{k[5:]} {v * 1000:.0f}" for k, v in self._top_phases(ph, 4, prefix="step:"))
+                det = ", ".join(f"{k} {v * 1000:.0f}" for k, v in self._top_phases(ph, 5, skip="step:"))
+                log(f"SLOW TICK {ms:.0f} ms · step parts (ms): {laps or 'none'} · inside (ms): {det or 'none'} · "
+                    f"save {self._save_note()}")
+
+    def _save_note(self):
+        st = self._safe("save status", paper.save_status, None) or {}
+        if not st:
+            return "status unknown"
+        s = f"lag {st.get('lag', 0)}"
+        if st.get("last_ms") is not None:
+            s += f", last write {st['last_ms']:.0f} ms"
+        if st.get("errors"):
+            s += f", errors {st['errors']} (last: {st.get('last_error')})"
+        if st.get("stale_fixed"):
+            s += f", stale cache entries repaired {st['stale_fixed']}"
+        return s
+
+    def _perf_minute(self, lp, live, prof):
+        xs = sorted(lp["xs"])
+        n = len(xs)
+        p50, p95, mxv = xs[n // 2], xs[int(n * 0.95)], xs[-1]
+        over300 = sum(1 for x in xs if x > 300.0)
+        tot = sum(xs) / 1000.0 or 1e-9
+        laps = self._top_phases(lp["ph"], 4, prefix="step:")
+        det = self._top_phases(lp["ph"], 6, skip="step:")
+        st = self._safe("save status", paper.save_status, None) or {}
+        self.perf = {"mkt": lp["mkt"], "n": n, "p50": round(p50, 1), "p95": round(p95, 1), "max": round(mxv, 1),
+                     "over300": over300, "over1000": lp["slow"],
+                     "laps": [[k[5:], round(100.0 * v / tot, 1)] for k, v in laps],
+                     "top": [[k, round(1000.0 * v / n, 2), round(1000.0 * lp["mx"].get(k, 0.0), 1)] for k, v in det],
+                     "save": st, "stalls": getattr(self.guard, "stalls", None)}
+        if live or mxv > 300.0:
+            log(f"tick time last minute: p50 {p50:.0f} ms, p95 {p95:.0f} ms, max {mxv:.0f} ms over {n} ticks "
+                f"(over 300 ms: {over300}, over 1 s: {lp['slow']}) · "
+                + "share of time: " + ", ".join(f"{k[5:]} {100.0 * v / tot:.0f} %" for k, v in laps)
+                + " · mean ms per tick: " + ", ".join(f"{k} {1000.0 * v / n:.1f}" for k, v in det[:4])
+                + f" · save {self._save_note()}")
+        if live and p50 > self.SLOW_P50_MS and time.monotonic() - self._slow_ev_t >= 300.0:
+            self._slow_ev_t = time.monotonic()
+            self.ev("SYSTEM", f"engine slow: median step {p50:.0f} ms in the last minute ({n} steps); "
+                              + "most time in " + ", ".join(f"{k[5:]} {100.0 * v / tot:.0f} %" for k, v in laps[:2]))
+        if live and (st.get("lag", 0) > 1 or st.get("fails_row", 0) > 0) and st.get("pending_s", 0) > 5.0:
+            self.ev("SYSTEM", f"books save is behind: {st.get('lag')} save(s) not on disk for {st.get('pending_s'):.0f} s"
+                              + (f" · last error {st.get('last_error')}" if st.get("last_error") else ""))
+        if prof and self.day:
+            rec = {"wall": datetime.now(config.IST).strftime("%Y-%m-%d %H:%M:%S"), "mkt": lp["mkt"], "n": n,
+                   "p50": round(p50, 2), "p95": round(p95, 2), "max": round(mxv, 2), "over300": over300,
+                   "over1000": lp["slow"], "sum_ms": round(tot * 1000.0, 1),
+                   "ph": {k: [round(1000.0 * v / n, 3), round(1000.0 * lp["mx"].get(k, 0.0), 2)]
+                          for k, v in self._top_phases(lp["ph"], 40)},
+                   "save": st}
+            _append_jsonl(os.path.join(config.LOG_DIR, f"perf_{self.day}.jsonl"), rec)
 
     def _tape_decision(self, ctx):
         """C-34: the champion's reason path, one line whenever its reason class changes."""
@@ -1759,6 +2096,7 @@ class Engine:
             "hot_p50": fnum(self.t.c("hot_p50_us"), 1), "hot_p99": fnum(self.t.c("hot_p99_us"), 1),
             "msgs_s": fnum(self.t.c("msgs_per_s"), 0), "rest_today": int(self.t.c("rest_today")),
             "reconnects": int(self.t.c("reconnects")), "loop_ms": fnum(self.loop_ms, 1),
+            "perf": self.perf,                   # 10 Nov: the last minute's step times and where they went
             "vix": fnum(self.t.c("vix"), 2), "atm": getattr(self, "atm", None), "fwd": fnum(getattr(self, "fwd", None), 1),
             "atm_iv": fnum(self.atm_iv * 100 if getattr(self, "atm_iv", None) else None, 2),
             "iv5": fnum(self.iv_change(300), 2), "w0": self.w0, "w1": self.w1,
@@ -1792,6 +2130,8 @@ class Engine:
                            "swing_last": (champ.ctl.get("swing_last") if champ else None)},
             "champion": self.champion, "gates": self.gates,
             "conductor": self._conductor_view(),   # 8 Nov: the pool and the account's state, for the dashboard
+            "forecast": (self._safe("forecast panel", self.pred.panel, None)   # 11 Nov: display only
+                         if getattr(self, "pred", None) is not None else None),
             "learning": {k: self.lstate.get(k) for k in ("status", "scoreboard", "champion_since", "retired", "candidates")},
             "controls": list(config.CONTROLS),
             "blackout": self.guard.view(self.now_s),
@@ -1850,8 +2190,32 @@ class Engine:
                 continue
             speed = max(float(self.t.c("speed")), 1.0)
             time.sleep(max(0.1 / speed - (time.perf_counter() - t0), 0.005))
+        self.stop_path()
+
+    def day_is_over(self):
+        """True when nothing more can trade today, so a stop may close and learn the day. 10 Nov: on 9 Nov the session
+        was stopped at 15:32, before the 15:40 close, so the day was neither closed nor learned. After the flatten
+        time (15:25) with every book flat there is nothing left to wait for: a restart the same day reloads the same
+        books and end_day() never learns a day twice."""
+        if self.mode != "live":
+            return True
+        hm = config.hm(self.now_dt)
+        if hm >= config.mins(config.MARKET_CLOSE):
+            return True
+        return hm >= config.mins(config.FLATTEN_AT) and not any(b.pos for b in self.books.values())
+
+    def stop_path(self):
+        """The clean stop: books to disk first (verified), then the logs, then the day if it is over. Every stage says
+        so in the log, and the supervisor waits for "stopped" (run_apex.ENGINE_STOP_S)."""
+        t0 = time.perf_counter()
         if self.books:
-            self._safe("stop: save books", lambda: paper.save_books(self.books, self.day))
+            log("stop requested: saving the books")
+            self.t.set("engine_hb_ns", time.time_ns())           # still alive, for the supervisor
+            ok = self._safe("stop: save books", lambda: paper.save_books(self.books, self.day, full=True) or True, False)
+            st = self._safe("save status", paper.save_status, None) or {}
+            log(f"stop: books {'saved' if ok else 'NOT SAVED'} in {(time.perf_counter() - t0) * 1000:.0f} ms"
+                + (f" · {st.get('stale_fixed')} stale cached trade(s) repaired" if st.get("stale_fixed") else "")
+                + (f" · last error {st.get('last_error')}" if not ok and st.get("last_error") else ""))
             if self.eplog:
                 self._safe("stop: episode log", self.eplog.close)
             self._safe("stop: straddle watch", self.watch.close)
@@ -1859,16 +2223,22 @@ class Engine:
                 self._safe("stop: ideas", self.ideas.close)
             if getattr(self, "ledger", None) is not None:
                 self._safe("stop: ledger", self.ledger.close)
-            if self.mode != "live" or config.hm(self.now_dt) >= config.mins(config.MARKET_CLOSE):
+            if self.day_is_over():
+                log(f"stop: closing and learning day {self.day}")
+                self.t.set("engine_hb_ns", time.time_ns())
                 try:                                 # the stop path must always reach "stopped"
                     self.end_day()
                 except Exception:
                     log("end_day at stop: " + traceback.format_exc())
+            else:
+                log(f"stop: day {self.day} left open (the session is not over; a restart continues it)")
         self._safe("stop: publish", self.publish)
-        log("stopped")
+        log(f"stopped ({time.perf_counter() - t0:.1f} s after the stop request)")
 
     def tick_nopublish(self):
         """T02: one step without the wall-clock publish (apex/replay_fast.py publishes on market time)."""
+        if self._ph is None:
+            self._ph = {}
         try:
             self.load_registry()
             self.step()
@@ -1887,10 +2257,14 @@ class Engine:
         try:
             if time.monotonic() - self.last_publish >= 0.25:
                 self.last_publish = time.monotonic()
+                tp = time.perf_counter()
                 self.publish()
+                self._ph_add("publish", time.perf_counter() - tp)
             if self.mode == "live" and time.monotonic() - getattr(self, "_last_warm", 0.0) >= getattr(config, "WARM_SAVE_S", 30):
                 self._last_warm = time.monotonic()
+                tp = time.perf_counter()
                 self._save_warm()
+                self._ph_add("warm save", time.perf_counter() - tp)
         except Exception:
             log(traceback.format_exc())
             return False

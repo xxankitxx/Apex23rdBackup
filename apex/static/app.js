@@ -325,7 +325,9 @@ function render(s) {
   renderVerdict(s); renderLadder(s); renderPos(s, now);
   if (typeof renderCommentary === "function") renderCommentary(s, now);   // commentary.js (T09)
   drawTrace(s); drawOI(s); renderQuant(s);
-  renderIdeas(s); renderStraddle(s, now); renderHeavy(s); renderTrades(s); renderBooks(s); renderTape(s);
+  renderIdeas(s);
+  try { renderForecast(s); } catch (e) { const g = $("fcgrid"); if (g) g.textContent = "Forecast panel error: " + e.message; }   // never breaks the page
+  renderStraddle(s, now); renderHeavy(s); renderTrades(s); renderBooks(s); renderTape(s);
 }
 
 const idOf = (key) => { for (const id in INST) if (INST[id].key === key) return +id; return -1; };
@@ -1398,6 +1400,78 @@ loadInstruments().then(() => { connectTicks(); connectState(); primeState(); req
 
 // ── Ideas board (29 Oct): the owner's ideas and the rejected ones, live. Observers only: nothing here trades. ──
 const idEsc = (x) => String(x ?? "").replace(/[&<>"]/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]));
+// ── 11 Nov: the forecast panel. Display only. One card per contract the engine would buy now (call, put) and per
+// held contract: what the model says its PREMIUM will do in the next 5 minutes. ─────────────────────────────────
+// The panel's one-sentence headline, as a pure function so it can be tested (11 Nov, review of the first version).
+// It compares ONE thing between the two contracts the engine could buy: the chance that the premium gains the
+// barrier before it loses it. It never says "more likely to rise", and it never speaks for the books.
+function forecastHeadline(rows, mins, bar) {
+  const buy = (rows || []).filter((r) => r.tag === "exe");
+  const ce = buy.find((r) => r.side === "CE"), pe = buy.find((r) => r.side === "PE");
+  const pp = (x) => `${Math.round(x * 100)}%`;
+  const ev = `gaining ${bar}% before losing ${bar}% within ${mins} minutes`;
+  if (!ce && !pe) return (rows || []).length
+    ? "No contract the engine could buy has a forecast right now. The cards below are held contracts only."
+    : "";
+  if (!ce || !pe) {
+    const r = ce || pe;
+    return `Only the ${r.side === "CE" ? "call" : "put"} side has a buyable contract with a forecast. Its chance of ${ev}: ${pp(r.up)}.`;
+  }
+  const d = ce.up - pe.up;
+  const lead = Math.abs(d) < 0.02
+    ? `Call and put have about the same chance of ${ev}: ${pp(ce.up)} and ${pp(pe.up)}.`
+    : `The ${d > 0 ? "call" : "put"} has the higher chance of ${ev}: ${pp(d > 0 ? ce.up : pe.up)} against ${pp(d > 0 ? pe.up : ce.up)}.`;
+  const hit = buy.filter((r) => r.above_line).map((r) => (r.side === "CE" ? "call" : "put"));
+  return lead + (hit.length ? ` Raw entry level reached on the ${hit.join(" and the ")}.` : " Raw entry level not reached.");
+}
+
+// ── 11 Nov: the forecast panel. Display only. One card per contract the engine would buy now (call, put) and per
+// held contract: what the model says its PREMIUM will do in the next 5 minutes. ─────────────────────────────────
+function renderForecast(s) {
+  const f = s.forecast, grid = $("fcgrid"), say = $("fcsay"), foot = $("fcfoot"), hint = $("fchint");
+  if (!grid) return;
+  const txt = (el, t) => { if (el) el.textContent = t; };
+  if (!f) { setHTML(grid, `<p class="small">Forecast is off.</p>`); txt(say, ""); txt(foot, ""); txt(hint, ""); return; }
+  const mins = Math.round((f.horizon_s || 300) / 60), bar = fmt(f.barrier_pct, 0);
+  const p = (x) => nil(x) ? "—" : `${Math.round(x * 100)}%`;
+  const sp = (x) => nil(x) ? "—" : `${x >= 0 ? "+" : "−"}${Math.abs(x * 100).toFixed(1)}%`;
+  txt(hint, f.rows && f.rows.length ? `${f.signals || 0} signal${f.signals === 1 ? "" : "s"} today` : "");
+  if (!f.rows || !f.rows.length) {
+    setHTML(grid, `<p class="small">No forecast right now: ${idEsc(f.why || "waiting")}.</p>`);
+    txt(say, "");
+  } else {
+    txt(say, forecastHeadline(f.rows, mins, bar));
+    const html = f.rows.map((r) => {
+      const who = r.tag === "exe" ? "would buy now" : r.tag === "held" ? "held by a book" : "near the money";
+      const up = Math.max(0, r.up || 0), dn = Math.max(0, r.down || 0), fl = Math.max(0, 1 - up - dn);
+      const prem = nil(r.ask) ? "" : `<span class="fc-prem">ask ₹${fmt(r.ask, 1)}</span>`;
+      const rng = (q, secs) => {
+        if (!q) return "";
+        const lo = nil(r.ask) ? "" : ` (about ₹${fmt(r.ask * (1 + q[0]), 1)} to ₹${fmt(r.ask * (1 + q[2]), 1)} from the current ask)`;
+        return `<div class="fc-rng"><span>Premium change in ${secs >= 60 ? Math.round(secs / 60) + " min" : secs + " s"}, estimated 10th to 90th percentile:</span><b>${sp(q[0])} to ${sp(q[2])}</b>${lo}</div>`;
+      };
+      return `<article class="fc-card ${r.side}${r.above_line ? " hot" : ""}">`
+        + `<div class="fc-top"><span class="fc-name">${fmt(r.strike, 0)} ${r.side}</span>${prem}<span class="fc-tag">${who}</span></div>`
+        + `<div class="fc-q">In the next ${mins} minutes, which comes first for this premium?</div>`
+        + `<div class="fc-bar" title="Gain ${bar}% first / neither / lose ${bar}% first">`
+        + `<i class="u" style="width:${(up * 100).toFixed(1)}%"></i><i class="n" style="width:${(fl * 100).toFixed(1)}%"></i><i class="d" style="width:${(dn * 100).toFixed(1)}%"></i></div>`
+        + `<div class="fc-leg"><span class="u">+${bar}% first <b>${p(up)}</b></span><span class="n">neither <b>${p(fl)}</b></span><span class="d">−${bar}% first <b>${p(dn)}</b></span></div>`
+        + rng(r.rng60, f.short_s || 60) + rng(r.rng300, f.horizon_s || 300)
+        + `<div class="fc-edge">Gain chance minus loss chance: ${sp(r.edge)} · raw entry level ${nil(f.line_in) ? "—" : sp(f.line_in)}${r.above_line ? " · <b>raw entry level reached</b>" : ""}</div>`
+        + `</article>`;
+    }).join("");
+    setHTML(grid, html);
+  }
+  const bk = f.books ? Object.keys(f.books).map((n) => `${n}: ${f.books[n]}`).join(" · ") : "";
+  const miss = (f.missing || []).filter((m) => m.tag).slice(0, 3).map((m) => `${fmt(m.strike, 0)} ${m.side}: ${m.why}`).join(" · ");
+  const last = f.last ? ` Last signal: ${f.last.book} on ${fmt(f.last.strike, 0)} ${f.last.side}.` : "";
+  const ev = f.evaluation && f.evaluation.text ? ` Evaluation: ${f.evaluation.text}` : " No out-of-sample evaluation is attached to this model file.";
+  const rm = f.ranges ? ` Ranges come from a separate model ${f.range_model || "—"}, fitted on data to ${f.range_trained_through || "—"}.` : " No range model loaded.";
+  txt(foot, `Each forecast book, in its own words: ${bk || "—"}. `
+    + `Chances come from model ${f.model || "—"}, fitted on data to ${f.trained_through || "—"}${f.in_sample ? " (it has seen today: not a test)" : ""}.`
+    + rm + ev + ` Read this as a lean, not a promise.` + last + (miss ? ` No forecast for: ${miss}.` : ""));
+}
+
 function renderIdeas(s) {
   const b = s.ideas, grid = $("idgrid");
   if (!grid) return;

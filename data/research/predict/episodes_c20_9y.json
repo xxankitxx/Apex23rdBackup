@@ -1,0 +1,64 @@
+{
+ "policy": "c20_9y",
+ "source": "p41_g1..g8 (10 Nov code, recorder off)",
+ "built": "2026-11-11 02:57:24",
+ "executed_trades": 92,
+ "rows": 92,
+ "not_in_recorded_seconds": {},
+ "sessions": 15,
+ "with_features": 69,
+ "with_first_barrier_label": 89,
+ "profitable": 54,
+ "developed5": 70,
+ "runners": 20,
+ "runner_definition": "ret_pct >= 20.0",
+ "depth_counts": {
+  "-1": 1,
+  "0": 13,
+  "1": 33,
+  "2": 20,
+  "3": 2
+ },
+ "delta_quantiles": [
+  0.5276500000000001,
+  0.5577500000000001,
+  0.6134999999999999,
+  0.6745000000000001,
+  0.70815
+ ],
+ "had_engine_forecast_at_fill": 46,
+ "missing": "rejected, blocked, vetoed and lapsed triggers are NOT here: the replay ran with the recorder off",
+ "sha256": "8e68b690c02b2cebd629e48dd80b7fb58af5a6bd1dbde4cb83ead2870dad7f7e",
+ "wall_s": 39.4,
+ "first_barrier_vs_policy_result": {
+  "up_first": {
+   "n": 35,
+   "profitable": 25,
+   "runners": 12,
+   "sum_pnl_rs": 884448.5,
+   "mean_ret_pct": 18.512172259840785
+  },
+  "down_first": {
+   "n": 49,
+   "profitable": 23,
+   "runners": 6,
+   "sum_pnl_rs": 231962.25,
+   "mean_ret_pct": 3.4484270889277697
+  },
+  "neither": {
+   "n": 3,
+   "profitable": 2,
+   "runners": 1,
+   "sum_pnl_rs": 40387.75,
+   "mean_ret_pct": 13.18868085050614
+  },
+  "unobservable": {
+   "n": 2,
+   "profitable": 2,
+   "runners": 0,
+   "sum_pnl_rs": 5895.5,
+   "mean_ret_pct": 3.673021732723225
+  }
+ },
+ "no_first_barrier_label": 3
+}

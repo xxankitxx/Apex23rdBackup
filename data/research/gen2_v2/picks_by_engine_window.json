@@ -1,0 +1,130 @@
+{
+ "n03.endpoints": {
+  "tradable": {
+   "n": 123,
+   "wins": 54,
+   "sum_pct": -189.9,
+   "mean_pct": -1.544,
+   "best_pct": 46.8
+  },
+  "outside": {
+   "n": 26,
+   "wins": 9,
+   "sum_pct": -184.1,
+   "mean_pct": -7.081,
+   "best_pct": 91.4
+  }
+ },
+ "n03.lags": {
+  "tradable": {
+   "n": 149,
+   "wins": 73,
+   "sum_pct": 54.1,
+   "mean_pct": 0.363,
+   "best_pct": 46.8
+  },
+  "outside": {
+   "n": 31,
+   "wins": 13,
+   "sum_pct": -275.5,
+   "mean_pct": -8.886,
+   "best_pct": 91.4
+  }
+ },
+ "n03.sig2": {
+  "tradable": {
+   "n": 148,
+   "wins": 60,
+   "sum_pct": -29.2,
+   "mean_pct": -0.197,
+   "best_pct": 29.7
+  },
+  "outside": {
+   "n": 27,
+   "wins": 11,
+   "sum_pct": 892.5,
+   "mean_pct": 33.057,
+   "best_pct": 950.0
+  }
+ },
+ "n03.sig2_shuf": {
+  "tradable": {
+   "n": 152,
+   "wins": 69,
+   "sum_pct": -144.0,
+   "mean_pct": -0.947,
+   "best_pct": 28.2
+  },
+  "outside": {
+   "n": 27,
+   "wins": 13,
+   "sum_pct": 741.2,
+   "mean_pct": 27.45,
+   "best_pct": 555.0
+  }
+ },
+ "n05.fwd_only": {
+  "tradable": {
+   "n": 79,
+   "wins": 26,
+   "sum_pct": -143.0,
+   "mean_pct": -1.81,
+   "best_pct": 44.2
+  },
+  "outside": {
+   "n": 2,
+   "wins": 1,
+   "sum_pct": -15.9,
+   "mean_pct": -7.943,
+   "best_pct": 4.5
+  }
+ },
+ "n05.iv_mom": {
+  "tradable": {
+   "n": 134,
+   "wins": 60,
+   "sum_pct": 185.1,
+   "mean_pct": 1.381,
+   "best_pct": 83.9
+  },
+  "outside": {
+   "n": 29,
+   "wins": 18,
+   "sum_pct": 64.3,
+   "mean_pct": 2.217,
+   "best_pct": 38.4
+  }
+ },
+ "n05.prem_mom": {
+  "tradable": {
+   "n": 149,
+   "wins": 58,
+   "sum_pct": -155.6,
+   "mean_pct": -1.044,
+   "best_pct": 41.3
+  },
+  "outside": {
+   "n": 10,
+   "wins": 1,
+   "sum_pct": -135.6,
+   "mean_pct": -13.563,
+   "best_pct": 30.4
+  }
+ },
+ "n05.surface": {
+  "tradable": {
+   "n": 138,
+   "wins": 67,
+   "sum_pct": 228.3,
+   "mean_pct": 1.654,
+   "best_pct": 83.9
+  },
+  "outside": {
+   "n": 28,
+   "wins": 13,
+   "sum_pct": -41.6,
+   "mean_pct": -1.485,
+   "best_pct": 54.6
+  }
+ }
+}

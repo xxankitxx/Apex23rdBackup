@@ -224,3 +224,24 @@ the trigger second; `tests/test_weather.py` is the leak test.
 **Not recorded today:** GIFT Nifty, global markets, news. They would have to be added to the feed first.
 
 104 items (68 to 8 Nov, 36 added 9 Nov), about 390 individual fields, per trade.
+
+## R. The machine, the inputs and the trade's own path (added 10 Nov, photo version 5)
+
+Detail, units and missing reasons are in docs/39 section 3.
+
+| Item | Name |
+|---|---|
+| 105 | Engine service delay |
+| 106 | Persistence health |
+| 107 | Cross-input synchronisation |
+| 108 | Fresh weighted coverage |
+| 109 | Flow-sign uncertainty |
+| 110 | Response-model reliability |
+| 120 | Opportunity survival |
+| 121 | Contract-path continuity |
+| 122 | Fill evidence |
+| 128 | Research lineage and support |
+
+Items 123 to 126 are the continuation photograph (`weather_hold` on the trade), not entry items. Items 111 to 119
+and 127 are not built. The millisecond fields of 105, all of 106 and three text fields of 128 are recorded but not
+searched.

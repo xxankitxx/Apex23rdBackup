@@ -33,7 +33,7 @@ REPRESENTATIVES = ("spot_pb45", "spot_dc12_t12", "spot_dc12_t12_first", "spot_or
                    "straddle_spike", "fade_switch", "c20_9x", "t28_fwd")
 DAY_FACTORS = {"expiry_day", "day_before_expiry", "after_break", "event", "weekday", "dte", "gap_pts", "gap_filled",
                "vix", "vix_chg_open", "hrs_to_expiry", "norm_days", "pd_range"}   # day-type weather: counted in DAYS, not trades
-SKIP = {"v", "v2_error", "v3_error", "v4_error"}                                   # housekeeping on the photo, not weather
+SKIP = {"v", "v2_error", "v3_error", "v4_error", "v5_error", "v5_missing"}         # housekeeping on the photo, not weather
 # 8 Nov (owner): EVERY docs/27 item is weather and every photo field is searched; nothing is set aside. This table
 # only names the docs/27 item each field belongs to, for the cards (tests/test_weather.py checks every photo field
 # has an item). An "adv_" prefix covers the advisors (item 61).
@@ -149,6 +149,12 @@ ITEMS = {
                                "last_hold_s", "same_key_as_last", "prem_vs_last_exit_pct", "prem_vs_last_entry_pct")),
     104: ("The day's P&L shape", ("best_today", "worst_today", "ret_last3", "win_share_today", "dd_today")),
 }
+# 10 Nov (photo v5, docs/38 section 6): items 105-110, 120-122, 128 are defined beside the code that builds them.
+# TELEMETRY = the machine's own wall-clock timing and the provenance text: recorded on every photo, mapped to an item,
+# but NOT searched (they differ between a live session and a replay of the same tape, so a rule on them cannot be
+# re-tested). The one exception to "every photo field is searched".
+from ..engine.weather5 import ITEMS5, TELEMETRY                         # noqa: E402
+ITEMS.update(ITEMS5)
 ITEM_OF = {k: n for n, (_lab, ks) in ITEMS.items() for k in ks}
 
 
@@ -178,7 +184,7 @@ def features(rows):
     for r in rows:
         keys |= set((r.get("weather") or {}).keys())
     out = {}
-    for k in sorted(keys - SKIP):                      # 8 Nov: every photo field is searched; nothing set aside
+    for k in sorted(keys - SKIP - TELEMETRY):          # 8 Nov: every photo field is searched; 10 Nov: bar telemetry
         vals = [(r.get("weather") or {}).get(k) for r in rows]
         if all(v is None for v in vals):
             continue

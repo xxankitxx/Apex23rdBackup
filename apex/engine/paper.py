@@ -21,16 +21,79 @@ Advisors' would-have verdicts are stored with every trade for the learning loop.
 """
 import json
 import math
+import operator
 import os
 import random
+import threading
 import time
 from datetime import date
 
 import numpy as np
 
 from .. import config
+from . import weather5 as _w5
+from . import gen3 as _g3
+from . import pred as _pd
 
 LAST_LOAD_ERROR = ""        # C-43: why the last load_books() found no usable books ("" = fine)
+LAST_LOAD_NOTE = ""         # 10 Nov: a warning about the last load_books() that did not stop it ("" = none)
+
+
+_REV = operator.attrgetter("_rev")
+
+
+class ClosedTrade(dict):
+    """10 Nov (docs/38 O2): a closed trade that counts its own changes. The save cache keeps a closed trade's JSON text
+    and used to re-serialise only when a field was ADDED; the Conductor rewrites existing fields (exit_bid, t_out,
+    hold_s ...) after close_trade() returns, so the cache could have written the old values. Every write through the
+    dict bumps _rev and the cache keys on it. A change INSIDE a nested value does not pass through here: call
+    touch(trade) after one (the rolling audit and the uncached final save catch any that is missed)."""
+    _rev = 0
+
+    def __setitem__(self, k, v):
+        self._rev += 1
+        dict.__setitem__(self, k, v)
+
+    def __delitem__(self, k):
+        self._rev += 1
+        dict.__delitem__(self, k)
+
+    def update(self, *a, **kw):
+        self._rev += 1
+        dict.update(self, *a, **kw)
+
+    def pop(self, *a):
+        self._rev += 1
+        return dict.pop(self, *a)
+
+    def popitem(self):
+        self._rev += 1
+        return dict.popitem(self)
+
+    def setdefault(self, k, d=None):
+        self._rev += 1
+        return dict.setdefault(self, k, d)
+
+    def clear(self):
+        self._rev += 1
+        dict.clear(self)
+
+    def __ior__(self, other):
+        self._rev += 1
+        dict.update(self, other)
+        return self
+
+    def __reduce__(self):                     # copy / pickle as a plain mapping of the same class
+        return (type(self), (dict(self),))
+
+
+def touch(trade):
+    """Say that a closed trade changed in a way its dict cannot see (a nested value). The next save re-serialises it."""
+    if isinstance(trade, ClosedTrade):
+        trade._rev += 1
+    else:
+        _TRADE_JSON["m"].pop(id(trade), None)
+    return trade
 _REPLACE_TRIES = 5          # C-99: Windows (AV / indexer / OneDrive) can briefly lock the target
 _REPLACE_WAIT_S = 0.2
 
@@ -61,7 +124,8 @@ class Book:
     @classmethod
     def from_json(cls, d):
         b = cls(d["name"], d["p"], d["day"])
-        b.capital = d["capital"]; b.pos = d["pos"]; b.trades = d["trades"]
+        b.capital = d["capital"]; b.pos = d["pos"]
+        b.trades = [t if isinstance(t, ClosedTrade) else ClosedTrade(t) for t in d["trades"]]   # 10 Nov (O2)
         b.fired_episodes = set(d.get("fired", []))
         if d.get("last_exit_s") is not None:
             b.last_exit_s = d["last_exit_s"]
@@ -79,13 +143,27 @@ class Book:
 
     # ── stats ──────────────────────────────────────────────────────────────
     def stats(self):
-        pts = [t["pnl_pts"] for t in self.trades]
-        wins = [x for x in pts if x > 0]
-        return {"name": self.name, "trades": len(pts), "wins": len(wins),
-                "pnl_pts": round(sum(pts), 2),
-                "pnl_rs": round(sum(t["pnl_rs"] for t in self.trades), 0),
+        """10 Nov (docs/41 section 13): the dashboard asks every book for this at every publish, and it used to walk
+        every closed trade each time (7.9 ms a publish by the close of 9 Nov, 105 books). The sums are now kept
+        until a trade is added or any closed trade is written to (ClosedTrade counts its own changes). A book whose
+        trades are plain dicts is computed every time, as before. Same numbers either way."""
+        try:
+            key = (len(self.trades), sum(map(_REV, self.trades)))
+        except AttributeError:
+            key = None
+        c = self.__dict__.get("_stats")
+        if key is None or c is None or c[0] != key:
+            pts = [t["pnl_pts"] for t in self.trades]
+            wins = [x for x in pts if x > 0]
+            c = (key, len(pts), len(wins), round(sum(pts), 2), round(sum(t["pnl_rs"] for t in self.trades), 0),
+                 round(100.0 * len(wins) / len(pts), 1) if pts else None)
+            if key is not None:
+                self._stats = c
+        return {"name": self.name, "trades": c[1], "wins": c[2],
+                "pnl_pts": c[3],
+                "pnl_rs": c[4],
                 "capital": round(self.capital, 0),
-                "win_rate": round(100.0 * len(wins) / len(pts), 1) if pts else None,
+                "win_rate": c[5],
                 "open": bool(self.pos)}
 
 
@@ -130,10 +208,41 @@ def spike_leg(ctx, leg=None):
     return o, ""
 
 
+def bound_contract(ctx, want):
+    """11 Nov (docs/42 finding A): a forecast book buys exactly the contract its forecast was made for, or nothing.
+    The owner's floors still hold (premium range, fresh quote, ATM/ITM delta, the expiry-day cut-off). Another
+    strike is never substituted: the forecast of one option says nothing about another."""
+    strike, rr = want[0], want[1]
+    tag = f"{int(strike)} {rr}"
+
+    def no(why):
+        return None, f"forecast contract {tag} not bought: {why}; no other contract is substituted"
+    exp = want[3] if len(want) > 3 and want[3] else ctx.get("w0")
+    if exp != ctx.get("w0"):                              # the forecast was for another expiry: never carried over
+        return no(f"its expiry {exp} is not the near week {ctx.get('w0')}")
+    now = ctx.get("now_dt")
+    if now is not None and now.date().isoformat() == ctx.get("w0") and config.hm(now) >= config.mins(config.ZERO_DTE_NO_ENTRY):
+        return no("expiry day, after the entry cut-off")
+    o = (ctx.get("by_key") or {}).get(f"NIFTY|OPT|{exp}|{int(strike)}|{rr}")
+    if not o or not o.get("ltp"):
+        return no("no quote")
+    if not (config.MIN_PREMIUM <= o["ltp"] <= config.MAX_PREMIUM):
+        return no(f"premium {o['ltp']:.1f} outside {config.MIN_PREMIUM:.0f}-{config.MAX_PREMIUM:.0f}")
+    ag = o.get("age")
+    if ag is None or ag >= 15:
+        return no("quote is stale")
+    dl = o.get("delta")
+    if dl is None or abs(dl) < config.MIN_ABS_DELTA:
+        return no("no delta yet" if dl is None else f"|delta| {abs(dl):.2f} < {config.MIN_ABS_DELTA:.2f} (ATM/ITM only)")
+    return o, ""
+
+
 def choose_contract(ctx, d, book=None):
     """v1 rule (D-036): DTE delta band -> nearest-the-money strike inside the band.
     The straddle_spike book buys the spiking leg itself instead.
     Returns the option dict or (None, reason)."""
+    if book is not None and book.p.get("gen") in config.PRED_BOOKS and book.ctl.get("want"):
+        return bound_contract(ctx, book.ctl["want"])
     if book is not None and book.p.get("spike"):
         return spike_leg(ctx)
     if book is not None and book.p.get("momentum"):
@@ -680,6 +789,103 @@ def evaluate_fade_switch(book, ctx):
                   f"{p['range_follow']:.0f}: {'follow' if follow else 'fade'} -> {'CE' if d > 0 else 'PE'}")
 
 
+GEN_ID0 = 5 * 10 ** 10           # 9 Nov: second-generation books' fire ids (apex/engine/gen2.py), clear of the rest
+
+
+def _gen_src(ctx, name):
+    """10 Nov (docs/38 section 7): the signal engine a book reads. The third batch (S01, S03) lives in gen3; gen2 stays
+    frozen at its own version."""
+    if name in _pd.NAMES:                                 # 10 Nov (docs/41): the prediction-driven shadows
+        return ctx.get("pred")
+    return ctx.get("gen3") if name in _g3.NAMES else ctx.get("gen2")
+
+
+def evaluate_gen(book, ctx):
+    """9 Nov (docs/36, docs/37): a second-generation shadow book. The signal comes from apex/engine/gen2.py (flow
+    response, impact relaxation, leadership transfer, or one of their controls), never from another book's trigger.
+    One entry per signal id; the bracket and the thesis stop travel with the signal."""
+    name = book.p["gen"]
+    g = _gen_src(ctx, name)
+    if g is None:
+        return False, "second-generation signals are off"
+    sg = g.sig.get(name)
+    if not sg or not (0.0 <= ctx["now_s"] - sg["t"] < 1.5):
+        return False, g.why.get(name) or "no setup"
+    fid = -(GEN_ID0 + sg["id"])
+    if fid in book.fired_episodes:
+        return False, "this signal is already traded"
+    book.ctl.update({"dir": sg["dir"], "fire_id": fid, "ep_type": sg["ep"]})
+    if name in config.PRED_BOOKS and sg.get("strike") is not None:
+        # 11 Nov (docs/46 finding 1): a signal is actionable only while the forecaster still has a CURRENT forecast for
+        # its exact contract. Stale quotes, a feed gap or a missing forecast since the signal cancel it.
+        gnow = getattr(g, "now", None)
+        if gnow is None or ctx["now_s"] - gnow > 1.5 or g.edge_of(sg["strike"], sg["rr"]) is None:
+            why = g.why_none(sg["strike"], sg["rr"]) if hasattr(g, "why_none") else None
+            return False, f"signal dropped: no current forecast for its contract ({why or 'the forecaster has not updated'})"
+    if name in config.PRED_BOOKS and sg.get("strike") is not None:   # 11 Nov (docs/42 A): buy the contract that was scored
+        book.ctl["want"] = (float(sg["strike"]), "CE" if sg.get("rr") == 0 else "PE", sg.get("forecast_id"),
+                            sg.get("expiry"), sg.get("id"))
+    else:
+        book.ctl.pop("want", None)
+    return True, sg["why"]
+
+
+def gen_bracket(book, ctx, episode):
+    """The signal's own bracket and thesis parameters for a position. 10 Nov (docs/38 O4): called AT THE FILL, so the
+    position carries them from its first second and a restart cannot lose them. A signal that is no longer known
+    (none of today's cases; a position from a file written before 10 Nov) gets the book's default bracket."""
+    p = book.p
+    g = _gen_src(ctx, p["gen"])
+    sg = None
+    try:
+        sg = g.fired.get((p["gen"], -int(episode or 0) - GEN_ID0)) if g is not None else None
+    except (TypeError, ValueError):
+        sg = None
+    if sg:
+        gx = {k: sg.get(k) for k in ("tp", "sl", "hold", "stop_px", "i_sign", "i_peak", "lead")}
+        if sg.get("tp_prem"):                             # 10 Nov (docs/41): a bracket on the premium itself
+            gx["tp_prem"], gx["sl_prem"] = sg["tp_prem"], sg["sl_prem"]
+        return gx
+    return {"tp": p["tp_pts"], "sl": p["sl_pts"], "hold": p["max_hold_s"]}
+
+
+def _gen_exit(book, ctx, pos, fut):
+    """The second-generation exit: the signal's own target / stop in futures points, its thesis stop (a price level),
+    the model's thesis-void (impact rebuilding, leadership fragmenting), then its clock. The bracket is on the
+    position since the fill (pos["gx"]); the model exit speaks only when the model is ready (Gen2.ready)."""
+    p = book.p
+    g = _gen_src(ctx, p["gen"])
+    gx = pos.get("gx")
+    if gx is None:
+        gx = pos["gx"] = gen_bracket(book, ctx, pos.get("episode"))
+    m = (fut - pos["fut_in"]) * pos["dir"]
+    if m >= gx["tp"]:
+        return "TARGET"
+    if m <= -gx["sl"]:
+        return "STOP"
+    if gx.get("stop_px") is not None and (fut - gx["stop_px"]) * pos["dir"] <= 0:
+        return "THESIS (price beyond the zone the signal rested on)"
+    if gx.get("tp_prem"):                                 # 10 Nov (docs/41): the forecast's own barriers, on the bid
+        o = (ctx.get("by_key") or {}).get(pos.get("key")) or {}
+        b = o.get("bid")
+        ag = o.get("age")                                 # 11 Nov (docs/42 G): an age of exactly 0 is a fresh quote
+        if b and pos.get("entry") and ag is not None and ag < 15:
+            r = b / pos["entry"] - 1.0
+            if r >= gx["tp_prem"]:
+                return "TARGET (premium)"
+            if r <= -gx["sl_prem"]:
+                return "STOP (premium)"
+        near = pos.get("expiry") == ctx.get("w0")         # the forecaster covers the near week only
+        gx = dict(gx, strike=pos.get("strike") if near else None, rr=0 if pos.get("rr") == "CE" else 1)
+    if g is not None:
+        v = g.void(p["gen"], gx, pos["dir"])
+        if v:
+            return v
+    if ctx["now_s"] - pos["t_in"] >= gx["hold"]:
+        return "HOLD-LIMIT"
+    return None
+
+
 def _bracket_exit(book, ctx, pos, fut):
     """D-121 exit: +tp_pts / -sl_pts on the futures mid, or max_hold_s."""
     p = book.p
@@ -869,6 +1075,8 @@ def evaluate_entry(book, ctx, gates):
         return evaluate_spot_breakout(book, ctx)
     if p.get("fade_switch"):                 # D-121: council-4 m14 follow/fade switch (shadow)
         return evaluate_fade_switch(book, ctx)
+    if p.get("gen"):                         # 9 Nov: second-generation books (apex/engine/gen2.py)
+        return evaluate_gen(book, ctx)
     if p.get("spike"):                       # straddle_spike book: the owner's gamma-leg idea
         return evaluate_spike_entry(book, ctx, gates)
     if p.get("random"):                      # control: random entry time, same exits
@@ -1072,16 +1280,22 @@ def request_entry(book, ctx, opt, reason):
     except Exception:
         weather_trig = None
     fires = ctx.get("fires")                           # 8 Nov (docs/27 item 67): how many books fire this step
-    if fires is not None and not book.name.endswith("#cf"):
+    if fires is not None and not book.name.endswith("#cf") and not book.p.get("gen") and not book.p.get("twin"):   # 9 Nov: the second-generation
+        # books do not count in "books firing this step" (agree_same, R-019 / R-020 were frozen on the older books)
         cur = fires.setdefault("cur", {})
         cur[opt.get("rr")] = cur.get(opt.get("rr"), 0) + 1
     book.ctl["pending_entry"] = {"t": ctx["now_s"], "time": ctx["now_dt"].strftime("%H:%M:%S"), "key": opt["key"],
                                  "id": opt["id"], "why": reason, "trigger_ltp": opt.get("ltp"),
+                                 "d": d, "fut_trig": ctx.get("fut"),    # 10 Nov (photo items 120, 122)
                                  "signal_trig": _signal_snapshot(ctx, d), "edge_trig": edge_trig,
                                  "weather_trig": weather_trig,
+                                 "want": book.ctl.get("want") if book.p.get("gen") in config.PRED_BOOKS else None,
                                  "ctl": {k: book.ctl.get(k) for k in ("fire_id", "ep_type", "dir", "leg", "pb_trade", "orb_trade",
                                                                        "trig_str", "trig_unit")}}   # 28 Oct: strength too
     return None
+
+
+ENGINE_STALL_S = 1.0        # a step this long (market seconds) while an entry waited is the engine's delay, not the market's
 
 
 def try_fill_entry(book, ctx):
@@ -1093,12 +1307,23 @@ def try_fill_entry(book, ctx):
     waited = now - pe["t"]
     bo = ctx.get("blackout") or {}
     o = (ctx.get("by_key") or {}).get(pe["key"])
+    gap = ctx.get("step_gap") or 0.0                  # 10 Nov: the longest engine step while this entry waited
+    if gap > pe.get("max_gap", 0.0):
+        pe["max_gap"] = gap
     if bo.get("on") or waited > config.ENTRY_FILL_MAX_S or (ctx.get("now_dt") is not None and
                                                              config.hm(ctx["now_dt"]) >= config.mins(config.LAST_ENTRY)):
         book.ctl.pop("pending_entry", None)
         for k in ("fire_id", "ep_type", "dir", "leg", "pb_trade", "orb_trade", "trig_str", "trig_unit"):
             book.ctl.pop(k, None)
         why = "data gap" if bo.get("on") else f"no print on {pe['key'].split('|')[-2]} {pe['key'].split('|')[-1]} within {config.ENTRY_FILL_MAX_S:.0f} s"
+        if not bo.get("on") and pe.get("max_gap", 0.0) >= ENGINE_STALL_S:
+            # 10 Nov: on 9 Nov 27 of 36 lapses came while the engine itself stood still for seconds; the reason said
+            # "no print", which blamed the market. A lapse during a stalled step now says so (a tag, the fill rule is unchanged).
+            why += f" [engine stalled {pe['max_gap']:.1f} s]"
+        if not bo.get("on"):                          # 10 Nov (photo item 120): a lapsed request is remembered until the
+            rl = book.ctl.setdefault("req_log", [])   # book next fills, so a retry is known to be a retry
+            rl.append([pe["t"], pe.get("d")])
+            del rl[:-50]
         book.blocked = f"entry lapsed: {why}"
         return None, f"entry lapsed: {why}"
     if o is None or not o.get("ltp") or o.get("age") is None or o["age"] >= waited:
@@ -1114,12 +1339,29 @@ def try_fill_entry(book, ctx):
     if pos:
         pos["trigger_t"] = pe["t"]
         pos["trigger_time"] = pe["time"]
+        if pe.get("want"):                             # 11 Nov (docs/42 A): the forecast behind this fill, by identity
+            w = pe["want"]
+            sk = f"NIFTY|OPT|{w[3] or ctx.get('w0')}|{int(w[0])}|{w[1]}"
+            pos["fc_sig"] = {"id": w[2], "key": sk, "same": pos.get("key") == sk, "signal": w[4] if len(w) > 4 else None}
+            led = getattr((ctx or {}).get("pred"), "led", None)
+            if led is not None and w[2]:
+                try:
+                    led.link(w[2], "fill", ctx["now_s"], book=book.name, key=pos.get("key"), entry=pos.get("entry"),
+                             same_contract=pos["fc_sig"]["same"], waited_s=round(waited, 2))
+                except KeyError:
+                    pass
         pos["signal_trig"] = pe.get("signal_trig")     # 7 Nov (B17): what the trigger saw (signal / edge_in = at fill)
         pos["edge_trig"] = pe.get("edge_trig")
         pos["weather_trig"] = pe.get("weather_trig")   # 7 Nov (stage 2): the eight factors at the trigger
         pos["trigger_ltp"] = pe["trigger_ltp"]
         pos["fill_delay_s"] = round(waited, 2)
         pos["fill_slip"] = round(pos["entry"] - pe["trigger_ltp"], 2) if pe.get("trigger_ltp") else None
+        try:                                           # 10 Nov (photo item 122): how the fill was observed
+            from .weather5 import fill_evidence
+            pos["fill_ev"] = fill_evidence(pe, o, waited, ctx)
+        except Exception:                              # noqa: BLE001
+            pos["fill_ev"] = None
+        book.ctl.pop("req_log", None)                  # item 120: the opportunity was taken
         return pos, pe["why"]
     return None, book.blocked or "entry rejected"
 
@@ -1157,6 +1399,8 @@ def open_trade(book, ctx, opt, reason):
         book.pos["edge_in"] = _edge_signed(ctx.get("edge"), d)
     except Exception:
         pass
+    if book.p.get("gen"):                            # 10 Nov (docs/38 O4): the signal's bracket, fixed at the fill
+        book.pos["gx"] = gen_bracket(book, ctx, ep_id)
     if book.ctl.get("pb_trade"):                     # D-134: the impulse is frozen on the position (stop/target never slide)
         book.pos["pb"] = dict(book.ctl["pb_trade"])
     if book.ctl.get("orb_trade"):                    # D-141: the opening range is frozen on the position
@@ -1211,6 +1455,10 @@ def check_exit(book, ctx):
         pos["last"] = px
         pos["peak_pts"] = max(pos["peak_pts"], px - pos["entry"])
         pos["worst_pts"] = min(pos.get("worst_pts") or 0.0, px - pos["entry"])   # 7 Nov: for the diaries
+        try:                                      # 10 Nov (items 123-126): the continuation photograph, observer only
+            _w5.hold_tick(pos, ctx, o)
+        except Exception:                         # noqa: BLE001
+            pass
     fav = (fut - pos["fut_in"]) * d
     if not blackout:                              # a frozen or implausible print must not move the trail
         pos["best"] = max(pos["best"], fut) if d > 0 else min(pos["best"], fut)
@@ -1252,6 +1500,9 @@ def check_exit(book, ctx):
     elif p.get("fade_switch"):                    # D-121: bracket only (no trail, no thesis-void)
         reason = None if blackout else _bracket_exit(book, ctx, pos, fut)
         S_opp = -1.0
+    elif p.get("gen"):                            # 9 Nov: the signal's own bracket and thesis stop (no trail, no void)
+        reason = None if blackout else _gen_exit(book, ctx, pos, fut)
+        S_opp = -1.0
     else:
         if best_fav >= p["d_star"]:
             pos["trail"] = True
@@ -1277,7 +1528,7 @@ def check_exit(book, ctx):
     now = ctx["now_dt"]
     hmn = config.hm(now)
     zero_dte = pos["expiry"] == now.date().isoformat()
-    mh = 0 if p.get("fade_switch") else (p.get("max_hold_s") or 0)   # fade_switch keeps its own bracket clock
+    mh = 0 if (p.get("fade_switch") or p.get("gen")) else (p.get("max_hold_s") or 0)   # fade_switch keeps its own bracket clock
     mh0 = p.get("dte0_max_hold_s") or 0                # 27 Oct (owner): do not hold long on expiry day (theta)
     if reason is None and mh0 > 0 and zero_dte and ctx["now_s"] - pos["t_in"] >= mh0:
         reason = "TIME (expiry day, max hold %d min)" % (mh0 // 60)
@@ -1307,6 +1558,10 @@ def check_exit(book, ctx):
     if reason and not timed:
         age = o.get("age") if o else None
         pend = pos.setdefault("pending", {"reason": reason, "since": ctx["now_s"], "trigger_px": px})
+        try:                                      # 10 Nov (items 123-126): the position at the exit request
+            _w5.hold_mark(pos, ctx, o, "exit_req")
+        except Exception:                         # noqa: BLE001
+            pass
         waited = ctx["now_s"] - pend["since"]
         if config.FILL_NEXT_PRINT:
             # D-126: fill on the first print that arrives AFTER the trigger (age < time since the trigger)
@@ -1340,6 +1595,10 @@ def request_exit(book, ctx, reason, o=None):
         return None
     if not pos.get("pending"):
         pos["pending"] = {"reason": reason, "since": ctx["now_s"], "trigger_px": (o or {}).get("ltp")}
+        try:                                      # 10 Nov (items 123-126): what the position looked like at the request
+            _w5.hold_mark(pos, ctx, o or (ctx.get("by_key") or {}).get(pos["key"]), "exit_req")
+        except Exception:                         # noqa: BLE001
+            pass
     return try_fill_exit(book, ctx)
 
 
@@ -1386,7 +1645,11 @@ def close_trade(book, ctx, px, reason, o=None):
     # D-064: under all-in sizing the account earns the RETURN ON PREMIUM, not premium points
     ret_pct = round(100.0 * (px - pos["entry"]) / pos["entry"], 3) if pos["entry"] else 0.0
     book.capital = round(book.capital + pnl_rs, 2)
-    t = dict(pos)
+    try:                                      # 10 Nov (items 123-126): an exit with no request gets its snapshot here
+        _w5.hold_mark(pos, ctx, o or (ctx.get("by_key") or {}).get(pos["key"]), "exit")
+    except Exception:                         # noqa: BLE001
+        pass
+    t = ClosedTrade(pos)                      # 10 Nov (O2): later changes to it are seen by the save cache
     t.update({"exit": px, "exit_bid": (o or {}).get("bid"), "exit_ask": (o or {}).get("ask"),
               "time_out": ctx["now_dt"].strftime("%H:%M:%S"), "t_out": ctx["now_s"], "hold_s": ctx["now_s"] - pos["t_in"],
               "reason": reason, "pnl_pts": pnl_pts, "pnl_rs": pnl_rs, "ret_pct": ret_pct,
@@ -1472,15 +1735,273 @@ def _replace_retry(src, dst):
             time.sleep(_REPLACE_WAIT_S)
 
 
-def save_books(books, day):
-    path = os.path.join(config.PAPER_DIR, f"{day}.json")
-    tmp = path + ".tmp"
+_TRADE_JSON = {"day": None, "m": {}}     # id(closed trade) -> (the trade, its field count, its revision, its JSON text)
+_CACHE_AUDIT = {"ptr": 0, "checked": 0, "stale": 0, "last": ""}
+AUDIT_PER_SAVE = 8                       # cached trades re-serialised and compared on every save (rolling over the file)
+
+
+def _trade_text(t, check=False):
+    """9 Nov: a CLOSED trade's JSON text, serialised once. On 9 Nov (live) every save re-serialised every closed trade
+    of every book with its ~400-field photograph (7.7 MB by 14:43); the engine stood still for 1 s per save at 09:30
+    and 6-8 s from noon, exits filled that much late and every council entry lapsed (3-s fill window) after 12:05.
+    The cache holds the trade itself (so an id is never reused).
+    10 Nov (O2): the key is the field count AND the trade's revision (ClosedTrade counts every write), so a rewritten
+    field is never served from the old text. check=True serialises regardless and counts a cached text that had
+    gone stale without the key noticing (a nested change): that count is reported, and the text repaired."""
+    if t.get("exit") is None or t.get("t_out") is None:
+        return json.dumps(t, default=str)
+    m = _TRADE_JSON["m"]
+    c = m.get(id(t))
+    rev = getattr(t, "_rev", None)
+    hit = c is not None and c[0] is t and c[1] == len(t) and c[2] == rev
+    if hit and not check:
+        return c[3]
+    txt = json.dumps(t, default=str)
+    if check:
+        _CACHE_AUDIT["checked"] += 1
+        if hit and c[3] != txt:
+            _CACHE_AUDIT["stale"] += 1
+            _CACHE_AUDIT["last"] = f"{t.get('key')} {t.get('time_out')}"
+    m[id(t)] = (t, len(t), rev, txt)
+    return txt
+
+
+def _books_chunks(books, day, full=False):
+    """The books file in pieces, same content as json.dumps({name: book.to_json()}): closed trades come from the
+    cache and nothing large is copied (the pieces go straight to the file). full=True serialises every trade afresh
+    (the end-of-day and stop saves); otherwise AUDIT_PER_SAVE cached trades are re-checked, rolling through the file."""
+    if _TRADE_JSON["day"] != day:
+        _TRADE_JSON["day"], _TRADE_JSON["m"] = day, {}
+    a0 = _CACHE_AUDIT["ptr"]
+    a1 = a0 + AUDIT_PER_SAVE
+    idx = 0
+    out = ["{"]
+    first = True
+    for n, b in books.items():
+        j = b.to_json()
+        trades = j.pop("trades", None) or []
+        head = json.dumps(j, default=str)
+        out.append(("" if first else ", ") + json.dumps(n) + ": " + (head[:-1] + ", " if len(head) > 2 else "{")
+                   + '"trades": [')
+        first = False
+        for k, t in enumerate(trades):
+            if k:
+                out.append(", ")
+            out.append(_trade_text(t, full or a0 <= idx < a1))
+            idx += 1
+        out.append("]}")
+    out.append("}")
+    _CACHE_AUDIT["ptr"] = a1 if a1 < idx else 0
+    return out
+
+
+def _books_text(books, day, full=False):
+    return "".join(_books_chunks(books, day, full))
+
+
+def _write_tmp(path, chunks, suffix=".tmp"):
+    """Write the whole text to path + suffix (flushed, fsynced). Returns the temporary file's name."""
+    tmp = path + suffix
     with open(tmp, "w", encoding="utf-8") as f:
-        json.dump({n: b.to_json() for n, b in books.items()}, f, default=str)
+        f.writelines(chunks)
         f.flush()
         if not config.REPLAY_FAST:                       # T02: a replay's books need no crash durability
             os.fsync(f.fileno())
-    _replace_retry(tmp, path)
+    return tmp
+
+
+def _write_books(path, chunks):
+    _replace_retry(_write_tmp(path, chunks), path)
+
+
+class _Saver:
+    """9 Nov: the engine's in-session saves. The text is built on the engine's step (about 10 ms for a full day,
+    closed trades cached); the disk write, fsync and replace (about 100 ms for 7.7 MB) run on this thread, so a save
+    no longer holds the step. Latest wins: a newer save replaces one still waiting.
+
+    10 Nov (docs/38 O3), three faults removed:
+    1. a save that FAILED was dropped and flush() then said "idle": the failed state is now kept and written again
+       (0.5 s, 1 s ... 5 s apart) until it is on disk or a newer state replaces it; flush() is true only when every
+       requested state is on disk;
+    2. the engine's direct save (stop, end of day) and this thread wrote the same .tmp file: each now has its own
+       temporary file, and the final replace is taken one at a time (wlock);
+    3. an older state could land after a newer one: every save carries a generation and one older than what is
+       already on disk for that file is thrown away, never written over it."""
+
+    def __init__(self):
+        self.cv = threading.Condition()
+        self.wlock = threading.Lock()        # one replace at a time, with the generation check
+        self.job = None                      # (generation, path, chunks) waiting for the thread
+        self.busy = False
+        self.thread = None
+        self.gen = 0                         # generations handed out
+        self.on_disk = {}                    # path -> generation on disk
+        self.commits = 0
+        self.errors = 0
+        self.fails_row = 0
+        self.last_error = ""
+        self.last_ms = None
+        self.last_ok_t = None
+        self.pending_t = None                # monotonic time of the oldest state not yet on disk
+
+    def _next(self):
+        self.gen += 1
+        if self.pending_t is None:
+            self.pending_t = time.monotonic()
+        return self.gen
+
+    def put(self, path, chunks):
+        with self.cv:
+            self.job = (self._next(), path, chunks)
+            if self.thread is None or not self.thread.is_alive():
+                self.thread = threading.Thread(target=self._run, name="BooksSaver", daemon=True)
+                self.thread.start()
+            self.cv.notify_all()
+
+    def commit(self, gen, path, chunks, suffix):
+        """Write one state and put it in place unless a newer one is already there. True if this state (or a newer
+        one) is on disk afterwards. Raises what the write raises."""
+        t0 = time.perf_counter()
+        if self.on_disk.get(path, 0) > gen:
+            return True
+        tmp = _write_tmp(path, chunks, suffix)
+        with self.wlock:
+            if self.on_disk.get(path, 0) > gen:          # a newer state landed while this one was being written
+                try:
+                    os.remove(tmp)
+                except OSError:
+                    pass
+                return True
+            _replace_retry(tmp, path)
+            self.on_disk[path] = gen
+        with self.cv:
+            self.commits += 1
+            self.fails_row = 0
+            self.last_ms = (time.perf_counter() - t0) * 1000.0
+            self.last_ok_t = time.monotonic()
+            if self.job is None:
+                self.pending_t = None
+            self.cv.notify_all()
+        return True
+
+    def _run(self):
+        while True:
+            with self.cv:
+                while self.job is None:
+                    self.cv.wait()
+                job, self.job, self.busy = self.job, None, True
+            wait = 0.0
+            try:
+                self.commit(job[0], job[1], job[2], ".tmp")
+            except Exception as e:                       # never dies, and never forgets the state it could not write
+                with self.cv:
+                    self.errors += 1
+                    self.fails_row += 1
+                    self.last_error = f"{type(e).__name__}: {e}"
+                    if self.job is None and self.on_disk.get(job[1], 0) < job[0]:
+                        self.job = job                   # nothing newer arrived: this state is tried again
+                    wait = min(0.5 * self.fails_row, 5.0)
+            finally:
+                with self.cv:
+                    self.busy = False
+                    self.cv.notify_all()
+            if wait:
+                time.sleep(wait)
+
+    def supersede(self, path):
+        """The caller is about to write a newer state of path itself: take its generation and drop the queued one."""
+        with self.cv:
+            gen = self._next()
+            if self.job is not None and self.job[1] == path:
+                self.job = None
+            self.cv.notify_all()
+            return gen
+
+    def flush(self, timeout=30.0):
+        """Wait until every requested state is on disk. False if that did not happen in time (a write still running,
+        or failing: see status())."""
+        end = time.monotonic() + timeout
+        with self.cv:
+            while self.job is not None or self.busy:
+                left = end - time.monotonic()
+                if left <= 0:
+                    return False
+                self.cv.wait(min(left, 0.25))
+        return True
+
+    def status(self):
+        with self.cv:
+            now = time.monotonic()
+            lag = (1 if self.job is not None else 0) + (1 if self.busy else 0)
+            return {"requested": self.gen, "commits": self.commits, "lag": lag,
+                    "pending_s": round(now - self.pending_t, 1) if (lag and self.pending_t is not None) else 0.0,
+                    "errors": self.errors, "fails_row": self.fails_row, "last_error": self.last_error or None,
+                    "last_ms": round(self.last_ms, 1) if self.last_ms is not None else None,
+                    "last_ok_age_s": round(now - self.last_ok_t, 1) if self.last_ok_t is not None else None,
+                    "cached": len(_TRADE_JSON["m"]), "audited": _CACHE_AUDIT["checked"],
+                    "stale_fixed": _CACHE_AUDIT["stale"], "stale_last": _CACHE_AUDIT["last"] or None}
+
+
+_SAVER = _Saver()
+
+
+def save_books(books, day, full=False):
+    """Write the books file now and return only when it is on disk (atomic: its own temporary file, fsync, replace).
+    It does not wait for the background writer: it takes a newer generation, so whatever that thread is writing is
+    discarded if it finishes later. full=True serialises every closed trade afresh (end of day, stop). Raises if
+    the write fails."""
+    path = os.path.join(config.PAPER_DIR, f"{day}.json")
+    chunks = _books_chunks(books, day, full)
+    gen = _SAVER.supersede(path)
+    _SAVER.commit(gen, path, chunks, ".tmp.sync")
+    return True
+
+
+def save_books_async(books, day):
+    """The engine's hot-path save: build the text now, write it off the step. A fast replay writes at once."""
+    if config.REPLAY_FAST:
+        return save_books(books, day)
+    _SAVER.put(os.path.join(config.PAPER_DIR, f"{day}.json"), _books_chunks(books, day))
+
+
+def save_flush(timeout=30.0):
+    """Wait until every requested save is on disk. True if it got there; False = still writing or failing."""
+    return _SAVER.flush(timeout)
+
+
+def save_status():
+    """What the saver has done and what it still owes (the engine logs it every minute and shows it on the dashboard)."""
+    return _SAVER.status()
+
+
+def clean_stale_tmp(min_age_s=60.0):
+    """10 Nov: remove temporary books files a killed process left behind (9 Nov: a second Ctrl+C killed the engine
+    inside its stop save and a torn 2026-11-09.json.tmp stayed on disk). Only files older than min_age_s, and never
+    while this process has a write of its own in flight. Returns one line per file removed, for the log."""
+    notes = []
+    with _SAVER.cv:
+        if _SAVER.job is not None or _SAVER.busy:
+            return notes
+        try:
+            names = os.listdir(config.PAPER_DIR)
+        except OSError:
+            return notes
+        now = time.time()
+        for n in names:
+            if not (n.endswith(".json.tmp") or n.endswith(".json.tmp.sync")):
+                continue
+            p = os.path.join(config.PAPER_DIR, n)
+            try:
+                st = os.stat(p)
+                if now - st.st_mtime < min_age_s:
+                    continue
+                os.remove(p)
+                notes.append(f"removed a leftover temporary books file {n} ({st.st_size:,} bytes, written "
+                             f"{time.strftime('%Y-%m-%d %H:%M:%S', time.localtime(st.st_mtime))}): an earlier run was "
+                             f"killed while saving; the books file itself was never touched by it")
+            except OSError:
+                continue
+    return notes
 
 
 def _quarantine(path):
@@ -1502,8 +2023,12 @@ def _quarantine(path):
 
 
 def load_books(day):
-    global LAST_LOAD_ERROR
-    LAST_LOAD_ERROR = ""
+    global LAST_LOAD_ERROR, LAST_LOAD_NOTE
+    LAST_LOAD_ERROR = LAST_LOAD_NOTE = ""
+    if not save_flush():                                 # 9 Nov: never read behind this process's own pending write
+        st = save_status()                               # 10 Nov (O3): and say so when that write has not landed
+        LAST_LOAD_NOTE = (f"books {day}.json read while a save of this process was not yet on disk "
+                          f"(lag {st['lag']}, last error {st['last_error']}): the file may be one save behind")
     path = os.path.join(config.PAPER_DIR, f"{day}.json")
     if not os.path.exists(path):
         return None

@@ -61,7 +61,7 @@ def test_photo_v4_direction_contract_and_items():
     bk = paper.Book("m2.0_s0.5", {}, "2026-11-06")
     ce = weather.photo(ctx, 1, o, bk, "SPOT brk")
     pe = weather.photo(ctx, -1, dict(o, rr="PE", delta=-0.55), bk, "SPOT brk")
-    assert ce["v"] == 4 and "v4_error" not in ce and "v4_error" not in pe, (ce.get("v4_error"), pe.get("v4_error"))
+    assert ce["v"] == 5 and "v4_error" not in ce and "v4_error" not in pe, (ce.get("v4_error"), pe.get("v4_error"))
     # 69-71: yesterday, pivots, the strike grid (spot 24050, yesterday 23920-24120, close 24010)
     assert ce["pd_range"] == 200.0 and ce["pd_close_pos"] == 0.45 and pe["pd_close_pos"] == 0.55 and ce["inside_pd"] is True
     P = (24120.0 + 23920.0 + 24010.0) / 3
@@ -92,10 +92,10 @@ def test_photo_v4_direction_contract_and_items():
     keys = (set(ce) | set(V4_MARKET)) - search.SKIP
     missing = sorted(k for k in keys if search.item_of(k)[0] is None)
     assert not missing, missing
-    v4 = {f for n, (_l, fs) in search.ITEMS.items() if n >= 69 for f in fs}
+    v4 = {f for n, (_l, fs) in search.ITEMS.items() if 69 <= n <= 104 for f in fs}
     unbuilt = sorted(v4 - set(ce) - set(V4_MARKET))
     assert not unbuilt, unbuilt                          # every field in the item table is one the photo writes
-    assert len(search.ITEMS) == 104 == weather.N_ITEMS == weather4.N_ITEMS and len(v4) >= 130
+    assert len(search.ITEMS) == 114 == weather.N_ITEMS and weather4.N_ITEMS == 104 and len(v4) >= 130
     assert weather.static_check() == []
 
 

@@ -1,0 +1,613 @@
+{
+ "spec": "frozen 10 Nov 2026 before the first run",
+ "fresh_s": 5.0,
+ "cover": 0.5,
+ "step_s": 10,
+ "min_train_days": 5,
+ "capability": {
+  "2026-10-19": {
+   "rows": 12262,
+   "stocks": 14,
+   "stock_futures": 14,
+   "cash_w_med": 1.0,
+   "pair_w_med": 1.0,
+   "pair_w_p10": 0.952,
+   "pair_cover_share": 0.994,
+   "sfut_age_med_s": 0.64,
+   "expiry": "2026-10-19",
+   "expiry2": "2026-10-27",
+   "near_two_sided_med": 5.0,
+   "next_two_sided_med": 5.0,
+   "next_atm_share": 0.994,
+   "near_atm_share": 0.996
+  },
+  "2026-10-19.p3": {
+   "rows": 1989,
+   "stocks": 14,
+   "stock_futures": 14,
+   "cash_w_med": 1.0,
+   "pair_w_med": 1.0,
+   "pair_w_p10": 1.0,
+   "pair_cover_share": 1.0,
+   "sfut_age_med_s": 0.5,
+   "expiry": "2026-10-19",
+   "expiry2": "2026-10-27",
+   "near_two_sided_med": 5.0,
+   "next_two_sided_med": 5.0,
+   "next_atm_share": 0.999,
+   "near_atm_share": 0.999
+  },
+  "2026-10-19.p5": {
+   "rows": 6219,
+   "stocks": 14,
+   "stock_futures": 14,
+   "cash_w_med": 1.0,
+   "pair_w_med": 1.0,
+   "pair_w_p10": 0.758,
+   "pair_cover_share": 0.932,
+   "sfut_age_med_s": 0.51,
+   "expiry": "2026-10-19",
+   "expiry2": "2026-10-27",
+   "near_two_sided_med": 5.0,
+   "next_two_sided_med": 5.0,
+   "next_atm_share": 0.999,
+   "near_atm_share": 1.0
+  },
+  "2026-10-21": {
+   "rows": 22462,
+   "stocks": 14,
+   "stock_futures": 14,
+   "cash_w_med": 1.0,
+   "pair_w_med": 1.0,
+   "pair_w_p10": 0.904,
+   "pair_cover_share": 0.981,
+   "sfut_age_med_s": 0.5,
+   "expiry": "2026-10-27",
+   "expiry2": "2026-11-03",
+   "near_two_sided_med": 5.0,
+   "next_two_sided_med": 5.0,
+   "next_atm_share": 1.0,
+   "near_atm_share": 1.0
+  },
+  "2026-10-22": {
+   "rows": 22380,
+   "stocks": 14,
+   "stock_futures": 14,
+   "cash_w_med": 1.0,
+   "pair_w_med": 1.0,
+   "pair_w_p10": 0.929,
+   "pair_cover_share": 0.98,
+   "sfut_age_med_s": 0.45,
+   "expiry": "2026-10-27",
+   "expiry2": "2026-11-03",
+   "near_two_sided_med": 5.0,
+   "next_two_sided_med": 5.0,
+   "next_atm_share": 0.998,
+   "near_atm_share": 0.999
+  },
+  "2026-10-23": {
+   "rows": 6635,
+   "stocks": 14,
+   "stock_futures": 14,
+   "cash_w_med": 1.0,
+   "pair_w_med": 0.964,
+   "pair_w_p10": 0.811,
+   "pair_cover_share": 0.989,
+   "sfut_age_med_s": 0.55,
+   "expiry": "2026-10-27",
+   "expiry2": "2026-11-03",
+   "near_two_sided_med": 5.0,
+   "next_two_sided_med": 5.0,
+   "next_atm_share": 0.993,
+   "near_atm_share": 0.997
+  },
+  "2026-10-23.p2": {
+   "rows": 11579,
+   "stocks": 14,
+   "stock_futures": 14,
+   "cash_w_med": 1.0,
+   "pair_w_med": 1.0,
+   "pair_w_p10": 0.887,
+   "pair_cover_share": 0.958,
+   "sfut_age_med_s": 0.42,
+   "expiry": "2026-10-27",
+   "expiry2": "2026-11-03",
+   "near_two_sided_med": 5.0,
+   "next_two_sided_med": 5.0,
+   "next_atm_share": 0.999,
+   "near_atm_share": 0.999
+  },
+  "2026-10-26": {
+   "rows": 22396,
+   "stocks": 14,
+   "stock_futures": 14,
+   "cash_w_med": 1.0,
+   "pair_w_med": 1.0,
+   "pair_w_p10": 0.929,
+   "pair_cover_share": 0.977,
+   "sfut_age_med_s": 0.44,
+   "expiry": "2026-10-27",
+   "expiry2": "2026-11-03",
+   "near_two_sided_med": 5.0,
+   "next_two_sided_med": 5.0,
+   "next_atm_share": 0.999,
+   "near_atm_share": 0.998
+  },
+  "2026-10-27.p2": {
+   "rows": 15440,
+   "stocks": 14,
+   "stock_futures": 14,
+   "cash_w_med": 1.0,
+   "pair_w_med": 0.945,
+   "pair_w_p10": 0.849,
+   "pair_cover_share": 0.999,
+   "sfut_age_med_s": 0.63,
+   "expiry": "2026-10-27",
+   "expiry2": "2026-11-03",
+   "near_two_sided_med": 5.0,
+   "next_two_sided_med": 5.0,
+   "next_atm_share": 0.999,
+   "near_atm_share": 0.999
+  },
+  "2026-10-27.p3": {
+   "rows": 6634,
+   "stocks": 14,
+   "stock_futures": 14,
+   "cash_w_med": 1.0,
+   "pair_w_med": 0.915,
+   "pair_w_p10": 0.628,
+   "pair_cover_share": 0.92,
+   "sfut_age_med_s": 0.69,
+   "expiry": "2026-10-27",
+   "expiry2": "2026-11-03",
+   "near_two_sided_med": 5.0,
+   "next_two_sided_med": 5.0,
+   "next_atm_share": 1.0,
+   "near_atm_share": 0.999
+  },
+  "2026-10-28": {
+   "rows": 21996,
+   "stocks": 14,
+   "stock_futures": 14,
+   "cash_w_med": 1.0,
+   "pair_w_med": 1.0,
+   "pair_w_p10": 0.959,
+   "pair_cover_share": 0.978,
+   "sfut_age_med_s": 0.5,
+   "expiry": "2026-11-03",
+   "expiry2": "2026-11-09",
+   "near_two_sided_med": 5.0,
+   "next_two_sided_med": 5.0,
+   "next_atm_share": 0.999,
+   "near_atm_share": 1.0
+  },
+  "2026-10-29.p3": {
+   "rows": 8805,
+   "stocks": 14,
+   "stock_futures": 14,
+   "cash_w_med": 1.0,
+   "pair_w_med": 0.945,
+   "pair_w_p10": 0.897,
+   "pair_cover_share": 0.999,
+   "sfut_age_med_s": 0.53,
+   "expiry": "2026-11-03",
+   "expiry2": "2026-11-09",
+   "near_two_sided_med": 3.0,
+   "next_two_sided_med": 3.0,
+   "next_atm_share": 1.0,
+   "near_atm_share": 1.0
+  },
+  "2026-10-29.p4": {
+   "rows": 2668,
+   "stocks": 14,
+   "stock_futures": 14,
+   "cash_w_med": 1.0,
+   "pair_w_med": 1.0,
+   "pair_w_p10": 0.945,
+   "pair_cover_share": 0.999,
+   "sfut_age_med_s": 0.54,
+   "expiry": "2026-11-03",
+   "expiry2": "2026-11-09",
+   "near_two_sided_med": 5.0,
+   "next_two_sided_med": 5.0,
+   "next_atm_share": 1.0,
+   "near_atm_share": 1.0
+  },
+  "2026-10-29.p5": {
+   "rows": 10907,
+   "stocks": 14,
+   "stock_futures": 14,
+   "cash_w_med": 1.0,
+   "pair_w_med": 1.0,
+   "pair_w_p10": 0.904,
+   "pair_cover_share": 0.96,
+   "sfut_age_med_s": 0.53,
+   "expiry": "2026-11-03",
+   "expiry2": "2026-11-09",
+   "near_two_sided_med": 4.0,
+   "next_two_sided_med": 4.0,
+   "next_atm_share": 1.0,
+   "near_atm_share": 1.0
+  },
+  "2026-10-30": {
+   "rows": 22463,
+   "stocks": 14,
+   "stock_futures": 14,
+   "cash_w_med": 1.0,
+   "pair_w_med": 1.0,
+   "pair_w_p10": 0.89,
+   "pair_cover_share": 0.97,
+   "sfut_age_med_s": 0.54,
+   "expiry": "2026-11-03",
+   "expiry2": "2026-11-09",
+   "near_two_sided_med": 5.0,
+   "next_two_sided_med": 4.0,
+   "next_atm_share": 1.0,
+   "near_atm_share": 1.0
+  },
+  "2026-11-02": {
+   "rows": 22266,
+   "stocks": 14,
+   "stock_futures": 14,
+   "cash_w_med": 1.0,
+   "pair_w_med": 1.0,
+   "pair_w_p10": 0.932,
+   "pair_cover_share": 0.974,
+   "sfut_age_med_s": 0.51,
+   "expiry": "2026-11-03",
+   "expiry2": "2026-11-09",
+   "near_two_sided_med": 5.0,
+   "next_two_sided_med": 5.0,
+   "next_atm_share": 0.999,
+   "near_atm_share": 1.0
+  },
+  "2026-11-03": {
+   "rows": 22455,
+   "stocks": 14,
+   "stock_futures": 14,
+   "cash_w_med": 1.0,
+   "pair_w_med": 1.0,
+   "pair_w_p10": 1.0,
+   "pair_cover_share": 0.985,
+   "sfut_age_med_s": 0.48,
+   "expiry": "2026-11-03",
+   "expiry2": "2026-11-09",
+   "near_two_sided_med": 5.0,
+   "next_two_sided_med": 5.0,
+   "next_atm_share": 1.0,
+   "near_atm_share": 1.0
+  },
+  "2026-11-04": {
+   "rows": 22382,
+   "stocks": 14,
+   "stock_futures": 14,
+   "cash_w_med": 1.0,
+   "pair_w_med": 1.0,
+   "pair_w_p10": 1.0,
+   "pair_cover_share": 0.981,
+   "sfut_age_med_s": 0.49,
+   "expiry": "2026-11-09",
+   "expiry2": "2026-11-17",
+   "near_two_sided_med": 5.0,
+   "next_two_sided_med": 5.0,
+   "next_atm_share": 1.0,
+   "near_atm_share": 1.0
+  },
+  "2026-11-05": {
+   "rows": 22381,
+   "stocks": 14,
+   "stock_futures": 14,
+   "cash_w_med": 1.0,
+   "pair_w_med": 1.0,
+   "pair_w_p10": 0.917,
+   "pair_cover_share": 0.978,
+   "sfut_age_med_s": 0.49,
+   "expiry": "2026-11-09",
+   "expiry2": "2026-11-17",
+   "near_two_sided_med": 5.0,
+   "next_two_sided_med": 5.0,
+   "next_atm_share": 0.998,
+   "near_atm_share": 1.0
+  },
+  "2026-11-06": {
+   "rows": 22309,
+   "stocks": 14,
+   "stock_futures": 14,
+   "cash_w_med": 1.0,
+   "pair_w_med": 1.0,
+   "pair_w_p10": 0.87,
+   "pair_cover_share": 0.981,
+   "sfut_age_med_s": 0.49,
+   "expiry": "2026-11-09",
+   "expiry2": "2026-11-17",
+   "near_two_sided_med": 5.0,
+   "next_two_sided_med": 5.0,
+   "next_atm_share": 0.994,
+   "near_atm_share": 1.0
+  },
+  "2026-11-09": {
+   "rows": 22426,
+   "stocks": 14,
+   "stock_futures": 14,
+   "cash_w_med": 1.0,
+   "pair_w_med": 1.0,
+   "pair_w_p10": 0.932,
+   "pair_cover_share": 0.978,
+   "sfut_age_med_s": 0.49,
+   "expiry": "2026-11-09",
+   "expiry2": "2026-11-17",
+   "near_two_sided_med": 5.0,
+   "next_two_sided_med": 5.0,
+   "next_atm_share": 1.0,
+   "near_atm_share": 1.0
+  }
+ },
+ "s01": {
+  "30/120": {
+   "x": {
+    "ic": -0.0107,
+    "days_pos": 5,
+    "days": 15
+   },
+   "c_cash": {
+    "ic": 0.0413,
+    "days_pos": 13,
+    "days": 15
+   },
+   "c_sfut": {
+    "ic": 0.0409,
+    "days_pos": 13,
+    "days": 15
+   },
+   "c_mom": {
+    "ic": 0.011,
+    "days_pos": 8,
+    "days": 15
+   },
+   "x_after_controls": {
+    "ic": 0.0608,
+    "days_pos": 10,
+    "days": 10
+   }
+  },
+  "30/30": {
+   "x": {
+    "ic": -0.0244,
+    "days_pos": 2,
+    "days": 15
+   },
+   "c_cash": {
+    "ic": 0.1102,
+    "days_pos": 15,
+    "days": 15
+   },
+   "c_sfut": {
+    "ic": 0.108,
+    "days_pos": 15,
+    "days": 15
+   },
+   "c_mom": {
+    "ic": 0.0551,
+    "days_pos": 15,
+    "days": 15
+   },
+   "x_after_controls": {
+    "ic": 0.1118,
+    "days_pos": 10,
+    "days": 10
+   }
+  },
+  "30/60": {
+   "x": {
+    "ic": -0.018,
+    "days_pos": 3,
+    "days": 15
+   },
+   "c_cash": {
+    "ic": 0.0814,
+    "days_pos": 15,
+    "days": 15
+   },
+   "c_sfut": {
+    "ic": 0.0814,
+    "days_pos": 15,
+    "days": 15
+   },
+   "c_mom": {
+    "ic": 0.0365,
+    "days_pos": 14,
+    "days": 15
+   },
+   "x_after_controls": {
+    "ic": 0.0917,
+    "days_pos": 10,
+    "days": 10
+   }
+  },
+  "60/120": {
+   "x": {
+    "ic": -0.002,
+    "days_pos": 5,
+    "days": 15
+   },
+   "c_cash": {
+    "ic": 0.0173,
+    "days_pos": 10,
+    "days": 15
+   },
+   "c_sfut": {
+    "ic": 0.0167,
+    "days_pos": 10,
+    "days": 15
+   },
+   "c_mom": {
+    "ic": -0.0028,
+    "days_pos": 7,
+    "days": 15
+   },
+   "x_after_controls": {
+    "ic": 0.0501,
+    "days_pos": 10,
+    "days": 10
+   }
+  },
+  "60/30": {
+   "x": {
+    "ic": -0.0243,
+    "days_pos": 4,
+    "days": 15
+   },
+   "c_cash": {
+    "ic": 0.0843,
+    "days_pos": 15,
+    "days": 15
+   },
+   "c_sfut": {
+    "ic": 0.0816,
+    "days_pos": 15,
+    "days": 15
+   },
+   "c_mom": {
+    "ic": 0.038,
+    "days_pos": 12,
+    "days": 15
+   },
+   "x_after_controls": {
+    "ic": 0.1058,
+    "days_pos": 10,
+    "days": 10
+   }
+  },
+  "60/60": {
+   "x": {
+    "ic": -0.0159,
+    "days_pos": 5,
+    "days": 15
+   },
+   "c_cash": {
+    "ic": 0.0566,
+    "days_pos": 14,
+    "days": 15
+   },
+   "c_sfut": {
+    "ic": 0.0553,
+    "days_pos": 13,
+    "days": 15
+   },
+   "c_mom": {
+    "ic": 0.0221,
+    "days_pos": 10,
+    "days": 15
+   },
+   "x_after_controls": {
+    "ic": 0.08,
+    "days_pos": 10,
+    "days": 10
+   }
+  }
+ },
+ "s02": {
+  "30/120": {
+   "x": {
+    "ic": -0.0209,
+    "days_pos": 6,
+    "days": 15
+   },
+   "c_near": {
+    "ic": -0.0429,
+    "days_pos": 4,
+    "days": 15
+   },
+   "x_after_controls": {
+    "ic": 0.0175,
+    "days_pos": 7,
+    "days": 10
+   }
+  },
+  "30/30": {
+   "x": {
+    "ic": -0.009,
+    "days_pos": 7,
+    "days": 15
+   },
+   "c_near": {
+    "ic": -0.0288,
+    "days_pos": 5,
+    "days": 15
+   },
+   "x_after_controls": {
+    "ic": 0.0195,
+    "days_pos": 8,
+    "days": 10
+   }
+  },
+  "30/60": {
+   "x": {
+    "ic": -0.0083,
+    "days_pos": 8,
+    "days": 15
+   },
+   "c_near": {
+    "ic": -0.0317,
+    "days_pos": 5,
+    "days": 15
+   },
+   "x_after_controls": {
+    "ic": 0.021,
+    "days_pos": 9,
+    "days": 10
+   }
+  },
+  "60/120": {
+   "x": {
+    "ic": -0.0227,
+    "days_pos": 7,
+    "days": 15
+   },
+   "c_near": {
+    "ic": -0.0498,
+    "days_pos": 5,
+    "days": 15
+   },
+   "x_after_controls": {
+    "ic": 0.0307,
+    "days_pos": 7,
+    "days": 10
+   }
+  },
+  "60/30": {
+   "x": {
+    "ic": -0.004,
+    "days_pos": 8,
+    "days": 15
+   },
+   "c_near": {
+    "ic": -0.0303,
+    "days_pos": 4,
+    "days": 15
+   },
+   "x_after_controls": {
+    "ic": 0.0252,
+    "days_pos": 9,
+    "days": 10
+   }
+  },
+  "60/60": {
+   "x": {
+    "ic": -0.0088,
+    "days_pos": 8,
+    "days": 15
+   },
+   "c_near": {
+    "ic": -0.0355,
+    "days_pos": 4,
+    "days": 15
+   },
+   "x_after_controls": {
+    "ic": 0.03,
+    "days_pos": 9,
+    "days": 10
+   }
+  }
+ }
+}

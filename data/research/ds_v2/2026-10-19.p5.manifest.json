@@ -1,0 +1,20 @@
+{
+ "part": "2026-10-19.p5",
+ "version": 2,
+ "rows": 6219,
+ "first": 1792397780.0,
+ "last": 1792403999.0,
+ "packets": 863546,
+ "disorder": 0,
+ "tape_end_marker": true,
+ "tape_torn": false,
+ "expiry": "2026-10-19",
+ "expiry2": "2026-10-27",
+ "strikes": 30,
+ "strikes2": 14,
+ "stocks": 14,
+ "stock_futures": 14,
+ "tape_sha256": "ca9a64ea4a6f429cded0ec19766a6936ca7b509836e07cdd5fbe39da847214ea",
+ "tape_bytes": 64305815,
+ "npz_sha256": "7b824ee9f55a399caaf5499a6f6ea42e702a42c28c56d3ef0218c5046133c469"
+}

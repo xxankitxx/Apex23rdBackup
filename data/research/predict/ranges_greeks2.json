@@ -1,0 +1,253 @@
+{
+ "days": [
+  "2026-10-19",
+  "2026-10-21",
+  "2026-10-22",
+  "2026-10-23",
+  "2026-10-26",
+  "2026-10-27",
+  "2026-10-28",
+  "2026-10-29",
+  "2026-10-30",
+  "2026-11-02",
+  "2026-11-03",
+  "2026-11-04",
+  "2026-11-05",
+  "2026-11-06",
+  "2026-11-09"
+ ],
+ "scenarios": 99,
+ "note": "discovery material",
+ "horizons": {
+  "60": {
+   "n": 145562,
+   "all": {
+    "n": 145562,
+    "baseline": {
+     "pinball10": 0.01088,
+     "pinball50": 0.01866,
+     "pinball90": 0.01129,
+     "coverage_10_90": 0.7938,
+     "median_width": 0.0992
+    },
+    "direct": {
+     "pinball10": 0.00969,
+     "pinball50": 0.01891,
+     "pinball90": 0.01056,
+     "coverage_10_90": 0.8209,
+     "median_width": 0.1067
+    },
+    "translator": {
+     "pinball10": 0.00917,
+     "pinball50": 0.01899,
+     "pinball90": 0.00967,
+     "coverage_10_90": 0.7655,
+     "median_width": 0.0797
+    },
+    "translator_vol": {
+     "pinball10": 0.00911,
+     "pinball50": 0.01923,
+     "pinball90": 0.0102,
+     "coverage_10_90": 0.8437,
+     "median_width": 0.1047
+    }
+   },
+   "expiry_day": {
+    "n": 42456,
+    "baseline": {
+     "pinball10": 0.02299,
+     "pinball50": 0.03668,
+     "pinball90": 0.02379,
+     "coverage_10_90": 0.4903,
+     "median_width": 0.0982
+    },
+    "direct": {
+     "pinball10": 0.01897,
+     "pinball50": 0.03713,
+     "pinball90": 0.02098,
+     "coverage_10_90": 0.8745,
+     "median_width": 0.268
+    },
+    "translator": {
+     "pinball10": 0.01834,
+     "pinball50": 0.03715,
+     "pinball90": 0.0199,
+     "coverage_10_90": 0.7147,
+     "median_width": 0.1809
+    },
+    "translator_vol": {
+     "pinball10": 0.01757,
+     "pinball50": 0.03718,
+     "pinball90": 0.02024,
+     "coverage_10_90": 0.8587,
+     "median_width": 0.2379
+    }
+   },
+   "other_days": {
+    "n": 103106,
+    "baseline": {
+     "pinball10": 0.00589,
+     "pinball50": 0.01124,
+     "pinball90": 0.00614,
+     "coverage_10_90": 0.9188,
+     "median_width": 0.1033
+    },
+    "direct": {
+     "pinball10": 0.00587,
+     "pinball50": 0.01141,
+     "pinball90": 0.00627,
+     "coverage_10_90": 0.7988,
+     "median_width": 0.0818
+    },
+    "translator": {
+     "pinball10": 0.0054,
+     "pinball50": 0.01152,
+     "pinball90": 0.00546,
+     "coverage_10_90": 0.7864,
+     "median_width": 0.0671
+    },
+    "translator_vol": {
+     "pinball10": 0.00563,
+     "pinball50": 0.01184,
+     "pinball90": 0.00606,
+     "coverage_10_90": 0.8375,
+     "median_width": 0.0817
+    }
+   }
+  },
+  "300": {
+   "n": 138324,
+   "all": {
+    "n": 138324,
+    "baseline": {
+     "pinball10": 0.02249,
+     "pinball50": 0.03999,
+     "pinball90": 0.02417,
+     "coverage_10_90": 0.7905,
+     "median_width": 0.2161
+    },
+    "direct": {
+     "pinball10": 0.01942,
+     "pinball50": 0.04156,
+     "pinball90": 0.0243,
+     "coverage_10_90": 0.7893,
+     "median_width": 0.224
+    },
+    "translator": {
+     "pinball10": 0.01941,
+     "pinball50": 0.04024,
+     "pinball90": 0.02187,
+     "coverage_10_90": 0.7756,
+     "median_width": 0.1781
+    },
+    "translator_vol": {
+     "pinball10": 0.01928,
+     "pinball50": 0.0411,
+     "pinball90": 0.02281,
+     "coverage_10_90": 0.8106,
+     "median_width": 0.2033
+    }
+   },
+   "expiry_day": {
+    "n": 41252,
+    "baseline": {
+     "pinball10": 0.04541,
+     "pinball50": 0.07554,
+     "pinball90": 0.04866,
+     "coverage_10_90": 0.5092,
+     "median_width": 0.2135
+    },
+    "direct": {
+     "pinball10": 0.0365,
+     "pinball50": 0.07627,
+     "pinball90": 0.04446,
+     "coverage_10_90": 0.881,
+     "median_width": 0.6215
+    },
+    "translator": {
+     "pinball10": 0.03737,
+     "pinball50": 0.07516,
+     "pinball90": 0.04375,
+     "coverage_10_90": 0.7658,
+     "median_width": 0.4222
+    },
+    "translator_vol": {
+     "pinball10": 0.03678,
+     "pinball50": 0.07583,
+     "pinball90": 0.04451,
+     "coverage_10_90": 0.837,
+     "median_width": 0.5369
+    }
+   },
+   "other_days": {
+    "n": 97072,
+    "baseline": {
+     "pinball10": 0.01276,
+     "pinball50": 0.02489,
+     "pinball90": 0.01376,
+     "coverage_10_90": 0.9101,
+     "median_width": 0.2241
+    },
+    "direct": {
+     "pinball10": 0.01216,
+     "pinball50": 0.02681,
+     "pinball90": 0.01574,
+     "coverage_10_90": 0.7503,
+     "median_width": 0.1703
+    },
+    "translator": {
+     "pinball10": 0.01177,
+     "pinball50": 0.0254,
+     "pinball90": 0.01257,
+     "coverage_10_90": 0.7798,
+     "median_width": 0.1466
+    },
+    "translator_vol": {
+     "pinball10": 0.01185,
+     "pinball50": 0.02634,
+     "pinball90": 0.01358,
+     "coverage_10_90": 0.7994,
+     "median_width": 0.1651
+    }
+   }
+  }
+ },
+ "selection": {
+  "rule": "coverage 78-82 % at both horizons, then lowest summed tail pinball; else direct",
+  "table": {
+   "baseline": {
+    "coverage": [
+     0.7938,
+     0.7905
+    ],
+    "tail_loss": 0.06883,
+    "qualifies": true
+   },
+   "direct": {
+    "coverage": [
+     0.8209,
+     0.7893
+    ],
+    "tail_loss": 0.06397,
+    "qualifies": false
+   },
+   "translator": {
+    "coverage": [
+     0.7655,
+     0.7756
+    ],
+    "tail_loss": 0.06012,
+    "qualifies": false
+   },
+   "translator_vol": {
+    "coverage": [
+     0.8437,
+     0.8106
+    ],
+    "tail_loss": 0.0614,
+    "qualifies": false
+   }
+  },
+  "chosen": "direct"
+ }
+}

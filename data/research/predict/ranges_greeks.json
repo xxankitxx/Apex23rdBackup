@@ -1,0 +1,194 @@
+{
+ "days": [
+  "2026-10-19",
+  "2026-10-21",
+  "2026-10-22",
+  "2026-10-23",
+  "2026-10-26",
+  "2026-10-27",
+  "2026-10-28",
+  "2026-10-29",
+  "2026-10-30",
+  "2026-11-02",
+  "2026-11-03",
+  "2026-11-04",
+  "2026-11-05",
+  "2026-11-06",
+  "2026-11-09"
+ ],
+ "note": "discovery material; IV held constant in the translator",
+ "horizons": {
+  "60": {
+   "n": 145562,
+   "all": {
+    "n": 145562,
+    "baseline": {
+     "pinball10": 0.01088,
+     "pinball50": 0.01866,
+     "pinball90": 0.01129,
+     "coverage_10_90": 0.7938,
+     "median_width": 0.0992
+    },
+    "direct": {
+     "pinball10": 0.00969,
+     "pinball50": 0.01891,
+     "pinball90": 0.01056,
+     "coverage_10_90": 0.8209,
+     "median_width": 0.1067
+    },
+    "translator": {
+     "pinball10": 0.009,
+     "pinball50": 0.01875,
+     "pinball90": 0.00986,
+     "coverage_10_90": 0.7402,
+     "median_width": 0.0727
+    }
+   },
+   "expiry_day": {
+    "n": 42456,
+    "baseline": {
+     "pinball10": 0.02299,
+     "pinball50": 0.03668,
+     "pinball90": 0.02379,
+     "coverage_10_90": 0.4903,
+     "median_width": 0.0982
+    },
+    "direct": {
+     "pinball10": 0.01897,
+     "pinball50": 0.03713,
+     "pinball90": 0.02098,
+     "coverage_10_90": 0.8745,
+     "median_width": 0.268
+    },
+    "translator": {
+     "pinball10": 0.01805,
+     "pinball50": 0.03678,
+     "pinball90": 0.02059,
+     "coverage_10_90": 0.724,
+     "median_width": 0.1722
+    }
+   },
+   "other_days": {
+    "n": 103106,
+    "baseline": {
+     "pinball10": 0.00589,
+     "pinball50": 0.01124,
+     "pinball90": 0.00614,
+     "coverage_10_90": 0.9188,
+     "median_width": 0.1033
+    },
+    "direct": {
+     "pinball10": 0.00587,
+     "pinball50": 0.01141,
+     "pinball90": 0.00627,
+     "coverage_10_90": 0.7988,
+     "median_width": 0.0818
+    },
+    "translator": {
+     "pinball10": 0.00527,
+     "pinball50": 0.01133,
+     "pinball90": 0.00544,
+     "coverage_10_90": 0.7468,
+     "median_width": 0.06
+    }
+   },
+   "median_abs_error": {
+    "full_repricing": 0.0375,
+    "delta_only": 0.03766,
+    "delta_gamma_theta": 0.0375,
+    "direct": 0.03782,
+    "baseline": 0.03733
+   },
+   "approximation_gap_vs_full": {
+    "delta_only": 0.00173,
+    "delta_gamma_theta": 3e-05
+   }
+  },
+  "300": {
+   "n": 138324,
+   "all": {
+    "n": 138324,
+    "baseline": {
+     "pinball10": 0.02249,
+     "pinball50": 0.03999,
+     "pinball90": 0.02417,
+     "coverage_10_90": 0.7905,
+     "median_width": 0.2161
+    },
+    "direct": {
+     "pinball10": 0.01942,
+     "pinball50": 0.04156,
+     "pinball90": 0.0243,
+     "coverage_10_90": 0.7893,
+     "median_width": 0.224
+    },
+    "translator": {
+     "pinball10": 0.01849,
+     "pinball50": 0.03993,
+     "pinball90": 0.02148,
+     "coverage_10_90": 0.7512,
+     "median_width": 0.1627
+    }
+   },
+   "expiry_day": {
+    "n": 41252,
+    "baseline": {
+     "pinball10": 0.04541,
+     "pinball50": 0.07554,
+     "pinball90": 0.04866,
+     "coverage_10_90": 0.5092,
+     "median_width": 0.2135
+    },
+    "direct": {
+     "pinball10": 0.0365,
+     "pinball50": 0.07627,
+     "pinball90": 0.04446,
+     "coverage_10_90": 0.881,
+     "median_width": 0.6215
+    },
+    "translator": {
+     "pinball10": 0.03445,
+     "pinball50": 0.07455,
+     "pinball90": 0.0427,
+     "coverage_10_90": 0.7624,
+     "median_width": 0.4098
+    }
+   },
+   "other_days": {
+    "n": 97072,
+    "baseline": {
+     "pinball10": 0.01276,
+     "pinball50": 0.02489,
+     "pinball90": 0.01376,
+     "coverage_10_90": 0.9101,
+     "median_width": 0.2241
+    },
+    "direct": {
+     "pinball10": 0.01216,
+     "pinball50": 0.02681,
+     "pinball90": 0.01574,
+     "coverage_10_90": 0.7503,
+     "median_width": 0.1703
+    },
+    "translator": {
+     "pinball10": 0.0117,
+     "pinball50": 0.02522,
+     "pinball90": 0.01247,
+     "coverage_10_90": 0.7465,
+     "median_width": 0.1342
+    }
+   },
+   "median_abs_error": {
+    "full_repricing": 0.07986,
+    "delta_only": 0.0808,
+    "delta_gamma_theta": 0.07996,
+    "direct": 0.08312,
+    "baseline": 0.07999
+   },
+   "approximation_gap_vs_full": {
+    "delta_only": 0.0074,
+    "delta_gamma_theta": 0.00037
+   }
+  }
+ }
+}

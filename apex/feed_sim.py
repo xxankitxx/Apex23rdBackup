@@ -33,7 +33,7 @@ LOG = None
 
 
 def log(msg):
-    line = f"{datetime.now(config.IST).strftime('%H:%M:%S')} SIM {msg}"
+    line = f"{datetime.now(config.IST).strftime('%Y-%m-%d %H:%M:%S')} SIM {msg}"
     print(line, flush=True)
     try:
         LOG.write(line + "\n"); LOG.flush()

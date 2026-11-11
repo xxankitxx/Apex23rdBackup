@@ -80,15 +80,17 @@ apex/conductor/search.py ITEMS): L the tape's structure (69-80), M across market
 Not available from the recorded data (said plainly, not skipped quietly): nothing in docs/27 is left unbuilt; the
 "vs normal" norms exist only once three earlier days are recorded (norm_days says how many).
 """
-from bisect import bisect_right
+from bisect import bisect_right, insort
 
 import numpy as np
 
 from .. import config
 
-VERSION = 4
-N_ITEMS = 104                                               # docs/27: 68 (v3) + 36 (v4, 9 Nov)
-SKIP_FIELDS = frozenset(("v", "v2_error", "v3_error", "v4_error"))     # bookkeeping keys, not weather
+VERSION = 5
+N_ITEMS = 114                                               # docs/27: 68 (v3) + 36 (v4, 9 Nov) + 10 (v5, 10 Nov)
+ITEM_IDS = tuple(range(1, 105)) + (105, 106, 107, 108, 109, 110, 120, 121, 122, 128)   # docs/38 numbers its items;
+#                                         111-119 and 127 are later batches, 123-126 the continuation photograph
+SKIP_FIELDS = frozenset(("v", "v2_error", "v3_error", "v4_error", "v5_error", "v5_missing"))   # bookkeeping keys, not weather
 MIN_FIELDS = 280                                            # v3 wrote about 270 fields on a full engine; v4 about 390
 
 
@@ -101,16 +103,22 @@ def static_check():
         from ..conductor import search
     except Exception as e:          # noqa: BLE001
         return [f"item map unavailable: {e}"]
-    if VERSION != 4:
-        probs.append(f"photo version {VERSION}, expected 4")
-    if len(search.ITEMS) != N_ITEMS or sorted(search.ITEMS) != list(range(1, N_ITEMS + 1)):
+    if VERSION != 5:
+        probs.append(f"photo version {VERSION}, expected 5")
+    if len(search.ITEMS) != N_ITEMS or sorted(search.ITEMS) != list(ITEM_IDS):
         probs.append(f"{len(search.ITEMS)} docs/27 items mapped, expected {N_ITEMS}")
     try:
         from . import weather4
-        if weather4.N_ITEMS != N_ITEMS:
-            probs.append(f"weather4 builds {weather4.N_ITEMS} items, expected {N_ITEMS}")
+        if weather4.N_ITEMS != 104:
+            probs.append(f"weather4 builds {weather4.N_ITEMS} items, expected 104")
     except Exception as e:          # noqa: BLE001
         probs.append(f"weather4 unavailable: {e}")
+    try:
+        from . import weather5
+        if tuple(sorted(weather5.ITEMS5)) != ITEM_IDS[104:] or weather5.NEW_ITEMS != ITEM_IDS[104:]:
+            probs.append(f"weather5 builds items {sorted(weather5.ITEMS5)}, expected {list(ITEM_IDS[104:])}")
+    except Exception as e:          # noqa: BLE001
+        probs.append(f"weather5 unavailable: {e}")
     fields = {f for _label, fs in search.ITEMS.values() for f in fs}
     if len(fields) < MIN_FIELDS:
         probs.append(f"{len(fields)} fields mapped to items, expected at least {MIN_FIELDS}")
@@ -130,7 +138,7 @@ def check_photo(w):
         return ["no photograph"], []
     if w.get("v") != VERSION:
         probs.append(f"version {w.get('v')}, expected {VERSION}")
-    for k in ("v2_error", "v3_error", "v4_error"):
+    for k in ("v2_error", "v3_error", "v4_error", "v5_error"):
         if k in w:
             probs.append(f"{k}: {w[k]}")
     keys = [k for k in w if k not in SKIP_FIELDS]
@@ -301,6 +309,41 @@ def breadth(ts, arrs, w, t, lag=HW_LAG_S, tol=TOL_S):
     return float(w[ok & (c > 0)].sum() / tot), float(w[ok & (c < 0)].sum() / tot), n
 
 
+class _Prefix:
+    """10 Nov (docs/41 section 13): the max, min or median of the FIRST k values of an append-only list, kept
+    running. The per-second base used to re-scan the whole day for these every second (10 ms at the open, 36 ms by
+    the close). Exactly the same numbers as max(v[:k]), min(v[:k]) and numpy.median(v[:k]): if the list is another
+    object or k went back, it starts again from nothing."""
+
+    def __init__(self, median=False):
+        self.src, self.k, self.hi, self.lo = None, 0, None, None
+        self.srt = [] if median else None
+
+    def to(self, vals, k):
+        if vals is not self.src or k < self.k:
+            self.src, self.k, self.hi, self.lo = vals, 0, None, None
+            if self.srt is not None:
+                self.srt = []
+        if k > self.k:
+            seg = vals[self.k:k]
+            if self.srt is None:
+                hi, lo = max(seg), min(seg)
+                self.hi = hi if self.hi is None or hi > self.hi else self.hi
+                self.lo = lo if self.lo is None or lo < self.lo else self.lo
+            elif len(seg) > 32:
+                self.srt = sorted(self.srt + seg)
+            else:
+                for v in seg:
+                    insort(self.srt, v)
+            self.k = k
+        return self
+
+    def median(self):
+        n = len(self.srt)
+        m = n // 2
+        return self.srt[m] if n % 2 else (self.srt[m - 1] + self.srt[m]) / 2.0
+
+
 class Weather:
     """The engine's histories for the photograph; one per day (engine_main.start_day)."""
 
@@ -321,6 +364,8 @@ class Weather:
         self.vix_t, self.vix_p = [], []            # VIX by its own arrival stamp
         self._vix_ns = None
         self._base_s, self._base = None, {}
+        self._orc = {}                             # finished opening ranges (they never change once complete)
+        self._px_rng, self._iv_med = _Prefix(), _Prefix(median=True)
 
     # ── feeding (engine_main, the 1-Hz block) ───────────────────────────────
     def feed_spot(self, now_s, spot):
@@ -420,8 +465,8 @@ class Weather:
         if ts:
             d0 = datetime.fromtimestamp(ts[0], config.IST)
             open_s = d0.replace(hour=o // 3600, minute=(o % 3600) // 60, second=0, microsecond=0).timestamp()
-        or15 = opening_range(ts, ps, t, 15, open_s) if open_s else None
-        or30 = opening_range(ts, ps, t, 30, open_s) if open_s else None
+        or15 = self._orange(ts, ps, t, 15, open_s) if open_s else None
+        or30 = self._orange(ts, ps, t, 30, open_s) if open_s else None
         c15, c15b = change(ts, ps, t, 15), change(ts, ps, t - 15, 15)
         g = self.hw_g
         grp = {}
@@ -458,6 +503,17 @@ class Weather:
         self._base_s = sec
         return self._base
 
+    def _orange(self, ts, ps, t, minutes, open_s):
+        """opening_range(), remembered once its window is complete: from then on it reads only samples stamped
+        inside the window, and nothing stamped that early can still arrive."""
+        c = self._orc.get(minutes)
+        if c is not None and ts and c[0] == ts[0] and c[1] == open_s and t >= c[2]:
+            return c[3]
+        r = opening_range(ts, ps, t, minutes, open_s)
+        if r is not None:
+            self._orc[minutes] = (ts[0], open_s, ts[0] + 60 * minutes, r)
+        return r
+
     def _base3(self, t, ts, ps, sp, open_s, er30, er60):
         """v3 (8 Nov): the direction-free part of the rest of docs/27, every read by value_at / change (bisect on
         the arrival stamp), so nothing stamped after t is seen."""
@@ -465,7 +521,7 @@ class Weather:
         chg = lambda k, lag, tol=TOL_S: change(*S(k), t, lag, tol)                       # noqa: E731
         now_ = lambda k, tol=TOL_S: value_at(*S(k), t, tol)                               # noqa: E731
         out = {}
-        out["or45"] = opening_range(ts, ps, t, 45, open_s) if open_s else None
+        out["or45"] = self._orange(ts, ps, t, 45, open_s) if open_s else None
         marks = [value_at(ts, ps, t - 60 * k) for k in range(61)]
         rev = None
         if all(m is not None for m in marks):
@@ -493,7 +549,7 @@ class Weather:
         it, iv = S("atm_iv")
         k = bisect_right(it, t)
         out["atm_iv_now"] = _r(now_("atm_iv"), 2)
-        out["atm_iv_med"] = _r(float(np.median(iv[:k])), 2) if k >= 60 else None
+        out["atm_iv_med"] = _r(float(self._iv_med.to(iv, k).median()), 2) if k >= 60 else None
         out["atm_iv_chg60"], out["atm_iv_chg300"] = _r(chg("atm_iv", 60), 2), _r(chg("atm_iv", 300), 2)
         fn_now = now_("fn")
         for lag in (60, 300):
@@ -505,7 +561,8 @@ class Weather:
         ac, ap = now_("atm_ce"), now_("atm_pe")
         out["prem_ratio_cp"] = _r(ac / ap, 3) if ac and ap else None
         n_sp = bisect_right(ts, t)
-        rng_now = (max(ps[:n_sp]) - min(ps[:n_sp])) if n_sp else None
+        pr = self._px_rng.to(ps, n_sp) if n_sp else None
+        rng_now = (pr.hi - pr.lo) if n_sp else None
         out["range_now"] = _r(rng_now, 2)
         out["fut_vol60"], out["hw_vol60"] = _r(chg("fut_ttq", 60), 0), _r(chg("hw_ttq", 60), 0)
         nm = self.norms
@@ -605,6 +662,11 @@ def photo(ctx, d, opt=None, book=None, why=None):
         photo_v4(out, ctx, d, opt, book, b, sp)
     except Exception:
         out["v4_error"] = "photo_v4"
+    try:                                               # 10 Nov (v5, docs/38): ten instrumentation items, each guarded
+        from .weather5 import photo_v5
+        photo_v5(out, ctx, d, opt, book, b, sp)
+    except Exception:
+        out["v5_error"] = "photo_v5"
     return out
 
 

@@ -1,0 +1,22 @@
+T 30 {'n': 141204, 'base': 0.0932, 'auc': 0.8509, 'brier': 0.07156, 'brier_base': 0.08617, 'skill': 0.1695} | mom30 0.2666 | om30 0.2823 | days auc>0.5 10 skill>0 9 of 10
+T 60 {'n': 140402, 'base': 0.1593, 'auc': 0.7986, 'brier': 0.11317, 'brier_base': 0.13666, 'skill': 0.1719} | mom30 0.3431 | om30 0.3475 | days auc>0.5 10 skill>0 9 of 10
+T 180 {'n': 137900, 'base': 0.3023, 'auc': 0.6648, 'brier': 0.19718, 'brier_base': 0.21306, 'skill': 0.0745} | mom30 0.4275 | om30 0.4306 | days auc>0.5 10 skill>0 9 of 10
+T 300 {'n': 136470, 'base': 0.3646, 'auc': 0.6076, 'brier': 0.22468, 'brier_base': 0.23293, 'skill': 0.0354} | mom30 0.4596 | om30 0.4557 | days auc>0.5 10 skill>0 9 of 10
+D:\ApexOptions\apex\predict\models.py:37: RuntimeWarning: overflow encountered in exp
+  p = 1.0 / (1.0 + np.exp(-A @ w))
+D:\ApexOptions\apex\predict\models.py:58: RuntimeWarning: overflow encountered in exp
+  return 1.0 / (1.0 + np.exp(-A @ np.array(m["w"])))
+A 30 {'n': 141204, 'base': 0.1093, 'auc': 0.3832, 'brier': 0.20075, 'brier_base': 0.09956, 'skill': -1.0164} | mom30 0.2755 | om30 0.3089 | days auc>0.5 7 skill>0 7 of 10
+A 60 {'n': 140402, 'base': 0.1878, 'auc': 0.7883, 'brier': 0.12664, 'brier_base': 0.15608, 'skill': 0.1886} | mom30 0.3463 | om30 0.3527 | days auc>0.5 10 skill>0 9 of 10
+A 180 {'n': 137900, 'base': 0.3577, 'auc': 0.6548, 'brier': 0.21501, 'brier_base': 0.23213, 'skill': 0.0738} | mom30 0.4359 | om30 0.4367 | days auc>0.5 8 skill>0 9 of 10
+A 300 {'n': 136470, 'base': 0.4288, 'auc': 0.5942, 'brier': 0.23884, 'brier_base': 0.2463, 'skill': 0.0303} | mom30 0.459 | om30 0.4546 | days auc>0.5 8 skill>0 10 of 10
+speed {'n': 49759, 'median_t_hit_s': 71.0, 'rank_corr_pT30_share_vs_time': -0.6568, 'median_t_hit_top_quarter': 21.0, 'median_t_hit_bottom_quarter': 134.0}
+UP60 (more than +5 points) {'all': {'n': 35752, 'base': 0.2591, 'auc': 0.5858, 'brier': 0.1889, 'brier_base': 0.19222, 'skill': 0.0172}, 'ctl_mom30': {'n': 35752, 'base': 0.2591, 'auc': 0.5, 'brier': 0.19222, 'brier_base': 0.19222, 'skill': -0.0}}
+DOWN60 (more than -5 points) {'all': {'n': 35752, 'base': 0.2274, 'auc': 0.609, 'brier': 0.17189, 'brier_base': 0.17746, 'skill': 0.0314}, 'ctl_mom30': {'n': 35752, 'base': 0.2274, 'auc': 0.5028, 'brier': 0.17731, 'brier_base': 0.17746, 'skill': 0.0009}}
+{'label': 'forecast edge, top 5 %', 'n': 1123, 'won': 585, 'lost': 538, 'sum_pct': 302.6, 'mean_pct': 0.269, 'days_positive': '6 of 10', 'non_expiry': {'n': 434, 'won': 224, 'sum_pct': 100.4}, 'exits': {'A': 508, 'T': 552, 'H': 63}, 'mean_hold_s': 64.5}
+{'label': 'forecast edge, top 1 %', 'n': 400, 'won': 212, 'lost': 188, 'sum_pct': 124.6, 'mean_pct': 0.311, 'days_positive': '7 of 10', 'non_expiry': {'n': 160, 'won': 80, 'sum_pct': 27.8}, 'exits': {'T': 206, 'A': 172, 'H': 22}, 'mean_hold_s': 58.7}
+{'label': 'control: mom30, top 5 %', 'n': 876, 'won': 396, 'lost': 480, 'sum_pct': -353.1, 'mean_pct': -0.403, 'days_positive': '3 of 10', 'non_expiry': {'n': 409, 'won': 185, 'sum_pct': -111.9}, 'exits': {'T': 371, 'A': 442, 'H': 63}, 'mean_hold_s': 72.1}
+{'label': 'control: mom30, top 1 %', 'n': 235, 'won': 109, 'lost': 126, 'sum_pct': -95.7, 'mean_pct': -0.407, 'days_positive': '4 of 10', 'non_expiry': {'n': 106, 'won': 50, 'sum_pct': -28.9}, 'exits': {'T': 103, 'A': 122, 'H': 10}, 'mean_hold_s': 59.5}
+{'label': 'every origin', 'n': 3200, 'won': 1545, 'lost': 1655, 'sum_pct': -2090.2, 'mean_pct': -0.653, 'days_positive': '3 of 10', 'non_expiry': {'n': 905, 'won': 462, 'sum_pct': 118.0}, 'exits': {'T': 1466, 'A': 1589, 'H': 145}, 'mean_hold_s': 54.1}
+stage C {'n': 136470, 'brier_frozen': 0.22468, 'brier_adaptive': 0.22574, 'brier_base': 0.23293, 'auc_frozen': 0.6076, 'auc_adaptive': 0.5941, 'calibrator_updates': 136280, 'rule': 'a label enters the calibrator only after fill + 300 s + 10 s have passed'}
+artefact {'hash': '007f0f2c0048', 'edge_quantiles': {'0.5': -0.06266300958864873, '0.9': 0.007436727479280925, '0.95': 0.02561888828013542, '0.99': 0.05757294674993108}} [(np.str_('prem'), -0.371), (np.str_('spread_pct'), -0.306), (np.str_('om30'), -0.197), (np.str_('om60'), 0.194), (np.str_('rv300'), 0.147), (np.str_('tod'), -0.132), (np.str_('rngpos'), 0.12), (np.str_('expd'), -0.077), (np.str_('om10'), 0.058), (np.str_('mom300'), -0.058)]

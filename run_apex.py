@@ -90,8 +90,41 @@ def child_env(mode, data_dir=None):
     return env
 
 
+LIVE_FIRST = ("apex.feed_breeze", "apex.engine_main")      # in live mode these two run above normal priority
+
+
+def spawn_flags(module, mode):
+    """10 Nov (docs/41): on 10 Nov four replays and research jobs on the same machine made the engine step three to
+    four times slower. The live feed and engine now run above normal priority, so other work on the machine waits
+    for them, not the other way round. Windows only; elsewhere 0."""
+    if mode == "live" and module in LIVE_FIRST:
+        return getattr(subprocess, "ABOVE_NORMAL_PRIORITY_CLASS", 0)
+    return 0
+
+
+def busy_python(own_pids=()):
+    """Other Python processes on this machine (replays, research, tests), as (pid, command line) pairs. Used once at
+    a live start to warn. Never raises: an unreadable process list is an empty list."""
+    try:
+        out = subprocess.run(["wmic", "process", "where", "name like 'py%'", "get", "ProcessId,CommandLine", "/format:csv"],
+                             capture_output=True, text=True, timeout=15).stdout
+    except Exception:
+        return []
+    rows = []
+    for line in out.splitlines():
+        parts = line.strip().split(",")
+        if len(parts) < 3 or not parts[-1].isdigit():
+            continue
+        pid, cmd = int(parts[-1]), ",".join(parts[1:-1])
+        if pid in own_pids or pid == os.getpid() or "run_apex" in cmd:
+            continue
+        rows.append((pid, cmd[:160]))
+    return rows
+
+
 def spawn(module, args, mode, data_dir=None):
-    return subprocess.Popen([sys.executable, "-m", module] + args, cwd=ROOT, env=child_env(mode, data_dir))
+    return subprocess.Popen([sys.executable, "-m", module] + args, cwd=ROOT, env=child_env(mode, data_dir),
+                            creationflags=spawn_flags(module, mode))
 
 
 STALE_S = 10.0          # a heartbeat older than this in market hours is reported (C-08)
@@ -116,6 +149,30 @@ def stale_report(now_ns, engine_hb_ns, feed_hb_ns, started_ns):
     return out
 
 
+PAUSE_S = 3.0           # 10 Nov: an engine heartbeat that stood still this long and then resumed is reported too
+
+
+def pause_report(state, now_ns, hb_ns, pause_s=None):
+    """10 Nov: on 9 Nov the engine stood still for up to 8.5 s per step, dozens of times, and the supervisor said
+    nothing: every pause was under STALE_S. Call once a second with a dict kept between calls; returns the length of
+    a pause (seconds) at the moment the heartbeat moves again, else None. Pauses over STALE_S are still reported
+    while they last by stale_report()."""
+    pause_s = PAUSE_S if pause_s is None else pause_s
+    hb = int(hb_ns or 0)
+    if hb <= 0:
+        return None
+    age = (now_ns - hb) / 1e9
+    if hb == state.get("hb"):
+        if age > pause_s:
+            state["max"] = max(state.get("max", 0.0), age)
+        return None
+    out = state.pop("max", None)                 # the heartbeat moved: report the pause that just ended
+    state["hb"] = hb
+    if age > pause_s:                            # it moved, but is already old again
+        state["max"] = age
+    return out
+
+
 def in_market_hours(config, now):
     return (config.is_trading_day(now.date())
             and config.mins(config.MARKET_OPEN) <= config.hm(now) <= config.mins(config.MARKET_CLOSE))
@@ -128,22 +185,50 @@ def wait_for(p, deadline):
 
 
 FEED_STOP_S = 12.0      # the feed gets this long to stop cleanly ...
-ENGINE_STOP_S = 20.0    # ... then the engine gets its OWN deadline (books + learning, C-09)
+ENGINE_STOP_S = 180.0   # ... then the engine gets its OWN deadline (books + learning, C-09). 10 Nov: was 20 s; the
+                        # engine now also closes and learns the day at a stop after the flatten time
+STOP_FORCE_PRESSES = 3  # Ctrl+C presses in all before a still-saving engine is terminated
 FEED_RESET_S = 600.0    # a feed that has run this long resets the restart counter (C-78)
 
 
 def stop_children(procs, say=print, feed_s=None, engine_s=None):
     """After ctrl.stop is set: wait for the feed, then give the engine its own deadline,
-    and only then terminate whatever is still running (gateway, a hung child)."""
+    and only then terminate whatever is still running (gateway, a hung child).
+
+    10 Nov: a second Ctrl+C no longer terminates anything. On 9 Nov it killed the engine in the middle of its stop
+    save: a torn temporary file, the day neither closed nor learned, the tape without its end marker. Now the first
+    extra Ctrl+C only says what the engine is doing and how long it still has; it takes STOP_FORCE_PRESSES presses
+    in all (the one that started the stop included) to cut the wait short."""
     feed_s = FEED_STOP_S if feed_s is None else feed_s
     engine_s = ENGINE_STOP_S if engine_s is None else engine_s
-    try:
-        if "feed" in procs:
-            wait_for(procs["feed"], time.time() + feed_s)
-        if "engine" in procs and not wait_for(procs["engine"], time.time() + engine_s):
-            say(f"ENGINE did not stop within {engine_s:.0f} s — terminating it")
-    except KeyboardInterrupt:              # a second Ctrl+C: stop waiting, still clean up
-        say("second Ctrl+C — terminating without waiting")
+    presses = 1                            # the Ctrl+C (or the end of the run) that brought us here
+    stages = [("feed", "FEED", feed_s), ("engine", "ENGINE", engine_s)]
+    i, deadline, told = 0, None, 0.0
+    while i < len(stages):
+        key, name, secs = stages[i]
+        try:
+            if key not in procs:
+                i += 1
+                continue
+            if deadline is None:
+                deadline, told = time.time() + secs, time.time()
+            while procs[key].poll() is None and time.time() < deadline:
+                time.sleep(0.2)
+                if key == "engine" and time.time() - told >= 10.0:
+                    told = time.time()
+                    say(f"waiting for the ENGINE to save the books and close the day "
+                        f"({max(deadline - time.time(), 0):.0f} s left) - do not close this window")
+            if key == "engine" and procs[key].poll() is None:
+                say(f"ENGINE did not stop within {engine_s:.0f} s — terminating it")
+            i, deadline = i + 1, None
+        except KeyboardInterrupt:
+            presses += 1
+            if presses >= STOP_FORCE_PRESSES:
+                say("Ctrl+C again — terminating without waiting (the books file on disk is the last complete save)")
+                break
+            left = max((deadline or time.time()) - time.time(), 0)
+            say(f"Ctrl+C ignored: the {name} is still stopping ({left:.0f} s left); the ENGINE must finish saving the "
+                f"books. Press Ctrl+C once more only if it is truly stuck")
     for p in procs.values():
         if p.poll() is None:
             p.terminate()
@@ -178,16 +263,26 @@ def supervise(mode, feed_args, speed=1.0, open_browser=True, data_dir=None):
         "engine": spawn("apex.engine_main", [mode], mode, data_dir),
         "gateway": spawn("apex.gateway", [], mode, data_dir),
     }
+    if mode == "live":                                   # 10 Nov: other heavy work on this machine slows the engine
+        others = busy_python({p.pid for p in procs.values()})
+        heavy = [c for _, c in others if any(k in c for k in ("replay", "pytest", "research", "batch"))]
+        if heavy:
+            print(f"\n  WARNING: {len(heavy)} replay / test / research process(es) are running on this machine. On 10 Nov "
+                  "such jobs made the engine step 3 to 4 times slower. Stop them before the open:", flush=True)
+            for c in heavy[:8]:
+                print(f"    {c}", flush=True)
+            print("", flush=True)
     started_ns = time.time_ns()
     feed_started = time.time()
     last_warn = {}
+    pause = {}
     try:
         slog = open(os.path.join(config.LOG_DIR, "supervisor.log"), "a", encoding="utf-8")
     except Exception:
         slog = None
 
     def say(msg):
-        line = f"{time.strftime('%H:%M:%S')} SUPERVISOR {msg}"
+        line = f"{time.strftime('%Y-%m-%d %H:%M:%S')} SUPERVISOR {msg}"      # 10 Nov: dated
         print(line, flush=True)
         try:
             slog.write(line + "\n"); slog.flush()
@@ -207,7 +302,7 @@ def supervise(mode, feed_args, speed=1.0, open_browser=True, data_dir=None):
             time.sleep(1.0)
             if procs["engine"].poll() is not None:
                 if mode == "live":
-                    print("ENGINE exited — restarting (books are on disk)", flush=True)
+                    say(f"ENGINE exited (code {procs['engine'].returncode}) — restarting (books are on disk)")
                     procs["engine"] = spawn("apex.engine_main", [mode], mode, data_dir)
                 else:
                     break                       # sim/replay finished and learned
@@ -218,9 +313,9 @@ def supervise(mode, feed_args, speed=1.0, open_browser=True, data_dir=None):
             if procs["feed"].poll() is not None and mode == "live":
                 restarts += 1
                 if restarts > 20:
-                    print("FEED keeps dying — see data/logs/feed.log", flush=True)
+                    say("FEED keeps dying — see data/logs/feed.log")
                     time.sleep(30)
-                print(f"FEED exited (code {procs['feed'].returncode}) — restarting", flush=True)
+                say(f"FEED exited (code {procs['feed'].returncode}) — restarting")
                 time.sleep(min(5 * restarts, 60))
                 procs["feed"] = spawn(feed_mod, feed_args, mode, data_dir)
                 feed_started = time.time()
@@ -228,6 +323,10 @@ def supervise(mode, feed_args, speed=1.0, open_browser=True, data_dir=None):
                 # warn only (C-08): no auto-restart on a stale heartbeat yet
                 try:
                     if in_market_hours(config, config.now_ist()):
+                        p = pause_report(pause, time.time_ns(), t.c("engine_hb_ns"))
+                        if p is not None:
+                            say(f"ENGINE heartbeat paused {p:.1f} s and resumed — the engine stood still that long "
+                                f"(see the SLOW TICK lines in data/logs/engine.log)")
                         for name, age in stale_report(time.time_ns(), t.c("engine_hb_ns"),
                                                       t.c("feed_hb_ns"), started_ns):
                             if time.time() - last_warn.get(name, 0.0) >= STALE_EVERY_S:
@@ -236,7 +335,7 @@ def supervise(mode, feed_args, speed=1.0, open_browser=True, data_dir=None):
                 except Exception:
                     pass
     except KeyboardInterrupt:
-        print("\nstopping…", flush=True)
+        say("stop requested (Ctrl+C) — the feed stops first, then the engine saves the books; please wait")
     finally:
         t.set("stop", 1)
         # the feed first, then the engine on its OWN deadline: the engine saves the books and

@@ -1,0 +1,31 @@
+{
+  "n": 204010,
+  "changed": 33020,
+  "max_abs_difference": 0.42341510283312384,
+  "thresholds": {
+    "0.5": {
+      "line": -0.0630814600938302,
+      "raw_above": 102005,
+      "deployed_above": 102700,
+      "decisions_changed": 3487
+    },
+    "0.9": {
+      "line": 0.019609145698340078,
+      "raw_above": 20401,
+      "deployed_above": 19737,
+      "decisions_changed": 2034
+    },
+    "0.95": {
+      "line": 0.04039083241342107,
+      "raw_above": 10201,
+      "deployed_above": 9557,
+      "decisions_changed": 1424
+    },
+    "0.99": {
+      "line": 0.0794165318975942,
+      "raw_above": 2041,
+      "deployed_above": 1650,
+      "decisions_changed": 549
+    }
+  }
+}

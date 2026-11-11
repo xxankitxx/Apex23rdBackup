@@ -1469,3 +1469,30 @@ body.stale .cmt-head::after, body.stale .rmk.new, body.stale .cmt.flash-warn { a
 /* 5 Nov: quant evidence block inside the OI card */
 .q-head { margin-top: var(--sp-3); }
 .force span.up { color: var(--up); } .force span.down { color: var(--down); }
+
+/* 11 Nov: the forecast panel (display only) */
+.forecast .sec-head h2::before { background: var(--ink-2); }
+.fc-say { margin: 0 0 var(--sp-3); font-size: 15px; font-weight: 600; }
+.fc-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(min(100%, 300px), 1fr)); gap: var(--sp-3); }
+.fc-card { position: relative; display: flex; flex-direction: column; gap: 6px; min-width: 0; padding: 10px 12px 10px 14px;
+  border: 1px solid var(--line-strong); border-radius: 8px; background: var(--card-bg); overflow: hidden; }
+.fc-card::before { content: ""; position: absolute; left: 0; top: 0; bottom: 0; width: 3px; background: var(--line-strong); }
+.fc-card.CE::before { background: var(--up); }
+.fc-card.PE::before { background: var(--down); }
+.fc-card.hot { box-shadow: 0 0 0 2px var(--ink-2) inset; }
+.fc-top { display: flex; align-items: baseline; gap: 8px; flex-wrap: wrap; }
+.fc-name { font-weight: 700; font-size: 15px; }
+.fc-prem { font-variant-numeric: tabular-nums; }
+.fc-tag { margin-left: auto; font-size: 11px; opacity: .75; text-transform: uppercase; letter-spacing: .04em; }
+.fc-q { font-size: 12px; opacity: .8; }
+.fc-bar { display: flex; height: 12px; border-radius: 6px; overflow: hidden; background: var(--line-strong); }
+.fc-bar i { display: block; height: 100%; }
+.fc-bar i.u { background: var(--up); }
+.fc-bar i.n { background: transparent; }
+.fc-bar i.d { background: var(--down); }
+.fc-leg { display: flex; justify-content: space-between; gap: 8px; font-size: 12px; font-variant-numeric: tabular-nums; }
+.fc-leg .u b { color: var(--up); }
+.fc-leg .d b { color: var(--down); }
+.fc-rng { font-size: 12px; display: flex; gap: 6px; flex-wrap: wrap; align-items: baseline; font-variant-numeric: tabular-nums; }
+.fc-rng span { opacity: .8; }
+.fc-edge { font-size: 11px; opacity: .8; font-variant-numeric: tabular-nums; }

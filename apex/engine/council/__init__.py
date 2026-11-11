@@ -193,6 +193,11 @@ class Adapter:
                     "peak_bid": self._peak,                    # the kit's pos field (the premium exits read it)
                     "st": p.setdefault("st", {})}              # 1 Nov (c20_9v): a strategy's own per-position state,
                                                                # saved with the book so it survives a restart
+            if book.p.get("fc_exit"):                       # 10 Nov (docs/41, P04): the forecast-exit twin
+                from .. import pred as _pred
+                fx = _pred.held_exit(ctx, p, self._peak)
+                if fx:
+                    return paper.request_exit(book, ctx, fx, o) is not None
         act = self.strat.on_second(i, D, spos)
         if spos is not None and book.pos:
             try:
@@ -203,6 +208,11 @@ class Adapter:
             return False
         if act[0] == "SELL" and book.pos:
             o = ctx["by_key"].get(book.pos["key"])
+            if book.p.get("fc_hold"):                       # 10 Nov (docs/41, P03): the runner twin
+                from .. import pred as _pred
+                if _pred.held_keep(ctx, book.pos, (o or {}).get("bid")):
+                    book.pos["fc_defer"] = int(book.pos.get("fc_defer") or 0) + 1   # seconds the strategy's SELL was held back
+                    return False
             why = f"COUNCIL {act[1] if len(act) > 1 else ''}".strip()
             return paper.request_exit(book, ctx, why, o) is not None
         if act[0] == "BUY" and not book.pos:

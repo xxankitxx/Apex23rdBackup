@@ -68,7 +68,7 @@ def _log(key, msg):
         return
     extra = f" (+{ent[1]} more in the last minute)" if ent[1] else ""
     ent[0], ent[1] = now, 0
-    line = f"{time.strftime('%H:%M:%S')} gateway {key}: {msg}{extra}"
+    line = f"{time.strftime('%Y-%m-%d %H:%M:%S')} gateway {key}: {msg}{extra}"
     try:
         print(line, file=sys.stderr, flush=True)
     except Exception:

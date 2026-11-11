@@ -1,0 +1,11 @@
+T30 n 210685 base 0.0913 in-sample auc 0.8502
+T60 n 209481 base 0.1622 in-sample auc 0.7904
+T180 n 206004 base 0.314 in-sample auc 0.6627
+T300 n 204010 base 0.3762 in-sample auc 0.6109
+A30 n 210685 base 0.1073 in-sample auc 0.849
+A60 n 209481 base 0.1894 in-sample auc 0.783
+A180 n 206004 base 0.3668 in-sample auc 0.6549
+A300 n 204010 base 0.4387 in-sample auc 0.6002
+hash 88c09e8db35f edge quantiles {'0.5': -0.0630814600938302, '0.9': 0.019609145698340078, '0.95': 0.04039083241342107, '0.99': 0.0794165318975942} mom30 line 13.5
+largest T300 weights [('prem', np.float64(-0.402)), ('spread_pct', np.float64(-0.315)), ('om30', np.float64(-0.187)), ('om60', np.float64(0.169)), ('rv300', np.float64(0.157)), ('tod', np.float64(-0.128)), ('rngpos', np.float64(0.105)), ('flow120', np.float64(0.097))]
+largest A300 weights [('spread_pct', np.float64(0.562)), ('om30', np.float64(0.191)), ('dte', np.float64(-0.175)), ('prem', np.float64(-0.146)), ('tod', np.float64(-0.122)), ('prem_strad', np.float64(0.113)), ('rv300', np.float64(0.105)), ('om60', np.float64(-0.1))]

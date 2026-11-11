@@ -1,0 +1,29 @@
+episodes 131 {'fewer than 5 earlier days': 29, 'not ready or no fresh quote': 38, 'ok': 64}
+edge = pT300 - pA300     -> won                                AUC 0.393  shuffle p 0.9296  (38 of 64)
+edge = pT300 - pA300     -> developed: peak 5 % or more        AUC 0.374  shuffle p 0.9186  (50 of 64)
+edge = pT300 - pA300     -> runner: best sibling 20 % or more  AUC 0.465  shuffle p 0.6700  (16 of 64)
+pT300                    -> won                                AUC 0.521  shuffle p 0.3860  (38 of 64)
+pT300                    -> developed: peak 5 % or more        AUC 0.574  shuffle p 0.2036  (50 of 64)
+pT300                    -> runner: best sibling 20 % or more  AUC 0.517  shuffle p 0.4120  (16 of 64)
+minus pA300              -> won                                AUC 0.395  shuffle p 0.9250  (38 of 64)
+minus pA300              -> developed: peak 5 % or more        AUC 0.347  shuffle p 0.9656  (50 of 64)
+minus pA300              -> runner: best sibling 20 % or more  AUC 0.458  shuffle p 0.6802  (16 of 64)
+pT60                     -> won                                AUC 0.564  shuffle p 0.1992  (38 of 64)
+pT60                     -> developed: peak 5 % or more        AUC 0.611  shuffle p 0.1024  (50 of 64)
+pT60                     -> runner: best sibling 20 % or more  AUC 0.570  shuffle p 0.2068  (16 of 64)
+upper half of edge {'n': 32, 'won': 16, 'lost': 16, 'sum_ret': 208.1, 'mean_ret': 6.5, 'runners_kept': 9}
+lower half of edge {'n': 32, 'won': 22, 'lost': 10, 'sum_ret': 186.1, 'mean_ret': 5.82, 'runners_kept': 7}
+edge above 0 {'n': 9, 'won': 5, 'lost': 4, 'sum_ret': 30.4, 'mean_ret': 3.38, 'runners_kept': 2}
+edge at or below 0 {'n': 55, 'won': 33, 'lost': 22, 'sum_ret': 363.8, 'mean_ret': 6.61, 'runners_kept': 14}
+9 Nov live trades (Conductor):
+   {'day': '2026-11-09', 'time': '09:26:55', 'key': 'NIFTY|OPT|2026-11-09|24850|CE', 'live': True, 'ret': -12.53, 'best': -12.53, 'peak': 1.2, 'edge': -0.1694, 'pT300': 0.471, 'pA300': 0.641}
+   {'day': '2026-11-09', 'time': '09:35:28', 'key': 'NIFTY|OPT|2026-11-09|25000|PE', 'live': True, 'ret': 6.67, 'best': 6.67, 'peak': 23.2, 'edge': -0.1064, 'pT300': 0.489, 'pA300': 0.596}
+   {'day': '2026-11-09', 'time': '09:45:29', 'key': 'NIFTY|OPT|2026-11-09|24850|CE', 'live': True, 'ret': -9.34, 'best': -9.34, 'peak': 11.5, 'edge': -0.1549, 'pT300': 0.471, 'pA300': 0.626}
+   {'day': '2026-11-09', 'time': '09:55:07', 'key': 'NIFTY|OPT|2026-11-09|25000|PE', 'live': True, 'ret': -5.86, 'best': -5.86, 'peak': 7.9, 'edge': -0.1896, 'pT300': 0.411, 'pA300': 0.601}
+   {'day': '2026-11-09', 'time': '10:26:13', 'key': 'NIFTY|OPT|2026-11-09|25000|PE', 'live': True, 'ret': 5.89, 'best': 5.89, 'peak': 13.3, 'edge': -0.1833, 'pT300': 0.431, 'pA300': 0.615}
+   {'day': '2026-11-09', 'time': '10:38:10', 'key': 'NIFTY|OPT|2026-11-09|24950|PE', 'live': True, 'ret': 14.39, 'best': 14.39, 'peak': 35.8, 'edge': -0.1604, 'pT300': 0.435, 'pA300': 0.595}
+   {'day': '2026-11-09', 'time': '10:56:21', 'key': 'NIFTY|OPT|2026-11-09|24850|CE', 'live': True, 'ret': -14.85, 'best': -14.85, 'peak': 0.0, 'edge': -0.0257, 'pT300': 0.51, 'pA300': 0.536}
+   {'day': '2026-11-09', 'time': '11:13:19', 'key': 'NIFTY|OPT|2026-11-09|24800|CE', 'live': True, 'ret': 16.02, 'best': 16.02, 'peak': 40.4, 'edge': -0.1436, 'pT300': 0.468, 'pA300': 0.612}
+   {'day': '2026-11-09', 'time': '11:33:16', 'key': 'NIFTY|OPT|2026-11-09|24900|CE', 'live': True, 'ret': 64.85, 'best': 64.85, 'peak': 88.6, 'edge': -0.0442, 'pT300': 0.535, 'pA300': 0.579}
+   {'day': '2026-11-09', 'time': '11:51:25', 'key': 'NIFTY|OPT|2026-11-09|25050|PE', 'live': True, 'ret': -9.84, 'best': -9.84, 'peak': 5.0, 'edge': -0.094, 'pT300': 0.51, 'pA300': 0.604}
+   {'day': '2026-11-09', 'time': '11:57:15', 'key': 'NIFTY|OPT|2026-11-09|25050|PE', 'live': True, 'ret': 23.36, 'best': 23.36, 'peak': 44.5, 'edge': -0.1199, 'pT300': 0.442, 'pA300': 0.561}

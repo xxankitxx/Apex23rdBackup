@@ -1,0 +1,36 @@
+2026-10-27 train sessions 5 | executable rows 5832 | logloss3 activity 0.7060 hazard 0.7085 logistic 0.7141 | direction AUC activity 0.504 hazard 0.508 logistic 0.504 | 63 s
+2026-10-28 train sessions 6 | executable rows 6389 | logloss3 activity 1.0584 hazard 1.0622 logistic 1.0751 | direction AUC activity 0.501 hazard 0.574 logistic 0.588 | 197 s
+2026-10-29 train sessions 7 | executable rows 7012 | logloss3 activity 1.0997 hazard 1.0822 logistic 1.0971 | direction AUC activity 0.508 hazard 0.697 logistic 0.696 | 314 s
+2026-10-30 train sessions 8 | executable rows 7846 | logloss3 activity 1.0431 hazard 1.0516 logistic 1.0486 | direction AUC activity 0.493 hazard 0.505 logistic 0.504 | 454 s
+2026-11-02 train sessions 9 | executable rows 6784 | logloss3 activity 1.0544 hazard 1.0653 logistic 1.3347 | direction AUC activity 0.493 hazard 0.497 logistic 0.497 | 548 s
+2026-11-03 train sessions 10 | executable rows 6842 | logloss3 activity 0.8209 hazard 0.8147 logistic 1.0179 | direction AUC activity 0.476 hazard 0.576 logistic 0.580 | 653 s
+2026-11-04 train sessions 11 | executable rows 6697 | logloss3 activity 1.0142 hazard 1.0131 logistic 1.0367 | direction AUC activity 0.517 hazard 0.517 logistic 0.523 | 775 s
+2026-11-05 train sessions 12 | executable rows 6961 | logloss3 activity 1.1408 hazard 1.1424 logistic 1.1415 | direction AUC activity 0.497 hazard 0.468 logistic 0.477 | 909 s
+2026-11-06 train sessions 13 | executable rows 8158 | logloss3 activity 1.0456 hazard 1.0543 logistic 1.0603 | direction AUC activity 0.511 hazard 0.513 logistic 0.523 | 1067 s
+2026-11-09 train sessions 14 | executable rows 6971 | logloss3 activity 0.7107 hazard 0.7101 logistic 0.7184 | direction AUC activity 0.506 hazard 0.529 logistic 0.534 | 1228 s
+
+EXECUTABLE population, 10 unseen sessions; difference is model minus the activity-only baseline
+  hazard    logloss3                   0.9704 (baseline 0.9694) diff +0.0011 90 % [-0.0033, +0.0050] better on 4/10 sessions
+  hazard    brier3                     0.6029 (baseline 0.6021) diff +0.0007 90 % [-0.0028, +0.0038] better on 3/10 sessions
+  hazard    auc_activity               0.6119 (baseline 0.6052) diff +0.0067 90 % [-0.0050, +0.0202] better on 5/10 sessions
+  hazard    auc_direction_given_event  0.5385 (baseline 0.5005) diff +0.0380 90 % [+0.0079, +0.0707] better on 8/10 sessions
+  hazard    top 5 % edge: n 4601, up-first 0.451, down-first 0.432, mean 300-s return +0.224 %, positive sessions 6/10
+  logistic  logloss3                   1.0245 (baseline 0.9694) diff +0.0551 90 % [+0.0089, +0.1101] better on 1/10 sessions
+  logistic  brier3                     0.6071 (baseline 0.6021) diff +0.0050 90 % [+0.0007, +0.0094] better on 2/10 sessions
+  logistic  auc_activity               0.6109 (baseline 0.6052) diff +0.0057 90 % [-0.0150, +0.0289] better on 4/10 sessions
+  logistic  auc_direction_given_event  0.5426 (baseline 0.5005) diff +0.0421 90 % [+0.0119, +0.0751] better on 9/10 sessions
+  logistic  top 5 % edge: n 5054, up-first 0.403, down-first 0.408, mean 300-s return +0.197 %, positive sessions 5/10
+  activity  top 5 % edge: n 3098, mean 300-s return -0.483 %
+
+BROAD population, 10 unseen sessions; difference is model minus the activity-only baseline
+  hazard    logloss3                   0.9688 (baseline 0.9674) diff +0.0014 90 % [-0.0028, +0.0053] better on 3/10 sessions
+  hazard    brier3                     0.6002 (baseline 0.5988) diff +0.0014 90 % [-0.0017, +0.0044] better on 2/10 sessions
+  hazard    auc_activity               0.7426 (baseline 0.7420) diff +0.0005 90 % [-0.0022, +0.0027] better on 8/10 sessions
+  hazard    auc_direction_given_event  0.5348 (baseline 0.5171) diff +0.0177 90 % [-0.0070, +0.0449] better on 5/10 sessions
+  hazard    top 5 % edge: n 25037, up-first 0.452, down-first 0.443, mean 300-s return +0.489 %, positive sessions 7/10
+  logistic  logloss3                   1.0007 (baseline 0.9674) diff +0.0334 90 % [+0.0142, +0.0649] better on 0/10 sessions
+  logistic  brier3                     0.6047 (baseline 0.5988) diff +0.0059 90 % [+0.0020, +0.0095] better on 2/10 sessions
+  logistic  auc_activity               0.7339 (baseline 0.7420) diff -0.0081 90 % [-0.0144, -0.0023] better on 3/10 sessions
+  logistic  auc_direction_given_event  0.5385 (baseline 0.5171) diff +0.0214 90 % [-0.0019, +0.0484] better on 5/10 sessions
+  logistic  top 5 % edge: n 25285, up-first 0.407, down-first 0.417, mean 300-s return +0.197 %, positive sessions 6/10
+  activity  top 5 % edge: n 16587, mean 300-s return -0.376 %

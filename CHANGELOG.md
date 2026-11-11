@@ -1,5 +1,187 @@
 # Changelog
 
+## 11 Nov 2026 (08:25 to 08:35) — docs/46 review: three fixes before the open
+- **Stale signal (finding 1):** the forecaster withdraws its signals in any second without a current forecast, and
+  `paper.evaluate_gen` refuses a forecast-book signal whose exact contract has no current forecast.
+- **Chain edge (finding 2):** a missing neighbouring strike no longer silences buyable and held contracts.
+- **Publication (finding 5):** an artefact counts as published before a session only if its recorded time is before
+  that session's 09:15 open.
+- **Left for after the session:** finding 3 (a recording that ends inside the horizon is labelled "neither"; the fix
+  is a new target version, a rebuild and a refit) and finding 4 (the registry is not wired into engine start).
+- **Tests:** 3 more; full suite 543 passed, no failure, no error. Freeze re-recorded 08:3x. docs/45 section 10.
+
+## 11 Nov 2026 (08:00 to 08:20) — forecast panel on the dashboard, display only
+- **Forecast panel** (`Pred.panel`, state key `forecast`, `apex/static`): one card for the call and the put the
+  engine would buy now and for each held contract: chance the premium gains 5 % first, loses 5 % first, or neither
+  within 5 minutes; the likely premium range at 1 and 5 minutes in per cent and rupees; one sentence on the lean;
+  the model, its cut-off and a plain warning that its percentages are rough. Built once a second, isolated by
+  `_safe` in the engine and a try/catch in the page. Decides nothing.
+- Checked on a stand-alone page with the real renderer, styles and forecaster output (no console errors); not seen
+  inside a running engine: a simulated run was blocked by the permission system.
+- **Tests:** one more in `tests/test_forecast_repairs.py`; full suite 538 passed, no failure, no error.
+- **Not changed:** the 10 weather items of docs/38 still not built (111 to 119, 127). All can be recomputed from the
+  recorded tape. The known slow step when many books enter at once (1.2 s once in the idle hour) is not fixed.
+- **08:20, after a review of the panel, five wording faults fixed:** the headline now compares one stated event
+  (the chance of gaining 5 % before losing 5 %) and no longer says "more likely to rise"; "raw entry level reached"
+  replaces "strong enough for the books to act", and each forecast book's own state is shown; zero, one and two
+  buyable sides are told apart; ranges are labelled as estimated 10th to 90th percentiles with their own model and
+  cut-off, rupees as approximate; the hardcoded 0.54 is gone. The reviewer's two cases and three more are pinned
+  (`tests/js/forecast_headline_test.js`). Full suite 540 passed.
+- The panel's ranges are computed once a second inside the engine's publish, about half a millisecond a row:
+  display only is not zero cost. Not measured in a running engine.
+- Freeze re-recorded at 08:22; no decision code changed since 03:21.
+
+## 11 Nov 2026 (02:00 to 03:30) — docs/44 roadmap: M0 and M1 evidence, first M2 comparison (docs/45)
+- **docs/45** (new): the implementation matrix docs/44 asks for, then the evidence.
+- **Life cycle:** full contract key and expiry on the signal, the pending order and the fill (`fc_sig`, a ledger
+  `fill` record); held coverage by priority, cap 24, over-cap counted; the fill is the next second or none; a full
+  queue evicts unfilled first with a censored record; a restart keeps signal numbers, closes a torn line and marks
+  orphans once. `tests/test_forecast_lifecycle.py` (3, end to end) found and fixed one fault: a filled forecast was
+  marked as an orphan after a restart. All contracts are scored in one pass a second.
+- **Aligned data:** `research/predict/build_candidates.py` writes `origins_v3` (648,026 rows, 103,995 executable
+  picks, no moment dropped). 52.4 % of executable picks are at the depths the old model was fitted on, 47.6 % are
+  not; the gap is in moneyness. The reconstructed selector equals the engine's real choice on 98.3 % of 8,796 fills.
+- **Champion episodes** (`build_episodes.py`, 92 executed trades): 49 of 89 dipped 5 % first and that group still
+  made +2.3 lakh with 6 runners. "+5 % before -5 %" is the wrong target for the champion. Untraded triggers missing.
+- **M2, ten unseen sessions:** no model beats an activity-only baseline on proper scores; a small direction signal
+  (0.54 against 0.50, interval clear of zero); the deployed eight-model method is badly calibrated out of sample and
+  is rejected as a probability model; the coherent hazard model becomes the baseline. Top-edge slice +0.22 % a
+  300-s hold on 6 of 10 sessions: not a trading result.
+- **Registry** validates what it hands out; **freeze log** (`research/predict/freeze.py`), frozen 03:21 on 11 Nov.
+- **Ten-day replay stopped** on the owner's instruction. On its trades 111 of 111 forecast-book trades were on the
+  scored contract.
+- **Tests:** full suite on the idle machine, 537 passed, no failure, no error.
+- **Not done:** recorder-on replay for untraded champion triggers; admission, timing and continuation models; the
+  hazard model in the engine; label parity on a tape; Conductor with and without a candidate.
+
+## 11 Nov 2026 (before the open) — forecast audit (docs/42) checked, first repairs (docs/43)
+- **The audit holds.** The 15-day replay did not test the forecast: the forecast books bought another contract than
+  the one scored (86 to 94 % of trades) on a line fitted to another score. docs/41 section 14.4 corrects the report:
+  day counts in rupees, and "no forecast book adds to the account" is withdrawn.
+- **Exact contract:** the engine names the contract it would buy on each side, the forecaster scores it, the signal
+  carries it, and `paper.bound_contract` buys it or nothing. No substitution. `apex/engine/pred.py` VERSION 2.
+- **One scoring function:** `Forecaster.score`. `model_v2.json` (hash `7db140939ea1`): the same weights as v1,
+  lines from the deployed score. `config.PREDICT_MODEL` points to v2; v1 is kept.
+- **Coverage:** held contracts are scored (up to 12); a missing forecast carries its reason.
+- **Also:** in-sample flag; counters on the two twins; a quote age of zero is a fresh quote in `_gen_exit`.
+- **Tests:** `tests/test_forecast_repairs.py` (9). Full suite 529 passed, no failure, no error.
+- **Not done:** refit on the executable contract (the model is extrapolating to deeper strikes), champion-specific
+  labels and admission model, hazards, continuation model, the six experiments, Conductor with and without a book,
+  the other life-cycle items of finding G.
+
+## 10 Nov 2026 (night) to 11 Nov (before the open) — 15-day replay, account contribution, ranges, afternoon slowdown
+- **docs/41 sections 13 and 14.**
+- **15-day replay** (`p41_g1` to `p41_g8`, 105 books, all 15 tapes finished 01:12 on 11 Nov). Account contribution
+  (`contribution.py`): `c20_9y` is first of 106 books, 92 trades, 54 won, 38 lost, +890 %. The forecast runner twin
+  never changed a trade. The forecast exit twin wins more often and earns less (139 trades, 93 won, +562 %). The
+  forecast entry books beat their control (+296 % and +356 % against -130 %) but are in-sample and far below the
+  champion family. S01 fails, S03 is flat. The Conductor trades only on 9 Nov in a replay (+71 %, 10 won, 12 lost).
+  **No losing trade: unmet**, no book with trades has none.
+- **Premium ranges in the forecast record:** `apex/predict/ranges.py`, artefact `ranges_v1.json` (hash
+  `dc41cd42f5c8`), the 10, 50 and 90 % points at 60 s and 300 s on every ledger record. A record only. The volatility
+  scenario in the translator was tested and overshoots; the direct model was chosen by the rule set before the run.
+- **Afternoon slowdown, two causes fixed:** the per-second weather base no longer re-scans the day for the range,
+  the median IV and the opening ranges (36 ms to 12 ms at the close, loaded machine); `Book.stats()` keeps its sums
+  until a trade changes (7.9 ms a publish removed). Same numbers as before, pinned by
+  `tests/test_weather_base_running.py`.
+- **Tests:** full suite on the idle machine, 520 passed, no failure, no error.
+- **Not done:** the many-books-in-one-step burst; the rest of the publish growth; missed and rejected winners for the
+  forecast books; range calibration by day type; a 15-day comparison with the Conductor itself.
+
+## 10 Nov 2026 (afternoon) — the prediction service, forecast shadow books, live priority guard, disk
+- **docs/41** (new): the answer to docs/40. What was built, the evidence on 15 sessions, performance, disk, what is
+  not done.
+- **Prediction service** (`apex/predict/`): 33 causal features (one code path offline and live), fixed-contract
+  targets with competing events and gaps, a small logistic model saved as a file, an append-only forecast ledger and
+  a queue that releases an outcome only when it has finished. Frozen model `apex/predict/model_v1.json`, hash
+  `88c09e8db35f`, fitted on all 15 sessions (discovery for it).
+- **Evidence, each test day forecast from earlier days only:** how fast an option moves is forecast well (a 5 % move
+  inside 30 s: AUC 0.85, Brier skill 17 to 20 %). Which side is forecast only slightly (0.53 against 0.50). Neither
+  the weather photograph nor the forecast separates the champion's winners from its losers. The strict forecast line
+  inside trading hours gave 131 trades on 10 unseen days, 75 won and 56 lost, +0.93 % a trade, positive on 10 of 10
+  days; the wider line was flat. Learning during the day did not help offline.
+- **Four forecast shadow books** (`apex/engine/pred.py`): `p02_clock`, `p02_top1`, `p02_ctl_mom` (control),
+  `p05_adaptive`. Exit on the premium itself (+5 % / −5 % on the bid), 300 s, or the forecast leaving. **103 books.**
+  The forecast is also recorded on every champion-family fill (`fc` on the position, and the ledger). It gates
+  nothing.
+- **Live guard:** in a live session the feed and engine run above normal priority, and the launcher lists replay,
+  test and research processes at the start. On 10 Nov such jobs made the same code 12 to 17 times slower.
+- **Disk:** git repacked, 142 MB to 48 MB, nothing removed. `research/archive_runs.py` (verified archiver) written,
+  run in dry mode only: the old replay folders are tracked in git, so removing them is the owner's call.
+- **Replay batch of 10 Nov:** stopped after the first tape of each group (19 Oct, 26 Oct, 30 Oct, 5 Nov) because at
+  the measured pace it would have run through the 11 Nov live session. 11 of 15 days not replayed.
+- **Not done:** no engine replay of the forecast books; step time of v5 with 103 books not measured on an idle
+  machine; the many-books-in-one-step burst is not fixed; P03 and a champion twin for P04 not built.
+- **Evening:** two twins of c20_9y that read the forecast for the held contract, `fx_c20_9y` (exit) and `fr_c20_9y`
+  (runner); **105 books**. Four replayed days through option quotes: S01 fails (43 trades, 17 won, -68.7 %), S03 is
+  flat (315 trades, 148 won, +20.2 %) but beats its control. Idle-machine profile: no single function dominates a
+  step; a photograph costs about 10 ms early in the day. Premium ranges: repricing a forecast of the underlying gives
+  the best tails but a range that is too narrow (74 to 75 % against 80 %). `research/run_registry.py`,
+  `research/profile_replay.py`. Overnight replay of all 15 days started 17:09 in eight groups, stopped at 08:25 if
+  unfinished.
+
+## 10 Nov 2026 — operational fixes pinned by tests, photograph v5, research corrections, third shadow batch
+- **docs/39** (new): the answer to docs/38. Every 9 Nov operational fault with its fix and its test, the research
+  corrections, photograph v5, the S01 and S02 capability checks, the third shadow batch, and what is not done.
+- **Operational fixes** (`tests/test_ops_10nov.py`, `tests/test_save_fast.py`): per-phase step accounting and a SLOW
+  TICK line; the supervisor reports a pause under its 10 s limit; a second Ctrl+C is ignored while the engine saves and
+  the third forces; a flat book stopped after 15:25 closes and learns the day; dated log lines; a torn `.tmp` is
+  removed and logged at the next start; a failed background save is retried, each writer has its own temporary file,
+  and an older state never overwrites a newer one.
+- **gen2 VERSION 3** (frozen, not replayed): bracket fixed at the fill, per-input ages, model exits only when ready,
+  N01 refit on the pressure window, independent price-only control `n01_ctl_price_ind`.
+- **Research v2** (ask one second later, bid out, 15 dates): N03 has no edge inside the tradable window (148 picks,
+  −29.2 %; every large win is an expiry day after 15:20). N04 predicts the mid but loses quote-aware. N05 never beats
+  IV momentum.
+- **Photograph v5:** 114 entry items (105 to 110, 120 to 122, 128 added) and a continuation photograph `weather_hold`
+  on the trade (123 to 126). 13 telemetry fields are recorded but kept out of the rule search: the one exception.
+  Items 111 to 119 and 127 are not built.
+- **gen3 VERSION 1** (`apex/engine/gen3.py`, manifest `6fc9150866a1`): four shadow books, `s01_transmit` with controls
+  `s01_ctl_cash` and `s01_ctl_sfut`, and `s03_recruit`. **99 books.** Futures-level first look only: S01 does not beat
+  its cash control; S03 is positive on 15 of 15 days at the mid and still loses 1,031 of 2,186. No option-quote
+  result yet. S02, S04, S05, S06 not built.
+- **Corrections to 9 Nov:** 27 lapses after 12:05, not 26. Without the best trade the day is +₹4,908 at traded
+  quantities and −₹110.50 recomputed all-in.
+- **Not done:** no engine replay of gen2 VERSION 3 or gen3; step time with v5 and 99 books not measured in an engine
+  run; nothing has run live with these changes.
+
+## 9 Nov 2026 (after the close) — the live day analysed, the save freeze fixed, eight second-generation shadow books
+- **docs/37** (new): Part A the 9 Nov live day across all 87 books; Part B the answer to docs/36 (novelty audit, tape
+  capability matrix, the first batch, the proof-package status).
+- **The day:** Conductor 12 trades, 6 wins / 6 losses, +59.7 %; without its best trade +4.9 %. Three of the six losses
+  had been 8-11.5 % in profit. R-019 / R-020 (family vote, shadow) failed their first day: kept 5 trades (2 wins),
+  blocked 7 (3 wins, including the +64.8 % one).
+- **Defect found and fixed: the engine froze on every books save.** `paper.save_books` re-serialised every closed trade
+  of every book with its ~400-field photograph on every entry, exit, armed trail and committed exit; the file was
+  7.7 MB by 14:43 and the pause grew from 0.9 s (09:30) to 6.5 s (noon). Exits filled 3-6 s late from 11:00, and
+  every council entry lapsed (3-s fill window) after 12:05: the champion fired 27 more signals and took none (corrected 10 Nov from 26).
+  The 36 photograph items added that morning made the file about half as large again. **Fix:** a closed trade is
+  serialised once and its text reused (`paper._books_chunks`: about 10 ms on the step for today's 7.7 MB, was
+  0.4-0.75 s idle and up to 6.5 s live), and the disk write runs on a background writer (`paper.save_books_async`,
+  latest wins; day end and stop stay synchronous; `load_books` waits for a pending write). Same file content.
+  `tests/test_save_fast.py`. Not yet seen live: check the "tick time" log lines after the next session.
+- **`apex/engine/gen2.py` (new), entry mode `"gen"`:** eight shadow books that read their own signals, never another
+  book's trigger. `n01_absorb` / `n01_release` (flow pressure the price does not respond to, against a fitted response
+  model; then the turn, or the absorbing depth giving way), `n02_relax` (two-timescale impact propagator; trade the
+  decay once flow stops), `n06_lead` (a heavyweight group leads, another opposes, the index is still; the opposer
+  joins), and one control each: `n01_ctl_price`, `n01_ctl_flow`, `n02_ctl_mr`, `n06_ctl_breadth`. Thresholds in
+  `gen2.P`, frozen 9 Nov before any evaluation. Shadow only; not in the pool; the Conductor is unchanged. 94 books.
+- **Kept apart from the older books' photograph:** the new books do not count in "books firing this step"
+  (`agree_same`, on which R-019 / R-020 were frozen) or in "the books around" an older book (items 100-101).
+- **First look (tape pilot, futures points, 9 Nov only, not a replay):** n01_rev 3 signals 1 win; n02_relax 35
+  signals 15 wins, no better than its control; n06_lead 5 signals 3 wins. Implementation-correct only; nothing is
+  shown about profit. Replays for the proof package have not been run (owner's rule: ask first).
+- **Same pilot over all 15 recorded days (owner's OK, 9 Nov night; docs/37 B4a):** n01_rev 42 signals, 31 % wins,
+  -136 pts (against); n01_rel 12 signals, +29; n02_relax 317, -171 (not supported); n06_lead 74, +24 (no better than
+  a driftless walk). The breadth-only control was positive on 15 of 15 days (+0.97 pt per overlapping signal). No
+  hypothesis book is supported; no threshold was moved.
+- **N03 / N04 / N05 tested on the tapes and rejected before becoming books (docs/37 B5; walk-forward by date,
+  executable labels; `data/replay/batch/gen2_research_2026-11-09/`):** the path-signature model's whole gain is one
+  +593 % expiry trade and the order-shuffled version caught it too; the cross-strike lead is real in the mids
+  (+0.9 pt in 3 s) but gone by the next ask (-0.92 % executable); the surface model is negative without expiry days
+  and no better than IV momentum. N07 merges into N01; N08 falls with N03.
+- **Tests:** `tests/test_gen2.py` (17), `tests/test_save_fast.py` (6); the two tests that pin the book count now say 94. Full suite: 445 passed, 8 skipped.
+
 ## 9 Nov 2026 (pre-open, 08:35 IST) — weather photograph version 4: 36 more items (69–104)
 - **Owner:** "67-68 items that you are capturing are not enough to identify a bad trade from a good trade. So add some
   more from now on ... at least 30-40 more different kind of items."

@@ -15,6 +15,7 @@ ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # apart from the live paper account (run_apex.py sets data/sim, data/replay).
 DATA_DIR = os.environ.get("APEX_DATA") or os.path.join(ROOT, "data")
 TICKS_DIR = os.path.join(ROOT, "data", "ticks")    # recorder output (always the main data dir)
+RESEARCH_DIR = os.environ.get("APEX_RESEARCH") or os.path.join(ROOT, "data", "research")   # 10 Nov: durable research datasets and manifests (docs/38 item 10)
 PAPER_DIR = os.path.join(DATA_DIR, "paper")        # paper books, trades csv
 LEARN_DIR = os.path.join(DATA_DIR, "learning")     # self-learning state + reports
 LOG_DIR = os.path.join(DATA_DIR, "logs")
@@ -285,6 +286,43 @@ VARIANTS["fade_switch"] = {"m_star": 2.0, "s_star": 0.5, "L_star": 3.0, "d_star"
                            "fade_switch": True, "imp_pts": 10.0, "range_follow": 60.0,
                            "tp_pts": 12.0, "sl_pts": 12.0, "max_hold_s": 180, "cooldown_s": 60,
                            "no_streak_pause": True, "no_trade_cap": True, "expiry_window_exempt": True}
+# ── 9 Nov: SECOND-GENERATION shadow books (docs/36 brief, docs/37; apex/engine/gen2.py) ──────────────────────────────
+# Owner: "substantially different shadow books, rather than more variants of the existing books". Each book reads its
+# own signal from gen2 (never another book's trigger): N01 absorption -> reversal / release, N02 transient-impact
+# relaxation, N06 leadership transfer, and one matched control per mechanism (the same price confirmation alone, flow
+# imbalance alone, plain 30-s mean reversion, breadth alone). Thresholds live in gen2.P, frozen 9 Nov BEFORE any
+# evaluation. Shadow only: none is in the Conductor pool, none can be champion. tp/sl/max_hold here are the fallback
+# bracket after a restart (the signal carries its own).
+GEN2_BOOKS = {"n01_absorb": "n01_rev", "n01_release": "n01_rel", "n01_ctl_price": "ctl_price", "n01_ctl_flow": "ctl_flow",
+              "n02_relax": "n02_relax", "n02_ctl_mr": "ctl_mr", "n06_lead": "n06_lead", "n06_ctl_breadth": "ctl_breadth",
+              "n01_ctl_price_ind": "ctl_price_ind"}     # 10 Nov (docs/38 O6): price only, outside the flow model gate
+for _n, _g in GEN2_BOOKS.items():
+    VARIANTS[_n] = {"m_star": 2.0, "s_star": 0.5, "L_star": 3.0, "d_star": 12.0, "gen": _g,
+                    "tp_pts": 12.0, "sl_pts": 10.0, "max_hold_s": 300, "cooldown_s": 60,
+                    "no_streak_pause": True, "no_trade_cap": True, "expiry_window_exempt": True}
+# ── 10 Nov: THIRD batch of shadow books (docs/38 section 7, docs/39; apex/engine/gen3.py) ───────────────────────────
+# S01 cash-futures transmission with its two controls (cash basket alone, stock-futures basket alone) and S03 breadth
+# recruitment (a redesign of N06; its control is the frozen n06_ctl_breadth). Thresholds live in gen3.P, frozen 10 Nov
+# from the signal side only. Shadow only: none is in the Conductor pool, none can be champion.
+GEN3_BOOKS = {"s01_transmit": "s01_trans", "s01_ctl_cash": "s01_ctl_cash", "s01_ctl_sfut": "s01_ctl_sfut",
+              "s03_recruit": "s03_recruit"}
+for _n, _g in GEN3_BOOKS.items():
+    VARIANTS[_n] = {"m_star": 2.0, "s_star": 0.5, "L_star": 3.0, "d_star": 12.0, "gen": _g,
+                    "tp_pts": 12.0, "sl_pts": 10.0, "max_hold_s": 300 if _g == "s03_recruit" else 120, "cooldown_s": 60,
+                    "no_streak_pause": True, "no_trade_cap": True, "expiry_window_exempt": True}
+# ── 10 Nov (docs/40 section 7, docs/41): prediction-driven shadow books (apex/engine/pred.py, apex/predict) ─────────
+# p02_clock enters on the forecast edge of a frozen artefact; p02_ctl_mom is its momentum control on the same sampler
+# and the same exit; p05_adaptive uses the edge after the matured-only intraday calibrator. Exit: +5 % / -5 % of the
+# entry premium, 300 s, or the forecast edge of the held contract falling to the artefact's exit line.
+# Shadow only: none is in the Conductor pool, none can be champion. The artefact was fitted on all 15 recorded
+# sessions, so those sessions are discovery material for these books.
+PRED_BOOKS = {"p02_clock": "p02_clock", "p02_top1": "p02_top1", "p02_ctl_mom": "p02_ctl_mom", "p05_adaptive": "p05_adaptive"}
+for _n, _g in PRED_BOOKS.items():
+    VARIANTS[_n] = {"m_star": 2.0, "s_star": 0.5, "L_star": 3.0, "d_star": 12.0, "gen": _g,
+                    "tp_pts": 1e9, "sl_pts": 1e9, "max_hold_s": 300, "cooldown_s": 60,
+                    "no_streak_pause": True, "no_trade_cap": True, "expiry_window_exempt": True}
+PREDICT_MODEL = os.path.join(ROOT, "apex", "predict", "model_v2.json")   # frozen artefact; no fitting at run time
+PREDICT_RANGES = os.path.join(ROOT, "apex", "predict", "ranges_v1.json")  # frozen premium-range artefact (a record only)
 RANDOM_ENTRIES_PER_DAY = 6.0     # Poisson mean; ~ the expected champion rate (re-check after 10 sessions)
 # ── 27 Oct: BUYER EDGE (docs/18_BUYER_EDGE.md) ───────────────────────────────────────────────────────────────────────
 # Six live sessions (19-27 Oct, 106 trades) showed: (1) the entries have NO directional edge — option mid-to-mid moves
@@ -406,6 +444,14 @@ for _rid, _reps in RESTRICTED.items():
 # raw_of: the book RAW (and the gate: books) copy when the Conductor is champion — RAW stays c20_9x's ungated twin.
 VARIANTS["conductor"] = dict(_G, conductor=True, raw_of="c20_9x")
 
+# 10 Nov (docs/40 section 7 P03 / P04, docs/41): two matched-entry twins of c20_9y. Same strategy class, same entries
+# while both are flat. fx exits early when, after an observed gain of 5 %, the forecast edge of the held contract has
+# fallen to the artefact's exit line. fr holds through the strategy's own SELL while the position is in profit and the
+# forecast edge is at or above the entry line. twin=True: not counted among "books firing" or "the books around" an
+# older book, and the name does not start with c20, so the family counts of the frozen rules are unchanged.
+# Registered LAST: the book order is the same-tick tiebreak order and must not move for the older books.
+VARIANTS["fx_c20_9y"] = dict(_G, council="c20_9y", twin=True, fc_exit=True)
+VARIANTS["fr_c20_9y"] = dict(_G, council="c20_9y", twin=True, fc_hold=True)
 CHAMPION_DEFAULT = "c20_9x"  # 1 Nov (owner): back from c20_9t after its 8-day replay; before: c20_9t (31 Oct, never live), t28_gap (29 Oct 11:40), t28_cheap (29 Oct morning), t28_gap (28 Oct evening), lvl_trail_re (28 Oct), edge_gate_trail and edge_gate_only (27 Oct), spot_dual_lvl (D-142), edge_gate_trail and edge_gate_only (27 Oct), spot_dual_lvl (D-142)
 # D-124 (owner, 20 Oct 16:16: "Apply spot_dc12_t12 thoroughly on my code"): the champion is the owner's choice.
 # learning.load_state applies it ONCE to an existing state (the champion lives in data/learning/state.json,
@@ -630,11 +676,11 @@ def holiday_coverage_gaps(now: datetime) -> list:
 
 
 # ── self-check (D-073): a mis-typed number fails preflight, not the session ─────
-VARIANT_KEYS = frozenset(("m_star", "s_star", "L_star", "d_star", "s_exit", "iv_interp",
+VARIANT_KEYS = frozenset(("twin", "fc_exit", "fc_hold", "m_star", "s_star", "L_star", "d_star", "s_exit", "iv_interp",
                           "gap_star", "exit_book", "spike", "random", "momentum", "novol", "trend",
                           "spot_dc", "spot_trail", "swing", "cooldown_s", "no_streak_pause", "spot_expiry_end",
                           "no_trade_cap", "expiry_window_exempt", "tv_novol", "tv_hold_s",
-                          "fade_switch", "imp_pts", "range_follow", "tp_pts", "sl_pts", "max_hold_s",
+                          "fade_switch", "imp_pts", "range_follow", "tp_pts", "sl_pts", "max_hold_s", "gen",
                           "lock_pct", "lock_trail_pct", "retest_ext", "retest_tol", "retest_fail", "retest_window_s",
                           "entry_mode", "pb_min_range", "pb_zone_lo", "pb_zone_hi", "pb_zone_slack", "pb_ext",
                           "pb_min_age_s", "pb_entry_end", "pb_flatten", "dte0_retest",
@@ -650,7 +696,7 @@ VARIANT_KEYS = frozenset(("m_star", "s_star", "L_star", "d_star", "s_exit", "iv_
                           "cheap_strike", "cheap_anchor_s", "cheap_dte0_only", "spot_src", "council",
                           "rules",    # 7 Nov: a restricted book's frozen rule ids (apex/engine/rules.py)
                           "conductor", "raw_of"))   # 8 Nov: the Conductor's account (apex/engine/conductor.py)   # 27 Oct: buyer edge; 30 Oct: council books
-VARIANT_MODES = ("gap_star", "exit_book", "spike", "random", "momentum", "spot_dc", "fade_switch")   # at most one per variant
+VARIANT_MODES = ("gap_star", "exit_book", "spike", "random", "momentum", "spot_dc", "fade_switch", "gen")   # at most one per variant
 
 
 def validate() -> list:

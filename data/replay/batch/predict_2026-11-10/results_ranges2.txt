@@ -1,0 +1,71 @@
+origins 216029 usable implied volatility 212699
+60 origins 205440 with an implied volatility at the horizon 204908 median |dv| 0.0109
+60 all 145562
+    baseline        0.01088 0.01866 0.01129 cover 0.7938 width 0.0992
+    direct          0.00969 0.01891 0.01056 cover 0.8209 width 0.1067
+    translator      0.00917 0.01899 0.00967 cover 0.7655 width 0.0797
+    translator_vol  0.00911 0.01923 0.0102 cover 0.8437 width 0.1047
+60 expiry_day 42456
+    baseline        0.02299 0.03668 0.02379 cover 0.4903 width 0.0982
+    direct          0.01897 0.03713 0.02098 cover 0.8745 width 0.268
+    translator      0.01834 0.03715 0.0199 cover 0.7147 width 0.1809
+    translator_vol  0.01757 0.03718 0.02024 cover 0.8587 width 0.2379
+60 other_days 103106
+    baseline        0.00589 0.01124 0.00614 cover 0.9188 width 0.1033
+    direct          0.00587 0.01141 0.00627 cover 0.7988 width 0.0818
+    translator      0.0054 0.01152 0.00546 cover 0.7864 width 0.0671
+    translator_vol  0.00563 0.01184 0.00606 cover 0.8375 width 0.0817
+300 origins 194676 with an implied volatility at the horizon 193605 median |dv| 0.0149
+300 all 138324
+    baseline        0.02249 0.03999 0.02417 cover 0.7905 width 0.2161
+    direct          0.01942 0.04156 0.0243 cover 0.7893 width 0.224
+    translator      0.01941 0.04024 0.02187 cover 0.7756 width 0.1781
+    translator_vol  0.01928 0.0411 0.02281 cover 0.8106 width 0.2033
+300 expiry_day 41252
+    baseline        0.04541 0.07554 0.04866 cover 0.5092 width 0.2135
+    direct          0.0365 0.07627 0.04446 cover 0.881 width 0.6215
+    translator      0.03737 0.07516 0.04375 cover 0.7658 width 0.4222
+    translator_vol  0.03678 0.07583 0.04451 cover 0.837 width 0.5369
+300 other_days 97072
+    baseline        0.01276 0.02489 0.01376 cover 0.9101 width 0.2241
+    direct          0.01216 0.02681 0.01574 cover 0.7503 width 0.1703
+    translator      0.01177 0.0254 0.01257 cover 0.7798 width 0.1466
+    translator_vol  0.01185 0.02634 0.01358 cover 0.7994 width 0.1651
+selection {
+ "rule": "coverage 78-82 % at both horizons, then lowest summed tail pinball; else direct",
+ "table": {
+  "baseline": {
+   "coverage": [
+    0.7938,
+    0.7905
+   ],
+   "tail_loss": 0.06883,
+   "qualifies": true
+  },
+  "direct": {
+   "coverage": [
+    0.8209,
+    0.7893
+   ],
+   "tail_loss": 0.06397,
+   "qualifies": false
+  },
+  "translator": {
+   "coverage": [
+    0.7655,
+    0.7756
+   ],
+   "tail_loss": 0.06012,
+   "qualifies": false
+  },
+  "translator_vol": {
+   "coverage": [
+    0.8437,
+    0.8106
+   ],
+   "tail_loss": 0.0614,
+   "qualifies": false
+  }
+ },
+ "chosen": "direct"
+}

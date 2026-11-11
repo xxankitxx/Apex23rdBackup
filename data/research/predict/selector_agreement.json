@@ -1,0 +1,265 @@
+{
+ "source": "p41_g1..g8, the 17 signal books (default contract rule)",
+ "linked": 8796,
+ "skipped": {
+  "trigger second not in the recorded set": 4
+ },
+ "all": {
+  "trades": 8796,
+  "same_at_trigger": 8649,
+  "share": 0.9833,
+  "same_within_1s": 8749,
+  "no_pick": 0,
+  "off_by_one_strike": 147,
+  "off_by_more": 0,
+  "delta_abs_diff_median": 0.0007304031870480343,
+  "delta_abs_diff_p95": 0.006286325872843779
+ },
+ "by_dte": {
+  "0": {
+   "trades": 2335,
+   "same_at_trigger": 2293,
+   "share": 0.982,
+   "same_within_1s": 2325,
+   "no_pick": 0,
+   "off_by_one_strike": 42,
+   "off_by_more": 0,
+   "delta_abs_diff_median": 0.002007326438528967,
+   "delta_abs_diff_p95": 0.01190675550874054
+  },
+  "1": {
+   "trades": 1154,
+   "same_at_trigger": 1136,
+   "share": 0.9844,
+   "same_within_1s": 1151,
+   "no_pick": 0,
+   "off_by_one_strike": 18,
+   "off_by_more": 0,
+   "delta_abs_diff_median": 0.0010986830767577005,
+   "delta_abs_diff_p95": 0.005616607664691617
+  },
+  "3": {
+   "trades": 712,
+   "same_at_trigger": 694,
+   "share": 0.9747,
+   "same_within_1s": 710,
+   "no_pick": 0,
+   "off_by_one_strike": 18,
+   "off_by_more": 0,
+   "delta_abs_diff_median": 0.0006245600864791534,
+   "delta_abs_diff_p95": 0.0032872403685702766
+  },
+  "4": {
+   "trades": 1601,
+   "same_at_trigger": 1575,
+   "share": 0.9838,
+   "same_within_1s": 1589,
+   "no_pick": 0,
+   "off_by_one_strike": 26,
+   "off_by_more": 0,
+   "delta_abs_diff_median": 0.0005660474111495173,
+   "delta_abs_diff_p95": 0.0028505622663813623
+  },
+  "5": {
+   "trades": 1869,
+   "same_at_trigger": 1838,
+   "share": 0.9834,
+   "same_within_1s": 1854,
+   "no_pick": 0,
+   "off_by_one_strike": 31,
+   "off_by_more": 0,
+   "delta_abs_diff_median": 0.0004884653491854518,
+   "delta_abs_diff_p95": 0.002534778011836325
+  },
+  "6": {
+   "trades": 1125,
+   "same_at_trigger": 1113,
+   "share": 0.9893,
+   "same_within_1s": 1120,
+   "no_pick": 0,
+   "off_by_one_strike": 12,
+   "off_by_more": 0,
+   "delta_abs_diff_median": 0.00041341375420533844,
+   "delta_abs_diff_p95": 0.0021179886389847123
+  }
+ },
+ "engine_in_band": {
+  "trades": 8796,
+  "same_at_trigger": 8649,
+  "share": 0.9833,
+  "same_within_1s": 8749,
+  "no_pick": 0,
+  "off_by_one_strike": 147,
+  "off_by_more": 0,
+  "delta_abs_diff_median": 0.0007304031870480343,
+  "delta_abs_diff_p95": 0.006286325872843779
+ },
+ "engine_fallback": null,
+ "by_day": {
+  "2026-10-19": {
+   "trades": 318,
+   "same_at_trigger": 312,
+   "share": 0.9811,
+   "same_within_1s": 318,
+   "no_pick": 0,
+   "off_by_one_strike": 6,
+   "off_by_more": 0,
+   "delta_abs_diff_median": 0.001311048824932104,
+   "delta_abs_diff_p95": 0.010723432288793492
+  },
+  "2026-10-21": {
+   "trades": 618,
+   "same_at_trigger": 613,
+   "share": 0.9919,
+   "same_within_1s": 616,
+   "no_pick": 0,
+   "off_by_one_strike": 5,
+   "off_by_more": 0,
+   "delta_abs_diff_median": 0.00042394490991215505,
+   "delta_abs_diff_p95": 0.002429765698554919
+  },
+  "2026-10-22": {
+   "trades": 790,
+   "same_at_trigger": 777,
+   "share": 0.9835,
+   "same_within_1s": 783,
+   "no_pick": 0,
+   "off_by_one_strike": 13,
+   "off_by_more": 0,
+   "delta_abs_diff_median": 0.0006859800267488558,
+   "delta_abs_diff_p95": 0.002933633063854857
+  },
+  "2026-10-23": {
+   "trades": 547,
+   "same_at_trigger": 537,
+   "share": 0.9817,
+   "same_within_1s": 543,
+   "no_pick": 0,
+   "off_by_one_strike": 10,
+   "off_by_more": 0,
+   "delta_abs_diff_median": 0.0009413374514432027,
+   "delta_abs_diff_p95": 0.004249637807949587
+  },
+  "2026-10-26": {
+   "trades": 651,
+   "same_at_trigger": 639,
+   "share": 0.9816,
+   "same_within_1s": 649,
+   "no_pick": 0,
+   "off_by_one_strike": 12,
+   "off_by_more": 0,
+   "delta_abs_diff_median": 0.0013387334287594532,
+   "delta_abs_diff_p95": 0.006158679385448451
+  },
+  "2026-10-27": {
+   "trades": 601,
+   "same_at_trigger": 592,
+   "share": 0.985,
+   "same_within_1s": 600,
+   "no_pick": 0,
+   "off_by_one_strike": 9,
+   "off_by_more": 0,
+   "delta_abs_diff_median": 0.001214561139253223,
+   "delta_abs_diff_p95": 0.010700686345007648
+  },
+  "2026-10-28": {
+   "trades": 507,
+   "same_at_trigger": 500,
+   "share": 0.9862,
+   "same_within_1s": 504,
+   "no_pick": 0,
+   "off_by_one_strike": 7,
+   "off_by_more": 0,
+   "delta_abs_diff_median": 0.0003899677538589108,
+   "delta_abs_diff_p95": 0.0017874248675826207
+  },
+  "2026-10-29": {
+   "trades": 518,
+   "same_at_trigger": 512,
+   "share": 0.9884,
+   "same_within_1s": 518,
+   "no_pick": 0,
+   "off_by_one_strike": 6,
+   "off_by_more": 0,
+   "delta_abs_diff_median": 0.0004374516347314117,
+   "delta_abs_diff_p95": 0.0019602798940946235
+  },
+  "2026-10-30": {
+   "trades": 589,
+   "same_at_trigger": 584,
+   "share": 0.9915,
+   "same_within_1s": 588,
+   "no_pick": 0,
+   "off_by_one_strike": 5,
+   "off_by_more": 0,
+   "delta_abs_diff_median": 0.00042496958447624245,
+   "delta_abs_diff_p95": 0.0016338579253837304
+  },
+  "2026-11-02": {
+   "trades": 503,
+   "same_at_trigger": 497,
+   "share": 0.9881,
+   "same_within_1s": 502,
+   "no_pick": 0,
+   "off_by_one_strike": 6,
+   "off_by_more": 0,
+   "delta_abs_diff_median": 0.0008172225103096897,
+   "delta_abs_diff_p95": 0.003517427554521989
+  },
+  "2026-11-03": {
+   "trades": 593,
+   "same_at_trigger": 585,
+   "share": 0.9865,
+   "same_within_1s": 589,
+   "no_pick": 0,
+   "off_by_one_strike": 8,
+   "off_by_more": 0,
+   "delta_abs_diff_median": 0.0021871853652060125,
+   "delta_abs_diff_p95": 0.009066005369624604
+  },
+  "2026-11-04": {
+   "trades": 561,
+   "same_at_trigger": 549,
+   "share": 0.9786,
+   "same_within_1s": 553,
+   "no_pick": 0,
+   "off_by_one_strike": 12,
+   "off_by_more": 0,
+   "delta_abs_diff_median": 0.0004306825424940097,
+   "delta_abs_diff_p95": 0.002231464942521577
+  },
+  "2026-11-05": {
+   "trades": 465,
+   "same_at_trigger": 454,
+   "share": 0.9763,
+   "same_within_1s": 458,
+   "no_pick": 0,
+   "off_by_one_strike": 11,
+   "off_by_more": 0,
+   "delta_abs_diff_median": 0.0004987419006354799,
+   "delta_abs_diff_p95": 0.0024471254728466664
+  },
+  "2026-11-06": {
+   "trades": 712,
+   "same_at_trigger": 694,
+   "share": 0.9747,
+   "same_within_1s": 710,
+   "no_pick": 0,
+   "off_by_one_strike": 18,
+   "off_by_more": 0,
+   "delta_abs_diff_median": 0.0006245600864791534,
+   "delta_abs_diff_p95": 0.0032872403685702766
+  },
+  "2026-11-09": {
+   "trades": 823,
+   "same_at_trigger": 804,
+   "share": 0.9769,
+   "same_within_1s": 818,
+   "no_pick": 0,
+   "off_by_one_strike": 19,
+   "off_by_more": 0,
+   "delta_abs_diff_median": 0.002624826443215156,
+   "delta_abs_diff_p95": 0.013456304242515071
+  }
+ }
+}

@@ -577,6 +577,10 @@ def _p_books(out, ctx, d, o, book, b, b4, sp, t):
         for name, bk in books.items():
             if name == me:
                 continue
+            bp, mp = (getattr(bk, "p", None) or {}), (getattr(book, "p", None) or {})
+            if (bp.get("gen") or bp.get("twin")) and not (mp.get("gen") or mp.get("twin")):
+                continue          # 9 Nov (docs/37): the second-generation books are not among "the books around" an
+                                  # older book, so items 100-101 keep the meaning they had when the rules were frozen
             in_fam = fam is not None and str(name).split("_")[0] == fam
             fn += 1 if in_fam else 0
             p = getattr(bk, "pos", None)

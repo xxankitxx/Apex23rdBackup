@@ -52,6 +52,7 @@ def run(path, table=None, blob=None, log=print):
         st["steps"] += 1
         t.set("eng_vt_ns", boundary)
         eng.loop_ms = (time.perf_counter() - t0) * 1000
+        eng._loop_stat(eng.loop_ms)       # 10 Nov: the same per-phase accounting as live (APEX_PROFILE=1 writes it)
 
     def publish_until(vns):
         while st["boundary"] is not None and vns > st["boundary"]:
@@ -102,7 +103,7 @@ def run(path, table=None, blob=None, log=print):
     # engine_main.run on feed_state 7: one more tick at the same clock, save, close, learn, publish
     eng.tick()
     if eng.books:
-        eng._safe("stop: save books", lambda: paper.save_books(eng.books, eng.day))
+        eng._safe("stop: save books", lambda: paper.save_books(eng.books, eng.day, full=True))
         if eng.eplog:
             eng._safe("stop: episode log", eng.eplog.close)
         eng._safe("stop: straddle watch", eng.watch.close)

@@ -199,7 +199,7 @@ def test_v2_definitions():
     bk.trades = [{"t_out": T - 600, "pnl_rs": -10.0, "ret_pct": -1.0, "reason": "STOP", "rr": "PE"},
                  {"t_out": T - 120, "pnl_rs": 50.0, "ret_pct": 3.0, "reason": "TRAIL", "rr": "CE"}]
     ce, pe = weather.photo(ctx, +1, o, bk), weather.photo(ctx, -1, dict(o, rr="PE"), bk)
-    assert ce["v"] == 4 and "v2_error" not in ce and "v4_error" not in ce and "v3_error" not in ce
+    assert ce["v"] == 5 and "v5_error" not in ce and "v2_error" not in ce and "v4_error" not in ce and "v3_error" not in ce
     assert ce["mv60"] == -pe["mv60"] and ce["wmove60"] == -pe["wmove60"] and ce["gap_pts"] == 50.0
     assert ce["gap_filled"] is False and ce["or15_pos"] > 1.0          # above the 15-min range: broken up
     assert ce["to_pdh"] == round(24200.0 - b["spot"], 2) and ce["hi_age_min"] == 0.5
