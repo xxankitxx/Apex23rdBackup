@@ -1,0 +1,10 @@
+{"t": "08:15:11", "k": "SYSTEM", "x": "day 2026-11-03 \u00b7 champion conductor \u00b7 gates none \u00b7 capital \u20b9100,000", "mkt_t": 1793673911.3}
+{"t": "09:15:00", "k": "GAP", "x": "data gap: feed stale: futures quote 410 s old \u2014 entries paused until 20 s of fresh data", "mkt_t": 1793677500.0}
+{"t": "09:15:20", "k": "GAP", "x": "data back after 20 s (feed stale: futures quote 410 s old); entries resume", "mkt_t": 1793677520.3}
+{"t": "09:17:16", "k": "SHIFT", "x": "ATM rolled 23450 \u2192 23550: straddle 159.3 \u2192 132.7 (spot settled at the new strike)", "mkt_t": 1793677636.5}
+{"t": "09:25:25", "k": "SPIKE", "x": "straddle 23550 +7.8 over theta in 5 min \u2014 CE leg carries it (83.9, delta 0.524\u21920.579, gamma 0.00235)", "mkt_t": 1793678125.3}
+{"t": "09:26:00", "k": "RAW-ENTRY", "x": "BUY 16 lots NIFTY 23550 CE (2026-11-03) @ 94.45 \u00b7 COUNCIL EXP brk v=+20", "mkt_t": 1793678160.0}
+{"t": "09:28:56", "k": "GAP", "x": "data gap: feed silent: no quote on any instrument for 3 s \u2014 entries paused until 20 s of fresh data", "mkt_t": 1793678336.6}
+{"t": "09:29:24", "k": "GAP", "x": "data back after 28 s (feed stale: futures quote 11 s old); entries resume", "mkt_t": 1793678364.3}
+{"t": "09:31:20", "k": "RAW-EXIT", "x": "CE 23550 16 lots \u00b7 94.45 \u2192 95.00 = +0.55 pts / \u20b9+572 \u00b7 COUNCIL BE_LOCK \u00b7 capital \u20b9100,572", "mkt_t": 1793678480.0}
+{"t": "09:34:54", "k": "SHIFT", "x": "ATM rolled 23550 \u2192 23600: straddle 141.6 \u2192 133.5 (spot settled at the new strike)", "mkt_t": 1793678694.3}

@@ -35,6 +35,22 @@ def pick(day, path=None, rows=None):
         f"artefact {best['hash']} trained through {best['trained_through']}"
 
 
+def for_session(day, mode, discovery_path, path=None):
+    """11 Nov (docs/46 finding 4): the artefact the ENGINE loads for a session, and why.
+    mode "chronological": only an artefact fitted on earlier sessions (validated). None when there is none: the
+                          forecaster is then silent for that session; it NEVER falls back to a file that has seen it.
+    mode "discovery":     the fixed file `discovery_path`, whatever it was fitted on. For experiments only; the
+                          forecaster reports in_sample when the file has seen the session.
+    Returns (artefact dict or None, reason)."""
+    if mode == "discovery":
+        if not discovery_path or not os.path.exists(discovery_path):
+            return None, "discovery mode: no artefact file"
+        with open(discovery_path, encoding="utf-8") as f:
+            return json.load(f), "discovery mode: " + os.path.basename(discovery_path)
+    art, why, _ = validated(day, path)
+    return art, "chronological: " + why
+
+
 def validated(day, path=None, rows=None):
     """(artefact dict or None, reason, row). docs/44 section 2: selection is not validation. The artefact picked for
     `day` is loaded only if the file exists, its content hash equals both its own `hash` field and the registry's,

@@ -179,7 +179,7 @@ def one(path):
 
 if __name__ == '__main__':
     from multiprocessing import Pool
-    parts = sorted(glob.glob(os.path.join(DS, '*.npz')))
+    parts = [q for q in sorted(glob.glob(os.path.join(DS, '*.npz'))) if np.load(q)['t'].ndim == 1 and len(np.load(q)['t'])]   # no empty parts
     t0 = time.time()
     with Pool(int(sys.argv[1]) if len(sys.argv) > 1 else 2) as p:
         res = p.map(one, parts)

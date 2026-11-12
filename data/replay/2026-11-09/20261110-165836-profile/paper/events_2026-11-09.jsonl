@@ -1,0 +1,7 @@
+{"t": "08:45:05", "k": "SYSTEM", "x": "day 2026-11-09 \u00b7 champion conductor \u00b7 gates none \u00b7 capital \u20b9100,000", "mkt_t": 1794194105.9}
+{"t": "09:15:00", "k": "GAP", "x": "data gap: feed stale: futures quote 353 s old \u2014 entries paused until 20 s of fresh data", "mkt_t": 1794195900.0}
+{"t": "09:15:00", "k": "DATA", "x": "no trade for 120 s on hero contract(s): 24950 PE", "mkt_t": 1794195900.9}
+{"t": "09:15:20", "k": "GAP", "x": "data back after 21 s (feed stale: futures quote 354 s old); entries resume", "mkt_t": 1794195920.6}
+{"t": "09:17:49", "k": "SHIFT", "x": "ATM rolled 25050 \u2192 24950: straddle 239.5 \u2192 224.8 (spot settled at the new strike)", "mkt_t": 1794196069.2}
+{"t": "09:26:56", "k": "RAW-ENTRY", "x": "BUY 8 lots NIFTY 24850 CE (2026-11-09) @ 176.80 \u00b7 COUNCIL EXP brk v=+34", "mkt_t": 1794196616.0}
+{"t": "09:26:56", "k": "ENTRY", "x": "BUY 8 lots NIFTY 24850 CE (2026-11-09) @ 176.80 \u00b7 COUNCIL EXP brk v=+34 \u00b7 via c20_9y", "mkt_t": 1794196616.0}

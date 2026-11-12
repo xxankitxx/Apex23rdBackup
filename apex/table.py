@@ -193,13 +193,16 @@ class StateBlob:
         self.shm.buf[self.HDR.size:self.HDR.size + len(data)] = data
         self.HDR.pack_into(self.shm.buf, 0, seq + 2, len(data))
 
-    def write_state(self, obj) -> None:
+    def write_state(self, obj, raw=None) -> None:
         """Same bytes as write(clean(obj)), without walking the whole object first: dump it as it is, and only if
         a NaN / Infinity token could be in the output (a non-finite float, or such text inside a string) dump the
-        cleaned copy instead. clean() was the engine's single biggest cost (~40 % of every publish)."""
-        data = json.dumps(obj, separators=(",", ":"), allow_nan=True, default=_default)
-        if "NaN" in data or "Infinity" in data:
-            data = json.dumps(clean(obj), separators=(",", ":"), allow_nan=False, default=_default)
+        cleaned copy instead. clean() was the engine's single biggest cost (~40 % of every publish).
+        11 Nov: `raw` = {key: JSON text made by dumps_part()} spliced in as the LAST keys of the top-level object,
+        so a large part that changes slowly is encoded once a second instead of at every publish."""
+        data = dumps_part(obj)
+        if raw:
+            extra = ",".join(f"{json.dumps(k)}:{v}" for k, v in raw.items())
+            data = data[:-1] + ("," if len(data) > 2 else "") + extra + "}"
         data = data.encode()
         if len(data) > config.STATE_BYTES - self.HDR.size - 16:
             return
@@ -231,6 +234,14 @@ class StateBlob:
             self.shm.unlink()
         except Exception:
             pass
+
+
+def dumps_part(obj) -> str:
+    """The JSON text write_state writes for obj (NaN / Infinity become null), as a string."""
+    data = json.dumps(obj, separators=(",", ":"), allow_nan=True, default=_default)
+    if "NaN" in data or "Infinity" in data:
+        data = json.dumps(clean(obj), separators=(",", ":"), allow_nan=False, default=_default)
+    return data
 
 
 def _default(o):

@@ -1,0 +1,140 @@
+Tue Nov 10 17:08:44 2026    D:\ApexOptions\data\replay\2026-11-09\20261110-165836-profile\profile.out
+
+         138733026 function calls (138420988 primitive calls) in 599.949 seconds
+
+   Ordered by: cumulative time
+   List reduced from 1936 to 60 due to restriction <60>
+
+   ncalls  tottime  percall  cumtime  percall filename:lineno(function)
+        1    0.001    0.001  600.003  600.003 D:\ApexOptions\apex\replay_fast.py:125(main)
+        1    5.705    5.705  599.990  599.990 D:\ApexOptions\apex\replay_fast.py:34(run)
+   203243    0.437    0.000  551.456    0.003 D:\ApexOptions\apex\replay_fast.py:57(publish_until)
+    25549    0.749    0.000  551.019    0.022 D:\ApexOptions\apex\replay_fast.py:47(tick_at)
+    25549    0.542    0.000  544.885    0.021 D:\ApexOptions\apex\engine_main.py:2214(tick)
+    25549    0.919    0.000  515.393    0.020 D:\ApexOptions\apex\engine_main.py:2200(tick_nopublish)
+    25549   17.559    0.001  513.661    0.020 D:\ApexOptions\apex\engine_main.py:470(step)
+    25549   22.078    0.001  119.800    0.005 D:\ApexOptions\apex\engine_main.py:1572(run_books)
+737800/525331    5.168    0.000   92.387    0.000 D:\ApexOptions\apex\engine_main.py:240(_safe)
+    25549   26.817    0.001   91.699    0.004 D:\ApexOptions\apex\engine\flow.py:88(update)
+     8517    9.555    0.001   49.697    0.006 D:\ApexOptions\apex\engine_main.py:788(compute_greeks)
+  2350508    9.461    0.000   48.247    0.000 D:\ApexOptions\apex\engine_main.py:1773(_entry)
+    25549   12.239    0.000   36.776    0.001 D:\ApexOptions\apex\engine\market.py:40(push)
+  2350439    4.316    0.000   35.532    0.000 D:\ApexOptions\apex\engine_main.py:1733(_entry_choice)
+ 47661819   33.343    0.000   33.343    0.000 {method 'get' of 'dict' objects}
+  2350439   15.178    0.000   31.215    0.000 D:\ApexOptions\apex\engine\paper.py:984(evaluate_entry)
+     2220    4.843    0.002   28.887    0.013 D:\ApexOptions\apex\engine_main.py:1981(publish)
+    25549    7.229    0.000   26.937    0.001 D:\ApexOptions\apex\engine\domino.py:75(update)
+    25549    2.263    0.000   26.514    0.001 D:\ApexOptions\apex\engine_main.py:1376(coherence)
+    25549   14.214    0.001   25.270    0.001 D:\ApexOptions\apex\engine_main.py:1304(option_rows)
+   203169   10.251    0.000   24.326    0.000 D:\ApexOptions\apex\feed_core.py:152(apply_packet)
+     8517   12.705    0.001   24.101    0.003 D:\ApexOptions\apex\greeks.py:68(implied_vol)
+   121690    1.289    0.000   18.767    0.000 C:\Users\Ankit Madhogaria\AppData\Local\Programs\Python\Python313\Lib\site-packages\numpy\lib\_nanfunctions_impl.py:634(nansum)
+   332137    4.636    0.000   17.168    0.000 D:\ApexOptions\apex\engine_main.py:1815(_council)
+   609877   15.885    0.000   15.885    0.000 {method 'reduce' of 'numpy.ufunc' objects}
+   533254    8.703    0.000   14.524    0.000 D:\ApexOptions\apex\engine\flow.py:210(run_score)
+   105054   14.307    0.000   14.307    0.000 {method 'copy' of 'numpy.ndarray' objects}
+   275323    1.281    0.000   13.444    0.000 D:\ApexOptions\apex\engine\market.py:89(ago)
+    25548   11.238    0.000   13.048    0.001 D:\ApexOptions\apex\engine\flow.py:182(_classify_cols)
+   203244    2.021    0.000   12.863    0.000 D:\ApexOptions\apex\feed_replay.py:89(iter_records)
+   153291    6.106    0.000   11.731    0.000 D:\ApexOptions\apex\engine\market.py:98(_ago_calc)
+   127740   10.099    0.000   11.686    0.000 D:\ApexOptions\apex\engine\flow.py:52(_imb)
+    25549    2.633    0.000   11.208    0.000 D:\ApexOptions\apex\table.py:142(snapshot)
+   122112    7.222    0.000   10.424    0.000 C:\Users\Ankit Madhogaria\AppData\Local\Programs\Python\Python313\Lib\site-packages\numpy\lib\_nanfunctions_impl.py:70(_replace_nan)
+    15173    0.850    0.000   10.367    0.001 D:\ApexOptions\apex\engine_main.py:1386(advise)
+   153327    9.544    0.000   10.294    0.000 C:\Users\Ankit Madhogaria\AppData\Local\Programs\Python\Python313\Lib\site-packages\numpy\_core\shape_base.py:378(stack)
+   202800   10.000    0.000   10.000    0.000 D:\ApexOptions\apex\greeks.py:61(_erf_pos)
+    25548    0.120    0.000    9.880    0.000 D:\ApexOptions\apex\engine_main.py:696(<lambda>)
+    24001    0.110    0.000    9.825    0.000 D:\ApexOptions\apex\engine_main.py:1632(<lambda>)
+    25548    0.603    0.000    9.760    0.000 D:\ApexOptions\apex\engine\ideas\__init__.py:365(step)
+    24001    6.160    0.000    9.714    0.000 D:\ApexOptions\apex\engine_main.py:1688(_photo_check)
+  3885476    9.480    0.000    9.480    0.000 {built-in method builtins.round}
+   204053    1.192    0.000    9.342    0.000 C:\Users\Ankit Madhogaria\AppData\Local\Programs\Python\Python313\Lib\json\__init__.py:299(loads)
+   146840    4.429    0.000    9.299    0.000 D:\ApexOptions\apex\engine\market.py:107(change)
+   332137    0.709    0.000    8.433    0.000 D:\ApexOptions\apex\engine\council\__init__.py:145(step)
+   160030    1.210    0.000    7.983    0.000 C:\Users\Ankit Madhogaria\AppData\Local\Programs\Python\Python313\Lib\site-packages\numpy\_core\fromnumeric.py:2304(sum)
+    25549    0.216    0.000    7.939    0.000 D:\ApexOptions\apex\engine_main.py:646(<lambda>)
+    10063    0.096    0.000    7.843    0.001 D:\ApexOptions\apex\engine_main.py:673(<lambda>)
+   204053    1.846    0.000    7.791    0.000 C:\Users\Ankit Madhogaria\AppData\Local\Programs\Python\Python313\Lib\json\decoder.py:339(decode)
+    25549    1.663    0.000    7.722    0.000 D:\ApexOptions\apex\engine_main.py:1041(_weather_feed3)
+   789852    7.575    0.000    7.575    0.000 D:\ApexOptions\apex\engine\flow.py:202(side)
+   182576    0.750    0.000    7.431    0.000 {method 'sum' of 'numpy.ndarray' objects}
+    25549    0.118    0.000    7.350    0.000 D:\ApexOptions\apex\engine_main.py:659(<lambda>)
+     2220    0.621    0.000    7.270    0.003 D:\ApexOptions\apex\table.py:196(write_state)
+   203169    7.250    0.000    7.250    0.000 D:\ApexOptions\apex\table.py:133(end)
+    25549    0.867    0.000    7.232    0.000 D:\ApexOptions\apex\engine\weather.py:407(base)
+    18437    3.710    0.000    7.149    0.000 D:\ApexOptions\apex\greeks.py:110(greeks)
+    81353    5.337    0.000    7.099    0.000 D:\ApexOptions\apex\engine_main.py:1364(heroes)
+     8837    0.108    0.000    7.024    0.001 C:\Users\Ankit Madhogaria\AppData\Local\Programs\Python\Python313\Lib\json\__init__.py:183(dumps)
+     8837    0.088    0.000    6.893    0.001 C:\Users\Ankit Madhogaria\AppData\Local\Programs\Python\Python313\Lib\json\encoder.py:183(encode)
+
+
+Tue Nov 10 17:08:44 2026    D:\ApexOptions\data\replay\2026-11-09\20261110-165836-profile\profile.out
+
+         138733026 function calls (138420988 primitive calls) in 599.949 seconds
+
+   Ordered by: internal time
+   List reduced from 1936 to 60 due to restriction <60>
+
+   ncalls  tottime  percall  cumtime  percall filename:lineno(function)
+ 47661819   33.343    0.000   33.343    0.000 {method 'get' of 'dict' objects}
+    25549   26.817    0.001   91.699    0.004 D:\ApexOptions\apex\engine\flow.py:88(update)
+    25549   22.078    0.001  119.800    0.005 D:\ApexOptions\apex\engine_main.py:1572(run_books)
+    25549   17.559    0.001  513.661    0.020 D:\ApexOptions\apex\engine_main.py:470(step)
+   609877   15.885    0.000   15.885    0.000 {method 'reduce' of 'numpy.ufunc' objects}
+  2350439   15.178    0.000   31.215    0.000 D:\ApexOptions\apex\engine\paper.py:984(evaluate_entry)
+   105054   14.307    0.000   14.307    0.000 {method 'copy' of 'numpy.ndarray' objects}
+    25549   14.214    0.001   25.270    0.001 D:\ApexOptions\apex\engine_main.py:1304(option_rows)
+     8517   12.705    0.001   24.101    0.003 D:\ApexOptions\apex\greeks.py:68(implied_vol)
+    25549   12.239    0.000   36.776    0.001 D:\ApexOptions\apex\engine\market.py:40(push)
+    25548   11.238    0.000   13.048    0.001 D:\ApexOptions\apex\engine\flow.py:182(_classify_cols)
+   203169   10.251    0.000   24.326    0.000 D:\ApexOptions\apex\feed_core.py:152(apply_packet)
+   127740   10.099    0.000   11.686    0.000 D:\ApexOptions\apex\engine\flow.py:52(_imb)
+   202800   10.000    0.000   10.000    0.000 D:\ApexOptions\apex\greeks.py:61(_erf_pos)
+     8517    9.555    0.001   49.697    0.006 D:\ApexOptions\apex\engine_main.py:788(compute_greeks)
+   153327    9.544    0.000   10.294    0.000 C:\Users\Ankit Madhogaria\AppData\Local\Programs\Python\Python313\Lib\site-packages\numpy\_core\shape_base.py:378(stack)
+  3885476    9.480    0.000    9.480    0.000 {built-in method builtins.round}
+  2350508    9.461    0.000   48.247    0.000 D:\ApexOptions\apex\engine_main.py:1773(_entry)
+   533254    8.703    0.000   14.524    0.000 D:\ApexOptions\apex\engine\flow.py:210(run_score)
+   789852    7.575    0.000    7.575    0.000 D:\ApexOptions\apex\engine\flow.py:202(side)
+   203169    7.250    0.000    7.250    0.000 D:\ApexOptions\apex\table.py:133(end)
+    25549    7.229    0.000   26.937    0.001 D:\ApexOptions\apex\engine\domino.py:75(update)
+   122112    7.222    0.000   10.424    0.000 C:\Users\Ankit Madhogaria\AppData\Local\Programs\Python\Python313\Lib\site-packages\numpy\lib\_nanfunctions_impl.py:70(_replace_nan)
+     6429    6.759    0.001    6.759    0.001 C:\Users\Ankit Madhogaria\AppData\Local\Programs\Python\Python313\Lib\json\encoder.py:205(iterencode)
+    24001    6.160    0.000    9.714    0.000 D:\ApexOptions\apex\engine_main.py:1688(_photo_check)
+   153291    6.106    0.000   11.731    0.000 D:\ApexOptions\apex\engine\market.py:98(_ago_calc)
+        1    5.705    5.705  599.990  599.990 D:\ApexOptions\apex\replay_fast.py:34(run)
+    81353    5.337    0.000    7.099    0.000 D:\ApexOptions\apex\engine_main.py:1364(heroes)
+737800/525331    5.168    0.000   92.387    0.000 D:\ApexOptions\apex\engine_main.py:240(_safe)
+     2220    4.843    0.002   28.887    0.013 D:\ApexOptions\apex\engine_main.py:1981(publish)
+   332137    4.636    0.000   17.168    0.000 D:\ApexOptions\apex\engine_main.py:1815(_council)
+   146840    4.429    0.000    9.299    0.000 D:\ApexOptions\apex\engine\market.py:107(change)
+   204053    4.382    0.000    4.382    0.000 C:\Users\Ankit Madhogaria\AppData\Local\Programs\Python\Python313\Lib\json\decoder.py:350(raw_decode)
+  2350439    4.316    0.000   35.532    0.000 D:\ApexOptions\apex\engine_main.py:1733(_entry_choice)
+    76644    3.997    0.000    4.173    0.000 D:\ApexOptions\apex\engine\flow.py:47(_ew)
+    25677    3.775    0.000    3.775    0.000 {built-in method nt.stat}
+    39238    3.771    0.000    4.191    0.000 {built-in method builtins.sorted}
+    18437    3.710    0.000    7.149    0.000 D:\ApexOptions\apex\greeks.py:110(greeks)
+  3183706    3.141    0.000    3.141    0.000 D:\ApexOptions\apex\feed_core.py:32(_f)
+  4709853    3.011    0.000    3.011    0.000 {built-in method time.perf_counter}
+   148010    2.911    0.000    2.911    0.000 {built-in method numpy.array}
+  6005788    2.884    0.000    2.884    0.000 {built-in method math.isfinite}
+  1046628    2.854    0.000    4.012    0.000 D:\ApexOptions\apex\engine_main.py:229(_ph_add)
+  2577272    2.820    0.000    2.820    0.000 D:\ApexOptions\apex\config.py:651(hm)
+  3277553    2.779    0.000    2.779    0.000 {method 'append' of 'list' objects}
+  2590679    2.741    0.000    2.741    0.000 {built-in method builtins.getattr}
+    25548    2.664    0.000    5.001    0.000 D:\ApexOptions\apex\engine_main.py:1875(_loop_stat)
+   237540    2.639    0.000    4.924    0.000 D:\ApexOptions\apex\engine\paper.py:141(stats)
+    25549    2.633    0.000   11.208    0.000 D:\ApexOptions\apex\table.py:142(snapshot)
+      761    2.591    0.003    5.479    0.007 D:\ApexOptions\apex\engine\ideas\__init__.py:260(feed_rows)
+    25548    2.486    0.000    5.048    0.000 D:\ApexOptions\apex\engine\market.py:115(imb_t_ago)
+   266760    2.406    0.000    2.406    0.000 {method 'astype' of 'numpy.ndarray' objects}
+    36874    2.319    0.000    2.350    0.000 D:\ApexOptions\apex\greeks.py:24(_erf)
+    26290    2.291    0.000    2.912    0.000 D:\ApexOptions\apex\engine\domino.py:175(_moves)
+    25549    2.263    0.000   26.514    0.001 D:\ApexOptions\apex\engine_main.py:1376(coherence)
+  1737332    2.256    0.000    2.256    0.000 {method 'copy' of 'dict' objects}
+2719720/2710348    2.070    0.000    2.080    0.000 {built-in method builtins.len}
+  2785953    2.023    0.000    2.023    0.000 D:\ApexOptions\apex\config.py:655(mins)
+   203244    2.021    0.000   12.863    0.000 D:\ApexOptions\apex\feed_replay.py:89(iter_records)
+    83223    2.005    0.000    5.999    0.000 C:\Users\Ankit Madhogaria\AppData\Local\Programs\Python\Python313\Lib\site-packages\numpy\_core\_methods.py:115(_mean)
+
+

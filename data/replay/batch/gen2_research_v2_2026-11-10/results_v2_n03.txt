@@ -1,0 +1,14 @@
+parts 22 dates 15 | delay 1 s | horizon 120 s | dataset D:\ApexOptions\data\research\ds_v2
+N03: labelled legs 60069, unconditional quote-aware 120-s return mean -0.216 %, share > 0 46.4 %
+N03: feature-valid rows 30959 of 30959; both legs labelled 29792; entry missing on a leg 756; exit missing on a leg 415
+N03    endpoints  picks  149 (lapsed 1, censored 2) wins   63 mean -2.51 % median -1.268 % without best -3.144 % (best 91.4 %) mid-to-mid -1.987 % sum -374.0 % days +2/-8 | IC -0.0018
+N03    lags       picks  180 (lapsed 2, censored 2) wins   86 mean -1.23 % median -0.103 % without best -1.747 % (best 91.4 %) mid-to-mid -0.854 % sum -221.4 % days +4/-6 | IC 0.014
+N03    sig2       picks  175 (lapsed 2, censored 2) wins   71 mean 4.934 % median -1.074 % without best -0.498 % (best 950.0 %) mid-to-mid 5.185 % sum 863.4 % days +4/-6 | IC 0.0071
+N03    sig2_shuf  picks  179 (lapsed 3, censored 2) wins   82 mean 3.336 % median -0.617 % without best 0.237 % (best 555.0 %) mid-to-mid 3.448 % sum 597.2 % days +4/-6 | IC -0.013
+N03, the same frozen predictions, non-expiry test dates only:
+N03f: feature-valid rows 30959 of 30959; both legs labelled 29792; entry missing on a leg 756; exit missing on a leg 415
+N03f   endpoints  picks   59 (lapsed 0, censored 0) wins   25 mean -0.109 % median -1.108 % without best -0.574 % (best 26.8 %) mid-to-mid 0.188 % sum -6.4 % days +2/-5 | IC 0.0003
+N03f   lags       picks   76 (lapsed 0, censored 1) wins   35 mean 0.415 % median -0.147 % without best 0.113 % (best 23.1 %) mid-to-mid 0.533 % sum 31.5 % days +4/-3 | IC 0.0188
+N03f   sig2       picks   83 (lapsed 0, censored 0) wins   30 mean -0.909 % median -1.108 % without best -1.203 % (best 23.2 %) mid-to-mid -0.612 % sum -75.4 % days +1/-6 | IC 0.0089
+N03f   sig2_shuf  picks   88 (lapsed 1, censored 0) wins   39 mean -0.553 % median -0.555 % without best -0.827 % (best 23.2 %) mid-to-mid -0.325 % sum -48.7 % days +2/-5 | IC -0.0035
+written D:\ApexOptions\data\research\gen2_v2\research_v2_n03.json

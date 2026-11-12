@@ -68,7 +68,7 @@ def test_a_missing_feature_counts_as_typical_and_extremes_are_clipped():
 
 
 def test_the_installed_artefact_loads_and_is_cheap():
-    path = os.path.join(os.path.dirname(os.path.abspath(R.__file__)), "ranges_v1.json")
+    path = os.path.join(os.path.dirname(os.path.abspath(R.__file__)), "ranges_v2.json")       # label version 2 (11 Nov)
     r = R.Ranger(path=path)
     assert r.ok, r.why
     assert r.horizons == (60, 300)

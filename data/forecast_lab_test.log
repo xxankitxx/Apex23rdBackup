@@ -1,0 +1,264 @@
+{
+ "day": "2026-11-09",
+ "seconds": 22446,
+ "wall_s": 360.1,
+ "per_second_ms": 16.04,
+ "step_ms": {
+  "step_ms": 3.5240733657182135,
+  "full_ms": 0.6840336438200203
+ },
+ "score": {
+  "fut": [
+   {
+    "h": 60,
+    "n": 4349,
+    "cov": 0.805,
+    "skill": -0.004,
+    "skill_frozen": 0.045,
+    "dir_n": 618,
+    "dir_hit": 0.555
+   },
+   {
+    "h": 120,
+    "n": 4337,
+    "cov": 0.811,
+    "skill": -0.009,
+    "skill_frozen": 0.049,
+    "dir_n": 207,
+    "dir_hit": 0.362
+   },
+   {
+    "h": 180,
+    "n": 4325,
+    "cov": 0.818,
+    "skill": -0.008,
+    "skill_frozen": 0.054,
+    "dir_n": 130,
+    "dir_hit": 0.438
+   },
+   {
+    "h": 300,
+    "n": 4301,
+    "cov": 0.834,
+    "skill": -0.007,
+    "skill_frozen": 0.04,
+    "dir_n": 82,
+    "dir_hit": 0.488
+   },
+   {
+    "h": 600,
+    "n": 4241,
+    "cov": 0.865,
+    "skill": -0.017,
+    "skill_frozen": 0.042,
+    "dir_n": 67,
+    "dir_hit": 0.015
+   },
+   {
+    "h": 900,
+    "n": 4181,
+    "cov": 0.897,
+    "skill": -0.016,
+    "skill_frozen": 0.027,
+    "dir_n": 50,
+    "dir_hit": 0.02
+   },
+   {
+    "h": 1800,
+    "n": 4001,
+    "cov": 0.954,
+    "skill": -0.023,
+    "skill_frozen": 0.011,
+    "dir_n": 38,
+    "dir_hit": 0.026
+   }
+  ],
+  "opt": [
+   {
+    "h": 60,
+    "n": 2553,
+    "cov": 0.805,
+    "err": 5.9,
+    "err_naive": 5.79,
+    "err_decay": 5.79,
+    "brier": 0.255,
+    "brier_base": 0.25
+   },
+   {
+    "h": 120,
+    "n": 2553,
+    "cov": 0.803,
+    "err": 8.39,
+    "err_naive": 8.28,
+    "err_decay": 8.28,
+    "brier": 0.254,
+    "brier_base": 0.25
+   },
+   {
+    "h": 180,
+    "n": 2553,
+    "cov": 0.804,
+    "err": 10.0,
+    "err_naive": 9.89,
+    "err_decay": 9.89,
+    "brier": 0.253,
+    "brier_base": 0.25
+   },
+   {
+    "h": 300,
+    "n": 2553,
+    "cov": 0.809,
+    "err": 12.8,
+    "err_naive": 12.68,
+    "err_decay": 12.67,
+    "brier": 0.252,
+    "brier_base": 0.25
+   },
+   {
+    "h": 600,
+    "n": 2553,
+    "cov": 0.812,
+    "err": 18.37,
+    "err_naive": 18.03,
+    "err_decay": 18.02,
+    "brier": 0.255,
+    "brier_base": 0.25
+   },
+   {
+    "h": 900,
+    "n": 2553,
+    "cov": 0.816,
+    "err": 22.64,
+    "err_naive": 22.21,
+    "err_decay": 22.19,
+    "brier": 0.254,
+    "brier_base": 0.25
+   },
+   {
+    "h": 1800,
+    "n": 2552,
+    "cov": 0.842,
+    "err": 31.44,
+    "err_naive": 31.02,
+    "err_decay": 30.78,
+    "brier": 0.252,
+    "brier_base": 0.25
+   }
+  ],
+  "barrier": {
+   "n": 2556,
+   "brier": 0.252,
+   "n_old": 0,
+   "brier_old": null,
+   "brier_new_same": null
+  }
+ },
+ "learn": {
+  "weights": {
+   "still": [
+    0.038,
+    0.244,
+    0.316,
+    0.322,
+    0.338,
+    0.288,
+    0.17
+   ],
+   "momentum": [
+    0.032,
+    0.187,
+    0.228,
+    0.289,
+    0.247,
+    0.233,
+    0.135
+   ],
+   "flow": [
+    0.449,
+    0.105,
+    0.027,
+    0.027,
+    0.074,
+    0.107,
+    0.108
+   ],
+   "reversion": [
+    0.053,
+    0.355,
+    0.4,
+    0.333,
+    0.276,
+    0.28,
+    0.392
+   ],
+   "blend": [
+    0.428,
+    0.109,
+    0.029,
+    0.028,
+    0.066,
+    0.091,
+    0.194
+   ]
+  },
+  "kappa": [
+   0.21,
+   0.2,
+   0.24,
+   0.36,
+   0.54,
+   0.62,
+   0.69
+  ],
+  "z80": [
+   0.96,
+   0.85,
+   0.83,
+   0.69,
+   0.76,
+   0.87,
+   1.09
+  ],
+  "obias": [
+   0.003,
+   0.004,
+   0.005,
+   0.006,
+   0.011,
+   0.006,
+   0.0
+  ],
+  "oscale": [
+   0.77,
+   0.87,
+   0.81,
+   0.88,
+   0.97,
+   1.01,
+   0.4
+  ],
+  "updates": 435639,
+  "alltime": {
+   "fut_n": 435639,
+   "opt_n": 17870
+  }
+ },
+ "say": {
+  "now": [],
+  "next": [],
+  "decay": [
+   "At the money (25050 CE, \u20b90.08): time takes 0.07 a minute on the trading clock (\u20b9269 per lot per hour), 0.018 on the calendar clock.",
+   "With today's volatility trend the calendar decay is -0.25 a minute.",
+   "What the quotes actually did over the last 30 minutes, after taking out the futures' move: -1.25 a minute.",
+   "To pay for decay the market must move about 2.0 points a minute; over the last 10 minutes it moved 6.2 (ratio 9.48, needs 1.00 or more): movement is paying for decay: buyers are being paid."
+  ],
+  "do": [],
+  "change": [],
+  "doing": [
+   "Today 4301 of my 5-minute futures forecasts have been checked: direction right 49 % of 82 clear calls (a coin gets 50 %); my 80 % range caught 83 % (target 80 %); overall 0.7 % worse than assuming no move.",
+   "Learning since the open has made me 4.0 % better than this morning's frozen copy of myself.",
+   "Option premiums, 2553 checked at 5 minutes: my middle forecast was off by 12.8 % on average, against 12.7 % for 'no change' and 12.7 % for 'decay only'; my 10-90 range caught 81 %."
+  ],
+  "account": []
+ }
+}

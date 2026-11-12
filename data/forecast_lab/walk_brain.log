@@ -1,0 +1,11 @@
+brain 2026-10-27 brain | fut 5m cov 0.766 crps 11.3943 width 47.7 pin 7.8594 skill 0.011 dir 0.58 of 655 | opt 5m cov 0.786 pin 6.3098 err 11.93 naive 12.03 | 1125 s
+brain 2026-10-28 brain | fut 5m cov 0.833 crps 10.975 width 59.64 pin 7.4905 skill -0.009 dir 0.518 of 570 | opt 5m cov 0.824 pin 2.3266 err 3.84 naive 3.81 | 1422 s
+brain 2026-10-29 brain | fut 5m cov 0.803 crps 8.2907 width 37.64 pin 5.7405 skill -0.001 dir 0.401 of 137 | opt 5m cov 0.807 pin 1.9023 err 3.65 naive 3.64 | 1752 s
+brain 2026-10-30 brain | fut 5m cov 0.784 crps 8.841 width 39.02 pin 5.626 skill 0.013 dir 0.61 of 964 | opt 5m cov 0.791 pin 2.3355 err 4.98 naive 4.98 | 2035 s
+brain 2026-11-02 brain | fut 5m cov 0.804 crps 8.5007 width 42.08 pin 5.7121 skill 0.013 dir 0.748 of 481 | opt 5m cov 0.805 pin 3.0335 err 5.88 naive 5.89 | 2252 s
+brain 2026-11-03 brain | fut 5m cov 0.794 crps 8.0098 width 38.56 pin 5.498 skill -0.008 dir 0.313 of 259 | opt 5m cov 0.797 pin 4.6186 err 8.37 naive 8.38 | 2471 s
+brain 2026-11-04 brain | fut 5m cov 0.806 crps 11.2138 width 49.44 pin 7.2375 skill 0.005 dir 0.667 of 327 | opt 5m cov 0.798 pin 2.2548 err 4.38 naive 4.38 | 2636 s
+brain 2026-11-05 brain | fut 5m cov 0.793 crps 8.9464 width 42.91 pin 5.6875 skill 0.002 dir 0.495 of 701 | opt 5m cov 0.805 pin 2.0221 err 4.09 naive 4.08 | 2870 s
+brain 2026-11-06 brain | fut 5m cov 0.795 crps 13.3126 width 61.53 pin 8.9318 skill 0.014 dir 0.694 of 147 | opt 5m cov 0.796 pin 2.9867 err 5.58 naive 5.6 | 3015 s
+brain 2026-11-09 brain | fut 5m cov 0.83 crps 13.2514 width 63.55 pin 8.7982 skill -0.007 dir 0.506 of 314 | opt 5m cov 0.814 pin 6.4877 err 12.67 naive 12.68 | 3118 s
+brain 2026-11-11 brain | fut 5m cov 0.771 crps 11.4828 width 48.56 pin 7.8315 skill -0.006 dir 0.238 of 21 | opt 5m cov 0.831 pin 1.8237 err 3.45 naive 3.44 | 3222 s

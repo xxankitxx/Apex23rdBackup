@@ -1,0 +1,25 @@
+sessions 16 origins 68729
+2026-10-27 trained on 5 sessions | 5 min: QLIKE 0.431 vs 0.171 | cover 0.77 vs 0.81 | IC lin +0.159 gbm +0.164 avg +0.198 | top-20% direction 0.5560975609756098 | 18 s
+2026-10-28 trained on 6 sessions | 5 min: QLIKE 0.226 vs 0.239 | cover 0.86 vs 0.83 | IC lin -0.044 gbm +0.025 avg -0.005 | top-20% direction 0.4061990212071778 | 15 s
+2026-10-29 trained on 7 sessions | 5 min: QLIKE 0.125 vs 0.182 | cover 0.85 vs 0.87 | IC lin +0.057 gbm -0.007 avg +0.024 | top-20% direction 0.41734860883797054 | 15 s
+2026-10-30 trained on 8 sessions | 5 min: QLIKE 0.155 vs 0.225 | cover 0.81 vs 0.82 | IC lin +0.021 gbm +0.123 avg +0.097 | top-20% direction 0.5916083916083916 | 23 s
+2026-11-02 trained on 9 sessions | 5 min: QLIKE 0.353 vs 0.458 | cover 0.86 vs 0.85 | IC lin +0.238 gbm +0.141 avg +0.225 | top-20% direction 0.7540983606557377 | 40 s
+2026-11-03 trained on 10 sessions | 5 min: QLIKE 0.273 vs 0.429 | cover 0.89 vs 0.88 | IC lin +0.068 gbm -0.018 avg +0.028 | top-20% direction 0.4446085672082718 | 35 s
+2026-11-04 trained on 11 sessions | 5 min: QLIKE 0.131 vs 0.132 | cover 0.78 vs 0.79 | IC lin +0.043 gbm +0.175 avg +0.124 | top-20% direction 0.6373779637377964 | 38 s
+2026-11-05 trained on 12 sessions | 5 min: QLIKE 0.144 vs 0.323 | cover 0.82 vs 0.84 | IC lin +0.039 gbm +0.049 avg +0.064 | top-20% direction 0.4937062937062937 | 38 s
+2026-11-06 trained on 13 sessions | 5 min: QLIKE 0.126 vs 0.264 | cover 0.78 vs 0.82 | IC lin +0.019 gbm -0.060 avg -0.029 | top-20% direction 0.4199706314243759 | 35 s
+2026-11-09 trained on 14 sessions | 5 min: QLIKE 0.132 vs 0.149 | cover 0.84 vs 0.84 | IC lin +0.018 gbm -0.085 avg -0.039 | top-20% direction 0.5172955974842768 | 33 s
+2026-11-11 trained on 15 sessions | 5 min: QLIKE 0.118 vs 0.114 | cover 0.77 vs 0.81 | IC lin +0.007 gbm -0.035 avg -0.021 | top-20% direction 0.43235704323570434 | 32 s
+D:\ApexOptions\research\forecast_lab\train.py:240: ResourceWarning: unclosed file <_io.TextIOWrapper name='D:\\ApexOptions\\data\\forecast_lab\\walk_forward.json' mode='w' encoding='cp1252'>
+  json.dump(res, open(os.path.join(LAB, 'walk_forward.json'), 'w'), indent=1)
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+
+UNSEEN-SESSION AVERAGES over 11 sessions (trained part alone, no online learning)
+horizon | QLIKE model / 10-min clock (sessions better) | 80% cover model / gaussian | IC ridge / trees / avg (sessions avg>0) | top-20% direction avg
+  1 min | 0.406 / 0.441 (8/11) | 0.826 / 0.836 | +0.205 / +0.194 / +0.207 (11/11) | 0.669
+  2 min | 0.277 / 0.326 (8/11) | 0.826 / 0.831 | +0.129 / +0.102 / +0.127 (11/11) | 0.593
+  3 min | 0.235 / 0.282 (8/11) | 0.826 / 0.831 | +0.106 / +0.079 / +0.108 (10/11) | 0.588
+  5 min | 0.201 / 0.244 (9/11) | 0.822 / 0.834 | +0.057 / +0.043 / +0.060 (7/11) | 0.516
+ 10 min | 0.174 / 0.214 (9/11) | 0.816 / 0.824 | +0.038 / +0.049 / +0.061 (6/11) | 0.517
+ 15 min | 0.156 / 0.203 (9/11) | 0.812 / 0.813 | +0.017 / +0.018 / +0.033 (6/11) | 0.531
+ 30 min | 0.140 / 0.202 (8/11) | 0.818 / 0.806 | +0.046 / +0.023 / +0.064 (6/11) | 0.484

@@ -1,0 +1,5 @@
+{"t": "08:41:21", "k": "SYSTEM", "x": "day 2026-10-30 \u00b7 champion conductor \u00b7 gates none \u00b7 capital \u20b9100,000", "mkt_t": 1793329881.0}
+{"t": "09:15:00", "k": "GAP", "x": "data gap: feed stale: futures quote 365 s old \u2014 entries paused until 20 s of fresh data", "mkt_t": 1793331900.0}
+{"t": "09:15:20", "k": "GAP", "x": "data back after 20 s (feed stale: futures quote 366 s old); entries resume", "mkt_t": 1793331920.3}
+{"t": "09:20:00", "k": "SPIKE", "x": "straddle 22950 +22.4 over theta in 5 min \u2014 PE leg carries it (152.5, delta None\u2192-0.515, gamma 0.0011)", "mkt_t": 1793332200.2}
+{"t": "09:45:12", "k": "RAW-ENTRY", "x": "BUY 8 lots NIFTY 22900 CE (2026-11-03) @ 178.90 \u00b7 COUNCIL NORM pb v=+36", "mkt_t": 1793333712.0}

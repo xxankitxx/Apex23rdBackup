@@ -1,0 +1,24 @@
+parts 22 dates 15 | delay 1 s | horizon 120 s | dataset D:\ApexOptions\data\research\ds_v2
+N05: labelled legs 59251, unconditional quote-aware 120-s return mean -0.226 %, share > 0 46.5 %
+N05: feature-valid rows 30502 of 30502; both legs labelled 29384; entry missing on a leg 755; exit missing on a leg 367
+N05    fwd_only   picks   81 (lapsed 0, censored 0) wins   27 mean -1.961 % median -1.609 % without best -2.538 % (best 44.2 %) mid-to-mid -1.539 % sum -158.9 % days +2/-8 | IC -0.0292
+N05    iv_mom     picks  163 (lapsed 4, censored 2) wins   78 mean 1.53 % median -0.346 % without best 1.021 % (best 83.9 %) mid-to-mid 1.786 % sum 249.3 % days +5/-3 | IC 0.0034
+N05    prem_mom   picks  159 (lapsed 0, censored 0) wins   59 mean -1.831 % median -2.576 % without best -2.104 % (best 41.3 %) mid-to-mid -1.589 % sum -291.2 % days +1/-9 | IC -0.023
+N05    surface    picks  166 (lapsed 5, censored 2) wins   80 mean 1.125 % median -0.191 % without best 0.623 % (best 83.9 %) mid-to-mid 1.473 % sum 186.7 % days +3/-5 | IC -0.0122
+N05 (a) the same frozen predictions, non-expiry test dates only:
+N05a: feature-valid rows 30502 of 30502; both legs labelled 29384; entry missing on a leg 755; exit missing on a leg 367
+N05a   fwd_only   picks   46 (lapsed 0, censored 0) wins   16 mean -0.889 % median -1.285 % without best -1.351 % (best 19.9 %) mid-to-mid -0.568 % sum -40.9 % days +1/-6 | IC -0.0207
+N05a   iv_mom     picks    6 (lapsed 0, censored 0) wins    3 mean -2.113 % median -2.187 % without best -5.987 % (best 17.3 %) mid-to-mid -1.517 % sum -12.7 % days +3/-2 | IC -0.0077
+N05a   prem_mom   picks   59 (lapsed 0, censored 0) wins   16 mean -2.665 % median -3.111 % without best -3.009 % (best 17.3 %) mid-to-mid -2.555 % sum -157.2 % days +1/-6 | IC -0.0251
+N05a   surface    picks   10 (lapsed 0, censored 0) wins    2 mean -5.169 % median -4.066 % without best -6.228 % (best 4.4 %) mid-to-mid -5.139 % sum -51.7 % days +1/-4 | IC -0.0289
+N05 (b) a separately trained model, expiry days removed before fitting (a DIFFERENT experiment):
+N05b: feature-valid rows 23170 of 23170; both legs labelled 22317; entry missing on a leg 551; exit missing on a leg 306
+N05b   fwd_only   picks   29 (lapsed 0, censored 0) wins   13 mean 1.093 % median -0.649 % without best 0.42 % (best 19.9 %) mid-to-mid 1.232 % sum 31.7 % days +3/-2 | IC -0.0418
+N05b   iv_mom     picks   65 (lapsed 0, censored 1) wins   32 mean 0.047 % median -0.1 % without best -0.372 % (best 26.8 %) mid-to-mid 0.305 % sum 3.0 % days +2/-4 | IC 0.0061
+N05b   prem_mom   picks  113 (lapsed 3, censored 1) wins   54 mean -0.438 % median -0.397 % without best -0.682 % (best 26.8 %) mid-to-mid -0.137 % sum -49.5 % days +2/-4 | IC -0.0141
+N05b   surface    picks  284 (lapsed 10, censored 5) wins  129 mean -0.423 % median -0.448 % without best -0.519 % (best 26.8 %) mid-to-mid -0.211 % sum -120.0 % days +2/-4 | IC -0.0087
+N05 surface against IV momentum:
+   paired on 7 common dates: surface sum +182.4 %, iv_mom sum +232.1 %, surface ahead on 2 dates
+   paired on 4 common dates: surface sum -56.0 %, iv_mom sum -29.9 %, surface ahead on 0 dates
+   paired on 6 common dates: surface sum -120.0 %, iv_mom sum +3.0 %, surface ahead on 3 dates
+written D:\ApexOptions\data\research\gen2_v2\research_v2_n05.json

@@ -6,7 +6,9 @@
 
 const $ = (id) => document.getElementById(id);
 const nil = (x) => x === null || x === undefined || Number.isNaN(x);
-const fmt = (x, d = 2) => nil(x) ? "—" : Number(x).toLocaleString("en-IN", { minimumFractionDigits: d, maximumFractionDigits: d });
+const NFC = new Map();      // one Intl.NumberFormat per decimal count: building one on every call cost about 40x more
+const NF = (d) => { let f = NFC.get(d); if (!f) { f = new Intl.NumberFormat("en-IN", { minimumFractionDigits: d, maximumFractionDigits: d }); NFC.set(d, f); } return f; };
+const fmt = (x, d = 2) => nil(x) ? "—" : NF(d).format(Number(x));
 const sgn = (x, d = 2) => nil(x) ? "—" : (x > 0 ? "+" : x < 0 ? "−" : "") + fmt(Math.abs(x), d);
 const inr = (x) => nil(x) ? "—" : (x < 0 ? "−" : "") + "₹" + Math.round(Math.abs(x)).toLocaleString("en-IN");
 const tone = (x) => x > 0 ? "up" : x < 0 ? "down" : "";
@@ -1498,3 +1500,489 @@ function renderIdeas(s) {
   $("idfoot").textContent = `Hover a card for the idea and what the research found. Every change is taped to ${b.file || "ideas_<day>.jsonl"} for later testing. The champion trades on its own rules.`
     + (b.bad && b.bad.length ? ` Not loaded: ${b.bad.map((x) => x[0]).join(", ")}.` : "");
 }
+
+// ── 11 Nov: Forecast Lab panel. Its own poll of /static/live/forecast_lab.json, written by the separate forecaster
+// process (apex/forecast_lab/live.py). Independent of the engine's state stream; a fault here only shows a message in
+// this panel. Display only.
+// 12 Nov: trade-first. A glance row of five chips (fixed height) and a <details> with the charts and tables, closed by
+// default while a trade is open. A stopped or old forecaster is dimmed and says so. Each label says what its horizon
+// has earned. Only what changed is redrawn: table skeletons stay (sideways scroll survives), SVGs are compared before
+// they are written, a closed or off-screen detail is not drawn, and the poll slows when hidden or stopped. ──────────
+const LAB = { t: null, p: null, cur: null, sel: null, heldSeen: null, last: 0, busy: false, timer: null, stale: null,
+  staleKind: "", skew: 0, mode: "", prog: null, vis: true, dirty: false, ms: [], wrote: 0 };
+const LAB_FRESH_S = 10;                 // a payload older than this (or from an earlier day) is shown as stopped
+const LAB_SLOW_S = 30;                  // older than this, not ok, or unreadable: polled every 30 s
+const LAB_KEY = "apex.labdetail.";      // + "holding" / "flat": this viewer's own open or closed choice
+const labE = (x) => idEsc(x);
+const labMin = (h) => (h % 60 ? `${h} s` : `${h / 60} min`);
+const labPct = (x, d = 0) => nil(x) ? "—" : `${(x * 100).toFixed(d)}%`;
+const labSgn = (x, d = 1) => nil(x) ? "—" : `${x >= 0 ? "+" : "−"}${Math.abs(x).toFixed(d)}`;
+const labRs = (x, d = 1) => nil(x) ? "—" : `₹${NF(d).format(Number(x))}`;
+const labSRs = (x, d = 1) => nil(x) ? "—" : `${x >= 0 ? "+" : "−"}₹${NF(d).format(Math.abs(x))}`;
+const labNow = () => (Date.now() + LAB.skew) / 1000;      // the server's clock (its Date header), seconds
+const labIso = (t) => {                                     // IST has no daylight saving: a fixed +5:30
+  const d = new Date((Number(t) + 19800) * 1000);
+  return nil(t) || Number.isNaN(d.getTime()) ? "" : d.toISOString();
+};
+const labDay = (t) => labIso(t).slice(0, 10);
+const labWhen = (t) => { const s = labIso(t); return s ? `${s.slice(11, 16)} on ${dmy(s.slice(0, 10))}` : "an unknown time"; };
+const labPut = (el, h) => { if (el && el._h !== h) { el.innerHTML = h; el._h = h; LAB.wrote += h.length; } };
+const labCls = (el, c) => { if (el && el.className !== c) el.className = c; };
+const labAttr = (el, k, v) => { if (el && el.getAttribute(k) !== v) el.setAttribute(k, v); };
+const labTh = (html) => ({ h: 1, html });
+const labTd = (html, cls = "") => ({ html, cls });
+
+// A container drawn as a list of blocks: {html} or {table: {cls, rows: [{cls, cells: [{h, cls, html}]}]}}. The
+// skeleton (wrappers, tables, rows, cells) is rebuilt only when its shape changes; otherwise only changed cells are
+// written, so a table's sideways scroll, a hover and a selection survive the next second.
+function labBlocks(el, blocks) {
+  const sig = blocks.map((b) => b.table ? "t" + b.table.rows.map((r) => r.cells.map((c) => c.h ? "h" : "d").join("")).join("/") : "h").join("|");
+  if (el._sig !== sig || !el._parts) {
+    const keep = (el._parts || []).map((x) => (x && x.wrap ? x.wrap.scrollLeft : 0));
+    el.innerHTML = ""; el._h = null;
+    el._parts = blocks.map((b) => {
+      if (!b.table) { const d = document.createElement("div"); d.className = "lab-part"; el.appendChild(d); return { div: d }; }
+      const wrap = document.createElement("div"), tb = document.createElement("table");
+      wrap.className = "lab-scroll"; wrap.appendChild(tb); el.appendChild(wrap);
+      const rows = b.table.rows.map((r) => {
+        const tr = document.createElement("tr"); tb.appendChild(tr);
+        return { tr, cells: r.cells.map((c) => { const x = document.createElement(c.h ? "th" : "td"); tr.appendChild(x); return x; }) };
+      });
+      return { wrap, tb, rows };
+    });
+    el._sig = sig;
+    el._parts.forEach((x, i) => { if (x.wrap && keep[i]) x.wrap.scrollLeft = keep[i]; });
+  }
+  blocks.forEach((b, i) => {
+    const x = el._parts[i];
+    if (!b.table) { labPut(x.div, b.html); return; }
+    labCls(x.tb, "lab-t " + (b.table.cls || ""));
+    b.table.rows.forEach((r, j) => {
+      const R = x.rows[j];
+      labCls(R.tr, r.cls || "");
+      r.cells.forEach((c, k) => { labCls(R.cells[k], c.cls || ""); labPut(R.cells[k], c.html); });
+    });
+  });
+}
+// A row of chips {k, lab, val, cls, tip}, kept in place: only changed words, classes and tooltips are written.
+function labChips(el, chips) {
+  const sig = chips.map((c) => c.k || c.lab).join("|");
+  if (el._sig !== sig || !el._parts) {
+    el.innerHTML = ""; el._h = null;
+    el._parts = chips.map(() => {
+      const s = document.createElement("span"), a = document.createElement("small"), b = document.createElement("b");
+      s.appendChild(a); s.appendChild(b); el.appendChild(s); return { s, a, b };
+    });
+    el._sig = sig;
+  }
+  chips.forEach((c, i) => {
+    const x = el._parts[i];
+    labCls(x.s, "lab-chip" + (c.cls ? " " + c.cls : "")); labAttr(x.s, "title", c.tip || "");
+    put(x.a, c.lab); put(x.b, String(c.val));
+  });
+}
+
+function labPoll() {
+  clearTimeout(LAB.timer); LAB.timer = null;
+  if (LAB.busy) { labSchedule(); return; }
+  LAB.busy = true;
+  const ctl = new AbortController(); const tm = setTimeout(() => ctl.abort(), 5000);
+  fetch(`/static/live/forecast_lab.json?ts=${Date.now()}`, { cache: "no-store", signal: ctl.signal })
+    .then((r) => {
+      const d = r.headers && r.headers.get ? Date.parse(r.headers.get("date") || "") : NaN;
+      if (Number.isFinite(d)) LAB.skew = d + 500 - Date.now();     // the header has whole seconds
+      return r.ok ? r.json() : Promise.reject(new Error(`HTTP ${r.status}`));
+    })
+    .then((p) => { LAB.last = Date.now(); LAB.err = null; labTake(p); })
+    .catch((e) => {
+      const m = (e && e.message) || String(e);
+      if (m !== LAB.err) console.warn("Forecast Lab: the forecaster's file was not read:", m);    // once per new reason
+      LAB.err = m; labTake(null);
+    })
+    .finally(() => { clearTimeout(tm); LAB.busy = false; labSchedule(); });
+}
+function labDelay() {
+  const p = LAB.cur, quick = document.visibilityState === "hidden" ? 5000 : 1000;
+  // one failed read of a live file (a write in progress, a busy server): try again soon, not in 30 s
+  if (!p && LAB.last && Date.now() - LAB.last < 20000 && !LAB.stale) return quick;
+  if (!p || !p.ok || nil(p.t) || labNow() - p.t > LAB_SLOW_S) return 30000;
+  return quick;
+}
+function labSchedule() { clearTimeout(LAB.timer); LAB.timer = setTimeout(labPoll, labDelay()); }
+
+// What is wrong with the file, as one sentence for the panel, or null when it is live.
+function labStaleOf(p) {
+  const from = LAB.p && !nil(LAB.p.t) ? ` The numbers below are from ${labWhen(LAB.p.t)}.` : "";
+  if (!p) {
+    if (LAB.last && Date.now() - LAB.last < 20000) return { msg: LAB.stale, kind: LAB.staleKind };   // one failed read
+    return { kind: "gone", msg: "The forecaster's file cannot be read. Is it running? Start it with: py -3.13 -m apex.forecast_lab.live." + from };
+  }
+  if (nil(p.t)) return { kind: "fault", msg: "The forecaster's file has no time on it." + from };
+  const now = labNow();
+  if (now - p.t > LAB_FRESH_S || labDay(p.t) < labDay(now))
+    return { kind: "old", msg: `Forecaster stopped at ${labWhen(p.t)}: the numbers below are from ${LAB.p && !nil(LAB.p.t) && LAB.p.t !== p.t ? labWhen(LAB.p.t) : "then"}.` };
+  if (!p.ok) return { kind: "fault", msg: `No forecast at ${labWhen(p.t)}: ${p.why || "the forecaster reports a fault"}.` + from };
+  return { msg: null, kind: "" };
+}
+function labTake(p) {
+  LAB.cur = p;
+  const fresh = !!(p && p.ok && !nil(p.t) && p.t !== LAB.t);
+  if (fresh) { LAB.t = p.t; LAB.p = p; }
+  const st = labStaleOf(p), turned = st.msg !== LAB.stale;
+  LAB.stale = st.msg; LAB.staleKind = st.kind;
+  if (fresh || turned) renderLab(LAB.p || p || {});
+  labAge(p);
+}
+function labTry(id, fn, p) {
+  try { fn(p); } catch (e) {
+    console.error(`Forecast Lab: ${id} failed to draw`, e);
+    const el = $(id);
+    if (el && String(el.tagName).toLowerCase() !== "svg") {
+      el._sig = null; el._parts = null;
+      labPut(el, `<p class="lab-none">This part failed to draw (${labE(e && e.message)}). The rest of the panel is unaffected.</p>`);
+    }
+  }
+}
+function labAge(p) {
+  const sec = $("fcsec"), gl = $("labglance"), h = $("labhint"), st = LAB.stale;
+  if (sec) sec.classList.toggle("lab-stale", !!st);
+  if (gl) gl.classList.toggle("lab-stale", !!st);
+  labTry("labglance", labGlance, LAB.p || p || {});
+  if (!h) return;
+  let txt, cls = "";
+  if (!p) { if (!st) return; txt = "forecaster not reachable"; cls = "lab-dead"; }
+  else if (st) { txt = LAB.staleKind === "old" ? `last update ${labWhen(p.t)}: the forecaster has stopped` : `as of ${labWhen(p.t)}: ${p.why || "no forecast"}`; cls = "lab-dead"; }
+  else if (p.stale) { txt = `as of ${p.now}: no forecast, ${p.stale}`; cls = "lab-dead"; }
+  else {
+    const a = p.age || {};
+    const ages = [nil(a.fut) ? null : `futures quote ${fmt(a.fut, 1)} s old`, nil(a.path) ? null : `futures forecast ${fmt(a.path, 0)} s old`, nil(a.sim) ? null : `option forecast ${fmt(a.sim, 0)} s old`].filter(Boolean).join(" · ");
+    txt = `as of ${p.now}${ages ? " · " + ages : ""}`;
+  }
+  put(h, txt); labCls(h, cls);
+}
+
+// ── open or closed detail: closed by default while holding, open when flat; the viewer's own choice per state wins
+function labPref(mode) {
+  try { const v = localStorage.getItem(LAB_KEY + mode); return v === "1" ? true : v === "0" ? false : null; }
+  catch (e) { return null; }           // storage blocked (private window, preview): the default applies, nothing is lost
+}
+function labSetPref(mode, open) {
+  try { localStorage.setItem(LAB_KEY + mode, open ? "1" : "0"); }
+  catch (e) { console.warn("Forecast Lab: the open or closed choice is not remembered:", e && e.message); }
+}
+function labHeld(p) {        // the account's held contract {key, strike, side, opt, entry, qty, book}, or null
+  const o = ((p && p.options) || []).find((x) => x.tag === "held") || null, h = (p && p.held) || null;
+  if (!o && !(h && !nil(h.strike))) return null;
+  const hs = h ? (h.side === 0 || h.side === "CE" ? "CE" : h.side === 1 || h.side === "PE" ? "PE" : String(h.side || "")) : "";
+  const same = !!h && (!o || (Number(h.strike) === Number(o.strike) && (!hs || hs === o.side)));
+  const ent = same ? Number(h.entry) : NaN, q = same ? Number(h.qty) : NaN;
+  const strike = o ? o.strike : Number(h.strike), side = o ? o.side : hs;
+  return { key: `${strike}${side}`, strike, side, opt: o, entry: ent > 0 ? ent : null, qty: q > 0 ? q : null, book: same ? h.book || null : null };
+}
+const labHolding = (p) => document.body.classList.contains("holding") || (!LAB.stale && !!(p && (labHeld(p) || (p.earned || {}).holding)));
+function labMode(p) {
+  const d = $("labdetail"); if (!d) return;
+  const mode = labHolding(p) ? "holding" : "flat";
+  if (mode === LAB.mode) return;
+  LAB.mode = mode;
+  const pref = labPref(mode), open = pref === null ? mode === "flat" : pref;
+  if (!!d.open !== open) { LAB.prog = open; d.open = open; }      // the toggle event this causes is not the viewer's
+}
+const labDetailOn = () => { const d = $("labdetail"); return !d || (!!d.open && LAB.vis); };
+function labWire() {
+  const d = $("labdetail");
+  if (d) d.addEventListener("toggle", () => {
+    const ours = LAB.prog !== null && !!d.open === LAB.prog;
+    LAB.prog = null;
+    if (!ours && LAB.mode) labSetPref(LAB.mode, !!d.open);
+    if (d.open && LAB.dirty) labDetail(LAB.p);
+  });
+  if (d && typeof IntersectionObserver === "function")
+    new IntersectionObserver((es) => { for (const e of es) LAB.vis = e.isIntersecting; if (LAB.vis && LAB.dirty) labDetail(LAB.p); }, { rootMargin: "200px" }).observe(d);
+  if (typeof MutationObserver === "function")
+    new MutationObserver(() => { const was = LAB.mode; labMode(LAB.cur); if (LAB.mode !== was && LAB.p) renderLab(LAB.p); }).observe(document.body, { attributes: true, attributeFilter: ["class"] });
+  document.addEventListener("visibilitychange", () => { if (document.visibilityState === "visible") labPoll(); });
+  let rz = null;
+  window.addEventListener("resize", () => { clearTimeout(rz); rz = setTimeout(() => { if (LAB.p && labDetailOn()) { labTry("labfut", labFutChart, LAB.p); labTry("labopt", labOptChart, LAB.p); } }, 250); });
+}
+
+function renderLab(p) {
+  const t0 = performance.now();
+  labMode(p);
+  labTry("labsay", labSay, p);
+  labTry("labstrip", labStrip, LAB.cur || p);
+  labDetail(p);
+  LAB.ms.push(performance.now() - t0); if (LAB.ms.length > 120) LAB.ms.shift();
+}
+function labDetail(p) {
+  if (!p) return;
+  if (!labDetailOn()) { LAB.dirty = true; return; }
+  LAB.dirty = false;
+  labTry("labfut", labFutChart, p); labTry("labopttabs", labOptTabs, p); labTry("labopt", labOptChart, p);
+  labTry("labnext", labNext, p); labTry("labwhatif", labWhatIf, p); labTry("labdecay", labDecay, p); labTry("labscore", labScore, p);
+}
+function labSay(p) {
+  const el = $("labsay"); if (!el) return;
+  if (LAB.stale) {
+    labBlocks(el, [{ html: `<div class="lab-b lab-stop"><h3>${LAB.staleKind === "old" ? "Forecaster stopped" : "No forecast"}</h3><p>${labE(LAB.stale)}</p></div>` }]);
+    return;
+  }
+  const say = p.say || {};
+  const view = say.label && say.label[0] && say.label[0] !== "Verdict" ? say.label[0] : "Forecaster's view (display only)";
+  const block = (title, lines, cls = "") => (lines && lines.length) ? `<div class="lab-b ${cls}"><h3>${labE(title)}</h3>${lines.map((x) => `<p>${labE(x)}</p>`).join("")}</div>` : "";
+  // the next-horizon, decay and repricing sentences live in the tables below, with their own labels
+  labBlocks(el, [block("Right now", say.now), block(view, say.do, "do"), block("What a buy case needs", say.change),
+    block("My record today: what is earned", say.doing), block("The account", say.account)].filter(Boolean).map((html) => ({ html })));
+}
+// 'range (80 %)' only where that horizon's own record is on target today; otherwise what it caught, or unchecked
+function labRangeTxt(en, kind, h) {
+  const r = (((en || {}).range_h || {})[kind] || {})[String(h)];
+  if (!r) return { ok: false, txt: "aimed at 80 % · not checked" };
+  const k = nil(r.checks) ? "—" : fmt(r.checks, 0);
+  if (r.status === "ok") return { ok: true, txt: `range (80 %) · caught ${labPct(r.cov)} on ${k} checks` };
+  if (r.status === "unchecked") return { ok: false, txt: `aimed at 80 % · unchecked (${k} of 10 checks)` };
+  return { ok: false, txt: `aimed at 80 % · caught ${labPct(r.cov)} on ${k} checks, ${r.status === "narrow" ? "being widened" : "being narrowed"}` };
+}
+// the spread in futures points: what buying at the ask and selling at the bid costs over the last price
+const labSpreadPts = (o) => (!nil(o.ask) && !nil(o.bid) && !nil(o.delta) && Math.abs(o.delta) > 0.05 && o.ask >= o.bid) ? (o.ask - o.bid) / Math.abs(o.delta) : null;
+// the movement options price, on the same clock as the decay break-even: sigma x F / sqrt(365 x 375) a minute
+const labImplied = (c) => (c && !nil(c.atm_iv) && !nil(c.Fs) && c.atm_iv > 0) ? (c.atm_iv / 100) * c.Fs / Math.sqrt(365 * 375) : null;
+
+function labGlance(p) {
+  const el = $("labglance"); if (!el) return;
+  const en = p.earned || {}, live = !LAB.stale, chips = [];
+  const x5 = (p.path || []).find((f) => f.h === 300), r5 = ((en.range_h || {}).fut || {})["300"];
+  if (live && x5 && r5 && r5.status === "ok")
+    chips.push({ k: "rng", lab: "5-min range (80 %)", val: `${fmt(x5.q10, 0)} to ${fmt(x5.q90, 0)}`, tip: `caught ${labPct(r5.cov)} on ${fmt(r5.checks, 0)} independent checks today` });
+  else chips.push({ k: "rng", lab: "5-min range", val: !live || !r5 ? "not stated" : r5.status === "unchecked" ? `unchecked · ${fmt(r5.checks, 0)} of 10 checks` : `not stated · caught ${labPct(r5.cov)}`,
+    tip: "an 80 % range is stated only when it caught 72 to 88 % on at least 10 independent checks today" });
+  const rent = p.rent || {};
+  if (live && !nil(rent.be)) {
+    const pay = !nil(rent.d10) && rent.d10 >= rent.be;
+    chips.push({ k: "rent", lab: "Movement vs decay, a min", val: `needs ${fmt(rent.be, 1)} · got ${fmt(rent.d10, 1)}, ${pay ? "paying" : "short"}`, cls: nil(rent.d10) ? "" : pay ? "up" : "down",
+      tip: "the futures movement that pays for time decay (a calendar day's decay over the 375 trading minutes) against the last 10 minutes, one clock" });
+  } else chips.push({ k: "rent", lab: "Movement vs decay, a min", val: "—", tip: live ? "no option chain right now" : "not shown: the forecaster is not live" });
+  const d5 = (en.dir_h || {})["300"];
+  if (live && d5 && d5.earned) chips.push({ k: "dir", lab: "Direction, 5 min", val: `${d5.lean} · earned`, cls: d5.lean === "up" ? "up" : "down", tip: `${labPct(d5.hit)} right on ${fmt(d5.checks, 0)} independent clear calls, and the earlier days agree` });
+  else chips.push({ k: "dir", lab: "Direction, 5 min", val: d5 ? `no call · ${fmt(d5.checks, 0)} of 20 checks` : "no call", tip: (d5 && d5.why) || "direction is called only when its own record has earned it" });
+  const b5 = (en.buy_detail || {})["300"];
+  let bv = "not earned", btip = "a buy case needs its own checked record at that holding time";
+  if (labHolding(p)) { bv = "not assessed: holding"; btip = "no new buy case is assessed while the account holds a position"; }
+  else if (en.account_unknown) { bv = "not assessed: account unknown"; btip = "the engine report is old"; }
+  else if (live && b5 && b5.earned) bv = "earned at 5 min";
+  else if (b5) {
+    const c = Object.fromEntries((b5.conds || []).map((x) => [x.name, x])), ck = c.checks || {}, br = c.brier || {}, dy = c.days || {};
+    bv = `not earned · ${fmt(ck.have, 0)} of ${ck.need ?? 20} checks`;
+    btip = `win-chance score ${fmt(br.have, 3)} against ${fmt(br.clim, 3)} for the base rate (lower is better) · forward days ${dy.have ?? 0} of ${dy.need ?? 5}`;
+  }
+  chips.push({ k: "buy", lab: "Buy case, 5 min", val: bv, tip: btip });
+  const cur = LAB.cur;
+  if (LAB.stale) {
+    const t = cur && !nil(cur.t) ? cur.t : p.t;
+    chips.push({ k: "age", lab: "Forecaster", val: LAB.staleKind === "gone" ? "NOT REACHABLE" : LAB.staleKind === "fault" ? "NO FORECAST" : `STOPPED ${labWhen(t)}`, cls: "stop", tip: LAB.stale });
+  } else chips.push({ k: "age", lab: "Forecaster", val: cur && !nil(cur.t) ? `live · ${fmt(Math.max(0, labNow() - cur.t), 0)} s old` : "live", tip: "the age of the forecaster's last write" });
+  labChips(el, chips);
+}
+function labStrip(p) {
+  const el = $("labstrip"); if (!el) return;
+  const chips = [], live = !!(p && p.ok && !p.stale && !LAB.stale), br = (p && p.brain) || {}, run = (p && p.runner) || {};
+  if (p && !live) chips.push({ k: "none", lab: "Forecast", val: "none", cls: "down", tip: LAB.stale || p.stale || p.why || "" });
+  if (live) {
+    const r = p.regime, v = p.volx, b = p.breadth, impl = labImplied(p.chain);
+    if (r) chips.push({ k: "mkt", lab: "Market", val: r.name + (r.jump ? " · jump" : ""), cls: r.name === "trending" ? "hot" : "", tip: `variance ratio ${r.vr} (above 1 trends, below 1 reverses), straightness ${r.er}` });
+    if (v) {
+      chips.push({ k: "impl", lab: "Options price", val: nil(impl) ? "—" : `${fmt(impl, 1)} pts/min`, tip: "the movement the at-the-money implied volatility stands for, on the same clock as the decay break-even" });
+      const cmp = (x) => nil(x) || nil(impl) ? "" : x >= impl ? "up" : "down", word = (x) => nil(x) || nil(impl) ? "" : x >= impl ? ", above" : ", below";
+      chips.push({ k: "real", lab: "Delivered, 10 min", val: `${fmt(v.realised10, 1)} pts/min${word(v.realised10)}`, cls: cmp(v.realised10), tip: "what the future actually moved, against what options price" });
+      chips.push({ k: "fc5", lab: "My forecast, next 5", val: `${fmt(v.forecast5, 1)} pts/min${word(v.forecast5)}`, cls: cmp(v.forecast5), tip: br.ok ? "the trained volatility model" : "the online volatility model (no trained models loaded)" });
+    }
+    if (b) chips.push({ k: "hw", lab: "Heavyweights rising", val: labPct(b.up), cls: b.up > 0.6 ? "up" : b.up < 0.4 ? "down" : "", tip: "share of the index heavyweights higher than a minute ago" });
+  }
+  const L = run.learning;
+  if (L && typeof L === "object")
+    chips.push({ k: "learn", lab: "Learning state", val: L.ok ? `${L.source || "?"}${L.restarts ? ` · ${L.restarts} restarts` : ""}` : "cold start", cls: L.ok ? "" : "down",
+      tip: `${L.why || ""}${nil(L.updates) ? "" : ` · ${L.updates} learning steps`}` });
+  const bOn = br.ok === true || run.brain === "on", bWhy = typeof run.brain === "string" && run.brain !== "on" ? run.brain.replace(/^off: /, "") : "";
+  if (br.ok !== undefined || run.brain)
+    chips.push({ k: "brain", lab: "Trained models", val: bOn ? (br.trained_through ? `to ${br.trained_through}` : "on") : "off", cls: bOn ? "" : "down",
+      tip: bOn ? `${br.sessions ?? "?"} sessions, built ${br.built || "?"}${br.hash ? ", " + br.hash : ""}` : `running on the online models only${bWhy ? ": " + bWhy : ""}` });
+  const n = run.nightly;
+  if (n && typeof n === "object") {
+    const steps = Object.entries(n.steps || {}), bad = steps.filter(([, s]) => s && s.status === "fail"), ok = steps.filter(([, s]) => s && s.status === "ok").length;
+    const notes = [(n.missed_days || []).length ? `missed days: ${n.missed_days.join(", ")}` : ""]
+      .concat(steps.filter(([, s]) => s && s.status !== "ok").map(([k, s]) => `${k}: ${s.status}${s.why ? " (" + s.why + ")" : ""}`)).filter(Boolean);
+    chips.push({ k: "night", lab: "Nightly", val: `${dmy(n.day)} · ${ok} ok${bad.length ? ` · ${bad.length} failed` : ""}`, cls: bad.length ? "down" : "", tip: notes.join("; ") || "every step ran" });
+  } else if (p && p.runner) chips.push({ k: "night", lab: "Nightly", val: "no record", tip: "data/nightly_status.json was not read" });
+  if (run.engine_read_err) chips.push({ k: "eng", lab: "Engine read", val: "failing", cls: "down", tip: String(run.engine_read_err) });
+  labChips(el, chips);
+}
+
+function labScale(lo, hi, a, b) { const d = hi - lo || 1; return (v) => a + (v - lo) / d * (b - a); }
+function labPath(pts) { return pts.map((q, i) => `${i ? "L" : "M"}${q[0].toFixed(1)},${q[1].toFixed(1)}`).join(""); }
+function labFan(svg, hist, now, fan, extra, stale) {
+  // hist: [[sec_rel, value]], fan: [{h, q10, q25, q50, q75, q90, med}], extra: lines ({pts, cls}) or levels ({y, cls, label}).
+  // The median is drawn only through horizons whose direction is earned (med); an old forecast draws no future.
+  const W = 640, Hh = 220, R = 12, T = 10, B = 26;
+  const cw = svg.clientWidth || 0, sc = cw > 0 ? cw / W : 1;
+  const fs = sc < 0.95 ? Math.round(Math.min(24, 11 / Math.max(sc, 0.45)) * 10) / 10 : 11;   // about 11 px on screen
+  if (svg._fs !== fs) { svg._fs = fs; svg.style.setProperty("--lab-axfs", `${fs}px`); }
+  const L = Math.max(52, Math.round(fs * 4.6));
+  if (stale) { fan = []; extra = (extra || []).filter((e) => e.y !== undefined); }
+  const vals = hist.map((x) => x[1]).concat(fan.flatMap((x) => [x.q10, x.q90]), [now],
+    (extra || []).flatMap((e) => (e.pts ? e.pts.map((x) => x[1]) : [])), (extra || []).flatMap((e) => (e.y !== undefined ? [e.y] : [])))
+    .filter((v) => !nil(v));
+  if (!vals.length) { labPut(svg, ""); return; }
+  let lo = Math.min(...vals), hi = Math.max(...vals); const pad = (hi - lo) * 0.08 || 1; lo -= pad; hi += pad;
+  const x = labScale(-1800, 1800, L, W - R), y = labScale(lo, hi, Hh - B, T);
+  let s = "";
+  for (let k = 0; k <= 4; k++) { const v = lo + (hi - lo) * k / 4; s += `<line class="lab-grid" x1="${L}" x2="${W - R}" y1="${y(v)}" y2="${y(v)}"/><text class="lab-ax" x="${L - 6}" y="${y(v) + fs * 0.36}" text-anchor="end">${fmt(v, hi - lo > 50 ? 0 : 1)}</text>`; }
+  const ticks = [[-1800, "−30m"], [-900, "−15m"], [0, "now"], [300, "+5m"], [900, "+15m"], [1800, "+30m"]].filter((q) => fs <= 15 || q[0] !== 300);
+  for (const [sec, lab] of ticks) s += `<text class="lab-ax" x="${x(sec)}" y="${Hh - 8}" text-anchor="${sec === -1800 ? "start" : sec === 1800 ? "end" : "middle"}">${lab}</text>`;
+  s += `<line class="lab-now" x1="${x(0)}" x2="${x(0)}" y1="${T}" y2="${Hh - B}"/>`;
+  if (fan.length && !nil(now)) {
+    const band = (a, b, cls) => { const up = [[x(0), y(now)]].concat(fan.map((f) => [x(f.h), y(f[b])])), dn = fan.map((f) => [x(f.h), y(f[a])]).reverse().concat([[x(0), y(now)]]); return `<path class="${cls}" d="${labPath(up.concat(dn))}Z"/>`; };
+    s += band("q10", "q90", "lab-f80") + band("q25", "q75", "lab-f50");
+    const med = [];
+    for (const f of fan) { if (!f.med || nil(f.q50)) break; med.push([x(f.h), y(f.q50)]); }
+    if (med.length) s += `<path class="lab-med" d="${labPath([[x(0), y(now)]].concat(med))}"/>`;
+  }
+  for (const e of (extra || [])) {
+    if (e.y !== undefined && !nil(e.y)) s += `<line class="${e.cls}" x1="${L}" x2="${W - R}" y1="${y(e.y)}" y2="${y(e.y)}"/><text class="lab-ax ${e.cls}-t" x="${W - R - 4}" y="${y(e.y) - 4}" text-anchor="end">${labE(e.label || "")}</text>`;
+    else if (e.pts && e.pts.length) s += `<path class="${e.cls}" d="${labPath(e.pts.filter((q) => !nil(q[1])).map((q) => [x(q[0]), y(q[1])]))}"/>`;
+  }
+  if (hist.length) s += `<path class="lab-past" d="${labPath(hist.map((q) => [x(q[0]), y(q[1])]))}"/>`;
+  if (!nil(now)) s += `<circle class="lab-dot" cx="${x(0)}" cy="${y(now)}" r="3.5"/>`;
+  labPut(svg, s);
+}
+const labMed = (p, h) => { const f = (p.path || []).find((x) => x.h === h); return f && f.draw_median !== undefined ? !!f.draw_median : !!((((p.earned || {}).dir_h || {})[String(h)]) || {}).earned; };
+function labFutChart(p) {
+  const svg = $("labfut"); if (!svg) return;
+  const fan = (p.path || []).map((f) => ({ h: f.h, q10: f.q10, q25: f.q25, q50: f.mean, q75: f.q75, q90: f.q90, med: labMed(p, f.h) }));
+  const ex = []; if (!nil(p.vwap)) ex.push({ y: p.vwap, cls: "lab-ref", label: `VWAP ${fmt(p.vwap, 1)}` });
+  labFan(svg, p.hist || [], p.F, fan, ex, !!LAB.stale);
+}
+function labOptTabs(p) {
+  const el = $("labopttabs"); if (!el) return;
+  const opts = p.options || [];
+  if (!opts.length) { labPut(el, ""); return; }
+  const key = (o) => `${o.strike}${o.side}`;
+  const hk = opts.find((o) => o.tag === "held"), hkey = hk ? key(hk) : null;
+  if (hkey && hkey !== LAB.heldSeen) LAB.sel = hkey;          // a newly held contract is shown once; the viewer may move on
+  LAB.heldSeen = hkey;
+  if (!LAB.sel || !opts.some((o) => key(o) === LAB.sel)) LAB.sel = key(opts[0]);
+  const tag = { buy: "candidate", atm: "at the money", held: "held position" };
+  labPut(el, opts.map((o) => `<button type="button" class="lab-tab ${o.side}${key(o) === LAB.sel ? " on" : ""}" data-k="${key(o)}">${fmt(o.strike, 0)} ${o.side} · ${tag[o.tag] || labE(o.tag)}</button>`).join(""));
+  el.onclick = (ev) => { const b = ev.target.closest("button[data-k]"); if (!b) return; LAB.sel = b.dataset.k; labTry("labopttabs", labOptTabs, p); labTry("labopt", labOptChart, p); };
+}
+function labOptChart(p) {
+  const svg = $("labopt"); if (!svg) return;
+  const o = (p.options || []).find((x) => `${x.strike}${x.side}` === LAB.sel);
+  if (!o) { labPut(svg, ""); put($("labopttitle"), "Option premium"); return; }
+  const path = o.path || [], ivTrend = path.some((f) => !nil(f.decay_iv)), held = o.tag === "held", hd = held ? labHeld(p) : null;
+  put($("labopttitle"), `${fmt(o.strike, 0)} ${o.side} premium${held ? " (held)" : ""}: last 30 minutes and the next 30 (dotted: time decay alone, ${ivTrend ? "calendar clock with the IV trend" : "calendar clock"})`);
+  const fan = path.map((f) => ({ h: f.h, q10: f.q10, q25: f.q25, q50: f.q50, q75: f.q75, q90: f.q90, med: labMed(p, f.h) }));
+  const decay = [[0, o.mid]].concat(path.map((f) => [f.h, ivTrend && !nil(f.decay_iv) ? f.decay_iv : f.decay]));
+  const ex = [{ pts: decay, cls: "lab-decay" }];
+  if (held) { if (hd && hd.entry) ex.push({ y: hd.entry, cls: "lab-entry", label: `entry ${labRs(hd.entry)}` }); }
+  else ex.push({ y: o.ask, cls: "lab-ask", label: `buy price now ${labRs(o.ask)}` });
+  labFan(svg, o.hist || [], o.mid, fan, ex, !!LAB.stale);
+}
+function labNext(p) {
+  const el = $("labnext"); if (!el) return;
+  const path = p.path || [], hs = path.map((f) => f.h);
+  if (!hs.length) { labBlocks(el, [{ html: `<p class="lab-none">No futures forecast right now${p.stale ? ": " + labE(p.stale) : ""}.</p>` }]); return; }
+  const en = p.earned || {}, dh = en.dir_h || {}, holding = labHolding(p), hd = labHeld(p);
+  const nd = hs.filter((h) => (dh[String(h)] || {}).earned).length;
+  const rows = [{ cells: [labTh("")].concat(hs.map((h) => labTh(`in ${labMin(h)}`))) }];
+  rows.push({ cls: "lab-futrow", cells: [labTh(`Nifty futures<br><small>now ${fmt(p.F, 1)} · ${nd ? `direction earned at ${nd} of ${hs.length}` : "direction: no call"}</small>`)].concat(path.map((f) => {
+    const rg = labRangeTxt(en, "fut", f.h), d = dh[String(f.h)];
+    if (d && d.earned) return labTd(`<b>${fmt(f.mean, 1)}</b><small>${fmt(f.q10, 0)} to ${fmt(f.q90, 0)}</small><small>${labE(rg.txt)}</small><small>higher than now: ${labE(f.up_txt || labPct(f.up))}</small>${f.h <= 180 ? "<small>feed lead-lag, not tradable (docs/48)</small>" : ""}`, d.lean === "up" ? "up" : d.lean === "down" ? "down" : "");
+    return labTd(`<b>${fmt(f.q10, 0)} to ${fmt(f.q90, 0)}</b><small>${labE(rg.txt)}</small>`);
+  })) });
+  const okH = new Set((en.buy_h || []).map(Number));
+  const opts = (p.options || []).filter((o) => o.tag !== "atm").sort((a, b) => (b.tag === "held") - (a.tag === "held"));
+  for (const o of opts) {
+    const held = o.tag === "held", e = held && hd ? hd.entry : null, q = held && hd ? hd.qty : null, sp = labSpreadPts(o);
+    const by = Object.fromEntries((o.path || []).map((f) => [f.h, f]));
+    const head = held ? `${fmt(o.strike, 0)} ${o.side} · held<br><small>${e ? `entry ${labRs(e)}` : "entry not reported"} · bid ${labRs(o.bid)} · ask ${labRs(o.ask)}</small>`
+      : `${fmt(o.strike, 0)} ${o.side}<br><small>bid ${labRs(o.bid)} · ask ${labRs(o.ask)} · ${o.side === "CE" ? "call" : "put"} candidate</small>`;
+    rows.push({ cls: `lab-orow ${o.side}`, cells: [labTh(head)].concat(hs.map((h) => {
+      const f = by[h]; if (!f) return labTd("—");
+      const rg = labRangeTxt(en, "opt", h), dec = nil(f.decay_iv) ? f.decay : f.decay_iv;
+      if (held) {
+        const pl = e ? `<small>from your entry: ${labSRs(f.q10 - e)} to ${labSRs(f.q90 - e)} a unit${q ? ` (${sinr((f.q10 - e) * q)} to ${sinr((f.q90 - e) * q)})` : ""}</small>` : "";
+        return labTd(`<b>${labRs(f.q10, 0)} to ${labRs(f.q90, 0)}</b><small>${labE(rg.txt)}</small>${pl}<small>decay alone ${labRs(dec)}</small>`);
+      }
+      const won = okH.has(h) && !holding;
+      const acct = !nil(f.be) && sp !== null ? ` · at the last price about ${labSgn(f.be - Math.sign(f.be) * sp, 1)} pts` : "";
+      return labTd(`<b>${labRs(f.q10, 0)} to ${labRs(f.q90, 0)}</b><small>${labE(rg.txt)}</small>${won ? `<small>if bought now (ask in, bid out): ${labSgn(f.ev)}% · win ${labPct(f.pp)}</small>` : ""}<small>decay alone ${labRs(dec)}</small><small>needs ${nil(f.be) ? "—" : labSgn(f.be, 0) + " pts"} (ask in, bid out)${acct}</small>`,
+        won ? (f.ev > 0 ? "up" : "down") : "");
+    })) });
+  }
+  labBlocks(el, [{ table: { cls: "", rows } }, { html: `<p class="lab-none">Premium ranges are for the middle price. "Needs" is the futures move that pays after decay, buying at the ask and selling at the bid; the account fills at the last price, which saves about one spread on the round trip.</p>` }]);
+}
+function labDecay(p) {
+  const el = $("labdecay"); if (!el) return;
+  const rows = p.decay || [], r = p.rent || {}, c = p.chain || {};
+  if (!rows.length) { labBlocks(el, [{ html: `<h3 class="lab-h">Time decay across strikes</h3><p class="lab-none">No option chain right now.</p>` }]); return; }
+  const ratio = r.ratio, w = nil(ratio) ? 0 : Math.min(ratio / 2, 1) * 100;
+  const gauge = nil(ratio) ? "" : `<div class="lab-gauge" title="movement delivered against the movement that pays for decay (1.00 = break-even)"><i style="width:${w.toFixed(0)}%" class="${ratio >= 1 ? "up" : "down"}"></i><span class="mark"></span></div>
+    <p class="small">Movement needed to pay for decay: <b>${fmt(r.be, 1)} pts a minute</b> (a calendar day's decay over the 375 trading minutes, the same clock as "Options price"). Delivered: ${fmt(r.d10, 1)} (last 10 min), ${fmt(r.d30, 1)} (last 30 min). Ratio ${fmt(ratio, 2)}: ${ratio >= 1 ? "buyers are being paid for decay" : "buyers are losing to decay"}.</p>`;
+  const head = { cells: ["Option", "Premium", "IV", "Decay a min<br><small>trading clock</small>", "Decay a min<br><small>calendar clock</small>", "Calendar +<br><small>IV trend</small>",
+    "Not explained by futures<br><small>decay + gamma + IV, a min, last 30 min</small>", "Per lot an hour<br><small>trading clock</small>"].map(labTh) };
+  const body = rows.map((x) => ({ cls: `${x.atm ? "atm" : ""} ${x.side}`, cells: [labTd(`${fmt(x.strike, 0)} ${x.side}`), labTd(labRs(x.mid)), labTd(fmt(x.iv, 1)), labTd(fmt(x.trade, 3)), labTd(fmt(x.theta, 3)), labTd(fmt(x.eff, 3)),
+    labTd(nil(x.measured) ? "—" : fmt(x.measured, 2)), labTd(nil(x.lot_hour) ? "—" : inr(x.lot_hour))] }));
+  labBlocks(el, [{ html: `<h3 class="lab-h">Time decay across strikes <small>expiry ${labE(c.exp || "—")}, ${fmt(c.dte_days, 2)} days · ATM IV ${fmt(c.atm_iv, 1)} · IV trend ${nil(c.iv_drift_min) ? "—" : labSgn(c.iv_drift_min * 60, 2)} vol pts an hour</small></h3>${gauge}` },
+    { table: { cls: "lab-dt", rows: [head].concat(body) } }]);
+}
+function labScore(p) {
+  const el = $("labscore"); if (!el) return;
+  const sc = p.score || {}, L = p.learn || {}, en = p.earned || {};
+  const tone = (x) => x > 0 ? "up" : x < 0 ? "down" : "";
+  const pc = (x) => nil(x) ? "—" : labSgn(x * 100) + "%";
+  const fh = { cells: ["Futures", "checked", "volatility<br><small>vs plain clock</small>", "caught by the<br><small>80 % range</small>", "vs \"no move\"", "vs my morning self", "direction right"].map(labTh) };
+  const fut = (sc.fut || []).map((f) => ({ cells: [labTd(labMin(f.h)), labTd(String(f.n ?? "—")), labTd(pc(f.vol_skill), tone(f.vol_skill)), labTd(labPct(f.cov)), labTd(pc(f.skill), tone(f.skill)), labTd(pc(f.skill_frozen), tone(f.skill_frozen)),
+    labTd(nil(f.dir_hit) ? "—" : `${labPct(f.dir_hit)} <small>of ${f.dir_n}</small>${f.lead_lag || f.h <= 180 ? "<small>feed lead-lag, not tradable (docs/48)</small>" : ""}`, f.lead_lag || f.h <= 180 ? "lab-ll" : "")] }));
+  const oh = { cells: ["Premium", "checked", "my error", "\"no change\" error", "\"decay only\" error", "inside 10-90 range", "win-chance score<br><small>vs base rate, lower is better</small>"].map(labTh) };
+  const opt = (sc.opt || []).filter((o) => o.n).map((o) => ({ cells: [labTd(labMin(o.h)), labTd(String(o.n)), labTd(`${fmt(o.err, 1)}%`), labTd(`${fmt(o.err_naive, 1)}%`), labTd(`${fmt(o.err_decay, 1)}%`), labTd(labPct(o.cov)),
+    labTd(nil(o.brier_buy) ? "—" : `${fmt(o.brier_buy, 3)} <small>vs ${fmt(o.brier_clim, 3)}</small>`)] }));
+  const W = L.weights || {}, i5 = 3;
+  const wts = Object.keys(W).map((e) => `<div class="lab-w"><span>${labE(e)}</span><i style="width:${((W[e][i5] || 0) * 100).toFixed(0)}%"></i><b>${labPct(W[e][i5])}</b></div>`).join("");
+  const oc = en.opt_checks || {};
+  const blocks = [{ html: `<h3 class="lab-h">My record today <small>each forecast is checked when its time comes; every check adjusts the models</small></h3>` },
+    { table: { cls: "", rows: [fh].concat(fut) } }];
+  if (opt.length) blocks.push({ table: { cls: "", rows: [oh].concat(opt) } });
+  blocks.push({ html: `<p class="small">Forecasts made seconds apart share most of their outcome. Independent checks at 5 minutes: ranges ${nil(en.range_checks) ? "—" : fmt(en.range_checks, 0)}, direction ${nil(en.dir_checks) ? "—" : fmt(en.dir_checks, 0)}, premiums ${nil(oc["300"]) ? "—" : fmt(oc["300"], 0)}. Direction is called at 60 % right on 20 with 5 earlier forward days that agree; a buy case needs premium forecasts that beat a coin and the base rate on 20 and on those days.</p>
+    <div class="lab-ws"><p class="small">Weights of the direction models at 5 minutes (they shift toward whoever has been right):</p>${wts}</div>
+    <p class="small">Learning steps so far: ${L.updates || 0}. Volatility scale at 5 min ${nil(L.kappa) ? "—" : fmt(L.kappa[i5], 2)}, range multiplier ${nil(L.z80) ? "—" : fmt(L.z80[i5], 2)}.</p>
+    <h3 class="lab-h">Record by day <small>each day's own checked numbers; a day fitted on itself is not evidence</small></h3>` });
+  const days = (p.record_days || []).slice().reverse();
+  if (days.length) {
+    const dhd = { cells: ["Day", "kind", "5-min range<br><small>caught</small>", "15-min range<br><small>caught</small>", "5-min direction<br><small>right</small>", "5-min win-chance score<br><small>vs base rate</small>"].map(labTh) };
+    blocks.push({ table: { cls: "", rows: [dhd].concat(days.map((d) => ({ cells: [labTd(dmy(d.day)), labTd(d.forward ? "forward" : "fitted on itself"), labTd(labPct(d.cov5)), labTd(labPct(d.cov15)),
+      labTd(nil(d.dir5) ? "—" : `${labPct(d.dir5)} <small>of ${fmt(d.dir5_n, 0)}</small>`), labTd(nil(d.brier5) ? "—" : `${fmt(d.brier5, 3)} <small>vs ${fmt(d.clim5, 3)}</small>`)] }))) } });
+  } else blocks.push({ html: `<p class="lab-none">No earlier days on record yet.</p>` });
+  labBlocks(el, blocks);
+}
+function labWhatIf(p) {
+  const el = $("labwhatif"); if (!el) return;
+  const hd = labHeld(p);
+  const opts = (p.options || []).filter((o) => o.whatif && o.whatif.cells && o.whatif.cells.length && o.whatif.moves)
+    .sort((a, b) => (b.tag === "held") - (a.tag === "held")).slice(0, 2);
+  if (!opts.length) { labBlocks(el, [{ html: `<h3 class="lab-h">What if</h3><p class="lab-none">No what-if right now: it needs a fresh option forecast.</p>` }]); return; }
+  const blocks = [{ html: `<h3 class="lab-h">What if <small>${opts.some((o) => o.tag === "held") ? "Held contract: the result from your entry if sold then at the bid, for each move of the future. " : ""}Candidates: bought now at the ask and sold then at the bid, for each move of the future. Decay, the spread and the usual volatility response are included. The account fills at the last price, which saves about one spread on the round trip.</small></h3>` }];
+  for (const o of opts) {
+    const held = o.tag === "held", e = held && hd ? hd.entry : null, q = held && hd ? hd.qty : null, w = o.whatif;
+    const head = { cells: [labTh(`${fmt(o.strike, 0)} ${o.side}<br><small>${held ? (e ? `from your entry at ${labRs(e)}` : "held · entry not reported") : `bought now at ${labRs(o.ask)}`}</small>`)]
+      .concat(w.moves.map((m) => labTh(`futures ${m === 0 ? "flat" : labSgn(m, 0)}`))) };
+    const rows = w.cells.map((c) => ({ cells: [labTh(`after ${labMin(c.h)}`)].concat((c.row || []).map((x) => {
+      if (held && e) { const d = x[0] - e; return labTd(`<b>${labSRs(d)}</b><small>${labRs(x[0])}${q ? ` · ${sinr(d * q)}` : ""}</small>`, d > 0 ? "up" : "down"); }
+      if (held) return labTd(`<b>${labRs(x[0])}</b>`);
+      return labTd(`<b>${labSgn(x[1])}%</b><small>${labRs(x[0])}</small>`, x[1] > 0 ? "up" : "down");
+    })) }));
+    blocks.push({ table: { cls: `lab-wi ${o.side}`, rows: [head].concat(rows) } });
+  }
+  labBlocks(el, blocks);
+}
+labWire();
+labPoll();

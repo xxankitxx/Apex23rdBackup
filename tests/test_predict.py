@@ -234,3 +234,19 @@ def test_the_calibrator_shrinks_to_the_forecast_and_learns_from_what_it_is_given
     assert c2(0.31)[0] == c(0.31)[0]
     assert Mo.brier([0.5, 0.5], [1, 0]) == 0.25 and Mo.auc([0.1, 0.2, 0.3, 0.4], [0, 0, 1, 1]) == 1.0
     assert Mo.auc([0.5, 0.5, 0.5, 0.5], [0, 1, 0, 1]) == 0.5
+
+
+def test_a_recording_that_ends_inside_the_horizon_is_unobservable_not_neither():
+    """11 Nov (docs/46 finding 3): 295 s of quiet path after the fill, then the recording ends."""
+    n = 297
+    t = np.arange(n, dtype=float)
+    bid, ask = np.full(n, 100.0), np.full(n, 100.2)
+    ok, age = np.ones(n, bool), np.zeros(n)
+    L = T.label(t, bid, ask, ok, age, 0)
+    assert L["st"] == "ok" and L["first"][30] == "N" and L["first"][180] == "N" and L["first"][300] == "U"
+    t2 = np.arange(400, dtype=float)                       # the same quiet path in a recording that goes on: neither
+    L2 = T.label(t2, np.full(400, 100.0), np.full(400, 100.2), np.ones(400, bool), np.zeros(400), 0)
+    assert L2["first"][300] == "N"
+    bid3 = bid.copy(); bid3[200:] = 106.0                  # an event before the end still counts
+    assert T.label(t, bid3, ask, ok, age, 0)["first"][300] == "T"
+    assert T.SPEC["label_version"] == 2

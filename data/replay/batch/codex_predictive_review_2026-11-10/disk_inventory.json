@@ -1,0 +1,985 @@
+{
+  "root": "D:\\ApexOptions",
+  "total_bytes": 4903241922,
+  "groups": {
+    "data/ticks": [
+      3396846076,
+      30
+    ],
+    "data/replay": [
+      811754573,
+      2000
+    ],
+    "data/research": [
+      227377622,
+      52
+    ],
+    "logs": [
+      196704790,
+      2
+    ],
+    ".git/objects": [
+      143182781,
+      2327
+    ],
+    "data/paper": [
+      88564165,
+      138
+    ],
+    "data/sim": [
+      11243677,
+      47
+    ],
+    "data/learning": [
+      5795470,
+      21
+    ],
+    "gemini_review.docx": [
+      3028986,
+      1
+    ],
+    "advanced.docx": [
+      3017767,
+      1
+    ],
+    "reviews": [
+      2920927,
+      4
+    ],
+    "apex/engine": [
+      2548159,
+      120
+    ],
+    "tests/__pycache__": [
+      2497097,
+      53
+    ],
+    "docs": [
+      1158276,
+      41
+    ],
+    "final.png": [
+      723702,
+      1
+    ],
+    "apex/__pycache__": [
+      635954,
+      22
+    ],
+    "tests": [
+      565731,
+      59
+    ],
+    "d3.png": [
+      452849,
+      1
+    ],
+    "docs/council": [
+      442891,
+      22
+    ],
+    "after_pos_fold.png": [
+      420124,
+      1
+    ],
+    "apex": [
+      347285,
+      17
+    ],
+    "ind_nifty_bank.pdf": [
+      318460,
+      1
+    ],
+    "docs/teams": [
+      307858,
+      7
+    ],
+    ".git": [
+      266561,
+      7
+    ],
+    "ind_nifty50.pdf": [
+      262811,
+      1
+    ],
+    "apex/static": [
+      253025,
+      4
+    ],
+    "data/logs": [
+      247343,
+      3
+    ],
+    "ind_Nifty_Financial_Services.pdf": [
+      245298,
+      1
+    ],
+    "apex/conductor": [
+      169693,
+      14
+    ],
+    "docs/research": [
+      120119,
+      4
+    ],
+    "apex/quant": [
+      115288,
+      15
+    ],
+    "straddle_panel.png": [
+      108397,
+      1
+    ],
+    "CHANGELOG.md": [
+      62680,
+      1
+    ],
+    "chatgpt_review.txt": [
+      54628,
+      1
+    ],
+    "R": [
+      49500,
+      1
+    ],
+    "docs/design_council": [
+      46627,
+      7
+    ],
+    "__pycache__": [
+      44308,
+      1
+    ],
+    ".pytest_cache/v": [
+      37538,
+      2
+    ],
+    "data": [
+      34919,
+      4
+    ],
+    "run_apex.py": [
+      33763,
+      1
+    ],
+    "research/event_study": [
+      31841,
+      4
+    ],
+    "PREMIUM_CONTINUATION_ENGINE_SPEC.md": [
+      28794,
+      1
+    ],
+    ".git/hooks": [
+      25827,
+      14
+    ],
+    ".git/logs": [
+      22937,
+      5
+    ],
+    "CHEAPNESS_AND_REGIME_SPEC.md": [
+      22050,
+      1
+    ],
+    "deepseek_review.txt": [
+      18550,
+      1
+    ],
+    "OI_ACCELERATION_VWAP_SPEC.md": [
+      17940,
+      1
+    ],
+    "apex/rules": [
+      16479,
+      3
+    ],
+    "advanced_chatgpt.txt": [
+      15933,
+      1
+    ],
+    "grok_review.txt": [
+      11592,
+      1
+    ],
+    "README.md": [
+      8592,
+      1
+    ],
+    "advanced_deepseek.txt": [
+      6551,
+      1
+    ],
+    "CLAUDE_SHADOW_BOOK_HANDOFF.md": [
+      2664,
+      1
+    ],
+    "research": [
+      1902,
+      1
+    ],
+    ".gitignore": [
+      637,
+      1
+    ],
+    ".pytest_cache": [
+      530,
+      3
+    ],
+    "requirements.txt": [
+      370,
+      1
+    ],
+    "secrets": [
+      252,
+      2
+    ],
+    ".git/info": [
+      240,
+      1
+    ],
+    ".git/refs": [
+      194,
+      5
+    ],
+    "log_t28_all.txt": [
+      164,
+      1
+    ],
+    "log_t28_fwd.txt": [
+      164,
+      1
+    ],
+    "guard_hits.txt.locks": [
+      1,
+      1
+    ]
+  },
+  "large_files": [
+    {
+      "path": "D:\\ApexOptions\\data\\ticks\\2026-11-05.jsonl.gz",
+      "bytes": 280699160,
+      "mtime": 1793873473.9594755
+    },
+    {
+      "path": "D:\\ApexOptions\\data\\ticks\\2026-11-03.jsonl.gz",
+      "bytes": 260868802,
+      "mtime": 1793700680.1055295
+    },
+    {
+      "path": "D:\\ApexOptions\\data\\ticks\\2026-10-26.jsonl.gz",
+      "bytes": 250884259,
+      "mtime": 1793010200.4031446
+    },
+    {
+      "path": "D:\\ApexOptions\\data\\ticks\\2026-10-21.jsonl.gz",
+      "bytes": 250707363,
+      "mtime": 1792577510.4778242
+    },
+    {
+      "path": "D:\\ApexOptions\\data\\ticks\\2026-10-22.jsonl.gz",
+      "bytes": 240201986,
+      "mtime": 1792664734.498433
+    },
+    {
+      "path": "D:\\ApexOptions\\data\\ticks\\2026-11-02.jsonl.gz",
+      "bytes": 235839713,
+      "mtime": 1793613490.8110874
+    },
+    {
+      "path": "D:\\ApexOptions\\data\\ticks\\2026-11-06.jsonl.gz",
+      "bytes": 232596763,
+      "mtime": 1793963283.64386
+    },
+    {
+      "path": "D:\\ApexOptions\\data\\ticks\\2026-10-28.jsonl.gz",
+      "bytes": 230207991,
+      "mtime": 1793182301.4851947
+    },
+    {
+      "path": "D:\\ApexOptions\\data\\ticks\\2026-11-09.jsonl.gz",
+      "bytes": 219099080,
+      "mtime": 1794218572.6580245
+    },
+    {
+      "path": "D:\\ApexOptions\\data\\ticks\\2026-11-04.jsonl.gz",
+      "bytes": 202578084,
+      "mtime": 1793787036.148242
+    },
+    {
+      "path": "D:\\ApexOptions\\data\\ticks\\2026-10-30.jsonl.gz",
+      "bytes": 199898408,
+      "mtime": 1793355575.4715927
+    },
+    {
+      "path": "D:\\ApexOptions\\logs\\apiLogs.log",
+      "bytes": 196587060,
+      "mtime": 1794218569.4560034
+    },
+    {
+      "path": "D:\\ApexOptions\\data\\ticks\\2026-10-27.p2.jsonl.gz",
+      "bytes": 132961423,
+      "mtime": 1793088151.1287491
+    },
+    {
+      "path": "D:\\ApexOptions\\data\\ticks\\2026-10-19.jsonl.gz",
+      "bytes": 123700386,
+      "mtime": 1792394219.1743715
+    },
+    {
+      "path": "D:\\ApexOptions\\data\\ticks\\2026-10-23.p2.jsonl.gz",
+      "bytes": 118815994,
+      "mtime": 1792750401.6486764
+    },
+    {
+      "path": "D:\\ApexOptions\\data\\ticks\\2026-10-29.p5.jsonl.gz",
+      "bytes": 96615598,
+      "mtime": 1793268862.2738159
+    },
+    {
+      "path": "D:\\ApexOptions\\data\\ticks\\2026-10-29.p3.jsonl.gz",
+      "bytes": 75528344,
+      "mtime": 1793254317.0921948
+    },
+    {
+      "path": "D:\\ApexOptions\\data\\ticks\\2026-10-19.p5.jsonl.gz",
+      "bytes": 64305815,
+      "mtime": 1792404637.3725913
+    },
+    {
+      "path": "D:\\ApexOptions\\data\\ticks\\2026-10-27.p3.jsonl.gz",
+      "bytes": 62629324,
+      "mtime": 1793095936.5334158
+    },
+    {
+      "path": "D:\\ApexOptions\\data\\ticks\\2026-10-23.jsonl.gz",
+      "bytes": 61979865,
+      "mtime": 1792734210.9168
+    },
+    {
+      "path": "D:\\ApexOptions\\data\\replay\\2026-11-09\\20261110-011109\\paper\\2026-11-09.json",
+      "bytes": 23250653,
+      "mtime": 1794261136.5652688
+    },
+    {
+      "path": "D:\\ApexOptions\\data\\ticks\\2026-10-29.p4.jsonl.gz",
+      "bytes": 22498570,
+      "mtime": 1793257030.265779
+    }
+  ],
+  "rebuildable_cache_files": [
+    {
+      "path": "D:\\ApexOptions\\.pytest_cache\\.gitignore",
+      "bytes": 37
+    },
+    {
+      "path": "D:\\ApexOptions\\.pytest_cache\\CACHEDIR.TAG",
+      "bytes": 191
+    },
+    {
+      "path": "D:\\ApexOptions\\.pytest_cache\\README.md",
+      "bytes": 302
+    },
+    {
+      "path": "D:\\ApexOptions\\.pytest_cache\\v\\cache\\lastfailed",
+      "bytes": 100
+    },
+    {
+      "path": "D:\\ApexOptions\\.pytest_cache\\v\\cache\\nodeids",
+      "bytes": 37438
+    },
+    {
+      "path": "D:\\ApexOptions\\apex\\conductor\\__pycache__\\diary.cpython-313.pyc",
+      "bytes": 16111
+    },
+    {
+      "path": "D:\\ApexOptions\\apex\\conductor\\__pycache__\\register.cpython-313.pyc",
+      "bytes": 10672
+    },
+    {
+      "path": "D:\\ApexOptions\\apex\\conductor\\__pycache__\\score.cpython-313.pyc",
+      "bytes": 21959
+    },
+    {
+      "path": "D:\\ApexOptions\\apex\\conductor\\__pycache__\\search.cpython-313.pyc",
+      "bytes": 32362
+    },
+    {
+      "path": "D:\\ApexOptions\\apex\\conductor\\__pycache__\\__init__.cpython-313.pyc",
+      "bytes": 371
+    },
+    {
+      "path": "D:\\ApexOptions\\apex\\engine\\council\\__pycache__\\c20_08.cpython-313.pyc",
+      "bytes": 11222
+    },
+    {
+      "path": "D:\\ApexOptions\\apex\\engine\\council\\__pycache__\\c20_20.cpython-313.pyc",
+      "bytes": 11830
+    },
+    {
+      "path": "D:\\ApexOptions\\apex\\engine\\council\\__pycache__\\c20_8x.cpython-313.pyc",
+      "bytes": 20651
+    },
+    {
+      "path": "D:\\ApexOptions\\apex\\engine\\council\\__pycache__\\c20_9e.cpython-313.pyc",
+      "bytes": 2396
+    },
+    {
+      "path": "D:\\ApexOptions\\apex\\engine\\council\\__pycache__\\c20_9h.cpython-313.pyc",
+      "bytes": 1929
+    },
+    {
+      "path": "D:\\ApexOptions\\apex\\engine\\council\\__pycache__\\c20_9s.cpython-313.pyc",
+      "bytes": 3695
+    },
+    {
+      "path": "D:\\ApexOptions\\apex\\engine\\council\\__pycache__\\c20_9t.cpython-313.pyc",
+      "bytes": 2662
+    },
+    {
+      "path": "D:\\ApexOptions\\apex\\engine\\council\\__pycache__\\c20_9v.cpython-313.pyc",
+      "bytes": 7952
+    },
+    {
+      "path": "D:\\ApexOptions\\apex\\engine\\council\\__pycache__\\c20_9x.cpython-313.pyc",
+      "bytes": 38784
+    },
+    {
+      "path": "D:\\ApexOptions\\apex\\engine\\council\\__pycache__\\c20_9y.cpython-313.pyc",
+      "bytes": 8257
+    },
+    {
+      "path": "D:\\ApexOptions\\apex\\engine\\council\\__pycache__\\__init__.cpython-313.pyc",
+      "bytes": 22558
+    },
+    {
+      "path": "D:\\ApexOptions\\apex\\engine\\ideas\\__pycache__\\i00_move_clock.cpython-313.pyc",
+      "bytes": 3481
+    },
+    {
+      "path": "D:\\ApexOptions\\apex\\engine\\ideas\\__pycache__\\i01_oi_writers.cpython-313.pyc",
+      "bytes": 8957
+    },
+    {
+      "path": "D:\\ApexOptions\\apex\\engine\\ideas\\__pycache__\\i02_writer_squeeze.cpython-313.pyc",
+      "bytes": 21572
+    },
+    {
+      "path": "D:\\ApexOptions\\apex\\engine\\ideas\\__pycache__\\i03_oi_walls.cpython-313.pyc",
+      "bytes": 13010
+    },
+    {
+      "path": "D:\\ApexOptions\\apex\\engine\\ideas\\__pycache__\\i04_pcr_flow.cpython-313.pyc",
+      "bytes": 9417
+    },
+    {
+      "path": "D:\\ApexOptions\\apex\\engine\\ideas\\__pycache__\\i05_book_pressure.cpython-313.pyc",
+      "bytes": 11030
+    },
+    {
+      "path": "D:\\ApexOptions\\apex\\engine\\ideas\\__pycache__\\i06_aggressors.cpython-313.pyc",
+      "bytes": 12148
+    },
+    {
+      "path": "D:\\ApexOptions\\apex\\engine\\ideas\\__pycache__\\i07_gamma_vs_theta.cpython-313.pyc",
+      "bytes": 11843
+    },
+    {
+      "path": "D:\\ApexOptions\\apex\\engine\\ideas\\__pycache__\\i08_iv_pulse.cpython-313.pyc",
+      "bytes": 17517
+    },
+    {
+      "path": "D:\\ApexOptions\\apex\\engine\\ideas\\__pycache__\\i09_cheapest_strike.cpython-313.pyc",
+      "bytes": 12306
+    },
+    {
+      "path": "D:\\ApexOptions\\apex\\engine\\ideas\\__pycache__\\i10_regime.cpython-313.pyc",
+      "bytes": 10922
+    },
+    {
+      "path": "D:\\ApexOptions\\apex\\engine\\ideas\\__pycache__\\i11_arm_fire.cpython-313.pyc",
+      "bytes": 11753
+    },
+    {
+      "path": "D:\\ApexOptions\\apex\\engine\\ideas\\__pycache__\\i12_room_to_run.cpython-313.pyc",
+      "bytes": 10354
+    },
+    {
+      "path": "D:\\ApexOptions\\apex\\engine\\ideas\\__pycache__\\i13_straddle_pulse.cpython-313.pyc",
+      "bytes": 9318
+    },
+    {
+      "path": "D:\\ApexOptions\\apex\\engine\\ideas\\__pycache__\\i14_peak_watch.cpython-313.pyc",
+      "bytes": 18125
+    },
+    {
+      "path": "D:\\ApexOptions\\apex\\engine\\ideas\\__pycache__\\i15_continuation.cpython-313.pyc",
+      "bytes": 17768
+    },
+    {
+      "path": "D:\\ApexOptions\\apex\\engine\\ideas\\__pycache__\\__init__.cpython-313.pyc",
+      "bytes": 32933
+    },
+    {
+      "path": "D:\\ApexOptions\\apex\\engine\\__pycache__\\cmt_basket.cpython-313.pyc",
+      "bytes": 120508
+    },
+    {
+      "path": "D:\\ApexOptions\\apex\\engine\\__pycache__\\cmt_entry.cpython-313.pyc",
+      "bytes": 101537
+    },
+    {
+      "path": "D:\\ApexOptions\\apex\\engine\\__pycache__\\cmt_hold.cpython-313.pyc",
+      "bytes": 107100
+    },
+    {
+      "path": "D:\\ApexOptions\\apex\\engine\\__pycache__\\commentary.cpython-313.pyc",
+      "bytes": 74530
+    },
+    {
+      "path": "D:\\ApexOptions\\apex\\engine\\__pycache__\\conductor.cpython-313.pyc",
+      "bytes": 23789
+    },
+    {
+      "path": "D:\\ApexOptions\\apex\\engine\\__pycache__\\daystate.cpython-313.pyc",
+      "bytes": 11247
+    },
+    {
+      "path": "D:\\ApexOptions\\apex\\engine\\__pycache__\\defects.cpython-313.pyc",
+      "bytes": 12255
+    },
+    {
+      "path": "D:\\ApexOptions\\apex\\engine\\__pycache__\\diagnostics.cpython-313.pyc",
+      "bytes": 12569
+    },
+    {
+      "path": "D:\\ApexOptions\\apex\\engine\\__pycache__\\domino.cpython-313.pyc",
+      "bytes": 18478
+    },
+    {
+      "path": "D:\\ApexOptions\\apex\\engine\\__pycache__\\edge.cpython-313.pyc",
+      "bytes": 16243
+    },
+    {
+      "path": "D:\\ApexOptions\\apex\\engine\\__pycache__\\extras.cpython-313.pyc",
+      "bytes": 15919
+    },
+    {
+      "path": "D:\\ApexOptions\\apex\\engine\\__pycache__\\flow.cpython-313.pyc",
+      "bytes": 19022
+    },
+    {
+      "path": "D:\\ApexOptions\\apex\\engine\\__pycache__\\gen2.cpython-313.pyc",
+      "bytes": 38683
+    },
+    {
+      "path": "D:\\ApexOptions\\apex\\engine\\__pycache__\\gen2.cpython-315.pyc",
+      "bytes": 43175
+    },
+    {
+      "path": "D:\\ApexOptions\\apex\\engine\\__pycache__\\gex.cpython-313.pyc",
+      "bytes": 12150
+    },
+    {
+      "path": "D:\\ApexOptions\\apex\\engine\\__pycache__\\guard.cpython-313.pyc",
+      "bytes": 8295
+    },
+    {
+      "path": "D:\\ApexOptions\\apex\\engine\\__pycache__\\impulse.cpython-313.pyc",
+      "bytes": 6057
+    },
+    {
+      "path": "D:\\ApexOptions\\apex\\engine\\__pycache__\\learning.cpython-313.pyc",
+      "bytes": 67655
+    },
+    {
+      "path": "D:\\ApexOptions\\apex\\engine\\__pycache__\\ledger.cpython-313.pyc",
+      "bytes": 10813
+    },
+    {
+      "path": "D:\\ApexOptions\\apex\\engine\\__pycache__\\levels.cpython-313.pyc",
+      "bytes": 17651
+    },
+    {
+      "path": "D:\\ApexOptions\\apex\\engine\\__pycache__\\market.cpython-313.pyc",
+      "bytes": 8833
+    },
+    {
+      "path": "D:\\ApexOptions\\apex\\engine\\__pycache__\\missed.cpython-313.pyc",
+      "bytes": 25579
+    },
+    {
+      "path": "D:\\ApexOptions\\apex\\engine\\__pycache__\\paper.cpython-313.pyc",
+      "bytes": 122913
+    },
+    {
+      "path": "D:\\ApexOptions\\apex\\engine\\__pycache__\\quantview.cpython-313.pyc",
+      "bytes": 17508
+    },
+    {
+      "path": "D:\\ApexOptions\\apex\\engine\\__pycache__\\regime.cpython-313.pyc",
+      "bytes": 14086
+    },
+    {
+      "path": "D:\\ApexOptions\\apex\\engine\\__pycache__\\rules.cpython-313.pyc",
+      "bytes": 8781
+    },
+    {
+      "path": "D:\\ApexOptions\\apex\\engine\\__pycache__\\straddle_watch.cpython-313.pyc",
+      "bytes": 28582
+    },
+    {
+      "path": "D:\\ApexOptions\\apex\\engine\\__pycache__\\strike_levels.cpython-313.pyc",
+      "bytes": 11966
+    },
+    {
+      "path": "D:\\ApexOptions\\apex\\engine\\__pycache__\\weather.cpython-313.pyc",
+      "bytes": 86602
+    },
+    {
+      "path": "D:\\ApexOptions\\apex\\engine\\__pycache__\\weather4.cpython-313.pyc",
+      "bytes": 58560
+    },
+    {
+      "path": "D:\\ApexOptions\\apex\\engine\\__pycache__\\__init__.cpython-313.pyc",
+      "bytes": 135
+    },
+    {
+      "path": "D:\\ApexOptions\\apex\\engine\\__pycache__\\__init__.cpython-315.pyc",
+      "bytes": 139
+    },
+    {
+      "path": "D:\\ApexOptions\\apex\\quant\\__pycache__\\greeks_hi.cpython-313.pyc",
+      "bytes": 7880
+    },
+    {
+      "path": "D:\\ApexOptions\\apex\\quant\\__pycache__\\hawkes.cpython-313.pyc",
+      "bytes": 9575
+    },
+    {
+      "path": "D:\\ApexOptions\\apex\\quant\\__pycache__\\micro.cpython-313.pyc",
+      "bytes": 11793
+    },
+    {
+      "path": "D:\\ApexOptions\\apex\\quant\\__pycache__\\passage.cpython-313.pyc",
+      "bytes": 9196
+    },
+    {
+      "path": "D:\\ApexOptions\\apex\\quant\\__pycache__\\regime.cpython-313.pyc",
+      "bytes": 15157
+    },
+    {
+      "path": "D:\\ApexOptions\\apex\\quant\\__pycache__\\svi.cpython-313.pyc",
+      "bytes": 6323
+    },
+    {
+      "path": "D:\\ApexOptions\\apex\\quant\\__pycache__\\__init__.cpython-313.pyc",
+      "bytes": 1396
+    },
+    {
+      "path": "D:\\ApexOptions\\apex\\__pycache__\\acceptance.cpython-313.pyc",
+      "bytes": 12409
+    },
+    {
+      "path": "D:\\ApexOptions\\apex\\__pycache__\\audio.cpython-313.pyc",
+      "bytes": 13811
+    },
+    {
+      "path": "D:\\ApexOptions\\apex\\__pycache__\\config.cpython-313.pyc",
+      "bytes": 33090
+    },
+    {
+      "path": "D:\\ApexOptions\\apex\\__pycache__\\config.cpython-315.pyc",
+      "bytes": 30218
+    },
+    {
+      "path": "D:\\ApexOptions\\apex\\__pycache__\\engine_main.cpython-313.pyc",
+      "bytes": 166806
+    },
+    {
+      "path": "D:\\ApexOptions\\apex\\__pycache__\\engine_main.cpython-315.pyc",
+      "bytes": 126974
+    },
+    {
+      "path": "D:\\ApexOptions\\apex\\__pycache__\\feed_breeze.cpython-313.pyc",
+      "bytes": 49373
+    },
+    {
+      "path": "D:\\ApexOptions\\apex\\__pycache__\\feed_core.cpython-313.pyc",
+      "bytes": 25857
+    },
+    {
+      "path": "D:\\ApexOptions\\apex\\__pycache__\\feed_replay.cpython-313.pyc",
+      "bytes": 13486
+    },
+    {
+      "path": "D:\\ApexOptions\\apex\\__pycache__\\feed_sim.cpython-313.pyc",
+      "bytes": 40776
+    },
+    {
+      "path": "D:\\ApexOptions\\apex\\__pycache__\\gateway.cpython-313.pyc",
+      "bytes": 16905
+    },
+    {
+      "path": "D:\\ApexOptions\\apex\\__pycache__\\greeks.cpython-313.pyc",
+      "bytes": 10951
+    },
+    {
+      "path": "D:\\ApexOptions\\apex\\__pycache__\\interlock.cpython-313.pyc",
+      "bytes": 7038
+    },
+    {
+      "path": "D:\\ApexOptions\\apex\\__pycache__\\replay_batch.cpython-313.pyc",
+      "bytes": 21291
+    },
+    {
+      "path": "D:\\ApexOptions\\apex\\__pycache__\\replay_compare.cpython-313.pyc",
+      "bytes": 11009
+    },
+    {
+      "path": "D:\\ApexOptions\\apex\\__pycache__\\replay_fast.cpython-313.pyc",
+      "bytes": 10649
+    },
+    {
+      "path": "D:\\ApexOptions\\apex\\__pycache__\\replay_fast.cpython-315.pyc",
+      "bytes": 10980
+    },
+    {
+      "path": "D:\\ApexOptions\\apex\\__pycache__\\table.cpython-313.pyc",
+      "bytes": 15235
+    },
+    {
+      "path": "D:\\ApexOptions\\apex\\__pycache__\\table.cpython-315.pyc",
+      "bytes": 15604
+    },
+    {
+      "path": "D:\\ApexOptions\\apex\\__pycache__\\universe.cpython-313.pyc",
+      "bytes": 3019
+    },
+    {
+      "path": "D:\\ApexOptions\\apex\\__pycache__\\__init__.cpython-313.pyc",
+      "bytes": 235
+    },
+    {
+      "path": "D:\\ApexOptions\\apex\\__pycache__\\__init__.cpython-315.pyc",
+      "bytes": 238
+    },
+    {
+      "path": "D:\\ApexOptions\\tests\\__pycache__\\conftest.cpython-313-pytest-9.1.0.pyc",
+      "bytes": 9291
+    },
+    {
+      "path": "D:\\ApexOptions\\tests\\__pycache__\\test_audio.cpython-313-pytest-9.1.0.pyc",
+      "bytes": 16968
+    },
+    {
+      "path": "D:\\ApexOptions\\tests\\__pycache__\\test_best_tile.cpython-313-pytest-9.1.0.pyc",
+      "bytes": 7924
+    },
+    {
+      "path": "D:\\ApexOptions\\tests\\__pycache__\\test_c10_daystate.cpython-313-pytest-9.1.0.pyc",
+      "bytes": 37967
+    },
+    {
+      "path": "D:\\ApexOptions\\tests\\__pycache__\\test_c11_buyer_edge.cpython-313-pytest-9.1.0.pyc",
+      "bytes": 43366
+    },
+    {
+      "path": "D:\\ApexOptions\\tests\\__pycache__\\test_c12_trail_levels.cpython-313-pytest-9.1.0.pyc",
+      "bytes": 66153
+    },
+    {
+      "path": "D:\\ApexOptions\\tests\\__pycache__\\test_c13_team.cpython-313-pytest-9.1.0.pyc",
+      "bytes": 66572
+    },
+    {
+      "path": "D:\\ApexOptions\\tests\\__pycache__\\test_c14_ideas.cpython-313-pytest-9.1.0.pyc",
+      "bytes": 30413
+    },
+    {
+      "path": "D:\\ApexOptions\\tests\\__pycache__\\test_c15_council.cpython-313-pytest-9.1.0.pyc",
+      "bytes": 103020
+    },
+    {
+      "path": "D:\\ApexOptions\\tests\\__pycache__\\test_c20_9e.cpython-313-pytest-9.1.0.pyc",
+      "bytes": 27998
+    },
+    {
+      "path": "D:\\ApexOptions\\tests\\__pycache__\\test_c20_9s.cpython-313-pytest-9.1.0.pyc",
+      "bytes": 13532
+    },
+    {
+      "path": "D:\\ApexOptions\\tests\\__pycache__\\test_c20_9y.cpython-313-pytest-9.1.0.pyc",
+      "bytes": 26397
+    },
+    {
+      "path": "D:\\ApexOptions\\tests\\__pycache__\\test_c4.cpython-313-pytest-9.1.0.pyc",
+      "bytes": 68253
+    },
+    {
+      "path": "D:\\ApexOptions\\tests\\__pycache__\\test_c5_cmt_basket.cpython-313-pytest-9.1.0.pyc",
+      "bytes": 78980
+    },
+    {
+      "path": "D:\\ApexOptions\\tests\\__pycache__\\test_c5_cmt_entry.cpython-313-pytest-9.1.0.pyc",
+      "bytes": 82953
+    },
+    {
+      "path": "D:\\ApexOptions\\tests\\__pycache__\\test_c5_cmt_hold.cpython-313-pytest-9.1.0.pyc",
+      "bytes": 136874
+    },
+    {
+      "path": "D:\\ApexOptions\\tests\\__pycache__\\test_c5_commentary.cpython-313-pytest-9.1.0.pyc",
+      "bytes": 31102
+    },
+    {
+      "path": "D:\\ApexOptions\\tests\\__pycache__\\test_c5_fills_lock.cpython-313-pytest-9.1.0.pyc",
+      "bytes": 80161
+    },
+    {
+      "path": "D:\\ApexOptions\\tests\\__pycache__\\test_c6_feed.cpython-313-pytest-9.1.0.pyc",
+      "bytes": 17898
+    },
+    {
+      "path": "D:\\ApexOptions\\tests\\__pycache__\\test_c6_retest.cpython-313-pytest-9.1.0.pyc",
+      "bytes": 36782
+    },
+    {
+      "path": "D:\\ApexOptions\\tests\\__pycache__\\test_c7_pullback.cpython-313-pytest-9.1.0.pyc",
+      "bytes": 41755
+    },
+    {
+      "path": "D:\\ApexOptions\\tests\\__pycache__\\test_c9_reviews.cpython-313-pytest-9.1.0.pyc",
+      "bytes": 31886
+    },
+    {
+      "path": "D:\\ApexOptions\\tests\\__pycache__\\test_cas.cpython-313-pytest-9.1.0.pyc",
+      "bytes": 20840
+    },
+    {
+      "path": "D:\\ApexOptions\\tests\\__pycache__\\test_conductor.cpython-313-pytest-9.1.0.pyc",
+      "bytes": 30785
+    },
+    {
+      "path": "D:\\ApexOptions\\tests\\__pycache__\\test_core.cpython-313-pytest-9.1.0.pyc",
+      "bytes": 205431
+    },
+    {
+      "path": "D:\\ApexOptions\\tests\\__pycache__\\test_council_view.cpython-313-pytest-9.1.0.pyc",
+      "bytes": 36717
+    },
+    {
+      "path": "D:\\ApexOptions\\tests\\__pycache__\\test_defects.cpython-313-pytest-9.1.0.pyc",
+      "bytes": 24909
+    },
+    {
+      "path": "D:\\ApexOptions\\tests\\__pycache__\\test_gen2.cpython-313-pytest-9.1.0.pyc",
+      "bytes": 78332
+    },
+    {
+      "path": "D:\\ApexOptions\\tests\\__pycache__\\test_header_atm.cpython-313-pytest-9.1.0.pyc",
+      "bytes": 15559
+    },
+    {
+      "path": "D:\\ApexOptions\\tests\\__pycache__\\test_missed.cpython-313-pytest-9.1.0.pyc",
+      "bytes": 68533
+    },
+    {
+      "path": "D:\\ApexOptions\\tests\\__pycache__\\test_owner.cpython-313-pytest-9.1.0.pyc",
+      "bytes": 24480
+    },
+    {
+      "path": "D:\\ApexOptions\\tests\\__pycache__\\test_plan19.cpython-313-pytest-9.1.0.pyc",
+      "bytes": 53479
+    },
+    {
+      "path": "D:\\ApexOptions\\tests\\__pycache__\\test_quantview.cpython-313-pytest-9.1.0.pyc",
+      "bytes": 12240
+    },
+    {
+      "path": "D:\\ApexOptions\\tests\\__pycache__\\test_quant_greeks.cpython-313-pytest-9.1.0.pyc",
+      "bytes": 48756
+    },
+    {
+      "path": "D:\\ApexOptions\\tests\\__pycache__\\test_quant_models.cpython-313-pytest-9.1.0.pyc",
+      "bytes": 58384
+    },
+    {
+      "path": "D:\\ApexOptions\\tests\\__pycache__\\test_quant_passage.cpython-313-pytest-9.1.0.pyc",
+      "bytes": 18920
+    },
+    {
+      "path": "D:\\ApexOptions\\tests\\__pycache__\\test_replay_batch.cpython-313-pytest-9.1.0.pyc",
+      "bytes": 18124
+    },
+    {
+      "path": "D:\\ApexOptions\\tests\\__pycache__\\test_restricted_books.cpython-313-pytest-9.1.0.pyc",
+      "bytes": 56855
+    },
+    {
+      "path": "D:\\ApexOptions\\tests\\__pycache__\\test_review2_7nov.cpython-313-pytest-9.1.0.pyc",
+      "bytes": 27284
+    },
+    {
+      "path": "D:\\ApexOptions\\tests\\__pycache__\\test_review_7nov.cpython-313-pytest-9.1.0.pyc",
+      "bytes": 11363
+    },
+    {
+      "path": "D:\\ApexOptions\\tests\\__pycache__\\test_rule_register.cpython-313-pytest-9.1.0.pyc",
+      "bytes": 12101
+    },
+    {
+      "path": "D:\\ApexOptions\\tests\\__pycache__\\test_save_fast.cpython-313-pytest-9.1.0.pyc",
+      "bytes": 20754
+    },
+    {
+      "path": "D:\\ApexOptions\\tests\\__pycache__\\test_score.cpython-313-pytest-9.1.0.pyc",
+      "bytes": 24303
+    },
+    {
+      "path": "D:\\ApexOptions\\tests\\__pycache__\\test_sim_reset.cpython-313-pytest-9.1.0.pyc",
+      "bytes": 8897
+    },
+    {
+      "path": "D:\\ApexOptions\\tests\\__pycache__\\test_state_fastpath.cpython-313-pytest-9.1.0.pyc",
+      "bytes": 7774
+    },
+    {
+      "path": "D:\\ApexOptions\\tests\\__pycache__\\test_weather.cpython-313-pytest-9.1.0.pyc",
+      "bytes": 67120
+    },
+    {
+      "path": "D:\\ApexOptions\\tests\\__pycache__\\test_wp1.cpython-313-pytest-9.1.0.pyc",
+      "bytes": 68370
+    },
+    {
+      "path": "D:\\ApexOptions\\tests\\__pycache__\\test_wp2.cpython-313-pytest-9.1.0.pyc",
+      "bytes": 70132
+    },
+    {
+      "path": "D:\\ApexOptions\\tests\\__pycache__\\test_wp3.cpython-313-pytest-9.1.0.pyc",
+      "bytes": 54691
+    },
+    {
+      "path": "D:\\ApexOptions\\tests\\__pycache__\\test_wp4.cpython-313-pytest-9.1.0.pyc",
+      "bytes": 88216
+    },
+    {
+      "path": "D:\\ApexOptions\\tests\\__pycache__\\test_wp5.cpython-313-pytest-9.1.0.pyc",
+      "bytes": 52634
+    },
+    {
+      "path": "D:\\ApexOptions\\tests\\__pycache__\\test_wp6.cpython-313-pytest-9.1.0.pyc",
+      "bytes": 96316
+    },
+    {
+      "path": "D:\\ApexOptions\\tests\\__pycache__\\test_wp7.cpython-313-pytest-9.1.0.pyc",
+      "bytes": 58553
+    },
+    {
+      "path": "D:\\ApexOptions\\__pycache__\\run_apex.cpython-313.pyc",
+      "bytes": 44308
+    }
+  ],
+  "errors": []
+}

@@ -1,0 +1,8 @@
+{"t": "08:41:24", "k": "SYSTEM", "x": "day 2026-10-28 \u00b7 champion conductor \u00b7 gates none \u00b7 capital \u20b9100,000", "mkt_t": 1793157084.2}
+{"t": "09:15:00", "k": "GAP", "x": "data gap: feed stale: futures quote 394 s old \u2014 entries paused until 20 s of fresh data", "mkt_t": 1793159100.0}
+{"t": "09:15:00", "k": "DATA", "x": "no trade for 120 s on hero contract(s): 22750 PE", "mkt_t": 1793159100.2}
+{"t": "09:15:20", "k": "GAP", "x": "data back after 20 s (feed stale: futures quote 395 s old); entries resume", "mkt_t": 1793159120.4}
+{"t": "09:17:33", "k": "SHIFT", "x": "ATM rolled 22650 \u2192 22550: straddle 426.6 \u2192 425.5 (spot settled at the new strike)", "mkt_t": 1793159253.0}
+{"t": "09:45:05", "k": "GAP", "x": "data gap: feed silent: no quote on any instrument for 3 s \u2014 entries paused until 20 s of fresh data", "mkt_t": 1793160905.4}
+{"t": "09:45:26", "k": "GAP", "x": "data back after 21 s (feed silent: no quote on any instrument for 4 s); entries resume", "mkt_t": 1793160926.6}
+{"t": "09:45:50", "k": "SHIFT", "x": "ATM rolled 22550 \u2192 22650: straddle 413.9 \u2192 404.2 (spot settled at the new strike)", "mkt_t": 1793160950.1}

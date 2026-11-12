@@ -1,0 +1,16 @@
+2026-10-19 5-min futures forecasts scored 4216 coverage 0.826 skill vs still -0.005 direction 0.465 of 325 167 s
+2026-10-21 5-min futures forecasts scored 4309 coverage 0.774 skill vs still -0.003 direction 0.524 of 1050 325 s
+2026-10-22 5-min futures forecasts scored 4282 coverage 0.807 skill vs still -0.005 direction 0.226 of 31 479 s
+2026-10-23 5-min futures forecasts scored 3332 coverage 0.797 skill vs still 0.001 direction 0.428 of 138 633 s
+2026-10-26 5-min futures forecasts scored 4291 coverage 0.816 skill vs still -0.001 direction None of 0 819 s
+2026-10-27 5-min futures forecasts scored 4176 coverage 0.788 skill vs still 0.001 direction 0.667 of 3 1039 s
+2026-10-28 5-min futures forecasts scored 4162 coverage 0.803 skill vs still -0.001 direction 0.548 of 62 1197 s
+2026-10-29 5-min futures forecasts scored 4286 coverage 0.811 skill vs still 0.008 direction 0.443 of 70 1380 s
+2026-10-30 5-min futures forecasts scored 4309 coverage 0.773 skill vs still 0.001 direction 0.598 of 276 1571 s
+2026-11-02 5-min futures forecasts scored 4268 coverage 0.807 skill vs still 0.005 direction 0.726 of 190 1840 s
+2026-11-03 5-min futures forecasts scored 4310 coverage 0.825 skill vs still 0.002 direction 1.0 of 7 2100 s
+2026-11-04 5-min futures forecasts scored 4289 coverage 0.798 skill vs still 0.005 direction 0.636 of 261 2332 s
+2026-11-05 5-min futures forecasts scored 4283 coverage 0.789 skill vs still 0.001 direction 0.472 of 36 2570 s
+2026-11-06 5-min futures forecasts scored 4246 coverage 0.805 skill vs still 0.012 direction 0.626 of 313 2676 s
+weights at 5 min: {'still': 0.049, 'momentum': 0.047, 'flow': 0.055, 'reversion': 0.716, 'blend': 0.133}
+saved D:\ApexOptions\data\forecast_lab\state_warm.json

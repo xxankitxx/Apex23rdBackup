@@ -138,13 +138,16 @@ def test_admission_and_the_forecast_exit_read_the_same_forecast():
 def test_the_real_artefact_loads_when_it_is_there():
     import os
     from apex import config
-    path = config.PREDICT_MODEL
-    if not os.path.exists(path):
+    from apex.predict import registry
+    art, why = registry.for_session("2099-01-01", "chronological", None)       # 11 Nov: the engine loads by session
+    if art is None:
         return
-    p = pred.Pred(artefact_path=path)
+    p = pred.Pred(artefact=art)
     assert p.fc.ok, p.fc.why
     assert p.line_in is not None and p.line_out is not None and p.line_in > p.line_out and p.mom_line > 0
-    assert set(p.fc.art["models"]) == {f"{k}{h}" for k in "TA" for h in T.HORIZONS}
+    assert p.fc.kind == "hazard" and len(p.fc.art["W"]) == len(T.HORIZONS)
+    old = pred.Pred(artefact_path=config.PREDICT_MODEL)                         # the label-version-1 file is refused
+    assert not old.fc.ok and "target" in old.fc.why
 
 
 def test_the_book_reads_the_forecast_signal_and_exits_on_the_premium_or_the_forecast():

@@ -1,0 +1,690 @@
+{"t": 1794194105.8930664, "time": "08:45:05", "event": "flat", "why": "flat: data blackout"}
+{"t": 1794194125.99148, "time": "08:45:25", "event": "flat", "why": "flat: no eligible trigger"}
+{"t": 1794194186.044027, "time": "08:46:26", "event": "flat", "why": "flat: no eligible trigger"}
+{"t": 1794194246.1368587, "time": "08:47:26", "event": "flat", "why": "flat: no eligible trigger"}
+{"t": 1794194306.1486707, "time": "08:48:26", "event": "flat", "why": "flat: no eligible trigger"}
+{"t": 1794194366.2475913, "time": "08:49:26", "event": "flat", "why": "flat: no eligible trigger"}
+{"t": 1794194426.2641962, "time": "08:50:26", "event": "flat", "why": "flat: no eligible trigger"}
+{"t": 1794194486.311641, "time": "08:51:26", "event": "flat", "why": "flat: no eligible trigger"}
+{"t": 1794194546.3358247, "time": "08:52:26", "event": "flat", "why": "flat: no eligible trigger"}
+{"t": 1794194606.3901134, "time": "08:53:26", "event": "flat", "why": "flat: no eligible trigger"}
+{"t": 1794194666.437088, "time": "08:54:26", "event": "flat", "why": "flat: no eligible trigger"}
+{"t": 1794194726.4944494, "time": "08:55:26", "event": "flat", "why": "flat: no eligible trigger"}
+{"t": 1794194786.5276337, "time": "08:56:26", "event": "flat", "why": "flat: no eligible trigger"}
+{"t": 1794194846.579595, "time": "08:57:26", "event": "flat", "why": "flat: no eligible trigger"}
+{"t": 1794194906.6185431, "time": "08:58:26", "event": "flat", "why": "flat: no eligible trigger"}
+{"t": 1794194966.648993, "time": "08:59:26", "event": "flat", "why": "flat: no eligible trigger"}
+{"t": 1794195026.7493005, "time": "09:00:26", "event": "flat", "why": "flat: no eligible trigger"}
+{"t": 1794195086.8173525, "time": "09:01:26", "event": "flat", "why": "flat: no eligible trigger"}
+{"t": 1794195146.8766727, "time": "09:02:26", "event": "flat", "why": "flat: no eligible trigger"}
+{"t": 1794195206.9290035, "time": "09:03:26", "event": "flat", "why": "flat: no eligible trigger"}
+{"t": 1794195266.994311, "time": "09:04:26", "event": "flat", "why": "flat: no eligible trigger"}
+{"t": 1794195327.0627494, "time": "09:05:27", "event": "flat", "why": "flat: no eligible trigger"}
+{"t": 1794195387.146928, "time": "09:06:27", "event": "flat", "why": "flat: no eligible trigger"}
+{"t": 1794195447.2084281, "time": "09:07:27", "event": "flat", "why": "flat: no eligible trigger"}
+{"t": 1794195507.2871084, "time": "09:08:27", "event": "flat", "why": "flat: no eligible trigger"}
+{"t": 1794195567.3497646, "time": "09:09:27", "event": "flat", "why": "flat: no eligible trigger"}
+{"t": 1794195627.4130273, "time": "09:10:27", "event": "flat", "why": "flat: no eligible trigger"}
+{"t": 1794195687.4739974, "time": "09:11:27", "event": "flat", "why": "flat: no eligible trigger"}
+{"t": 1794195747.5556848, "time": "09:12:27", "event": "flat", "why": "flat: no eligible trigger"}
+{"t": 1794195807.6133478, "time": "09:13:27", "event": "flat", "why": "flat: no eligible trigger"}
+{"t": 1794195867.6681385, "time": "09:14:27", "event": "flat", "why": "flat: no eligible trigger"}
+{"t": 1794195900.0984051, "time": "09:15:00", "event": "flat", "why": "flat: data blackout"}
+{"t": 1794195920.646242, "time": "09:15:20", "event": "flat", "why": "flat: no eligible trigger"}
+{"t": 1794195980.6822371, "time": "09:16:20", "event": "flat", "why": "flat: no eligible trigger"}
+{"t": 1794196040.7373066, "time": "09:17:20", "event": "flat", "why": "flat: no eligible trigger"}
+{"t": 1794196100.7398043, "time": "09:18:20", "event": "flat", "why": "flat: no eligible trigger"}
+{"t": 1794196160.8271635, "time": "09:19:20", "event": "flat", "why": "flat: no eligible trigger"}
+{"t": 1794196220.9188888, "time": "09:20:20", "event": "flat", "why": "flat: no eligible trigger"}
+{"t": 1794196280.9193773, "time": "09:21:20", "event": "flat", "why": "flat: no eligible trigger"}
+{"t": 1794196340.981507, "time": "09:22:20", "event": "flat", "why": "flat: no eligible trigger"}
+{"t": 1794196401.0456064, "time": "09:23:21", "event": "flat", "why": "flat: no eligible trigger"}
+{"t": 1794196461.0917504, "time": "09:24:21", "event": "flat", "why": "flat: no eligible trigger"}
+{"t": 1794196521.156352, "time": "09:25:21", "event": "flat", "why": "flat: no eligible trigger"}
+{"t": 1794196581.253375, "time": "09:26:21", "event": "flat", "why": "flat: no eligible trigger"}
+{"t": 1794196615.027197, "time": "09:26:55", "event": "lost_priority", "book": "c20_9s", "rule": null, "key": "NIFTY|OPT|2026-11-09|24850|CE", "to": "c20_9y"}
+{"t": 1794196615.027197, "time": "09:26:55", "event": "lost_priority", "book": "c20_9v", "rule": null, "key": "NIFTY|OPT|2026-11-09|24850|CE", "to": "c20_9y"}
+{"t": 1794196615.027197, "time": "09:26:55", "event": "lost_priority", "book": "c20_9x", "rule": null, "key": "NIFTY|OPT|2026-11-09|24850|CE", "to": "c20_9y"}
+{"t": 1794196615.027197, "time": "09:26:55", "event": "lost_priority", "book": "c20_9t", "rule": null, "key": "NIFTY|OPT|2026-11-09|24850|CE", "to": "c20_9y"}
+{"t": 1794196615.027197, "time": "09:26:55", "event": "owner", "book": "c20_9y", "rule": null, "standing": "low", "key": "NIFTY|OPT|2026-11-09|24850|CE", "why": "COUNCIL EXP brk v=+35"}
+{"t": 1794196616.0413282, "time": "09:26:56", "event": "entry", "book": "c20_9y", "rule": null, "key": "NIFTY|OPT|2026-11-09|24850|CE", "entry": 176.8, "lots": 8, "why": "COUNCIL EXP brk v=+35", "fill_delay_s": 1.01}
+{"t": 1794196789.0354216, "time": "09:29:49", "event": "exit", "book": "c20_9y", "rule": null, "key": "NIFTY|OPT|2026-11-09|24850|CE", "exit": 154.65, "reason": "COUNCIL FWD_TRAIL", "pnl_rs": -11518.0, "ret_pct": -12.528, "capital": 88482.0}
+{"t": 1794196789.0354216, "time": "09:29:49", "event": "flat", "why": "flat: no eligible trigger"}
+{"t": 1794196849.0899165, "time": "09:30:49", "event": "flat", "why": "flat: no eligible trigger"}
+{"t": 1794196909.1869674, "time": "09:31:49", "event": "flat", "why": "flat: no eligible trigger"}
+{"t": 1794196969.2132077, "time": "09:32:49", "event": "flat", "why": "flat: no eligible trigger"}
+{"t": 1794197029.2589748, "time": "09:33:49", "event": "flat", "why": "flat: no eligible trigger"}
+{"t": 1794197089.322877, "time": "09:34:49", "event": "flat", "why": "flat: no eligible trigger"}
+{"t": 1794197128.032038, "time": "09:35:28", "event": "lost_priority", "book": "c20_9s", "rule": null, "key": "NIFTY|OPT|2026-11-09|25000|PE", "to": "c20_9y"}
+{"t": 1794197128.032038, "time": "09:35:28", "event": "lost_priority", "book": "c20_9v", "rule": null, "key": "NIFTY|OPT|2026-11-09|25000|PE", "to": "c20_9y"}
+{"t": 1794197128.032038, "time": "09:35:28", "event": "lost_priority", "book": "c20_9x", "rule": null, "key": "NIFTY|OPT|2026-11-09|25000|PE", "to": "c20_9y"}
+{"t": 1794197128.032038, "time": "09:35:28", "event": "lost_priority", "book": "c20_9t", "rule": null, "key": "NIFTY|OPT|2026-11-09|25000|PE", "to": "c20_9y"}
+{"t": 1794197128.032038, "time": "09:35:28", "event": "owner", "book": "c20_9y", "rule": null, "standing": "low", "key": "NIFTY|OPT|2026-11-09|25000|PE", "why": "COUNCIL EXP brk v=-21"}
+{"t": 1794197129.0668457, "time": "09:35:29", "event": "entry", "book": "c20_9y", "rule": null, "key": "NIFTY|OPT|2026-11-09|25000|PE", "entry": 142.4, "lots": 9, "why": "COUNCIL EXP brk v=-21", "fill_delay_s": 1.03}
+{"t": 1794197541.0897229, "time": "09:42:21", "event": "exit", "book": "c20_9y", "rule": null, "key": "NIFTY|OPT|2026-11-09|25000|PE", "exit": 151.9, "reason": "COUNCIL FWD_TRAIL", "pnl_rs": 5557.5, "ret_pct": 6.671, "capital": 94039.5}
+{"t": 1794197541.0897229, "time": "09:42:21", "event": "flat", "why": "flat: no eligible trigger"}
+{"t": 1794197601.1822824, "time": "09:43:21", "event": "flat", "why": "flat: no eligible trigger"}
+{"t": 1794197661.262276, "time": "09:44:21", "event": "flat", "why": "flat: no eligible trigger"}
+{"t": 1794197721.3019125, "time": "09:45:21", "event": "flat", "why": "flat: no eligible trigger"}
+{"t": 1794197729.0513222, "time": "09:45:29", "event": "lost_priority", "book": "c20_9s", "rule": null, "key": "NIFTY|OPT|2026-11-09|24850|CE", "to": "c20_9y"}
+{"t": 1794197729.0513222, "time": "09:45:29", "event": "lost_priority", "book": "c20_9v", "rule": null, "key": "NIFTY|OPT|2026-11-09|24850|CE", "to": "c20_9y"}
+{"t": 1794197729.0513222, "time": "09:45:29", "event": "lost_priority", "book": "c20_9x", "rule": null, "key": "NIFTY|OPT|2026-11-09|24850|CE", "to": "c20_9y"}
+{"t": 1794197729.0513222, "time": "09:45:29", "event": "lost_priority", "book": "c20_9t", "rule": null, "key": "NIFTY|OPT|2026-11-09|24850|CE", "to": "c20_9y"}
+{"t": 1794197729.0513222, "time": "09:45:29", "event": "owner", "book": "c20_9y", "rule": null, "standing": "low", "key": "NIFTY|OPT|2026-11-09|24850|CE", "why": "COUNCIL EXP brk v=+47"}
+{"t": 1794197730.1832302, "time": "09:45:30", "event": "entry", "book": "c20_9y", "rule": null, "key": "NIFTY|OPT|2026-11-09|24850|CE", "entry": 152.65, "lots": 9, "why": "COUNCIL EXP brk v=+47", "fill_delay_s": 1.13}
+{"t": 1794197828.597002, "time": "09:47:08", "event": "exit", "book": "c20_9y", "rule": null, "key": "NIFTY|OPT|2026-11-09|24850|CE", "exit": 138.4, "reason": "COUNCIL FWD_TRAIL", "pnl_rs": -8336.25, "ret_pct": -9.335, "capital": 85703.25}
+{"t": 1794197828.597002, "time": "09:47:08", "event": "flat", "why": "flat: no eligible trigger"}
+{"t": 1794197888.8860848, "time": "09:48:08", "event": "flat", "why": "flat: no eligible trigger"}
+{"t": 1794197948.9387047, "time": "09:49:08", "event": "flat", "why": "flat: no eligible trigger"}
+{"t": 1794198009.00476, "time": "09:50:09", "event": "flat", "why": "flat: no eligible trigger"}
+{"t": 1794198069.0178432, "time": "09:51:09", "event": "flat", "why": "flat: no eligible trigger"}
+{"t": 1794198129.0653503, "time": "09:52:09", "event": "flat", "why": "flat: no eligible trigger"}
+{"t": 1794198189.1011312, "time": "09:53:09", "event": "flat", "why": "flat: no eligible trigger"}
+{"t": 1794198249.1018648, "time": "09:54:09", "event": "flat", "why": "flat: no eligible trigger"}
+{"t": 1794198307.2111182, "time": "09:55:07", "event": "lost_priority", "book": "c20_9s", "rule": null, "key": "NIFTY|OPT|2026-11-09|25000|PE", "to": "c20_9y"}
+{"t": 1794198307.2111182, "time": "09:55:07", "event": "lost_priority", "book": "c20_9v", "rule": null, "key": "NIFTY|OPT|2026-11-09|25000|PE", "to": "c20_9y"}
+{"t": 1794198307.2111182, "time": "09:55:07", "event": "lost_priority", "book": "c20_9x", "rule": null, "key": "NIFTY|OPT|2026-11-09|25000|PE", "to": "c20_9y"}
+{"t": 1794198307.2111182, "time": "09:55:07", "event": "lost_priority", "book": "c20_9t", "rule": null, "key": "NIFTY|OPT|2026-11-09|25000|PE", "to": "c20_9y"}
+{"t": 1794198307.2111182, "time": "09:55:07", "event": "owner", "book": "c20_9y", "rule": null, "standing": "low", "key": "NIFTY|OPT|2026-11-09|25000|PE", "why": "COUNCIL EXP brk v=-25"}
+{"t": 1794198309.4685276, "time": "09:55:09", "event": "entry", "book": "c20_9y", "rule": null, "key": "NIFTY|OPT|2026-11-09|25000|PE", "entry": 137.35, "lots": 9, "why": "COUNCIL EXP brk v=-25", "fill_delay_s": 2.26}
+{"t": 1794198559.0097244, "time": "09:59:19", "event": "exit", "book": "c20_9y", "rule": null, "key": "NIFTY|OPT|2026-11-09|25000|PE", "exit": 129.3, "reason": "COUNCIL FWD_TRAIL", "pnl_rs": -4709.25, "ret_pct": -5.861, "capital": 80994.0}
+{"t": 1794198559.0097244, "time": "09:59:19", "event": "flat", "why": "flat: no eligible trigger"}
+{"t": 1794198619.0690074, "time": "10:00:19", "event": "flat", "why": "flat: no eligible trigger"}
+{"t": 1794198679.1529586, "time": "10:01:19", "event": "flat", "why": "flat: no eligible trigger"}
+{"t": 1794198739.2193222, "time": "10:02:19", "event": "flat", "why": "flat: no eligible trigger"}
+{"t": 1794198799.293486, "time": "10:03:19", "event": "flat", "why": "flat: no eligible trigger"}
+{"t": 1794198859.3934848, "time": "10:04:19", "event": "flat", "why": "flat: no eligible trigger"}
+{"t": 1794198919.5296638, "time": "10:05:19", "event": "flat", "why": "flat: no eligible trigger"}
+{"t": 1794198979.5301251, "time": "10:06:19", "event": "flat", "why": "flat: no eligible trigger"}
+{"t": 1794199039.8770957, "time": "10:07:19", "event": "flat", "why": "flat: no eligible trigger"}
+{"t": 1794199099.9152083, "time": "10:08:19", "event": "flat", "why": "flat: no eligible trigger"}
+{"t": 1794199160.0069377, "time": "10:09:20", "event": "flat", "why": "flat: no eligible trigger"}
+{"t": 1794199220.1152136, "time": "10:10:20", "event": "flat", "why": "flat: no eligible trigger"}
+{"t": 1794199280.1734996, "time": "10:11:20", "event": "flat", "why": "flat: no eligible trigger"}
+{"t": 1794199340.8265514, "time": "10:12:20", "event": "flat", "why": "flat: no eligible trigger"}
+{"t": 1794199400.832622, "time": "10:13:20", "event": "flat", "why": "flat: no eligible trigger"}
+{"t": 1794199460.962534, "time": "10:14:20", "event": "flat", "why": "flat: no eligible trigger"}
+{"t": 1794199521.0327508, "time": "10:15:21", "event": "flat", "why": "flat: no eligible trigger"}
+{"t": 1794199581.0778687, "time": "10:16:21", "event": "flat", "why": "flat: no eligible trigger"}
+{"t": 1794199641.1540773, "time": "10:17:21", "event": "flat", "why": "flat: no eligible trigger"}
+{"t": 1794199701.2063115, "time": "10:18:21", "event": "flat", "why": "flat: no eligible trigger"}
+{"t": 1794199761.2264833, "time": "10:19:21", "event": "flat", "why": "flat: no eligible trigger"}
+{"t": 1794199816.0277941, "time": "10:20:16", "event": "lost_priority", "book": "c20_9s", "rule": null, "key": "NIFTY|OPT|2026-11-09|24850|CE", "to": "c20_9y"}
+{"t": 1794199816.0277941, "time": "10:20:16", "event": "lost_priority", "book": "c20_9v", "rule": null, "key": "NIFTY|OPT|2026-11-09|24850|CE", "to": "c20_9y"}
+{"t": 1794199816.0277941, "time": "10:20:16", "event": "lost_priority", "book": "c20_9x", "rule": null, "key": "NIFTY|OPT|2026-11-09|24850|CE", "to": "c20_9y"}
+{"t": 1794199816.0277941, "time": "10:20:16", "event": "lost_priority", "book": "c20_9t", "rule": null, "key": "NIFTY|OPT|2026-11-09|24850|CE", "to": "c20_9y"}
+{"t": 1794199816.0277941, "time": "10:20:16", "event": "owner", "book": "c20_9y", "rule": null, "standing": "low", "key": "NIFTY|OPT|2026-11-09|24850|CE", "why": "COUNCIL EXP brk v=+20"}
+{"t": 1794199818.2463045, "time": "10:20:18", "event": "entry", "book": "c20_9y", "rule": null, "key": "NIFTY|OPT|2026-11-09|24850|CE", "entry": 137.05, "lots": 9, "why": "COUNCIL EXP brk v=+20", "fill_delay_s": 2.22}
+{"t": 1794200073.9727514, "time": "10:24:33", "event": "exit", "book": "c20_9y", "rule": null, "key": "NIFTY|OPT|2026-11-09|24850|CE", "exit": 129.4, "reason": "COUNCIL FWD_TRAIL", "pnl_rs": -4475.25, "ret_pct": -5.582, "capital": 76518.75}
+{"t": 1794200073.9727514, "time": "10:24:33", "event": "flat", "why": "flat: no eligible trigger"}
+{"t": 1794200134.03448, "time": "10:25:34", "event": "flat", "why": "flat: no eligible trigger"}
+{"t": 1794200173.0556507, "time": "10:26:13", "event": "owner", "book": "c20_9t", "rule": null, "standing": "low", "key": "NIFTY|OPT|2026-11-09|25000|PE", "why": "COUNCIL EXP brk v=-22"}
+{"t": 1794200174.3011465, "time": "10:26:14", "event": "entry", "book": "c20_9t", "rule": null, "key": "NIFTY|OPT|2026-11-09|25000|PE", "entry": 123.95, "lots": 9, "why": "COUNCIL EXP brk v=-22", "fill_delay_s": 1.25}
+{"t": 1794200236.8258045, "time": "10:27:16", "event": "occupied", "book": "c20_9y", "rule": null, "key": "NIFTY|OPT|2026-11-09|24950|PE", "by": "c20_9t", "since": "10:26:14"}
+{"t": 1794200236.8258045, "time": "10:27:16", "event": "occupied", "book": "c20_9s", "rule": null, "key": "NIFTY|OPT|2026-11-09|24950|PE", "by": "c20_9t", "since": "10:26:14"}
+{"t": 1794200236.8258045, "time": "10:27:16", "event": "occupied", "book": "c20_9v", "rule": null, "key": "NIFTY|OPT|2026-11-09|24950|PE", "by": "c20_9t", "since": "10:26:14"}
+{"t": 1794200236.8258045, "time": "10:27:16", "event": "occupied", "book": "c20_9x", "rule": null, "key": "NIFTY|OPT|2026-11-09|24950|PE", "by": "c20_9t", "since": "10:26:14"}
+{"t": 1794200290.6292887, "time": "10:28:10", "event": "exit", "book": "c20_9t", "rule": null, "key": "NIFTY|OPT|2026-11-09|25000|PE", "exit": 131.25, "reason": "COUNCIL RENT_TRAIL", "pnl_rs": 4270.5, "ret_pct": 5.889, "capital": 80789.25}
+{"t": 1794200290.6292887, "time": "10:28:10", "event": "flat", "why": "flat: no eligible trigger"}
+{"t": 1794200350.6766753, "time": "10:29:10", "event": "flat", "why": "flat: no eligible trigger"}
+{"t": 1794200411.0498219, "time": "10:30:11", "event": "flat", "why": "flat: no eligible trigger"}
+{"t": 1794200471.145654, "time": "10:31:11", "event": "flat", "why": "flat: no eligible trigger"}
+{"t": 1794200531.157555, "time": "10:32:11", "event": "flat", "why": "flat: no eligible trigger"}
+{"t": 1794200591.219577, "time": "10:33:11", "event": "flat", "why": "flat: no eligible trigger"}
+{"t": 1794200651.2326438, "time": "10:34:11", "event": "flat", "why": "flat: no eligible trigger"}
+{"t": 1794200711.2893584, "time": "10:35:11", "event": "flat", "why": "flat: no eligible trigger"}
+{"t": 1794200771.2993555, "time": "10:36:11", "event": "flat", "why": "flat: no eligible trigger"}
+{"t": 1794200831.3957913, "time": "10:37:11", "event": "flat", "why": "flat: no eligible trigger"}
+{"t": 1794200890.5918915, "time": "10:38:10", "event": "lost_priority", "book": "c20_9s", "rule": null, "key": "NIFTY|OPT|2026-11-09|24950|PE", "to": "c20_9y"}
+{"t": 1794200890.5918915, "time": "10:38:10", "event": "lost_priority", "book": "c20_9v", "rule": null, "key": "NIFTY|OPT|2026-11-09|24950|PE", "to": "c20_9y"}
+{"t": 1794200890.5918915, "time": "10:38:10", "event": "lost_priority", "book": "c20_9x", "rule": null, "key": "NIFTY|OPT|2026-11-09|24950|PE", "to": "c20_9y"}
+{"t": 1794200890.5918915, "time": "10:38:10", "event": "owner", "book": "c20_9y", "rule": null, "standing": "low", "key": "NIFTY|OPT|2026-11-09|24950|PE", "why": "COUNCIL EXP brk v=-23"}
+{"t": 1794200892.6910775, "time": "10:38:12", "event": "entry", "book": "c20_9y", "rule": null, "key": "NIFTY|OPT|2026-11-09|24950|PE", "entry": 114.0, "lots": 10, "why": "COUNCIL EXP brk v=-23", "fill_delay_s": 2.1}
+{"t": 1794201027.0291495, "time": "10:40:27", "event": "occupied", "book": "c20_9t", "rule": null, "key": "NIFTY|OPT|2026-11-09|24950|PE", "by": "c20_9y", "since": "10:38:12"}
+{"t": 1794201032.5499806, "time": "10:40:32", "event": "occupied", "book": "c20_9t", "rule": null, "key": "NIFTY|OPT|2026-11-09|24950|PE", "by": "c20_9y", "since": "10:38:12"}
+{"t": 1794201347.5687675, "time": "10:45:47", "event": "exit", "book": "c20_9y", "rule": null, "key": "NIFTY|OPT|2026-11-09|24950|PE", "exit": 130.4, "reason": "COUNCIL FWD_TRAIL", "pnl_rs": 10660.0, "ret_pct": 14.386, "capital": 91449.25}
+{"t": 1794201347.5687675, "time": "10:45:47", "event": "flat", "why": "flat: no eligible trigger"}
+{"t": 1794201410.0107412, "time": "10:46:50", "event": "flat", "why": "flat: no eligible trigger"}
+{"t": 1794201470.10812, "time": "10:47:50", "event": "flat", "why": "flat: no eligible trigger"}
+{"t": 1794201530.1370862, "time": "10:48:50", "event": "flat", "why": "flat: no eligible trigger"}
+{"t": 1794201590.1750238, "time": "10:49:50", "event": "flat", "why": "flat: no eligible trigger"}
+{"t": 1794201650.244417, "time": "10:50:50", "event": "flat", "why": "flat: no eligible trigger"}
+{"t": 1794201711.7366083, "time": "10:51:51", "event": "flat", "why": "flat: no eligible trigger"}
+{"t": 1794201771.804637, "time": "10:52:51", "event": "flat", "why": "flat: no eligible trigger"}
+{"t": 1794201831.9006307, "time": "10:53:51", "event": "flat", "why": "flat: no eligible trigger"}
+{"t": 1794201891.996326, "time": "10:54:51", "event": "flat", "why": "flat: no eligible trigger"}
+{"t": 1794201952.0896895, "time": "10:55:52", "event": "flat", "why": "flat: no eligible trigger"}
+{"t": 1794201981.0345175, "time": "10:56:21", "event": "lost_priority", "book": "c20_9s", "rule": null, "key": "NIFTY|OPT|2026-11-09|24850|CE", "to": "c20_9y"}
+{"t": 1794201981.0345175, "time": "10:56:21", "event": "lost_priority", "book": "c20_9v", "rule": null, "key": "NIFTY|OPT|2026-11-09|24850|CE", "to": "c20_9y"}
+{"t": 1794201981.0345175, "time": "10:56:21", "event": "lost_priority", "book": "c20_9x", "rule": null, "key": "NIFTY|OPT|2026-11-09|24850|CE", "to": "c20_9y"}
+{"t": 1794201981.0345175, "time": "10:56:21", "event": "lost_priority", "book": "c20_9t", "rule": null, "key": "NIFTY|OPT|2026-11-09|24850|CE", "to": "c20_9y"}
+{"t": 1794201981.0345175, "time": "10:56:21", "event": "owner", "book": "c20_9y", "rule": null, "standing": "low", "key": "NIFTY|OPT|2026-11-09|24850|CE", "why": "COUNCIL EXP brk v=+22"}
+{"t": 1794201983.9002492, "time": "10:56:23", "event": "entry", "book": "c20_9y", "rule": null, "key": "NIFTY|OPT|2026-11-09|24850|CE", "entry": 108.1, "lots": 13, "why": "COUNCIL EXP brk v=+22", "fill_delay_s": 2.87}
+{"t": 1794202085.2122114, "time": "10:58:05", "event": "exit", "book": "c20_9y", "rule": null, "key": "NIFTY|OPT|2026-11-09|24850|CE", "exit": 92.05, "reason": "COUNCIL SL", "pnl_rs": -13562.25, "ret_pct": -14.847, "capital": 77887.0}
+{"t": 1794202085.2122114, "time": "10:58:05", "event": "flat", "why": "flat: no eligible trigger"}
+{"t": 1794202145.241236, "time": "10:59:05", "event": "flat", "why": "flat: no eligible trigger"}
+{"t": 1794202205.2741919, "time": "11:00:05", "event": "flat", "why": "flat: no eligible trigger"}
+{"t": 1794202265.2786872, "time": "11:01:05", "event": "flat", "why": "flat: no eligible trigger"}
+{"t": 1794202325.312424, "time": "11:02:05", "event": "flat", "why": "flat: no eligible trigger"}
+{"t": 1794202385.8130789, "time": "11:03:05", "event": "flat", "why": "flat: no eligible trigger"}
+{"t": 1794202445.8898656, "time": "11:04:05", "event": "flat", "why": "flat: no eligible trigger"}
+{"t": 1794202507.6488886, "time": "11:05:07", "event": "flat", "why": "flat: no eligible trigger"}
+{"t": 1794202567.697628, "time": "11:06:07", "event": "flat", "why": "flat: no eligible trigger"}
+{"t": 1794202627.7754164, "time": "11:07:07", "event": "flat", "why": "flat: no eligible trigger"}
+{"t": 1794202687.9213877, "time": "11:08:07", "event": "flat", "why": "flat: no eligible trigger"}
+{"t": 1794202749.0158463, "time": "11:09:09", "event": "flat", "why": "flat: no eligible trigger"}
+{"t": 1794202809.0775843, "time": "11:10:09", "event": "flat", "why": "flat: no eligible trigger"}
+{"t": 1794202869.8659596, "time": "11:11:09", "event": "flat", "why": "flat: no eligible trigger"}
+{"t": 1794202929.8904407, "time": "11:12:09", "event": "flat", "why": "flat: no eligible trigger"}
+{"t": 1794202991.7471135, "time": "11:13:11", "event": "lost_priority", "book": "c20_9s", "rule": null, "key": "NIFTY|OPT|2026-11-09|24800|CE", "to": "c20_9y"}
+{"t": 1794202991.7471135, "time": "11:13:11", "event": "lost_priority", "book": "c20_9v", "rule": null, "key": "NIFTY|OPT|2026-11-09|24800|CE", "to": "c20_9y"}
+{"t": 1794202991.7471135, "time": "11:13:11", "event": "lost_priority", "book": "c20_9x", "rule": null, "key": "NIFTY|OPT|2026-11-09|24800|CE", "to": "c20_9y"}
+{"t": 1794202991.7471135, "time": "11:13:11", "event": "lost_priority", "book": "c20_9t", "rule": null, "key": "NIFTY|OPT|2026-11-09|24800|CE", "to": "c20_9y"}
+{"t": 1794202991.7471135, "time": "11:13:11", "event": "owner", "book": "c20_9y", "rule": null, "standing": "low", "key": "NIFTY|OPT|2026-11-09|24800|CE", "why": "COUNCIL EXP brk v=+25"}
+{"t": 1794202994.7730587, "time": "11:13:14", "event": "release", "book": "c20_9y", "rule": null, "key": "NIFTY|OPT|2026-11-09|24800|CE", "why": "entry lapsed: no print on 24800 CE within 3 s"}
+{"t": 1794202994.7730587, "time": "11:13:14", "event": "flat", "why": "flat: no eligible trigger"}
+{"t": 1794202995.010113, "time": "11:13:15", "event": "lost_priority", "book": "c20_9s", "rule": null, "key": "NIFTY|OPT|2026-11-09|24800|CE", "to": "c20_9y"}
+{"t": 1794202995.010113, "time": "11:13:15", "event": "lost_priority", "book": "c20_9v", "rule": null, "key": "NIFTY|OPT|2026-11-09|24800|CE", "to": "c20_9y"}
+{"t": 1794202995.010113, "time": "11:13:15", "event": "lost_priority", "book": "c20_9x", "rule": null, "key": "NIFTY|OPT|2026-11-09|24800|CE", "to": "c20_9y"}
+{"t": 1794202995.010113, "time": "11:13:15", "event": "lost_priority", "book": "c20_9t", "rule": null, "key": "NIFTY|OPT|2026-11-09|24800|CE", "to": "c20_9y"}
+{"t": 1794202995.010113, "time": "11:13:15", "event": "owner", "book": "c20_9y", "rule": null, "standing": "low", "key": "NIFTY|OPT|2026-11-09|24800|CE", "why": "COUNCIL EXP brk v=+28"}
+{"t": 1794202998.1844525, "time": "11:13:18", "event": "release", "book": "c20_9y", "rule": null, "key": "NIFTY|OPT|2026-11-09|24800|CE", "why": "entry lapsed: no print on 24800 CE within 3 s"}
+{"t": 1794202998.1844525, "time": "11:13:18", "event": "flat", "why": "flat: no eligible trigger"}
+{"t": 1794202999.099396, "time": "11:13:19", "event": "lost_priority", "book": "c20_9s", "rule": null, "key": "NIFTY|OPT|2026-11-09|24800|CE", "to": "c20_9y"}
+{"t": 1794202999.099396, "time": "11:13:19", "event": "lost_priority", "book": "c20_9v", "rule": null, "key": "NIFTY|OPT|2026-11-09|24800|CE", "to": "c20_9y"}
+{"t": 1794202999.099396, "time": "11:13:19", "event": "lost_priority", "book": "c20_9x", "rule": null, "key": "NIFTY|OPT|2026-11-09|24800|CE", "to": "c20_9y"}
+{"t": 1794202999.099396, "time": "11:13:19", "event": "lost_priority", "book": "c20_9t", "rule": null, "key": "NIFTY|OPT|2026-11-09|24800|CE", "to": "c20_9y"}
+{"t": 1794202999.099396, "time": "11:13:19", "event": "owner", "book": "c20_9y", "rule": null, "standing": "low", "key": "NIFTY|OPT|2026-11-09|24800|CE", "why": "COUNCIL EXP brk v=+29"}
+{"t": 1794203001.6440809, "time": "11:13:21", "event": "entry", "book": "c20_9y", "rule": null, "key": "NIFTY|OPT|2026-11-09|24800|CE", "entry": 114.25, "lots": 10, "why": "COUNCIL EXP brk v=+29", "fill_delay_s": 2.54}
+{"t": 1794203095.0912094, "time": "11:14:55", "event": "occupied", "book": "c20_9t", "rule": null, "key": "NIFTY|OPT|2026-11-09|24850|CE", "by": "c20_9y", "since": "11:13:21"}
+{"t": 1794203207.5370524, "time": "11:16:47", "event": "exit", "book": "c20_9y", "rule": null, "key": "NIFTY|OPT|2026-11-09|24800|CE", "exit": 132.55, "reason": "COUNCIL FWD_TRAIL", "pnl_rs": 11895.0, "ret_pct": 16.018, "capital": 89782.0}
+{"t": 1794203207.5370524, "time": "11:16:47", "event": "flat", "why": "flat: no eligible trigger"}
+{"t": 1794203267.593582, "time": "11:17:47", "event": "flat", "why": "flat: no eligible trigger"}
+{"t": 1794203327.622759, "time": "11:18:47", "event": "flat", "why": "flat: no eligible trigger"}
+{"t": 1794203387.6332004, "time": "11:19:47", "event": "flat", "why": "flat: no eligible trigger"}
+{"t": 1794203447.7722483, "time": "11:20:47", "event": "flat", "why": "flat: no eligible trigger"}
+{"t": 1794203510.3258543, "time": "11:21:50", "event": "flat", "why": "flat: no eligible trigger"}
+{"t": 1794203570.328542, "time": "11:22:50", "event": "flat", "why": "flat: no eligible trigger"}
+{"t": 1794203630.3881466, "time": "11:23:50", "event": "flat", "why": "flat: no eligible trigger"}
+{"t": 1794203690.462827, "time": "11:24:50", "event": "flat", "why": "flat: no eligible trigger"}
+{"t": 1794203750.4828346, "time": "11:25:50", "event": "flat", "why": "flat: no eligible trigger"}
+{"t": 1794203810.5606377, "time": "11:26:50", "event": "flat", "why": "flat: no eligible trigger"}
+{"t": 1794203870.6390524, "time": "11:27:50", "event": "flat", "why": "flat: no eligible trigger"}
+{"t": 1794203932.1488543, "time": "11:28:52", "event": "flat", "why": "flat: no eligible trigger"}
+{"t": 1794203992.1712308, "time": "11:29:52", "event": "flat", "why": "flat: no eligible trigger"}
+{"t": 1794204052.1896465, "time": "11:30:52", "event": "flat", "why": "flat: no eligible trigger"}
+{"t": 1794204112.2337017, "time": "11:31:52", "event": "flat", "why": "flat: no eligible trigger"}
+{"t": 1794204172.321248, "time": "11:32:52", "event": "flat", "why": "flat: no eligible trigger"}
+{"t": 1794204196.3024302, "time": "11:33:16", "event": "lost_priority", "book": "c20_9s", "rule": null, "key": "NIFTY|OPT|2026-11-09|24900|CE", "to": "c20_9y"}
+{"t": 1794204196.3024302, "time": "11:33:16", "event": "lost_priority", "book": "c20_9v", "rule": null, "key": "NIFTY|OPT|2026-11-09|24900|CE", "to": "c20_9y"}
+{"t": 1794204196.3024302, "time": "11:33:16", "event": "lost_priority", "book": "c20_9x", "rule": null, "key": "NIFTY|OPT|2026-11-09|24900|CE", "to": "c20_9y"}
+{"t": 1794204196.3024302, "time": "11:33:16", "event": "lost_priority", "book": "c20_9t", "rule": null, "key": "NIFTY|OPT|2026-11-09|24900|CE", "to": "c20_9y"}
+{"t": 1794204196.3024302, "time": "11:33:16", "event": "owner", "book": "c20_9y", "rule": null, "standing": "low", "key": "NIFTY|OPT|2026-11-09|24900|CE", "why": "COUNCIL EXP brk v=+24"}
+{"t": 1794204198.9697576, "time": "11:33:18", "event": "entry", "book": "c20_9y", "rule": null, "key": "NIFTY|OPT|2026-11-09|24900|CE", "entry": 108.25, "lots": 12, "why": "COUNCIL EXP brk v=+24", "fill_delay_s": 2.67}
+{"t": 1794204509.4780383, "time": "11:38:29", "event": "exit", "book": "c20_9y", "rule": null, "key": "NIFTY|OPT|2026-11-09|24900|CE", "exit": 178.45, "reason": "COUNCIL PREM_TRAIL", "pnl_rs": 54756.0, "ret_pct": 64.85, "capital": 144538.0}
+{"t": 1794204509.4780383, "time": "11:38:29", "event": "flat", "why": "flat: no eligible trigger"}
+{"t": 1794204573.0092225, "time": "11:39:33", "event": "flat", "why": "flat: no eligible trigger"}
+{"t": 1794204633.1077137, "time": "11:40:33", "event": "flat", "why": "flat: no eligible trigger"}
+{"t": 1794204693.1541784, "time": "11:41:33", "event": "flat", "why": "flat: no eligible trigger"}
+{"t": 1794204754.576457, "time": "11:42:34", "event": "flat", "why": "flat: no eligible trigger"}
+{"t": 1794204814.6532416, "time": "11:43:34", "event": "flat", "why": "flat: no eligible trigger"}
+{"t": 1794204855.0938022, "time": "11:44:15", "event": "lost_priority", "book": "c20_9s", "rule": null, "key": "NIFTY|OPT|2026-11-09|25050|PE", "to": "c20_9y"}
+{"t": 1794204855.0938022, "time": "11:44:15", "event": "lost_priority", "book": "c20_9v", "rule": null, "key": "NIFTY|OPT|2026-11-09|25050|PE", "to": "c20_9y"}
+{"t": 1794204855.0938022, "time": "11:44:15", "event": "lost_priority", "book": "c20_9x", "rule": null, "key": "NIFTY|OPT|2026-11-09|25050|PE", "to": "c20_9y"}
+{"t": 1794204855.0938022, "time": "11:44:15", "event": "lost_priority", "book": "c20_9t", "rule": null, "key": "NIFTY|OPT|2026-11-09|25050|PE", "to": "c20_9y"}
+{"t": 1794204855.0938022, "time": "11:44:15", "event": "owner", "book": "c20_9y", "rule": null, "standing": "low", "key": "NIFTY|OPT|2026-11-09|25050|PE", "why": "COUNCIL EXP brk v=-47"}
+{"t": 1794204859.0185182, "time": "11:44:19", "event": "release", "book": "c20_9y", "rule": null, "key": "NIFTY|OPT|2026-11-09|25050|PE", "why": "entry lapsed: no print on 25050 PE within 3 s"}
+{"t": 1794204859.0185182, "time": "11:44:19", "event": "flat", "why": "flat: no eligible trigger"}
+{"t": 1794204862.0530517, "time": "11:44:22", "event": "lost_priority", "book": "c20_9s", "rule": null, "key": "NIFTY|OPT|2026-11-09|25050|PE", "to": "c20_9y"}
+{"t": 1794204862.0530517, "time": "11:44:22", "event": "lost_priority", "book": "c20_9v", "rule": null, "key": "NIFTY|OPT|2026-11-09|25050|PE", "to": "c20_9y"}
+{"t": 1794204862.0530517, "time": "11:44:22", "event": "lost_priority", "book": "c20_9x", "rule": null, "key": "NIFTY|OPT|2026-11-09|25050|PE", "to": "c20_9y"}
+{"t": 1794204862.0530517, "time": "11:44:22", "event": "lost_priority", "book": "c20_9t", "rule": null, "key": "NIFTY|OPT|2026-11-09|25050|PE", "to": "c20_9y"}
+{"t": 1794204862.0530517, "time": "11:44:22", "event": "owner", "book": "c20_9y", "rule": null, "standing": "low", "key": "NIFTY|OPT|2026-11-09|25050|PE", "why": "COUNCIL EXP brk v=-46"}
+{"t": 1794204866.3448966, "time": "11:44:26", "event": "release", "book": "c20_9y", "rule": null, "key": "NIFTY|OPT|2026-11-09|25050|PE", "why": "entry lapsed: no print on 25050 PE within 3 s"}
+{"t": 1794204866.3448966, "time": "11:44:26", "event": "flat", "why": "flat: no eligible trigger"}
+{"t": 1794204868.0842762, "time": "11:44:28", "event": "lost_priority", "book": "c20_9s", "rule": null, "key": "NIFTY|OPT|2026-11-09|25050|PE", "to": "c20_9y"}
+{"t": 1794204868.0842762, "time": "11:44:28", "event": "lost_priority", "book": "c20_9v", "rule": null, "key": "NIFTY|OPT|2026-11-09|25050|PE", "to": "c20_9y"}
+{"t": 1794204868.0842762, "time": "11:44:28", "event": "lost_priority", "book": "c20_9x", "rule": null, "key": "NIFTY|OPT|2026-11-09|25050|PE", "to": "c20_9y"}
+{"t": 1794204868.0842762, "time": "11:44:28", "event": "lost_priority", "book": "c20_9t", "rule": null, "key": "NIFTY|OPT|2026-11-09|25050|PE", "to": "c20_9y"}
+{"t": 1794204868.0842762, "time": "11:44:28", "event": "owner", "book": "c20_9y", "rule": null, "standing": "low", "key": "NIFTY|OPT|2026-11-09|25050|PE", "why": "COUNCIL EXP brk v=-45"}
+{"t": 1794204872.4476388, "time": "11:44:32", "event": "release", "book": "c20_9y", "rule": null, "key": "NIFTY|OPT|2026-11-09|25050|PE", "why": "entry lapsed: no print on 25050 PE within 3 s"}
+{"t": 1794204872.4476388, "time": "11:44:32", "event": "flat", "why": "flat: no eligible trigger"}
+{"t": 1794204873.0410419, "time": "11:44:33", "event": "lost_priority", "book": "c20_9s", "rule": null, "key": "NIFTY|OPT|2026-11-09|25050|PE", "to": "c20_9y"}
+{"t": 1794204873.0410419, "time": "11:44:33", "event": "lost_priority", "book": "c20_9v", "rule": null, "key": "NIFTY|OPT|2026-11-09|25050|PE", "to": "c20_9y"}
+{"t": 1794204873.0410419, "time": "11:44:33", "event": "lost_priority", "book": "c20_9x", "rule": null, "key": "NIFTY|OPT|2026-11-09|25050|PE", "to": "c20_9y"}
+{"t": 1794204873.0410419, "time": "11:44:33", "event": "lost_priority", "book": "c20_9t", "rule": null, "key": "NIFTY|OPT|2026-11-09|25050|PE", "to": "c20_9y"}
+{"t": 1794204873.0410419, "time": "11:44:33", "event": "owner", "book": "c20_9y", "rule": null, "standing": "low", "key": "NIFTY|OPT|2026-11-09|25050|PE", "why": "COUNCIL EXP brk v=-45"}
+{"t": 1794204877.6567805, "time": "11:44:37", "event": "release", "book": "c20_9y", "rule": null, "key": "NIFTY|OPT|2026-11-09|25050|PE", "why": "entry lapsed: no print on 25050 PE within 3 s"}
+{"t": 1794204877.6567805, "time": "11:44:37", "event": "flat", "why": "flat: no eligible trigger"}
+{"t": 1794204878.027564, "time": "11:44:38", "event": "lost_priority", "book": "c20_9s", "rule": null, "key": "NIFTY|OPT|2026-11-09|25050|PE", "to": "c20_9y"}
+{"t": 1794204878.027564, "time": "11:44:38", "event": "lost_priority", "book": "c20_9v", "rule": null, "key": "NIFTY|OPT|2026-11-09|25050|PE", "to": "c20_9y"}
+{"t": 1794204878.027564, "time": "11:44:38", "event": "lost_priority", "book": "c20_9x", "rule": null, "key": "NIFTY|OPT|2026-11-09|25050|PE", "to": "c20_9y"}
+{"t": 1794204878.027564, "time": "11:44:38", "event": "lost_priority", "book": "c20_9t", "rule": null, "key": "NIFTY|OPT|2026-11-09|25050|PE", "to": "c20_9y"}
+{"t": 1794204878.027564, "time": "11:44:38", "event": "owner", "book": "c20_9y", "rule": null, "standing": "low", "key": "NIFTY|OPT|2026-11-09|25050|PE", "why": "COUNCIL EXP brk v=-47"}
+{"t": 1794204882.4448798, "time": "11:44:42", "event": "release", "book": "c20_9y", "rule": null, "key": "NIFTY|OPT|2026-11-09|25050|PE", "why": "entry lapsed: no print on 25050 PE within 3 s"}
+{"t": 1794204882.4448798, "time": "11:44:42", "event": "flat", "why": "flat: no eligible trigger"}
+{"t": 1794204942.4836164, "time": "11:45:42", "event": "flat", "why": "flat: no eligible trigger"}
+{"t": 1794205002.5017943, "time": "11:46:42", "event": "flat", "why": "flat: no eligible trigger"}
+{"t": 1794205065.851239, "time": "11:47:45", "event": "flat", "why": "flat: no eligible trigger"}
+{"t": 1794205125.893774, "time": "11:48:45", "event": "flat", "why": "flat: no eligible trigger"}
+{"t": 1794205186.2658021, "time": "11:49:46", "event": "flat", "why": "flat: no eligible trigger"}
+{"t": 1794205246.3631678, "time": "11:50:46", "event": "flat", "why": "flat: no eligible trigger"}
+{"t": 1794205285.0600998, "time": "11:51:25", "event": "lost_priority", "book": "c20_9s", "rule": null, "key": "NIFTY|OPT|2026-11-09|25050|PE", "to": "c20_9y"}
+{"t": 1794205285.0600998, "time": "11:51:25", "event": "lost_priority", "book": "c20_9v", "rule": null, "key": "NIFTY|OPT|2026-11-09|25050|PE", "to": "c20_9y"}
+{"t": 1794205285.0600998, "time": "11:51:25", "event": "lost_priority", "book": "c20_9x", "rule": null, "key": "NIFTY|OPT|2026-11-09|25050|PE", "to": "c20_9y"}
+{"t": 1794205285.0600998, "time": "11:51:25", "event": "lost_priority", "book": "c20_9t", "rule": null, "key": "NIFTY|OPT|2026-11-09|25050|PE", "to": "c20_9y"}
+{"t": 1794205285.0600998, "time": "11:51:25", "event": "owner", "book": "c20_9y", "rule": null, "standing": "low", "key": "NIFTY|OPT|2026-11-09|25050|PE", "why": "COUNCIL EXP brk v=-24"}
+{"t": 1794205288.039746, "time": "11:51:28", "event": "entry", "book": "c20_9y", "rule": null, "key": "NIFTY|OPT|2026-11-09|25050|PE", "entry": 116.9, "lots": 19, "why": "COUNCIL EXP brk v=-24", "fill_delay_s": 2.98}
+{"t": 1794205409.167812, "time": "11:53:29", "event": "exit", "book": "c20_9y", "rule": null, "key": "NIFTY|OPT|2026-11-09|25050|PE", "exit": 105.4, "reason": "COUNCIL FWD_TRAIL", "pnl_rs": -14202.5, "ret_pct": -9.837, "capital": 130335.5}
+{"t": 1794205409.167812, "time": "11:53:29", "event": "flat", "why": "flat: no eligible trigger"}
+{"t": 1794205469.2684336, "time": "11:54:29", "event": "flat", "why": "flat: no eligible trigger"}
+{"t": 1794205531.1917214, "time": "11:55:31", "event": "flat", "why": "flat: no eligible trigger"}
+{"t": 1794205567.0858498, "time": "11:56:07", "event": "lost_priority", "book": "c20_9s", "rule": null, "key": "NIFTY|OPT|2026-11-09|25050|PE", "to": "c20_9y"}
+{"t": 1794205567.0858498, "time": "11:56:07", "event": "lost_priority", "book": "c20_9v", "rule": null, "key": "NIFTY|OPT|2026-11-09|25050|PE", "to": "c20_9y"}
+{"t": 1794205567.0858498, "time": "11:56:07", "event": "lost_priority", "book": "c20_9x", "rule": null, "key": "NIFTY|OPT|2026-11-09|25050|PE", "to": "c20_9y"}
+{"t": 1794205567.0858498, "time": "11:56:07", "event": "lost_priority", "book": "c20_9t", "rule": null, "key": "NIFTY|OPT|2026-11-09|25050|PE", "to": "c20_9y"}
+{"t": 1794205567.0858498, "time": "11:56:07", "event": "owner", "book": "c20_9y", "rule": null, "standing": "low", "key": "NIFTY|OPT|2026-11-09|25050|PE", "why": "COUNCIL EXP brk v=-26"}
+{"t": 1794205571.0583029, "time": "11:56:11", "event": "release", "book": "c20_9y", "rule": null, "key": "NIFTY|OPT|2026-11-09|25050|PE", "why": "entry lapsed: no print on 25050 PE within 3 s"}
+{"t": 1794205571.0583029, "time": "11:56:11", "event": "flat", "why": "flat: no eligible trigger"}
+{"t": 1794205572.038766, "time": "11:56:12", "event": "lost_priority", "book": "c20_9s", "rule": null, "key": "NIFTY|OPT|2026-11-09|25050|PE", "to": "c20_9y"}
+{"t": 1794205572.038766, "time": "11:56:12", "event": "lost_priority", "book": "c20_9v", "rule": null, "key": "NIFTY|OPT|2026-11-09|25050|PE", "to": "c20_9y"}
+{"t": 1794205572.038766, "time": "11:56:12", "event": "lost_priority", "book": "c20_9x", "rule": null, "key": "NIFTY|OPT|2026-11-09|25050|PE", "to": "c20_9y"}
+{"t": 1794205572.038766, "time": "11:56:12", "event": "lost_priority", "book": "c20_9t", "rule": null, "key": "NIFTY|OPT|2026-11-09|25050|PE", "to": "c20_9y"}
+{"t": 1794205572.038766, "time": "11:56:12", "event": "owner", "book": "c20_9y", "rule": null, "standing": "low", "key": "NIFTY|OPT|2026-11-09|25050|PE", "why": "COUNCIL EXP brk v=-32"}
+{"t": 1794205576.3318262, "time": "11:56:16", "event": "release", "book": "c20_9y", "rule": null, "key": "NIFTY|OPT|2026-11-09|25050|PE", "why": "entry lapsed: no print on 25050 PE within 3 s"}
+{"t": 1794205576.3318262, "time": "11:56:16", "event": "flat", "why": "flat: no eligible trigger"}
+{"t": 1794205635.0886455, "time": "11:57:15", "event": "lost_priority", "book": "c20_9s", "rule": null, "key": "NIFTY|OPT|2026-11-09|25050|PE", "to": "c20_9y"}
+{"t": 1794205635.0886455, "time": "11:57:15", "event": "lost_priority", "book": "c20_9v", "rule": null, "key": "NIFTY|OPT|2026-11-09|25050|PE", "to": "c20_9y"}
+{"t": 1794205635.0886455, "time": "11:57:15", "event": "lost_priority", "book": "c20_9x", "rule": null, "key": "NIFTY|OPT|2026-11-09|25050|PE", "to": "c20_9y"}
+{"t": 1794205635.0886455, "time": "11:57:15", "event": "lost_priority", "book": "c20_9t", "rule": null, "key": "NIFTY|OPT|2026-11-09|25050|PE", "to": "c20_9y"}
+{"t": 1794205635.0886455, "time": "11:57:15", "event": "owner", "book": "c20_9y", "rule": null, "standing": "low", "key": "NIFTY|OPT|2026-11-09|25050|PE", "why": "COUNCIL EXP brk v=-22"}
+{"t": 1794205637.8142612, "time": "11:57:17", "event": "entry", "book": "c20_9y", "rule": null, "key": "NIFTY|OPT|2026-11-09|25050|PE", "entry": 120.7, "lots": 16, "why": "COUNCIL EXP brk v=-22", "fill_delay_s": 2.73}
+{"t": 1794205877.6270015, "time": "12:01:17", "event": "occupied", "book": "c20_9t", "rule": null, "key": "NIFTY|OPT|2026-11-09|25000|PE", "by": "c20_9y", "since": "11:57:17"}
+{"t": 1794205925.918087, "time": "12:02:05", "event": "occupied", "book": "c20_9t", "rule": null, "key": "NIFTY|OPT|2026-11-09|25000|PE", "by": "c20_9y", "since": "11:57:17"}
+{"t": 1794206108.5499282, "time": "12:05:08", "event": "exit", "book": "c20_9y", "rule": null, "key": "NIFTY|OPT|2026-11-09|25050|PE", "exit": 148.9, "reason": "COUNCIL FWD_TRAIL", "pnl_rs": 29328.0, "ret_pct": 23.364, "capital": 159663.5}
+{"t": 1794206108.5499282, "time": "12:05:08", "event": "flat", "why": "flat: no eligible trigger"}
+{"t": 1794206173.02402, "time": "12:06:13", "event": "flat", "why": "flat: no eligible trigger"}
+{"t": 1794206233.0726788, "time": "12:07:13", "event": "flat", "why": "flat: no eligible trigger"}
+{"t": 1794206293.2096653, "time": "12:08:13", "event": "flat", "why": "flat: no eligible trigger"}
+{"t": 1794206353.3151202, "time": "12:09:13", "event": "flat", "why": "flat: no eligible trigger"}
+{"t": 1794206413.3156333, "time": "12:10:13", "event": "flat", "why": "flat: no eligible trigger"}
+{"t": 1794206476.1435194, "time": "12:11:16", "event": "flat", "why": "flat: no eligible trigger"}
+{"t": 1794206536.5149, "time": "12:12:16", "event": "flat", "why": "flat: no eligible trigger"}
+{"t": 1794206596.566599, "time": "12:13:16", "event": "flat", "why": "flat: no eligible trigger"}
+{"t": 1794206656.6196065, "time": "12:14:16", "event": "flat", "why": "flat: no eligible trigger"}
+{"t": 1794206716.8442507, "time": "12:15:16", "event": "flat", "why": "flat: no eligible trigger"}
+{"t": 1794206776.849709, "time": "12:16:16", "event": "flat", "why": "flat: no eligible trigger"}
+{"t": 1794206795.9135995, "time": "12:16:35", "event": "lost_priority", "book": "c20_9s", "rule": null, "key": "NIFTY|OPT|2026-11-09|25000|PE", "to": "c20_9y"}
+{"t": 1794206795.9135995, "time": "12:16:35", "event": "lost_priority", "book": "c20_9v", "rule": null, "key": "NIFTY|OPT|2026-11-09|25000|PE", "to": "c20_9y"}
+{"t": 1794206795.9135995, "time": "12:16:35", "event": "lost_priority", "book": "c20_9x", "rule": null, "key": "NIFTY|OPT|2026-11-09|25000|PE", "to": "c20_9y"}
+{"t": 1794206795.9135995, "time": "12:16:35", "event": "lost_priority", "book": "c20_9t", "rule": null, "key": "NIFTY|OPT|2026-11-09|25000|PE", "to": "c20_9y"}
+{"t": 1794206795.9135995, "time": "12:16:35", "event": "owner", "book": "c20_9y", "rule": null, "standing": "low", "key": "NIFTY|OPT|2026-11-09|25000|PE", "why": "COUNCIL EXP brk v=-30"}
+{"t": 1794206803.0151422, "time": "12:16:43", "event": "release", "book": "c20_9y", "rule": null, "key": "NIFTY|OPT|2026-11-09|25000|PE", "why": "entry lapsed: no print on 25000 PE within 3 s"}
+{"t": 1794206803.0151422, "time": "12:16:43", "event": "flat", "why": "flat: no eligible trigger"}
+{"t": 1794206804.033406, "time": "12:16:44", "event": "lost_priority", "book": "c20_9s", "rule": null, "key": "NIFTY|OPT|2026-11-09|25000|PE", "to": "c20_9y"}
+{"t": 1794206804.033406, "time": "12:16:44", "event": "lost_priority", "book": "c20_9v", "rule": null, "key": "NIFTY|OPT|2026-11-09|25000|PE", "to": "c20_9y"}
+{"t": 1794206804.033406, "time": "12:16:44", "event": "lost_priority", "book": "c20_9x", "rule": null, "key": "NIFTY|OPT|2026-11-09|25000|PE", "to": "c20_9y"}
+{"t": 1794206804.033406, "time": "12:16:44", "event": "lost_priority", "book": "c20_9t", "rule": null, "key": "NIFTY|OPT|2026-11-09|25000|PE", "to": "c20_9y"}
+{"t": 1794206804.033406, "time": "12:16:44", "event": "owner", "book": "c20_9y", "rule": null, "standing": "low", "key": "NIFTY|OPT|2026-11-09|25000|PE", "why": "COUNCIL EXP brk v=-32"}
+{"t": 1794206811.4109674, "time": "12:16:51", "event": "release", "book": "c20_9y", "rule": null, "key": "NIFTY|OPT|2026-11-09|25000|PE", "why": "entry lapsed: no print on 25000 PE within 3 s"}
+{"t": 1794206811.4109674, "time": "12:16:51", "event": "flat", "why": "flat: no eligible trigger"}
+{"t": 1794206871.4235296, "time": "12:17:51", "event": "flat", "why": "flat: no eligible trigger"}
+{"t": 1794206931.643835, "time": "12:18:51", "event": "flat", "why": "flat: no eligible trigger"}
+{"t": 1794206992.2077255, "time": "12:19:52", "event": "flat", "why": "flat: no eligible trigger"}
+{"t": 1794207052.2601564, "time": "12:20:52", "event": "flat", "why": "flat: no eligible trigger"}
+{"t": 1794207118.2992444, "time": "12:21:58", "event": "flat", "why": "flat: no eligible trigger"}
+{"t": 1794207178.5054245, "time": "12:22:58", "event": "flat", "why": "flat: no eligible trigger"}
+{"t": 1794207238.5925217, "time": "12:23:58", "event": "flat", "why": "flat: no eligible trigger"}
+{"t": 1794207298.6145267, "time": "12:24:58", "event": "flat", "why": "flat: no eligible trigger"}
+{"t": 1794207359.7544045, "time": "12:25:59", "event": "flat", "why": "flat: no eligible trigger"}
+{"t": 1794207419.9726892, "time": "12:26:59", "event": "flat", "why": "flat: no eligible trigger"}
+{"t": 1794207480.047866, "time": "12:28:00", "event": "flat", "why": "flat: no eligible trigger"}
+{"t": 1794207540.0997143, "time": "12:29:00", "event": "flat", "why": "flat: no eligible trigger"}
+{"t": 1794207600.2433531, "time": "12:30:00", "event": "flat", "why": "flat: no eligible trigger"}
+{"t": 1794207660.3237736, "time": "12:31:00", "event": "flat", "why": "flat: no eligible trigger"}
+{"t": 1794207726.7826436, "time": "12:32:06", "event": "flat", "why": "flat: no eligible trigger"}
+{"t": 1794207786.8351564, "time": "12:33:06", "event": "flat", "why": "flat: no eligible trigger"}
+{"t": 1794207849.9160266, "time": "12:34:09", "event": "flat", "why": "flat: no eligible trigger"}
+{"t": 1794207909.9651322, "time": "12:35:09", "event": "flat", "why": "flat: no eligible trigger"}
+{"t": 1794207917.3428822, "time": "12:35:17", "event": "flat", "why": "flat: data blackout"}
+{"t": 1794207945.382605, "time": "12:35:45", "event": "flat", "why": "flat: no eligible trigger"}
+{"t": 1794207997.6843975, "time": "12:36:37", "event": "flat", "why": "flat: data blackout"}
+{"t": 1794208018.6745346, "time": "12:36:58", "event": "flat", "why": "flat: no eligible trigger"}
+{"t": 1794208078.6934602, "time": "12:37:58", "event": "flat", "why": "flat: no eligible trigger"}
+{"t": 1794208138.702566, "time": "12:38:58", "event": "flat", "why": "flat: no eligible trigger"}
+{"t": 1794208204.1553543, "time": "12:40:04", "event": "flat", "why": "flat: no eligible trigger"}
+{"t": 1794208264.265675, "time": "12:41:04", "event": "flat", "why": "flat: no eligible trigger"}
+{"t": 1794208325.4661493, "time": "12:42:05", "event": "flat", "why": "flat: no eligible trigger"}
+{"t": 1794208385.945211, "time": "12:43:05", "event": "flat", "why": "flat: no eligible trigger"}
+{"t": 1794208446.0059283, "time": "12:44:06", "event": "flat", "why": "flat: no eligible trigger"}
+{"t": 1794208506.027481, "time": "12:45:06", "event": "flat", "why": "flat: no eligible trigger"}
+{"t": 1794208566.2149608, "time": "12:46:06", "event": "flat", "why": "flat: no eligible trigger"}
+{"t": 1794208626.3708224, "time": "12:47:06", "event": "flat", "why": "flat: no eligible trigger"}
+{"t": 1794208686.4167929, "time": "12:48:06", "event": "flat", "why": "flat: no eligible trigger"}
+{"t": 1794208746.468315, "time": "12:49:06", "event": "flat", "why": "flat: no eligible trigger"}
+{"t": 1794208806.651697, "time": "12:50:06", "event": "flat", "why": "flat: no eligible trigger"}
+{"t": 1794208872.5835056, "time": "12:51:12", "event": "flat", "why": "flat: no eligible trigger"}
+{"t": 1794208932.6250706, "time": "12:52:12", "event": "flat", "why": "flat: no eligible trigger"}
+{"t": 1794208992.6592221, "time": "12:53:12", "event": "flat", "why": "flat: no eligible trigger"}
+{"t": 1794209052.7559223, "time": "12:54:12", "event": "flat", "why": "flat: no eligible trigger"}
+{"t": 1794209112.999395, "time": "12:55:12", "event": "flat", "why": "flat: no eligible trigger"}
+{"t": 1794209178.553055, "time": "12:56:18", "event": "flat", "why": "flat: no eligible trigger"}
+{"t": 1794209238.609389, "time": "12:57:18", "event": "flat", "why": "flat: no eligible trigger"}
+{"t": 1794209298.6895273, "time": "12:58:18", "event": "flat", "why": "flat: no eligible trigger"}
+{"t": 1794209358.8036222, "time": "12:59:18", "event": "flat", "why": "flat: no eligible trigger"}
+{"t": 1794209418.9850357, "time": "13:00:18", "event": "flat", "why": "flat: no eligible trigger"}
+{"t": 1794209479.0040135, "time": "13:01:19", "event": "flat", "why": "flat: no eligible trigger"}
+{"t": 1794209531.1682627, "time": "13:02:11", "event": "lost_priority", "book": "c20_9s", "rule": null, "key": "NIFTY|OPT|2026-11-09|24900|CE", "to": "c20_9y"}
+{"t": 1794209531.1682627, "time": "13:02:11", "event": "lost_priority", "book": "c20_9v", "rule": null, "key": "NIFTY|OPT|2026-11-09|24900|CE", "to": "c20_9y"}
+{"t": 1794209531.1682627, "time": "13:02:11", "event": "lost_priority", "book": "c20_9x", "rule": null, "key": "NIFTY|OPT|2026-11-09|24900|CE", "to": "c20_9y"}
+{"t": 1794209531.1682627, "time": "13:02:11", "event": "lost_priority", "book": "c20_9t", "rule": null, "key": "NIFTY|OPT|2026-11-09|24900|CE", "to": "c20_9y"}
+{"t": 1794209531.1682627, "time": "13:02:11", "event": "owner", "book": "c20_9y", "rule": null, "standing": "low", "key": "NIFTY|OPT|2026-11-09|24900|CE", "why": "COUNCIL EXP brk v=+28"}
+{"t": 1794209538.282394, "time": "13:02:18", "event": "release", "book": "c20_9y", "rule": null, "key": "NIFTY|OPT|2026-11-09|24900|CE", "why": "entry lapsed: no print on 24900 CE within 3 s"}
+{"t": 1794209538.282394, "time": "13:02:18", "event": "flat", "why": "flat: no eligible trigger"}
+{"t": 1794209598.3295658, "time": "13:03:18", "event": "flat", "why": "flat: no eligible trigger"}
+{"t": 1794209658.4166813, "time": "13:04:18", "event": "flat", "why": "flat: no eligible trigger"}
+{"t": 1794209718.4200847, "time": "13:05:18", "event": "flat", "why": "flat: no eligible trigger"}
+{"t": 1794209778.4741402, "time": "13:06:18", "event": "flat", "why": "flat: no eligible trigger"}
+{"t": 1794209838.535739, "time": "13:07:18", "event": "flat", "why": "flat: no eligible trigger"}
+{"t": 1794209902.9918234, "time": "13:08:22", "event": "flat", "why": "flat: no eligible trigger"}
+{"t": 1794209963.0389273, "time": "13:09:23", "event": "flat", "why": "flat: no eligible trigger"}
+{"t": 1794210023.0936503, "time": "13:10:23", "event": "flat", "why": "flat: no eligible trigger"}
+{"t": 1794210083.1018589, "time": "13:11:23", "event": "flat", "why": "flat: no eligible trigger"}
+{"t": 1794210093.5501897, "time": "13:11:33", "event": "lost_priority", "book": "c20_9s", "rule": null, "key": "NIFTY|OPT|2026-11-09|25000|PE", "to": "c20_9y"}
+{"t": 1794210093.5501897, "time": "13:11:33", "event": "lost_priority", "book": "c20_9v", "rule": null, "key": "NIFTY|OPT|2026-11-09|25000|PE", "to": "c20_9y"}
+{"t": 1794210093.5501897, "time": "13:11:33", "event": "lost_priority", "book": "c20_9x", "rule": null, "key": "NIFTY|OPT|2026-11-09|25000|PE", "to": "c20_9y"}
+{"t": 1794210093.5501897, "time": "13:11:33", "event": "lost_priority", "book": "c20_9t", "rule": null, "key": "NIFTY|OPT|2026-11-09|25000|PE", "to": "c20_9y"}
+{"t": 1794210093.5501897, "time": "13:11:33", "event": "owner", "book": "c20_9y", "rule": null, "standing": "low", "key": "NIFTY|OPT|2026-11-09|25000|PE", "why": "COUNCIL EXP brk v=-26"}
+{"t": 1794210099.2558043, "time": "13:11:39", "event": "release", "book": "c20_9y", "rule": null, "key": "NIFTY|OPT|2026-11-09|25000|PE", "why": "entry lapsed: no print on 25000 PE within 3 s"}
+{"t": 1794210099.2558043, "time": "13:11:39", "event": "flat", "why": "flat: no eligible trigger"}
+{"t": 1794210112.4983623, "time": "13:11:52", "event": "lost_priority", "book": "c20_9s", "rule": null, "key": "NIFTY|OPT|2026-11-09|25000|PE", "to": "c20_9y"}
+{"t": 1794210112.4983623, "time": "13:11:52", "event": "lost_priority", "book": "c20_9v", "rule": null, "key": "NIFTY|OPT|2026-11-09|25000|PE", "to": "c20_9y"}
+{"t": 1794210112.4983623, "time": "13:11:52", "event": "lost_priority", "book": "c20_9x", "rule": null, "key": "NIFTY|OPT|2026-11-09|25000|PE", "to": "c20_9y"}
+{"t": 1794210112.4983623, "time": "13:11:52", "event": "lost_priority", "book": "c20_9t", "rule": null, "key": "NIFTY|OPT|2026-11-09|25000|PE", "to": "c20_9y"}
+{"t": 1794210112.4983623, "time": "13:11:52", "event": "owner", "book": "c20_9y", "rule": null, "standing": "low", "key": "NIFTY|OPT|2026-11-09|25000|PE", "why": "COUNCIL EXP brk v=-25"}
+{"t": 1794210118.8047764, "time": "13:11:58", "event": "release", "book": "c20_9y", "rule": null, "key": "NIFTY|OPT|2026-11-09|25000|PE", "why": "entry lapsed: no print on 25000 PE within 3 s"}
+{"t": 1794210118.8047764, "time": "13:11:58", "event": "flat", "why": "flat: no eligible trigger"}
+{"t": 1794210131.5220513, "time": "13:12:11", "event": "lost_priority", "book": "c20_9s", "rule": null, "key": "NIFTY|OPT|2026-11-09|25000|PE", "to": "c20_9y"}
+{"t": 1794210131.5220513, "time": "13:12:11", "event": "lost_priority", "book": "c20_9v", "rule": null, "key": "NIFTY|OPT|2026-11-09|25000|PE", "to": "c20_9y"}
+{"t": 1794210131.5220513, "time": "13:12:11", "event": "lost_priority", "book": "c20_9x", "rule": null, "key": "NIFTY|OPT|2026-11-09|25000|PE", "to": "c20_9y"}
+{"t": 1794210131.5220513, "time": "13:12:11", "event": "lost_priority", "book": "c20_9t", "rule": null, "key": "NIFTY|OPT|2026-11-09|25000|PE", "to": "c20_9y"}
+{"t": 1794210131.5220513, "time": "13:12:11", "event": "owner", "book": "c20_9y", "rule": null, "standing": "low", "key": "NIFTY|OPT|2026-11-09|25000|PE", "why": "COUNCIL EXP brk v=-31"}
+{"t": 1794210137.6292758, "time": "13:12:17", "event": "release", "book": "c20_9y", "rule": null, "key": "NIFTY|OPT|2026-11-09|25000|PE", "why": "entry lapsed: no print on 25000 PE within 3 s"}
+{"t": 1794210137.6292758, "time": "13:12:17", "event": "flat", "why": "flat: no eligible trigger"}
+{"t": 1794210138.0700324, "time": "13:12:18", "event": "lost_priority", "book": "c20_9s", "rule": null, "key": "NIFTY|OPT|2026-11-09|25000|PE", "to": "c20_9y"}
+{"t": 1794210138.0700324, "time": "13:12:18", "event": "lost_priority", "book": "c20_9v", "rule": null, "key": "NIFTY|OPT|2026-11-09|25000|PE", "to": "c20_9y"}
+{"t": 1794210138.0700324, "time": "13:12:18", "event": "lost_priority", "book": "c20_9x", "rule": null, "key": "NIFTY|OPT|2026-11-09|25000|PE", "to": "c20_9y"}
+{"t": 1794210138.0700324, "time": "13:12:18", "event": "lost_priority", "book": "c20_9t", "rule": null, "key": "NIFTY|OPT|2026-11-09|25000|PE", "to": "c20_9y"}
+{"t": 1794210138.0700324, "time": "13:12:18", "event": "owner", "book": "c20_9y", "rule": null, "standing": "low", "key": "NIFTY|OPT|2026-11-09|25000|PE", "why": "COUNCIL EXP brk v=-31"}
+{"t": 1794210144.2816448, "time": "13:12:24", "event": "release", "book": "c20_9y", "rule": null, "key": "NIFTY|OPT|2026-11-09|25000|PE", "why": "entry lapsed: no print on 25000 PE within 3 s"}
+{"t": 1794210144.2816448, "time": "13:12:24", "event": "flat", "why": "flat: no eligible trigger"}
+{"t": 1794210174.0351026, "time": "13:12:54", "event": "lost_priority", "book": "c20_9s", "rule": null, "key": "NIFTY|OPT|2026-11-09|25000|PE", "to": "c20_9y"}
+{"t": 1794210174.0351026, "time": "13:12:54", "event": "lost_priority", "book": "c20_9v", "rule": null, "key": "NIFTY|OPT|2026-11-09|25000|PE", "to": "c20_9y"}
+{"t": 1794210174.0351026, "time": "13:12:54", "event": "lost_priority", "book": "c20_9x", "rule": null, "key": "NIFTY|OPT|2026-11-09|25000|PE", "to": "c20_9y"}
+{"t": 1794210174.0351026, "time": "13:12:54", "event": "lost_priority", "book": "c20_9t", "rule": null, "key": "NIFTY|OPT|2026-11-09|25000|PE", "to": "c20_9y"}
+{"t": 1794210174.0351026, "time": "13:12:54", "event": "owner", "book": "c20_9y", "rule": null, "standing": "low", "key": "NIFTY|OPT|2026-11-09|25000|PE", "why": "COUNCIL EXP brk v=-28"}
+{"t": 1794210180.172573, "time": "13:13:00", "event": "release", "book": "c20_9y", "rule": null, "key": "NIFTY|OPT|2026-11-09|25000|PE", "why": "entry lapsed: no print on 25000 PE within 3 s"}
+{"t": 1794210180.172573, "time": "13:13:00", "event": "flat", "why": "flat: no eligible trigger"}
+{"t": 1794210200.0834322, "time": "13:13:20", "event": "lost_priority", "book": "c20_9s", "rule": null, "key": "NIFTY|OPT|2026-11-09|24950|PE", "to": "c20_9y"}
+{"t": 1794210200.0834322, "time": "13:13:20", "event": "lost_priority", "book": "c20_9v", "rule": null, "key": "NIFTY|OPT|2026-11-09|24950|PE", "to": "c20_9y"}
+{"t": 1794210200.0834322, "time": "13:13:20", "event": "lost_priority", "book": "c20_9x", "rule": null, "key": "NIFTY|OPT|2026-11-09|24950|PE", "to": "c20_9y"}
+{"t": 1794210200.0834322, "time": "13:13:20", "event": "lost_priority", "book": "c20_9t", "rule": null, "key": "NIFTY|OPT|2026-11-09|24950|PE", "to": "c20_9y"}
+{"t": 1794210200.0834322, "time": "13:13:20", "event": "owner", "book": "c20_9y", "rule": null, "standing": "low", "key": "NIFTY|OPT|2026-11-09|24950|PE", "why": "COUNCIL EXP brk v=-21"}
+{"t": 1794210206.182865, "time": "13:13:26", "event": "release", "book": "c20_9y", "rule": null, "key": "NIFTY|OPT|2026-11-09|24950|PE", "why": "entry lapsed: no print on 24950 PE within 3 s"}
+{"t": 1794210206.182865, "time": "13:13:26", "event": "flat", "why": "flat: no eligible trigger"}
+{"t": 1794210266.2135017, "time": "13:14:26", "event": "flat", "why": "flat: no eligible trigger"}
+{"t": 1794210306.0012984, "time": "13:15:06", "event": "lost_priority", "book": "c20_9s", "rule": null, "key": "NIFTY|OPT|2026-11-09|24950|PE", "to": "c20_9y"}
+{"t": 1794210306.0012984, "time": "13:15:06", "event": "lost_priority", "book": "c20_9v", "rule": null, "key": "NIFTY|OPT|2026-11-09|24950|PE", "to": "c20_9y"}
+{"t": 1794210306.0012984, "time": "13:15:06", "event": "lost_priority", "book": "c20_9x", "rule": null, "key": "NIFTY|OPT|2026-11-09|24950|PE", "to": "c20_9y"}
+{"t": 1794210306.0012984, "time": "13:15:06", "event": "lost_priority", "book": "c20_9t", "rule": null, "key": "NIFTY|OPT|2026-11-09|24950|PE", "to": "c20_9y"}
+{"t": 1794210306.0012984, "time": "13:15:06", "event": "owner", "book": "c20_9y", "rule": null, "standing": "low", "key": "NIFTY|OPT|2026-11-09|24950|PE", "why": "COUNCIL EXP brk v=-20"}
+{"t": 1794210311.9220877, "time": "13:15:11", "event": "release", "book": "c20_9y", "rule": null, "key": "NIFTY|OPT|2026-11-09|24950|PE", "why": "entry lapsed: no print on 24950 PE within 3 s"}
+{"t": 1794210311.9220877, "time": "13:15:11", "event": "flat", "why": "flat: no eligible trigger"}
+{"t": 1794210316.822165, "time": "13:15:16", "event": "lost_priority", "book": "c20_9s", "rule": null, "key": "NIFTY|OPT|2026-11-09|24950|PE", "to": "c20_9y"}
+{"t": 1794210316.822165, "time": "13:15:16", "event": "lost_priority", "book": "c20_9v", "rule": null, "key": "NIFTY|OPT|2026-11-09|24950|PE", "to": "c20_9y"}
+{"t": 1794210316.822165, "time": "13:15:16", "event": "lost_priority", "book": "c20_9x", "rule": null, "key": "NIFTY|OPT|2026-11-09|24950|PE", "to": "c20_9y"}
+{"t": 1794210316.822165, "time": "13:15:16", "event": "lost_priority", "book": "c20_9t", "rule": null, "key": "NIFTY|OPT|2026-11-09|24950|PE", "to": "c20_9y"}
+{"t": 1794210316.822165, "time": "13:15:16", "event": "owner", "book": "c20_9y", "rule": null, "standing": "low", "key": "NIFTY|OPT|2026-11-09|24950|PE", "why": "COUNCIL EXP brk v=-23"}
+{"t": 1794210322.8066974, "time": "13:15:22", "event": "release", "book": "c20_9y", "rule": null, "key": "NIFTY|OPT|2026-11-09|24950|PE", "why": "entry lapsed: no print on 24950 PE within 3 s"}
+{"t": 1794210322.8066974, "time": "13:15:22", "event": "flat", "why": "flat: no eligible trigger"}
+{"t": 1794210368.0593665, "time": "13:16:08", "event": "lost_priority", "book": "c20_9s", "rule": null, "key": "NIFTY|OPT|2026-11-09|24950|PE", "to": "c20_9y"}
+{"t": 1794210368.0593665, "time": "13:16:08", "event": "lost_priority", "book": "c20_9v", "rule": null, "key": "NIFTY|OPT|2026-11-09|24950|PE", "to": "c20_9y"}
+{"t": 1794210368.0593665, "time": "13:16:08", "event": "lost_priority", "book": "c20_9x", "rule": null, "key": "NIFTY|OPT|2026-11-09|24950|PE", "to": "c20_9y"}
+{"t": 1794210368.0593665, "time": "13:16:08", "event": "lost_priority", "book": "c20_9t", "rule": null, "key": "NIFTY|OPT|2026-11-09|24950|PE", "to": "c20_9y"}
+{"t": 1794210368.0593665, "time": "13:16:08", "event": "owner", "book": "c20_9y", "rule": null, "standing": "low", "key": "NIFTY|OPT|2026-11-09|24950|PE", "why": "COUNCIL EXP brk v=-24"}
+{"t": 1794210373.722789, "time": "13:16:13", "event": "release", "book": "c20_9y", "rule": null, "key": "NIFTY|OPT|2026-11-09|24950|PE", "why": "entry lapsed: no print on 24950 PE within 3 s"}
+{"t": 1794210373.722789, "time": "13:16:13", "event": "flat", "why": "flat: no eligible trigger"}
+{"t": 1794210379.2033303, "time": "13:16:19", "event": "lost_priority", "book": "c20_9s", "rule": null, "key": "NIFTY|OPT|2026-11-09|24950|PE", "to": "c20_9y"}
+{"t": 1794210379.2033303, "time": "13:16:19", "event": "lost_priority", "book": "c20_9v", "rule": null, "key": "NIFTY|OPT|2026-11-09|24950|PE", "to": "c20_9y"}
+{"t": 1794210379.2033303, "time": "13:16:19", "event": "lost_priority", "book": "c20_9x", "rule": null, "key": "NIFTY|OPT|2026-11-09|24950|PE", "to": "c20_9y"}
+{"t": 1794210379.2033303, "time": "13:16:19", "event": "lost_priority", "book": "c20_9t", "rule": null, "key": "NIFTY|OPT|2026-11-09|24950|PE", "to": "c20_9y"}
+{"t": 1794210379.2033303, "time": "13:16:19", "event": "owner", "book": "c20_9y", "rule": null, "standing": "low", "key": "NIFTY|OPT|2026-11-09|24950|PE", "why": "COUNCIL EXP brk v=-38"}
+{"t": 1794210385.0316265, "time": "13:16:25", "event": "release", "book": "c20_9y", "rule": null, "key": "NIFTY|OPT|2026-11-09|24950|PE", "why": "entry lapsed: no print on 24950 PE within 3 s"}
+{"t": 1794210385.0316265, "time": "13:16:25", "event": "flat", "why": "flat: no eligible trigger"}
+{"t": 1794210388.0754879, "time": "13:16:28", "event": "lost_priority", "book": "c20_9s", "rule": null, "key": "NIFTY|OPT|2026-11-09|24950|PE", "to": "c20_9y"}
+{"t": 1794210388.0754879, "time": "13:16:28", "event": "lost_priority", "book": "c20_9v", "rule": null, "key": "NIFTY|OPT|2026-11-09|24950|PE", "to": "c20_9y"}
+{"t": 1794210388.0754879, "time": "13:16:28", "event": "lost_priority", "book": "c20_9x", "rule": null, "key": "NIFTY|OPT|2026-11-09|24950|PE", "to": "c20_9y"}
+{"t": 1794210388.0754879, "time": "13:16:28", "event": "lost_priority", "book": "c20_9t", "rule": null, "key": "NIFTY|OPT|2026-11-09|24950|PE", "to": "c20_9y"}
+{"t": 1794210388.0754879, "time": "13:16:28", "event": "owner", "book": "c20_9y", "rule": null, "standing": "low", "key": "NIFTY|OPT|2026-11-09|24950|PE", "why": "COUNCIL EXP brk v=-39"}
+{"t": 1794210393.9133499, "time": "13:16:33", "event": "release", "book": "c20_9y", "rule": null, "key": "NIFTY|OPT|2026-11-09|24950|PE", "why": "entry lapsed: no print on 24950 PE within 3 s"}
+{"t": 1794210393.9133499, "time": "13:16:33", "event": "flat", "why": "flat: no eligible trigger"}
+{"t": 1794210394.0961385, "time": "13:16:34", "event": "lost_priority", "book": "c20_9s", "rule": null, "key": "NIFTY|OPT|2026-11-09|24950|PE", "to": "c20_9y"}
+{"t": 1794210394.0961385, "time": "13:16:34", "event": "lost_priority", "book": "c20_9v", "rule": null, "key": "NIFTY|OPT|2026-11-09|24950|PE", "to": "c20_9y"}
+{"t": 1794210394.0961385, "time": "13:16:34", "event": "lost_priority", "book": "c20_9x", "rule": null, "key": "NIFTY|OPT|2026-11-09|24950|PE", "to": "c20_9y"}
+{"t": 1794210394.0961385, "time": "13:16:34", "event": "lost_priority", "book": "c20_9t", "rule": null, "key": "NIFTY|OPT|2026-11-09|24950|PE", "to": "c20_9y"}
+{"t": 1794210394.0961385, "time": "13:16:34", "event": "owner", "book": "c20_9y", "rule": null, "standing": "low", "key": "NIFTY|OPT|2026-11-09|24950|PE", "why": "COUNCIL EXP brk v=-39"}
+{"t": 1794210399.57342, "time": "13:16:39", "event": "release", "book": "c20_9y", "rule": null, "key": "NIFTY|OPT|2026-11-09|24950|PE", "why": "entry lapsed: no print on 24950 PE within 3 s"}
+{"t": 1794210399.57342, "time": "13:16:39", "event": "flat", "why": "flat: no eligible trigger"}
+{"t": 1794210400.0382123, "time": "13:16:40", "event": "lost_priority", "book": "c20_9s", "rule": null, "key": "NIFTY|OPT|2026-11-09|24950|PE", "to": "c20_9y"}
+{"t": 1794210400.0382123, "time": "13:16:40", "event": "lost_priority", "book": "c20_9v", "rule": null, "key": "NIFTY|OPT|2026-11-09|24950|PE", "to": "c20_9y"}
+{"t": 1794210400.0382123, "time": "13:16:40", "event": "lost_priority", "book": "c20_9x", "rule": null, "key": "NIFTY|OPT|2026-11-09|24950|PE", "to": "c20_9y"}
+{"t": 1794210400.0382123, "time": "13:16:40", "event": "lost_priority", "book": "c20_9t", "rule": null, "key": "NIFTY|OPT|2026-11-09|24950|PE", "to": "c20_9y"}
+{"t": 1794210400.0382123, "time": "13:16:40", "event": "owner", "book": "c20_9y", "rule": null, "standing": "low", "key": "NIFTY|OPT|2026-11-09|24950|PE", "why": "COUNCIL EXP brk v=-39"}
+{"t": 1794210405.8978794, "time": "13:16:45", "event": "release", "book": "c20_9y", "rule": null, "key": "NIFTY|OPT|2026-11-09|24950|PE", "why": "entry lapsed: no print on 24950 PE within 3 s"}
+{"t": 1794210405.8978794, "time": "13:16:45", "event": "flat", "why": "flat: no eligible trigger"}
+{"t": 1794210425.0606842, "time": "13:17:05", "event": "lost_priority", "book": "c20_9s", "rule": null, "key": "NIFTY|OPT|2026-11-09|24900|PE", "to": "c20_9y"}
+{"t": 1794210425.0606842, "time": "13:17:05", "event": "lost_priority", "book": "c20_9v", "rule": null, "key": "NIFTY|OPT|2026-11-09|24900|PE", "to": "c20_9y"}
+{"t": 1794210425.0606842, "time": "13:17:05", "event": "lost_priority", "book": "c20_9x", "rule": null, "key": "NIFTY|OPT|2026-11-09|24900|PE", "to": "c20_9y"}
+{"t": 1794210425.0606842, "time": "13:17:05", "event": "lost_priority", "book": "c20_9t", "rule": null, "key": "NIFTY|OPT|2026-11-09|24900|PE", "to": "c20_9y"}
+{"t": 1794210425.0606842, "time": "13:17:05", "event": "owner", "book": "c20_9y", "rule": null, "standing": "low", "key": "NIFTY|OPT|2026-11-09|24900|PE", "why": "COUNCIL EXP brk v=-42"}
+{"t": 1794210430.7288444, "time": "13:17:10", "event": "release", "book": "c20_9y", "rule": null, "key": "NIFTY|OPT|2026-11-09|24900|PE", "why": "entry lapsed: no print on 24900 PE within 3 s"}
+{"t": 1794210430.7288444, "time": "13:17:10", "event": "flat", "why": "flat: no eligible trigger"}
+{"t": 1794210435.8759747, "time": "13:17:15", "event": "lost_priority", "book": "c20_9s", "rule": null, "key": "NIFTY|OPT|2026-11-09|24900|PE", "to": "c20_9y"}
+{"t": 1794210435.8759747, "time": "13:17:15", "event": "lost_priority", "book": "c20_9v", "rule": null, "key": "NIFTY|OPT|2026-11-09|24900|PE", "to": "c20_9y"}
+{"t": 1794210435.8759747, "time": "13:17:15", "event": "lost_priority", "book": "c20_9x", "rule": null, "key": "NIFTY|OPT|2026-11-09|24900|PE", "to": "c20_9y"}
+{"t": 1794210435.8759747, "time": "13:17:15", "event": "lost_priority", "book": "c20_9t", "rule": null, "key": "NIFTY|OPT|2026-11-09|24900|PE", "to": "c20_9y"}
+{"t": 1794210435.8759747, "time": "13:17:15", "event": "owner", "book": "c20_9y", "rule": null, "standing": "low", "key": "NIFTY|OPT|2026-11-09|24900|PE", "why": "COUNCIL EXP brk v=-54"}
+{"t": 1794210442.007655, "time": "13:17:22", "event": "release", "book": "c20_9y", "rule": null, "key": "NIFTY|OPT|2026-11-09|24900|PE", "why": "entry lapsed: no print on 24900 PE within 3 s"}
+{"t": 1794210442.007655, "time": "13:17:22", "event": "flat", "why": "flat: no eligible trigger"}
+{"t": 1794210494.0099943, "time": "13:18:14", "event": "lost_priority", "book": "c20_9s", "rule": null, "key": "NIFTY|OPT|2026-11-09|24900|PE", "to": "c20_9y"}
+{"t": 1794210494.0099943, "time": "13:18:14", "event": "lost_priority", "book": "c20_9v", "rule": null, "key": "NIFTY|OPT|2026-11-09|24900|PE", "to": "c20_9y"}
+{"t": 1794210494.0099943, "time": "13:18:14", "event": "lost_priority", "book": "c20_9x", "rule": null, "key": "NIFTY|OPT|2026-11-09|24900|PE", "to": "c20_9y"}
+{"t": 1794210494.0099943, "time": "13:18:14", "event": "lost_priority", "book": "c20_9t", "rule": null, "key": "NIFTY|OPT|2026-11-09|24900|PE", "to": "c20_9y"}
+{"t": 1794210494.0099943, "time": "13:18:14", "event": "owner", "book": "c20_9y", "rule": null, "standing": "low", "key": "NIFTY|OPT|2026-11-09|24900|PE", "why": "COUNCIL EXP brk v=-45"}
+{"t": 1794210499.2495644, "time": "13:18:19", "event": "release", "book": "c20_9y", "rule": null, "key": "NIFTY|OPT|2026-11-09|24900|PE", "why": "entry lapsed: no print on 24900 PE within 3 s"}
+{"t": 1794210499.2495644, "time": "13:18:19", "event": "flat", "why": "flat: no eligible trigger"}
+{"t": 1794210559.2573717, "time": "13:19:19", "event": "flat", "why": "flat: no eligible trigger"}
+{"t": 1794210619.9382536, "time": "13:20:19", "event": "flat", "why": "flat: no eligible trigger"}
+{"t": 1794210679.984775, "time": "13:21:19", "event": "flat", "why": "flat: no eligible trigger"}
+{"t": 1794210740.0599272, "time": "13:22:20", "event": "flat", "why": "flat: no eligible trigger"}
+{"t": 1794210800.0881267, "time": "13:23:20", "event": "flat", "why": "flat: no eligible trigger"}
+{"t": 1794210860.1075332, "time": "13:24:20", "event": "flat", "why": "flat: no eligible trigger"}
+{"t": 1794210920.1768699, "time": "13:25:20", "event": "flat", "why": "flat: no eligible trigger"}
+{"t": 1794210980.279685, "time": "13:26:20", "event": "flat", "why": "flat: no eligible trigger"}
+{"t": 1794211040.2846196, "time": "13:27:20", "event": "flat", "why": "flat: no eligible trigger"}
+{"t": 1794211100.4083102, "time": "13:28:20", "event": "flat", "why": "flat: no eligible trigger"}
+{"t": 1794211160.4916332, "time": "13:29:20", "event": "flat", "why": "flat: no eligible trigger"}
+{"t": 1794211220.5616436, "time": "13:30:20", "event": "flat", "why": "flat: no eligible trigger"}
+{"t": 1794211280.6429348, "time": "13:31:20", "event": "flat", "why": "flat: no eligible trigger"}
+{"t": 1794211312.048621, "time": "13:31:52", "event": "lost_priority", "book": "c20_9s", "rule": null, "key": "NIFTY|OPT|2026-11-09|24850|CE", "to": "c20_9y"}
+{"t": 1794211312.048621, "time": "13:31:52", "event": "lost_priority", "book": "c20_9v", "rule": null, "key": "NIFTY|OPT|2026-11-09|24850|CE", "to": "c20_9y"}
+{"t": 1794211312.048621, "time": "13:31:52", "event": "lost_priority", "book": "c20_9x", "rule": null, "key": "NIFTY|OPT|2026-11-09|24850|CE", "to": "c20_9y"}
+{"t": 1794211312.048621, "time": "13:31:52", "event": "lost_priority", "book": "c20_9t", "rule": null, "key": "NIFTY|OPT|2026-11-09|24850|CE", "to": "c20_9y"}
+{"t": 1794211312.048621, "time": "13:31:52", "event": "owner", "book": "c20_9y", "rule": null, "standing": "low", "key": "NIFTY|OPT|2026-11-09|24850|CE", "why": "COUNCIL EXP brk v=+20"}
+{"t": 1794211317.8532915, "time": "13:31:57", "event": "release", "book": "c20_9y", "rule": null, "key": "NIFTY|OPT|2026-11-09|24850|CE", "why": "entry lapsed: no print on 24850 CE within 3 s"}
+{"t": 1794211317.8532915, "time": "13:31:57", "event": "flat", "why": "flat: no eligible trigger"}
+{"t": 1794211318.1798587, "time": "13:31:58", "event": "lost_priority", "book": "c20_9s", "rule": null, "key": "NIFTY|OPT|2026-11-09|24850|CE", "to": "c20_9y"}
+{"t": 1794211318.1798587, "time": "13:31:58", "event": "lost_priority", "book": "c20_9v", "rule": null, "key": "NIFTY|OPT|2026-11-09|24850|CE", "to": "c20_9y"}
+{"t": 1794211318.1798587, "time": "13:31:58", "event": "lost_priority", "book": "c20_9x", "rule": null, "key": "NIFTY|OPT|2026-11-09|24850|CE", "to": "c20_9y"}
+{"t": 1794211318.1798587, "time": "13:31:58", "event": "lost_priority", "book": "c20_9t", "rule": null, "key": "NIFTY|OPT|2026-11-09|24850|CE", "to": "c20_9y"}
+{"t": 1794211318.1798587, "time": "13:31:58", "event": "owner", "book": "c20_9y", "rule": null, "standing": "low", "key": "NIFTY|OPT|2026-11-09|24850|CE", "why": "COUNCIL EXP brk v=+21"}
+{"t": 1794211323.4904664, "time": "13:32:03", "event": "release", "book": "c20_9y", "rule": null, "key": "NIFTY|OPT|2026-11-09|24850|CE", "why": "entry lapsed: no print on 24850 CE within 3 s"}
+{"t": 1794211323.4904664, "time": "13:32:03", "event": "flat", "why": "flat: no eligible trigger"}
+{"t": 1794211383.5411143, "time": "13:33:03", "event": "flat", "why": "flat: no eligible trigger"}
+{"t": 1794211443.621964, "time": "13:34:03", "event": "flat", "why": "flat: no eligible trigger"}
+{"t": 1794211503.6853392, "time": "13:35:03", "event": "flat", "why": "flat: no eligible trigger"}
+{"t": 1794211547.8759558, "time": "13:35:47", "event": "lost_priority", "book": "c20_9s", "rule": null, "key": "NIFTY|OPT|2026-11-09|24850|CE", "to": "c20_9y"}
+{"t": 1794211547.8759558, "time": "13:35:47", "event": "lost_priority", "book": "c20_9v", "rule": null, "key": "NIFTY|OPT|2026-11-09|24850|CE", "to": "c20_9y"}
+{"t": 1794211547.8759558, "time": "13:35:47", "event": "lost_priority", "book": "c20_9x", "rule": null, "key": "NIFTY|OPT|2026-11-09|24850|CE", "to": "c20_9y"}
+{"t": 1794211547.8759558, "time": "13:35:47", "event": "lost_priority", "book": "c20_9t", "rule": null, "key": "NIFTY|OPT|2026-11-09|24850|CE", "to": "c20_9y"}
+{"t": 1794211547.8759558, "time": "13:35:47", "event": "owner", "book": "c20_9y", "rule": null, "standing": "low", "key": "NIFTY|OPT|2026-11-09|24850|CE", "why": "COUNCIL EXP brk v=+21"}
+{"t": 1794211552.2503526, "time": "13:35:52", "event": "release", "book": "c20_9y", "rule": null, "key": "NIFTY|OPT|2026-11-09|24850|CE", "why": "entry lapsed: no print on 24850 CE within 3 s"}
+{"t": 1794211552.2503526, "time": "13:35:52", "event": "flat", "why": "flat: no eligible trigger"}
+{"t": 1794211615.4803832, "time": "13:36:55", "event": "flat", "why": "flat: no eligible trigger"}
+{"t": 1794211675.5421522, "time": "13:37:55", "event": "flat", "why": "flat: no eligible trigger"}
+{"t": 1794211737.736335, "time": "13:38:57", "event": "flat", "why": "flat: no eligible trigger"}
+{"t": 1794211797.7676342, "time": "13:39:57", "event": "flat", "why": "flat: no eligible trigger"}
+{"t": 1794211858.3758261, "time": "13:40:58", "event": "flat", "why": "flat: no eligible trigger"}
+{"t": 1794211918.4462469, "time": "13:41:58", "event": "flat", "why": "flat: no eligible trigger"}
+{"t": 1794211978.4710922, "time": "13:42:58", "event": "flat", "why": "flat: no eligible trigger"}
+{"t": 1794212038.491116, "time": "13:43:58", "event": "flat", "why": "flat: no eligible trigger"}
+{"t": 1794212098.5130272, "time": "13:44:58", "event": "flat", "why": "flat: no eligible trigger"}
+{"t": 1794212158.5776238, "time": "13:45:58", "event": "flat", "why": "flat: no eligible trigger"}
+{"t": 1794212218.6540384, "time": "13:46:58", "event": "flat", "why": "flat: no eligible trigger"}
+{"t": 1794212283.007446, "time": "13:48:03", "event": "flat", "why": "flat: no eligible trigger"}
+{"t": 1794212343.0615501, "time": "13:49:03", "event": "flat", "why": "flat: no eligible trigger"}
+{"t": 1794212403.3064005, "time": "13:50:03", "event": "flat", "why": "flat: no eligible trigger"}
+{"t": 1794212467.0201175, "time": "13:51:07", "event": "flat", "why": "flat: no eligible trigger"}
+{"t": 1794212531.030401, "time": "13:52:11", "event": "flat", "why": "flat: no eligible trigger"}
+{"t": 1794212591.084181, "time": "13:53:11", "event": "flat", "why": "flat: no eligible trigger"}
+{"t": 1794212651.1971877, "time": "13:54:11", "event": "flat", "why": "flat: no eligible trigger"}
+{"t": 1794212658.0354867, "time": "13:54:18", "event": "lost_priority", "book": "c20_9s", "rule": null, "key": "NIFTY|OPT|2026-11-09|24900|CE", "to": "c20_9y"}
+{"t": 1794212658.0354867, "time": "13:54:18", "event": "lost_priority", "book": "c20_9v", "rule": null, "key": "NIFTY|OPT|2026-11-09|24900|CE", "to": "c20_9y"}
+{"t": 1794212658.0354867, "time": "13:54:18", "event": "lost_priority", "book": "c20_9x", "rule": null, "key": "NIFTY|OPT|2026-11-09|24900|CE", "to": "c20_9y"}
+{"t": 1794212658.0354867, "time": "13:54:18", "event": "lost_priority", "book": "c20_9t", "rule": null, "key": "NIFTY|OPT|2026-11-09|24900|CE", "to": "c20_9y"}
+{"t": 1794212658.0354867, "time": "13:54:18", "event": "owner", "book": "c20_9y", "rule": null, "standing": "low", "key": "NIFTY|OPT|2026-11-09|24900|CE", "why": "COUNCIL EXP brk v=+21"}
+{"t": 1794212663.9283187, "time": "13:54:23", "event": "release", "book": "c20_9y", "rule": null, "key": "NIFTY|OPT|2026-11-09|24900|CE", "why": "entry lapsed: no print on 24900 CE within 3 s"}
+{"t": 1794212663.9283187, "time": "13:54:23", "event": "flat", "why": "flat: no eligible trigger"}
+{"t": 1794212664.2292821, "time": "13:54:24", "event": "lost_priority", "book": "c20_9s", "rule": null, "key": "NIFTY|OPT|2026-11-09|24900|CE", "to": "c20_9y"}
+{"t": 1794212664.2292821, "time": "13:54:24", "event": "lost_priority", "book": "c20_9v", "rule": null, "key": "NIFTY|OPT|2026-11-09|24900|CE", "to": "c20_9y"}
+{"t": 1794212664.2292821, "time": "13:54:24", "event": "lost_priority", "book": "c20_9x", "rule": null, "key": "NIFTY|OPT|2026-11-09|24900|CE", "to": "c20_9y"}
+{"t": 1794212664.2292821, "time": "13:54:24", "event": "lost_priority", "book": "c20_9t", "rule": null, "key": "NIFTY|OPT|2026-11-09|24900|CE", "to": "c20_9y"}
+{"t": 1794212664.2292821, "time": "13:54:24", "event": "owner", "book": "c20_9y", "rule": null, "standing": "low", "key": "NIFTY|OPT|2026-11-09|24900|CE", "why": "COUNCIL EXP brk v=+21"}
+{"t": 1794212669.2144296, "time": "13:54:29", "event": "release", "book": "c20_9y", "rule": null, "key": "NIFTY|OPT|2026-11-09|24900|CE", "why": "entry lapsed: no print on 24900 CE within 3 s"}
+{"t": 1794212669.2144296, "time": "13:54:29", "event": "flat", "why": "flat: no eligible trigger"}
+{"t": 1794212729.2567015, "time": "13:55:29", "event": "flat", "why": "flat: no eligible trigger"}
+{"t": 1794212792.1826406, "time": "13:56:32", "event": "flat", "why": "flat: no eligible trigger"}
+{"t": 1794212852.2135584, "time": "13:57:32", "event": "flat", "why": "flat: no eligible trigger"}
+{"t": 1794212912.2149022, "time": "13:58:32", "event": "flat", "why": "flat: no eligible trigger"}
+{"t": 1794212972.6897576, "time": "13:59:32", "event": "flat", "why": "flat: no eligible trigger"}
+{"t": 1794213033.718008, "time": "14:00:33", "event": "flat", "why": "flat: no eligible trigger"}
+{"t": 1794213093.8026698, "time": "14:01:33", "event": "flat", "why": "flat: no eligible trigger"}
+{"t": 1794213153.3665347, "time": "14:02:33", "event": "lost_priority", "book": "c20_9s", "rule": null, "key": "NIFTY|OPT|2026-11-09|25000|PE", "to": "c20_9y"}
+{"t": 1794213153.3665347, "time": "14:02:33", "event": "lost_priority", "book": "c20_9v", "rule": null, "key": "NIFTY|OPT|2026-11-09|25000|PE", "to": "c20_9y"}
+{"t": 1794213153.3665347, "time": "14:02:33", "event": "lost_priority", "book": "c20_9x", "rule": null, "key": "NIFTY|OPT|2026-11-09|25000|PE", "to": "c20_9y"}
+{"t": 1794213153.3665347, "time": "14:02:33", "event": "lost_priority", "book": "c20_9t", "rule": null, "key": "NIFTY|OPT|2026-11-09|25000|PE", "to": "c20_9y"}
+{"t": 1794213153.3665347, "time": "14:02:33", "event": "owner", "book": "c20_9y", "rule": null, "standing": "low", "key": "NIFTY|OPT|2026-11-09|25000|PE", "why": "COUNCIL EXP brk v=-22"}
+{"t": 1794213159.7446144, "time": "14:02:39", "event": "release", "book": "c20_9y", "rule": null, "key": "NIFTY|OPT|2026-11-09|25000|PE", "why": "entry lapsed: no print on 25000 PE within 3 s"}
+{"t": 1794213159.7446144, "time": "14:02:39", "event": "flat", "why": "flat: no eligible trigger"}
+{"t": 1794213219.822381, "time": "14:03:39", "event": "flat", "why": "flat: no eligible trigger"}
+{"t": 1794213279.8587372, "time": "14:04:39", "event": "flat", "why": "flat: no eligible trigger"}
+{"t": 1794213336.198062, "time": "14:05:36", "event": "lost_priority", "book": "c20_9s", "rule": null, "key": "NIFTY|OPT|2026-11-09|24900|CE", "to": "c20_9y"}
+{"t": 1794213336.198062, "time": "14:05:36", "event": "lost_priority", "book": "c20_9v", "rule": null, "key": "NIFTY|OPT|2026-11-09|24900|CE", "to": "c20_9y"}
+{"t": 1794213336.198062, "time": "14:05:36", "event": "lost_priority", "book": "c20_9x", "rule": null, "key": "NIFTY|OPT|2026-11-09|24900|CE", "to": "c20_9y"}
+{"t": 1794213336.198062, "time": "14:05:36", "event": "lost_priority", "book": "c20_9t", "rule": null, "key": "NIFTY|OPT|2026-11-09|24900|CE", "to": "c20_9y"}
+{"t": 1794213336.198062, "time": "14:05:36", "event": "owner", "book": "c20_9y", "rule": null, "standing": "low", "key": "NIFTY|OPT|2026-11-09|24900|CE", "why": "COUNCIL EXP brk v=+21"}
+{"t": 1794213342.5534692, "time": "14:05:42", "event": "release", "book": "c20_9y", "rule": null, "key": "NIFTY|OPT|2026-11-09|24900|CE", "why": "entry lapsed: no print on 24900 CE within 3 s"}
+{"t": 1794213342.5534692, "time": "14:05:42", "event": "flat", "why": "flat: no eligible trigger"}
+{"t": 1794213406.475889, "time": "14:06:46", "event": "flat", "why": "flat: no eligible trigger"}
+{"t": 1794213466.5806222, "time": "14:07:46", "event": "flat", "why": "flat: no eligible trigger"}
+{"t": 1794213530.9527605, "time": "14:08:50", "event": "flat", "why": "flat: no eligible trigger"}
+{"t": 1794213590.9652352, "time": "14:09:50", "event": "flat", "why": "flat: no eligible trigger"}
+{"t": 1794213651.0171943, "time": "14:10:51", "event": "flat", "why": "flat: no eligible trigger"}
+{"t": 1794213711.091106, "time": "14:11:51", "event": "flat", "why": "flat: no eligible trigger"}
+{"t": 1794213774.4550123, "time": "14:12:54", "event": "flat", "why": "flat: no eligible trigger"}
+{"t": 1794213834.4772666, "time": "14:13:54", "event": "flat", "why": "flat: no eligible trigger"}
+{"t": 1794213895.1637115, "time": "14:14:55", "event": "flat", "why": "flat: no eligible trigger"}
+{"t": 1794213955.3914924, "time": "14:15:55", "event": "flat", "why": "flat: no eligible trigger"}
+{"t": 1794214020.60575, "time": "14:17:00", "event": "flat", "why": "flat: no eligible trigger"}
+{"t": 1794214080.640783, "time": "14:18:00", "event": "flat", "why": "flat: no eligible trigger"}
+{"t": 1794214140.6653183, "time": "14:19:00", "event": "flat", "why": "flat: no eligible trigger"}
+{"t": 1794214200.7611918, "time": "14:20:00", "event": "flat", "why": "flat: no eligible trigger"}
+{"t": 1794214260.8179688, "time": "14:21:00", "event": "flat", "why": "flat: no eligible trigger"}
+{"t": 1794214321.6247306, "time": "14:22:01", "event": "flat", "why": "flat: no eligible trigger"}
+{"t": 1794214381.6638572, "time": "14:23:01", "event": "flat", "why": "flat: no eligible trigger"}
+{"t": 1794214441.7191675, "time": "14:24:01", "event": "flat", "why": "flat: no eligible trigger"}
+{"t": 1794214501.7738986, "time": "14:25:01", "event": "flat", "why": "flat: no eligible trigger"}
+{"t": 1794214561.8344595, "time": "14:26:01", "event": "flat", "why": "flat: no eligible trigger"}
+{"t": 1794214621.9205596, "time": "14:27:01", "event": "flat", "why": "flat: no eligible trigger"}
+{"t": 1794214681.9422126, "time": "14:28:01", "event": "flat", "why": "flat: no eligible trigger"}
+{"t": 1794214744.3605387, "time": "14:29:04", "event": "flat", "why": "flat: no eligible trigger"}
+{"t": 1794214807.2867346, "time": "14:30:07", "event": "flat", "why": "flat: no eligible trigger"}
+{"t": 1794214843.3371408, "time": "14:30:43", "event": "lost_priority", "book": "c20_9v", "rule": null, "key": "NIFTY|OPT|2026-11-09|25050|PE", "to": "c20_9s"}
+{"t": 1794214843.3371408, "time": "14:30:43", "event": "lost_priority", "book": "c20_9x", "rule": null, "key": "NIFTY|OPT|2026-11-09|25050|PE", "to": "c20_9s"}
+{"t": 1794214843.3371408, "time": "14:30:43", "event": "lost_priority", "book": "c20_9t", "rule": null, "key": "NIFTY|OPT|2026-11-09|25050|PE", "to": "c20_9s"}
+{"t": 1794214843.3371408, "time": "14:30:43", "event": "owner", "book": "c20_9s", "rule": null, "standing": "low", "key": "NIFTY|OPT|2026-11-09|25050|PE", "why": "COUNCIL EXP brk v=-23"}
+{"t": 1794214850.107878, "time": "14:30:50", "event": "release", "book": "c20_9s", "rule": null, "key": "NIFTY|OPT|2026-11-09|25050|PE", "why": "entry lapsed: no print on 25050 PE within 3 s"}
+{"t": 1794214850.107878, "time": "14:30:50", "event": "flat", "why": "flat: no eligible trigger"}
+{"t": 1794214910.2129078, "time": "14:31:50", "event": "flat", "why": "flat: no eligible trigger"}
+{"t": 1794214970.2881985, "time": "14:32:50", "event": "flat", "why": "flat: no eligible trigger"}
+{"t": 1794215030.2990046, "time": "14:33:50", "event": "flat", "why": "flat: no eligible trigger"}
+{"t": 1794215090.302728, "time": "14:34:50", "event": "flat", "why": "flat: no eligible trigger"}
+{"t": 1794215150.3849924, "time": "14:35:50", "event": "flat", "why": "flat: no eligible trigger"}
+{"t": 1794215210.3962085, "time": "14:36:50", "event": "flat", "why": "flat: no eligible trigger"}
+{"t": 1794215270.6293933, "time": "14:37:50", "event": "flat", "why": "flat: no eligible trigger"}
+{"t": 1794215330.6861906, "time": "14:38:50", "event": "flat", "why": "flat: no eligible trigger"}
+{"t": 1794215396.9478981, "time": "14:39:56", "event": "flat", "why": "flat: no eligible trigger"}
+{"t": 1794215419.5195117, "time": "14:40:19", "event": "flat", "why": "flat: data blackout"}
+{"t": 1794215457.0963304, "time": "14:40:57", "event": "flat", "why": "flat: no eligible trigger"}
+{"t": 1794215517.225005, "time": "14:41:57", "event": "flat", "why": "flat: no eligible trigger"}
+{"t": 1794215577.3125615, "time": "14:42:57", "event": "flat", "why": "flat: no eligible trigger"}
+{"t": 1794215637.4655437, "time": "14:43:57", "event": "flat", "why": "flat: no eligible trigger"}
+{"t": 1794215690.6515052, "time": "14:44:50", "event": "flat", "why": "flat: data blackout"}
+{"t": 1794215722.4040415, "time": "14:45:22", "event": "flat", "why": "flat: no eligible trigger"}
+{"t": 1794215782.5019376, "time": "14:46:22", "event": "flat", "why": "flat: no eligible trigger"}
+{"t": 1794215842.5189266, "time": "14:47:22", "event": "flat", "why": "flat: no eligible trigger"}
+{"t": 1794215902.5391066, "time": "14:48:22", "event": "flat", "why": "flat: no eligible trigger"}
+{"t": 1794215962.635862, "time": "14:49:22", "event": "flat", "why": "flat: no eligible trigger"}
+{"t": 1794216022.7515945, "time": "14:50:22", "event": "flat", "why": "flat: no eligible trigger"}
+{"t": 1794216082.8685205, "time": "14:51:22", "event": "flat", "why": "flat: no eligible trigger"}
+{"t": 1794216142.8686604, "time": "14:52:22", "event": "flat", "why": "flat: no eligible trigger"}
+{"t": 1794216203.1833088, "time": "14:53:23", "event": "flat", "why": "flat: no eligible trigger"}
+{"t": 1794216263.5108182, "time": "14:54:23", "event": "flat", "why": "flat: no eligible trigger"}
+{"t": 1794216323.562698, "time": "14:55:23", "event": "flat", "why": "flat: no eligible trigger"}
+{"t": 1794216383.6605682, "time": "14:56:23", "event": "flat", "why": "flat: no eligible trigger"}
+{"t": 1794216443.7957616, "time": "14:57:23", "event": "flat", "why": "flat: no eligible trigger"}
+{"t": 1794216503.8318486, "time": "14:58:23", "event": "flat", "why": "flat: no eligible trigger"}
+{"t": 1794216564.1233375, "time": "14:59:24", "event": "flat", "why": "flat: no eligible trigger"}
+{"t": 1794216624.46449, "time": "15:00:24", "event": "flat", "why": "flat: no eligible trigger"}
+{"t": 1794216684.5559332, "time": "15:01:24", "event": "flat", "why": "flat: no eligible trigger"}
+{"t": 1794216744.5925558, "time": "15:02:24", "event": "flat", "why": "flat: no eligible trigger"}
+{"t": 1794216804.6015074, "time": "15:03:24", "event": "flat", "why": "flat: no eligible trigger"}
+{"t": 1794216864.681109, "time": "15:04:24", "event": "flat", "why": "flat: no eligible trigger"}
+{"t": 1794216924.683726, "time": "15:05:24", "event": "flat", "why": "flat: no eligible trigger"}
+{"t": 1794216984.7842062, "time": "15:06:24", "event": "flat", "why": "flat: no eligible trigger"}
+{"t": 1794217044.8618176, "time": "15:07:24", "event": "flat", "why": "flat: no eligible trigger"}
+{"t": 1794217105.0128613, "time": "15:08:25", "event": "flat", "why": "flat: no eligible trigger"}
+{"t": 1794217165.2454815, "time": "15:09:25", "event": "flat", "why": "flat: no eligible trigger"}
+{"t": 1794217225.321294, "time": "15:10:25", "event": "flat", "why": "flat: no eligible trigger"}
+{"t": 1794217285.4199235, "time": "15:11:25", "event": "flat", "why": "flat: no eligible trigger"}
+{"t": 1794217345.5570915, "time": "15:12:25", "event": "flat", "why": "flat: no eligible trigger"}
+{"t": 1794217405.692799, "time": "15:13:25", "event": "flat", "why": "flat: no eligible trigger"}
+{"t": 1794217465.7156928, "time": "15:14:25", "event": "flat", "why": "flat: no eligible trigger"}
+{"t": 1794217525.9996643, "time": "15:15:25", "event": "flat", "why": "flat: no eligible trigger"}
+{"t": 1794217586.4465296, "time": "15:16:26", "event": "flat", "why": "flat: no eligible trigger"}
+{"t": 1794217646.686872, "time": "15:17:26", "event": "flat", "why": "flat: no eligible trigger"}
+{"t": 1794217707.2582939, "time": "15:18:27", "event": "flat", "why": "flat: no eligible trigger"}
+{"t": 1794217767.3969355, "time": "15:19:27", "event": "flat", "why": "flat: no eligible trigger"}
+{"t": 1794217827.7938693, "time": "15:20:27", "event": "flat", "why": "flat: no eligible trigger"}
+{"t": 1794217887.858332, "time": "15:21:27", "event": "flat", "why": "flat: no eligible trigger"}
+{"t": 1794217947.9138844, "time": "15:22:27", "event": "flat", "why": "flat: no eligible trigger"}
+{"t": 1794218007.9389255, "time": "15:23:27", "event": "flat", "why": "flat: no eligible trigger"}
+{"t": 1794218068.209965, "time": "15:24:28", "event": "flat", "why": "flat: no eligible trigger"}
+{"t": 1794218128.3057692, "time": "15:25:28", "event": "flat", "why": "flat: no eligible trigger"}
+{"t": 1794218188.5065951, "time": "15:26:28", "event": "flat", "why": "flat: no eligible trigger"}
+{"t": 1794218248.5660644, "time": "15:27:28", "event": "flat", "why": "flat: no eligible trigger"}
+{"t": 1794218308.633496, "time": "15:28:28", "event": "flat", "why": "flat: no eligible trigger"}
+{"t": 1794218368.6397657, "time": "15:29:28", "event": "flat", "why": "flat: no eligible trigger"}
+{"t": 1794218428.657685, "time": "15:30:28", "event": "flat", "why": "flat: no eligible trigger"}
+{"t": 1794218488.7451296, "time": "15:31:28", "event": "flat", "why": "flat: no eligible trigger"}
+{"t": 1794218548.7756853, "time": "15:32:28", "event": "flat", "why": "flat: no eligible trigger"}

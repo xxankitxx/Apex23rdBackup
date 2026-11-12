@@ -1,0 +1,5 @@
+{"t": "08:18:38", "k": "SYSTEM", "x": "day 2026-10-29 \u00b7 champion conductor \u00b7 gates none \u00b7 capital \u20b9100,000", "mkt_t": 1793242118.2}
+{"t": "09:15:00", "k": "GAP", "x": "data gap: feed stale: futures quote 312 s old \u2014 entries paused until 20 s of fresh data", "mkt_t": 1793245500.0}
+{"t": "09:15:20", "k": "GAP", "x": "data back after 20 s (feed stale: futures quote 312 s old); entries resume", "mkt_t": 1793245520.2}
+{"t": "09:27:00", "k": "GAP", "x": "data gap: feed silent: no quote on any instrument for 3 s \u2014 entries paused until 20 s of fresh data", "mkt_t": 1793246220.8}
+{"t": "09:27:23", "k": "GAP", "x": "data back after 23 s (feed silent: no quote on any instrument for 6 s); entries resume", "mkt_t": 1793246243.9}

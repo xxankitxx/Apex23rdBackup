@@ -1,0 +1,15 @@
+{"t": "08:40:04", "k": "SYSTEM", "x": "day 2026-11-11 \u00b7 champion conductor \u00b7 gates none \u00b7 capital \u20b9100,000", "mkt_t": 1794366604.4}
+{"t": "09:15:00", "k": "GAP", "x": "data gap: feed stale: futures quote 327 s old \u2014 entries paused until 20 s of fresh data", "mkt_t": 1794368700.0}
+{"t": "09:15:00", "k": "DATA", "x": "no trade for 120 s on hero contract(s): 25250 CE, 25300 CE, 25350 CE, 25350 PE, 25400 CE, 25400 PE, 25450 CE, 25450 PE", "mkt_t": 1794368700.4}
+{"t": "09:15:01", "k": "DATA", "x": "no trade for 120 s on hero contract(s): 25150 CE, 25200 CE", "mkt_t": 1794368701.4}
+{"t": "09:15:02", "k": "SPIKE", "x": "straddle 25350 +95.1 over theta in 5 min \u2014 CE leg carries it (214.6, delta 0.487\u21920.427, gamma 0.00056)", "mkt_t": 1794368702.4}
+{"t": "09:15:21", "k": "GAP", "x": "data back after 22 s (feed stale: futures quote 328 s old); entries resume", "mkt_t": 1794368721.5}
+{"t": "09:16:00", "k": "GAP", "x": "data gap: feed silent: no quote on any instrument for 3 s \u2014 entries paused until 20 s of fresh data", "mkt_t": 1794368760.5}
+{"t": "09:17:55", "k": "DATA", "x": "no trade for 120 s on hero contract(s): 25250 CE, 25250 PE, 25300 CE, 25300 PE, 25350 CE, 25350 PE, 25400 CE, 25400 PE", "mkt_t": 1794368875.4}
+{"t": "09:17:56", "k": "DATA", "x": "no trade for 120 s on hero contract(s): 25450 CE, 25450 PE", "mkt_t": 1794368876.4}
+{"t": "09:18:26", "k": "GAP", "x": "data back after 146 s (feed stale: futures quote 129 s old); entries resume", "mkt_t": 1794368906.7}
+{"t": "09:36:51", "k": "SHIFT", "x": "ATM rolled 25350 \u2192 25450: straddle 476.9 \u2192 475.5 (spot settled at the new strike)", "mkt_t": 1794370011.9}
+{"t": "09:55:36", "k": "SHIFT", "x": "ATM rolled 25450 \u2192 25350: straddle 476.0 \u2192 471.3 (spot settled at the new strike)", "mkt_t": 1794371136.9}
+{"t": "10:43:20", "k": "SHIFT", "x": "ATM rolled 25350 \u2192 25400: straddle 470.0 \u2192 470.6 (spot settled at the new strike)", "mkt_t": 1794374000.7}
+{"t": "10:43:23", "k": "GAP", "x": "data gap: feed silent: no quote on any instrument for 3 s \u2014 entries paused until 20 s of fresh data", "mkt_t": 1794374003.2}
+{"t": "10:43:51", "k": "GAP", "x": "data back after 28 s (feed stale: futures quote 12 s old); entries resume", "mkt_t": 1794374031.6}

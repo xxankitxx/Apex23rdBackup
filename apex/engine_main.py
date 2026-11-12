@@ -353,7 +353,7 @@ class Engine:
         from .engine.gen3 import Gen3                        # 10 Nov (docs/38 s7): S01 and S03 shadow signals
         self.gen3 = Gen3()
         from .engine.pred import Pred                        # 10 Nov (docs/41): prediction-driven shadow signals
-        self.pred = self._safe("pred start", lambda: Pred(config.PREDICT_MODEL, config.PAPER_DIR, day, ranges_path=config.PREDICT_RANGES), None)
+        self.pred = self._safe("pred start", lambda: self._pred_start(day), None)
         self._pred_sec, self._pred_grid = None, None
         probs = weather_mod.static_check()                   # 8 Nov (owner): never run without the whole photograph
         if QuantView is None:                                # docs/34 F05: a missing scipy must be visible, not silent
@@ -948,6 +948,18 @@ class Engine:
         self.gen3.update(now_s, float(snap["bid"][fid]), float(snap["ask"][fid]), q_age,
                          snap["ltp"][dm.eq_ids].astype(float), age(dm.eq_ids), sb, sa, np.where(has, age(fi), np.inf),
                          dm.eq_w, ok=not self._gap_on)
+
+    def _pred_start(self, day):
+        """11 Nov (docs/46 finding 4): the forecaster with the artefact the registry allows for this session."""
+        from .engine.pred import Pred
+        from .predict import registry
+        art, why = registry.for_session(day, config.PREDICT_MODE, config.PREDICT_MODEL)
+        p = Pred(None, config.PAPER_DIR, day, artefact=art, ranges_path=config.PREDICT_RANGES)
+        if art is None:
+            p.fc.why = why
+        p.artefact_why = why
+        log(f"FORECAST artefact for {day}: {why}" + ("" if p.fc.ok else f" · NOT usable: {p.fc.why}"))
+        return p
 
     PRED_HELD_CAP = 24          # held or pending contracts scored each second besides the near four and the executable two
 
@@ -2117,8 +2129,7 @@ class Engine:
             "fut_hi": self._day_hi, "fut_lo": self._day_lo,
             "late": self.lateness(ctx),
             "straddle": self.straddle.view(), "bank": self.bank.view(), "lag": self.lag.view(),
-            "straddle_watch": self.watch.view(series=True),
-            "ideas": self._safe("ideas view", self.ideas.view, None) if getattr(self, "ideas", None) else None,
+
             "gex": self.gex.v,
             "event": event_today(self.day),
             "fut_book": self.fut_book(),
@@ -2148,10 +2159,29 @@ class Engine:
                                               "spot_in", "best_spot", "qty", "hold_s", "ret_pct", "entry_bid", "entry_ask",
                                               "lock_armed", "fill_delay_s", "fill_slip")}
                        for t in (champ.trades[-25:] if champ else [])][::-1],
-            "variants": sorted([b.stats() for b in self.books.values()], key=lambda s: -s["pnl_pts"]),
             "events": list(self.events)[:60],
         }
-        self.blob.write_state(state)              # 5 Nov: fast path, byte-identical to write(clean(state))
+        self.blob.write_state(state, raw=self._slow_parts())     # 11 Nov: big, slow parts encoded once a second
+
+    PUBLISH_SLOW_S = 1.0          # the straddle series, the ideas board and the book table: re-encoded at most this often
+
+    def _slow_parts(self):
+        """11 Nov (owner: "lightning fast"): three parts of the state are big (31, 11 and 12 KB of the 80 KB) and change
+        slowly: the straddle chart's series (a point every few seconds), the ideas board and the per-book table. They
+        were rebuilt and re-encoded at every publish (4 a second). Now at most once a second, as JSON text that
+        write_state splices in. Same keys and same shapes for the dashboard: straddle_watch.series is put back
+        inside straddle_watch."""
+        from .table import dumps_part
+        now = time.monotonic()
+        c = getattr(self, "_slow", None)
+        if c is None or now - c["t"] >= self.PUBLISH_SLOW_S:
+            ideas = self._safe("ideas view", self.ideas.view, None) if getattr(self, "ideas", None) else None
+            c = self._slow = dict(
+                t=now, series=dumps_part(list(self.watch.series)), ideas=dumps_part(ideas),
+                variants=dumps_part(sorted([b.stats() for b in self.books.values()], key=lambda s: -s["pnl_pts"])))
+        sw = dumps_part(self.watch.view(series=False))
+        sw = sw[:-1] + ("," if len(sw) > 2 else "") + '"series":' + c["series"] + "}"
+        return {"straddle_watch": sw, "ideas": c["ideas"], "variants": c["variants"]}
 
     def run(self):
         from .feed_core import source_hash

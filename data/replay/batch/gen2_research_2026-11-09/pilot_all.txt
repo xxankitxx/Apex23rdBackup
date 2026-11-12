@@ -1,0 +1,189 @@
+2026-10-19 seconds 12319 stocks 14 groups {'bank': 5, 'energy': 1, 'telecom': 1, 'infra': 1, 'it': 2, 'auto': 1, 'fmcg': 2, 'nbfc': 1} gaps 1 beta 1.1407882433797445 a (-0.3973765378007603, 1.4699801061732152) read s 11
+n01_rev      signals   2 wins   1 sum pts     -6.6 | exits {'TP': 1, 'SL': 1}
+n01_rel      signals   2 wins   2 sum pts    +22.1 | exits {'TP': 2}
+ctl_price    signals 155 wins  76 sum pts    +59.0 | exits {'SL': 75, 'TP': 64, 'TIME': 15, 'EOD': 1}
+ctl_flow     signals  18 wins   8 sum pts     +2.8 | exits {'TP': 8, 'SL': 9, 'TIME': 1}
+n02_relax    signals  16 wins   8 sum pts    -25.5 | exits {'SL': 8, 'TP': 8}
+ctl_mr       signals 124 wins  69 sum pts    +96.7 | exits {'SL': 53, 'TP': 67, 'TIME': 4}
+n06_lead     signals   2 wins   2 sum pts    +48.2 | exits {'TP': 2}
+ctl_breadth  signals 289 wins 152 sum pts   +506.9 | exits {'SL': 120, 'TP': 126, 'TIME': 39, 'EOD': 4}
+2026-10-19.p2 seconds 1452 stocks 14 groups {'bank': 5, 'energy': 1, 'telecom': 1, 'infra': 1, 'it': 2, 'auto': 1, 'fmcg': 2, 'nbfc': 1} gaps 0 beta 0.3124542753694129 a (-1.5313897622527304, 1.5362100550198976) read s 1
+n01_rev      signals   0 wins   0 sum pts     +0.0 | exits {}
+n01_rel      signals   0 wins   0 sum pts     +0.0 | exits {}
+ctl_price    signals   6 wins   3 sum pts     +6.4 | exits {'SL': 3, 'TP': 3}
+ctl_flow     signals   2 wins   1 sum pts     -9.5 | exits {'SL': 1, 'EOD': 1}
+n02_relax    signals   0 wins   0 sum pts     +0.0 | exits {}
+ctl_mr       signals   8 wins   3 sum pts    -13.8 | exits {'TIME': 1, 'SL': 4, 'TP': 3}
+n06_lead     signals   0 wins   0 sum pts     +0.0 | exits {}
+ctl_breadth  signals  24 wins  14 sum pts    +51.2 | exits {'SL': 8, 'TP': 10, 'EOD': 6}
+2026-10-19.p3 seconds 1988 stocks 14 groups {'bank': 5, 'energy': 1, 'telecom': 1, 'infra': 1, 'it': 2, 'auto': 1, 'fmcg': 2, 'nbfc': 1} gaps 0 beta 1.147977073808064 a (-0.1246817757712927, 1.3650458936802459) read s 2
+n01_rev      signals   0 wins   0 sum pts     +0.0 | exits {}
+n01_rel      signals   0 wins   0 sum pts     +0.0 | exits {}
+ctl_price    signals  20 wins  10 sum pts     -0.8 | exits {'TP': 8, 'SL': 9, 'TIME': 2, 'EOD': 1}
+ctl_flow     signals   1 wins   1 sum pts    +16.0 | exits {'TP': 1}
+n02_relax    signals   1 wins   0 sum pts    -12.0 | exits {'SL': 1}
+ctl_mr       signals  14 wins   8 sum pts    +20.0 | exits {'SL': 3, 'TP': 6, 'TIME': 4, 'EOD': 1}
+n06_lead     signals   0 wins   0 sum pts     +0.0 | exits {}
+ctl_breadth  signals  52 wins  24 sum pts     +6.0 | exits {'SL': 23, 'TP': 17, 'TIME': 11, 'EOD': 1}
+2026-10-19.p5 seconds 6113 stocks 14 groups {'bank': 5, 'energy': 1, 'telecom': 1, 'infra': 1, 'it': 2, 'auto': 1, 'fmcg': 2, 'nbfc': 1} gaps 0 beta 1.1318944465490839 a (-0.3666043089244347, 1.2827409499849356) read s 6
+n01_rev      signals   0 wins   0 sum pts     +0.0 | exits {}
+n01_rel      signals   0 wins   0 sum pts     +0.0 | exits {}
+ctl_price    signals  46 wins  21 sum pts    -13.7 | exits {'SL': 22, 'TP': 17, 'TIME': 7}
+ctl_flow     signals  19 wins   6 sum pts    -69.7 | exits {'TP': 4, 'SL': 12, 'TIME': 2, 'EOD': 1}
+n02_relax    signals   2 wins   1 sum pts     -1.7 | exits {'TP': 1, 'SL': 1}
+ctl_mr       signals  32 wins  19 sum pts    +63.6 | exits {'TP': 15, 'TIME': 9, 'SL': 8}
+n06_lead     signals   1 wins   1 sum pts     +4.2 | exits {'EOD': 1}
+ctl_breadth  signals 134 wins  63 sum pts     -9.8 | exits {'TIME': 26, 'SL': 61, 'TP': 46, 'EOD': 1}
+2026-10-21 seconds 22394 stocks 14 groups {'bank': 5, 'energy': 1, 'telecom': 1, 'infra': 1, 'it': 2, 'auto': 1, 'fmcg': 2, 'nbfc': 1} gaps 3 beta 0.8937781289755352 a (-0.3793579281629704, 1.15678500573046) read s 22
+n01_rev      signals   2 wins   1 sum pts     -0.5 | exits {'TP': 1, 'SL': 1}
+n01_rel      signals   0 wins   0 sum pts     +0.0 | exits {}
+ctl_price    signals 339 wins 160 sum pts   +123.0 | exits {'TP': 156, 'SL': 172, 'TIME': 9, 'EOD': 2}
+ctl_flow     signals  21 wins  12 sum pts    +52.2 | exits {'TP': 11, 'SL': 8, 'TIME': 1, 'EOD': 1}
+n02_relax    signals  24 wins  16 sum pts    +36.6 | exits {'TP': 16, 'SL': 7, 'TIME': 1}
+ctl_mr       signals 235 wins 112 sum pts   -135.7 | exits {'TP': 101, 'SL': 116, 'TIME': 18}
+n06_lead     signals   9 wins   3 sum pts     -0.6 | exits {'TP': 3, 'SL': 6}
+ctl_breadth  signals 556 wins 260 sum pts    +20.4 | exits {'SL': 278, 'TP': 233, 'TIME': 45}
+2026-10-22 seconds 22311 stocks 14 groups {'bank': 5, 'energy': 1, 'telecom': 1, 'infra': 1, 'it': 2, 'auto': 1, 'fmcg': 2, 'nbfc': 1} gaps 11 beta 0.7335816056772455 a (0.1424353862063346, 0.7691832081677522) read s 23
+n01_rev      signals   3 wins   0 sum pts    -26.9 | exits {'THESIS': 2, 'SL': 1}
+n01_rel      signals   0 wins   0 sum pts     +0.0 | exits {}
+ctl_price    signals 365 wins 170 sum pts    +21.6 | exits {'TP': 166, 'SL': 194, 'TIME': 5}
+ctl_flow     signals  26 wins  13 sum pts    +44.8 | exits {'TP': 12, 'SL': 13, 'TIME': 1}
+n02_relax    signals  25 wins  10 sum pts    -71.4 | exits {'SL': 15, 'TP': 10}
+ctl_mr       signals 263 wins 115 sum pts   -347.2 | exits {'TP': 111, 'SL': 144, 'TIME': 8}
+n06_lead     signals   4 wins   1 sum pts     -3.0 | exits {'SL': 2, 'TP': 1, 'EOD': 1}
+ctl_breadth  signals 414 wins 223 sum pts   +829.9 | exits {'TP': 216, 'SL': 180, 'TIME': 16, 'EOD': 2}
+2026-10-23 seconds 6673 stocks 14 groups {'bank': 5, 'energy': 1, 'telecom': 1, 'infra': 1, 'it': 2, 'auto': 1, 'fmcg': 2, 'nbfc': 1} gaps 5 beta 0.24581210794246838 a (-0.04439758511454503, 0.3910892477501055) read s 6
+n01_rev      signals   1 wins   0 sum pts     -6.0 | exits {'THESIS': 1}
+n01_rel      signals   0 wins   0 sum pts     +0.0 | exits {}
+ctl_price    signals 159 wins  60 sum pts   -365.9 | exits {'SL': 96, 'TP': 58, 'TIME': 3, 'EOD': 2}
+ctl_flow     signals   9 wins   1 sum pts    -84.8 | exits {'SL': 8, 'TP': 1}
+n02_relax    signals  11 wins   9 sum pts    +87.7 | exits {'TP': 9, 'SL': 2}
+ctl_mr       signals 106 wins  59 sum pts   +103.3 | exits {'SL': 47, 'TP': 56, 'TIME': 2, 'EOD': 1}
+n06_lead     signals   2 wins   1 sum pts     +9.7 | exits {'SL': 1, 'TP': 1}
+ctl_breadth  signals  93 wins  53 sum pts   +259.1 | exits {'TP': 53, 'SL': 38, 'TIME': 1, 'EOD': 1}
+2026-10-23.p2 seconds 11504 stocks 14 groups {'bank': 5, 'energy': 1, 'telecom': 1, 'infra': 1, 'it': 2, 'auto': 1, 'fmcg': 2, 'nbfc': 1} gaps 2 beta 0.4285005255817458 a (-0.06693191856869174, 0.32493709388707825) read s 13
+n01_rev      signals   3 wins   2 sum pts     +6.2 | exits {'TP': 2, 'SL': 1}
+n01_rel      signals   1 wins   0 sum pts    -10.4 | exits {'SL': 1}
+ctl_price    signals 144 wins  70 sum pts    +31.3 | exits {'SL': 65, 'TP': 60, 'TIME': 19}
+ctl_flow     signals  15 wins   6 sum pts    -28.2 | exits {'SL': 9, 'TP': 5, 'TIME': 1}
+n02_relax    signals   7 wins   5 sum pts    +12.7 | exits {'SL': 2, 'TP': 5}
+ctl_mr       signals 112 wins  52 sum pts    -62.7 | exits {'TP': 47, 'SL': 49, 'TIME': 15, 'EOD': 1}
+n06_lead     signals   2 wins   0 sum pts    -22.1 | exits {'SL': 2}
+ctl_breadth  signals 261 wins 116 sum pts   -132.8 | exits {'SL': 136, 'TP': 105, 'TIME': 20}
+2026-10-26 seconds 22316 stocks 14 groups {'bank': 5, 'energy': 1, 'telecom': 1, 'infra': 1, 'it': 2, 'auto': 1, 'fmcg': 2, 'nbfc': 1} gaps 8 beta 0.7933708555222659 a (-0.18271947190786378, 0.6639897473627026) read s 24
+n01_rev      signals   5 wins   1 sum pts    -40.8 | exits {'SL': 3, 'THESIS': 1, 'TP': 1}
+n01_rel      signals   1 wins   0 sum pts     -6.8 | exits {'THESIS': 1}
+ctl_price    signals 334 wins 134 sum pts   -478.5 | exits {'SL': 191, 'TP': 129, 'TIME': 14}
+ctl_flow     signals  18 wins  11 sum pts    +68.3 | exits {'TP': 11, 'SL': 7}
+n02_relax    signals  14 wins   6 sum pts    -55.2 | exits {'TP': 6, 'SL': 8}
+ctl_mr       signals 243 wins 102 sum pts   -369.0 | exits {'TP': 93, 'SL': 136, 'TIME': 14}
+n06_lead     signals   4 wins   1 sum pts     -9.4 | exits {'SL': 3, 'TP': 1}
+ctl_breadth  signals 500 wins 252 sum pts   +486.7 | exits {'SL': 210, 'TP': 221, 'TIME': 67, 'EOD': 2}
+2026-10-27.p2 seconds 15438 stocks 14 groups {'bank': 5, 'energy': 1, 'telecom': 1, 'infra': 1, 'it': 2, 'auto': 1, 'fmcg': 2, 'nbfc': 1} gaps 0 beta 0.9068955840698305 a (0.17625553068306685, 0.6602292260464178) read s 15
+n01_rev      signals   2 wins   0 sum pts    -15.6 | exits {'THESIS': 2}
+n01_rel      signals   1 wins   0 sum pts     -5.1 | exits {'THESIS': 1}
+ctl_price    signals 202 wins  84 sum pts   -239.1 | exits {'SL': 110, 'TP': 78, 'TIME': 13, 'EOD': 1}
+ctl_flow     signals  15 wins  10 sum pts    +97.3 | exits {'TP': 9, 'SL': 3, 'TIME': 3}
+n02_relax    signals   7 wins   2 sum pts    -44.1 | exits {'SL': 4, 'TP': 2, 'TIME': 1}
+ctl_mr       signals 163 wins  78 sum pts   -118.2 | exits {'SL': 80, 'TP': 70, 'TIME': 12, 'EOD': 1}
+n06_lead     signals   1 wins   0 sum pts    -16.1 | exits {'SL': 1}
+ctl_breadth  signals 431 wins 215 sum pts   +349.1 | exits {'TP': 177, 'SL': 184, 'TIME': 70}
+2026-10-27.p3 seconds 6557 stocks 14 groups {'bank': 5, 'energy': 1, 'telecom': 1, 'infra': 1, 'it': 2, 'auto': 1, 'fmcg': 2, 'nbfc': 1} gaps 0 beta 2.02029027922837 a (1.3433470288285325, 0.9765381887990212) read s 8
+n01_rev      signals   1 wins   1 sum pts     +9.2 | exits {'TP': 1}
+n01_rel      signals   0 wins   0 sum pts     +0.0 | exits {}
+ctl_price    signals  94 wins  37 sum pts   -171.9 | exits {'SL': 52, 'TP': 32, 'TIME': 9, 'EOD': 1}
+ctl_flow     signals  20 wins  10 sum pts    +12.4 | exits {'TP': 8, 'TIME': 2, 'SL': 9, 'EOD': 1}
+n02_relax    signals  11 wins   6 sum pts     -2.8 | exits {'TP': 6, 'SL': 5}
+ctl_mr       signals  68 wins  30 sum pts    -91.9 | exits {'SL': 35, 'TP': 26, 'TIME': 6, 'EOD': 1}
+n06_lead     signals   0 wins   0 sum pts     +0.0 | exits {}
+ctl_breadth  signals 181 wins 100 sum pts   +427.0 | exits {'TP': 86, 'TIME': 22, 'SL': 73}
+2026-10-28 seconds 21901 stocks 14 groups {'bank': 5, 'energy': 1, 'telecom': 1, 'infra': 1, 'it': 2, 'auto': 1, 'fmcg': 2, 'nbfc': 1} gaps 4 beta 0.2909632489509581 a (0.13391666827771193, 0.2255157124902752) read s 25
+n01_rev      signals   1 wins   1 sum pts    +11.0 | exits {'TP': 1}
+n01_rel      signals   0 wins   0 sum pts     +0.0 | exits {}
+ctl_price    signals 226 wins  98 sum pts   -150.0 | exits {'TP': 90, 'SL': 117, 'TIME': 18, 'EOD': 1}
+ctl_flow     signals  26 wins  11 sum pts    -26.7 | exits {'SL': 14, 'TP': 8, 'TIME': 4}
+n02_relax    signals  14 wins  10 sum pts    +54.3 | exits {'TP': 10, 'SL': 4}
+ctl_mr       signals 169 wins  66 sum pts   -345.9 | exits {'TP': 62, 'SL': 96, 'TIME': 11}
+n06_lead     signals   7 wins   4 sum pts    +48.3 | exits {'TP': 4, 'SL': 3}
+ctl_breadth  signals 496 wins 250 sum pts   +529.7 | exits {'SL': 198, 'TP': 202, 'TIME': 95, 'EOD': 1}
+2026-10-29.p3 seconds 8808 stocks 14 groups {'bank': 5, 'energy': 1, 'telecom': 1, 'infra': 1, 'it': 2, 'auto': 1, 'fmcg': 2, 'nbfc': 1} gaps 1 beta 0.7953116957477394 a (-0.055038931005893146, 0.9778919752348167) read s 8
+n01_rev      signals   2 wins   0 sum pts    -16.6 | exits {'THESIS': 2}
+n01_rel      signals   0 wins   0 sum pts     +0.0 | exits {}
+ctl_price    signals 124 wins  49 sum pts   -187.4 | exits {'SL': 72, 'TP': 47, 'TIME': 5}
+ctl_flow     signals  10 wins   4 sum pts    -27.2 | exits {'SL': 6, 'TP': 3, 'EOD': 1}
+n02_relax    signals  12 wins   5 sum pts    -11.5 | exits {'SL': 7, 'TP': 5}
+ctl_mr       signals  86 wins  41 sum pts    -33.0 | exits {'TP': 40, 'SL': 42, 'TIME': 4}
+n06_lead     signals   2 wins   1 sum pts     +7.0 | exits {'TP': 1, 'SL': 1}
+ctl_breadth  signals 206 wins 118 sum pts   +541.8 | exits {'TP': 104, 'SL': 79, 'TIME': 16, 'EOD': 7}
+2026-10-29.p4 seconds 2668 stocks 14 groups {'bank': 5, 'energy': 1, 'telecom': 1, 'infra': 1, 'it': 2, 'auto': 1, 'fmcg': 2, 'nbfc': 1} gaps 0 beta 0.2621237035329158 a (-0.24284039156572626, 0.550603724674955) read s 3
+n01_rev      signals   0 wins   0 sum pts     +0.0 | exits {}
+n01_rel      signals   1 wins   1 sum pts     +8.6 | exits {'TP': 1}
+ctl_price    signals   8 wins   5 sum pts    +18.9 | exits {'TP': 2, 'TIME': 4, 'SL': 1, 'EOD': 1}
+ctl_flow     signals   5 wins   2 sum pts    -16.0 | exits {'SL': 3, 'TIME': 1, 'TP': 1}
+n02_relax    signals   2 wins   1 sum pts     -1.2 | exits {'TP': 1, 'TIME': 1}
+ctl_mr       signals   9 wins   7 sum pts    +30.2 | exits {'SL': 2, 'TP': 5, 'TIME': 1, 'EOD': 1}
+n06_lead     signals   0 wins   0 sum pts     +0.0 | exits {}
+ctl_breadth  signals  82 wins  46 sum pts   +149.8 | exits {'TIME': 28, 'SL': 19, 'TP': 25, 'EOD': 10}
+2026-10-29.p5 seconds 10830 stocks 14 groups {'bank': 5, 'energy': 1, 'telecom': 1, 'infra': 1, 'it': 2, 'auto': 1, 'fmcg': 2, 'nbfc': 1} gaps 2 beta 0.81633658228668 a (-0.30332198141924577, 1.0706656289310994) read s 24
+n01_rev      signals   0 wins   0 sum pts     +0.0 | exits {}
+n01_rel      signals   1 wins   1 sum pts     +8.0 | exits {'TP': 1}
+ctl_price    signals  62 wins  30 sum pts    +28.7 | exits {'SL': 24, 'TP': 21, 'TIME': 17}
+ctl_flow     signals  18 wins  12 sum pts    +77.5 | exits {'TIME': 5, 'TP': 8, 'SL': 5}
+n02_relax    signals   6 wins   3 sum pts    -10.1 | exits {'TP': 3, 'SL': 3}
+ctl_mr       signals  50 wins  24 sum pts    -26.6 | exits {'SL': 20, 'TP': 16, 'TIME': 14}
+n06_lead     signals   6 wins   2 sum pts    -13.8 | exits {'TP': 1, 'SL': 3, 'TIME': 1, 'EOD': 1}
+ctl_breadth  signals 282 wins 147 sum pts   +159.0 | exits {'TP': 77, 'SL': 91, 'TIME': 110, 'EOD': 4}
+2026-10-30 seconds 22358 stocks 14 groups {'bank': 5, 'energy': 1, 'telecom': 1, 'infra': 1, 'it': 2, 'auto': 1, 'fmcg': 2, 'nbfc': 1} gaps 1 beta 1.2830319942197492 a (-0.33829021961273176, 1.2787295900364077) read s 24
+n01_rev      signals   4 wins   2 sum pts     +6.8 | exits {'THESIS': 2, 'TP': 2}
+n01_rel      signals   1 wins   1 sum pts    +11.0 | exits {'TP': 1}
+ctl_price    signals 161 wins  85 sum pts   +253.8 | exits {'TP': 74, 'SL': 68, 'TIME': 19}
+ctl_flow     signals  20 wins   8 sum pts    -41.7 | exits {'SL': 12, 'TP': 5, 'TIME': 3}
+n02_relax    signals  21 wins  12 sum pts    +34.2 | exits {'TP': 11, 'SL': 6, 'TIME': 4}
+ctl_mr       signals 140 wins  67 sum pts    -71.4 | exits {'TP': 61, 'SL': 64, 'TIME': 15}
+n06_lead     signals   6 wins   2 sum pts     -0.2 | exits {'SL': 4, 'TP': 2}
+ctl_breadth  signals 583 wins 297 sum pts   +587.0 | exits {'SL': 231, 'TP': 238, 'TIME': 114}
+2026-11-02 seconds 22228 stocks 14 groups {'bank': 5, 'energy': 1, 'telecom': 1, 'infra': 1, 'it': 2, 'auto': 1, 'fmcg': 2, 'nbfc': 1} gaps 7 beta 1.2492151264460494 a (-0.4929073537629984, 1.3863112664393196) read s 23
+n01_rev      signals   2 wins   1 sum pts     -1.9 | exits {'SL': 1, 'TP': 1}
+n01_rel      signals   0 wins   0 sum pts     +0.0 | exits {}
+ctl_price    signals 149 wins  65 sum pts   -114.4 | exits {'SL': 64, 'TIME': 37, 'TP': 48}
+ctl_flow     signals  19 wins  11 sum pts    +56.2 | exits {'TIME': 3, 'TP': 9, 'SL': 6, 'EOD': 1}
+n02_relax    signals  11 wins   4 sum pts    -32.6 | exits {'TP': 4, 'SL': 6, 'TIME': 1}
+ctl_mr       signals  99 wins  45 sum pts    -71.6 | exits {'SL': 43, 'TIME': 19, 'TP': 37}
+n06_lead     signals   3 wins   1 sum pts     -0.3 | exits {'TP': 1, 'SL': 2}
+ctl_breadth  signals 587 wins 323 sum pts  +1111.3 | exits {'TP': 236, 'SL': 191, 'TIME': 157, 'EOD': 3}
+2026-11-03 seconds 22411 stocks 14 groups {'bank': 5, 'energy': 1, 'telecom': 1, 'infra': 1, 'it': 2, 'auto': 1, 'fmcg': 2, 'nbfc': 1} gaps 3 beta 1.066248981348123 a (-0.2192488033629756, 1.3802641017228432) read s 35
+n01_rev      signals   3 wins   0 sum pts    -20.7 | exits {'THESIS': 3}
+n01_rel      signals   0 wins   0 sum pts     +0.0 | exits {}
+ctl_price    signals 183 wins  94 sum pts   +106.2 | exits {'SL': 68, 'TIME': 52, 'TP': 63}
+ctl_flow     signals  27 wins  15 sum pts    +28.1 | exits {'TP': 8, 'SL': 8, 'TIME': 11}
+n02_relax    signals  18 wins   5 sum pts    -56.8 | exits {'TP': 4, 'SL': 11, 'TIME': 3}
+ctl_mr       signals 121 wins  60 sum pts     -9.1 | exits {'SL': 49, 'TIME': 25, 'TP': 47}
+n06_lead     signals   7 wins   2 sum pts     -7.5 | exits {'TP': 2, 'SL': 4, 'EOD': 1}
+ctl_breadth  signals 630 wins 301 sum pts   +175.6 | exits {'TP': 216, 'TIME': 160, 'SL': 252, 'EOD': 2}
+2026-11-04 seconds 22343 stocks 14 groups {'bank': 5, 'energy': 1, 'telecom': 1, 'infra': 1, 'it': 2, 'auto': 1, 'fmcg': 2, 'nbfc': 1} gaps 8 beta 0.7723090307749325 a (-0.4709645067572515, 1.1825314982224766) read s 32
+n01_rev      signals   1 wins   0 sum pts    -10.1 | exits {'SL': 1}
+n01_rel      signals   0 wins   0 sum pts     +0.0 | exits {}
+ctl_price    signals 212 wins 102 sum pts   +129.7 | exits {'SL': 102, 'TP': 96, 'TIME': 14}
+ctl_flow     signals  32 wins  13 sum pts     -8.3 | exits {'TP': 13, 'SL': 16, 'TIME': 3}
+n02_relax    signals  36 wins  15 sum pts    -40.3 | exits {'SL': 19, 'TP': 15, 'TIME': 2}
+ctl_mr       signals 192 wins  83 sum pts   -199.2 | exits {'TP': 78, 'SL': 94, 'TIME': 19, 'EOD': 1}
+n06_lead     signals   2 wins   0 sum pts    -23.1 | exits {'SL': 2}
+ctl_breadth  signals 450 wins 204 sum pts     +2.9 | exits {'TP': 164, 'SL': 202, 'TIME': 84}
+2026-11-05 seconds 22360 stocks 14 groups {'bank': 5, 'energy': 1, 'telecom': 1, 'infra': 1, 'it': 2, 'auto': 1, 'fmcg': 2, 'nbfc': 1} gaps 9 beta 0.6084261311173862 a (-0.18698893178304096, 0.761586934201819) read s 38
+n01_rev      signals   3 wins   1 sum pts     -5.4 | exits {'THESIS': 2, 'TP': 1}
+n01_rel      signals   1 wins   1 sum pts     +8.6 | exits {'TP': 1}
+ctl_price    signals 180 wins  83 sum pts    -23.6 | exits {'TIME': 21, 'TP': 72, 'SL': 86, 'EOD': 1}
+ctl_flow     signals  40 wins  23 sum pts    +61.2 | exits {'TIME': 7, 'SL': 16, 'TP': 17}
+n02_relax    signals  21 wins  11 sum pts    -11.5 | exits {'TP': 11, 'SL': 10}
+ctl_mr       signals 136 wins  53 sum pts   -227.3 | exits {'TP': 50, 'SL': 75, 'TIME': 11}
+n06_lead     signals   4 wins   0 sum pts    -42.7 | exits {'SL': 4}
+ctl_breadth  signals 567 wins 287 sum pts   +363.5 | exits {'TIME': 122, 'SL': 235, 'TP': 208, 'EOD': 2}
+2026-11-06 seconds 22310 stocks 14 groups {'bank': 5, 'energy': 1, 'telecom': 1, 'infra': 1, 'it': 2, 'auto': 1, 'fmcg': 2, 'nbfc': 1} gaps 3 beta 0.18740697088594102 a (-0.11201716085538455, 0.24616722184388318) read s 25
+n01_rev      signals   4 wins   1 sum pts     -6.1 | exits {'SL': 2, 'THESIS': 1, 'TP': 1}
+n01_rel      signals   3 wins   1 sum pts     -7.1 | exits {'SL': 1, 'TP': 1, 'THESIS': 1}
+ctl_price    signals 369 wins 156 sum pts   -321.9 | exits {'SL': 207, 'TP': 152, 'TIME': 9, 'EOD': 1}
+ctl_flow     signals  29 wins  11 sum pts    -67.6 | exits {'TP': 11, 'SL': 18}
+n02_relax    signals  23 wins  17 sum pts    +66.0 | exits {'SL': 6, 'TIME': 1, 'TP': 16}
+ctl_mr       signals 265 wins 124 sum pts   -165.6 | exits {'SL': 137, 'TP': 119, 'TIME': 8, 'EOD': 1}
+n06_lead     signals   7 wins   3 sum pts    +17.8 | exits {'TP': 3, 'SL': 4}
+ctl_breadth  signals 461 wins 245 sum pts   +873.6 | exits {'TP': 231, 'SL': 203, 'TIME': 26, 'EOD': 1}

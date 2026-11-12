@@ -47,3 +47,20 @@ def test_council_books_share_one_live_day():
     assert council.shared_day("2026-11-05", "2026-11-10") is a
     b = council.shared_day("2026-11-06", "2026-11-10")
     assert b is not a and ("2026-11-05", "2026-11-10") not in council._DAYS    # an old day is dropped
+
+
+def test_slow_parts_spliced_as_text_give_the_same_state():
+    """11 Nov: write_state(obj, raw=...) splices pre-encoded parts; the dashboard must parse the same object."""
+    for obj in CASES:
+        full = dict(obj, straddle_watch={"px": 1.0, "series": [[1.0, float("nan"), 2.0]]}, ideas=None, variants=[{"n": 1}])
+        a, b = _Blob(), _Blob()
+        table.StateBlob.write_state(a, full)
+        rest = {k: v for k, v in full.items() if k not in ("straddle_watch", "ideas", "variants")}
+        sw = table.dumps_part({"px": 1.0})
+        sw = sw[:-1] + ',"series":' + table.dumps_part(full["straddle_watch"]["series"]) + "}"
+        table.StateBlob.write_state(b, rest, raw={"straddle_watch": sw, "ideas": table.dumps_part(None),
+                                                  "variants": table.dumps_part(full["variants"])})
+        assert json.loads(a.last()) == json.loads(b.last()), obj
+    c = _Blob()
+    table.StateBlob.write_state(c, {}, raw={"k": "1"})
+    assert json.loads(c.last()) == {"k": 1}

@@ -1,0 +1,96 @@
+{
+ "registered": "2026-10-17",
+ "champion": "conductor",
+ "champion_since": "2026-11-09",
+ "gates": [],
+ "retired": [],
+ "log": [
+  {
+   "day": "2026-10-20",
+   "event": "champion",
+   "from": "m2.0_s0.5",
+   "to": "spot_dc12_t12",
+   "by": "owner (D-124)"
+  },
+  {
+   "day": "2026-10-21",
+   "event": "champion",
+   "from": "spot_dc12_t12",
+   "to": "spot_dual",
+   "by": "owner (D-124)"
+  },
+  {
+   "day": "2026-10-22",
+   "event": "champion",
+   "from": "spot_dual",
+   "to": "spot_dual_lvl",
+   "by": "owner (D-124)"
+  },
+  {
+   "day": "2026-10-30",
+   "event": "champion",
+   "from": "spot_dual_lvl",
+   "to": "c20_9x",
+   "by": "owner (D-124)"
+  },
+  {
+   "day": "2026-11-02",
+   "event": "repair",
+   "note": "learning files rebuilt from the paper records after a test run deleted days.jsonl/defects.json and overwrote state.json at 07:51; champion history between 23 Oct and 30 Oct is not recoverable"
+  },
+  {
+   "event": "backfilled",
+   "day": "2026-10-26",
+   "on": "2026-11-02"
+  },
+  {
+   "event": "backfilled",
+   "day": "2026-10-27",
+   "on": "2026-11-02"
+  },
+  {
+   "event": "backfilled",
+   "day": "2026-10-28",
+   "on": "2026-11-02"
+  },
+  {
+   "event": "backfilled",
+   "day": "2026-10-29",
+   "on": "2026-11-02"
+  },
+  {
+   "event": "backfilled",
+   "day": "2026-10-30",
+   "on": "2026-11-02"
+  },
+  {
+   "day": "2026-11-09",
+   "event": "champion",
+   "from": "c20_9x",
+   "to": "conductor",
+   "by": "owner (D-124)"
+  },
+  {
+   "event": "backfilled",
+   "day": "2026-11-09",
+   "on": "2026-11-11"
+  }
+ ],
+ "status": "COLLECTING",
+ "candidates": {},
+ "streak": {},
+ "gate_streak": {},
+ "owner_champion": [
+  "conductor",
+  "2026-11-09"
+ ],
+ "looked_day": "2026-10-23",
+ "scoreboard": {
+  "n": 4,
+  "sum": 12.97,
+  "go_line": 1003.1,
+  "kill_line": -555.9,
+  "sd_obs": 14.44
+ },
+ "learned_day": "2026-10-23"
+}

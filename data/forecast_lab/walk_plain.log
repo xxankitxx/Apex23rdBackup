@@ -1,0 +1,11 @@
+plain 2026-10-27 plain | fut 5m cov 0.787 crps 11.5084 width 51.18 pin 7.7162 skill 0.001 dir None of 0 | opt 5m cov 0.793 pin 6.28 err 12.04 naive 12.03 | 1017 s
+plain 2026-10-28 plain | fut 5m cov 0.803 crps 10.5301 width 50.42 pin 6.9234 skill -0.0 dir 0.531 of 32 | opt 5m cov 0.834 pin 2.4447 err 3.84 naive 3.81 | 1224 s
+plain 2026-10-29 plain | fut 5m cov 0.81 crps 8.2749 width 37.85 pin 5.7324 skill 0.007 dir 0.366 of 41 | opt 5m cov 0.809 pin 1.9172 err 3.64 naive 3.64 | 1441 s
+plain 2026-10-30 plain | fut 5m cov 0.774 crps 8.979 width 39.36 pin 5.6149 skill 0.001 dir 0.572 of 201 | opt 5m cov 0.79 pin 2.3161 err 4.99 naive 4.98 | 1673 s
+plain 2026-11-02 plain | fut 5m cov 0.807 crps 9.1666 width 49.95 pin 6.4706 skill 0.004 dir 0.687 of 99 | opt 5m cov 0.815 pin 3.1631 err 5.9 naive 5.89 | 1884 s
+plain 2026-11-03 plain | fut 5m cov 0.825 crps 8.5738 width 44.76 pin 5.9434 skill 0.001 dir None of 0 | opt 5m cov 0.82 pin 4.6415 err 8.4 naive 8.38 | 2074 s
+plain 2026-11-04 plain | fut 5m cov 0.799 crps 11.3246 width 49.25 pin 7.3728 skill 0.004 dir 0.588 of 170 | opt 5m cov 0.813 pin 2.426 err 4.39 naive 4.38 | 2233 s
+plain 2026-11-05 plain | fut 5m cov 0.789 crps 9.7649 width 46.71 pin 6.2318 skill 0.0 dir 0.316 of 19 | opt 5m cov 0.813 pin 2.1143 err 4.11 naive 4.08 | 2389 s
+plain 2026-11-06 plain | fut 5m cov 0.805 crps 14.1471 width 72.92 pin 9.9952 skill 0.01 dir 0.6 of 270 | opt 5m cov 0.804 pin 3.1075 err 5.62 naive 5.6 | 2521 s
+plain 2026-11-09 plain | fut 5m cov 0.835 crps 13.4957 width 64.61 pin 9.0062 skill -0.006 dir 0.408 of 71 | opt 5m cov 0.812 pin 6.7825 err 12.72 naive 12.68 | 2660 s
+plain 2026-11-11 plain | fut 5m cov 0.764 crps 11.4189 width 47.52 pin 7.7633 skill -0.002 dir 0.0 of 1 | opt 5m cov 0.859 pin 2.1246 err 3.45 naive 3.44 | 2800 s

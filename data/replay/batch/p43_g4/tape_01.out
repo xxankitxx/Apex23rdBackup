@@ -1,0 +1,8 @@
+2026-11-12 02:17:23 REPLAY meta {"schema": 1, "apex": "1.9.0", "git": "211014f", "src": "1557ec51a586", "cfg": "dffe46b04d98e0413c4db3383d9954a1a74bf96e", "part": 1}
+2026-11-12 02:17:23 REPLAY registry: 121 instruments
+2026-11-12 02:17:23 ENGINE registry v1: 121 instruments, weekly 2026-11-09, next 2026-11-17
+2026-11-12 02:17:24 mkt=08:38:55 ENGINE CONDUCTOR pool as of 2026-11-04: 0 pair(s)
+2026-11-12 02:17:26 mkt=08:38:55 ENGINE FORECAST artefact for 2026-11-04: chronological: artefact 7b66fa4226c6 trained through 2026-11-03 · availability simulated
+2026-11-12 02:17:29 mkt=08:38:55 ENGINE SLOW TICK 5260 ms · step parts (ms): day 3288, books 1830, greeks 39, pre-books 21 · inside (ms): book:c20_8x 813, conductor 809, pred start 623, ideas board 309, quant view 260 · save lag 0
+2026-11-12 02:17:31 mkt=08:39:00 ENGINE tick time last minute: p50 46 ms, p95 101 ms, max 5260 ms over 45 ticks (over 300 ms: 2, over 1 s: 1) · share of time: day 43 %, books 29 %, market 12 %, guard-domino-regime 4 % · mean ms per tick: conductor 18.6, book:c20_8x 18.1, pred start 13.8, ideas board 6.9 · save lag 0
+2026-11-12 02:27:33 mkt=09:01:00 ENGINE tick time last minute: p50 42 ms, p95 69 ms, max 303 ms over 600 ticks (over 300 ms: 1, over 1 s: 0) · share of time: market 41 %, guard-domino-regime 14 %, books 14 %, pre-books 8 % · mean ms per tick: publish 2.8, advise 0.9, missed paper 0.7, weather feed v3 0.6 · save lag 0

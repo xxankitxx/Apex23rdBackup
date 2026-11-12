@@ -322,7 +322,11 @@ for _n, _g in PRED_BOOKS.items():
                     "tp_pts": 1e9, "sl_pts": 1e9, "max_hold_s": 300, "cooldown_s": 60,
                     "no_streak_pause": True, "no_trade_cap": True, "expiry_window_exempt": True}
 PREDICT_MODEL = os.path.join(ROOT, "apex", "predict", "model_v2.json")   # frozen artefact; no fitting at run time
-PREDICT_RANGES = os.path.join(ROOT, "apex", "predict", "ranges_v1.json")  # frozen premium-range artefact (a record only)
+PREDICT_RANGES = os.path.join(ROOT, "apex", "predict", "ranges_v2.json")  # frozen premium-range artefact (a record only)
+# 11 Nov (docs/46 finding 4): which artefact the engine's forecaster loads. "chronological": the newest artefact of
+# apex/predict/registry.json fitted on EARLIER sessions only (validated); none -> the forecaster is silent that
+# session. "discovery": the fixed file PREDICT_MODEL whatever it has seen (experiments; labelled in_sample).
+PREDICT_MODE = os.environ.get("APEX_PREDICT_MODE") or "chronological"
 RANDOM_ENTRIES_PER_DAY = 6.0     # Poisson mean; ~ the expected champion rate (re-check after 10 sessions)
 # ── 27 Oct: BUYER EDGE (docs/18_BUYER_EDGE.md) ───────────────────────────────────────────────────────────────────────
 # Six live sessions (19-27 Oct, 106 trades) showed: (1) the entries have NO directional edge — option mid-to-mid moves
@@ -452,6 +456,11 @@ VARIANTS["conductor"] = dict(_G, conductor=True, raw_of="c20_9x")
 # Registered LAST: the book order is the same-tick tiebreak order and must not move for the older books.
 VARIANTS["fx_c20_9y"] = dict(_G, council="c20_9y", twin=True, fc_exit=True)
 VARIANTS["fr_c20_9y"] = dict(_G, council="c20_9y", twin=True, fc_hold=True)
+# 11 Nov (docs/49, owner: "book higher and re-enter if the conviction to run is still strong"): two more twins of c20_9y
+# driven by the frozen hold / re-entry models of apex/predict/hold.py (apex/engine/holdtwin.py). Shadow only.
+# hx_c20_9y (hold_exit=True) is NOT added: on leave-one-day-out every line that sells early lost 8.8 to 31 lakh, so
+# the honest line never acts (docs/49 section 7). The code stays for a better model.
+VARIANTS["rx_c20_9y"] = dict(_G, council="c20_9y", twin=True, reenter=True)
 CHAMPION_DEFAULT = "c20_9x"  # 1 Nov (owner): back from c20_9t after its 8-day replay; before: c20_9t (31 Oct, never live), t28_gap (29 Oct 11:40), t28_cheap (29 Oct morning), t28_gap (28 Oct evening), lvl_trail_re (28 Oct), edge_gate_trail and edge_gate_only (27 Oct), spot_dual_lvl (D-142), edge_gate_trail and edge_gate_only (27 Oct), spot_dual_lvl (D-142)
 # D-124 (owner, 20 Oct 16:16: "Apply spot_dc12_t12 thoroughly on my code"): the champion is the owner's choice.
 # learning.load_state applies it ONCE to an existing state (the champion lives in data/learning/state.json,
@@ -676,7 +685,7 @@ def holiday_coverage_gaps(now: datetime) -> list:
 
 
 # ── self-check (D-073): a mis-typed number fails preflight, not the session ─────
-VARIANT_KEYS = frozenset(("twin", "fc_exit", "fc_hold", "m_star", "s_star", "L_star", "d_star", "s_exit", "iv_interp",
+VARIANT_KEYS = frozenset(("twin", "fc_exit", "fc_hold", "hold_exit", "reenter", "m_star", "s_star", "L_star", "d_star", "s_exit", "iv_interp",
                           "gap_star", "exit_book", "spike", "random", "momentum", "novol", "trend",
                           "spot_dc", "spot_trail", "swing", "cooldown_s", "no_streak_pause", "spot_expiry_end",
                           "no_trade_cap", "expiry_window_exempt", "tv_novol", "tv_hold_s",

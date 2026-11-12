@@ -1,0 +1,9 @@
+{
+  "reclaimed_bytes": 154520999,
+  "archive_bytes": 42066061,
+  "sha256": "7797451DB61083C5B5CC89105BEBB1D070BCE1DCD8A8363A3C80356FC5E445BA",
+  "original_bytes": 196587060,
+  "source": "D:\\ApexOptions\\logs\\apiLogs.log",
+  "status": "archived",
+  "archive": "D:\\ApexOptions\\logs\\apiLogs_2026-11-09_codex_archive.log.gz"
+}

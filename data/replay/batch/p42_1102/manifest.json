@@ -1,0 +1,67 @@
+{
+ "run_id": "p42_1102",
+ "run_dir": "D:\\ApexOptions\\data\\replay\\batch\\p42_1102",
+ "started": "2026-11-11 01:50:04",
+ "git": {
+  "commit": "ee73e004e12f4e07cf7a0c6d20086e3606c7936f",
+  "dirty": true
+ },
+ "source_hash": "5a203d644d0c",
+ "seed": "data",
+ "python": "3.13.0 (tags/v3.13.0:60403a5, Oct  7 2024, 09:38:07) [MSC v.1941 64 bit (AMD64)]",
+ "numpy": "2.4.3",
+ "platform": "Windows-11-10.0.26300-SP0",
+ "switches": {
+  "APEX_RECORD_MISSED": false,
+  "APEX_FAST": true,
+  "APEX_PRIOR_LEVELS": null,
+  "REPLAY_STEP_S": 0.1,
+  "LAST_ENTRY": [
+   15,
+   15
+  ],
+  "FLATTEN_AT": [
+   15,
+   25
+  ],
+  "CAS_TEST": false,
+  "LEARN_DECIDE": false,
+  "VARIANTS_sha256": "d4f0f26a0152a9d3e0304c47c229a48e3915c3519e273254be56eba0a31c757f",
+  "config_full_sha1": "cc78a3f7f021e9e2dd9f991240f57b51ee1986db"
+ },
+ "seeded": {
+  "state.json": "b12a00b32a5d4cb2d653d380bb034de70a8c7d6fa9b50983a1617ded5809c5c1",
+  "days.jsonl": "52606e691ea7dedabb1e571de225c5bc78f2c9849cac2f5d69029749fb4d90ca",
+  "day_levels.json": "80183049a446ef2ae8af72382f1da1342214bde8b0e4c9fa03c322292dedba18",
+  "strike_levels.json": "8dda07fb3b0a66ac354f5d72e3c41c0aee1e7ecb4ae60d1781f95b4f77292bc3",
+  "defects.json": "fb647196e4b0cf915b66cbdb6d65dafe2f609f6fb347d32a3ec96dc67a7fc41f",
+  "clock_norms.json": "aa7b9fc4b1fb5f24b5e7c74a1f9a4093d396dc5d9c22dcce42ba99adfddf16dc",
+  "state": {
+   "champion": "conductor",
+   "gates": [],
+   "candidates": []
+  }
+ },
+ "tapes": [
+  {
+   "path": "D:\\ApexOptions\\data\\ticks\\2026-11-02.jsonl.gz",
+   "meta": {
+    "schema": 1,
+    "apex": "1.9.0",
+    "git": "f164660",
+    "src": "5f1d47c4b7c0",
+    "cfg": "d5be18c6ad3cceeebdee42c6c58d02633cabe9b8",
+    "part": 1
+   },
+   "parts": [
+    {
+     "path": "D:\\ApexOptions\\data\\ticks\\2026-11-02.jsonl.gz",
+     "sha256": "a8f216640399b71e19d09eec8e39029a04df16752ddf7fc3748353d5ad608682",
+     "bytes": 235839713
+    }
+   ]
+  }
+ ],
+ "results": [],
+ "status": "running"
+}

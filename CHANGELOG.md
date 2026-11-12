@@ -1,5 +1,56 @@
 # Changelog
 
+## 11 Nov 2026 (16:00 to 18:00, after the close) — Forecast Lab v2, the engine's hazard model, pending items (docs/50)
+- **Forecast Lab v2** (`apex/forecast_lab/brain.py`, `core.py` VERSION 2): a trained layer under the online one.
+  45 causal inputs; a multi-scale volatility model; fat-tailed quantiles and a stochastic-volatility mixture in the
+  paths; two trained direction experts (ridge, boosted trees) beside the five online ones; implied-volatility drift
+  by time of day and days to expiry and the skew slide by moneyness. New in the panel: a market-state strip, a what-if
+  grid (futures move by time), "what moves my lean", options-priced against delivered against forecast movement.
+- **Evidence, 11 unseen sessions:** volatility error 8 to 31 % below the 10-minute clock on 8 or 9 sessions; with
+  online learning the 80 % ranges stay at 80 % and are 4 to 10 % narrower. The premium's middle forecast equals "no
+  change"; profit chance scores as a coin. The 1-minute direction skill (IC +0.21) is the options and stocks leading
+  the recorded futures quote, not foresight.
+- **Engine:** label version 2 (a recording that ends inside the horizon is unobservable; 179 of 131,585 rows moved);
+  one coherent hazard model (`apex/predict/hazard.py`, 12 chronological artefacts) replaces the eight-model
+  forecaster; `registry.for_session` wired into engine start, `PREDICT_MODE=chronological` (never a model fitted on
+  the session, no fallback); `ranges_v2.json`. Hazard on 11 unseen sessions: log loss 0.976 against 1.108 for base
+  rates (10 of 11), side AUC 0.530; on today's live day side AUC 0.443.
+- **Label parity on today's live session:** same fill 92.5 %; first event the same 99.5 % at 30 s, 96.2 % at 300 s;
+  differences are knife-edge touches sampled at different instants inside a second.
+- **Nightly:** `research/forecast_lab/nightly.py <day>` converts the tape, collects the day, refits the trained layer.
+- **Tests:** full suite 564 passed, no failure.
+- **Prepared, not yet run when this was written:** the overnight replay p43 (16 sessions, recorder on).
+
+## 11 Nov 2026 (13:55 to 14:30) — tighter trailing and re-entry studied (docs/49); re-entry twin added
+- **Giveback:** c20_9y booked 11.9 lakh of 31.5 lakh at its trades' peaks (38 %). Tighter trails (40 variants), floors
+  after a gain, and buying back on a new high all lost money on the recorded trades.
+- **Continuation and re-entry models** (`apex/predict/hold.py`, `research/predict/build_hold.py`): held out by day,
+  selling early never helped; buying back helped only on a thin line (+12,477 on 9 decisions).
+- **`rx_c20_9y`** (shadow re-entry twin, `apex/engine/holdtwin.py`, `reenter_v1.json`) added; the hold-or-sell twin
+  was not, because its honest line never acts. 106 books. Effective at the next engine restart.
+- **Tests:** `tests/test_hold_twins.py` (4); book-count tests updated to 106.
+
+## 11 Nov 2026 (12:15 to 13:45, during the live session) — the Forecast Lab (docs/47, docs/48)
+- **Why nothing traded today:** the account and all 13 champion-family books stayed flat ("no eligible trigger").
+  Not a fault: those books buy only when movement pays for decay, and today it has not (gamma-rent ratio about 0.2
+  against the 1.0 needed). 457 trades happened across the other books.
+- **docs/47** (new, research): 11 topics, 88 references, a ranked plan: decay and movement clock first, a path
+  engine with full repricing second, self-scoring with weighted experts third; skip big direction classifiers.
+- **Forecast Lab** (`apex/forecast_lab/`, docs/48): a separate process that reads the feed's table read-only and
+  writes `apex/static/live/forecast_lab.json` once a second. Futures distribution at 1 to 30 minutes from five
+  experts weighted by their matured scores; option premiums by Monte Carlo repricing with time decay and the measured
+  volatility trend and spot-vol beta; decay alone; break-even move; profit chance; +5 %/-5 % race; decay register on
+  the trading and calendar clocks plus decay measured from the quotes; gamma rent; plain-English commentary with
+  "what I would do" (advice only, needs its own record before it says buy); self-scoring of every forecast and online
+  learning with a frozen morning copy. About 2 % of one core at below-normal priority; no measurable effect on the
+  engine (median step 42 ms before, 39 ms after).
+- **Dashboard:** the Forecast panel now sits directly under the position band (it had no grid slot and fell to the
+  bottom); fan charts for the future and each option, the next-steps table, the decay register and the scoreboard.
+  The old model's cards are kept in a fold for the four forecast books.
+- **Engine publish change, prepared, not live:** the straddle series, ideas board and book table are encoded at most
+  once a second instead of four times (`_slow_parts`, `write_state(raw=...)`). Takes effect at the next engine restart.
+- **Tests:** `tests/test_forecast_lab.py` (9), one more in `tests/test_state_fastpath.py`.
+
 ## 11 Nov 2026 (08:25 to 08:35) — docs/46 review: three fixes before the open
 - **Stale signal (finding 1):** the forecaster withdraws its signals in any second without a current forecast, and
   `paper.evaluate_gen` refuses a forecast-book signal whose exact contract has no current forecast.

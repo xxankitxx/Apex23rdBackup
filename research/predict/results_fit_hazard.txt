@@ -1,0 +1,14 @@
+2026-10-27 trained through 2026-10-26 | rows 5832 | logloss3 0.7085 base 0.8659 | side AUC 0.508 | top 5 %: {'n': 191, 'up': 0.42408376963350786, 'down': 0.5759162303664922, 'ret300_pct': -4.505924824756761} | 85 s
+2026-10-28 trained through 2026-10-27 | rows 6385 | logloss3 1.0626 base 1.3495 | side AUC 0.574 | top 5 %: {'n': 125, 'up': 0.288, 'down': 0.384, 'ret300_pct': -0.45712264705310035} | 110 s
+2026-10-29 trained through 2026-10-28 | rows 7003 | logloss3 1.0826 base 1.27 | side AUC 0.697 | top 5 %: {'n': 308, 'up': 0.5714285714285714, 'down': 0.19805194805194806, 'ret300_pct': 2.918780910005103} | 103 s
+2026-10-30 trained through 2026-10-29 | rows 7844 | logloss3 1.0515 base 1.063 | side AUC 0.505 | top 5 %: {'n': 769, 'up': 0.45513654096228867, 'down': 0.44733420026007803, 'ret300_pct': 0.29194219930257115} | 120 s
+2026-11-02 trained through 2026-10-30 | rows 6780 | logloss3 1.065 base 1.0365 | side AUC 0.497 | top 5 %: {'n': 774, 'up': 0.355297157622739, 'down': 0.4095607235142119, 'ret300_pct': 0.316427422037122} | 142 s
+2026-11-03 trained through 2026-11-02 | rows 6842 | logloss3 0.8148 base 0.9503 | side AUC 0.576 | top 5 %: {'n': 1065, 'up': 0.507981220657277, 'down': 0.4610328638497653, 'ret300_pct': -0.004372254326177739} | 127 s
+2026-11-04 trained through 2026-11-03 | rows 6697 | logloss3 1.0133 base 1.1601 | side AUC 0.517 | top 5 %: {'n': 105, 'up': 0.7238095238095238, 'down': 0.14285714285714285, 'ret300_pct': 2.322433452668148} | 141 s
+2026-11-05 trained through 2026-11-04 | rows 6957 | logloss3 1.1429 base 1.207 | side AUC 0.468 | top 5 %: {'n': 168, 'up': 0.3392857142857143, 'down': 0.4523809523809524, 'ret300_pct': 1.730651380029101} | 137 s
+2026-11-06 trained through 2026-11-05 | rows 8158 | logloss3 1.0542 base 1.0573 | side AUC 0.513 | top 5 %: {'n': 206, 'up': 0.33980582524271846, 'down': 0.616504854368932, 'ret300_pct': -0.5373673566575907} | 107 s
+2026-11-09 trained through 2026-11-06 | rows 6971 | logloss3 0.7101 base 0.9498 | side AUC 0.529 | top 5 %: {'n': 239, 'up': 0.5397489539748954, 'down': 0.4602510460251046, 'ret300_pct': 0.21892322995571947} | 157 s
+2026-11-11 trained through 2026-11-09 | rows 7639 | logloss3 1.0314 base 1.2745 | side AUC 0.443 | top 5 %: {'n': 0, 'up': None, 'down': None, 'ret300_pct': None} | 134 s
+
+unseen sessions 11: mean log loss 0.9761 against base rates 1.1076 (better on 10/11); side AUC 0.530 (above 0.5 on 8/11); top 5 % n 3950, up 0.453, down 0.430, mean 300-s return +0.233 %
+installed 12 hazard artefacts, registry.json and ranges_v2.json 2560d2e20db4

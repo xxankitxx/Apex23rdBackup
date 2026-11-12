@@ -1,0 +1,33 @@
+{
+ "registered": "2026-10-17",
+ "champion": "conductor",
+ "champion_since": "2026-11-09",
+ "gates": [],
+ "retired": [],
+ "log": [
+  {
+   "day": "2026-11-09",
+   "event": "champion",
+   "from": "c20_9x",
+   "to": "conductor",
+   "by": "owner (D-124)"
+  }
+ ],
+ "status": "COLLECTING",
+ "candidates": {},
+ "streak": {},
+ "gate_streak": {},
+ "owner_champion": [
+  "conductor",
+  "2026-11-09"
+ ],
+ "looked_day": "2026-11-09",
+ "scoreboard": {
+  "n": 0,
+  "sum": 0,
+  "go_line": 998.1,
+  "kill_line": -560.9,
+  "sd_obs": null
+ },
+ "learned_day": "2026-11-09"
+}

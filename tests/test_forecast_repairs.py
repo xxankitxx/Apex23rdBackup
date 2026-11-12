@@ -61,7 +61,10 @@ def test_the_installed_artefact_takes_its_lines_from_the_deployed_score():
         z = np.load(npz)
         mc = {str(n): i for i, n in enumerate(z["mcols"])}
         obs = (z["M"][:, mc["st"]] == 1) & (z["M"][:, mc["first300"]] != 3)
-        e = L.Forecaster(artefact=v2).edges(z["X"][obs].astype(float))
+        # model_v2 was fitted on label version 1; the engine now refuses it (docs/46 finding 3), so the lines are
+        # reproduced with a forecaster told to accept that older specification
+        e = L.Forecaster(artefact=dict(v2, target_spec=T.SPEC)).edges(z["X"][obs].astype(float))
+        assert not L.Forecaster(artefact=v2).ok                      # the old labels are not loaded any more
         for q, v in v2["edge_quantiles"].items():
             assert abs(float(np.quantile(e, float(q))) - v) < 1e-9, q
 
@@ -420,3 +423,77 @@ def test_published_means_before_that_sessions_open(tmp_path):
     assert "not before the open" in why("2026-11-11 09:15:00", "2026-11-11") and "simulated" in why("2026-11-11 11:00:00", "2026-11-11")
     assert "simulated" in why("2026-11-12 08:00:00", "2026-11-10")       # published later than the day it is asked about
     assert "simulated" in why("yes", "2026-11-11") and "simulated" in why(True, "2026-11-11") and why(None, "2026-11-11").endswith("availability simulated")
+
+
+# -- 11 Nov evening: the hazard artefact, and the engine's session-based loading (docs/46 findings 3 and 4) ----------
+def _hazard_art(cut="2026-11-09", bias_up=0.5):
+    from apex.predict import hazard as Hz
+    p = len(F.NAMES)
+    W = []
+    for j in range(len(T.HORIZONS)):
+        up, dn = [-2.0 + 0.2 * j] + [0.0] * p, [-2.0 + 0.2 * j] + [0.0] * p
+        up[1 + F.NAMES.index("mom30")], dn[1 + F.NAMES.index("mom30")] = bias_up, -bias_up
+        W.append([up, dn])
+    a = dict(version=3, kind=Hz.KIND, feature_schema=F.SCHEMA, target_spec=T.SPEC, med=[0.0] * p, sd=[1.0] * p, W=W,
+             training_cutoff=cut, trained_through=cut, effective_from=None,
+             edge_quantiles={"0.5": 0.0, "0.95": 0.2, "0.99": 0.5}, mom30_q95=5.0)
+    a["hash"] = Mo.model_hash(a)
+    return a
+
+
+def test_the_hazard_forecaster_is_coherent_by_construction():
+    fc = L.Forecaster(artefact=_hazard_art())
+    assert fc.ok and fc.kind == "hazard"
+    rng = np.random.default_rng(1)
+    X = rng.normal(0, 2.0, (300, len(F.NAMES)))
+    pT, pA = fc.score(X)
+    assert (np.diff(pT, axis=1) >= 0).all() and (np.diff(pA, axis=1) >= 0).all()       # cumulative: never falling
+    assert (pT + pA <= 1 + 1e-12).all() and (pT >= 0).all() and (pA >= 0).all()         # the three outcomes sum to one
+    up = X.copy(); up[:, F.NAMES.index("mom30")] = 3.0
+    dn = X.copy(); dn[:, F.NAMES.index("mom30")] = -3.0
+    assert (fc.edges(up) > fc.edges(dn)).all()                                          # the input moves the edge the right way
+    f = fc.forecast(X[0])
+    assert abs(f["edge"] - (pT[0, -1] - pA[0, -1])) < 1e-12 and abs(f["pT"][300] + f["pA"][300] + f["pN"][300] - 1) < 1e-12
+    bad = dict(_hazard_art(), W=[[[0.0]]])
+    assert not L.Forecaster(artefact=bad).ok
+
+
+def test_the_engine_loads_by_session_and_never_a_model_that_saw_it(tmp_path):
+    from apex.predict import registry as R
+    d = str(tmp_path)
+    os.makedirs(os.path.join(d, "artefacts"))
+    rows = []
+    for cut, eff in (("2026-11-06", "2026-11-09"), ("2026-11-09", None)):
+        a = _hazard_art(cut)
+        a["effective_from"] = eff
+        a["hash"] = Mo.model_hash(a)
+        json.dump(a, open(os.path.join(d, "artefacts", f"h_{cut}.json"), "w"))
+        rows.append(dict(file=f"artefacts/h_{cut}.json", hash=a["hash"], trained_through=cut, effective_from=eff))
+    reg = os.path.join(d, "registry.json")
+    json.dump(dict(artefacts=rows), open(reg, "w"))
+    art, why = R.for_session("2026-11-09", "chronological", None, reg)
+    assert art["training_cutoff"] == "2026-11-06" and why.startswith("chronological")
+    art, why = R.for_session("2026-11-12", "chronological", None, reg)
+    assert art["training_cutoff"] == "2026-11-09"
+    art, why = R.for_session("2026-11-05", "chronological", "anything.json", reg)
+    assert art is None and "no artefact fitted before" in why                           # silent, never a fallback
+    disc = os.path.join(d, "artefacts", "h_2026-11-09.json")
+    art, why = R.for_session("2026-11-05", "discovery", disc, reg)
+    assert art["training_cutoff"] == "2026-11-09" and why.startswith("discovery")       # only when asked for
+    assert R.for_session("2026-11-05", "discovery", os.path.join(d, "none.json"), reg)[0] is None
+    p = pred.Pred(None, None, "2026-11-05", artefact=art)
+    assert p.in_sample                                                                  # and it says so
+
+
+def test_the_installed_registry_serves_the_next_live_session():
+    from apex.predict import registry as R
+    if not os.path.exists(R.PATH):
+        return
+    rows = R.load()
+    assert rows and all(r.get("kind") == "hazard" for r in rows)
+    last = max(rows, key=lambda r: r["trained_through"])
+    nxt = "2099-01-01"
+    art, why, row = R.validated(nxt)
+    assert art is not None and art["target_spec"] == T.SPEC and L.Forecaster(artefact=art).ok, why
+    assert row["trained_through"] == last["trained_through"] and "before the open" in why
+    assert config.PREDICT_MODE == "chronological"

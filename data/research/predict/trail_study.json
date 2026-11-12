@@ -1,0 +1,4109 @@
+{
+ "split": "2026-11-03",
+ "giveback": [
+  {
+   "book": "c20_9y",
+   "trades": 92,
+   "pnl_rs": 1194372,
+   "peak_rs": 3152546,
+   "giveback_rs": 1955805,
+   "captured_pct_of_peak": 37.9,
+   "median_peak_gain": 17.7,
+   "median_exit_gain": 2.8,
+   "winners_giveback_median_pct": 16.1,
+   "losers_that_were_up_5": 17,
+   "losers_that_were_up_10": 12,
+   "losers": 38
+  },
+  {
+   "book": "c20_9s",
+   "trades": 96,
+   "pnl_rs": 1108162,
+   "peak_rs": 3138564,
+   "giveback_rs": 2028319,
+   "captured_pct_of_peak": 35.3,
+   "median_peak_gain": 16.9,
+   "median_exit_gain": 1.3,
+   "winners_giveback_median_pct": 16.1,
+   "losers_that_were_up_5": 21,
+   "losers_that_were_up_10": 14,
+   "losers": 43
+  },
+  {
+   "book": "c20_9v",
+   "trades": 103,
+   "pnl_rs": 1093726,
+   "peak_rs": 3099223,
+   "giveback_rs": 2003453,
+   "captured_pct_of_peak": 35.3,
+   "median_peak_gain": 15.7,
+   "median_exit_gain": 3.6,
+   "winners_giveback_median_pct": 15.9,
+   "losers_that_were_up_5": 18,
+   "losers_that_were_up_10": 12,
+   "losers": 42
+  },
+  {
+   "book": "c20_9x",
+   "trades": 102,
+   "pnl_rs": 1036328,
+   "peak_rs": 3147203,
+   "giveback_rs": 2108792,
+   "captured_pct_of_peak": 32.9,
+   "median_peak_gain": 15.4,
+   "median_exit_gain": 0.6,
+   "winners_giveback_median_pct": 16.1,
+   "losers_that_were_up_5": 24,
+   "losers_that_were_up_10": 16,
+   "losers": 49
+  },
+  {
+   "book": "c20_9t",
+   "trades": 114,
+   "pnl_rs": 387260,
+   "peak_rs": 2031669,
+   "giveback_rs": 1642404,
+   "captured_pct_of_peak": 19.1,
+   "median_peak_gain": 10.3,
+   "median_exit_gain": 4.8,
+   "winners_giveback_median_pct": 5.7,
+   "losers_that_were_up_5": 11,
+   "losers_that_were_up_10": 3,
+   "losers": 37
+  }
+ ],
+ "variants": [
+  {
+   "kind": "trail",
+   "arm": 0.05,
+   "param": 0.03,
+   "reenter": false,
+   "c20_9y": {
+    "disc_rs": 130393,
+    "disc_base": 1078009,
+    "hold_rs": 45750,
+    "hold_base": 116363,
+    "legs": 92,
+    "trades": 92,
+    "days_better": 5,
+    "days_worse": 10
+   },
+   "c20_9s": {
+    "disc_rs": 160072,
+    "disc_base": 1054823,
+    "hold_rs": 19230,
+    "hold_base": 53339,
+    "legs": 96,
+    "trades": 96,
+    "days_better": 4,
+    "days_worse": 11
+   },
+   "c20_9v": {
+    "disc_rs": 142779,
+    "disc_base": 1029902,
+    "hold_rs": 22331,
+    "hold_base": 63824,
+    "legs": 103,
+    "trades": 103,
+    "days_better": 5,
+    "days_worse": 10
+   },
+   "c20_9x": {
+    "disc_rs": 111088,
+    "disc_base": 985368,
+    "hold_rs": 22331,
+    "hold_base": 50960,
+    "legs": 102,
+    "trades": 102,
+    "days_better": 5,
+    "days_worse": 10
+   },
+   "c20_9t": {
+    "disc_rs": 86005,
+    "disc_base": 383324,
+    "hold_rs": -12252,
+    "hold_base": 3936,
+    "legs": 114,
+    "trades": 114,
+    "days_better": 6,
+    "days_worse": 9
+   }
+  },
+  {
+   "kind": "trail",
+   "arm": 0.05,
+   "param": 0.03,
+   "reenter": true,
+   "c20_9y": {
+    "disc_rs": 496892,
+    "disc_base": 1078009,
+    "hold_rs": 218,
+    "hold_base": 116363,
+    "legs": 209,
+    "trades": 92,
+    "days_better": 3,
+    "days_worse": 12
+   },
+   "c20_9s": {
+    "disc_rs": 499268,
+    "disc_base": 1054823,
+    "hold_rs": -36813,
+    "hold_base": 53339,
+    "legs": 215,
+    "trades": 96,
+    "days_better": 2,
+    "days_worse": 13
+   },
+   "c20_9v": {
+    "disc_rs": 500909,
+    "disc_base": 1029902,
+    "hold_rs": -42507,
+    "hold_base": 63824,
+    "legs": 223,
+    "trades": 103,
+    "days_better": 3,
+    "days_worse": 12
+   },
+   "c20_9x": {
+    "disc_rs": 451067,
+    "disc_base": 985368,
+    "hold_rs": -42507,
+    "hold_base": 50960,
+    "legs": 223,
+    "trades": 102,
+    "days_better": 3,
+    "days_worse": 12
+   },
+   "c20_9t": {
+    "disc_rs": 210450,
+    "disc_base": 383324,
+    "hold_rs": -32965,
+    "hold_base": 3936,
+    "legs": 187,
+    "trades": 114,
+    "days_better": 3,
+    "days_worse": 12
+   }
+  },
+  {
+   "kind": "trail",
+   "arm": 0.05,
+   "param": 0.05,
+   "reenter": false,
+   "c20_9y": {
+    "disc_rs": 129565,
+    "disc_base": 1078009,
+    "hold_rs": 24044,
+    "hold_base": 116363,
+    "legs": 92,
+    "trades": 92,
+    "days_better": 5,
+    "days_worse": 10
+   },
+   "c20_9s": {
+    "disc_rs": 155500,
+    "disc_base": 1054823,
+    "hold_rs": -2827,
+    "hold_base": 53339,
+    "legs": 96,
+    "trades": 96,
+    "days_better": 5,
+    "days_worse": 10
+   },
+   "c20_9v": {
+    "disc_rs": 137534,
+    "disc_base": 1029902,
+    "hold_rs": -1521,
+    "hold_base": 63824,
+    "legs": 103,
+    "trades": 103,
+    "days_better": 4,
+    "days_worse": 11
+   },
+   "c20_9x": {
+    "disc_rs": 100656,
+    "disc_base": 985368,
+    "hold_rs": -1521,
+    "hold_base": 50960,
+    "legs": 102,
+    "trades": 102,
+    "days_better": 5,
+    "days_worse": 10
+   },
+   "c20_9t": {
+    "disc_rs": 75569,
+    "disc_base": 383324,
+    "hold_rs": -51633,
+    "hold_base": 3936,
+    "legs": 114,
+    "trades": 114,
+    "days_better": 1,
+    "days_worse": 11
+   }
+  },
+  {
+   "kind": "trail",
+   "arm": 0.05,
+   "param": 0.05,
+   "reenter": true,
+   "c20_9y": {
+    "disc_rs": 473831,
+    "disc_base": 1078009,
+    "hold_rs": 13234,
+    "hold_base": 116363,
+    "legs": 183,
+    "trades": 92,
+    "days_better": 3,
+    "days_worse": 12
+   },
+   "c20_9s": {
+    "disc_rs": 521245,
+    "disc_base": 1054823,
+    "hold_rs": -24147,
+    "hold_base": 53339,
+    "legs": 186,
+    "trades": 96,
+    "days_better": 2,
+    "days_worse": 13
+   },
+   "c20_9v": {
+    "disc_rs": 506877,
+    "disc_base": 1029902,
+    "hold_rs": -31427,
+    "hold_base": 63824,
+    "legs": 194,
+    "trades": 103,
+    "days_better": 2,
+    "days_worse": 13
+   },
+   "c20_9x": {
+    "disc_rs": 464269,
+    "disc_base": 985368,
+    "hold_rs": -31635,
+    "hold_base": 50960,
+    "legs": 194,
+    "trades": 102,
+    "days_better": 3,
+    "days_worse": 12
+   },
+   "c20_9t": {
+    "disc_rs": 234994,
+    "disc_base": 383324,
+    "hold_rs": -108979,
+    "hold_base": 3936,
+    "legs": 165,
+    "trades": 114,
+    "days_better": 3,
+    "days_worse": 9
+   }
+  },
+  {
+   "kind": "trail",
+   "arm": 0.05,
+   "param": 0.08,
+   "reenter": false,
+   "c20_9y": {
+    "disc_rs": 388222,
+    "disc_base": 1078009,
+    "hold_rs": 19198,
+    "hold_base": 116363,
+    "legs": 92,
+    "trades": 92,
+    "days_better": 5,
+    "days_worse": 10
+   },
+   "c20_9s": {
+    "disc_rs": 414707,
+    "disc_base": 1054823,
+    "hold_rs": -14635,
+    "hold_base": 53339,
+    "legs": 96,
+    "trades": 96,
+    "days_better": 5,
+    "days_worse": 10
+   },
+   "c20_9v": {
+    "disc_rs": 415747,
+    "disc_base": 1029902,
+    "hold_rs": -16234,
+    "hold_base": 63824,
+    "legs": 103,
+    "trades": 103,
+    "days_better": 4,
+    "days_worse": 11
+   },
+   "c20_9x": {
+    "disc_rs": 356590,
+    "disc_base": 985368,
+    "hold_rs": -16234,
+    "hold_base": 50960,
+    "legs": 102,
+    "trades": 102,
+    "days_better": 5,
+    "days_worse": 10
+   },
+   "c20_9t": {
+    "disc_rs": 158685,
+    "disc_base": 383324,
+    "hold_rs": -42877,
+    "hold_base": 3936,
+    "legs": 114,
+    "trades": 114,
+    "days_better": 4,
+    "days_worse": 5
+   }
+  },
+  {
+   "kind": "trail",
+   "arm": 0.05,
+   "param": 0.08,
+   "reenter": true,
+   "c20_9y": {
+    "disc_rs": 579644,
+    "disc_base": 1078009,
+    "hold_rs": -5541,
+    "hold_base": 116363,
+    "legs": 144,
+    "trades": 92,
+    "days_better": 4,
+    "days_worse": 11
+   },
+   "c20_9s": {
+    "disc_rs": 617484,
+    "disc_base": 1054823,
+    "hold_rs": -30579,
+    "hold_base": 53339,
+    "legs": 146,
+    "trades": 96,
+    "days_better": 6,
+    "days_worse": 9
+   },
+   "c20_9v": {
+    "disc_rs": 544505,
+    "disc_base": 1029902,
+    "hold_rs": -40765,
+    "hold_base": 63824,
+    "legs": 155,
+    "trades": 103,
+    "days_better": 3,
+    "days_worse": 12
+   },
+   "c20_9x": {
+    "disc_rs": 560911,
+    "disc_base": 985368,
+    "hold_rs": -40973,
+    "hold_base": 50960,
+    "legs": 153,
+    "trades": 102,
+    "days_better": 5,
+    "days_worse": 10
+   },
+   "c20_9t": {
+    "disc_rs": 199176,
+    "disc_base": 383324,
+    "hold_rs": -111049,
+    "hold_base": 3936,
+    "legs": 144,
+    "trades": 114,
+    "days_better": 1,
+    "days_worse": 8
+   }
+  },
+  {
+   "kind": "trail",
+   "arm": 0.05,
+   "param": 0.12,
+   "reenter": false,
+   "c20_9y": {
+    "disc_rs": 478387,
+    "disc_base": 1078009,
+    "hold_rs": 109411,
+    "hold_base": 116363,
+    "legs": 92,
+    "trades": 92,
+    "days_better": 4,
+    "days_worse": 8
+   },
+   "c20_9s": {
+    "disc_rs": 493750,
+    "disc_base": 1054823,
+    "hold_rs": 71867,
+    "hold_base": 53339,
+    "legs": 96,
+    "trades": 96,
+    "days_better": 6,
+    "days_worse": 6
+   },
+   "c20_9v": {
+    "disc_rs": 466151,
+    "disc_base": 1029902,
+    "hold_rs": 81650,
+    "hold_base": 63824,
+    "legs": 103,
+    "trades": 103,
+    "days_better": 5,
+    "days_worse": 6
+   },
+   "c20_9x": {
+    "disc_rs": 427323,
+    "disc_base": 985368,
+    "hold_rs": 69488,
+    "hold_base": 50960,
+    "legs": 102,
+    "trades": 102,
+    "days_better": 6,
+    "days_worse": 6
+   },
+   "c20_9t": {
+    "disc_rs": 217038,
+    "disc_base": 383324,
+    "hold_rs": -5934,
+    "hold_base": 3936,
+    "legs": 114,
+    "trades": 114,
+    "days_better": 2,
+    "days_worse": 3
+   }
+  },
+  {
+   "kind": "trail",
+   "arm": 0.05,
+   "param": 0.12,
+   "reenter": true,
+   "c20_9y": {
+    "disc_rs": 568305,
+    "disc_base": 1078009,
+    "hold_rs": 98131,
+    "hold_base": 116363,
+    "legs": 112,
+    "trades": 92,
+    "days_better": 4,
+    "days_worse": 8
+   },
+   "c20_9s": {
+    "disc_rs": 573183,
+    "disc_base": 1054823,
+    "hold_rs": 60587,
+    "hold_base": 53339,
+    "legs": 116,
+    "trades": 96,
+    "days_better": 5,
+    "days_worse": 7
+   },
+   "c20_9v": {
+    "disc_rs": 546195,
+    "disc_base": 1029902,
+    "hold_rs": 70369,
+    "hold_base": 63824,
+    "legs": 123,
+    "trades": 103,
+    "days_better": 4,
+    "days_worse": 7
+   },
+   "c20_9x": {
+    "disc_rs": 507367,
+    "disc_base": 985368,
+    "hold_rs": 58208,
+    "hold_base": 50960,
+    "legs": 122,
+    "trades": 102,
+    "days_better": 5,
+    "days_worse": 7
+   },
+   "c20_9t": {
+    "disc_rs": 258264,
+    "disc_base": 383324,
+    "hold_rs": -5642,
+    "hold_base": 3936,
+    "legs": 126,
+    "trades": 114,
+    "days_better": 1,
+    "days_worse": 4
+   }
+  },
+  {
+   "kind": "trail",
+   "arm": 0.05,
+   "param": 0.18,
+   "reenter": false,
+   "c20_9y": {
+    "disc_rs": 744949,
+    "disc_base": 1078009,
+    "hold_rs": 137670,
+    "hold_base": 116363,
+    "legs": 92,
+    "trades": 92,
+    "days_better": 2,
+    "days_worse": 3
+   },
+   "c20_9s": {
+    "disc_rs": 734598,
+    "disc_base": 1054823,
+    "hold_rs": 84708,
+    "hold_base": 53339,
+    "legs": 96,
+    "trades": 96,
+    "days_better": 2,
+    "days_worse": 3
+   },
+   "c20_9v": {
+    "disc_rs": 712212,
+    "disc_base": 1029902,
+    "hold_rs": 95192,
+    "hold_base": 63824,
+    "legs": 103,
+    "trades": 103,
+    "days_better": 2,
+    "days_worse": 3
+   },
+   "c20_9x": {
+    "disc_rs": 667677,
+    "disc_base": 985368,
+    "hold_rs": 82329,
+    "hold_base": 50960,
+    "legs": 102,
+    "trades": 102,
+    "days_better": 2,
+    "days_worse": 3
+   },
+   "c20_9t": {
+    "disc_rs": 264209,
+    "disc_base": 383324,
+    "hold_rs": 15408,
+    "hold_base": 3936,
+    "legs": 114,
+    "trades": 114,
+    "days_better": 2,
+    "days_worse": 2
+   }
+  },
+  {
+   "kind": "trail",
+   "arm": 0.05,
+   "param": 0.18,
+   "reenter": true,
+   "c20_9y": {
+    "disc_rs": 768050,
+    "disc_base": 1078009,
+    "hold_rs": 137670,
+    "hold_base": 116363,
+    "legs": 96,
+    "trades": 92,
+    "days_better": 2,
+    "days_worse": 3
+   },
+   "c20_9s": {
+    "disc_rs": 753847,
+    "disc_base": 1054823,
+    "hold_rs": 84708,
+    "hold_base": 53339,
+    "legs": 100,
+    "trades": 96,
+    "days_better": 2,
+    "days_worse": 3
+   },
+   "c20_9v": {
+    "disc_rs": 731461,
+    "disc_base": 1029902,
+    "hold_rs": 95192,
+    "hold_base": 63824,
+    "legs": 107,
+    "trades": 103,
+    "days_better": 2,
+    "days_worse": 3
+   },
+   "c20_9x": {
+    "disc_rs": 686927,
+    "disc_base": 985368,
+    "hold_rs": 82329,
+    "hold_base": 50960,
+    "legs": 106,
+    "trades": 102,
+    "days_better": 2,
+    "days_worse": 3
+   },
+   "c20_9t": {
+    "disc_rs": 260540,
+    "disc_base": 383324,
+    "hold_rs": 15408,
+    "hold_base": 3936,
+    "legs": 117,
+    "trades": 114,
+    "days_better": 2,
+    "days_worse": 2
+   }
+  },
+  {
+   "kind": "trail",
+   "arm": 0.1,
+   "param": 0.03,
+   "reenter": false,
+   "c20_9y": {
+    "disc_rs": 396841,
+    "disc_base": 1078009,
+    "hold_rs": 89875,
+    "hold_base": 116363,
+    "legs": 92,
+    "trades": 92,
+    "days_better": 4,
+    "days_worse": 10
+   },
+   "c20_9s": {
+    "disc_rs": 393022,
+    "disc_base": 1054823,
+    "hold_rs": 32136,
+    "hold_base": 53339,
+    "legs": 96,
+    "trades": 96,
+    "days_better": 4,
+    "days_worse": 10
+   },
+   "c20_9v": {
+    "disc_rs": 386646,
+    "disc_base": 1029902,
+    "hold_rs": 49686,
+    "hold_base": 63824,
+    "legs": 103,
+    "trades": 103,
+    "days_better": 5,
+    "days_worse": 9
+   },
+   "c20_9x": {
+    "disc_rs": 341477,
+    "disc_base": 985368,
+    "hold_rs": 37986,
+    "hold_base": 50960,
+    "legs": 102,
+    "trades": 102,
+    "days_better": 4,
+    "days_worse": 10
+   },
+   "c20_9t": {
+    "disc_rs": 190521,
+    "disc_base": 383324,
+    "hold_rs": 24619,
+    "hold_base": 3936,
+    "legs": 114,
+    "trades": 114,
+    "days_better": 9,
+    "days_worse": 3
+   }
+  },
+  {
+   "kind": "trail",
+   "arm": 0.1,
+   "param": 0.03,
+   "reenter": true,
+   "c20_9y": {
+    "disc_rs": 746918,
+    "disc_base": 1078009,
+    "hold_rs": 74406,
+    "hold_base": 116363,
+    "legs": 174,
+    "trades": 92,
+    "days_better": 5,
+    "days_worse": 9
+   },
+   "c20_9s": {
+    "disc_rs": 746678,
+    "disc_base": 1054823,
+    "hold_rs": -2639,
+    "hold_base": 53339,
+    "legs": 179,
+    "trades": 96,
+    "days_better": 4,
+    "days_worse": 10
+   },
+   "c20_9v": {
+    "disc_rs": 734955,
+    "disc_base": 1029902,
+    "hold_rs": 15119,
+    "hold_base": 63824,
+    "legs": 184,
+    "trades": 103,
+    "days_better": 5,
+    "days_worse": 9
+   },
+   "c20_9x": {
+    "disc_rs": 696706,
+    "disc_base": 985368,
+    "hold_rs": 3211,
+    "hold_base": 50960,
+    "legs": 185,
+    "trades": 102,
+    "days_better": 5,
+    "days_worse": 9
+   },
+   "c20_9t": {
+    "disc_rs": 215852,
+    "disc_base": 383324,
+    "hold_rs": -27817,
+    "hold_base": 3936,
+    "legs": 153,
+    "trades": 114,
+    "days_better": 5,
+    "days_worse": 7
+   }
+  },
+  {
+   "kind": "trail",
+   "arm": 0.1,
+   "param": 0.05,
+   "reenter": false,
+   "c20_9y": {
+    "disc_rs": 342995,
+    "disc_base": 1078009,
+    "hold_rs": 99034,
+    "hold_base": 116363,
+    "legs": 92,
+    "trades": 92,
+    "days_better": 4,
+    "days_worse": 10
+   },
+   "c20_9s": {
+    "disc_rs": 341341,
+    "disc_base": 1054823,
+    "hold_rs": 43011,
+    "hold_base": 53339,
+    "legs": 96,
+    "trades": 96,
+    "days_better": 4,
+    "days_worse": 10
+   },
+   "c20_9v": {
+    "disc_rs": 336567,
+    "disc_base": 1029902,
+    "hold_rs": 58845,
+    "hold_base": 63824,
+    "legs": 103,
+    "trades": 103,
+    "days_better": 5,
+    "days_worse": 9
+   },
+   "c20_9x": {
+    "disc_rs": 285766,
+    "disc_base": 985368,
+    "hold_rs": 47145,
+    "hold_base": 50960,
+    "legs": 102,
+    "trades": 102,
+    "days_better": 4,
+    "days_worse": 10
+   },
+   "c20_9t": {
+    "disc_rs": 177937,
+    "disc_base": 383324,
+    "hold_rs": 9454,
+    "hold_base": 3936,
+    "legs": 114,
+    "trades": 114,
+    "days_better": 4,
+    "days_worse": 5
+   }
+  },
+  {
+   "kind": "trail",
+   "arm": 0.1,
+   "param": 0.05,
+   "reenter": true,
+   "c20_9y": {
+    "disc_rs": 865722,
+    "disc_base": 1078009,
+    "hold_rs": 108258,
+    "hold_base": 116363,
+    "legs": 155,
+    "trades": 92,
+    "days_better": 6,
+    "days_worse": 8
+   },
+   "c20_9s": {
+    "disc_rs": 879872,
+    "disc_base": 1054823,
+    "hold_rs": 32929,
+    "hold_base": 53339,
+    "legs": 159,
+    "trades": 96,
+    "days_better": 6,
+    "days_worse": 8
+   },
+   "c20_9v": {
+    "disc_rs": 834434,
+    "disc_base": 1029902,
+    "hold_rs": 48971,
+    "hold_base": 63824,
+    "legs": 165,
+    "trades": 103,
+    "days_better": 5,
+    "days_worse": 9
+   },
+   "c20_9x": {
+    "disc_rs": 819247,
+    "disc_base": 985368,
+    "hold_rs": 37063,
+    "hold_base": 50960,
+    "legs": 165,
+    "trades": 102,
+    "days_better": 6,
+    "days_worse": 8
+   },
+   "c20_9t": {
+    "disc_rs": 238729,
+    "disc_base": 383324,
+    "hold_rs": -72602,
+    "hold_base": 3936,
+    "legs": 142,
+    "trades": 114,
+    "days_better": 3,
+    "days_worse": 6
+   }
+  },
+  {
+   "kind": "trail",
+   "arm": 0.1,
+   "param": 0.08,
+   "reenter": false,
+   "c20_9y": {
+    "disc_rs": 458335,
+    "disc_base": 1078009,
+    "hold_rs": 50758,
+    "hold_base": 116363,
+    "legs": 92,
+    "trades": 92,
+    "days_better": 5,
+    "days_worse": 9
+   },
+   "c20_9s": {
+    "disc_rs": 461240,
+    "disc_base": 1054823,
+    "hold_rs": -3627,
+    "hold_base": 53339,
+    "legs": 96,
+    "trades": 96,
+    "days_better": 5,
+    "days_worse": 9
+   },
+   "c20_9v": {
+    "disc_rs": 468020,
+    "disc_base": 1029902,
+    "hold_rs": 9282,
+    "hold_base": 63824,
+    "legs": 103,
+    "trades": 103,
+    "days_better": 4,
+    "days_worse": 10
+   },
+   "c20_9x": {
+    "disc_rs": 398005,
+    "disc_base": 985368,
+    "hold_rs": -2418,
+    "hold_base": 50960,
+    "legs": 102,
+    "trades": 102,
+    "days_better": 5,
+    "days_worse": 9
+   },
+   "c20_9t": {
+    "disc_rs": 208559,
+    "disc_base": 383324,
+    "hold_rs": -17664,
+    "hold_base": 3936,
+    "legs": 114,
+    "trades": 114,
+    "days_better": 2,
+    "days_worse": 6
+   }
+  },
+  {
+   "kind": "trail",
+   "arm": 0.1,
+   "param": 0.08,
+   "reenter": true,
+   "c20_9y": {
+    "disc_rs": 779383,
+    "disc_base": 1078009,
+    "hold_rs": 89658,
+    "hold_base": 116363,
+    "legs": 130,
+    "trades": 92,
+    "days_better": 5,
+    "days_worse": 9
+   },
+   "c20_9s": {
+    "disc_rs": 795334,
+    "disc_base": 1054823,
+    "hold_rs": 35272,
+    "hold_base": 53339,
+    "legs": 133,
+    "trades": 96,
+    "days_better": 6,
+    "days_worse": 8
+   },
+   "c20_9v": {
+    "disc_rs": 725468,
+    "disc_base": 1029902,
+    "hold_rs": 48389,
+    "hold_base": 63824,
+    "legs": 141,
+    "trades": 103,
+    "days_better": 4,
+    "days_worse": 10
+   },
+   "c20_9x": {
+    "disc_rs": 731920,
+    "disc_base": 985368,
+    "hold_rs": 36481,
+    "hold_base": 50960,
+    "legs": 139,
+    "trades": 102,
+    "days_better": 6,
+    "days_worse": 8
+   },
+   "c20_9t": {
+    "disc_rs": 212339,
+    "disc_base": 383324,
+    "hold_rs": -16302,
+    "hold_base": 3936,
+    "legs": 132,
+    "trades": 114,
+    "days_better": 1,
+    "days_worse": 7
+   }
+  },
+  {
+   "kind": "trail",
+   "arm": 0.1,
+   "param": 0.12,
+   "reenter": false,
+   "c20_9y": {
+    "disc_rs": 577986,
+    "disc_base": 1078009,
+    "hold_rs": 98904,
+    "hold_base": 116363,
+    "legs": 92,
+    "trades": 92,
+    "days_better": 4,
+    "days_worse": 7
+   },
+   "c20_9s": {
+    "disc_rs": 566244,
+    "disc_base": 1054823,
+    "hold_rs": 46248,
+    "hold_base": 53339,
+    "legs": 96,
+    "trades": 96,
+    "days_better": 5,
+    "days_worse": 6
+   },
+   "c20_9v": {
+    "disc_rs": 536864,
+    "disc_base": 1029902,
+    "hold_rs": 56732,
+    "hold_base": 63824,
+    "legs": 103,
+    "trades": 103,
+    "days_better": 5,
+    "days_worse": 6
+   },
+   "c20_9x": {
+    "disc_rs": 497809,
+    "disc_base": 985368,
+    "hold_rs": 43869,
+    "hold_base": 50960,
+    "legs": 102,
+    "trades": 102,
+    "days_better": 5,
+    "days_worse": 6
+   },
+   "c20_9t": {
+    "disc_rs": 236805,
+    "disc_base": 383324,
+    "hold_rs": -26767,
+    "hold_base": 3936,
+    "legs": 114,
+    "trades": 114,
+    "days_better": 1,
+    "days_worse": 3
+   }
+  },
+  {
+   "kind": "trail",
+   "arm": 0.1,
+   "param": 0.12,
+   "reenter": true,
+   "c20_9y": {
+    "disc_rs": 720496,
+    "disc_base": 1078009,
+    "hold_rs": 87623,
+    "hold_base": 116363,
+    "legs": 109,
+    "trades": 92,
+    "days_better": 4,
+    "days_worse": 7
+   },
+   "c20_9s": {
+    "disc_rs": 702679,
+    "disc_base": 1054823,
+    "hold_rs": 34967,
+    "hold_base": 53339,
+    "legs": 113,
+    "trades": 96,
+    "days_better": 4,
+    "days_worse": 7
+   },
+   "c20_9v": {
+    "disc_rs": 673910,
+    "disc_base": 1029902,
+    "hold_rs": 45451,
+    "hold_base": 63824,
+    "legs": 120,
+    "trades": 103,
+    "days_better": 4,
+    "days_worse": 7
+   },
+   "c20_9x": {
+    "disc_rs": 634855,
+    "disc_base": 985368,
+    "hold_rs": 32588,
+    "hold_base": 50960,
+    "legs": 119,
+    "trades": 102,
+    "days_better": 4,
+    "days_worse": 7
+   },
+   "c20_9t": {
+    "disc_rs": 262619,
+    "disc_base": 383324,
+    "hold_rs": -26474,
+    "hold_base": 3936,
+    "legs": 123,
+    "trades": 114,
+    "days_better": 0,
+    "days_worse": 4
+   }
+  },
+  {
+   "kind": "trail",
+   "arm": 0.1,
+   "param": 0.18,
+   "reenter": false,
+   "c20_9y": {
+    "disc_rs": 829748,
+    "disc_base": 1078009,
+    "hold_rs": 135018,
+    "hold_base": 116363,
+    "legs": 92,
+    "trades": 92,
+    "days_better": 2,
+    "days_worse": 1
+   },
+   "c20_9s": {
+    "disc_rs": 804118,
+    "disc_base": 1054823,
+    "hold_rs": 77571,
+    "hold_base": 53339,
+    "legs": 96,
+    "trades": 96,
+    "days_better": 3,
+    "days_worse": 1
+   },
+   "c20_9v": {
+    "disc_rs": 779197,
+    "disc_base": 1029902,
+    "hold_rs": 88056,
+    "hold_base": 63824,
+    "legs": 103,
+    "trades": 103,
+    "days_better": 3,
+    "days_worse": 1
+   },
+   "c20_9x": {
+    "disc_rs": 734662,
+    "disc_base": 985368,
+    "hold_rs": 75192,
+    "hold_base": 50960,
+    "legs": 102,
+    "trades": 102,
+    "days_better": 3,
+    "days_worse": 1
+   },
+   "c20_9t": {
+    "disc_rs": 278168,
+    "disc_base": 383324,
+    "hold_rs": 8869,
+    "hold_base": 3936,
+    "legs": 114,
+    "trades": 114,
+    "days_better": 2,
+    "days_worse": 1
+   }
+  },
+  {
+   "kind": "trail",
+   "arm": 0.1,
+   "param": 0.18,
+   "reenter": true,
+   "c20_9y": {
+    "disc_rs": 904368,
+    "disc_base": 1078009,
+    "hold_rs": 135018,
+    "hold_base": 116363,
+    "legs": 94,
+    "trades": 92,
+    "days_better": 2,
+    "days_worse": 1
+   },
+   "c20_9s": {
+    "disc_rs": 878738,
+    "disc_base": 1054823,
+    "hold_rs": 77571,
+    "hold_base": 53339,
+    "legs": 98,
+    "trades": 96,
+    "days_better": 3,
+    "days_worse": 1
+   },
+   "c20_9v": {
+    "disc_rs": 853817,
+    "disc_base": 1029902,
+    "hold_rs": 88056,
+    "hold_base": 63824,
+    "legs": 105,
+    "trades": 103,
+    "days_better": 3,
+    "days_worse": 1
+   },
+   "c20_9x": {
+    "disc_rs": 809282,
+    "disc_base": 985368,
+    "hold_rs": 75192,
+    "hold_base": 50960,
+    "legs": 104,
+    "trades": 102,
+    "days_better": 3,
+    "days_worse": 1
+   },
+   "c20_9t": {
+    "disc_rs": 276773,
+    "disc_base": 383324,
+    "hold_rs": 8869,
+    "hold_base": 3936,
+    "legs": 116,
+    "trades": 114,
+    "days_better": 2,
+    "days_worse": 1
+   }
+  },
+  {
+   "kind": "trail",
+   "arm": 0.15,
+   "param": 0.03,
+   "reenter": false,
+   "c20_9y": {
+    "disc_rs": 582280,
+    "disc_base": 1078009,
+    "hold_rs": 162292,
+    "hold_base": 116363,
+    "legs": 92,
+    "trades": 92,
+    "days_better": 5,
+    "days_worse": 9
+   },
+   "c20_9s": {
+    "disc_rs": 533760,
+    "disc_base": 1054823,
+    "hold_rs": 99268,
+    "hold_base": 53339,
+    "legs": 96,
+    "trades": 96,
+    "days_better": 5,
+    "days_worse": 9
+   },
+   "c20_9v": {
+    "disc_rs": 565441,
+    "disc_base": 1029902,
+    "hold_rs": 108589,
+    "hold_base": 63824,
+    "legs": 103,
+    "trades": 103,
+    "days_better": 6,
+    "days_worse": 8
+   },
+   "c20_9x": {
+    "disc_rs": 467740,
+    "disc_base": 985368,
+    "hold_rs": 96889,
+    "hold_base": 50960,
+    "legs": 102,
+    "trades": 102,
+    "days_better": 5,
+    "days_worse": 9
+   },
+   "c20_9t": {
+    "disc_rs": 188461,
+    "disc_base": 383324,
+    "hold_rs": 1956,
+    "hold_base": 3936,
+    "legs": 114,
+    "trades": 114,
+    "days_better": 5,
+    "days_worse": 4
+   }
+  },
+  {
+   "kind": "trail",
+   "arm": 0.15,
+   "param": 0.03,
+   "reenter": true,
+   "c20_9y": {
+    "disc_rs": 744988,
+    "disc_base": 1078009,
+    "hold_rs": 115586,
+    "hold_base": 116363,
+    "legs": 147,
+    "trades": 92,
+    "days_better": 6,
+    "days_worse": 8
+   },
+   "c20_9s": {
+    "disc_rs": 706069,
+    "disc_base": 1054823,
+    "hold_rs": 52562,
+    "hold_base": 53339,
+    "legs": 151,
+    "trades": 96,
+    "days_better": 5,
+    "days_worse": 9
+   },
+   "c20_9v": {
+    "disc_rs": 706644,
+    "disc_base": 1029902,
+    "hold_rs": 61883,
+    "hold_base": 63824,
+    "legs": 154,
+    "trades": 103,
+    "days_better": 6,
+    "days_worse": 8
+   },
+   "c20_9x": {
+    "disc_rs": 641397,
+    "disc_base": 985368,
+    "hold_rs": 50183,
+    "hold_base": 50960,
+    "legs": 157,
+    "trades": 102,
+    "days_better": 5,
+    "days_worse": 9
+   },
+   "c20_9t": {
+    "disc_rs": 259356,
+    "disc_base": 383324,
+    "hold_rs": 55451,
+    "hold_base": 3936,
+    "legs": 138,
+    "trades": 114,
+    "days_better": 4,
+    "days_worse": 5
+   }
+  },
+  {
+   "kind": "trail",
+   "arm": 0.15,
+   "param": 0.05,
+   "reenter": false,
+   "c20_9y": {
+    "disc_rs": 713421,
+    "disc_base": 1078009,
+    "hold_rs": 147287,
+    "hold_base": 116363,
+    "legs": 92,
+    "trades": 92,
+    "days_better": 6,
+    "days_worse": 8
+   },
+   "c20_9s": {
+    "disc_rs": 656871,
+    "disc_base": 1054823,
+    "hold_rs": 84263,
+    "hold_base": 53339,
+    "legs": 96,
+    "trades": 96,
+    "days_better": 6,
+    "days_worse": 8
+   },
+   "c20_9v": {
+    "disc_rs": 689215,
+    "disc_base": 1029902,
+    "hold_rs": 93584,
+    "hold_base": 63824,
+    "legs": 103,
+    "trades": 103,
+    "days_better": 7,
+    "days_worse": 7
+   },
+   "c20_9x": {
+    "disc_rs": 589228,
+    "disc_base": 985368,
+    "hold_rs": 81884,
+    "hold_base": 50960,
+    "legs": 102,
+    "trades": 102,
+    "days_better": 6,
+    "days_worse": 8
+   },
+   "c20_9t": {
+    "disc_rs": 221423,
+    "disc_base": 383324,
+    "hold_rs": -6539,
+    "hold_base": 3936,
+    "legs": 114,
+    "trades": 114,
+    "days_better": 4,
+    "days_worse": 5
+   }
+  },
+  {
+   "kind": "trail",
+   "arm": 0.15,
+   "param": 0.05,
+   "reenter": true,
+   "c20_9y": {
+    "disc_rs": 910166,
+    "disc_base": 1078009,
+    "hold_rs": 164798,
+    "hold_base": 116363,
+    "legs": 130,
+    "trades": 92,
+    "days_better": 8,
+    "days_worse": 6
+   },
+   "c20_9s": {
+    "disc_rs": 866177,
+    "disc_base": 1054823,
+    "hold_rs": 101774,
+    "hold_base": 53339,
+    "legs": 134,
+    "trades": 96,
+    "days_better": 8,
+    "days_worse": 6
+   },
+   "c20_9v": {
+    "disc_rs": 859521,
+    "disc_base": 1029902,
+    "hold_rs": 111095,
+    "hold_base": 63824,
+    "legs": 138,
+    "trades": 103,
+    "days_better": 8,
+    "days_worse": 6
+   },
+   "c20_9x": {
+    "disc_rs": 796309,
+    "disc_base": 985368,
+    "hold_rs": 99395,
+    "hold_base": 50960,
+    "legs": 140,
+    "trades": 102,
+    "days_better": 8,
+    "days_worse": 6
+   },
+   "c20_9t": {
+    "disc_rs": 280800,
+    "disc_base": 383324,
+    "hold_rs": 36787,
+    "hold_base": 3936,
+    "legs": 131,
+    "trades": 114,
+    "days_better": 5,
+    "days_worse": 4
+   }
+  },
+  {
+   "kind": "trail",
+   "arm": 0.15,
+   "param": 0.08,
+   "reenter": false,
+   "c20_9y": {
+    "disc_rs": 857126,
+    "disc_base": 1078009,
+    "hold_rs": 112515,
+    "hold_base": 116363,
+    "legs": 92,
+    "trades": 92,
+    "days_better": 8,
+    "days_worse": 6
+   },
+   "c20_9s": {
+    "disc_rs": 811447,
+    "disc_base": 1054823,
+    "hold_rs": 49491,
+    "hold_base": 53339,
+    "legs": 96,
+    "trades": 96,
+    "days_better": 8,
+    "days_worse": 6
+   },
+   "c20_9v": {
+    "disc_rs": 780319,
+    "disc_base": 1029902,
+    "hold_rs": 58812,
+    "hold_base": 63824,
+    "legs": 103,
+    "trades": 103,
+    "days_better": 6,
+    "days_worse": 8
+   },
+   "c20_9x": {
+    "disc_rs": 743028,
+    "disc_base": 985368,
+    "hold_rs": 47112,
+    "hold_base": 50960,
+    "legs": 102,
+    "trades": 102,
+    "days_better": 8,
+    "days_worse": 6
+   },
+   "c20_9t": {
+    "disc_rs": 267098,
+    "disc_base": 383324,
+    "hold_rs": -23527,
+    "hold_base": 3936,
+    "legs": 114,
+    "trades": 114,
+    "days_better": 4,
+    "days_worse": 4
+   }
+  },
+  {
+   "kind": "trail",
+   "arm": 0.15,
+   "param": 0.08,
+   "reenter": true,
+   "c20_9y": {
+    "disc_rs": 926286,
+    "disc_base": 1078009,
+    "hold_rs": 107341,
+    "hold_base": 116363,
+    "legs": 113,
+    "trades": 92,
+    "days_better": 7,
+    "days_worse": 7
+   },
+   "c20_9s": {
+    "disc_rs": 887357,
+    "disc_base": 1054823,
+    "hold_rs": 44317,
+    "hold_base": 53339,
+    "legs": 117,
+    "trades": 96,
+    "days_better": 7,
+    "days_worse": 7
+   },
+   "c20_9v": {
+    "disc_rs": 856811,
+    "disc_base": 1029902,
+    "hold_rs": 53638,
+    "hold_base": 63824,
+    "legs": 124,
+    "trades": 103,
+    "days_better": 5,
+    "days_worse": 9
+   },
+   "c20_9x": {
+    "disc_rs": 819520,
+    "disc_base": 985368,
+    "hold_rs": 41938,
+    "hold_base": 50960,
+    "legs": 123,
+    "trades": 102,
+    "days_better": 7,
+    "days_worse": 7
+   },
+   "c20_9t": {
+    "disc_rs": 268170,
+    "disc_base": 383324,
+    "hold_rs": -39822,
+    "hold_base": 3936,
+    "legs": 126,
+    "trades": 114,
+    "days_better": 4,
+    "days_worse": 4
+   }
+  },
+  {
+   "kind": "trail",
+   "arm": 0.15,
+   "param": 0.12,
+   "reenter": false,
+   "c20_9y": {
+    "disc_rs": 767172,
+    "disc_base": 1078009,
+    "hold_rs": 123065,
+    "hold_base": 116363,
+    "legs": 92,
+    "trades": 92,
+    "days_better": 7,
+    "days_worse": 3
+   },
+   "c20_9s": {
+    "disc_rs": 736736,
+    "disc_base": 1054823,
+    "hold_rs": 60041,
+    "hold_base": 53339,
+    "legs": 96,
+    "trades": 96,
+    "days_better": 6,
+    "days_worse": 3
+   },
+   "c20_9v": {
+    "disc_rs": 711120,
+    "disc_base": 1029902,
+    "hold_rs": 70525,
+    "hold_base": 63824,
+    "legs": 103,
+    "trades": 103,
+    "days_better": 6,
+    "days_worse": 3
+   },
+   "c20_9x": {
+    "disc_rs": 668301,
+    "disc_base": 985368,
+    "hold_rs": 57662,
+    "hold_base": 50960,
+    "legs": 102,
+    "trades": 102,
+    "days_better": 6,
+    "days_worse": 3
+   },
+   "c20_9t": {
+    "disc_rs": 270075,
+    "disc_base": 383324,
+    "hold_rs": -28067,
+    "hold_base": 3936,
+    "legs": 114,
+    "trades": 114,
+    "days_better": 2,
+    "days_worse": 2
+   }
+  },
+  {
+   "kind": "trail",
+   "arm": 0.15,
+   "param": 0.12,
+   "reenter": true,
+   "c20_9y": {
+    "disc_rs": 823027,
+    "disc_base": 1078009,
+    "hold_rs": 90422,
+    "hold_base": 116363,
+    "legs": 102,
+    "trades": 92,
+    "days_better": 6,
+    "days_worse": 4
+   },
+   "c20_9s": {
+    "disc_rs": 791658,
+    "disc_base": 1054823,
+    "hold_rs": 27398,
+    "hold_base": 53339,
+    "legs": 106,
+    "trades": 96,
+    "days_better": 5,
+    "days_worse": 4
+   },
+   "c20_9v": {
+    "disc_rs": 766652,
+    "disc_base": 1029902,
+    "hold_rs": 37882,
+    "hold_base": 63824,
+    "legs": 113,
+    "trades": 103,
+    "days_better": 5,
+    "days_worse": 4
+   },
+   "c20_9x": {
+    "disc_rs": 723834,
+    "disc_base": 985368,
+    "hold_rs": 25019,
+    "hold_base": 50960,
+    "legs": 112,
+    "trades": 102,
+    "days_better": 5,
+    "days_worse": 4
+   },
+   "c20_9t": {
+    "disc_rs": 284554,
+    "disc_base": 383324,
+    "hold_rs": -13149,
+    "hold_base": 3936,
+    "legs": 120,
+    "trades": 114,
+    "days_better": 2,
+    "days_worse": 2
+   }
+  },
+  {
+   "kind": "trail",
+   "arm": 0.15,
+   "param": 0.18,
+   "reenter": false,
+   "c20_9y": {
+    "disc_rs": 817573,
+    "disc_base": 1078009,
+    "hold_rs": 135223,
+    "hold_base": 116363,
+    "legs": 92,
+    "trades": 92,
+    "days_better": 2,
+    "days_worse": 1
+   },
+   "c20_9s": {
+    "disc_rs": 794264,
+    "disc_base": 1054823,
+    "hold_rs": 72199,
+    "hold_base": 53339,
+    "legs": 96,
+    "trades": 96,
+    "days_better": 2,
+    "days_worse": 1
+   },
+   "c20_9v": {
+    "disc_rs": 769343,
+    "disc_base": 1029902,
+    "hold_rs": 82683,
+    "hold_base": 63824,
+    "legs": 103,
+    "trades": 103,
+    "days_better": 2,
+    "days_worse": 1
+   },
+   "c20_9x": {
+    "disc_rs": 724809,
+    "disc_base": 985368,
+    "hold_rs": 69820,
+    "hold_base": 50960,
+    "legs": 102,
+    "trades": 102,
+    "days_better": 2,
+    "days_worse": 1
+   },
+   "c20_9t": {
+    "disc_rs": 278493,
+    "disc_base": 383324,
+    "hold_rs": 8869,
+    "hold_base": 3936,
+    "legs": 114,
+    "trades": 114,
+    "days_better": 2,
+    "days_worse": 1
+   }
+  },
+  {
+   "kind": "trail",
+   "arm": 0.15,
+   "param": 0.18,
+   "reenter": true,
+   "c20_9y": {
+    "disc_rs": 892193,
+    "disc_base": 1078009,
+    "hold_rs": 135223,
+    "hold_base": 116363,
+    "legs": 94,
+    "trades": 92,
+    "days_better": 2,
+    "days_worse": 1
+   },
+   "c20_9s": {
+    "disc_rs": 868884,
+    "disc_base": 1054823,
+    "hold_rs": 72199,
+    "hold_base": 53339,
+    "legs": 98,
+    "trades": 96,
+    "days_better": 2,
+    "days_worse": 1
+   },
+   "c20_9v": {
+    "disc_rs": 843963,
+    "disc_base": 1029902,
+    "hold_rs": 82683,
+    "hold_base": 63824,
+    "legs": 105,
+    "trades": 103,
+    "days_better": 2,
+    "days_worse": 1
+   },
+   "c20_9x": {
+    "disc_rs": 799428,
+    "disc_base": 985368,
+    "hold_rs": 69820,
+    "hold_base": 50960,
+    "legs": 104,
+    "trades": 102,
+    "days_better": 2,
+    "days_worse": 1
+   },
+   "c20_9t": {
+    "disc_rs": 277098,
+    "disc_base": 383324,
+    "hold_rs": 8869,
+    "hold_base": 3936,
+    "legs": 116,
+    "trades": 114,
+    "days_better": 2,
+    "days_worse": 1
+   }
+  },
+  {
+   "kind": "trail",
+   "arm": 0.25,
+   "param": 0.03,
+   "reenter": false,
+   "c20_9y": {
+    "disc_rs": 820404,
+    "disc_base": 1078009,
+    "hold_rs": 104367,
+    "hold_base": 116363,
+    "legs": 92,
+    "trades": 92,
+    "days_better": 4,
+    "days_worse": 7
+   },
+   "c20_9s": {
+    "disc_rs": 787569,
+    "disc_base": 1054823,
+    "hold_rs": 41343,
+    "hold_base": 53339,
+    "legs": 96,
+    "trades": 96,
+    "days_better": 4,
+    "days_worse": 7
+   },
+   "c20_9v": {
+    "disc_rs": 809117,
+    "disc_base": 1029902,
+    "hold_rs": 51828,
+    "hold_base": 63824,
+    "legs": 103,
+    "trades": 103,
+    "days_better": 4,
+    "days_worse": 6
+   },
+   "c20_9x": {
+    "disc_rs": 714964,
+    "disc_base": 985368,
+    "hold_rs": 38964,
+    "hold_base": 50960,
+    "legs": 102,
+    "trades": 102,
+    "days_better": 4,
+    "days_worse": 7
+   },
+   "c20_9t": {
+    "disc_rs": 285837,
+    "disc_base": 383324,
+    "hold_rs": -22519,
+    "hold_base": 3936,
+    "legs": 114,
+    "trades": 114,
+    "days_better": 3,
+    "days_worse": 3
+   }
+  },
+  {
+   "kind": "trail",
+   "arm": 0.25,
+   "param": 0.03,
+   "reenter": true,
+   "c20_9y": {
+    "disc_rs": 813628,
+    "disc_base": 1078009,
+    "hold_rs": 42179,
+    "hold_base": 116363,
+    "legs": 124,
+    "trades": 92,
+    "days_better": 2,
+    "days_worse": 9
+   },
+   "c20_9s": {
+    "disc_rs": 800748,
+    "disc_base": 1054823,
+    "hold_rs": -20845,
+    "hold_base": 53339,
+    "legs": 128,
+    "trades": 96,
+    "days_better": 2,
+    "days_worse": 9
+   },
+   "c20_9v": {
+    "disc_rs": 784927,
+    "disc_base": 1029902,
+    "hold_rs": -10361,
+    "hold_base": 63824,
+    "legs": 133,
+    "trades": 103,
+    "days_better": 2,
+    "days_worse": 8
+   },
+   "c20_9x": {
+    "disc_rs": 730044,
+    "disc_base": 985368,
+    "hold_rs": -23224,
+    "hold_base": 50960,
+    "legs": 134,
+    "trades": 102,
+    "days_better": 2,
+    "days_worse": 9
+   },
+   "c20_9t": {
+    "disc_rs": 304362,
+    "disc_base": 383324,
+    "hold_rs": -38529,
+    "hold_base": 3936,
+    "legs": 127,
+    "trades": 114,
+    "days_better": 3,
+    "days_worse": 3
+   }
+  },
+  {
+   "kind": "trail",
+   "arm": 0.25,
+   "param": 0.05,
+   "reenter": false,
+   "c20_9y": {
+    "disc_rs": 813459,
+    "disc_base": 1078009,
+    "hold_rs": 90675,
+    "hold_base": 116363,
+    "legs": 92,
+    "trades": 92,
+    "days_better": 3,
+    "days_worse": 8
+   },
+   "c20_9s": {
+    "disc_rs": 779162,
+    "disc_base": 1054823,
+    "hold_rs": 27651,
+    "hold_base": 53339,
+    "legs": 96,
+    "trades": 96,
+    "days_better": 3,
+    "days_worse": 8
+   },
+   "c20_9v": {
+    "disc_rs": 804859,
+    "disc_base": 1029902,
+    "hold_rs": 38135,
+    "hold_base": 63824,
+    "legs": 103,
+    "trades": 103,
+    "days_better": 3,
+    "days_worse": 7
+   },
+   "c20_9x": {
+    "disc_rs": 707363,
+    "disc_base": 985368,
+    "hold_rs": 25272,
+    "hold_base": 50960,
+    "legs": 102,
+    "trades": 102,
+    "days_better": 3,
+    "days_worse": 8
+   },
+   "c20_9t": {
+    "disc_rs": 268970,
+    "disc_base": 383324,
+    "hold_rs": -27222,
+    "hold_base": 3936,
+    "legs": 114,
+    "trades": 114,
+    "days_better": 3,
+    "days_worse": 3
+   }
+  },
+  {
+   "kind": "trail",
+   "arm": 0.25,
+   "param": 0.05,
+   "reenter": true,
+   "c20_9y": {
+    "disc_rs": 1074219,
+    "disc_base": 1078009,
+    "hold_rs": 86177,
+    "hold_base": 116363,
+    "legs": 114,
+    "trades": 92,
+    "days_better": 5,
+    "days_worse": 6
+   },
+   "c20_9s": {
+    "disc_rs": 1051989,
+    "disc_base": 1054823,
+    "hold_rs": 23153,
+    "hold_base": 53339,
+    "legs": 118,
+    "trades": 96,
+    "days_better": 5,
+    "days_worse": 6
+   },
+   "c20_9v": {
+    "disc_rs": 1039587,
+    "disc_base": 1029902,
+    "hold_rs": 33637,
+    "hold_base": 63824,
+    "legs": 123,
+    "trades": 103,
+    "days_better": 5,
+    "days_worse": 5
+   },
+   "c20_9x": {
+    "disc_rs": 978214,
+    "disc_base": 985368,
+    "hold_rs": 20774,
+    "hold_base": 50960,
+    "legs": 124,
+    "trades": 102,
+    "days_better": 5,
+    "days_worse": 6
+   },
+   "c20_9t": {
+    "disc_rs": 322653,
+    "disc_base": 383324,
+    "hold_rs": -42302,
+    "hold_base": 3936,
+    "legs": 125,
+    "trades": 114,
+    "days_better": 3,
+    "days_worse": 3
+   }
+  },
+  {
+   "kind": "trail",
+   "arm": 0.25,
+   "param": 0.08,
+   "reenter": false,
+   "c20_9y": {
+    "disc_rs": 989830,
+    "disc_base": 1078009,
+    "hold_rs": 85160,
+    "hold_base": 116363,
+    "legs": 92,
+    "trades": 92,
+    "days_better": 7,
+    "days_worse": 4
+   },
+   "c20_9s": {
+    "disc_rs": 961324,
+    "disc_base": 1054823,
+    "hold_rs": 22136,
+    "hold_base": 53339,
+    "legs": 96,
+    "trades": 96,
+    "days_better": 7,
+    "days_worse": 4
+   },
+   "c20_9v": {
+    "disc_rs": 931398,
+    "disc_base": 1029902,
+    "hold_rs": 32620,
+    "hold_base": 63824,
+    "legs": 103,
+    "trades": 103,
+    "days_better": 6,
+    "days_worse": 4
+   },
+   "c20_9x": {
+    "disc_rs": 888862,
+    "disc_base": 985368,
+    "hold_rs": 19757,
+    "hold_base": 50960,
+    "legs": 102,
+    "trades": 102,
+    "days_better": 7,
+    "days_worse": 4
+   },
+   "c20_9t": {
+    "disc_rs": 303355,
+    "disc_base": 383324,
+    "hold_rs": -42042,
+    "hold_base": 3936,
+    "legs": 114,
+    "trades": 114,
+    "days_better": 3,
+    "days_worse": 3
+   }
+  },
+  {
+   "kind": "trail",
+   "arm": 0.25,
+   "param": 0.08,
+   "reenter": true,
+   "c20_9y": {
+    "disc_rs": 1064846,
+    "disc_base": 1078009,
+    "hold_rs": 91891,
+    "hold_base": 116363,
+    "legs": 103,
+    "trades": 92,
+    "days_better": 5,
+    "days_worse": 6
+   },
+   "c20_9s": {
+    "disc_rs": 1046432,
+    "disc_base": 1054823,
+    "hold_rs": 28867,
+    "hold_base": 53339,
+    "legs": 107,
+    "trades": 96,
+    "days_better": 5,
+    "days_worse": 6
+   },
+   "c20_9v": {
+    "disc_rs": 1016506,
+    "disc_base": 1029902,
+    "hold_rs": 39351,
+    "hold_base": 63824,
+    "legs": 114,
+    "trades": 103,
+    "days_better": 4,
+    "days_worse": 6
+   },
+   "c20_9x": {
+    "disc_rs": 973970,
+    "disc_base": 985368,
+    "hold_rs": 26488,
+    "hold_base": 50960,
+    "legs": 113,
+    "trades": 102,
+    "days_better": 5,
+    "days_worse": 6
+   },
+   "c20_9t": {
+    "disc_rs": 286429,
+    "disc_base": 383324,
+    "hold_rs": -40602,
+    "hold_base": 3936,
+    "legs": 123,
+    "trades": 114,
+    "days_better": 2,
+    "days_worse": 4
+   }
+  },
+  {
+   "kind": "trail",
+   "arm": 0.25,
+   "param": 0.12,
+   "reenter": false,
+   "c20_9y": {
+    "disc_rs": 888742,
+    "disc_base": 1078009,
+    "hold_rs": 143328,
+    "hold_base": 116363,
+    "legs": 92,
+    "trades": 92,
+    "days_better": 3,
+    "days_worse": 2
+   },
+   "c20_9s": {
+    "disc_rs": 864175,
+    "disc_base": 1054823,
+    "hold_rs": 80304,
+    "hold_base": 53339,
+    "legs": 96,
+    "trades": 96,
+    "days_better": 3,
+    "days_worse": 2
+   },
+   "c20_9v": {
+    "disc_rs": 839215,
+    "disc_base": 1029902,
+    "hold_rs": 90789,
+    "hold_base": 63824,
+    "legs": 103,
+    "trades": 103,
+    "days_better": 3,
+    "days_worse": 2
+   },
+   "c20_9x": {
+    "disc_rs": 794680,
+    "disc_base": 985368,
+    "hold_rs": 77925,
+    "hold_base": 50960,
+    "legs": 102,
+    "trades": 102,
+    "days_better": 3,
+    "days_worse": 2
+   },
+   "c20_9t": {
+    "disc_rs": 305643,
+    "disc_base": 383324,
+    "hold_rs": -30413,
+    "hold_base": 3936,
+    "legs": 114,
+    "trades": 114,
+    "days_better": 1,
+    "days_worse": 2
+   }
+  },
+  {
+   "kind": "trail",
+   "arm": 0.25,
+   "param": 0.12,
+   "reenter": true,
+   "c20_9y": {
+    "disc_rs": 1009291,
+    "disc_base": 1078009,
+    "hold_rs": 165237,
+    "hold_base": 116363,
+    "legs": 96,
+    "trades": 92,
+    "days_better": 2,
+    "days_worse": 3
+   },
+   "c20_9s": {
+    "disc_rs": 985874,
+    "disc_base": 1054823,
+    "hold_rs": 102213,
+    "hold_base": 53339,
+    "legs": 100,
+    "trades": 96,
+    "days_better": 2,
+    "days_worse": 3
+   },
+   "c20_9v": {
+    "disc_rs": 960914,
+    "disc_base": 1029902,
+    "hold_rs": 112697,
+    "hold_base": 63824,
+    "legs": 107,
+    "trades": 103,
+    "days_better": 2,
+    "days_worse": 3
+   },
+   "c20_9x": {
+    "disc_rs": 916380,
+    "disc_base": 985368,
+    "hold_rs": 99834,
+    "hold_base": 50960,
+    "legs": 106,
+    "trades": 102,
+    "days_better": 2,
+    "days_worse": 3
+   },
+   "c20_9t": {
+    "disc_rs": 321467,
+    "disc_base": 383324,
+    "hold_rs": 10969,
+    "hold_base": 3936,
+    "legs": 118,
+    "trades": 114,
+    "days_better": 2,
+    "days_worse": 1
+   }
+  },
+  {
+   "kind": "trail",
+   "arm": 0.25,
+   "param": 0.18,
+   "reenter": false,
+   "c20_9y": {
+    "disc_rs": 817573,
+    "disc_base": 1078009,
+    "hold_rs": 139250,
+    "hold_base": 116363,
+    "legs": 92,
+    "trades": 92,
+    "days_better": 2,
+    "days_worse": 1
+   },
+   "c20_9s": {
+    "disc_rs": 794264,
+    "disc_base": 1054823,
+    "hold_rs": 76226,
+    "hold_base": 53339,
+    "legs": 96,
+    "trades": 96,
+    "days_better": 2,
+    "days_worse": 1
+   },
+   "c20_9v": {
+    "disc_rs": 769343,
+    "disc_base": 1029902,
+    "hold_rs": 86710,
+    "hold_base": 63824,
+    "legs": 103,
+    "trades": 103,
+    "days_better": 2,
+    "days_worse": 1
+   },
+   "c20_9x": {
+    "disc_rs": 724809,
+    "disc_base": 985368,
+    "hold_rs": 73847,
+    "hold_base": 50960,
+    "legs": 102,
+    "trades": 102,
+    "days_better": 2,
+    "days_worse": 1
+   },
+   "c20_9t": {
+    "disc_rs": 278493,
+    "disc_base": 383324,
+    "hold_rs": 8869,
+    "hold_base": 3936,
+    "legs": 114,
+    "trades": 114,
+    "days_better": 2,
+    "days_worse": 1
+   }
+  },
+  {
+   "kind": "trail",
+   "arm": 0.25,
+   "param": 0.18,
+   "reenter": true,
+   "c20_9y": {
+    "disc_rs": 892193,
+    "disc_base": 1078009,
+    "hold_rs": 139250,
+    "hold_base": 116363,
+    "legs": 94,
+    "trades": 92,
+    "days_better": 2,
+    "days_worse": 1
+   },
+   "c20_9s": {
+    "disc_rs": 868884,
+    "disc_base": 1054823,
+    "hold_rs": 76226,
+    "hold_base": 53339,
+    "legs": 98,
+    "trades": 96,
+    "days_better": 2,
+    "days_worse": 1
+   },
+   "c20_9v": {
+    "disc_rs": 843963,
+    "disc_base": 1029902,
+    "hold_rs": 86710,
+    "hold_base": 63824,
+    "legs": 105,
+    "trades": 103,
+    "days_better": 2,
+    "days_worse": 1
+   },
+   "c20_9x": {
+    "disc_rs": 799428,
+    "disc_base": 985368,
+    "hold_rs": 73847,
+    "hold_base": 50960,
+    "legs": 104,
+    "trades": 102,
+    "days_better": 2,
+    "days_worse": 1
+   },
+   "c20_9t": {
+    "disc_rs": 277098,
+    "disc_base": 383324,
+    "hold_rs": 8869,
+    "hold_base": 3936,
+    "legs": 116,
+    "trades": 114,
+    "days_better": 2,
+    "days_worse": 1
+   }
+  },
+  {
+   "kind": "lock",
+   "arm": 0.05,
+   "param": 0.5,
+   "reenter": false,
+   "c20_9y": {
+    "disc_rs": 113760,
+    "disc_base": 1078009,
+    "hold_rs": 1778,
+    "hold_base": 116363,
+    "legs": 92,
+    "trades": 92,
+    "days_better": 5,
+    "days_worse": 10
+   },
+   "c20_9s": {
+    "disc_rs": 139838,
+    "disc_base": 1054823,
+    "hold_rs": -24508,
+    "hold_base": 53339,
+    "legs": 96,
+    "trades": 96,
+    "days_better": 4,
+    "days_worse": 11
+   },
+   "c20_9v": {
+    "disc_rs": 123474,
+    "disc_base": 1029902,
+    "hold_rs": -21642,
+    "hold_base": 63824,
+    "legs": 103,
+    "trades": 103,
+    "days_better": 4,
+    "days_worse": 11
+   },
+   "c20_9x": {
+    "disc_rs": 93688,
+    "disc_base": 985368,
+    "hold_rs": -21642,
+    "hold_base": 50960,
+    "legs": 102,
+    "trades": 102,
+    "days_better": 5,
+    "days_worse": 10
+   },
+   "c20_9t": {
+    "disc_rs": 92622,
+    "disc_base": 383324,
+    "hold_rs": -48961,
+    "hold_base": 3936,
+    "legs": 114,
+    "trades": 114,
+    "days_better": 3,
+    "days_worse": 11
+   }
+  },
+  {
+   "kind": "lock",
+   "arm": 0.05,
+   "param": 0.5,
+   "reenter": true,
+   "c20_9y": {
+    "disc_rs": 448269,
+    "disc_base": 1078009,
+    "hold_rs": -18470,
+    "hold_base": 116363,
+    "legs": 189,
+    "trades": 92,
+    "days_better": 4,
+    "days_worse": 11
+   },
+   "c20_9s": {
+    "disc_rs": 438880,
+    "disc_base": 1054823,
+    "hold_rs": -55266,
+    "hold_base": 53339,
+    "legs": 195,
+    "trades": 96,
+    "days_better": 3,
+    "days_worse": 12
+   },
+   "c20_9v": {
+    "disc_rs": 423456,
+    "disc_base": 1029902,
+    "hold_rs": -60986,
+    "hold_base": 63824,
+    "legs": 204,
+    "trades": 103,
+    "days_better": 2,
+    "days_worse": 13
+   },
+   "c20_9x": {
+    "disc_rs": 392860,
+    "disc_base": 985368,
+    "hold_rs": -61194,
+    "hold_base": 50960,
+    "legs": 203,
+    "trades": 102,
+    "days_better": 3,
+    "days_worse": 12
+   },
+   "c20_9t": {
+    "disc_rs": 241702,
+    "disc_base": 383324,
+    "hold_rs": -44896,
+    "hold_base": 3936,
+    "legs": 171,
+    "trades": 114,
+    "days_better": 3,
+    "days_worse": 11
+   }
+  },
+  {
+   "kind": "lock",
+   "arm": 0.05,
+   "param": 0.6,
+   "reenter": false,
+   "c20_9y": {
+    "disc_rs": 171984,
+    "disc_base": 1078009,
+    "hold_rs": 28031,
+    "hold_base": 116363,
+    "legs": 92,
+    "trades": 92,
+    "days_better": 5,
+    "days_worse": 10
+   },
+   "c20_9s": {
+    "disc_rs": 195449,
+    "disc_base": 1054823,
+    "hold_rs": 1355,
+    "hold_base": 53339,
+    "legs": 96,
+    "trades": 96,
+    "days_better": 4,
+    "days_worse": 11
+   },
+   "c20_9v": {
+    "disc_rs": 180684,
+    "disc_base": 1029902,
+    "hold_rs": 4612,
+    "hold_base": 63824,
+    "legs": 103,
+    "trades": 103,
+    "days_better": 5,
+    "days_worse": 10
+   },
+   "c20_9x": {
+    "disc_rs": 148944,
+    "disc_base": 985368,
+    "hold_rs": 4612,
+    "hold_base": 50960,
+    "legs": 102,
+    "trades": 102,
+    "days_better": 5,
+    "days_worse": 10
+   },
+   "c20_9t": {
+    "disc_rs": 135411,
+    "disc_base": 383324,
+    "hold_rs": -33088,
+    "hold_base": 3936,
+    "legs": 114,
+    "trades": 114,
+    "days_better": 3,
+    "days_worse": 12
+   }
+  },
+  {
+   "kind": "lock",
+   "arm": 0.05,
+   "param": 0.6,
+   "reenter": true,
+   "c20_9y": {
+    "disc_rs": 455348,
+    "disc_base": 1078009,
+    "hold_rs": 45393,
+    "hold_base": 116363,
+    "legs": 199,
+    "trades": 92,
+    "days_better": 3,
+    "days_worse": 12
+   },
+   "c20_9s": {
+    "disc_rs": 452998,
+    "disc_base": 1054823,
+    "hold_rs": 8206,
+    "hold_base": 53339,
+    "legs": 205,
+    "trades": 96,
+    "days_better": 3,
+    "days_worse": 12
+   },
+   "c20_9v": {
+    "disc_rs": 447057,
+    "disc_base": 1029902,
+    "hold_rs": 2668,
+    "hold_base": 63824,
+    "legs": 214,
+    "trades": 103,
+    "days_better": 3,
+    "days_worse": 12
+   },
+   "c20_9x": {
+    "disc_rs": 408460,
+    "disc_base": 985368,
+    "hold_rs": 2668,
+    "hold_base": 50960,
+    "legs": 213,
+    "trades": 102,
+    "days_better": 4,
+    "days_worse": 11
+   },
+   "c20_9t": {
+    "disc_rs": 202251,
+    "disc_base": 383324,
+    "hold_rs": -61266,
+    "hold_base": 3936,
+    "legs": 181,
+    "trades": 114,
+    "days_better": 3,
+    "days_worse": 12
+   }
+  },
+  {
+   "kind": "lock",
+   "arm": 0.05,
+   "param": 0.7,
+   "reenter": false,
+   "c20_9y": {
+    "disc_rs": 171655,
+    "disc_base": 1078009,
+    "hold_rs": 46719,
+    "hold_base": 116363,
+    "legs": 92,
+    "trades": 92,
+    "days_better": 5,
+    "days_worse": 10
+   },
+   "c20_9s": {
+    "disc_rs": 203814,
+    "disc_base": 1054823,
+    "hold_rs": 19438,
+    "hold_base": 53339,
+    "legs": 96,
+    "trades": 96,
+    "days_better": 5,
+    "days_worse": 10
+   },
+   "c20_9v": {
+    "disc_rs": 188773,
+    "disc_base": 1029902,
+    "hold_rs": 23299,
+    "hold_base": 63824,
+    "legs": 103,
+    "trades": 103,
+    "days_better": 5,
+    "days_worse": 10
+   },
+   "c20_9x": {
+    "disc_rs": 157112,
+    "disc_base": 985368,
+    "hold_rs": 23299,
+    "hold_base": 50960,
+    "legs": 102,
+    "trades": 102,
+    "days_better": 5,
+    "days_worse": 10
+   },
+   "c20_9t": {
+    "disc_rs": 130062,
+    "disc_base": 383324,
+    "hold_rs": -12880,
+    "hold_base": 3936,
+    "legs": 114,
+    "trades": 114,
+    "days_better": 7,
+    "days_worse": 8
+   }
+  },
+  {
+   "kind": "lock",
+   "arm": 0.05,
+   "param": 0.7,
+   "reenter": true,
+   "c20_9y": {
+    "disc_rs": 547797,
+    "disc_base": 1078009,
+    "hold_rs": 2594,
+    "hold_base": 116363,
+    "legs": 210,
+    "trades": 92,
+    "days_better": 3,
+    "days_worse": 12
+   },
+   "c20_9s": {
+    "disc_rs": 550784,
+    "disc_base": 1054823,
+    "hold_rs": -35197,
+    "hold_base": 53339,
+    "legs": 216,
+    "trades": 96,
+    "days_better": 2,
+    "days_worse": 13
+   },
+   "c20_9v": {
+    "disc_rs": 551928,
+    "disc_base": 1029902,
+    "hold_rs": -40131,
+    "hold_base": 63824,
+    "legs": 225,
+    "trades": 103,
+    "days_better": 2,
+    "days_worse": 13
+   },
+   "c20_9x": {
+    "disc_rs": 508124,
+    "disc_base": 985368,
+    "hold_rs": -40131,
+    "hold_base": 50960,
+    "legs": 224,
+    "trades": 102,
+    "days_better": 3,
+    "days_worse": 12
+   },
+   "c20_9t": {
+    "disc_rs": 241940,
+    "disc_base": 383324,
+    "hold_rs": -36783,
+    "hold_base": 3936,
+    "legs": 191,
+    "trades": 114,
+    "days_better": 4,
+    "days_worse": 11
+   }
+  },
+  {
+   "kind": "lock",
+   "arm": 0.05,
+   "param": 0.8,
+   "reenter": false,
+   "c20_9y": {
+    "disc_rs": 161307,
+    "disc_base": 1078009,
+    "hold_rs": 42666,
+    "hold_base": 116363,
+    "legs": 92,
+    "trades": 92,
+    "days_better": 5,
+    "days_worse": 10
+   },
+   "c20_9s": {
+    "disc_rs": 189072,
+    "disc_base": 1054823,
+    "hold_rs": 21346,
+    "hold_base": 53339,
+    "legs": 96,
+    "trades": 96,
+    "days_better": 4,
+    "days_worse": 11
+   },
+   "c20_9v": {
+    "disc_rs": 178350,
+    "disc_base": 1029902,
+    "hold_rs": 25929,
+    "hold_base": 63824,
+    "legs": 103,
+    "trades": 103,
+    "days_better": 6,
+    "days_worse": 9
+   },
+   "c20_9x": {
+    "disc_rs": 143705,
+    "disc_base": 985368,
+    "hold_rs": 25929,
+    "hold_base": 50960,
+    "legs": 102,
+    "trades": 102,
+    "days_better": 5,
+    "days_worse": 10
+   },
+   "c20_9t": {
+    "disc_rs": 159302,
+    "disc_base": 383324,
+    "hold_rs": 3335,
+    "hold_base": 3936,
+    "legs": 114,
+    "trades": 114,
+    "days_better": 9,
+    "days_worse": 6
+   }
+  },
+  {
+   "kind": "lock",
+   "arm": 0.05,
+   "param": 0.8,
+   "reenter": true,
+   "c20_9y": {
+    "disc_rs": 443329,
+    "disc_base": 1078009,
+    "hold_rs": 6149,
+    "hold_base": 116363,
+    "legs": 222,
+    "trades": 92,
+    "days_better": 4,
+    "days_worse": 11
+   },
+   "c20_9s": {
+    "disc_rs": 430784,
+    "disc_base": 1054823,
+    "hold_rs": -24323,
+    "hold_base": 53339,
+    "legs": 229,
+    "trades": 96,
+    "days_better": 3,
+    "days_worse": 12
+   },
+   "c20_9v": {
+    "disc_rs": 433228,
+    "disc_base": 1029902,
+    "hold_rs": -27579,
+    "hold_base": 63824,
+    "legs": 239,
+    "trades": 103,
+    "days_better": 3,
+    "days_worse": 12
+   },
+   "c20_9x": {
+    "disc_rs": 386558,
+    "disc_base": 985368,
+    "hold_rs": -28535,
+    "hold_base": 50960,
+    "legs": 237,
+    "trades": 102,
+    "days_better": 4,
+    "days_worse": 11
+   },
+   "c20_9t": {
+    "disc_rs": 188208,
+    "disc_base": 383324,
+    "hold_rs": -24992,
+    "hold_base": 3936,
+    "legs": 207,
+    "trades": 114,
+    "days_better": 4,
+    "days_worse": 11
+   }
+  },
+  {
+   "kind": "lock",
+   "arm": 0.1,
+   "param": 0.5,
+   "reenter": false,
+   "c20_9y": {
+    "disc_rs": 430563,
+    "disc_base": 1078009,
+    "hold_rs": 101010,
+    "hold_base": 116363,
+    "legs": 92,
+    "trades": 92,
+    "days_better": 6,
+    "days_worse": 8
+   },
+   "c20_9s": {
+    "disc_rs": 428220,
+    "disc_base": 1054823,
+    "hold_rs": 44674,
+    "hold_base": 53339,
+    "legs": 96,
+    "trades": 96,
+    "days_better": 6,
+    "days_worse": 8
+   },
+   "c20_9v": {
+    "disc_rs": 432897,
+    "disc_base": 1029902,
+    "hold_rs": 60820,
+    "hold_base": 63824,
+    "legs": 103,
+    "trades": 103,
+    "days_better": 6,
+    "days_worse": 8
+   },
+   "c20_9x": {
+    "disc_rs": 375482,
+    "disc_base": 985368,
+    "hold_rs": 49120,
+    "hold_base": 50960,
+    "legs": 102,
+    "trades": 102,
+    "days_better": 6,
+    "days_worse": 8
+   },
+   "c20_9t": {
+    "disc_rs": 217350,
+    "disc_base": 383324,
+    "hold_rs": -1300,
+    "hold_base": 3936,
+    "legs": 114,
+    "trades": 114,
+    "days_better": 2,
+    "days_worse": 4
+   }
+  },
+  {
+   "kind": "lock",
+   "arm": 0.1,
+   "param": 0.5,
+   "reenter": true,
+   "c20_9y": {
+    "disc_rs": 774745,
+    "disc_base": 1078009,
+    "hold_rs": 99460,
+    "hold_base": 116363,
+    "legs": 137,
+    "trades": 92,
+    "days_better": 6,
+    "days_worse": 8
+   },
+   "c20_9s": {
+    "disc_rs": 783819,
+    "disc_base": 1054823,
+    "hold_rs": 23819,
+    "hold_base": 53339,
+    "legs": 141,
+    "trades": 96,
+    "days_better": 7,
+    "days_worse": 7
+   },
+   "c20_9v": {
+    "disc_rs": 716732,
+    "disc_base": 1029902,
+    "hold_rs": 40173,
+    "hold_base": 63824,
+    "legs": 148,
+    "trades": 103,
+    "days_better": 5,
+    "days_worse": 9
+   },
+   "c20_9x": {
+    "disc_rs": 727464,
+    "disc_base": 985368,
+    "hold_rs": 28265,
+    "hold_base": 50960,
+    "legs": 147,
+    "trades": 102,
+    "days_better": 7,
+    "days_worse": 7
+   },
+   "c20_9t": {
+    "disc_rs": 236402,
+    "disc_base": 383324,
+    "hold_rs": -31886,
+    "hold_base": 3936,
+    "legs": 132,
+    "trades": 114,
+    "days_better": 1,
+    "days_worse": 5
+   }
+  },
+  {
+   "kind": "lock",
+   "arm": 0.1,
+   "param": 0.6,
+   "reenter": false,
+   "c20_9y": {
+    "disc_rs": 466817,
+    "disc_base": 1078009,
+    "hold_rs": 65549,
+    "hold_base": 116363,
+    "legs": 92,
+    "trades": 92,
+    "days_better": 5,
+    "days_worse": 9
+   },
+   "c20_9s": {
+    "disc_rs": 462137,
+    "disc_base": 1054823,
+    "hold_rs": 8512,
+    "hold_base": 53339,
+    "legs": 96,
+    "trades": 96,
+    "days_better": 5,
+    "days_worse": 9
+   },
+   "c20_9v": {
+    "disc_rs": 463765,
+    "disc_base": 1029902,
+    "hold_rs": 25360,
+    "hold_base": 63824,
+    "legs": 103,
+    "trades": 103,
+    "days_better": 6,
+    "days_worse": 8
+   },
+   "c20_9x": {
+    "disc_rs": 409396,
+    "disc_base": 985368,
+    "hold_rs": 13660,
+    "hold_base": 50960,
+    "legs": 102,
+    "trades": 102,
+    "days_better": 5,
+    "days_worse": 9
+   },
+   "c20_9t": {
+    "disc_rs": 257533,
+    "disc_base": 383324,
+    "hold_rs": -4407,
+    "hold_base": 3936,
+    "legs": 114,
+    "trades": 114,
+    "days_better": 6,
+    "days_worse": 6
+   }
+  },
+  {
+   "kind": "lock",
+   "arm": 0.1,
+   "param": 0.6,
+   "reenter": true,
+   "c20_9y": {
+    "disc_rs": 815016,
+    "disc_base": 1078009,
+    "hold_rs": 88394,
+    "hold_base": 116363,
+    "legs": 150,
+    "trades": 92,
+    "days_better": 5,
+    "days_worse": 9
+   },
+   "c20_9s": {
+    "disc_rs": 814957,
+    "disc_base": 1054823,
+    "hold_rs": 12051,
+    "hold_base": 53339,
+    "legs": 155,
+    "trades": 96,
+    "days_better": 5,
+    "days_worse": 9
+   },
+   "c20_9v": {
+    "disc_rs": 764637,
+    "disc_base": 1029902,
+    "hold_rs": 29107,
+    "hold_base": 63824,
+    "legs": 161,
+    "trades": 103,
+    "days_better": 4,
+    "days_worse": 10
+   },
+   "c20_9x": {
+    "disc_rs": 757455,
+    "disc_base": 985368,
+    "hold_rs": 17199,
+    "hold_base": 50960,
+    "legs": 161,
+    "trades": 102,
+    "days_better": 5,
+    "days_worse": 9
+   },
+   "c20_9t": {
+    "disc_rs": 242073,
+    "disc_base": 383324,
+    "hold_rs": -96047,
+    "hold_base": 3936,
+    "legs": 138,
+    "trades": 114,
+    "days_better": 3,
+    "days_worse": 9
+   }
+  },
+  {
+   "kind": "lock",
+   "arm": 0.1,
+   "param": 0.7,
+   "reenter": false,
+   "c20_9y": {
+    "disc_rs": 461724,
+    "disc_base": 1078009,
+    "hold_rs": 76278,
+    "hold_base": 116363,
+    "legs": 92,
+    "trades": 92,
+    "days_better": 5,
+    "days_worse": 9
+   },
+   "c20_9s": {
+    "disc_rs": 462498,
+    "disc_base": 1054823,
+    "hold_rs": 18538,
+    "hold_base": 53339,
+    "legs": 96,
+    "trades": 96,
+    "days_better": 5,
+    "days_worse": 9
+   },
+   "c20_9v": {
+    "disc_rs": 459105,
+    "disc_base": 1029902,
+    "hold_rs": 36088,
+    "hold_base": 63824,
+    "legs": 103,
+    "trades": 103,
+    "days_better": 6,
+    "days_worse": 8
+   },
+   "c20_9x": {
+    "disc_rs": 409997,
+    "disc_base": 985368,
+    "hold_rs": 24388,
+    "hold_base": 50960,
+    "legs": 102,
+    "trades": 102,
+    "days_better": 5,
+    "days_worse": 9
+   },
+   "c20_9t": {
+    "disc_rs": 248505,
+    "disc_base": 383324,
+    "hold_rs": 11976,
+    "hold_base": 3936,
+    "legs": 114,
+    "trades": 114,
+    "days_better": 8,
+    "days_worse": 4
+   }
+  },
+  {
+   "kind": "lock",
+   "arm": 0.1,
+   "param": 0.7,
+   "reenter": true,
+   "c20_9y": {
+    "disc_rs": 828659,
+    "disc_base": 1078009,
+    "hold_rs": 59085,
+    "hold_base": 116363,
+    "legs": 162,
+    "trades": 92,
+    "days_better": 4,
+    "days_worse": 10
+   },
+   "c20_9s": {
+    "disc_rs": 832787,
+    "disc_base": 1054823,
+    "hold_rs": -17959,
+    "hold_base": 53339,
+    "legs": 167,
+    "trades": 96,
+    "days_better": 5,
+    "days_worse": 9
+   },
+   "c20_9v": {
+    "disc_rs": 798116,
+    "disc_base": 1029902,
+    "hold_rs": -201,
+    "hold_base": 63824,
+    "legs": 173,
+    "trades": 103,
+    "days_better": 5,
+    "days_worse": 9
+   },
+   "c20_9x": {
+    "disc_rs": 779347,
+    "disc_base": 985368,
+    "hold_rs": -12109,
+    "hold_base": 50960,
+    "legs": 173,
+    "trades": 102,
+    "days_better": 5,
+    "days_worse": 9
+   },
+   "c20_9t": {
+    "disc_rs": 273877,
+    "disc_base": 383324,
+    "hold_rs": -44398,
+    "hold_base": 3936,
+    "legs": 143,
+    "trades": 114,
+    "days_better": 8,
+    "days_worse": 4
+   }
+  },
+  {
+   "kind": "lock",
+   "arm": 0.1,
+   "param": 0.8,
+   "reenter": false,
+   "c20_9y": {
+    "disc_rs": 410439,
+    "disc_base": 1078009,
+    "hold_rs": 73564,
+    "hold_base": 116363,
+    "legs": 92,
+    "trades": 92,
+    "days_better": 4,
+    "days_worse": 10
+   },
+   "c20_9s": {
+    "disc_rs": 408707,
+    "disc_base": 1054823,
+    "hold_rs": 16637,
+    "hold_base": 53339,
+    "legs": 96,
+    "trades": 96,
+    "days_better": 4,
+    "days_worse": 10
+   },
+   "c20_9v": {
+    "disc_rs": 401599,
+    "disc_base": 1029902,
+    "hold_rs": 35376,
+    "hold_base": 63824,
+    "legs": 103,
+    "trades": 103,
+    "days_better": 5,
+    "days_worse": 9
+   },
+   "c20_9x": {
+    "disc_rs": 357113,
+    "disc_base": 985368,
+    "hold_rs": 23676,
+    "hold_base": 50960,
+    "legs": 102,
+    "trades": 102,
+    "days_better": 4,
+    "days_worse": 10
+   },
+   "c20_9t": {
+    "disc_rs": 218614,
+    "disc_base": 383324,
+    "hold_rs": 23845,
+    "hold_base": 3936,
+    "legs": 114,
+    "trades": 114,
+    "days_better": 8,
+    "days_worse": 4
+   }
+  },
+  {
+   "kind": "lock",
+   "arm": 0.1,
+   "param": 0.8,
+   "reenter": true,
+   "c20_9y": {
+    "disc_rs": 867480,
+    "disc_base": 1078009,
+    "hold_rs": 3923,
+    "hold_base": 116363,
+    "legs": 176,
+    "trades": 92,
+    "days_better": 4,
+    "days_worse": 10
+   },
+   "c20_9s": {
+    "disc_rs": 872755,
+    "disc_base": 1054823,
+    "hold_rs": -70951,
+    "hold_base": 53339,
+    "legs": 181,
+    "trades": 96,
+    "days_better": 2,
+    "days_worse": 12
+   },
+   "c20_9v": {
+    "disc_rs": 860548,
+    "disc_base": 1029902,
+    "hold_rs": -52003,
+    "hold_base": 63824,
+    "legs": 186,
+    "trades": 103,
+    "days_better": 4,
+    "days_worse": 10
+   },
+   "c20_9x": {
+    "disc_rs": 819595,
+    "disc_base": 985368,
+    "hold_rs": -63911,
+    "hold_base": 50960,
+    "legs": 187,
+    "trades": 102,
+    "days_better": 4,
+    "days_worse": 10
+   },
+   "c20_9t": {
+    "disc_rs": 259119,
+    "disc_base": 383324,
+    "hold_rs": -32971,
+    "hold_base": 3936,
+    "legs": 158,
+    "trades": 114,
+    "days_better": 5,
+    "days_worse": 7
+   }
+  },
+  {
+   "kind": "lock",
+   "arm": 0.15,
+   "param": 0.5,
+   "reenter": false,
+   "c20_9y": {
+    "disc_rs": 756054,
+    "disc_base": 1078009,
+    "hold_rs": 165461,
+    "hold_base": 116363,
+    "legs": 92,
+    "trades": 92,
+    "days_better": 8,
+    "days_worse": 4
+   },
+   "c20_9s": {
+    "disc_rs": 716823,
+    "disc_base": 1054823,
+    "hold_rs": 102437,
+    "hold_base": 53339,
+    "legs": 96,
+    "trades": 96,
+    "days_better": 7,
+    "days_worse": 4
+   },
+   "c20_9v": {
+    "disc_rs": 688727,
+    "disc_base": 1029902,
+    "hold_rs": 111758,
+    "hold_base": 63824,
+    "legs": 103,
+    "trades": 103,
+    "days_better": 8,
+    "days_worse": 4
+   },
+   "c20_9x": {
+    "disc_rs": 649759,
+    "disc_base": 985368,
+    "hold_rs": 100058,
+    "hold_base": 50960,
+    "legs": 102,
+    "trades": 102,
+    "days_better": 7,
+    "days_worse": 4
+   },
+   "c20_9t": {
+    "disc_rs": 266149,
+    "disc_base": 383324,
+    "hold_rs": -19789,
+    "hold_base": 3936,
+    "legs": 114,
+    "trades": 114,
+    "days_better": 3,
+    "days_worse": 3
+   }
+  },
+  {
+   "kind": "lock",
+   "arm": 0.15,
+   "param": 0.5,
+   "reenter": true,
+   "c20_9y": {
+    "disc_rs": 805353,
+    "disc_base": 1078009,
+    "hold_rs": 136503,
+    "hold_base": 116363,
+    "legs": 108,
+    "trades": 92,
+    "days_better": 7,
+    "days_worse": 5
+   },
+   "c20_9s": {
+    "disc_rs": 763513,
+    "disc_base": 1054823,
+    "hold_rs": 73479,
+    "hold_base": 53339,
+    "legs": 112,
+    "trades": 96,
+    "days_better": 6,
+    "days_worse": 5
+   },
+   "c20_9v": {
+    "disc_rs": 735998,
+    "disc_base": 1029902,
+    "hold_rs": 82800,
+    "hold_base": 63824,
+    "legs": 119,
+    "trades": 103,
+    "days_better": 7,
+    "days_worse": 5
+   },
+   "c20_9x": {
+    "disc_rs": 697031,
+    "disc_base": 985368,
+    "hold_rs": 71100,
+    "hold_base": 50960,
+    "legs": 118,
+    "trades": 102,
+    "days_better": 6,
+    "days_worse": 5
+   },
+   "c20_9t": {
+    "disc_rs": 285503,
+    "disc_base": 383324,
+    "hold_rs": 11482,
+    "hold_base": 3936,
+    "legs": 121,
+    "trades": 114,
+    "days_better": 3,
+    "days_worse": 3
+   }
+  },
+  {
+   "kind": "lock",
+   "arm": 0.15,
+   "param": 0.6,
+   "reenter": false,
+   "c20_9y": {
+    "disc_rs": 742024,
+    "disc_base": 1078009,
+    "hold_rs": 129685,
+    "hold_base": 116363,
+    "legs": 92,
+    "trades": 92,
+    "days_better": 8,
+    "days_worse": 6
+   },
+   "c20_9s": {
+    "disc_rs": 697899,
+    "disc_base": 1054823,
+    "hold_rs": 66661,
+    "hold_base": 53339,
+    "legs": 96,
+    "trades": 96,
+    "days_better": 8,
+    "days_worse": 6
+   },
+   "c20_9v": {
+    "disc_rs": 731257,
+    "disc_base": 1029902,
+    "hold_rs": 75982,
+    "hold_base": 63824,
+    "legs": 103,
+    "trades": 103,
+    "days_better": 9,
+    "days_worse": 5
+   },
+   "c20_9x": {
+    "disc_rs": 629376,
+    "disc_base": 985368,
+    "hold_rs": 64282,
+    "hold_base": 50960,
+    "legs": 102,
+    "trades": 102,
+    "days_better": 8,
+    "days_worse": 6
+   },
+   "c20_9t": {
+    "disc_rs": 296335,
+    "disc_base": 383324,
+    "hold_rs": -25253,
+    "hold_base": 3936,
+    "legs": 114,
+    "trades": 114,
+    "days_better": 4,
+    "days_worse": 4
+   }
+  },
+  {
+   "kind": "lock",
+   "arm": 0.15,
+   "param": 0.6,
+   "reenter": true,
+   "c20_9y": {
+    "disc_rs": 932763,
+    "disc_base": 1078009,
+    "hold_rs": 142129,
+    "hold_base": 116363,
+    "legs": 114,
+    "trades": 92,
+    "days_better": 7,
+    "days_worse": 7
+   },
+   "c20_9s": {
+    "disc_rs": 885970,
+    "disc_base": 1054823,
+    "hold_rs": 79105,
+    "hold_base": 53339,
+    "legs": 118,
+    "trades": 96,
+    "days_better": 6,
+    "days_worse": 8
+   },
+   "c20_9v": {
+    "disc_rs": 863593,
+    "disc_base": 1029902,
+    "hold_rs": 88426,
+    "hold_base": 63824,
+    "legs": 124,
+    "trades": 103,
+    "days_better": 7,
+    "days_worse": 7
+   },
+   "c20_9x": {
+    "disc_rs": 818028,
+    "disc_base": 985368,
+    "hold_rs": 76726,
+    "hold_base": 50960,
+    "legs": 124,
+    "trades": 102,
+    "days_better": 6,
+    "days_worse": 8
+   },
+   "c20_9t": {
+    "disc_rs": 329504,
+    "disc_base": 383324,
+    "hold_rs": 12948,
+    "hold_base": 3936,
+    "legs": 123,
+    "trades": 114,
+    "days_better": 4,
+    "days_worse": 4
+   }
+  },
+  {
+   "kind": "lock",
+   "arm": 0.15,
+   "param": 0.7,
+   "reenter": false,
+   "c20_9y": {
+    "disc_rs": 719098,
+    "disc_base": 1078009,
+    "hold_rs": 153715,
+    "hold_base": 116363,
+    "legs": 92,
+    "trades": 92,
+    "days_better": 8,
+    "days_worse": 6
+   },
+   "c20_9s": {
+    "disc_rs": 667160,
+    "disc_base": 1054823,
+    "hold_rs": 90691,
+    "hold_base": 53339,
+    "legs": 96,
+    "trades": 96,
+    "days_better": 8,
+    "days_worse": 6
+   },
+   "c20_9v": {
+    "disc_rs": 702705,
+    "disc_base": 1029902,
+    "hold_rs": 100012,
+    "hold_base": 63824,
+    "legs": 103,
+    "trades": 103,
+    "days_better": 9,
+    "days_worse": 5
+   },
+   "c20_9x": {
+    "disc_rs": 600928,
+    "disc_base": 985368,
+    "hold_rs": 88312,
+    "hold_base": 50960,
+    "legs": 102,
+    "trades": 102,
+    "days_better": 8,
+    "days_worse": 6
+   },
+   "c20_9t": {
+    "disc_rs": 254222,
+    "disc_base": 383324,
+    "hold_rs": -15161,
+    "hold_base": 3936,
+    "legs": 114,
+    "trades": 114,
+    "days_better": 4,
+    "days_worse": 4
+   }
+  },
+  {
+   "kind": "lock",
+   "arm": 0.15,
+   "param": 0.7,
+   "reenter": true,
+   "c20_9y": {
+    "disc_rs": 842169,
+    "disc_base": 1078009,
+    "hold_rs": 168314,
+    "hold_base": 116363,
+    "legs": 127,
+    "trades": 92,
+    "days_better": 10,
+    "days_worse": 4
+   },
+   "c20_9s": {
+    "disc_rs": 801557,
+    "disc_base": 1054823,
+    "hold_rs": 105290,
+    "hold_base": 53339,
+    "legs": 131,
+    "trades": 96,
+    "days_better": 10,
+    "days_worse": 4
+   },
+   "c20_9v": {
+    "disc_rs": 794251,
+    "disc_base": 1029902,
+    "hold_rs": 114611,
+    "hold_base": 63824,
+    "legs": 135,
+    "trades": 103,
+    "days_better": 10,
+    "days_worse": 4
+   },
+   "c20_9x": {
+    "disc_rs": 732384,
+    "disc_base": 985368,
+    "hold_rs": 102911,
+    "hold_base": 50960,
+    "legs": 137,
+    "trades": 102,
+    "days_better": 10,
+    "days_worse": 4
+   },
+   "c20_9t": {
+    "disc_rs": 278460,
+    "disc_base": 383324,
+    "hold_rs": 37934,
+    "hold_base": 3936,
+    "legs": 130,
+    "trades": 114,
+    "days_better": 5,
+    "days_worse": 3
+   }
+  },
+  {
+   "kind": "lock",
+   "arm": 0.15,
+   "param": 0.8,
+   "reenter": false,
+   "c20_9y": {
+    "disc_rs": 589768,
+    "disc_base": 1078009,
+    "hold_rs": 149890,
+    "hold_base": 116363,
+    "legs": 92,
+    "trades": 92,
+    "days_better": 5,
+    "days_worse": 9
+   },
+   "c20_9s": {
+    "disc_rs": 541157,
+    "disc_base": 1054823,
+    "hold_rs": 86866,
+    "hold_base": 53339,
+    "legs": 96,
+    "trades": 96,
+    "days_better": 5,
+    "days_worse": 9
+   },
+   "c20_9v": {
+    "disc_rs": 571447,
+    "disc_base": 1029902,
+    "hold_rs": 96187,
+    "hold_base": 63824,
+    "legs": 103,
+    "trades": 103,
+    "days_better": 6,
+    "days_worse": 8
+   },
+   "c20_9x": {
+    "disc_rs": 473519,
+    "disc_base": 985368,
+    "hold_rs": 84487,
+    "hold_base": 50960,
+    "legs": 102,
+    "trades": 102,
+    "days_better": 5,
+    "days_worse": 9
+   },
+   "c20_9t": {
+    "disc_rs": 200047,
+    "disc_base": 383324,
+    "hold_rs": -7504,
+    "hold_base": 3936,
+    "legs": 114,
+    "trades": 114,
+    "days_better": 5,
+    "days_worse": 4
+   }
+  },
+  {
+   "kind": "lock",
+   "arm": 0.15,
+   "param": 0.8,
+   "reenter": true,
+   "c20_9y": {
+    "disc_rs": 888856,
+    "disc_base": 1078009,
+    "hold_rs": 153540,
+    "hold_base": 116363,
+    "legs": 142,
+    "trades": 92,
+    "days_better": 9,
+    "days_worse": 5
+   },
+   "c20_9s": {
+    "disc_rs": 843284,
+    "disc_base": 1054823,
+    "hold_rs": 90516,
+    "hold_base": 53339,
+    "legs": 146,
+    "trades": 96,
+    "days_better": 8,
+    "days_worse": 6
+   },
+   "c20_9v": {
+    "disc_rs": 838159,
+    "disc_base": 1029902,
+    "hold_rs": 99837,
+    "hold_base": 63824,
+    "legs": 149,
+    "trades": 103,
+    "days_better": 8,
+    "days_worse": 6
+   },
+   "c20_9x": {
+    "disc_rs": 774615,
+    "disc_base": 985368,
+    "hold_rs": 88137,
+    "hold_base": 50960,
+    "legs": 152,
+    "trades": 102,
+    "days_better": 8,
+    "days_worse": 6
+   },
+   "c20_9t": {
+    "disc_rs": 292721,
+    "disc_base": 383324,
+    "hold_rs": 45991,
+    "hold_base": 3936,
+    "legs": 136,
+    "trades": 114,
+    "days_better": 5,
+    "days_worse": 4
+   }
+  },
+  {
+   "kind": "lock",
+   "arm": 0.25,
+   "param": 0.5,
+   "reenter": false,
+   "c20_9y": {
+    "disc_rs": 853421,
+    "disc_base": 1078009,
+    "hold_rs": 139347,
+    "hold_base": 116363,
+    "legs": 92,
+    "trades": 92,
+    "days_better": 3,
+    "days_worse": 2
+   },
+   "c20_9s": {
+    "disc_rs": 831106,
+    "disc_base": 1054823,
+    "hold_rs": 76323,
+    "hold_base": 53339,
+    "legs": 96,
+    "trades": 96,
+    "days_better": 3,
+    "days_worse": 2
+   },
+   "c20_9v": {
+    "disc_rs": 806107,
+    "disc_base": 1029902,
+    "hold_rs": 86807,
+    "hold_base": 63824,
+    "legs": 103,
+    "trades": 103,
+    "days_better": 3,
+    "days_worse": 2
+   },
+   "c20_9x": {
+    "disc_rs": 761573,
+    "disc_base": 985368,
+    "hold_rs": 73944,
+    "hold_base": 50960,
+    "legs": 102,
+    "trades": 102,
+    "days_better": 3,
+    "days_worse": 2
+   },
+   "c20_9t": {
+    "disc_rs": 297746,
+    "disc_base": 383324,
+    "hold_rs": -39198,
+    "hold_base": 3936,
+    "legs": 114,
+    "trades": 114,
+    "days_better": 1,
+    "days_worse": 2
+   }
+  },
+  {
+   "kind": "lock",
+   "arm": 0.25,
+   "param": 0.5,
+   "reenter": true,
+   "c20_9y": {
+    "disc_rs": 912590,
+    "disc_base": 1078009,
+    "hold_rs": 161255,
+    "hold_base": 116363,
+    "legs": 96,
+    "trades": 92,
+    "days_better": 3,
+    "days_worse": 2
+   },
+   "c20_9s": {
+    "disc_rs": 891426,
+    "disc_base": 1054823,
+    "hold_rs": 98231,
+    "hold_base": 53339,
+    "legs": 100,
+    "trades": 96,
+    "days_better": 3,
+    "days_worse": 2
+   },
+   "c20_9v": {
+    "disc_rs": 866427,
+    "disc_base": 1029902,
+    "hold_rs": 108716,
+    "hold_base": 63824,
+    "legs": 107,
+    "trades": 103,
+    "days_better": 3,
+    "days_worse": 2
+   },
+   "c20_9x": {
+    "disc_rs": 821893,
+    "disc_base": 985368,
+    "hold_rs": 95852,
+    "hold_base": 50960,
+    "legs": 106,
+    "trades": 102,
+    "days_better": 3,
+    "days_worse": 2
+   },
+   "c20_9t": {
+    "disc_rs": 287264,
+    "disc_base": 383324,
+    "hold_rs": 2184,
+    "hold_base": 3936,
+    "legs": 118,
+    "trades": 114,
+    "days_better": 0,
+    "days_worse": 3
+   }
+  },
+  {
+   "kind": "lock",
+   "arm": 0.25,
+   "param": 0.6,
+   "reenter": false,
+   "c20_9y": {
+    "disc_rs": 914414,
+    "disc_base": 1078009,
+    "hold_rs": 82544,
+    "hold_base": 116363,
+    "legs": 92,
+    "trades": 92,
+    "days_better": 6,
+    "days_worse": 2
+   },
+   "c20_9s": {
+    "disc_rs": 890123,
+    "disc_base": 1054823,
+    "hold_rs": 19520,
+    "hold_base": 53339,
+    "legs": 96,
+    "trades": 96,
+    "days_better": 6,
+    "days_worse": 2
+   },
+   "c20_9v": {
+    "disc_rs": 863496,
+    "disc_base": 1029902,
+    "hold_rs": 30004,
+    "hold_base": 63824,
+    "legs": 103,
+    "trades": 103,
+    "days_better": 6,
+    "days_worse": 2
+   },
+   "c20_9x": {
+    "disc_rs": 818961,
+    "disc_base": 985368,
+    "hold_rs": 17141,
+    "hold_base": 50960,
+    "legs": 102,
+    "trades": 102,
+    "days_better": 6,
+    "days_worse": 2
+   },
+   "c20_9t": {
+    "disc_rs": 309156,
+    "disc_base": 383324,
+    "hold_rs": -29721,
+    "hold_base": 3936,
+    "legs": 114,
+    "trades": 114,
+    "days_better": 3,
+    "days_worse": 2
+   }
+  },
+  {
+   "kind": "lock",
+   "arm": 0.25,
+   "param": 0.6,
+   "reenter": true,
+   "c20_9y": {
+    "disc_rs": 1013782,
+    "disc_base": 1078009,
+    "hold_rs": 98430,
+    "hold_base": 116363,
+    "legs": 99,
+    "trades": 92,
+    "days_better": 5,
+    "days_worse": 3
+   },
+   "c20_9s": {
+    "disc_rs": 990642,
+    "disc_base": 1054823,
+    "hold_rs": 35406,
+    "hold_base": 53339,
+    "legs": 103,
+    "trades": 96,
+    "days_better": 5,
+    "days_worse": 3
+   },
+   "c20_9v": {
+    "disc_rs": 964015,
+    "disc_base": 1029902,
+    "hold_rs": 45890,
+    "hold_base": 63824,
+    "legs": 110,
+    "trades": 103,
+    "days_better": 5,
+    "days_worse": 3
+   },
+   "c20_9x": {
+    "disc_rs": 919480,
+    "disc_base": 985368,
+    "hold_rs": 33027,
+    "hold_base": 50960,
+    "legs": 109,
+    "trades": 102,
+    "days_better": 5,
+    "days_worse": 3
+   },
+   "c20_9t": {
+    "disc_rs": 315903,
+    "disc_base": 383324,
+    "hold_rs": -7631,
+    "hold_base": 3936,
+    "legs": 119,
+    "trades": 114,
+    "days_better": 3,
+    "days_worse": 2
+   }
+  },
+  {
+   "kind": "lock",
+   "arm": 0.25,
+   "param": 0.7,
+   "reenter": false,
+   "c20_9y": {
+    "disc_rs": 805864,
+    "disc_base": 1078009,
+    "hold_rs": 94126,
+    "hold_base": 116363,
+    "legs": 92,
+    "trades": 92,
+    "days_better": 4,
+    "days_worse": 6
+   },
+   "c20_9s": {
+    "disc_rs": 774264,
+    "disc_base": 1054823,
+    "hold_rs": 31102,
+    "hold_base": 53339,
+    "legs": 96,
+    "trades": 96,
+    "days_better": 4,
+    "days_worse": 6
+   },
+   "c20_9v": {
+    "disc_rs": 803829,
+    "disc_base": 1029902,
+    "hold_rs": 41587,
+    "hold_base": 63824,
+    "legs": 103,
+    "trades": 103,
+    "days_better": 4,
+    "days_worse": 5
+   },
+   "c20_9x": {
+    "disc_rs": 704174,
+    "disc_base": 985368,
+    "hold_rs": 28723,
+    "hold_base": 50960,
+    "legs": 102,
+    "trades": 102,
+    "days_better": 4,
+    "days_worse": 6
+   },
+   "c20_9t": {
+    "disc_rs": 302679,
+    "disc_base": 383324,
+    "hold_rs": -39813,
+    "hold_base": 3936,
+    "legs": 114,
+    "trades": 114,
+    "days_better": 3,
+    "days_worse": 2
+   }
+  },
+  {
+   "kind": "lock",
+   "arm": 0.25,
+   "param": 0.7,
+   "reenter": true,
+   "c20_9y": {
+    "disc_rs": 1020715,
+    "disc_base": 1078009,
+    "hold_rs": 105160,
+    "hold_base": 116363,
+    "legs": 106,
+    "trades": 92,
+    "days_better": 4,
+    "days_worse": 6
+   },
+   "c20_9s": {
+    "disc_rs": 1001182,
+    "disc_base": 1054823,
+    "hold_rs": 42136,
+    "hold_base": 53339,
+    "legs": 110,
+    "trades": 96,
+    "days_better": 4,
+    "days_worse": 6
+   },
+   "c20_9v": {
+    "disc_rs": 981581,
+    "disc_base": 1029902,
+    "hold_rs": 52621,
+    "hold_base": 63824,
+    "legs": 116,
+    "trades": 103,
+    "days_better": 4,
+    "days_worse": 5
+   },
+   "c20_9x": {
+    "disc_rs": 929117,
+    "disc_base": 985368,
+    "hold_rs": 39757,
+    "hold_base": 50960,
+    "legs": 116,
+    "trades": 102,
+    "days_better": 4,
+    "days_worse": 6
+   },
+   "c20_9t": {
+    "disc_rs": 301870,
+    "disc_base": 383324,
+    "hold_rs": -38373,
+    "hold_base": 3936,
+    "legs": 122,
+    "trades": 114,
+    "days_better": 2,
+    "days_worse": 3
+   }
+  },
+  {
+   "kind": "lock",
+   "arm": 0.25,
+   "param": 0.8,
+   "reenter": false,
+   "c20_9y": {
+    "disc_rs": 786965,
+    "disc_base": 1078009,
+    "hold_rs": 102287,
+    "hold_base": 116363,
+    "legs": 92,
+    "trades": 92,
+    "days_better": 3,
+    "days_worse": 8
+   },
+   "c20_9s": {
+    "disc_rs": 755833,
+    "disc_base": 1054823,
+    "hold_rs": 39263,
+    "hold_base": 53339,
+    "legs": 96,
+    "trades": 96,
+    "days_better": 3,
+    "days_worse": 8
+   },
+   "c20_9v": {
+    "disc_rs": 781329,
+    "disc_base": 1029902,
+    "hold_rs": 49748,
+    "hold_base": 63824,
+    "legs": 103,
+    "trades": 103,
+    "days_better": 3,
+    "days_worse": 7
+   },
+   "c20_9x": {
+    "disc_rs": 683833,
+    "disc_base": 985368,
+    "hold_rs": 36884,
+    "hold_base": 50960,
+    "legs": 102,
+    "trades": 102,
+    "days_better": 3,
+    "days_worse": 8
+   },
+   "c20_9t": {
+    "disc_rs": 264092,
+    "disc_base": 383324,
+    "hold_rs": -24810,
+    "hold_base": 3936,
+    "legs": 114,
+    "trades": 114,
+    "days_better": 3,
+    "days_worse": 3
+   }
+  },
+  {
+   "kind": "lock",
+   "arm": 0.25,
+   "param": 0.8,
+   "reenter": true,
+   "c20_9y": {
+    "disc_rs": 1024758,
+    "disc_base": 1078009,
+    "hold_rs": 85621,
+    "hold_base": 116363,
+    "legs": 115,
+    "trades": 92,
+    "days_better": 5,
+    "days_worse": 6
+   },
+   "c20_9s": {
+    "disc_rs": 1005693,
+    "disc_base": 1054823,
+    "hold_rs": 22597,
+    "hold_base": 53339,
+    "legs": 119,
+    "trades": 96,
+    "days_better": 5,
+    "days_worse": 6
+   },
+   "c20_9v": {
+    "disc_rs": 993090,
+    "disc_base": 1029902,
+    "hold_rs": 33082,
+    "hold_base": 63824,
+    "legs": 124,
+    "trades": 103,
+    "days_better": 5,
+    "days_worse": 5
+   },
+   "c20_9x": {
+    "disc_rs": 931717,
+    "disc_base": 985368,
+    "hold_rs": 20218,
+    "hold_base": 50960,
+    "legs": 125,
+    "trades": 102,
+    "days_better": 5,
+    "days_worse": 6
+   },
+   "c20_9t": {
+    "disc_rs": 315338,
+    "disc_base": 383324,
+    "hold_rs": -39890,
+    "hold_base": 3936,
+    "legs": 125,
+    "trades": 114,
+    "days_better": 3,
+    "days_worse": 3
+   }
+  }
+ ]
+}

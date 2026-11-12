@@ -163,11 +163,17 @@ class Adapter:
                 book.pos["peak_pts"] = max(book.pos.get("peak_pts") or 0.0, ltp - book.pos["entry"])
                 book.pos["worst_pts"] = min(book.pos.get("worst_pts") or 0.0, ltp - book.pos["entry"])   # 7 Nov
         if book.pos and book.pos.get("pending"):
-            return paper.try_fill_exit(book, ctx) is not None
+            tr = paper.try_fill_exit(book, ctx)
+            if tr is not None and book.p.get("reenter"):     # 11 Nov (docs/49): the re-entry twin remembers its exits
+                from .. import holdtwin as _ht
+                _ht.note_exit(book, tr)
+            return tr is not None
         if book.ctl.get("pending_entry"):
             pos, _why = paper.try_fill_entry(book, ctx)
             if pos:
                 pos["ep_type"] = "COUNCIL"
+                if book.ctl.pop("re_leg_req", None):          # 11 Nov (docs/49): a re-entry leg, fixed exit
+                    pos["re_leg"], pos["re_peak"], pos["ep_type"] = True, pos["entry"], "RE-ENTRY"
             return bool(pos)
         spos = None
         if book.pos:
@@ -178,10 +184,20 @@ class Adapter:
             if getattr(self, "_pk", None) != pk:            # a new position (or a restart): resume the saved peak bid
                 self._pk = pk
                 self._peak = p.get("peak_bid") or (bid if bid else p["entry"])
+                p.setdefault("peak_t", p["t_in"])
             elif bid:
+                if bid > self._peak:
+                    p["peak_t"] = ctx["now_s"]                 # 11 Nov (docs/49): when the peak was set (hold model input)
                 self._peak = max(self._peak, bid)
             p["peak_bid"] = self._peak                       # saved with the book: an armed floor survives a restart
             flat = (15 * 60) if D.dte0 else (15 * 60 + 20)
+            if p.get("re_leg"):                                # 11 Nov (docs/49): the re-entry twin's own leg
+                from .. import holdtwin as _ht
+                act = self.strat.on_second(i, D, None)       # the strategy keeps running as if flat
+                if act and act[0] == "BUY":
+                    book.ctl["rx_skipped_buys"] = int(book.ctl.get("rx_skipped_buys") or 0) + 1
+                why = _ht.leg_exit(ctx, p, o, D.hm[i] >= flat)
+                return bool(why) and paper.request_exit(book, ctx, why, o) is not None
             if D.hm[i] >= flat:
                 return paper.request_exit(book, ctx, "TIME (council forced flat)", o) is not None
             j = D.col.get((int(p["strike"]), p["rr"]))
@@ -198,6 +214,11 @@ class Adapter:
                 fx = _pred.held_exit(ctx, p, self._peak)
                 if fx:
                     return paper.request_exit(book, ctx, fx, o) is not None
+            if book.p.get("hold_exit"):                     # 11 Nov (docs/49): the hold-or-sell twin
+                from .. import holdtwin as _ht
+                hx = _ht.sell_now(ctx, book, p, o, self._peak)
+                if hx:
+                    return paper.request_exit(book, ctx, hx, o) is not None
         act = self.strat.on_second(i, D, spos)
         if spos is not None and book.pos:
             try:
@@ -205,6 +226,12 @@ class Adapter:
             except Exception:
                 book.pos.pop("rules", None)
         if not act:
+            if book.p.get("reenter") and not book.pos and not (ctx.get("blackout") or {}).get("on") and not ctx.get("kill"):
+                from .. import holdtwin as _ht                  # 11 Nov (docs/49): buy the last exit back?
+                ro, rwhy = _ht.want_reentry(ctx, book)
+                if ro is not None and abs(ro.get("delta") or 0) >= 0.5 and D.hm[i] < ((15 * 60) if D.dte0 else (15 * 60 + 5)):
+                    book.ctl["re_leg_req"] = True
+                    paper.request_entry(book, ctx, ro, rwhy)
             return False
         if act[0] == "SELL" and book.pos:
             o = ctx["by_key"].get(book.pos["key"])
@@ -214,10 +241,15 @@ class Adapter:
                     book.pos["fc_defer"] = int(book.pos.get("fc_defer") or 0) + 1   # seconds the strategy's SELL was held back
                     return False
             why = f"COUNCIL {act[1] if len(act) > 1 else ''}".strip()
-            return paper.request_exit(book, ctx, why, o) is not None
+            tr = paper.request_exit(book, ctx, why, o)
+            if tr is not None and book.p.get("reenter"):
+                from .. import holdtwin as _ht
+                _ht.note_exit(book, tr)
+            return tr is not None
         if act[0] == "BUY" and not book.pos:
             if (ctx.get("blackout") or {}).get("on") or ctx.get("kill"):
                 return False
+            book.ctl.pop("rx_last", None)                     # a fresh strategy entry replaces any pending buy-back
             k, rr = int(act[1]), act[2]
             opt = ctx["by_key"].get(f"NIFTY|OPT|{w0}|{k}|{rr}")
             if not opt or not opt.get("ltp") or (opt.get("age") or 9e9) > config.EXIT_QUOTE_STALE_S:

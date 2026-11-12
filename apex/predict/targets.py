@@ -11,7 +11,9 @@ DELAY_S = 1
 BARRIER = 0.05                  # 5 % of the entry premium, both sides. Declared before any result was seen.
 HORIZONS = (30, 60, 180, 300)   # seconds after the fill
 MAX_GAP_S = 10
-SPEC = dict(delay_s=DELAY_S, barrier=BARRIER, horizons=list(HORIZONS), max_gap_s=MAX_GAP_S, entry="ask", mark="bid")
+LABEL_VERSION = 2               # 11 Nov (docs/46 finding 3): "neither" needs the recording to REACH the horizon
+SPEC = dict(delay_s=DELAY_S, barrier=BARRIER, horizons=list(HORIZONS), max_gap_s=MAX_GAP_S, entry="ask", mark="bid",
+            label_version=LABEL_VERSION)
 
 
 def label(t, bid, ask, ok, age, i, delay=DELAY_S, barrier=BARRIER, horizons=HORIZONS, max_gap=MAX_GAP_S):
@@ -42,10 +44,13 @@ def label(t, bid, ask, ok, age, i, delay=DELAY_S, barrier=BARRIER, horizons=HORI
     if tev > blind:                                   # whatever happened after an unobserved stretch is not counted
         ev, tev = None, np.inf
     out = dict(st="ok", entry=e, first={}, ret={}, t_hit=(float(tev) if ev else None), peak=None, trough=None)
+    rec_end = float(t[-1] - t[a])                     # how far the recording itself runs past the fill
     for h in horizons:
         if ev is not None and tev <= h:
             out["first"][h] = ev
-        elif blind < h or data_end < h - max_gap:
+        elif blind < h or data_end < h - max_gap or rec_end < h:
+            # 11 Nov (docs/46 finding 3): a recording that ends inside the horizon cannot show "neither": the rest of
+            # the window is unknown. Tolerated quote gaps inside a recording that goes on are still "neither".
             out["first"][h] = "U"
         else:
             out["first"][h] = "N"

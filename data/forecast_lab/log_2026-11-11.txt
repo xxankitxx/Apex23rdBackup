@@ -1,0 +1,5 @@
+13:08:04 started pid 27752, learning state from none
+13:42:03 started pid 21800, learning state from live state
+13:50:12 stop file found
+13:50:12 learning state saved
+13:50:45 started pid 12568, learning state from live state

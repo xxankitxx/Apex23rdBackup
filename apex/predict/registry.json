@@ -1,171 +1,199 @@
 {
- "note": "chronological artefacts: an artefact is used only on sessions from effective_from on, and only until the next one takes over; the last has no end",
+ "note": "chronological hazard artefacts (label version 2): an artefact forecasts only sessions after its training cut-off; the last one was published before the next live session",
  "min_train": 5,
  "artefacts": [
   {
-   "file": "artefacts/model_c_2026-10-26.json",
-   "hash": "7c64860e4bf1",
+   "file": "artefacts/hazard_2026-10-26.json",
+   "hash": "aec17b99b14d",
+   "kind": "hazard",
    "trained_through": "2026-10-26",
    "effective_from": "2026-10-27",
    "training_sessions": 5,
    "feature_schema": "0ede257aeb7d",
-   "origins_sha256": "3fed42541406c01a1eefae84ba52106a8f857b6feca94d49511712ee6103c7a6",
+   "label_version": 2,
    "lines": {
-    "0.5": -0.058224434426963206,
-    "0.9": 0.03363266909905438,
-    "0.95": 0.06766192759278465,
-    "0.99": 0.20079514876958293
+    "0.5": -0.05622880152657117,
+    "0.9": 0.06154789171703306,
+    "0.95": 0.10625129984838108,
+    "0.99": 0.19780207242452252
    }
   },
   {
-   "file": "artefacts/model_c_2026-10-27.json",
-   "hash": "8a934480b208",
+   "file": "artefacts/hazard_2026-10-27.json",
+   "hash": "7edaf3d5d152",
+   "kind": "hazard",
    "trained_through": "2026-10-27",
    "effective_from": "2026-10-28",
    "training_sessions": 6,
    "feature_schema": "0ede257aeb7d",
-   "origins_sha256": "3fed42541406c01a1eefae84ba52106a8f857b6feca94d49511712ee6103c7a6",
+   "label_version": 2,
    "lines": {
-    "0.5": -0.05718570194047834,
-    "0.9": 0.024336730708777343,
-    "0.95": 0.05248691876651922,
-    "0.99": 0.15312946824787213
+    "0.5": -0.0545309401538267,
+    "0.9": 0.05191344137526206,
+    "0.95": 0.08737854089361502,
+    "0.99": 0.16867597140828788
    }
   },
   {
-   "file": "artefacts/model_c_2026-10-28.json",
-   "hash": "fa05d182f433",
+   "file": "artefacts/hazard_2026-10-28.json",
+   "hash": "bc6fd3c53e0d",
+   "kind": "hazard",
    "trained_through": "2026-10-28",
    "effective_from": "2026-10-29",
    "training_sessions": 7,
    "feature_schema": "0ede257aeb7d",
-   "origins_sha256": "3fed42541406c01a1eefae84ba52106a8f857b6feca94d49511712ee6103c7a6",
+   "label_version": 2,
    "lines": {
-    "0.5": -0.052117867424547604,
-    "0.9": 0.029636191666550613,
-    "0.95": 0.05711389042786729,
-    "0.99": 0.14520840293163503
+    "0.5": -0.050461230648219196,
+    "0.9": 0.053864212388242294,
+    "0.95": 0.08721209651079329,
+    "0.99": 0.16843481600102625
    }
   },
   {
-   "file": "artefacts/model_c_2026-10-29.json",
-   "hash": "c2715ef4b364",
+   "file": "artefacts/hazard_2026-10-29.json",
+   "hash": "1260349a9a02",
+   "kind": "hazard",
    "trained_through": "2026-10-29",
    "effective_from": "2026-10-30",
    "training_sessions": 8,
    "feature_schema": "0ede257aeb7d",
-   "origins_sha256": "3fed42541406c01a1eefae84ba52106a8f857b6feca94d49511712ee6103c7a6",
+   "label_version": 2,
    "lines": {
-    "0.5": -0.05108354431414075,
-    "0.9": 0.058972488175531496,
-    "0.95": 0.09142589807251487,
-    "0.99": 0.1666384687931606
+    "0.5": -0.04918947612689731,
+    "0.9": 0.07533095460657736,
+    "0.95": 0.11374562107768549,
+    "0.99": 0.2036154453097741
    }
   },
   {
-   "file": "artefacts/model_c_2026-10-30.json",
-   "hash": "095e8a079f28",
+   "file": "artefacts/hazard_2026-10-30.json",
+   "hash": "bc4a35399051",
+   "kind": "hazard",
    "trained_through": "2026-10-30",
    "effective_from": "2026-11-02",
    "training_sessions": 9,
    "feature_schema": "0ede257aeb7d",
-   "origins_sha256": "3fed42541406c01a1eefae84ba52106a8f857b6feca94d49511712ee6103c7a6",
+   "label_version": 2,
    "lines": {
-    "0.5": -0.05335088214651079,
-    "0.9": 0.04275085091626732,
-    "0.95": 0.07008747364341074,
-    "0.99": 0.14548098769710788
+    "0.5": -0.052697537997137,
+    "0.9": 0.062187707430661265,
+    "0.95": 0.09995569782435171,
+    "0.99": 0.1856945168318083
    }
   },
   {
-   "file": "artefacts/model_c_2026-11-02.json",
-   "hash": "52f442c51c3f",
+   "file": "artefacts/hazard_2026-11-02.json",
+   "hash": "6d531c12d772",
+   "kind": "hazard",
    "trained_through": "2026-11-02",
    "effective_from": "2026-11-03",
    "training_sessions": 10,
    "feature_schema": "0ede257aeb7d",
-   "origins_sha256": "3fed42541406c01a1eefae84ba52106a8f857b6feca94d49511712ee6103c7a6",
+   "label_version": 2,
    "lines": {
-    "0.5": -0.053378675842794876,
-    "0.9": 0.028699055032847406,
-    "0.95": 0.05282133040997848,
-    "0.99": 0.1216150334584202
+    "0.5": -0.05125821619789872,
+    "0.9": 0.049875524189442626,
+    "0.95": 0.08561327469973945,
+    "0.99": 0.16345046433446156
    }
   },
   {
-   "file": "artefacts/model_c_2026-11-03.json",
-   "hash": "0a47b84a5053",
+   "file": "artefacts/hazard_2026-11-03.json",
+   "hash": "7b66fa4226c6",
+   "kind": "hazard",
    "trained_through": "2026-11-03",
    "effective_from": "2026-11-04",
    "training_sessions": 11,
    "feature_schema": "0ede257aeb7d",
-   "origins_sha256": "3fed42541406c01a1eefae84ba52106a8f857b6feca94d49511712ee6103c7a6",
+   "label_version": 2,
    "lines": {
-    "0.5": -0.05486075063913051,
-    "0.9": 0.041459807724568705,
-    "0.95": 0.06739534877421098,
-    "0.99": 0.12913352587790228
+    "0.5": -0.05175041489220544,
+    "0.9": 0.060472833779253166,
+    "0.95": 0.0984001734480272,
+    "0.99": 0.17073029372492182
    }
   },
   {
-   "file": "artefacts/model_c_2026-11-04.json",
-   "hash": "506e1b20c64d",
+   "file": "artefacts/hazard_2026-11-04.json",
+   "hash": "e2dbde3bc210",
+   "kind": "hazard",
    "trained_through": "2026-11-04",
    "effective_from": "2026-11-05",
    "training_sessions": 12,
    "feature_schema": "0ede257aeb7d",
-   "origins_sha256": "3fed42541406c01a1eefae84ba52106a8f857b6feca94d49511712ee6103c7a6",
+   "label_version": 2,
    "lines": {
-    "0.5": -0.05626992500635519,
-    "0.9": 0.0388722013666567,
-    "0.95": 0.06414508432809049,
-    "0.99": 0.12409066945879088
+    "0.5": -0.053651498641568096,
+    "0.9": 0.05461191965379274,
+    "0.95": 0.0909655292444562,
+    "0.99": 0.16480139418362644
    }
   },
   {
-   "file": "artefacts/model_c_2026-11-05.json",
-   "hash": "63b38389e92d",
+   "file": "artefacts/hazard_2026-11-05.json",
+   "hash": "45dc1f571689",
+   "kind": "hazard",
    "trained_through": "2026-11-05",
    "effective_from": "2026-11-06",
    "training_sessions": 13,
    "feature_schema": "0ede257aeb7d",
-   "origins_sha256": "3fed42541406c01a1eefae84ba52106a8f857b6feca94d49511712ee6103c7a6",
+   "label_version": 2,
    "lines": {
-    "0.5": -0.057143886770424646,
-    "0.9": 0.03155432750005982,
-    "0.95": 0.05446874017962122,
-    "0.99": 0.11020189258950332
+    "0.5": -0.05521345994905508,
+    "0.9": 0.04475889216880494,
+    "0.95": 0.07789301178270355,
+    "0.99": 0.14567354668814372
    }
   },
   {
-   "file": "artefacts/model_c_2026-11-06.json",
-   "hash": "1111d388fc12",
+   "file": "artefacts/hazard_2026-11-06.json",
+   "hash": "18b157f57d67",
+   "kind": "hazard",
    "trained_through": "2026-11-06",
    "effective_from": "2026-11-09",
    "training_sessions": 14,
    "feature_schema": "0ede257aeb7d",
-   "origins_sha256": "3fed42541406c01a1eefae84ba52106a8f857b6feca94d49511712ee6103c7a6",
+   "label_version": 2,
    "lines": {
-    "0.5": -0.056023467365731563,
-    "0.9": 0.028862297690127964,
-    "0.95": 0.04976103720418895,
-    "0.99": 0.08682647043311856
+    "0.5": -0.0561527205845192,
+    "0.9": 0.03596583401029183,
+    "0.95": 0.0644901068017949,
+    "0.99": 0.11940061757977795
    }
   },
   {
-   "file": "artefacts/model_c_2026-11-09.json",
-   "hash": "44be02ef88ba",
+   "file": "artefacts/hazard_2026-11-09.json",
+   "hash": "528dbc70ac33",
+   "kind": "hazard",
    "trained_through": "2026-11-09",
-   "effective_from": null,
+   "effective_from": "2026-11-11",
    "training_sessions": 15,
    "feature_schema": "0ede257aeb7d",
-   "origins_sha256": "3fed42541406c01a1eefae84ba52106a8f857b6feca94d49511712ee6103c7a6",
+   "label_version": 2,
    "lines": {
-    "0.5": -0.05656396473824185,
-    "0.9": 0.028884960627876093,
-    "0.95": 0.05021921557024072,
-    "0.99": 0.08673578412954706
+    "0.5": -0.05690183252665082,
+    "0.9": 0.034518491616212954,
+    "0.95": 0.061356785667934344,
+    "0.99": 0.11198703024015944
    }
+  },
+  {
+   "file": "artefacts/hazard_2026-11-11.json",
+   "hash": "503e615a291e",
+   "kind": "hazard",
+   "trained_through": "2026-11-11",
+   "effective_from": null,
+   "training_sessions": 16,
+   "feature_schema": "0ede257aeb7d",
+   "label_version": 2,
+   "lines": {
+    "0.5": -0.05762477139216049,
+    "0.9": 0.023170211186437535,
+    "0.95": 0.0481166969605961,
+    "0.99": 0.09902544833635546
+   },
+   "published": "2026-11-11 16:36:35"
   }
  ]
 }

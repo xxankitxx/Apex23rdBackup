@@ -1,0 +1,8 @@
+{"t": "08:38:55", "k": "SYSTEM", "x": "day 2026-11-04 \u00b7 champion conductor \u00b7 gates none \u00b7 capital \u20b9100,000", "mkt_t": 1793761735.5}
+{"t": "09:15:00", "k": "GAP", "x": "data gap: feed stale: futures quote 383 s old \u2014 entries paused until 20 s of fresh data", "mkt_t": 1793763900.0}
+{"t": "09:15:20", "k": "GAP", "x": "data back after 21 s (feed stale: futures quote 384 s old); entries resume", "mkt_t": 1793763920.9}
+{"t": "09:17:19", "k": "SHIFT", "x": "ATM rolled 23650 \u2192 23850: straddle 419.3 \u2192 381.1 (spot settled at the new strike)", "mkt_t": 1793764039.9}
+{"t": "09:28:01", "k": "SHIFT", "x": "ATM rolled 23850 \u2192 23950: straddle 398.9 \u2192 393.0 (spot settled at the new strike)", "mkt_t": 1793764681.6}
+{"t": "09:40:07", "k": "SHIFT", "x": "ATM rolled 23950 \u2192 23900: straddle 388.1 \u2192 386.3 (spot settled at the new strike)", "mkt_t": 1793765407.6}
+{"t": "09:45:06", "k": "GAP", "x": "data gap: feed silent: no quote on any instrument for 3 s \u2014 entries paused until 20 s of fresh data", "mkt_t": 1793765706.8}
+{"t": "09:45:27", "k": "GAP", "x": "data back after 20 s (feed silent: no quote on any instrument for 3 s); entries resume", "mkt_t": 1793765727.0}

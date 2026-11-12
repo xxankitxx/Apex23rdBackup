@@ -8,6 +8,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Barlow:wght@400;500;600&family=Chakra+Petch:wght@400;500;600;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="/static/style.css">
+<link rel="stylesheet" href="/static/twins.css" onerror="this.remove()">
 </head>
 <body>
 <header class="bar">
@@ -86,6 +87,36 @@
     <span id="posann" class="sr-only" aria-live="polite"></span>
   </section>
 
+  <!-- 12 Nov: the held-trade card (filled by held.js when it is installed) and the forecast glance row. Both have fixed
+       heights, so the commentary above them never moves. -->
+  <section class="heldcard" id="heldcard" aria-label="Held trade" hidden></section>
+  <section class="lab-glance" id="labglance" aria-label="Forecast at a glance"><span class="lab-chip"><small>Forecaster</small><b>waiting</b></span></section>
+
+  <!-- 11 Nov: the Forecast Lab (apex/forecast_lab, a separate process). Display only: nothing here trades. -->
+  <section class="forecast" id="fcsec" aria-label="Forecast">
+    <div class="sec-head"><h2>Forecast <small class="id-note">ranges, decay and scenarios; a call is shown only when its own record has earned it · display only, the Conductor does not read it</small></h2><span id="labhint"></span></div>
+    <div class="lab-strip" id="labstrip"></div>
+    <div class="lab-say" id="labsay"><p class="small">Waiting for the forecaster…</p></div>
+    <details class="lab-detail" id="labdetail" open>
+      <summary>Charts and tables: the next 30 minutes, what if, time decay and the record</summary>
+      <div class="lab-charts">
+        <figure class="lab-fig"><figcaption>Nifty futures: last 30 minutes and the next 30 (shaded: the ranges aimed at 50 % and 80 %; the record says what they caught)</figcaption><svg id="labfut" viewBox="0 0 640 220" role="img" aria-label="Futures forecast fan"></svg></figure>
+        <figure class="lab-fig"><figcaption><span id="labopttitle">Option premium</span> <span id="labopttabs" class="lab-tabs"></span></figcaption><svg id="labopt" viewBox="0 0 640 220" role="img" aria-label="Option premium forecast fan"></svg></figure>
+      </div>
+      <div class="lab-next" id="labnext"></div>
+      <div class="lab-whatif" id="labwhatif"></div>
+      <div class="lab-two">
+        <div id="labdecay"></div>
+        <div id="labscore"></div>
+      </div>
+    </details>
+    <details class="lab-old"><summary>Shadow book forecasts (the engine's hazard model: the four forecast books trade on it)</summary>
+      <p id="fcsay" class="fc-say"></p>
+      <div id="fcgrid" class="fc-grid"></div>
+      <p id="fcfoot" class="small"></p>
+    </details>
+  </section>
+
   <!-- live-trade commentary (T09): hidden when flat, the "cmt" grid row only exists while body.cmt-on -->
   <section class="cmt" id="cmt" aria-label="Live-trade commentary" hidden>
     <header class="cmt-head">
@@ -147,13 +178,6 @@
     <p id="idfoot" class="small"></p>
   </section>
 
-  <section class="forecast" aria-label="Forecast">
-    <div class="sec-head"><h2>Forecast <small class="id-note">shadow only · decides nothing for the account</small></h2><span id="fchint"></span></div>
-    <p id="fcsay" class="fc-say"></p>
-    <div id="fcgrid" class="fc-grid"></div>
-    <p id="fcfoot" class="small"></p>
-  </section>
-
   <section class="straddle" aria-label="Straddle watch">
     <div class="sec-head"><h2>Straddle watch</h2><span id="swhint"></span></div>
     <div class="sw-top">
@@ -206,5 +230,6 @@
 </main>
 <script src="/static/app.js"></script>
 <script src="/static/commentary.js"></script>
+<script src="/static/held.js" defer onerror="this.remove()"></script>
 </body>
 </html>

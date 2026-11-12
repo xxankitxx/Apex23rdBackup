@@ -239,6 +239,35 @@ def stop_children(procs, say=print, feed_s=None, engine_s=None):
             p.kill()
 
 
+def create_shared(Table, StateBlob, data_dir, tries=3, wait_s=1.5, sleep=time.sleep):
+    """Create the shared table and state blob. On Windows a name another process still has open cannot be created
+    again (FileExistsError), even after unlink. The Forecast Lab maps the table only for about a millisecond each
+    second, so try 3 times over 3 s; then exit with a message that names the Forecast Lab, its pid and its STOP file.
+    This never creates the STOP file itself."""
+    for i in range(tries):
+        t = None
+        try:
+            t = Table(create=True)
+            b = StateBlob(create=True)
+            return t, b
+        except FileExistsError:
+            if t is not None:
+                t.close()                             # never hold our own half-made segment while we wait
+            if i < tries - 1:
+                sleep(wait_s)
+    lab_dir = os.path.join(data_dir, "forecast_lab")
+    pid = None
+    try:
+        with open(os.path.join(lab_dir, "live.lock"), encoding="utf-8") as f:
+            pid = (json.loads(f.read(4096) or "null") or {}).get("pid")
+    except (OSError, ValueError, AttributeError):
+        pass
+    who = f"the Forecast Lab (pid {pid})" if pid else "the Forecast Lab"
+    sys.exit(f"Another process still holds the ApexOptions shared memory. If {who} is running, stop it by creating "
+             f"the file {os.path.join(lab_dir, 'STOP')}, wait 5 seconds and start again. Otherwise close the old "
+             "console (Task Manager: python.exe) and retry.")
+
+
 def supervise(mode, feed_args, speed=1.0, open_browser=True, data_dir=None):
     data_dir = data_dir or data_dir_for(mode)
     os.environ["APEX_DATA"] = data_dir
@@ -251,11 +280,7 @@ def supervise(mode, feed_args, speed=1.0, open_browser=True, data_dir=None):
         print(f"  {mode} run folder: {data_dir}", flush=True)
     if port_busy(config.PORT):
         sys.exit(f"Port {config.PORT} is busy — is another ApexOptions running?")
-    try:
-        t = Table(create=True)
-        b = StateBlob(create=True)
-    except FileExistsError:
-        sys.exit("Another ApexOptions process still holds the shared memory — close the old console (Task Manager: python.exe) and retry.")
+    t, b = create_shared(Table, StateBlob, data_dir)
     t.set("speed", speed)
     feed_mod = {"live": "apex.feed_breeze", "sim": "apex.feed_sim", "replay": "apex.feed_replay"}[mode]
     procs = {

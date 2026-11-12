@@ -1,0 +1,11 @@
+{"t": "08:31:26", "k": "SYSTEM", "x": "day 2026-11-05 \u00b7 champion conductor \u00b7 gates none \u00b7 capital \u20b9100,000", "mkt_t": 1793847686.6}
+{"t": "09:00:02", "k": "GAP", "x": "data gap: implausible futures jump to 24300.0 \u2014 entries paused until 20 s of fresh data", "mkt_t": 1793849402.1}
+{"t": "09:00:22", "k": "GAP", "x": "data back after 20 s (implausible futures jump to 24300.0); entries resume", "mkt_t": 1793849422.2}
+{"t": "09:08:05", "k": "GAP", "x": "data gap: implausible futures jump to 23960.1 \u2014 entries paused until 20 s of fresh data", "mkt_t": 1793849885.2}
+{"t": "09:08:25", "k": "GAP", "x": "data back after 20 s (implausible futures jump to 24320.0); entries resume", "mkt_t": 1793849905.5}
+{"t": "09:15:00", "k": "GAP", "x": "data gap: feed stale: futures quote 414 s old \u2014 entries paused until 20 s of fresh data", "mkt_t": 1793850300.0}
+{"t": "09:15:00", "k": "DATA", "x": "no trade for 120 s on hero contract(s): 24300 CE, 24350 CE, 24400 CE, 24400 PE, 24450 CE, 24450 PE, 24500 CE, 24500 PE", "mkt_t": 1793850300.6}
+{"t": "09:15:01", "k": "DATA", "x": "NIFTY index not trusted: spot 24385.9 is -85 pts off its usual spread to the future", "mkt_t": 1793850301.1}
+{"t": "09:15:01", "k": "DATA", "x": "NIFTY index trusted again", "mkt_t": 1793850301.2}
+{"t": "09:15:21", "k": "GAP", "x": "data back after 21 s (feed stale: futures quote 415 s old); entries resume", "mkt_t": 1793850321.1}
+{"t": "09:17:01", "k": "SHIFT", "x": "ATM rolled 24400 \u2192 24300: straddle 320.7 \u2192 309.8 (spot settled at the new strike)", "mkt_t": 1793850421.8}

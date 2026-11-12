@@ -15,3 +15,7 @@ __pycache__/
 *.tmp
 logs/
 assets/*.mp3
+
+# 11 Nov: the Forecast Lab writes its live panel file here once a second
+apex/static/live/
+.pytest_cache/

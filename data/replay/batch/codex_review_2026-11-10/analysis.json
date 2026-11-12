@@ -1,0 +1,3003 @@
+{
+  "summary": {
+    "session": "2026-11-09",
+    "review_date": "2026-11-10",
+    "source_sha256": "dcd99f0ec8f655e0ac758404d40133ec03ddc9191a721d9143875f39d7953942",
+    "books": 87,
+    "stored_trades": 608,
+    "champion": {
+      "n": 12,
+      "wins": 6,
+      "losses": 6,
+      "pnl": 59663.5
+    },
+    "positive_pnl": 116467.0,
+    "negative_pnl": -56803.5,
+    "best_trade": "11:33:18",
+    "best_trade_pnl": 54756.0,
+    "fixed_size_remove_best_pnl": 4907.5,
+    "fixed_remaining_decisions_remove_best_recompound_pnl": -110.5,
+    "releases": 36,
+    "releases_after_last_exit": 27,
+    "exit_trigger_price_effect": -3383.25,
+    "event_counts": {
+      "flat": 387,
+      "lost_priority": 186,
+      "owner": 48,
+      "entry": 12,
+      "exit": 12,
+      "occupied": 9,
+      "release": 36
+    },
+    "gen2_trades_present": false
+  },
+  "champion_ledger": [
+    {
+      "src": "c20_9y",
+      "time_in": "09:26:56",
+      "time_out": "09:29:49",
+      "key": "NIFTY|OPT|2026-11-09|24850|CE",
+      "rr": "CE",
+      "entry": 176.8,
+      "exit": 154.65,
+      "qty": 520,
+      "pnl_rs": -11518.0,
+      "ret_pct": -12.528,
+      "reason": "COUNCIL FWD_TRAIL",
+      "peak_pts": 2.1999999999999886,
+      "worst_pts": -22.55000000000001,
+      "fill_delay_s": 1.01,
+      "exit_fill_delay_s": 0.98,
+      "peak_return_pct": 1.244,
+      "exit_trigger_price_effect": -910.0,
+      "weather": {
+        "day_move": -95.8,
+        "mv300": 66.1,
+        "breadth60_dir": 0.7736,
+        "breadth900_dir": 0.2093,
+        "agree_same": 7,
+        "fam_busy": 0,
+        "fam_free": 9,
+        "quote_age": 0.63,
+        "fut_age": 0.34,
+        "depth_age_fut": 1.6
+      }
+    },
+    {
+      "src": "c20_9y",
+      "time_in": "09:35:29",
+      "time_out": "09:42:21",
+      "key": "NIFTY|OPT|2026-11-09|25000|PE",
+      "rr": "PE",
+      "entry": 142.4,
+      "exit": 151.9,
+      "qty": 585,
+      "pnl_rs": 5557.5,
+      "ret_pct": 6.671,
+      "reason": "COUNCIL FWD_TRAIL",
+      "peak_pts": 33.0,
+      "worst_pts": -17.400000000000006,
+      "fill_delay_s": 1.03,
+      "exit_fill_delay_s": 1.03,
+      "peak_return_pct": 23.174,
+      "exit_trigger_price_effect": 526.5,
+      "weather": {
+        "day_move": 138.55,
+        "mv300": 23.95,
+        "breadth60_dir": 0.9589,
+        "breadth900_dir": 0.535,
+        "agree_same": 7,
+        "fam_busy": 0,
+        "fam_free": 9,
+        "quote_age": 0.59,
+        "fut_age": 0.12,
+        "depth_age_fut": 0.6
+      }
+    },
+    {
+      "src": "c20_9y",
+      "time_in": "09:45:30",
+      "time_out": "09:47:08",
+      "key": "NIFTY|OPT|2026-11-09|24850|CE",
+      "rr": "CE",
+      "entry": 152.65,
+      "exit": 138.4,
+      "qty": 585,
+      "pnl_rs": -8336.25,
+      "ret_pct": -9.335,
+      "reason": "COUNCIL FWD_TRAIL",
+      "peak_pts": 17.5,
+      "worst_pts": -12.400000000000006,
+      "fill_delay_s": 1.13,
+      "exit_fill_delay_s": 1.3,
+      "peak_return_pct": 11.464,
+      "exit_trigger_price_effect": -1082.25,
+      "weather": {
+        "day_move": -117.95,
+        "mv300": 38.95,
+        "breadth60_dir": 0.9451,
+        "breadth900_dir": 0.464,
+        "agree_same": 6,
+        "fam_busy": 0,
+        "fam_free": 9,
+        "quote_age": 0.08,
+        "fut_age": 0.48,
+        "depth_age_fut": 0.7
+      }
+    },
+    {
+      "src": "c20_9y",
+      "time_in": "09:55:09",
+      "time_out": "09:59:19",
+      "key": "NIFTY|OPT|2026-11-09|25000|PE",
+      "rr": "PE",
+      "entry": 137.35,
+      "exit": 129.3,
+      "qty": 585,
+      "pnl_rs": -4709.25,
+      "ret_pct": -5.861,
+      "reason": "COUNCIL FWD_TRAIL",
+      "peak_pts": 10.800000000000011,
+      "worst_pts": -8.549999999999983,
+      "fill_delay_s": 2.26,
+      "exit_fill_delay_s": 1.0,
+      "peak_return_pct": 7.863,
+      "exit_trigger_price_effect": 0.0,
+      "weather": {
+        "day_move": 146.55,
+        "mv300": 31.25,
+        "breadth60_dir": 0.9382,
+        "breadth900_dir": 0.7428,
+        "agree_same": 7,
+        "fam_busy": 0,
+        "fam_free": 9,
+        "quote_age": 0.09,
+        "fut_age": 0.48,
+        "depth_age_fut": 1.4
+      }
+    },
+    {
+      "src": "c20_9y",
+      "time_in": "10:20:18",
+      "time_out": "10:24:33",
+      "key": "NIFTY|OPT|2026-11-09|24850|CE",
+      "rr": "CE",
+      "entry": 137.05,
+      "exit": 129.4,
+      "qty": 585,
+      "pnl_rs": -4475.25,
+      "ret_pct": -5.582,
+      "reason": "COUNCIL FWD_TRAIL",
+      "peak_pts": 15.149999999999977,
+      "worst_pts": -9.250000000000014,
+      "fill_delay_s": 2.22,
+      "exit_fill_delay_s": 1.89,
+      "peak_return_pct": 11.054,
+      "exit_trigger_price_effect": 936.0,
+      "weather": {
+        "day_move": -122.65,
+        "mv300": 14.8,
+        "breadth60_dir": 0.7392,
+        "breadth900_dir": 0.7741,
+        "agree_same": 7,
+        "fam_busy": 1,
+        "fam_free": 8,
+        "quote_age": 0.66,
+        "fut_age": 0.31,
+        "depth_age_fut": 0.3
+      }
+    },
+    {
+      "src": "c20_9t",
+      "time_in": "10:26:14",
+      "time_out": "10:28:10",
+      "key": "NIFTY|OPT|2026-11-09|25000|PE",
+      "rr": "PE",
+      "entry": 123.95,
+      "exit": 131.25,
+      "qty": 585,
+      "pnl_rs": 4270.5,
+      "ret_pct": 5.889,
+      "reason": "COUNCIL RENT_TRAIL",
+      "peak_pts": 16.450000000000003,
+      "worst_pts": -0.7999999999999972,
+      "fill_delay_s": 1.25,
+      "exit_fill_delay_s": 1.56,
+      "peak_return_pct": 13.271,
+      "exit_trigger_price_effect": -526.5,
+      "weather": {
+        "day_move": 141.9,
+        "mv300": 17.7,
+        "breadth60_dir": 0.1926,
+        "breadth900_dir": 0.4886,
+        "agree_same": 0,
+        "fam_busy": 0,
+        "fam_free": 9,
+        "quote_age": 0.85,
+        "fut_age": 0.5,
+        "depth_age_fut": 0.3
+      }
+    },
+    {
+      "src": "c20_9y",
+      "time_in": "10:38:12",
+      "time_out": "10:45:47",
+      "key": "NIFTY|OPT|2026-11-09|24950|PE",
+      "rr": "PE",
+      "entry": 114.0,
+      "exit": 130.4,
+      "qty": 650,
+      "pnl_rs": 10660.0,
+      "ret_pct": 14.386,
+      "reason": "COUNCIL FWD_TRAIL",
+      "peak_pts": 40.80000000000001,
+      "worst_pts": -14.799999999999997,
+      "fill_delay_s": 2.1,
+      "exit_fill_delay_s": 2.56,
+      "peak_return_pct": 35.789,
+      "exit_trigger_price_effect": 487.5,
+      "weather": {
+        "day_move": 175.1,
+        "mv300": 45.5,
+        "breadth60_dir": 0.9454,
+        "breadth900_dir": 0.9454,
+        "agree_same": 10,
+        "fam_busy": 1,
+        "fam_free": 8,
+        "quote_age": 0.99,
+        "fut_age": 0.15,
+        "depth_age_fut": 0.1
+      }
+    },
+    {
+      "src": "c20_9y",
+      "time_in": "10:56:23",
+      "time_out": "10:58:05",
+      "key": "NIFTY|OPT|2026-11-09|24850|CE",
+      "rr": "CE",
+      "entry": 108.1,
+      "exit": 92.05,
+      "qty": 845,
+      "pnl_rs": -13562.25,
+      "ret_pct": -14.847,
+      "reason": "COUNCIL SL",
+      "peak_pts": 0.0,
+      "worst_pts": -16.89999999999999,
+      "fill_delay_s": 2.87,
+      "exit_fill_delay_s": 2.95,
+      "peak_return_pct": 0.0,
+      "exit_trigger_price_effect": 718.25,
+      "weather": {
+        "day_move": -156.9,
+        "mv300": 21.1,
+        "breadth60_dir": 0.9454,
+        "breadth900_dir": 0.6499,
+        "agree_same": 5,
+        "fam_busy": 1,
+        "fam_free": 8,
+        "quote_age": 0.49,
+        "fut_age": 0.28,
+        "depth_age_fut": 0.3
+      }
+    },
+    {
+      "src": "c20_9y",
+      "time_in": "11:13:21",
+      "time_out": "11:16:47",
+      "key": "NIFTY|OPT|2026-11-09|24800|CE",
+      "rr": "CE",
+      "entry": 114.25,
+      "exit": 132.55,
+      "qty": 650,
+      "pnl_rs": 11895.0,
+      "ret_pct": 16.018,
+      "reason": "COUNCIL FWD_TRAIL",
+      "peak_pts": 46.099999999999994,
+      "worst_pts": -1.1500000000000057,
+      "fill_delay_s": 2.54,
+      "exit_fill_delay_s": 3.18,
+      "peak_return_pct": 40.35,
+      "exit_trigger_price_effect": -2795.0,
+      "weather": {
+        "day_move": -177.8,
+        "mv300": 21.65,
+        "breadth60_dir": 1.0,
+        "breadth900_dir": 0.4672,
+        "agree_same": 6,
+        "fam_busy": 0,
+        "fam_free": 9,
+        "quote_age": 0.06,
+        "fut_age": 0.73,
+        "depth_age_fut": 1.4
+      }
+    },
+    {
+      "src": "c20_9y",
+      "time_in": "11:33:18",
+      "time_out": "11:38:29",
+      "key": "NIFTY|OPT|2026-11-09|24900|CE",
+      "rr": "CE",
+      "entry": 108.25,
+      "exit": 178.45,
+      "qty": 780,
+      "pnl_rs": 54756.0,
+      "ret_pct": 64.85,
+      "reason": "COUNCIL PREM_TRAIL",
+      "peak_pts": 95.9,
+      "worst_pts": -1.4000000000000057,
+      "fill_delay_s": 2.67,
+      "exit_fill_delay_s": 4.14,
+      "peak_return_pct": 88.591,
+      "exit_trigger_price_effect": 0.0,
+      "weather": {
+        "day_move": -108.15,
+        "mv300": 38.1,
+        "breadth60_dir": 0.8147,
+        "breadth900_dir": 1.0,
+        "agree_same": 6,
+        "fam_busy": 1,
+        "fam_free": 8,
+        "quote_age": 0.12,
+        "fut_age": 0.03,
+        "depth_age_fut": 0.0
+      }
+    },
+    {
+      "src": "c20_9y",
+      "time_in": "11:51:28",
+      "time_out": "11:53:29",
+      "key": "NIFTY|OPT|2026-11-09|25050|PE",
+      "rr": "PE",
+      "entry": 116.9,
+      "exit": 105.4,
+      "qty": 1235,
+      "pnl_rs": -14202.5,
+      "ret_pct": -9.837,
+      "reason": "COUNCIL FWD_TRAIL",
+      "peak_pts": 5.8999999999999915,
+      "worst_pts": -14.300000000000011,
+      "fill_delay_s": 2.98,
+      "exit_fill_delay_s": 3.13,
+      "peak_return_pct": 5.047,
+      "exit_trigger_price_effect": 1914.25,
+      "weather": {
+        "day_move": 91.55,
+        "mv300": 28.85,
+        "breadth60_dir": 0.8633,
+        "breadth900_dir": 0.7045,
+        "agree_same": 6,
+        "fam_busy": 0,
+        "fam_free": 9,
+        "quote_age": 0.64,
+        "fut_age": 1.23,
+        "depth_age_fut": 0.9
+      }
+    },
+    {
+      "src": "c20_9y",
+      "time_in": "11:57:17",
+      "time_out": "12:05:08",
+      "key": "NIFTY|OPT|2026-11-09|25050|PE",
+      "rr": "PE",
+      "entry": 120.7,
+      "exit": 148.9,
+      "qty": 1040,
+      "pnl_rs": 29328.0,
+      "ret_pct": 23.364,
+      "reason": "COUNCIL FWD_TRAIL",
+      "peak_pts": 53.7,
+      "worst_pts": -12.350000000000009,
+      "fill_delay_s": 2.73,
+      "exit_fill_delay_s": 6.47,
+      "peak_return_pct": 44.49,
+      "exit_trigger_price_effect": -2652.0,
+      "weather": {
+        "day_move": 106.85,
+        "mv300": 5.15,
+        "breadth60_dir": 0.4568,
+        "breadth900_dir": 0.8359,
+        "agree_same": 6,
+        "fam_busy": 1,
+        "fam_free": 8,
+        "quote_age": 0.67,
+        "fut_age": 1.51,
+        "depth_age_fut": 1.3
+      }
+    }
+  ],
+  "all_books": [
+    {
+      "book": "premium_momentum",
+      "n": 33,
+      "wins": 18,
+      "losses": 15,
+      "pnl": 238615.0
+    },
+    {
+      "book": "c20_8x",
+      "n": 19,
+      "wins": 9,
+      "losses": 10,
+      "pnl": 115843.0
+    },
+    {
+      "book": "c20_9e",
+      "n": 15,
+      "wins": 11,
+      "losses": 4,
+      "pnl": 107188.25
+    },
+    {
+      "book": "conductor",
+      "n": 12,
+      "wins": 6,
+      "losses": 6,
+      "pnl": 59663.5
+    },
+    {
+      "book": "c20_9t",
+      "n": 14,
+      "wins": 9,
+      "losses": 5,
+      "pnl": 58448.0
+    },
+    {
+      "book": "c20_9h",
+      "n": 12,
+      "wins": 5,
+      "losses": 7,
+      "pnl": 45776.25
+    },
+    {
+      "book": "c20_9x",
+      "n": 12,
+      "wins": 5,
+      "losses": 7,
+      "pnl": 30543.5
+    },
+    {
+      "book": "c20_9v",
+      "n": 12,
+      "wins": 5,
+      "losses": 7,
+      "pnl": 30543.5
+    },
+    {
+      "book": "c20_9s",
+      "n": 12,
+      "wins": 5,
+      "losses": 7,
+      "pnl": 30543.5
+    },
+    {
+      "book": "c20_9y",
+      "n": 12,
+      "wins": 5,
+      "losses": 7,
+      "pnl": 30543.5
+    },
+    {
+      "book": "c20_9x_r002",
+      "n": 12,
+      "wins": 5,
+      "losses": 7,
+      "pnl": 30543.5
+    },
+    {
+      "book": "c20_9x_r004",
+      "n": 12,
+      "wins": 5,
+      "losses": 7,
+      "pnl": 30543.5
+    },
+    {
+      "book": "RAW",
+      "n": 12,
+      "wins": 5,
+      "losses": 7,
+      "pnl": 30543.5
+    },
+    {
+      "book": "spot_pb45",
+      "n": 2,
+      "wins": 2,
+      "losses": 0,
+      "pnl": 24433.5
+    },
+    {
+      "book": "spot_pb45_r002",
+      "n": 2,
+      "wins": 2,
+      "losses": 0,
+      "pnl": 24433.5
+    },
+    {
+      "book": "m2.0_s0.5_d20",
+      "n": 2,
+      "wins": 1,
+      "losses": 1,
+      "pnl": 20738.25
+    },
+    {
+      "book": "t28_st20",
+      "n": 5,
+      "wins": 2,
+      "losses": 3,
+      "pnl": 10370.75
+    },
+    {
+      "book": "edge_bracket_only",
+      "n": 5,
+      "wins": 2,
+      "losses": 3,
+      "pnl": 5788.25
+    },
+    {
+      "book": "m2.0_s0.5_tvfast",
+      "n": 2,
+      "wins": 1,
+      "losses": 1,
+      "pnl": 3191.5
+    },
+    {
+      "book": "m1.5_s0.6",
+      "n": 1,
+      "wins": 1,
+      "losses": 0,
+      "pnl": 1137.5
+    },
+    {
+      "book": "m2.0_s0.6",
+      "n": 1,
+      "wins": 1,
+      "losses": 0,
+      "pnl": 1137.5
+    },
+    {
+      "book": "m2.5_s0.6",
+      "n": 1,
+      "wins": 1,
+      "losses": 0,
+      "pnl": 1137.5
+    },
+    {
+      "book": "m2.0_s0.5_trend",
+      "n": 1,
+      "wins": 1,
+      "losses": 0,
+      "pnl": 1137.5
+    },
+    {
+      "book": "spot_orb45",
+      "n": 0,
+      "wins": 0,
+      "losses": 0,
+      "pnl": 0
+    },
+    {
+      "book": "spot_orb45_r002",
+      "n": 0,
+      "wins": 0,
+      "losses": 0,
+      "pnl": 0
+    },
+    {
+      "book": "spot_orb45_r003",
+      "n": 0,
+      "wins": 0,
+      "losses": 0,
+      "pnl": 0
+    },
+    {
+      "book": "spot_orb45_r005",
+      "n": 0,
+      "wins": 0,
+      "losses": 0,
+      "pnl": 0
+    },
+    {
+      "book": "t28_cheapK",
+      "n": 5,
+      "wins": 1,
+      "losses": 4,
+      "pnl": -393.25
+    },
+    {
+      "book": "spot_dc12_t12_first",
+      "n": 13,
+      "wins": 6,
+      "losses": 7,
+      "pnl": -1579.5
+    },
+    {
+      "book": "spot_dc12_t12_first_r002",
+      "n": 13,
+      "wins": 6,
+      "losses": 7,
+      "pnl": -1579.5
+    },
+    {
+      "book": "spot_dual_lvl",
+      "n": 5,
+      "wins": 1,
+      "losses": 4,
+      "pnl": -1696.5
+    },
+    {
+      "book": "lvl_trail",
+      "n": 5,
+      "wins": 1,
+      "losses": 4,
+      "pnl": -1696.5
+    },
+    {
+      "book": "lvl_trail_re",
+      "n": 5,
+      "wins": 1,
+      "losses": 4,
+      "pnl": -1696.5
+    },
+    {
+      "book": "lvl_trail_rx",
+      "n": 5,
+      "wins": 1,
+      "losses": 4,
+      "pnl": -1696.5
+    },
+    {
+      "book": "lvl_trail_rx_c10",
+      "n": 5,
+      "wins": 1,
+      "losses": 4,
+      "pnl": -1696.5
+    },
+    {
+      "book": "lvl_trail_rx_be",
+      "n": 5,
+      "wins": 1,
+      "losses": 4,
+      "pnl": -1696.5
+    },
+    {
+      "book": "lvl_trail_be",
+      "n": 5,
+      "wins": 1,
+      "losses": 4,
+      "pnl": -1696.5
+    },
+    {
+      "book": "t28_d46",
+      "n": 5,
+      "wins": 1,
+      "losses": 4,
+      "pnl": -1696.5
+    },
+    {
+      "book": "t28_gap",
+      "n": 5,
+      "wins": 1,
+      "losses": 4,
+      "pnl": -1696.5
+    },
+    {
+      "book": "t28_dur20",
+      "n": 5,
+      "wins": 1,
+      "losses": 4,
+      "pnl": -1696.5
+    },
+    {
+      "book": "t28_ts",
+      "n": 5,
+      "wins": 1,
+      "losses": 4,
+      "pnl": -1696.5
+    },
+    {
+      "book": "t28_fill",
+      "n": 5,
+      "wins": 1,
+      "losses": 4,
+      "pnl": -1696.5
+    },
+    {
+      "book": "t28_core",
+      "n": 5,
+      "wins": 1,
+      "losses": 4,
+      "pnl": -1696.5
+    },
+    {
+      "book": "t28_core_fill",
+      "n": 5,
+      "wins": 1,
+      "losses": 4,
+      "pnl": -1696.5
+    },
+    {
+      "book": "t28_all",
+      "n": 5,
+      "wins": 1,
+      "losses": 4,
+      "pnl": -1696.5
+    },
+    {
+      "book": "t28_d46_fill",
+      "n": 5,
+      "wins": 1,
+      "losses": 4,
+      "pnl": -1696.5
+    },
+    {
+      "book": "t28_gap_ts",
+      "n": 5,
+      "wins": 1,
+      "losses": 4,
+      "pnl": -1696.5
+    },
+    {
+      "book": "t28_bidpile",
+      "n": 5,
+      "wins": 1,
+      "losses": 4,
+      "pnl": -1696.5
+    },
+    {
+      "book": "t28_nohigh",
+      "n": 5,
+      "wins": 1,
+      "losses": 4,
+      "pnl": -1696.5
+    },
+    {
+      "book": "t28_req",
+      "n": 5,
+      "wins": 1,
+      "losses": 4,
+      "pnl": -1696.5
+    },
+    {
+      "book": "t28_cheap",
+      "n": 5,
+      "wins": 1,
+      "losses": 4,
+      "pnl": -1696.5
+    },
+    {
+      "book": "t28_mh15",
+      "n": 5,
+      "wins": 1,
+      "losses": 4,
+      "pnl": -1696.5
+    },
+    {
+      "book": "spot_dc12_t12",
+      "n": 5,
+      "wins": 1,
+      "losses": 4,
+      "pnl": -2151.5
+    },
+    {
+      "book": "spot_dc12_t12_nolock",
+      "n": 5,
+      "wins": 1,
+      "losses": 4,
+      "pnl": -2151.5
+    },
+    {
+      "book": "spot_dual",
+      "n": 5,
+      "wins": 1,
+      "losses": 4,
+      "pnl": -2151.5
+    },
+    {
+      "book": "spot_dual_rg",
+      "n": 5,
+      "wins": 1,
+      "losses": 4,
+      "pnl": -2151.5
+    },
+    {
+      "book": "spot_dc12_t12_r002",
+      "n": 5,
+      "wins": 1,
+      "losses": 4,
+      "pnl": -2151.5
+    },
+    {
+      "book": "t28_ivfall",
+      "n": 1,
+      "wins": 0,
+      "losses": 1,
+      "pnl": -2574.0
+    },
+    {
+      "book": "m1.5_s0.4",
+      "n": 2,
+      "wins": 1,
+      "losses": 1,
+      "pnl": -2759.25
+    },
+    {
+      "book": "m1.5_s0.5",
+      "n": 2,
+      "wins": 1,
+      "losses": 1,
+      "pnl": -2759.25
+    },
+    {
+      "book": "m2.0_s0.4",
+      "n": 2,
+      "wins": 1,
+      "losses": 1,
+      "pnl": -2759.25
+    },
+    {
+      "book": "m2.0_s0.5",
+      "n": 2,
+      "wins": 1,
+      "losses": 1,
+      "pnl": -2759.25
+    },
+    {
+      "book": "m2.5_s0.4",
+      "n": 2,
+      "wins": 1,
+      "losses": 1,
+      "pnl": -2759.25
+    },
+    {
+      "book": "m2.5_s0.5",
+      "n": 2,
+      "wins": 1,
+      "losses": 1,
+      "pnl": -2759.25
+    },
+    {
+      "book": "m2.0_s0.5_bookexit",
+      "n": 2,
+      "wins": 1,
+      "losses": 1,
+      "pnl": -2759.25
+    },
+    {
+      "book": "m2.0_s0.5_ivinterp",
+      "n": 2,
+      "wins": 1,
+      "losses": 1,
+      "pnl": -2759.25
+    },
+    {
+      "book": "m1.5_s0.4_r002",
+      "n": 2,
+      "wins": 1,
+      "losses": 1,
+      "pnl": -2759.25
+    },
+    {
+      "book": "m1.5_s0.4_r003",
+      "n": 2,
+      "wins": 1,
+      "losses": 1,
+      "pnl": -2759.25
+    },
+    {
+      "book": "spot_dc12_t12_first_r003",
+      "n": 12,
+      "wins": 5,
+      "losses": 7,
+      "pnl": -3354.0
+    },
+    {
+      "book": "gap5_s0.4",
+      "n": 1,
+      "wins": 0,
+      "losses": 1,
+      "pnl": -3896.75
+    },
+    {
+      "book": "gap3_s0.4",
+      "n": 2,
+      "wins": 0,
+      "losses": 2,
+      "pnl": -5749.25
+    },
+    {
+      "book": "gap3_s0.4_r002",
+      "n": 2,
+      "wins": 0,
+      "losses": 2,
+      "pnl": -5749.25
+    },
+    {
+      "book": "gap3_s0.4_r003",
+      "n": 2,
+      "wins": 0,
+      "losses": 2,
+      "pnl": -5749.25
+    },
+    {
+      "book": "edge_gate_only",
+      "n": 1,
+      "wins": 0,
+      "losses": 1,
+      "pnl": -5902.0
+    },
+    {
+      "book": "edge_gate_trail",
+      "n": 1,
+      "wins": 0,
+      "losses": 1,
+      "pnl": -5902.0
+    },
+    {
+      "book": "m2.0_s0.5_novol",
+      "n": 3,
+      "wins": 1,
+      "losses": 2,
+      "pnl": -6727.5
+    },
+    {
+      "book": "t28_tt8",
+      "n": 5,
+      "wins": 1,
+      "losses": 4,
+      "pnl": -7195.5
+    },
+    {
+      "book": "apex_edge",
+      "n": 1,
+      "wins": 0,
+      "losses": 1,
+      "pnl": -9750.0
+    },
+    {
+      "book": "edge_breakout",
+      "n": 1,
+      "wins": 0,
+      "losses": 1,
+      "pnl": -9750.0
+    },
+    {
+      "book": "spot_dc12_t12_1130",
+      "n": 4,
+      "wins": 0,
+      "losses": 4,
+      "pnl": -12876.5
+    },
+    {
+      "book": "spot_ft_prem10",
+      "n": 17,
+      "wins": 8,
+      "losses": 9,
+      "pnl": -18284.5
+    },
+    {
+      "book": "t28_fwd",
+      "n": 5,
+      "wins": 0,
+      "losses": 5,
+      "pnl": -19916.0
+    },
+    {
+      "book": "random_entry",
+      "n": 2,
+      "wins": 0,
+      "losses": 2,
+      "pnl": -20761.0
+    },
+    {
+      "book": "futures_only",
+      "n": 12,
+      "wins": 5,
+      "losses": 7,
+      "pnl": -31141.5
+    },
+    {
+      "book": "straddle_spike",
+      "n": 13,
+      "wins": 4,
+      "losses": 9,
+      "pnl": -48187.75
+    },
+    {
+      "book": "fade_switch",
+      "n": 63,
+      "wins": 22,
+      "losses": 41,
+      "pnl": -76661.0
+    },
+    {
+      "book": "fade_switch_r002",
+      "n": 63,
+      "wins": 22,
+      "losses": 41,
+      "pnl": -76661.0
+    }
+  ],
+  "weather_completeness": {
+    "absorb60": {
+      "present": 608,
+      "nonnull": 608
+    },
+    "ac1_30": {
+      "present": 608,
+      "nonnull": 421
+    },
+    "accel15": {
+      "present": 608,
+      "nonnull": 599
+    },
+    "accel30": {
+      "present": 608,
+      "nonnull": 593
+    },
+    "adv_bank": {
+      "present": 608,
+      "nonnull": 608
+    },
+    "adv_bars15": {
+      "present": 608,
+      "nonnull": 542
+    },
+    "adv_book": {
+      "present": 608,
+      "nonnull": 608
+    },
+    "adv_coherence": {
+      "present": 608,
+      "nonnull": 608
+    },
+    "adv_episode": {
+      "present": 608,
+      "nonnull": 608
+    },
+    "adv_event": {
+      "present": 608,
+      "nonnull": 608
+    },
+    "adv_force": {
+      "present": 608,
+      "nonnull": 608
+    },
+    "adv_gamma_leg": {
+      "present": 608,
+      "nonnull": 608
+    },
+    "adv_gex_room": {
+      "present": 608,
+      "nonnull": 608
+    },
+    "adv_iv_late": {
+      "present": 608,
+      "nonnull": 608
+    },
+    "adv_premium": {
+      "present": 608,
+      "nonnull": 608
+    },
+    "adv_quiet": {
+      "present": 608,
+      "nonnull": 608
+    },
+    "adv_regime": {
+      "present": 608,
+      "nonnull": 608
+    },
+    "adv_room": {
+      "present": 608,
+      "nonnull": 608
+    },
+    "adv_vetoes": {
+      "present": 608,
+      "nonnull": 608
+    },
+    "after_break": {
+      "present": 608,
+      "nonnull": 608
+    },
+    "agg_net": {
+      "present": 608,
+      "nonnull": 608
+    },
+    "agg_with_rs": {
+      "present": 608,
+      "nonnull": 608
+    },
+    "agree_other": {
+      "present": 608,
+      "nonnull": 608
+    },
+    "agree_same": {
+      "present": 608,
+      "nonnull": 608
+    },
+    "all_last5_same_win": {
+      "present": 593,
+      "nonnull": 582
+    },
+    "all_last_same_s": {
+      "present": 593,
+      "nonnull": 593
+    },
+    "all_last_same_won": {
+      "present": 593,
+      "nonnull": 593
+    },
+    "all_n_today": {
+      "present": 608,
+      "nonnull": 608
+    },
+    "all_win_today": {
+      "present": 608,
+      "nonnull": 595
+    },
+    "atm_iv_chg1": {
+      "present": 608,
+      "nonnull": 599
+    },
+    "atm_iv_chg5": {
+      "present": 608,
+      "nonnull": 605
+    },
+    "atm_iv_day_pos": {
+      "present": 608,
+      "nonnull": 608
+    },
+    "atm_iv_med": {
+      "present": 608,
+      "nonnull": 608
+    },
+    "atr1_15": {
+      "present": 608,
+      "nonnull": 382
+    },
+    "band_vol_accel": {
+      "present": 608,
+      "nonnull": 569
+    },
+    "bank_z": {
+      "present": 608,
+      "nonnull": 608
+    },
+    "bar1_body": {
+      "present": 600,
+      "nonnull": 600
+    },
+    "bar1_range_vs15": {
+      "present": 608,
+      "nonnull": 381
+    },
+    "bar5_body": {
+      "present": 605,
+      "nonnull": 605
+    },
+    "bar5_body_share": {
+      "present": 605,
+      "nonnull": 605
+    },
+    "bar5_wick_ahead": {
+      "present": 605,
+      "nonnull": 605
+    },
+    "basis": {
+      "present": 608,
+      "nonnull": 608
+    },
+    "basis_chg300": {
+      "present": 608,
+      "nonnull": 605
+    },
+    "basis_chg60": {
+      "present": 608,
+      "nonnull": 599
+    },
+    "basket_gap": {
+      "present": 608,
+      "nonnull": 608
+    },
+    "best_today": {
+      "present": 525,
+      "nonnull": 525
+    },
+    "bn300": {
+      "present": 608,
+      "nonnull": 605
+    },
+    "bn60": {
+      "present": 608,
+      "nonnull": 599
+    },
+    "bn_corr30": {
+      "present": 608,
+      "nonnull": 399
+    },
+    "bn_minus_nifty300": {
+      "present": 605,
+      "nonnull": 605
+    },
+    "bn_minus_nifty60": {
+      "present": 599,
+      "nonnull": 599
+    },
+    "bp_sig": {
+      "present": 608,
+      "nonnull": 608
+    },
+    "breadth60_dir": {
+      "present": 608,
+      "nonnull": 600
+    },
+    "breadth900_dir": {
+      "present": 608,
+      "nonnull": 605
+    },
+    "breadth_chg5": {
+      "present": 604,
+      "nonnull": 604
+    },
+    "breadth_dir": {
+      "present": 608,
+      "nonnull": 605
+    },
+    "breadth_n": {
+      "present": 608,
+      "nonnull": 608
+    },
+    "breadth_net": {
+      "present": 605,
+      "nonnull": 605
+    },
+    "chain_age": {
+      "present": 608,
+      "nonnull": 608
+    },
+    "charm_min": {
+      "present": 608,
+      "nonnull": 608
+    },
+    "chop30": {
+      "present": 608,
+      "nonnull": 422
+    },
+    "chop60": {
+      "present": 608,
+      "nonnull": 342
+    },
+    "color_min": {
+      "present": 608,
+      "nonnull": 608
+    },
+    "cp_vol_tilt60": {
+      "present": 557,
+      "nonnull": 557
+    },
+    "cp_vol_tilt_chg": {
+      "present": 508,
+      "nonnull": 508
+    },
+    "cusum": {
+      "present": 608,
+      "nonnull": 608
+    },
+    "day_before_expiry": {
+      "present": 608,
+      "nonnull": 608
+    },
+    "day_move": {
+      "present": 608,
+      "nonnull": 608
+    },
+    "day_move_share": {
+      "present": 608,
+      "nonnull": 608
+    },
+    "day_move_vs_strad": {
+      "present": 608,
+      "nonnull": 608
+    },
+    "dd_today": {
+      "present": 608,
+      "nonnull": 608
+    },
+    "delta": {
+      "present": 608,
+      "nonnull": 608
+    },
+    "depth_age_fut": {
+      "present": 608,
+      "nonnull": 608
+    },
+    "dir60": {
+      "present": 608,
+      "nonnull": 342
+    },
+    "dist_hi": {
+      "present": 608,
+      "nonnull": 608
+    },
+    "dist_lo": {
+      "present": 608,
+      "nonnull": 608
+    },
+    "dom_z": {
+      "present": 608,
+      "nonnull": 608
+    },
+    "dte": {
+      "present": 608,
+      "nonnull": 608
+    },
+    "e_basis_dev": {
+      "present": 608,
+      "nonnull": 608
+    },
+    "e_fut_imb5": {
+      "present": 608,
+      "nonnull": 608
+    },
+    "e_fut_micro": {
+      "present": 608,
+      "nonnull": 608
+    },
+    "e_fut_ofi60": {
+      "present": 608,
+      "nonnull": 608
+    },
+    "e_fut_tot_imb": {
+      "present": 608,
+      "nonnull": 608
+    },
+    "e_iv_atm": {
+      "present": 608,
+      "nonnull": 608
+    },
+    "e_iv_chg5": {
+      "present": 608,
+      "nonnull": 608
+    },
+    "e_iv_rv": {
+      "present": 608,
+      "nonnull": 608
+    },
+    "e_pcr": {
+      "present": 608,
+      "nonnull": 608
+    },
+    "e_rv15": {
+      "present": 608,
+      "nonnull": 608
+    },
+    "e_syn_dev": {
+      "present": 608,
+      "nonnull": 608
+    },
+    "e_v_min30": {
+      "present": 608,
+      "nonnull": 608
+    },
+    "ep_age_s": {
+      "present": 608,
+      "nonnull": 564
+    },
+    "ep_first": {
+      "present": 608,
+      "nonnull": 538
+    },
+    "ep_max_s": {
+      "present": 608,
+      "nonnull": 564
+    },
+    "ep_n_cross": {
+      "present": 608,
+      "nonnull": 564
+    },
+    "ep_type": {
+      "present": 608,
+      "nonnull": 564
+    },
+    "ep_with": {
+      "present": 608,
+      "nonnull": 564
+    },
+    "er30": {
+      "present": 608,
+      "nonnull": 422
+    },
+    "er60": {
+      "present": 608,
+      "nonnull": 342
+    },
+    "er_day": {
+      "present": 608,
+      "nonnull": 588
+    },
+    "event": {
+      "present": 608,
+      "nonnull": 608
+    },
+    "expiry_day": {
+      "present": 608,
+      "nonnull": 608
+    },
+    "extrinsic": {
+      "present": 608,
+      "nonnull": 608
+    },
+    "extrinsic_pct": {
+      "present": 608,
+      "nonnull": 608
+    },
+    "fam_busy": {
+      "present": 608,
+      "nonnull": 608
+    },
+    "fam_free": {
+      "present": 608,
+      "nonnull": 608
+    },
+    "fam_n": {
+      "present": 608,
+      "nonnull": 608
+    },
+    "feed_state": {
+      "present": 608,
+      "nonnull": 608
+    },
+    "fires30_other": {
+      "present": 608,
+      "nonnull": 608
+    },
+    "fires30_same": {
+      "present": 608,
+      "nonnull": 608
+    },
+    "fires5_other": {
+      "present": 608,
+      "nonnull": 608
+    },
+    "fires5_same": {
+      "present": 608,
+      "nonnull": 608
+    },
+    "flip_n15": {
+      "present": 608,
+      "nonnull": 608
+    },
+    "fly100": {
+      "present": 608,
+      "nonnull": 608
+    },
+    "fmv300": {
+      "present": 608,
+      "nonnull": 605
+    },
+    "fmv60": {
+      "present": 608,
+      "nonnull": 599
+    },
+    "fn300": {
+      "present": 608,
+      "nonnull": 605
+    },
+    "fn60": {
+      "present": 608,
+      "nonnull": 599
+    },
+    "force_level_dist": {
+      "present": 608,
+      "nonnull": 118
+    },
+    "force_pi": {
+      "present": 608,
+      "nonnull": 118
+    },
+    "force_rho": {
+      "present": 608,
+      "nonnull": 118
+    },
+    "force_verdict": {
+      "present": 608,
+      "nonnull": 608
+    },
+    "force_with": {
+      "present": 608,
+      "nonnull": 118
+    },
+    "fut_age": {
+      "present": 608,
+      "nonnull": 608
+    },
+    "fut_buildup": {
+      "present": 605,
+      "nonnull": 605
+    },
+    "fut_buildup_with": {
+      "present": 605,
+      "nonnull": 605
+    },
+    "fut_imb_o": {
+      "present": 608,
+      "nonnull": 608
+    },
+    "fut_imb_q": {
+      "present": 608,
+      "nonnull": 608
+    },
+    "fut_imb_t_chg30": {
+      "present": 608,
+      "nonnull": 608
+    },
+    "fut_lead": {
+      "present": 608,
+      "nonnull": 608
+    },
+    "fut_oi_chg30": {
+      "present": 608,
+      "nonnull": 608
+    },
+    "fut_oi_chg5": {
+      "present": 608,
+      "nonnull": 608
+    },
+    "fut_opp_o": {
+      "present": 608,
+      "nonnull": 608
+    },
+    "fut_opp_q": {
+      "present": 608,
+      "nonnull": 608
+    },
+    "fut_pulled": {
+      "present": 608,
+      "nonnull": 608
+    },
+    "fut_spread": {
+      "present": 608,
+      "nonnull": 608
+    },
+    "fut_ttq60": {
+      "present": 608,
+      "nonnull": 608
+    },
+    "fut_vol300": {
+      "present": 608,
+      "nonnull": 605
+    },
+    "fut_vol60": {
+      "present": 608,
+      "nonnull": 599
+    },
+    "fut_vol_accel": {
+      "present": 608,
+      "nonnull": 589
+    },
+    "fut_vol_surge": {
+      "present": 608,
+      "nonnull": 608
+    },
+    "fut_vol_vs_norm": {
+      "present": 608,
+      "nonnull": 599
+    },
+    "gamma": {
+      "present": 608,
+      "nonnull": 608
+    },
+    "gamma_1pct": {
+      "present": 608,
+      "nonnull": 608
+    },
+    "gamma_theta": {
+      "present": 608,
+      "nonnull": 608
+    },
+    "gap_filled": {
+      "present": 608,
+      "nonnull": 608
+    },
+    "gap_pts": {
+      "present": 608,
+      "nonnull": 608
+    },
+    "gap_s_today": {
+      "present": 608,
+      "nonnull": 608
+    },
+    "gaps_today": {
+      "present": 608,
+      "nonnull": 608
+    },
+    "gearing": {
+      "present": 608,
+      "nonnull": 608
+    },
+    "gex_balance": {
+      "present": 608,
+      "nonnull": 608
+    },
+    "gex_flip_ahead": {
+      "present": 608,
+      "nonnull": 608
+    },
+    "gex_regime": {
+      "present": 608,
+      "nonnull": 608
+    },
+    "gex_wall_ahead": {
+      "present": 608,
+      "nonnull": 608
+    },
+    "gex_wall_behind": {
+      "present": 608,
+      "nonnull": 608
+    },
+    "give": {
+      "present": 608,
+      "nonnull": 608
+    },
+    "held_other": {
+      "present": 608,
+      "nonnull": 608
+    },
+    "held_same": {
+      "present": 608,
+      "nonnull": 608
+    },
+    "held_same_winning": {
+      "present": 608,
+      "nonnull": 436
+    },
+    "hh_hl5": {
+      "present": 608,
+      "nonnull": 531
+    },
+    "hi_age_min": {
+      "present": 608,
+      "nonnull": 608
+    },
+    "hk_buy": {
+      "present": 608,
+      "nonnull": 554
+    },
+    "hk_ratio": {
+      "present": 608,
+      "nonnull": 554
+    },
+    "hk_sell": {
+      "present": 608,
+      "nonnull": 554
+    },
+    "hmm_drift": {
+      "present": 608,
+      "nonnull": 608
+    },
+    "hmm_left_min": {
+      "present": 608,
+      "nonnull": 608
+    },
+    "hmm_p": {
+      "present": 608,
+      "nonnull": 608
+    },
+    "hmm_run_min": {
+      "present": 608,
+      "nonnull": 608
+    },
+    "hmm_state": {
+      "present": 608,
+      "nonnull": 608
+    },
+    "hrs_to_expiry": {
+      "present": 608,
+      "nonnull": 608
+    },
+    "hw_at_ext30": {
+      "present": 608,
+      "nonnull": 608
+    },
+    "hw_book_chg30": {
+      "present": 608,
+      "nonnull": 608
+    },
+    "hw_book_imb": {
+      "present": 608,
+      "nonnull": 608
+    },
+    "hw_book_imb_t": {
+      "present": 608,
+      "nonnull": 608
+    },
+    "hw_disp300": {
+      "present": 608,
+      "nonnull": 605
+    },
+    "hw_n_with": {
+      "present": 608,
+      "nonnull": 605
+    },
+    "hw_top3_share": {
+      "present": 608,
+      "nonnull": 605
+    },
+    "hw_vol60": {
+      "present": 608,
+      "nonnull": 599
+    },
+    "hw_vol_accel": {
+      "present": 608,
+      "nonnull": 589
+    },
+    "hw_vol_surge": {
+      "present": 608,
+      "nonnull": 608
+    },
+    "hw_vol_vs_norm": {
+      "present": 608,
+      "nonnull": 599
+    },
+    "imp_age_min": {
+      "present": 376,
+      "nonnull": 376
+    },
+    "imp_depth": {
+      "present": 376,
+      "nonnull": 376
+    },
+    "imp_rng": {
+      "present": 376,
+      "nonnull": 376
+    },
+    "imp_with": {
+      "present": 376,
+      "nonnull": 376
+    },
+    "inside_pd": {
+      "present": 608,
+      "nonnull": 608
+    },
+    "intrinsic": {
+      "present": 608,
+      "nonnull": 608
+    },
+    "iv_spot_corr15": {
+      "present": 608,
+      "nonnull": 542
+    },
+    "iv_vs_med": {
+      "present": 608,
+      "nonnull": 608
+    },
+    "jump_z": {
+      "present": 608,
+      "nonnull": 608
+    },
+    "kv": {
+      "present": 608,
+      "nonnull": 608
+    },
+    "kvt": {
+      "present": 608,
+      "nonnull": 608
+    },
+    "kyle_lambda": {
+      "present": 608,
+      "nonnull": 608
+    },
+    "last_exit_s": {
+      "present": 525,
+      "nonnull": 525
+    },
+    "last_fire_other_s": {
+      "present": 608,
+      "nonnull": 590
+    },
+    "last_hold_s": {
+      "present": 525,
+      "nonnull": 525
+    },
+    "last_peak_pts": {
+      "present": 525,
+      "nonnull": 525
+    },
+    "last_reason": {
+      "present": 525,
+      "nonnull": 525
+    },
+    "last_ret_pct": {
+      "present": 525,
+      "nonnull": 525
+    },
+    "last_same_side": {
+      "present": 525,
+      "nonnull": 525
+    },
+    "last_won": {
+      "present": 525,
+      "nonnull": 525
+    },
+    "lead1_move300": {
+      "present": 608,
+      "nonnull": 605
+    },
+    "lead1_move60": {
+      "present": 608,
+      "nonnull": 600
+    },
+    "lead3_agree": {
+      "present": 608,
+      "nonnull": 600
+    },
+    "lead_s": {
+      "present": 608,
+      "nonnull": 442
+    },
+    "lo_age_min": {
+      "present": 608,
+      "nonnull": 608
+    },
+    "ma20_dist": {
+      "present": 608,
+      "nonnull": 498
+    },
+    "ma20_slope": {
+      "present": 608,
+      "nonnull": 476
+    },
+    "ma5_dist": {
+      "present": 608,
+      "nonnull": 581
+    },
+    "ma60_dist": {
+      "present": 608,
+      "nonnull": 346
+    },
+    "ma_stack": {
+      "present": 608,
+      "nonnull": 346
+    },
+    "max_adv1_15": {
+      "present": 608,
+      "nonnull": 542
+    },
+    "max_pain_dist": {
+      "present": 608,
+      "nonnull": 608
+    },
+    "mins_open": {
+      "present": 608,
+      "nonnull": 608
+    },
+    "mins_to_flat": {
+      "present": 608,
+      "nonnull": 608
+    },
+    "moneyness_pct": {
+      "present": 608,
+      "nonnull": 608
+    },
+    "moneyness_pts": {
+      "present": 608,
+      "nonnull": 608
+    },
+    "mv10": {
+      "present": 608,
+      "nonnull": 599
+    },
+    "mv120": {
+      "present": 608,
+      "nonnull": 596
+    },
+    "mv30": {
+      "present": 608,
+      "nonnull": 602
+    },
+    "mv300": {
+      "present": 608,
+      "nonnull": 605
+    },
+    "mv5": {
+      "present": 608,
+      "nonnull": 602
+    },
+    "mv60": {
+      "present": 608,
+      "nonnull": 599
+    },
+    "n_hero_stale": {
+      "present": 608,
+      "nonnull": 608
+    },
+    "n_hero_wide": {
+      "present": 608,
+      "nonnull": 608
+    },
+    "n_losses_today": {
+      "present": 608,
+      "nonnull": 608
+    },
+    "n_same_side_today": {
+      "present": 608,
+      "nonnull": 608
+    },
+    "n_today": {
+      "present": 608,
+      "nonnull": 608
+    },
+    "new_highs": {
+      "present": 608,
+      "nonnull": 608
+    },
+    "new_lows": {
+      "present": 608,
+      "nonnull": 608
+    },
+    "nifty60": {
+      "present": 608,
+      "nonnull": 599
+    },
+    "norm_days": {
+      "present": 608,
+      "nonnull": 608
+    },
+    "oi_net_help15": {
+      "present": 608,
+      "nonnull": 608
+    },
+    "oi_net_help30": {
+      "present": 608,
+      "nonnull": 608
+    },
+    "oi_net_help5": {
+      "present": 608,
+      "nonnull": 608
+    },
+    "oi_other_chg15": {
+      "present": 608,
+      "nonnull": 608
+    },
+    "oi_other_chg30": {
+      "present": 608,
+      "nonnull": 608
+    },
+    "oi_other_chg5": {
+      "present": 608,
+      "nonnull": 608
+    },
+    "oi_own_chg15": {
+      "present": 608,
+      "nonnull": 608
+    },
+    "oi_own_chg30": {
+      "present": 608,
+      "nonnull": 608
+    },
+    "oi_own_chg5": {
+      "present": 608,
+      "nonnull": 608
+    },
+    "oi_own_chg_open": {
+      "present": 608,
+      "nonnull": 608
+    },
+    "open_side_min": {
+      "present": 608,
+      "nonnull": 608
+    },
+    "opp_iv_chg1": {
+      "present": 608,
+      "nonnull": 600
+    },
+    "opp_prem_chg1_pct": {
+      "present": 608,
+      "nonnull": 600
+    },
+    "opp_prem_chg5_pct": {
+      "present": 608,
+      "nonnull": 605
+    },
+    "opt_ask5_rs": {
+      "present": 608,
+      "nonnull": 544
+    },
+    "opt_ask_rs": {
+      "present": 608,
+      "nonnull": 608
+    },
+    "opt_bid5_rs": {
+      "present": 608,
+      "nonnull": 544
+    },
+    "opt_book_imb": {
+      "present": 608,
+      "nonnull": 608
+    },
+    "opt_depth_ratio": {
+      "present": 608,
+      "nonnull": 544
+    },
+    "opt_imb_chg30": {
+      "present": 608,
+      "nonnull": 608
+    },
+    "opt_iv_chg1": {
+      "present": 608,
+      "nonnull": 600
+    },
+    "opt_iv_chg5": {
+      "present": 608,
+      "nonnull": 605
+    },
+    "opt_iv_vs_atm": {
+      "present": 608,
+      "nonnull": 608
+    },
+    "opt_lead": {
+      "present": 608,
+      "nonnull": 608
+    },
+    "opt_opp_o": {
+      "present": 608,
+      "nonnull": 608
+    },
+    "opt_opp_q": {
+      "present": 608,
+      "nonnull": 608
+    },
+    "opt_run": {
+      "present": 608,
+      "nonnull": 608
+    },
+    "opt_vol1": {
+      "present": 600,
+      "nonnull": 600
+    },
+    "opt_vol_chg1": {
+      "present": 600,
+      "nonnull": 589
+    },
+    "or15_pos": {
+      "present": 608,
+      "nonnull": 588
+    },
+    "or30_pos": {
+      "present": 608,
+      "nonnull": 515
+    },
+    "or45_pos": {
+      "present": 608,
+      "nonnull": 466
+    },
+    "or_late": {
+      "present": 608,
+      "nonnull": 608
+    },
+    "or_pos": {
+      "present": 608,
+      "nonnull": 466
+    },
+    "own_oi": {
+      "present": 608,
+      "nonnull": 608
+    },
+    "own_oi_share": {
+      "present": 608,
+      "nonnull": 608
+    },
+    "own_vol_oi": {
+      "present": 608,
+      "nonnull": 608
+    },
+    "own_vs_opp_oi": {
+      "present": 608,
+      "nonnull": 608
+    },
+    "pair_chg1": {
+      "present": 608,
+      "nonnull": 600
+    },
+    "pcr": {
+      "present": 608,
+      "nonnull": 608
+    },
+    "pcr_chg30": {
+      "present": 608,
+      "nonnull": 608
+    },
+    "pd_close_pos": {
+      "present": 608,
+      "nonnull": 608
+    },
+    "pd_range": {
+      "present": 608,
+      "nonnull": 608
+    },
+    "phase": {
+      "present": 608,
+      "nonnull": 608
+    },
+    "phase_bucket": {
+      "present": 608,
+      "nonnull": 608
+    },
+    "piv_next_ahead": {
+      "present": 608,
+      "nonnull": 608
+    },
+    "pivot_dist": {
+      "present": 608,
+      "nonnull": 608
+    },
+    "po_a": {
+      "present": 608,
+      "nonnull": 608
+    },
+    "po_b": {
+      "present": 608,
+      "nonnull": 608
+    },
+    "po_dn15": {
+      "present": 608,
+      "nonnull": 608
+    },
+    "po_ever": {
+      "present": 608,
+      "nonnull": 608
+    },
+    "po_up1": {
+      "present": 608,
+      "nonnull": 608
+    },
+    "po_up15": {
+      "present": 608,
+      "nonnull": 608
+    },
+    "po_up5": {
+      "present": 608,
+      "nonnull": 608
+    },
+    "pos15": {
+      "present": 608,
+      "nonnull": 585
+    },
+    "pos5": {
+      "present": 608,
+      "nonnull": 605
+    },
+    "pos60": {
+      "present": 608,
+      "nonnull": 447
+    },
+    "pos_dir": {
+      "present": 608,
+      "nonnull": 608
+    },
+    "pos_in_range": {
+      "present": 608,
+      "nonnull": 608
+    },
+    "prem_chg15_pct": {
+      "present": 608,
+      "nonnull": 585
+    },
+    "prem_chg1_pct": {
+      "present": 608,
+      "nonnull": 600
+    },
+    "prem_chg5_pct": {
+      "present": 608,
+      "nonnull": 605
+    },
+    "prem_off_hi15_pct": {
+      "present": 585,
+      "nonnull": 585
+    },
+    "prem_pos15": {
+      "present": 585,
+      "nonnull": 585
+    },
+    "prem_ratio_with": {
+      "present": 608,
+      "nonnull": 608
+    },
+    "prem_resp1": {
+      "present": 597,
+      "nonnull": 597
+    },
+    "prem_rv5": {
+      "present": 542,
+      "nonnull": 542
+    },
+    "prem_vs_last_entry_pct": {
+      "present": 139,
+      "nonnull": 139
+    },
+    "prem_vs_last_exit_pct": {
+      "present": 139,
+      "nonnull": 139
+    },
+    "premium": {
+      "present": 608,
+      "nonnull": 608
+    },
+    "quote_age": {
+      "present": 608,
+      "nonnull": 608
+    },
+    "range15": {
+      "present": 608,
+      "nonnull": 585
+    },
+    "range5": {
+      "present": 608,
+      "nonnull": 605
+    },
+    "range60": {
+      "present": 608,
+      "nonnull": 447
+    },
+    "range_now": {
+      "present": 608,
+      "nonnull": 608
+    },
+    "range_on": {
+      "present": 608,
+      "nonnull": 608
+    },
+    "range_vs_norm": {
+      "present": 608,
+      "nonnull": 608
+    },
+    "range_vs_pd": {
+      "present": 608,
+      "nonnull": 608
+    },
+    "range_vs_strad": {
+      "present": 608,
+      "nonnull": 608
+    },
+    "reconnects": {
+      "present": 608,
+      "nonnull": 608
+    },
+    "regime": {
+      "present": 608,
+      "nonnull": 608
+    },
+    "regime_broke": {
+      "present": 608,
+      "nonnull": 608
+    },
+    "regime_ext_pct": {
+      "present": 608,
+      "nonnull": 608
+    },
+    "regime_with": {
+      "present": 608,
+      "nonnull": 604
+    },
+    "rest_opp_rs": {
+      "present": 608,
+      "nonnull": 608
+    },
+    "rest_round_rs": {
+      "present": 608,
+      "nonnull": 608
+    },
+    "rest_with_rs": {
+      "present": 608,
+      "nonnull": 608
+    },
+    "ret_last3": {
+      "present": 525,
+      "nonnull": 525
+    },
+    "ret_today": {
+      "present": 608,
+      "nonnull": 608
+    },
+    "reversals60": {
+      "present": 608,
+      "nonnull": 342
+    },
+    "round_dist": {
+      "present": 608,
+      "nonnull": 608
+    },
+    "rr100": {
+      "present": 608,
+      "nonnull": 608
+    },
+    "rsi14_1m": {
+      "present": 608,
+      "nonnull": 545
+    },
+    "rsi14_5m": {
+      "present": 608,
+      "nonnull": 332
+    },
+    "run1_with": {
+      "present": 608,
+      "nonnull": 600
+    },
+    "rv1": {
+      "present": 608,
+      "nonnull": 561
+    },
+    "rv15_spot": {
+      "present": 608,
+      "nonnull": 608
+    },
+    "rv5": {
+      "present": 608,
+      "nonnull": 602
+    },
+    "rv5_vs_norm": {
+      "present": 608,
+      "nonnull": 602
+    },
+    "rv_ratio": {
+      "present": 608,
+      "nonnull": 561
+    },
+    "same_key_as_last": {
+      "present": 525,
+      "nonnull": 525
+    },
+    "sigma15": {
+      "present": 608,
+      "nonnull": 608
+    },
+    "since_last_loss_s": {
+      "present": 508,
+      "nonnull": 508
+    },
+    "skew_atm": {
+      "present": 608,
+      "nonnull": 608
+    },
+    "skew_chg5": {
+      "present": 608,
+      "nonnull": 605
+    },
+    "sl_n_res": {
+      "present": 608,
+      "nonnull": 608
+    },
+    "sl_n_sup": {
+      "present": 608,
+      "nonnull": 608
+    },
+    "sl_next_res": {
+      "present": 608,
+      "nonnull": 608
+    },
+    "sl_room_dn_pct": {
+      "present": 608,
+      "nonnull": 608
+    },
+    "sl_room_up_pct": {
+      "present": 608,
+      "nonnull": 608
+    },
+    "speed15": {
+      "present": 608,
+      "nonnull": 540
+    },
+    "speed_g": {
+      "present": 608,
+      "nonnull": 608
+    },
+    "spot_age": {
+      "present": 608,
+      "nonnull": 608
+    },
+    "spread_be_pts": {
+      "present": 608,
+      "nonnull": 608
+    },
+    "spread_pct": {
+      "present": 608,
+      "nonnull": 608
+    },
+    "squeeze": {
+      "present": 608,
+      "nonnull": 444
+    },
+    "strad_chg5": {
+      "present": 608,
+      "nonnull": 475
+    },
+    "strad_excess": {
+      "present": 608,
+      "nonnull": 475
+    },
+    "strad_expanding": {
+      "present": 608,
+      "nonnull": 475
+    },
+    "strad_now": {
+      "present": 608,
+      "nonnull": 608
+    },
+    "strad_state": {
+      "present": 608,
+      "nonnull": 608
+    },
+    "strad_vs_open_pct": {
+      "present": 608,
+      "nonnull": 608
+    },
+    "streak": {
+      "present": 608,
+      "nonnull": 608
+    },
+    "strike50_ahead": {
+      "present": 608,
+      "nonnull": 608
+    },
+    "strike_pin": {
+      "present": 608,
+      "nonnull": 608
+    },
+    "svi_res": {
+      "present": 608,
+      "nonnull": 608
+    },
+    "swing_ahead": {
+      "present": 608,
+      "nonnull": 608
+    },
+    "swing_behind": {
+      "present": 608,
+      "nonnull": 608
+    },
+    "sync_dir": {
+      "present": 608,
+      "nonnull": 608
+    },
+    "term_atm": {
+      "present": 608,
+      "nonnull": 608
+    },
+    "term_chg5": {
+      "present": 608,
+      "nonnull": 605
+    },
+    "theta_be": {
+      "present": 608,
+      "nonnull": 608
+    },
+    "theta_be15": {
+      "present": 608,
+      "nonnull": 608
+    },
+    "theta_min": {
+      "present": 608,
+      "nonnull": 608
+    },
+    "theta_pct": {
+      "present": 608,
+      "nonnull": 608
+    },
+    "theta_ratio": {
+      "present": 608,
+      "nonnull": 540
+    },
+    "to_pdc": {
+      "present": 608,
+      "nonnull": 608
+    },
+    "to_pdh": {
+      "present": 608,
+      "nonnull": 608
+    },
+    "to_pdl": {
+      "present": 608,
+      "nonnull": 608
+    },
+    "trig_str": {
+      "present": 608,
+      "nonnull": 173
+    },
+    "trig_unit": {
+      "present": 608,
+      "nonnull": 173
+    },
+    "trigger": {
+      "present": 608,
+      "nonnull": 608
+    },
+    "v": {
+      "present": 608,
+      "nonnull": 608
+    },
+    "vanna": {
+      "present": 608,
+      "nonnull": 608
+    },
+    "vega": {
+      "present": 608,
+      "nonnull": 608
+    },
+    "vix": {
+      "present": 608,
+      "nonnull": 608
+    },
+    "vix_chg15": {
+      "present": 608,
+      "nonnull": 608
+    },
+    "vix_chg30": {
+      "present": 608,
+      "nonnull": 608
+    },
+    "vix_chg5": {
+      "present": 608,
+      "nonnull": 608
+    },
+    "vix_chg_open": {
+      "present": 608,
+      "nonnull": 608
+    },
+    "vix_day_pos": {
+      "present": 608,
+      "nonnull": 608
+    },
+    "vix_spot_same5": {
+      "present": 608,
+      "nonnull": 543
+    },
+    "vol_ratio_with": {
+      "present": 608,
+      "nonnull": 605
+    },
+    "vomma": {
+      "present": 608,
+      "nonnull": 608
+    },
+    "vr5_60": {
+      "present": 608,
+      "nonnull": 342
+    },
+    "vwap_cross_n": {
+      "present": 608,
+      "nonnull": 608
+    },
+    "vwap_ext": {
+      "present": 608,
+      "nonnull": 608
+    },
+    "vwap_side_min": {
+      "present": 608,
+      "nonnull": 608
+    },
+    "vwap_side_with": {
+      "present": 608,
+      "nonnull": 608
+    },
+    "vwap_stretch_share": {
+      "present": 608,
+      "nonnull": 608
+    },
+    "vwap_z": {
+      "present": 608,
+      "nonnull": 608
+    },
+    "wall_dn": {
+      "present": 608,
+      "nonnull": 550
+    },
+    "wall_room": {
+      "present": 608,
+      "nonnull": 542
+    },
+    "wall_up": {
+      "present": 608,
+      "nonnull": 585
+    },
+    "weekday": {
+      "present": 608,
+      "nonnull": 608
+    },
+    "win_share_today": {
+      "present": 525,
+      "nonnull": 525
+    },
+    "with_share30": {
+      "present": 608,
+      "nonnull": 421
+    },
+    "with_vol_share300": {
+      "present": 608,
+      "nonnull": 605
+    },
+    "with_vol_share60": {
+      "present": 608,
+      "nonnull": 600
+    },
+    "wmove10": {
+      "present": 608,
+      "nonnull": 599
+    },
+    "wmove30": {
+      "present": 608,
+      "nonnull": 602
+    },
+    "wmove60": {
+      "present": 608,
+      "nonnull": 599
+    },
+    "wmove60_bank": {
+      "present": 608,
+      "nonnull": 599
+    },
+    "wmove60_energy": {
+      "present": 608,
+      "nonnull": 599
+    },
+    "wmove60_it": {
+      "present": 608,
+      "nonnull": 599
+    },
+    "wmove60_other": {
+      "present": 608,
+      "nonnull": 599
+    },
+    "worst_today": {
+      "present": 525,
+      "nonnull": 525
+    },
+    "z20": {
+      "present": 608,
+      "nonnull": 498
+    },
+    "zomma": {
+      "present": 608,
+      "nonnull": 608
+    }
+  },
+  "release_events": [
+    {
+      "t": 1794202994.7730587,
+      "time": "11:13:14",
+      "event": "release",
+      "book": "c20_9y",
+      "rule": null,
+      "key": "NIFTY|OPT|2026-11-09|24800|CE",
+      "why": "entry lapsed: no print on 24800 CE within 3 s"
+    },
+    {
+      "t": 1794202998.1844525,
+      "time": "11:13:18",
+      "event": "release",
+      "book": "c20_9y",
+      "rule": null,
+      "key": "NIFTY|OPT|2026-11-09|24800|CE",
+      "why": "entry lapsed: no print on 24800 CE within 3 s"
+    },
+    {
+      "t": 1794204859.0185182,
+      "time": "11:44:19",
+      "event": "release",
+      "book": "c20_9y",
+      "rule": null,
+      "key": "NIFTY|OPT|2026-11-09|25050|PE",
+      "why": "entry lapsed: no print on 25050 PE within 3 s"
+    },
+    {
+      "t": 1794204866.3448966,
+      "time": "11:44:26",
+      "event": "release",
+      "book": "c20_9y",
+      "rule": null,
+      "key": "NIFTY|OPT|2026-11-09|25050|PE",
+      "why": "entry lapsed: no print on 25050 PE within 3 s"
+    },
+    {
+      "t": 1794204872.4476388,
+      "time": "11:44:32",
+      "event": "release",
+      "book": "c20_9y",
+      "rule": null,
+      "key": "NIFTY|OPT|2026-11-09|25050|PE",
+      "why": "entry lapsed: no print on 25050 PE within 3 s"
+    },
+    {
+      "t": 1794204877.6567805,
+      "time": "11:44:37",
+      "event": "release",
+      "book": "c20_9y",
+      "rule": null,
+      "key": "NIFTY|OPT|2026-11-09|25050|PE",
+      "why": "entry lapsed: no print on 25050 PE within 3 s"
+    },
+    {
+      "t": 1794204882.4448798,
+      "time": "11:44:42",
+      "event": "release",
+      "book": "c20_9y",
+      "rule": null,
+      "key": "NIFTY|OPT|2026-11-09|25050|PE",
+      "why": "entry lapsed: no print on 25050 PE within 3 s"
+    },
+    {
+      "t": 1794205571.0583029,
+      "time": "11:56:11",
+      "event": "release",
+      "book": "c20_9y",
+      "rule": null,
+      "key": "NIFTY|OPT|2026-11-09|25050|PE",
+      "why": "entry lapsed: no print on 25050 PE within 3 s"
+    },
+    {
+      "t": 1794205576.3318262,
+      "time": "11:56:16",
+      "event": "release",
+      "book": "c20_9y",
+      "rule": null,
+      "key": "NIFTY|OPT|2026-11-09|25050|PE",
+      "why": "entry lapsed: no print on 25050 PE within 3 s"
+    },
+    {
+      "t": 1794206803.0151422,
+      "time": "12:16:43",
+      "event": "release",
+      "book": "c20_9y",
+      "rule": null,
+      "key": "NIFTY|OPT|2026-11-09|25000|PE",
+      "why": "entry lapsed: no print on 25000 PE within 3 s"
+    },
+    {
+      "t": 1794206811.4109674,
+      "time": "12:16:51",
+      "event": "release",
+      "book": "c20_9y",
+      "rule": null,
+      "key": "NIFTY|OPT|2026-11-09|25000|PE",
+      "why": "entry lapsed: no print on 25000 PE within 3 s"
+    },
+    {
+      "t": 1794209538.282394,
+      "time": "13:02:18",
+      "event": "release",
+      "book": "c20_9y",
+      "rule": null,
+      "key": "NIFTY|OPT|2026-11-09|24900|CE",
+      "why": "entry lapsed: no print on 24900 CE within 3 s"
+    },
+    {
+      "t": 1794210099.2558043,
+      "time": "13:11:39",
+      "event": "release",
+      "book": "c20_9y",
+      "rule": null,
+      "key": "NIFTY|OPT|2026-11-09|25000|PE",
+      "why": "entry lapsed: no print on 25000 PE within 3 s"
+    },
+    {
+      "t": 1794210118.8047764,
+      "time": "13:11:58",
+      "event": "release",
+      "book": "c20_9y",
+      "rule": null,
+      "key": "NIFTY|OPT|2026-11-09|25000|PE",
+      "why": "entry lapsed: no print on 25000 PE within 3 s"
+    },
+    {
+      "t": 1794210137.6292758,
+      "time": "13:12:17",
+      "event": "release",
+      "book": "c20_9y",
+      "rule": null,
+      "key": "NIFTY|OPT|2026-11-09|25000|PE",
+      "why": "entry lapsed: no print on 25000 PE within 3 s"
+    },
+    {
+      "t": 1794210144.2816448,
+      "time": "13:12:24",
+      "event": "release",
+      "book": "c20_9y",
+      "rule": null,
+      "key": "NIFTY|OPT|2026-11-09|25000|PE",
+      "why": "entry lapsed: no print on 25000 PE within 3 s"
+    },
+    {
+      "t": 1794210180.172573,
+      "time": "13:13:00",
+      "event": "release",
+      "book": "c20_9y",
+      "rule": null,
+      "key": "NIFTY|OPT|2026-11-09|25000|PE",
+      "why": "entry lapsed: no print on 25000 PE within 3 s"
+    },
+    {
+      "t": 1794210206.182865,
+      "time": "13:13:26",
+      "event": "release",
+      "book": "c20_9y",
+      "rule": null,
+      "key": "NIFTY|OPT|2026-11-09|24950|PE",
+      "why": "entry lapsed: no print on 24950 PE within 3 s"
+    },
+    {
+      "t": 1794210311.9220877,
+      "time": "13:15:11",
+      "event": "release",
+      "book": "c20_9y",
+      "rule": null,
+      "key": "NIFTY|OPT|2026-11-09|24950|PE",
+      "why": "entry lapsed: no print on 24950 PE within 3 s"
+    },
+    {
+      "t": 1794210322.8066974,
+      "time": "13:15:22",
+      "event": "release",
+      "book": "c20_9y",
+      "rule": null,
+      "key": "NIFTY|OPT|2026-11-09|24950|PE",
+      "why": "entry lapsed: no print on 24950 PE within 3 s"
+    },
+    {
+      "t": 1794210373.722789,
+      "time": "13:16:13",
+      "event": "release",
+      "book": "c20_9y",
+      "rule": null,
+      "key": "NIFTY|OPT|2026-11-09|24950|PE",
+      "why": "entry lapsed: no print on 24950 PE within 3 s"
+    },
+    {
+      "t": 1794210385.0316265,
+      "time": "13:16:25",
+      "event": "release",
+      "book": "c20_9y",
+      "rule": null,
+      "key": "NIFTY|OPT|2026-11-09|24950|PE",
+      "why": "entry lapsed: no print on 24950 PE within 3 s"
+    },
+    {
+      "t": 1794210393.9133499,
+      "time": "13:16:33",
+      "event": "release",
+      "book": "c20_9y",
+      "rule": null,
+      "key": "NIFTY|OPT|2026-11-09|24950|PE",
+      "why": "entry lapsed: no print on 24950 PE within 3 s"
+    },
+    {
+      "t": 1794210399.57342,
+      "time": "13:16:39",
+      "event": "release",
+      "book": "c20_9y",
+      "rule": null,
+      "key": "NIFTY|OPT|2026-11-09|24950|PE",
+      "why": "entry lapsed: no print on 24950 PE within 3 s"
+    },
+    {
+      "t": 1794210405.8978794,
+      "time": "13:16:45",
+      "event": "release",
+      "book": "c20_9y",
+      "rule": null,
+      "key": "NIFTY|OPT|2026-11-09|24950|PE",
+      "why": "entry lapsed: no print on 24950 PE within 3 s"
+    },
+    {
+      "t": 1794210430.7288444,
+      "time": "13:17:10",
+      "event": "release",
+      "book": "c20_9y",
+      "rule": null,
+      "key": "NIFTY|OPT|2026-11-09|24900|PE",
+      "why": "entry lapsed: no print on 24900 PE within 3 s"
+    },
+    {
+      "t": 1794210442.007655,
+      "time": "13:17:22",
+      "event": "release",
+      "book": "c20_9y",
+      "rule": null,
+      "key": "NIFTY|OPT|2026-11-09|24900|PE",
+      "why": "entry lapsed: no print on 24900 PE within 3 s"
+    },
+    {
+      "t": 1794210499.2495644,
+      "time": "13:18:19",
+      "event": "release",
+      "book": "c20_9y",
+      "rule": null,
+      "key": "NIFTY|OPT|2026-11-09|24900|PE",
+      "why": "entry lapsed: no print on 24900 PE within 3 s"
+    },
+    {
+      "t": 1794211317.8532915,
+      "time": "13:31:57",
+      "event": "release",
+      "book": "c20_9y",
+      "rule": null,
+      "key": "NIFTY|OPT|2026-11-09|24850|CE",
+      "why": "entry lapsed: no print on 24850 CE within 3 s"
+    },
+    {
+      "t": 1794211323.4904664,
+      "time": "13:32:03",
+      "event": "release",
+      "book": "c20_9y",
+      "rule": null,
+      "key": "NIFTY|OPT|2026-11-09|24850|CE",
+      "why": "entry lapsed: no print on 24850 CE within 3 s"
+    },
+    {
+      "t": 1794211552.2503526,
+      "time": "13:35:52",
+      "event": "release",
+      "book": "c20_9y",
+      "rule": null,
+      "key": "NIFTY|OPT|2026-11-09|24850|CE",
+      "why": "entry lapsed: no print on 24850 CE within 3 s"
+    },
+    {
+      "t": 1794212663.9283187,
+      "time": "13:54:23",
+      "event": "release",
+      "book": "c20_9y",
+      "rule": null,
+      "key": "NIFTY|OPT|2026-11-09|24900|CE",
+      "why": "entry lapsed: no print on 24900 CE within 3 s"
+    },
+    {
+      "t": 1794212669.2144296,
+      "time": "13:54:29",
+      "event": "release",
+      "book": "c20_9y",
+      "rule": null,
+      "key": "NIFTY|OPT|2026-11-09|24900|CE",
+      "why": "entry lapsed: no print on 24900 CE within 3 s"
+    },
+    {
+      "t": 1794213159.7446144,
+      "time": "14:02:39",
+      "event": "release",
+      "book": "c20_9y",
+      "rule": null,
+      "key": "NIFTY|OPT|2026-11-09|25000|PE",
+      "why": "entry lapsed: no print on 25000 PE within 3 s"
+    },
+    {
+      "t": 1794213342.5534692,
+      "time": "14:05:42",
+      "event": "release",
+      "book": "c20_9y",
+      "rule": null,
+      "key": "NIFTY|OPT|2026-11-09|24900|CE",
+      "why": "entry lapsed: no print on 24900 CE within 3 s"
+    },
+    {
+      "t": 1794214850.107878,
+      "time": "14:30:50",
+      "event": "release",
+      "book": "c20_9s",
+      "rule": null,
+      "key": "NIFTY|OPT|2026-11-09|25050|PE",
+      "why": "entry lapsed: no print on 25050 PE within 3 s"
+    }
+  ],
+  "cache_mutation_probe": {
+    "expected": {
+      "exit": 11.0,
+      "t_out": 1.0,
+      "weather": {
+        "x": 2
+      }
+    },
+    "actual": {
+      "exit": 10.0,
+      "t_out": 1.0,
+      "weather": {
+        "x": 1
+      }
+    }
+  }
+}

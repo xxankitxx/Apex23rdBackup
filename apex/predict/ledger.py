@@ -16,7 +16,7 @@ import os
 
 import numpy as np
 
-from . import VERSION, features as F, models as Mo, targets as T
+from . import VERSION, features as F, hazard as Hz, models as Mo, targets as T
 
 
 class Forecaster:
@@ -35,7 +35,11 @@ class Forecaster:
         self.ok = self.why is None
         self.hash = (artefact or {}).get("hash")
         self.horizons = tuple(T.HORIZONS)
-        if self.ok:                                       # all models as three matrices: one pass per forecast
+        self.kind = (artefact or {}).get("kind") or "logit8"
+        if self.ok and self.kind == Hz.KIND:              # 11 Nov: the coherent competing-risk model (hazard.py)
+            if len(artefact.get("W") or []) != len(self.horizons) or len(artefact.get("med") or []) != len(F.NAMES):
+                self.ok, self.why = False, "hazard artefact has the wrong shape"
+        elif self.ok:                                     # all models as three matrices: one pass per forecast
             order = [f"T{h}" for h in self.horizons] + [f"A{h}" for h in self.horizons]
             ms = [artefact["models"][k] for k in order]
             self._med = np.array([m["med"] for m in ms], float)
@@ -53,7 +57,9 @@ class Forecaster:
     def score(self, X):
         """THE scoring pipeline (docs/42 finding B): fitted probabilities, then the projection that makes the horizons
         consistent. One function for the artefact's lines, offline evaluation and the engine. Returns (pT, pA), each
-        (rows, horizons); the edge is pT[:, -1] - pA[:, -1]."""
+        (rows, horizons); the edge is pT[:, -1] - pA[:, -1]. A hazard artefact is coherent by construction."""
+        if self.kind == Hz.KIND:
+            return Hz.score(self.art, X)
         return project(self.raw(X), len(self.horizons))
 
     def edges(self, X):

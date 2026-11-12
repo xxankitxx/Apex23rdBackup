@@ -1,0 +1,20 @@
+{
+ "part": "2026-11-11.p2",
+ "version": 2,
+ "rows": 0,
+ "first": null,
+ "last": null,
+ "packets": 0,
+ "disorder": 0,
+ "tape_end_marker": true,
+ "tape_torn": false,
+ "expiry": null,
+ "expiry2": null,
+ "strikes": 0,
+ "strikes2": 0,
+ "stocks": 0,
+ "stock_futures": 0,
+ "tape_sha256": "4cf9dc170fdfb52ed0db0166b728fb14460ef1cd62ea2aa6adf72f38298cd340",
+ "tape_bytes": 224,
+ "npz_sha256": "a1b0f02548039faee262a78804bd5b4b4fc92cce1974fef7c09084d5910de417"
+}

@@ -1,5 +1,9 @@
 # Claude: owner's requested new shadow-book work
 
+## Claude: Forecast Lab and research, 11 November 2026 (during the session)
+
+The owner rejected the forecaster as naive. **`docs/47_ADVANCED_FORECASTING_RESEARCH.md`** is the research (88 references, ranked plan). **`docs/48_FORECAST_LAB.md`** is what was built: `apex/forecast_lab/`, a separate read-only process (`py -3.13 -m apex.forecast_lab.live`) with a futures distribution from weighted experts, option paths by repricing with decay and volatility drift, a decay register, gamma rent, commentary with "what I would do", and live self-scoring with online learning beside a frozen copy. Display only. The engine publish change in docs/48 section 7 waits for an engine restart.
+
 ## Owner-requested ambitious forecasting plan — 11 November 2026
 
 Read **`docs/44_AMBITIOUS_FORECASTING_MODEL_ROADMAP.md`** first. This extends docs42/43 into a staged implementation mandate: aligned executable/episode datasets, coherent movement/timing forecasts, champion-policy admission, entry timing, contract choice, held-state continuation, Greek/sequence challengers, and actual account contribution. It identifies the current deeper-strike builder's missing executable tags and chain-edge sampling exclusion, specifies causal evaluation and operational gates, and asks for a concrete implementation matrix followed by execution. Preserve the main Conductor and owner's rules. This plan does not certify the latest running replay or test suite.

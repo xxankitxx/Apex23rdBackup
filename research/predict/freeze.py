@@ -13,8 +13,10 @@ import glob, hashlib, json, os, sys, time
 ROOT = os.path.abspath(os.path.join(os.path.dirname(os.path.abspath(__file__)), '..', '..'))
 LOG = os.path.join(ROOT, 'apex', 'predict', 'freeze_log.jsonl')
 FILES = ['apex/predict/features.py', 'apex/predict/targets.py', 'apex/predict/models.py', 'apex/predict/ledger.py',
-         'apex/predict/ranges.py', 'apex/predict/registry.py', 'apex/engine/pred.py', 'apex/predict/model_v2.json',
-         'apex/predict/ranges_v1.json', 'apex/predict/registry.json']
+         'apex/predict/hazard.py', 'apex/predict/ranges.py', 'apex/predict/registry.py', 'apex/predict/registry.json',
+         'apex/predict/ranges_v2.json', 'apex/predict/hold.py', 'apex/predict/reenter_v1.json', 'apex/engine/pred.py',
+         'apex/engine/holdtwin.py', 'apex/forecast_lab/core.py', 'apex/forecast_lab/brain.py', 'apex/forecast_lab/live.py',
+         'data/forecast_lab/brain.meta.json']
 PARTIAL = {'apex/engine/paper.py': ('def bound_contract', 'def evaluate_gen', 'def gen_bracket', 'def _gen_exit'),
            'apex/engine_main.py': ('def _pred_feed', 'def _pred_note')}
 
@@ -75,7 +77,9 @@ if __name__ == '__main__':
         print('unchanged since' if not diff else 'CHANGED since the freeze: ' + ', '.join(diff))
         sys.exit(0 if not diff else 2)
     ticks = sorted(os.path.basename(p)[:10] for p in glob.glob(os.path.join(ROOT, 'data', 'ticks', '2026-*.jsonl.gz')))
-    art = json.load(open(os.path.join(ROOT, 'apex', 'predict', 'model_v2.json')))
+    sys.path.insert(0, ROOT)
+    from apex.predict import registry as _r
+    art = _r.for_session('2099-01-01', 'chronological', None)[0] or {}
     row = dict(frozen_at=time.strftime('%Y-%m-%d %H:%M:%S'), note=' '.join(a for a in sys.argv[1:] if not a.startswith('--')),
                last_recorded_session=ticks[-1] if ticks else None, model_hash=art.get('hash'),
                model_training_cutoff=art.get('training_cutoff'), state=state(),

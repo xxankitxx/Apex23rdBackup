@@ -1,0 +1,1 @@
+C:\Users\Ankit Madhogaria\AppData\Local\Programs\Python\Python313\python.exe: can't open file 'D:\\ApexOptions\\s2_search.py': [Errno 2] No such file or directory
