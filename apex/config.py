@@ -471,6 +471,14 @@ VARIANTS["pm_c20_9y"] = dict(_G, council="c20_9y_pm", twin=True)       # 13 Nov:
 # champion (CHAMPION_OWNER names "conductor"); scored forward as ONE hypothesis (loss memory, R17 and R20).
 VARIANTS["conductor_sl"] = dict(_G, conductor=True, shadow_policy="sidelock", twin=True, raw_of="c20_9x")
 VARIANTS["conductor_wp60"] = dict(_G, conductor=True, shadow_policy="whipsaw", twin=True, raw_of="c20_9x")
+# 14 Nov (owner: "a more profitable and more trade-taking system"; docs/57, apex/fastlab.py): the champion's edge sits
+# on expiry day and the session before it; on that session a thrust of the sister indices or of the heavyweights is a
+# buy. Shadow only, registered LAST: two thrust books (they trade only when one session is left before expiry), the
+# 15-minute stall exit twin, and a shadow Conductor whose own account pools the live pool plus the thrust books.
+VARIANTS["thr_sis"] = dict(_G, council="thr_sis", twin=True)
+VARIANTS["thr_hw"] = dict(_G, council="thr_hw", twin=True)
+VARIANTS["st15_c20_9y"] = dict(_G, council="c20_9y_st15", twin=True)
+VARIANTS["conductor_d1"] = dict(_G, conductor=True, shadow_policy="prexp", twin=True, raw_of="c20_9x")
 CHAMPION_DEFAULT = "c20_9x"  # 1 Nov (owner): back from c20_9t after its 8-day replay; before: c20_9t (31 Oct, never live), t28_gap (29 Oct 11:40), t28_cheap (29 Oct morning), t28_gap (28 Oct evening), lvl_trail_re (28 Oct), edge_gate_trail and edge_gate_only (27 Oct), spot_dual_lvl (D-142), edge_gate_trail and edge_gate_only (27 Oct), spot_dual_lvl (D-142)
 # D-124 (owner, 20 Oct 16:16: "Apply spot_dc12_t12 thoroughly on my code"): the champion is the owner's choice.
 # learning.load_state applies it ONCE to an existing state (the champion lives in data/learning/state.json,

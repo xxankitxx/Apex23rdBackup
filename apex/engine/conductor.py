@@ -330,6 +330,9 @@ SIDE_TAPE_BOOKS = ("c20_8x", "c20_9x", "c20_9t", "c20_9v", "c20_9e", "c20_9h", "
                    "c20_9x_r004", "fx_c20_9y", "fr_c20_9y", "rx_c20_9y")   # R20 E6: the c20 family's shadow trades
 SIDE_N, SIDE_MIN = 12, 3
 WHIPSAW_S = 3600.0
+# 14 Nov (docs/57): policy "prexp" refuses nothing; its account pools the live pool PLUS the pre-expiry thrust books
+# (lowest priority, this shadow account only; the pool file and the live Conductor are untouched).
+EXTRA_POOL = {"prexp": ("thr_sis", "thr_hw")}
 
 
 def _side_of(t):
@@ -344,9 +347,15 @@ class AdaptiveConductor(Conductor):
 
     def __init__(self, day, book_order, policy, name, **kw):
         super().__init__(day, book_order, name=name, **kw)
-        if policy not in ("sidelock", "whipsaw"):
+        if policy not in ("sidelock", "whipsaw", "prexp"):
             raise ValueError(f"unknown shadow Conductor policy {policy!r}")
         self.policy = policy
+        for b in EXTRA_POOL.get(policy, ()):            # after the sort: the extra books come last on a same-tick tie
+            if b in self.order and all(m.get("book") != b for m in self.members):
+                self.members.append({"book": b, "rule": None, "standing": "low", "ret_per_trade": 0.0, "from": day,
+                                     "note": f"{name}: shadow pool only (docs/57)"})
+        if self.members and self.reason == "pool empty":
+            self.reason = "flat: no eligible trigger"
         self._ptr = {}                                  # book -> trades already read (O(new trades) a step)
         self._tape = {"CE": collections.deque(maxlen=SIDE_N), "PE": collections.deque(maxlen=SIDE_N)}
 
@@ -369,6 +378,8 @@ class AdaptiveConductor(Conductor):
             self._ptr[name] = len(ts)
 
     def admit(self, m, pe, cb, books, ctx):
+        if self.policy == "prexp":
+            return None
         if self.policy == "sidelock":
             self._read_tape(books)
             sd = str(pe.get("key") or "").rsplit("|", 1)[-1]
@@ -412,4 +423,4 @@ def offline_admit(policy):
             if a["pnl_rs"] < 0 and b["pnl_rs"] < 0 and _side_of(a) != _side_of(b) and trig - float(b["t_out"]) < WHIPSAW_S:
                 return "whipsaw pause"
         return None
-    return {"sidelock": sidelock, "whipsaw": whipsaw}[policy]
+    return {"sidelock": sidelock, "whipsaw": whipsaw, "prexp": lambda trig, m, t, taken, books: None}[policy]

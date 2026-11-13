@@ -45,6 +45,11 @@ class LiveDay:
         self.fwd = np.full(N_ROWS, np.nan)
         self.spot = np.full(N_ROWS, np.nan)
         self.fut = np.full(N_ROWS, np.nan)
+        # 14 Nov (docs/57): the sister indices and the heavyweights, one row a second, for the pre-expiry thrust books
+        self.bnf = np.full(N_ROWS, np.nan)      # BANKNIFTY futures mid (quote at most PEER_AGE_S old)
+        self.fin = np.full(N_ROWS, np.nan)      # FINNIFTY index
+        self.hwl = None                         # (N_ROWS, stocks) log last prices; a stock older than HW_AGE_S keeps its last
+        self.hww = None                         # their Nifty weights
         for f in FIELDS:
             setattr(self, f, np.full((N_ROWS, MAXC), np.nan, dtype=np.float32))
         self.col, self.ids = {}, {}            # (strike, rr) -> column; option row id -> column
@@ -70,9 +75,16 @@ class LiveDay:
             for f in FIELDS:
                 a = getattr(self, f)
                 a[last + 1:i + 1] = a[last]
-            for a in (self.fwd, self.spot, self.fut):
+            for a in (self.fwd, self.spot, self.fut, self.bnf, self.fin):
                 a[last + 1:i + 1] = a[last]
+            if self.hwl is not None:
+                self.hwl[last + 1:i + 1] = self.hwl[last]
         self.i = i
+        if snap is not None:
+            try:
+                self._peers(i, eng, ctx, snap)
+            except Exception:
+                pass
         F, ft = getattr(eng, "fwd", None), getattr(eng, "_fwd_t", None)
         if F is not None and ft is not None and np.isfinite(F) and ctx["now_s"] - ft <= 2.0:
             self.fwd[i] = float(F)
@@ -118,6 +130,35 @@ class LiveDay:
             ks = sorted(self.col, key=self.col.get)
             self.K = np.array([float(k) for k, _ in ks])
             self.rr = np.array([r for _, r in ks])
+
+
+    PEER_AGE_S, HW_AGE_S = 5.0, 30.0
+
+    def _peers(self, i, eng, ctx, snap):
+        """14 Nov (docs/57): BANKNIFTY futures mid, the FINNIFTY index and the heavyweights' last prices for row i.
+        A quote older than its limit is not written, so the row keeps the last good value (as the research set did)."""
+        now_ns = ctx["now_s"] * 1e9
+        rn = snap["recv_ns"]
+        key = getattr(eng, "key", None) or {}
+        b = key.get("BANKNIFTY|FUT")
+        if b is not None and rn[b] > 0 and (now_ns - float(rn[b])) / 1e9 <= self.PEER_AGE_S:
+            bb, ba = float(snap["bid"][b]), float(snap["ask"][b])
+            if bb > 0 and ba >= bb:
+                self.bnf[i] = 0.5 * (bb + ba)
+        f = key.get("FINNIFTY|SPOT")
+        if f is not None and rn[f] > 0 and (now_ns - float(rn[f])) / 1e9 <= self.PEER_AGE_S and float(snap["ltp"][f]) > 0:
+            self.fin[i] = float(snap["ltp"][f])
+        dm = getattr(eng, "domino", None)
+        if dm is not None and len(dm.eq_ids):
+            ids = dm.eq_ids
+            if self.hwl is None or self.hwl.shape[1] != len(ids):
+                self.hwl = np.full((N_ROWS, len(ids)), np.nan, dtype=np.float32)
+                self.hww = np.asarray(dm.eq_w, float)
+            px = snap["ltp"][ids].astype(float)
+            r = rn[ids].astype(float)
+            ok = (px > 0) & (r > 0) & ((now_ns - r) / 1e9 <= self.HW_AGE_S)
+            if ok.any():
+                self.hwl[i, ok] = np.log(px[ok])
 
 
 _DAYS = {}                                 # (day, expiry) -> the one LiveDay every council book reads

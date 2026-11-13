@@ -39,7 +39,7 @@ def _chain(*deltas):
 
 
 def test_registered():
-    assert config.validate() == [] and len(config.VARIANTS) == 111       # +3 c20_9y exit twins, +2 shadow Conductors (13 Nov, docs/56); +1 re-entry twin (11 Nov, docs/49); +2 forecast twins of c20_9y, +4 forecast shadows (10 Nov, docs/41); +4 third-batch books (10 Nov, docs/39); +8 second-generation books (9 Nov, docs/37); 67 + c20_9e, c20_9h (3 Nov), c20_9s (3 Nov night), c20_9y (4 Nov) + 14 restricted (7 Nov; spot_pb45_r003 off 8 Nov) + conductor (8 Nov)
+    assert config.validate() == [] and len(config.VARIANTS) == 115       # +2 thrust books, +1 stall twin, +1 shadow Conductor (14 Nov, docs/57); +3 c20_9y exit twins, +2 shadow Conductors (13 Nov, docs/56); +1 re-entry twin (11 Nov, docs/49); +2 forecast twins of c20_9y, +4 forecast shadows (10 Nov, docs/41); +4 third-batch books (10 Nov, docs/39); +8 second-generation books (9 Nov, docs/37); 67 + c20_9e, c20_9h (3 Nov), c20_9s (3 Nov night), c20_9y (4 Nov) + 14 restricted (7 Nov; spot_pb45_r003 off 8 Nov) + conductor (8 Nov)
     names = list(config.VARIANTS)
     assert names[names.index("c20_9e"):names.index("c20_9y") + 1] == ["c20_9e", "c20_9h", "c20_9s", "c20_9y"]
     assert sum(1 for p in config.VARIANTS.values() if p.get("rules")) == 14                 # spot_pb45_r003 off 8 Nov
