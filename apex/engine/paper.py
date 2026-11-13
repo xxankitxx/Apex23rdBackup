@@ -30,6 +30,7 @@ from datetime import date
 
 import numpy as np
 
+from .. import fsutil
 from .. import config
 from . import weather5 as _w5
 from . import gen3 as _g3
@@ -96,6 +97,7 @@ def touch(trade):
     return trade
 _REPLACE_TRIES = 5          # C-99: Windows (AV / indexer / OneDrive) can briefly lock the target
 _REPLACE_WAIT_S = 0.2
+_REPLACE_BUDGET_S = 3.0       # 13 Nov: was 5 tries 0.2 s apart; Defender can hold a fresh 7 MB file longer
 
 
 class Book:
@@ -1724,15 +1726,9 @@ def _exit_observers(pos, ctx, o):
 
 # ── persistence (C-43, C-99) ─────────────────────────────────────────────────
 def _replace_retry(src, dst):
-    """os.replace with a short retry on PermissionError (Windows file locks). Re-raises if it never clears."""
-    for i in range(_REPLACE_TRIES):
-        try:
-            os.replace(src, dst)
-            return
-        except PermissionError:
-            if i == _REPLACE_TRIES - 1:
-                raise
-            time.sleep(_REPLACE_WAIT_S)
+    """os.replace that waits out a Windows lock for up to _REPLACE_BUDGET_S (fsutil.replace). Re-raises if it
+    never clears; the saver thread then tries the same state again."""
+    fsutil.replace(src, dst, budget_s=_REPLACE_BUDGET_S)
 
 
 _TRADE_JSON = {"day": None, "m": {}}     # id(closed trade) -> (the trade, its field count, its revision, its JSON text)

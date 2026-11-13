@@ -1,0 +1,102 @@
+{
+ "run_id": "p44_g5",
+ "run_dir": "D:\\ApexOptions\\data\\replay\\batch\\p44_g5",
+ "started": "2026-11-12 16:03:09",
+ "git": {
+  "commit": "7a3deb5b62991cf30b142eba5678cad2d61c2a26",
+  "dirty": false
+ },
+ "source_hash": "60d043305211",
+ "seed": "data",
+ "python": "3.13.0 (tags/v3.13.0:60403a5, Oct  7 2024, 09:38:07) [MSC v.1941 64 bit (AMD64)]",
+ "numpy": "2.4.3",
+ "platform": "Windows-11-10.0.26300-SP0",
+ "switches": {
+  "APEX_RECORD_MISSED": false,
+  "APEX_FAST": true,
+  "APEX_PRIOR_LEVELS": null,
+  "REPLAY_STEP_S": 0.1,
+  "LAST_ENTRY": [
+   15,
+   15
+  ],
+  "FLATTEN_AT": [
+   15,
+   25
+  ],
+  "CAS_TEST": false,
+  "LEARN_DECIDE": false,
+  "VARIANTS_sha256": "ea08beb9a93d9dd5118ac372ffb2b017631a25b770dc86187f175f9bc1dac947",
+  "config_full_sha1": "03d7f795199a9ef6f73ec683948bca9754a155c4"
+ },
+ "seeded": {
+  "state.json": "9f21e2f3dcc7a03b820cb36d006c52e91a06ddcdaa5c15cd54ab7401fab0544c",
+  "days.jsonl": "26c79d1abdedbd88b4f0cc328b5a50e18804d54e1c037a93e9caad52e1f86dfa",
+  "day_levels.json": "a4b79f72bed41a6b14106ca1497233e5a75804bc6e9e6101e0e7ea2bcd9bcaac",
+  "strike_levels.json": "1235284bfed38bf0fea99166dd0494120c3bf11076d61038147be05497fc047e",
+  "defects.json": "fb647196e4b0cf915b66cbdb6d65dafe2f609f6fb347d32a3ec96dc67a7fc41f",
+  "clock_norms.json": "aa7b9fc4b1fb5f24b5e7c74a1f9a4093d396dc5d9c22dcce42ba99adfddf16dc",
+  "state": {
+   "champion": "conductor",
+   "gates": [],
+   "candidates": []
+  }
+ },
+ "tapes": [
+  {
+   "path": "D:\\ApexOptions\\data\\ticks\\2026-10-30.jsonl.gz",
+   "meta": {
+    "schema": 1,
+    "apex": "1.9.0",
+    "git": "f4ab09d",
+    "src": "314367a03625",
+    "cfg": "721164e86158b040c4aef297f1a50d25c5323fc6",
+    "part": 1
+   },
+   "parts": [
+    {
+     "path": "D:\\ApexOptions\\data\\ticks\\2026-10-30.jsonl.gz",
+     "sha256": "8415ae2608c76a895131d8820e3eb333bf572a8def6ae754d2649a4916c83fbc",
+     "bytes": 199898408
+    }
+   ]
+  },
+  {
+   "path": "D:\\ApexOptions\\data\\ticks\\2026-11-02.jsonl.gz",
+   "meta": {
+    "schema": 1,
+    "apex": "1.9.0",
+    "git": "f164660",
+    "src": "5f1d47c4b7c0",
+    "cfg": "d5be18c6ad3cceeebdee42c6c58d02633cabe9b8",
+    "part": 1
+   },
+   "parts": [
+    {
+     "path": "D:\\ApexOptions\\data\\ticks\\2026-11-02.jsonl.gz",
+     "sha256": "a8f216640399b71e19d09eec8e39029a04df16752ddf7fc3748353d5ad608682",
+     "bytes": 235839713
+    }
+   ]
+  }
+ ],
+ "results": [
+  {
+   "tape": "D:\\ApexOptions\\data\\ticks\\2026-10-30.jsonl.gz",
+   "returncode": 1
+  },
+  {
+   "tape": "D:\\ApexOptions\\data\\ticks\\2026-11-02.jsonl.gz",
+   "returncode": 1
+  }
+ ],
+ "status": "FAILED",
+ "finished": "2026-11-12 18:30:57",
+ "wall_s": 8866.1,
+ "totals": {
+  "trades": 0,
+  "missed_rows": 0,
+  "cf_errors": 0,
+  "recorder_faults": 0
+ }
+}

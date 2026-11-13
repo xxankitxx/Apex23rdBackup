@@ -161,7 +161,10 @@ def main(argv=None):
     md = report(res, days_books, a.vs, a.asof, pool.get("entries") or [])
     with open(os.path.join(a.out_dir, "conductor_sim.md"), "w", encoding="utf-8") as fh:
         fh.write(md)
-    print(md)
+    try:                                           # 13 Nov: a cp1252 console cannot print the rupee sign
+        print(md)
+    except UnicodeEncodeError:
+        print(md.encode("ascii", "replace").decode("ascii"))
 
 
 if __name__ == "__main__":

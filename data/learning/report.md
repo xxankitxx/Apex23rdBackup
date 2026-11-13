@@ -1,159 +1,160 @@
-# ApexOptions — learning report (2026-11-11)
+# ApexOptions — learning report (2026-11-12)
 
 Unit: return on premium per trade, % (all-in sizing). Day = log growth of the compounded trades, 100·Σln(1+r).
 
 ## Scoreboard — champion `conductor`
-4 trades since 2026-11-09, Σ +13.0 %. GO line 1003.1, KILL line -555.9 → **COLLECTING**. Observed sd 14.4 % vs assumed 30 %.
+7 trades since 2026-11-09, Σ +17.8 %. GO line 1006.9, KILL line -552.2 → **COLLECTING**. Observed sd 11.2 % vs assumed 30 %.
 
 ### Observers (report only — they change no decision; owner items O-8 / O-9)
 
-- Champion #6 since registration (2026-10-17); evening looks: 1 for this champion, 16 since registration. Every new champion and every look is another chance at a false GO.
-- Wald lines with the observed sd: need ≥ 10 trades (have 4).
-- SPRT on per-trade 100·ln(1+r): Σ +9.9 (mean +2.47/trade) vs GO 1003.1 / KILL -555.9 → would be **COLLECTING**.
-- Betting e-value against "mean ≤ 0" (returns clipped to [−100, +300] %, λ mixture 0.05, 0.1, 0.2, 0.4, 0.8): **1.04** — ≥ 20 would reject at 5 % under any number of looks.
+- Champion #6 since registration (2026-10-17); evening looks: 2 for this champion, 17 since registration. Every new champion and every look is another chance at a false GO.
+- Wald lines with the observed sd: need ≥ 10 trades (have 7).
+- SPRT on per-trade 100·ln(1+r): Σ +14.1 (mean +2.02/trade) vs GO 1006.9 / KILL -552.2 → would be **COLLECTING**.
+- Betting e-value against "mean ≤ 0" (returns clipped to [−100, +300] %, λ mixture 0.05, 0.1, 0.2, 0.4, 0.8): **1.05** — ≥ 20 would reject at 5 % under any number of looks.
 
 Day-level conditions for GO (§9.2; not wired into GO — owner item O-8e). Day = Σ ret% of the champion's trades since it took over; ≥ 1 trend day is not measured here:
 
-- [ ] ≥ 15 sessions (1)
+- [ ] ≥ 15 sessions (2)
 - [ ] ≥ 2 expiry days (0)
 - [ ] every leave-one-day-out mean > 0
-- [ ] total > 0 with the best day dropped
+- [x] total > 0 with the best day dropped
 - [ ] no single day > 40 % of the total
 - [x] ≥ 50 % of days net-green
 - [ ] beats every control (0/3)
 
-## Challengers (daily return vs champion since it took over; one-sided α 0.0005 each, 101 challengers; 2 passing evenings in a row to promote)
+## Challengers (daily return vs champion since it took over; one-sided α 0.0005 each, 102 challengers; 2 passing evenings in a row to promote)
 
 | variant | days | mean diff/day % | t | t needed | LODO | passing evenings |
 |---|---|---|---|---|---|---|
-| m1.5_s0.4 | 1 | -12.28 | 0.00 | inf | no | 0 |
-| m1.5_s0.5 | 1 | -12.28 | 0.00 | inf | no | 0 |
-| m1.5_s0.6 | 1 | -7.18 | 0.00 | inf | no | 0 |
-| m2.0_s0.4 | 1 | -12.28 | 0.00 | inf | no | 0 |
-| m2.0_s0.5 | 1 | -12.28 | 0.00 | inf | no | 0 |
-| m2.0_s0.6 | 1 | -7.18 | 0.00 | inf | no | 0 |
-| m2.5_s0.4 | 1 | -12.28 | 0.00 | inf | no | 0 |
-| m2.5_s0.5 | 1 | -12.28 | 0.00 | inf | no | 0 |
-| m2.5_s0.6 | 1 | -7.18 | 0.00 | inf | no | 0 |
-| gap3_s0.4 | 1 | -6.19 | 0.00 | inf | no | 0 |
-| gap5_s0.4 | 1 | -9.89 | 0.00 | inf | no | 0 |
-| m2.0_s0.5_bookexit | 1 | -11.92 | 0.00 | inf | no | 0 |
-| straddle_spike | 1 | -9.89 | 0.00 | inf | no | 0 |
-| m2.0_s0.5_ivinterp | 1 | -12.28 | 0.00 | inf | no | 0 |
-| m2.0_s0.5_novol | 1 | -17.47 | 0.00 | inf | no | 0 |
-| m2.0_s0.5_trend | 1 | -14.99 | 0.00 | inf | no | 0 |
-| spot_dc12_t12 | 1 | -11.06 | 0.00 | inf | no | 0 |
-| spot_dc12_t12_first | 1 | -17.14 | 0.00 | inf | no | 0 |
-| spot_dc12_t12_1130 | 1 | -11.06 | 0.00 | inf | no | 0 |
-| spot_dc12_t12_nolock | 1 | -11.06 | 0.00 | inf | no | 0 |
-| spot_pb45 | 1 | +10.29 | 0.00 | inf | no | 0 |
-| spot_dual | 1 | +10.29 | 0.00 | inf | no | 0 |
-| spot_dual_rg | 1 | +10.29 | 0.00 | inf | no | 0 |
-| spot_dual_lvl | 1 | +5.37 | 0.00 | inf | no | 0 |
-| spot_ft_prem10 | 1 | -16.95 | 0.00 | inf | no | 0 |
-| spot_orb45 | 1 | +3.76 | 0.00 | inf | no | 0 |
-| m2.0_s0.5_d20 | 1 | -1.32 | 0.00 | inf | no | 0 |
-| m2.0_s0.5_tvfast | 1 | -12.55 | 0.00 | inf | no | 0 |
-| fade_switch | 1 | -65.27 | 0.00 | inf | no | 0 |
-| n01_absorb | 1 | -4.22 | 0.00 | inf | no | 0 |
-| n01_release | 1 | -10.55 | 0.00 | inf | no | 0 |
-| n01_ctl_price | 1 | -26.89 | 0.00 | inf | no | 0 |
-| n01_ctl_flow | 1 | -19.49 | 0.00 | inf | no | 0 |
-| n02_relax | 1 | -15.56 | 0.00 | inf | no | 0 |
-| n02_ctl_mr | 1 | -23.10 | 0.00 | inf | no | 0 |
-| n06_lead | 1 | -5.99 | 0.00 | inf | no | 0 |
-| n06_ctl_breadth | 1 | -19.76 | 0.00 | inf | no | 0 |
-| n01_ctl_price_ind | 1 | -26.89 | 0.00 | inf | no | 0 |
-| s01_transmit | 1 | +1.70 | 0.00 | inf | no | 0 |
-| s01_ctl_cash | 1 | -16.95 | 0.00 | inf | no | 0 |
-| s01_ctl_sfut | 1 | -14.86 | 0.00 | inf | no | 0 |
-| s03_recruit | 1 | -3.72 | 0.00 | inf | no | 0 |
-| p02_clock | 1 | -9.85 | 0.00 | inf | no | 0 |
-| p02_top1 | 1 | -9.89 | 0.00 | inf | no | 0 |
-| p02_ctl_mom | 1 | -43.43 | 0.00 | inf | no | 0 |
-| p05_adaptive | 1 | -10.78 | 0.00 | inf | no | 0 |
-| apex_edge | 1 | -4.98 | 0.00 | inf | no | 0 |
-| edge_gate_only | 1 | +6.28 | 0.00 | inf | no | 0 |
-| edge_bracket_only | 1 | +29.80 | 0.00 | inf | no | 0 |
-| edge_breakout | 1 | -25.74 | 0.00 | inf | no | 0 |
-| edge_gate_trail | 1 | +6.28 | 0.00 | inf | no | 0 |
-| lvl_trail | 1 | +5.37 | 0.00 | inf | no | 0 |
-| lvl_trail_re | 1 | +5.37 | 0.00 | inf | no | 0 |
-| lvl_trail_rx | 1 | +5.37 | 0.00 | inf | no | 0 |
-| lvl_trail_rx_c10 | 1 | +5.37 | 0.00 | inf | no | 0 |
-| lvl_trail_rx_be | 1 | +5.37 | 0.00 | inf | no | 0 |
-| lvl_trail_be | 1 | +5.37 | 0.00 | inf | no | 0 |
-| t28_d46 | 1 | -7.96 | 0.00 | inf | no | 0 |
-| t28_gap | 1 | -6.19 | 0.00 | inf | no | 0 |
-| t28_dur20 | 1 | +4.01 | 0.00 | inf | no | 0 |
-| t28_ts | 1 | +20.09 | 0.00 | inf | no | 0 |
-| t28_fill | 1 | +12.04 | 0.00 | inf | no | 0 |
-| t28_core | 1 | -14.41 | 0.00 | inf | no | 0 |
-| t28_core_fill | 1 | -40.39 | 0.00 | inf | no | 0 |
-| t28_all | 1 | -40.39 | 0.00 | inf | no | 0 |
-| t28_d46_fill | 1 | -0.74 | 0.00 | inf | no | 0 |
-| t28_gap_ts | 1 | +8.53 | 0.00 | inf | no | 0 |
-| t28_ivfall | 1 | -6.19 | 0.00 | inf | no | 0 |
-| t28_bidpile | 1 | +2.06 | 0.00 | inf | no | 0 |
-| t28_st20 | 1 | -6.19 | 0.00 | inf | no | 0 |
-| t28_nohigh | 1 | -6.19 | 0.00 | inf | no | 0 |
-| t28_req | 1 | -10.85 | 0.00 | inf | no | 0 |
-| t28_cheap | 1 | -10.85 | 0.00 | inf | no | 0 |
-| t28_cheapK | 1 | -6.19 | 0.00 | inf | no | 0 |
-| t28_fwd | 1 | -21.12 | 0.00 | inf | no | 0 |
-| t28_mh15 | 1 | +12.88 | 0.00 | inf | no | 0 |
-| t28_tt8 | 1 | -6.19 | 0.00 | inf | no | 0 |
-| c20_8x | 1 | +8.94 | 0.00 | inf | no | 0 |
-| c20_9x | 1 | +9.81 | 0.00 | inf | no | 0 |
-| c20_9t | 1 | +2.08 | 0.00 | inf | no | 0 |
-| c20_9v | 1 | +10.13 | 0.00 | inf | no | 0 |
-| c20_9e | 1 | +9.81 | 0.00 | inf | no | 0 |
-| c20_9h | 1 | +9.81 | 0.00 | inf | no | 0 |
-| c20_9s | 1 | +9.81 | 0.00 | inf | no | 0 |
-| c20_9y | 1 | -15.16 | 0.00 | inf | no | 0 |
-| spot_dc12_t12_r002 | 1 | -15.68 | 0.00 | inf | no | 0 |
-| spot_dc12_t12_first_r002 | 1 | -9.97 | 0.00 | inf | no | 0 |
-| spot_pb45_r002 | 1 | -9.89 | 0.00 | inf | no | 0 |
-| spot_orb45_r002 | 1 | -9.89 | 0.00 | inf | no | 0 |
-| m1.5_s0.4_r002 | 1 | -9.89 | 0.00 | inf | no | 0 |
-| gap3_s0.4_r002 | 1 | -9.89 | 0.00 | inf | no | 0 |
-| fade_switch_r002 | 1 | -27.77 | 0.00 | inf | no | 0 |
-| c20_9x_r002 | 1 | -9.89 | 0.00 | inf | no | 0 |
-| spot_dc12_t12_first_r003 | 1 | -21.03 | 0.00 | inf | no | 0 |
-| spot_orb45_r003 | 1 | +3.76 | 0.00 | inf | no | 0 |
-| m1.5_s0.4_r003 | 1 | -12.28 | 0.00 | inf | no | 0 |
-| gap3_s0.4_r003 | 1 | -6.19 | 0.00 | inf | no | 0 |
-| c20_9x_r004 | 1 | -9.89 | 0.00 | inf | no | 0 |
-| spot_orb45_r005 | 1 | +3.76 | 0.00 | inf | no | 0 |
-| fx_c20_9y | 1 | -9.07 | 0.00 | inf | no | 0 |
-| fr_c20_9y | 1 | -15.16 | 0.00 | inf | no | 0 |
+| m1.5_s0.4 | 2 | -8.25 | -2.05 | 50.00 | no | 0 |
+| m1.5_s0.5 | 2 | -8.25 | -2.05 | 50.00 | no | 0 |
+| m1.5_s0.6 | 2 | -5.70 | -3.86 | 50.00 | no | 0 |
+| m2.0_s0.4 | 2 | -8.25 | -2.05 | 50.00 | no | 0 |
+| m2.0_s0.5 | 2 | -8.25 | -2.05 | 50.00 | no | 0 |
+| m2.0_s0.6 | 2 | -5.70 | -3.86 | 50.00 | no | 0 |
+| m2.5_s0.4 | 2 | -8.25 | -2.05 | 50.00 | no | 0 |
+| m2.5_s0.5 | 2 | -8.25 | -2.05 | 50.00 | no | 0 |
+| m2.5_s0.6 | 2 | -5.70 | -3.86 | 50.00 | no | 0 |
+| gap3_s0.4 | 2 | -5.21 | -5.32 | 50.00 | no | 0 |
+| gap5_s0.4 | 2 | -7.06 | -2.49 | 50.00 | no | 0 |
+| m2.0_s0.5_bookexit | 2 | -8.07 | -2.10 | 50.00 | no | 0 |
+| straddle_spike | 2 | -7.06 | -2.49 | 50.00 | no | 0 |
+| m2.0_s0.5_ivinterp | 2 | -8.25 | -2.05 | 50.00 | no | 0 |
+| m2.0_s0.5_novol | 2 | -11.60 | -1.98 | 50.00 | no | 0 |
+| m2.0_s0.5_trend | 2 | -9.61 | -1.79 | 50.00 | no | 0 |
+| spot_dc12_t12 | 2 | -23.81 | -1.87 | 50.00 | no | 0 |
+| spot_dc12_t12_first | 2 | -27.38 | -2.67 | 50.00 | no | 0 |
+| spot_dc12_t12_1130 | 2 | -23.81 | -1.87 | 50.00 | no | 0 |
+| spot_dc12_t12_nolock | 2 | -23.81 | -1.87 | 50.00 | no | 0 |
+| spot_pb45 | 2 | -9.22 | -0.47 | 50.00 | no | 0 |
+| spot_dual | 2 | -9.22 | -0.47 | 50.00 | no | 0 |
+| spot_dual_rg | 2 | -4.26 | -0.29 | 50.00 | no | 0 |
+| spot_dual_lvl | 2 | -6.72 | -0.56 | 50.00 | no | 0 |
+| spot_ft_prem10 | 2 | -20.19 | -6.25 | 50.00 | no | 0 |
+| spot_orb45 | 2 | -23.38 | -0.86 | 50.00 | no | 0 |
+| m2.0_s0.5_d20 | 2 | -2.77 | -1.90 | 50.00 | no | 0 |
+| m2.0_s0.5_tvfast | 2 | -8.39 | -2.02 | 50.00 | no | 0 |
+| fade_switch | 2 | -37.06 | -1.31 | 50.00 | no | 0 |
+| n01_absorb | 2 | -5.14 | -5.61 | 50.00 | no | 0 |
+| n01_release | 2 | -7.39 | -2.34 | 50.00 | no | 0 |
+| n01_ctl_price | 2 | -0.80 | -0.03 | 50.00 | no | 0 |
+| n01_ctl_flow | 2 | -21.83 | -9.34 | 50.00 | no | 0 |
+| n02_relax | 2 | -8.44 | -1.19 | 50.00 | no | 0 |
+| n02_ctl_mr | 2 | -3.98 | -0.21 | 50.00 | no | 0 |
+| n06_lead | 2 | -5.16 | -6.23 | 50.00 | no | 0 |
+| n06_ctl_breadth | 2 | -15.45 | -3.59 | 50.00 | no | 0 |
+| n01_ctl_price_ind | 2 | -0.80 | -0.03 | 50.00 | no | 0 |
+| s01_transmit | 2 | -3.05 | -0.64 | 50.00 | no | 0 |
+| s01_ctl_cash | 2 | -15.17 | -8.53 | 50.00 | no | 0 |
+| s01_ctl_sfut | 2 | -12.82 | -6.29 | 50.00 | no | 0 |
+| s03_recruit | 2 | +0.17 | 0.04 | 50.00 | no | 0 |
+| p02_clock | 2 | -6.53 | -1.97 | 50.00 | no | 0 |
+| p02_top1 | 2 | -7.06 | -2.49 | 50.00 | no | 0 |
+| p02_ctl_mom | 2 | -32.81 | -3.09 | 50.00 | no | 0 |
+| p05_adaptive | 2 | -4.12 | -0.62 | 50.00 | no | 0 |
+| apex_edge | 2 | -4.11 | -4.71 | 50.00 | no | 0 |
+| edge_gate_only | 2 | -6.27 | -0.50 | 50.00 | no | 0 |
+| edge_bracket_only | 2 | +13.28 | 0.80 | 50.00 | no | 0 |
+| edge_breakout | 2 | -15.00 | -1.40 | 50.00 | no | 0 |
+| edge_gate_trail | 2 | -3.95 | -0.39 | 50.00 | no | 0 |
+| lvl_trail | 2 | -4.41 | -0.45 | 50.00 | no | 0 |
+| lvl_trail_re | 2 | -4.41 | -0.45 | 50.00 | no | 0 |
+| lvl_trail_rx | 2 | -4.41 | -0.45 | 50.00 | no | 0 |
+| lvl_trail_rx_c10 | 2 | -4.41 | -0.45 | 50.00 | no | 0 |
+| lvl_trail_rx_be | 2 | -4.41 | -0.45 | 50.00 | no | 0 |
+| lvl_trail_be | 2 | -4.41 | -0.45 | 50.00 | no | 0 |
+| t28_d46 | 2 | -11.62 | -3.18 | 50.00 | no | 0 |
+| t28_gap | 2 | -10.19 | -2.55 | 50.00 | no | 0 |
+| t28_dur20 | 2 | -5.09 | -0.56 | 50.00 | no | 0 |
+| t28_ts | 2 | +7.18 | 0.56 | 50.00 | no | 0 |
+| t28_fill | 2 | +7.29 | 1.53 | 50.00 | no | 0 |
+| t28_core | 2 | -14.84 | -34.38 | 50.00 | no | 0 |
+| t28_core_fill | 2 | -22.46 | -1.25 | 50.00 | no | 0 |
+| t28_all | 2 | -22.46 | -1.25 | 50.00 | no | 0 |
+| t28_d46_fill | 2 | -2.64 | -1.39 | 50.00 | no | 0 |
+| t28_gap_ts | 2 | +1.40 | 0.20 | 50.00 | no | 0 |
+| t28_ivfall | 2 | -10.19 | -2.55 | 50.00 | no | 0 |
+| t28_bidpile | 2 | -6.06 | -0.75 | 50.00 | no | 0 |
+| t28_st20 | 2 | -10.19 | -2.55 | 50.00 | no | 0 |
+| t28_nohigh | 2 | -10.19 | -2.55 | 50.00 | no | 0 |
+| t28_req | 2 | -7.54 | -2.28 | 50.00 | no | 0 |
+| t28_cheap | 2 | -7.54 | -2.28 | 50.00 | no | 0 |
+| t28_cheapK | 2 | -10.19 | -2.55 | 50.00 | no | 0 |
+| t28_fwd | 2 | -2.14 | -0.11 | 50.00 | no | 0 |
+| t28_mh15 | 2 | +3.68 | 0.40 | 50.00 | no | 0 |
+| t28_tt8 | 2 | -10.19 | -2.55 | 50.00 | no | 0 |
+| c20_8x | 2 | +4.08 | 0.84 | 50.00 | no | 0 |
+| c20_9x | 2 | +4.91 | 1.00 | 50.00 | no | 0 |
+| c20_9t | 2 | +6.16 | 1.51 | 50.00 | no | 0 |
+| c20_9v | 2 | +5.07 | 1.00 | 50.00 | no | 0 |
+| c20_9e | 2 | +4.91 | 1.00 | 50.00 | no | 0 |
+| c20_9h | 2 | +4.91 | 1.00 | 50.00 | no | 0 |
+| c20_9s | 2 | +6.13 | 1.66 | 50.00 | no | 0 |
+| c20_9y | 2 | -7.74 | -1.04 | 50.00 | no | 0 |
+| spot_dc12_t12_r002 | 2 | -9.95 | -1.74 | 50.00 | no | 0 |
+| spot_dc12_t12_first_r002 | 2 | -7.10 | -2.47 | 50.00 | no | 0 |
+| spot_pb45_r002 | 2 | -7.06 | -2.49 | 50.00 | no | 0 |
+| spot_orb45_r002 | 2 | -7.06 | -2.49 | 50.00 | no | 0 |
+| m1.5_s0.4_r002 | 2 | -7.06 | -2.49 | 50.00 | no | 0 |
+| gap3_s0.4_r002 | 2 | -7.06 | -2.49 | 50.00 | no | 0 |
+| fade_switch_r002 | 2 | -19.05 | -2.18 | 50.00 | no | 0 |
+| c20_9x_r002 | 2 | -7.06 | -2.49 | 50.00 | no | 0 |
+| spot_dc12_t12_first_r003 | 2 | -25.55 | -5.65 | 50.00 | no | 0 |
+| spot_orb45_r003 | 2 | -23.38 | -0.86 | 50.00 | no | 0 |
+| m1.5_s0.4_r003 | 2 | -8.25 | -2.05 | 50.00 | no | 0 |
+| gap3_s0.4_r003 | 2 | -5.21 | -5.32 | 50.00 | no | 0 |
+| c20_9x_r004 | 2 | -1.97 | -0.25 | 50.00 | no | 0 |
+| spot_orb45_r005 | 2 | -23.38 | -0.86 | 50.00 | no | 0 |
+| fx_c20_9y | 2 | -3.79 | -0.72 | 50.00 | no | 0 |
+| fr_c20_9y | 2 | -7.74 | -1.04 | 50.00 | no | 0 |
+| rx_c20_9y | 1 | -0.33 | 0.00 | inf | no | 0 |
 
 
 ## Controls (current champion minus control, daily return % since registration; the champion must beat these)
 
 | control | days | champion ahead by %/day | t | t needed | verdict |
 |---|---|---|---|---|---|
-| futures_only | 2 | +44.69 | 1.04 | 19.08 | too few days |
-| random_entry | 2 | +31.05 | 0.72 | 19.08 | too few days |
-| premium_momentum | 2 | -35.07 | -0.95 | 19.08 | too few days |
+| futures_only | 3 | +35.56 | 1.34 | 5.34 | too few days |
+| random_entry | 3 | +23.93 | 0.93 | 5.34 | too few days |
+| premium_momentum | 3 | -17.88 | -0.65 | 5.34 | too few days |
 
 ## Advisors (screen: would-have vetoes on the ungated champion; decision: the gated book)
 
 | advisor | trades | vetoed | mean all % | mean kept % | gain/trade % | top-winners vetoed | LODO | status |
 |---|---|---|---|---|---|---|---|---|
-| iv_late | 135 | 0 | +0.75 | +0.75 | +0.00 | 0% | no | advisory |
-| room | 135 | 14 | +0.75 | +0.81 | +0.06 | 6% | no | advisory |
-| coherence | 135 | 91 | +0.75 | -0.76 | -1.51 | 77% | no | advisory |
-| force | 135 | 4 | +0.75 | +0.82 | +0.07 | 3% | no | advisory |
-| episode | 135 | 4 | +0.75 | +0.57 | -0.18 | 6% | no | advisory |
-| book | 135 | 46 | +0.75 | +0.88 | +0.14 | 31% | no | advisory |
-| premium | 135 | 25 | +0.75 | +1.52 | +0.77 | 11% | yes | advisory |
-| quiet | 135 | 0 | +0.75 | +0.75 | +0.00 | 0% | no | advisory |
-| bank | 135 | 20 | +0.75 | -0.49 | -1.24 | 26% | no | advisory |
-| event | 135 | 0 | +0.75 | +0.75 | +0.00 | 0% | no | advisory |
-| gamma_leg | 135 | 1 | +0.75 | +0.88 | +0.13 | 0% | no | advisory |
-| gex_room | 135 | 41 | +0.75 | +1.23 | +0.48 | 20% | no | advisory |
-| regime | 135 | 85 | +0.75 | +2.29 | +1.55 | 57% | no | advisory |
+| iv_late | 138 | 0 | +0.77 | +0.77 | +0.00 | 0% | no | advisory |
+| room | 138 | 14 | +0.77 | +0.83 | +0.06 | 6% | no | advisory |
+| coherence | 138 | 94 | +0.77 | -0.76 | -1.52 | 78% | no | advisory |
+| force | 138 | 4 | +0.77 | +0.84 | +0.07 | 3% | no | advisory |
+| episode | 138 | 4 | +0.77 | +0.59 | -0.18 | 6% | no | advisory |
+| book | 138 | 48 | +0.77 | +0.84 | +0.07 | 33% | no | advisory |
+| premium | 138 | 26 | +0.77 | +1.56 | +0.79 | 11% | yes | advisory |
+| quiet | 138 | 0 | +0.77 | +0.77 | +0.00 | 0% | no | advisory |
+| bank | 138 | 22 | +0.77 | -0.40 | -1.17 | 25% | no | advisory |
+| event | 138 | 0 | +0.77 | +0.77 | +0.00 | 0% | no | advisory |
+| gamma_leg | 138 | 1 | +0.77 | +0.90 | +0.13 | 0% | no | advisory |
+| gex_room | 138 | 44 | +0.77 | +1.23 | +0.46 | 22% | no | advisory |
+| regime | 138 | 88 | +0.77 | +2.29 | +1.53 | 58% | no | advisory |
 
 ## Trades by regime at entry
 
@@ -162,15 +163,15 @@ Day-level conditions for GO (§9.2; not wired into GO — owner item O-8e). Day 
 | conductor | COMPRESSION | 3 | -4.68 | 33% |
 | conductor | DIRECTIONAL | 6 | +11.63 | 50% |
 | conductor | EXHAUSTION | 1 | -9.35 | 0% |
-| conductor | RANGE | 2 | -0.74 | 50% |
-| conductor | UNCERTAIN | 3 | +6.64 | 67% |
+| conductor | RANGE | 3 | -1.47 | 33% |
+| conductor | UNCERTAIN | 5 | +5.54 | 60% |
 | conductor | WARMING | 1 | +21.35 | 100% |
 | RAW | BREAKOUT | 4 | -6.11 | 25% |
 | RAW | COMPRESSION | 27 | -2.23 | 22% |
 | RAW | DIRECTIONAL | 45 | +3.47 | 49% |
 | RAW | EXHAUSTION | 3 | -5.36 | 0% |
-| RAW | RANGE | 28 | +2.72 | 57% |
-| RAW | UNCERTAIN | 20 | -2.59 | 40% |
+| RAW | RANGE | 29 | +2.52 | 55% |
+| RAW | UNCERTAIN | 22 | -2.00 | 41% |
 | RAW | WARMING | 8 | +2.67 | 50% |
 
 
@@ -580,33 +581,32 @@ Champion for the next session: **`conductor`** · gates: none · candidates: non
 
 ## Record integrity
 
-- Back-filled unrecorded session(s) from paper/: 2026-11-09 (stopped before the day-roll; rows of books still holding a position are tagged `unclosed`).
 - 1 recorded non-trading day(s) carry trades (special session, or sim/test data?): 2026-10-18
 
 ## Edge features at entry (D-136: evidence only, nothing here gates a trade)
 
-6544 trades over 14 day(s), all books. Signed features: positive = with the trade.
+7480 trades over 15 day(s), all books. Signed features: positive = with the trade.
 
 | feature | n | winners median | losers median | Spearman vs return |
 |---|---|---|---|---|
-| basis_dev | 6540 | 1.5 | 1.4 | 0.00966 |
-| iv_atm | 6544 | 17.7 | 17.8 | -0.0499 |
-| iv_chg5 | 6540 | -0.04 | -0.02 | -0.0601 |
-| rv15 | 6544 | 10.4 | 10.4 | -0.0376 |
-| iv_rv | 6544 | 1.73 | 1.74 | -0.0362 |
-| fut_imb5 | 6544 | -0.027 | -0.03 | -0.0388 |
-| fut_tot_imb | 6544 | 0.031 | 0.016 | 0.0774 |
-| wall_up | 6283 | 168 | 178 | -0.0913 |
-| wall_dn | 5162 | 92 | 80.2 | 0.079 |
-| pcr | 6540 | 0.887 | 0.932 | -0.116 |
-| imp_rng | 6261 | 89.2 | 87.7 | -0.0159 |
-| imp_d | 6261 | 1 | -1 | 0.0734 |
-| imp_f | 6261 | 0.28 | 0.284 | -0.0526 |
-| fut_ofi60 | 6543 | 2.52 | 3.74 | -0.0201 |
-| syn_dev | 6540 | 0.51 | 0.47 | -0.0505 |
-| fut_micro | 6543 | 0 | 0 | 0.0467 |
-| v_min30 | 5133 | 64 | 61 | -0.0159 |
-| imp_with | 6261 | 1 | 1 | 0.0957 |
-| wall_room | 5762 | 172 | 146 | 0.0207 |
+| basis_dev | 7476 | 1.35 | 1.3 | 0.00354 |
+| iv_atm | 7480 | 17.4 | 17.4 | -0.0412 |
+| iv_chg5 | 7476 | -0.04 | -0.02 | -0.0555 |
+| rv15 | 7480 | 10.1 | 10.2 | -0.0475 |
+| iv_rv | 7480 | 1.76 | 1.76 | -0.0257 |
+| fut_imb5 | 7480 | 0 | -0.032 | -0.029 |
+| fut_tot_imb | 7480 | 0.03 | 0.016 | 0.0607 |
+| wall_up | 7219 | 166 | 167 | -0.0842 |
+| wall_dn | 6098 | 104 | 93.5 | 0.067 |
+| pcr | 7476 | 0.873 | 0.907 | -0.109 |
+| imp_rng | 7197 | 84.2 | 83.9 | -0.0236 |
+| imp_d | 7197 | 1 | -1 | 0.0374 |
+| imp_f | 7197 | 0.269 | 0.284 | -0.055 |
+| fut_ofi60 | 7479 | 1.8 | 3.11 | -0.0243 |
+| syn_dev | 7476 | 0.45 | 0.49 | -0.0516 |
+| fut_micro | 7479 | 0 | 0 | 0.0426 |
+| v_min30 | 6069 | 60.4 | 59.1 | -0.0239 |
+| imp_with | 7197 | 1 | 1 | 0.0659 |
+| wall_room | 6698 | 169 | 159 | 0.0194 |
 
 A feature earns a pre-registered gate only when its sign holds on every recorded day and on new days, including an up day (council 8 bar).

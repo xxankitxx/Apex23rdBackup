@@ -94,9 +94,14 @@
 
   <!-- 11 Nov: the Forecast Lab (apex/forecast_lab, a separate process). Display only: nothing here trades. -->
   <section class="forecast" id="fcsec" aria-label="Forecast">
-    <div class="sec-head"><h2>Forecast <small class="id-note">ranges, decay and scenarios; a call is shown only when its own record has earned it · display only, the Conductor does not read it</small></h2><span id="labhint"></span></div>
+    <div class="sec-head"><h2>Forecast <small class="id-note">how far, which way, your trade and decay, in plain words · display only, the Conductor does not read it</small></h2><span id="labhint"></span></div>
     <div class="lab-strip" id="labstrip"></div>
-    <div class="lab-say" id="labsay"><p class="small">Waiting for the forecaster…</p></div>
+    <!-- 12 Nov evening (owner: "not at all intuitive"): the same numbers in plain words first; the full notes fold below -->
+    <div class="lab-plain" id="labplain"><p class="small">Waiting for the forecaster…</p></div>
+    <details class="lab-notes" id="labnotes">
+      <summary>Full notes: the forecaster's record and what each claim still needs</summary>
+      <div class="lab-say" id="labsay"><p class="small">Waiting for the forecaster…</p></div>
+    </details>
     <details class="lab-detail" id="labdetail" open>
       <summary>Charts and tables: the next 30 minutes, what if, time decay and the record</summary>
       <div class="lab-charts">

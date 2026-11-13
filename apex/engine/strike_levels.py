@@ -21,6 +21,7 @@ It earns a role in a decision only when it holds on new days.
 import json
 import os
 
+from .. import fsutil
 from .. import config
 
 BRK_PCT = 1.0          # a break is 1 % beyond the level
@@ -163,4 +164,4 @@ def save_day(sl):
     tmp = p + ".tmp"
     with open(tmp, "w", encoding="utf-8") as f:
         json.dump(sl.dump_day(), f)
-    os.replace(tmp, p)
+    fsutil.replace(tmp, p)

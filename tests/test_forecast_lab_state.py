@@ -134,27 +134,31 @@ def test_unknown_version_and_garbage_are_discarded_not_loaded():
     assert np.allclose(lab.hedge[3].w, w0)                            # nothing was half-assigned
 
 
-def test_out_of_bounds_state_falls_back_warm_then_cold(tmp_path):
+def test_out_of_bounds_calibration_is_reset_and_the_learning_kept(tmp_path):
+    """12 Nov: the live state.json saved at 15:40 had z80 0.75 (a wide-range day) and was rejected whole, so the next
+    start would have dropped the day's learning for the older warm file. Now only kappa / z80 restart."""
     good = C.Lab(options=False)
     good.kappa[:] = 1.1
+    for h in good.hedge:
+        h.w = np.array([0.1, 0.1, 0.1, 0.1, 0.1, 0.25, 0.25])
+        h.n = 1234
     s_good = json.loads(json.dumps(good.to_json()))
-    bad = dict(s_good, kappa=[3.0] * 7)
     st, warm = tmp_path / "state.json", tmp_path / "state_warm.json"
-    st.write_text(json.dumps(bad), encoding="utf-8")
-    warm.write_text(json.dumps(s_good), encoding="utf-8")
+    warm.write_text(json.dumps(dict(s_good, kappa=[1.4] * 7)), encoding="utf-8")
     cands = [(str(st), "state.json"), (str(tmp_path / "state.prev.json"), "state.prev.json"), (str(warm), "state_warm.json")]
-    lab = C.Lab(options=False)
-    learning, notes, keep = L.pick_state(lab, cands)
-    assert learning["source"] == "state_warm.json" and np.allclose(lab.kappa, 1.1)
-    assert any("rejected: kappa" in n for n in notes) and keep and keep[0][0] == str(st)
-    warm.write_text(json.dumps(dict(s_good, z80=[2.5] * 7)), encoding="utf-8")
-    lab = C.Lab(options=False)
-    learning, notes, _ = L.pick_state(lab, cands)
-    assert learning["source"] == "cold" and not learning["ok"] and np.all(lab.kappa == 1.0)
-    assert any("rejected: z80" in n for n in notes)
-    assert L.state_from_label(learning).startswith("none (")
+    for bad, word in ((dict(s_good, kappa=[3.0] * 7), "kappa 3.00"), (dict(s_good, z80=[0.75] * 7), "z80 0.75")):
+        st.write_text(json.dumps(bad), encoding="utf-8")
+        lab = C.Lab(options=False)
+        learning, notes, keep = L.pick_state(lab, cands)
+        assert learning["source"] == "state.json" and learning["ok"], notes
+        assert "kappa/z80 reset" in learning["why"] and word in learning["why"] and "outside" in learning["why"]
+        assert np.all(lab.kappa == 1.0) and np.allclose(lab.z80, C.Z80_START)
+        assert all(h.n == 1234 for h in lab.hedge) and np.allclose(lab.hedge[0].w[-1], 0.25)   # the learning is kept
+        assert learning["updates"] == 1234 * len(lab.hedge) and keep == []
+        assert L.state_from_label(learning).startswith("state.json, loaded, kappa/z80 reset")
     # offline walks (no bounds) still carry a large learned kappa
-    assert C.Lab(state=bad, options=False).load_status["ok"]
+    assert C.Lab(state=dict(s_good, kappa=[3.0] * 7), options=False).load_status["ok"]
+    assert np.allclose(C.Lab(state=dict(s_good, kappa=[3.0] * 7), options=False).kappa, 3.0)
 
 
 def test_brain_hash_change_resets_kappa_z80():

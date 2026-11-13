@@ -21,6 +21,7 @@ import sys
 from collections import deque
 from datetime import datetime
 from multiprocessing import Pool
+from apex import fsutil
 
 import numpy as np
 
@@ -155,7 +156,7 @@ def build(ticks_dir, out_path, procs=14):
     tmp = out_path + ".tmp"
     with open(tmp, "w", encoding="utf-8") as f:
         json.dump(out, f, separators=(",", ":"))
-    os.replace(tmp, out_path)
+    fsutil.replace(tmp, out_path)
     return out
 
 

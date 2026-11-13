@@ -1,0 +1,15 @@
+{"t": "08:41:21", "k": "SYSTEM", "x": "day 2026-10-30 \u00b7 champion conductor \u00b7 gates none \u00b7 capital \u20b9100,000", "mkt_t": 1793329881.0}
+{"t": "09:15:00", "k": "GAP", "x": "data gap: feed stale: futures quote 365 s old \u2014 entries paused until 20 s of fresh data", "mkt_t": 1793331900.0}
+{"t": "09:15:20", "k": "GAP", "x": "data back after 20 s (feed stale: futures quote 366 s old); entries resume", "mkt_t": 1793331920.3}
+{"t": "09:20:00", "k": "SPIKE", "x": "straddle 22950 +22.4 over theta in 5 min \u2014 PE leg carries it (152.5, delta None\u2192-0.515, gamma 0.0011)", "mkt_t": 1793332200.2}
+{"t": "09:45:12", "k": "RAW-ENTRY", "x": "BUY 8 lots NIFTY 22900 CE (2026-11-03) @ 178.90 \u00b7 COUNCIL NORM pb v=+36", "mkt_t": 1793333712.0}
+{"t": "09:45:12", "k": "ENTRY", "x": "BUY 8 lots NIFTY 22900 CE (2026-11-03) @ 178.90 \u00b7 COUNCIL NORM pb v=+36 \u00b7 via c20_9y", "mkt_t": 1793333712.0}
+{"t": "09:54:47", "k": "RAW-EXIT", "x": "CE 22900 8 lots \u00b7 178.90 \u2192 175.90 = -3.00 pts / \u20b9-1,560 \u00b7 COUNCIL FWD_TRAIL \u00b7 capital \u20b998,440", "mkt_t": 1793334287.0}
+{"t": "09:54:47", "k": "EXIT", "x": "CE 22900 8 lots \u00b7 178.90 \u2192 175.90 = -3.00 pts / \u20b9-1,560 \u00b7 COUNCIL FWD_TRAIL \u00b7 via c20_9y \u00b7 capital \u20b998,440", "mkt_t": 1793334287.0}
+{"t": "10:31:54", "k": "SHIFT", "x": "ATM rolled 22950 \u2192 22900: straddle 272.4 \u2192 273.1 (spot settled at the new strike)", "mkt_t": 1793336514.4}
+{"t": "10:51:52", "k": "GAP", "x": "data gap: feed silent: no quote on any instrument for 3 s \u2014 entries paused until 20 s of fresh data", "mkt_t": 1793337712.8}
+{"t": "10:52:13", "k": "GAP", "x": "data back after 21 s (feed silent: no quote on any instrument for 4 s); entries resume", "mkt_t": 1793337733.8}
+{"t": "11:03:52", "k": "SHIFT", "x": "ATM rolled 22900 \u2192 22950: straddle 272.2 \u2192 264.5 (spot settled at the new strike)", "mkt_t": 1793338432.0}
+{"t": "11:06:05", "k": "GAP", "x": "data gap: feed silent: no quote on any instrument for 3 s \u2014 entries paused until 20 s of fresh data", "mkt_t": 1793338565.8}
+{"t": "11:06:26", "k": "GAP", "x": "data back after 20 s (feed silent: no quote on any instrument for 3 s); entries resume", "mkt_t": 1793338586.1}
+{"t": "11:17:57", "k": "SHIFT", "x": "ATM rolled 22950 \u2192 23000: straddle 272.0 \u2192 266.8 (spot settled at the new strike)", "mkt_t": 1793339277.1}

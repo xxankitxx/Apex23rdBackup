@@ -99,7 +99,7 @@ function run(name, opts = {}) {
   ok(S.errors.length === 0, `${name}: a part failed to draw: ${S.errors.join(" | ")}`);
   return S;
 }
-const all = (S) => ["labsay", "labstrip", "labglance", "labnext", "labwhatif", "labdecay", "labscore", "labhint"].map((id) => visible(S.els[id])).join("\n");
+const all = (S) => ["labplain", "labsay", "labstrip", "labglance", "labnext", "labwhatif", "labdecay", "labscore", "labhint"].map((id) => visible(S.els[id])).join("\n");
 
 // every case draws without a fault
 for (const c of man) run(c.name);
@@ -119,6 +119,30 @@ for (const c of man) run(c.name);
   // hidden page: 5 s
   const H = sandbox({ now: C.flat.now, hidden: true }); H.t.labTake(P.flat);
   ok(H.t.labDelay() === 5000, "hidden page: poll should be 5 s");
+}
+
+// 12 Nov evening: the plain-words card, flat, held and stopped
+{
+  const S = run("flat"), t = visible(S.els.labplain);
+  ok(/How far/.test(t) && /Which way/.test(t) && /If you buy now/.test(t) && /Decay/.test(t), `flat: plain card rows missing: ${t}`);
+  ok(t.indexOf(P.flat.plain.head) > 0 && t.indexOf(P.flat.plain.verdict.word) < t.indexOf(P.flat.plain.head), "flat: the read and headline are not at the top");
+  ok(/Where Nifty may be/.test(t) && /Commentary/.test(t) && /Where each option may be/.test(t) && /to buy/.test(t), `flat: ladder, commentary or option board missing: ${t}`);
+  ok((S.els.labplain.children[2].innerHTML.match(/class="fx-opt /g) || []).length === P.flat.plain.board.length, "flat: one card per forecast option");
+  ok(/Which way, 2 min/.test(visible(S.els.labglance)), "flat: glance has no plain direction chip");
+}
+{
+  const S = run("held"), t = visible(S.els.labplain);
+  ok(/Your trade/.test(t) && /above entry|below entry/.test(t) && !/If you buy now/.test(t), `held: plain card does not speak of the trade: ${t}`);
+  ok(/your trade/.test(t) && /Entry ₹230\.50/.test(t) && t.indexOf("your trade") < t.indexOf("to buy"), "held: the held option is not first on the board with its entry");
+}
+for (const name of ["stale", "previous_day", "ok_false"]) {
+  const S = run(name), t = visible(S.els.labplain);
+  ok(!/How far|Which way/.test(t) && /stopped|No forecast/.test(t), `${name}: the plain card still shows rows on a stopped file: ${t}`);
+}
+{
+  const p = JSON.parse(JSON.stringify(P.flat)); delete p.plain;
+  const S = sandbox({ now: C.flat.now }); S.t.labTake(p);
+  ok(S.errors.length === 0 && /restart it/.test(visible(S.els.labplain)), "a payload without plain rows should say restart, not fail");
 }
 
 // '(80 %)' only on horizons whose range is on target today
@@ -153,7 +177,7 @@ for (const name of ["flat", "held", "unearned_horizons"]) {
   ok(wi.indexOf("25,150 CE") >= 0 && (wi.indexOf("25,250 PE") < 0 || wi.indexOf("25,150 CE") < wi.indexOf("25,250 PE")), "held: the held what-if is not first");
   ok(/entry ₹230\.5/.test(S.els.labopt.innerHTML) && !/buy price now/.test(S.els.labopt.innerHTML), "held: the held fan should draw the entry, not the buy price");
   ok(/from your entry/.test(visible(S.els.labnext)), "held: the Next row has no P&L from the entry");
-  ok(/not assessed: holding/.test(visible(S.els.labglance)), "held: buy chip should say not assessed");
+  ok(/Forecaster's read/.test(visible(S.els.labglance)) && /HOLD|PROTECT GAINS|WATCH|UNDER PRESSURE/.test(visible(S.els.labglance)), "held: the read chip should give a holding read");
   // a stored 'open' preference wins next time
   const S2 = sandbox({ now: C.held.now, body: C.held.body, storage: { "apex.labdetail.holding": "1" } }); S2.t.labTake(P.held);
   ok(S2.els.labdetail.open === true, "held: the viewer's stored choice is not applied");
@@ -219,9 +243,10 @@ for (const name of ["stale", "previous_day", "ok_false"]) {
   const again = S.t.LAB.wrote - before;
   ok(again < 400, `an unchanged second wrote ${again} characters of Lab HTML`);
   const p3 = JSON.parse(JSON.stringify(P.flat)); p3.t += 2; p3.F += 1.5;
-  const b2 = S.t.LAB.wrote, f0 = S.els.labfut.innerHTML; S.t.labTake(p3);
-  const svg = S.els.labfut.innerHTML !== f0 ? S.els.labfut.innerHTML.length : 0;   // the fan itself moves with the price
-  ok(S.els.labnext.children[0] === wrap && S.t.LAB.wrote - b2 - svg < 800, `one changed price wrote ${S.t.LAB.wrote - b2 - svg} characters besides the fan`);
+  const b2 = S.t.LAB.wrote, c2 = S.t.LAB.chart || 0, f0 = S.els.labfut.innerHTML; S.t.labTake(p3);
+  const svg = (S.els.labfut.innerHTML !== f0 ? S.els.labfut.innerHTML.length : 0)   // the fan itself moves with the price,
+    + ((S.t.LAB.chart || 0) - c2);                                                   // and so does the Nifty ladder (12 Nov)
+  ok(S.els.labnext.children[0] === wrap && S.t.LAB.wrote - b2 - svg < 800, `one changed price wrote ${S.t.LAB.wrote - b2 - svg} characters besides the fan and the ladder`);
 }
 // fmt and labRs keep one formatter per decimal count
 {

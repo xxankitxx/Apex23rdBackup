@@ -29,6 +29,7 @@ import shutil
 import subprocess
 import sys
 import time
+from apex import fsutil
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SEED_FILES = ("state.json", "days.jsonl", "day_levels.json", "strike_levels.json", "defects.json",
@@ -113,7 +114,7 @@ def _write(path, obj):
     tmp = path + ".tmp"
     with open(tmp, "w", encoding="utf-8") as f:
         json.dump(obj, f, indent=1, default=str)
-    os.replace(tmp, path)
+    fsutil.replace(tmp, path)
 
 
 def child(tape, out):

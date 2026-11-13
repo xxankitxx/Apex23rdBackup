@@ -1,0 +1,45 @@
+2026-11-12 17:54:53 REPLAY meta {"schema": 1, "apex": "1.9.0", "git": "f164660", "src": "5f1d47c4b7c0", "cfg": "d5be18c6ad3cceeebdee42c6c58d02633cabe9b8", "part": 1}
+2026-11-12 17:54:54 REPLAY registry: 121 instruments
+2026-11-12 17:54:54 ENGINE registry v1: 121 instruments, weekly 2026-11-03, next 2026-11-09
+2026-11-12 17:54:54 mkt=08:23:12 ENGINE CONDUCTOR pool as of 2026-11-02: 5 pair(s) (APEX_POOL_ASOF=all) · c20_9y+free/low · c20_9s+free/low · c20_9v+free/low · c20_9x+free/low · c20_9t+free/low
+2026-11-12 17:54:55 mkt=08:23:12 ENGINE FORECAST artefact for 2026-11-02: chronological: artefact bc4a35399051 trained through 2026-10-30 · availability simulated
+2026-11-12 17:54:56 mkt=08:23:12 ENGINE SLOW TICK 1771 ms · step parts (ms): day 1185, books 523, pre-books 28, greeks 7 · inside (ms): book:c20_8x 472, ideas board 132, pred start 40, weather feed v3 22, quant view 21 · save lag 0
+2026-11-12 17:55:14 mkt=08:24:00 ENGINE tick time last minute: p50 34 ms, p95 62 ms, max 1771 ms over 476 ticks (over 300 ms: 2, over 1 s: 1) · share of time: market 39 %, books 16 %, guard-domino-regime 12 %, day 7 % · mean ms per tick: publish 1.8, book:c20_8x 1.0, conductor 0.6, weather feed v3 0.5 · save lag 0
+2026-11-12 18:14:17 REPLAY registry: 137 instruments
+2026-11-12 18:14:18 mkt=09:15:43 ENGINE registry v2: 137 instruments, weekly 2026-11-03, next 2026-11-09
+2026-11-12 18:14:30 mkt=09:16:00 ENGINE tick time last minute: p50 51 ms, p95 144 ms, max 401 ms over 600 ticks (over 300 ms: 1, over 1 s: 0) · share of time: market 24 %, greeks 23 %, pre-books 10 %, guard-domino-regime 9 % · mean ms per tick: publish 4.9, advise 1.6, strike levels 1.3, ideas 1.2 · save lag 0
+2026-11-12 18:15:14 mkt=09:17:00 ENGINE tick time last minute: p50 55 ms, p95 130 ms, max 444 ms over 600 ticks (over 300 ms: 1, over 1 s: 0) · share of time: market 24 %, greeks 21 %, pre-books 10 %, guard-domino-regime 9 % · mean ms per tick: publish 5.0, advise 1.8, quant view 1.6, strike levels 1.1 · save lag 0
+2026-11-12 18:15:56 mkt=09:18:00 ENGINE tick time last minute: p50 54 ms, p95 121 ms, max 463 ms over 600 ticks (over 300 ms: 1, over 1 s: 0) · share of time: market 25 %, greeks 22 %, guard-domino-regime 10 %, books 9 % · mean ms per tick: publish 4.8, quant view 1.6, advise 1.6, ideas 1.1 · save lag 0
+2026-11-12 18:19:08 mkt=09:23:00 ENGINE tick time last minute: p50 54 ms, p95 121 ms, max 328 ms over 600 ticks (over 300 ms: 1, over 1 s: 0) · share of time: market 24 %, greeks 21 %, guard-domino-regime 10 %, pre-books 10 % · mean ms per tick: publish 4.6, quant view 1.7, advise 1.6, ideas 1.5 · save lag 0
+2026-11-12 18:19:47 mkt=09:24:00 ENGINE tick time last minute: p50 51 ms, p95 112 ms, max 306 ms over 600 ticks (over 300 ms: 1, over 1 s: 0) · share of time: market 25 %, greeks 21 %, guard-domino-regime 10 %, pre-books 9 % · mean ms per tick: publish 4.0, quant view 1.5, advise 1.5, ideas 1.2 · save lag 0
+2026-11-12 18:20:34 mkt=09:25:08 ENGINE WEATHER first photograph (spot_pb45): 454 fields, version 5 · not yet filled: 64 Last trade, 65 Direction history
+2026-11-12 18:20:34 mkt=09:25:08 ENGINE SLOW TICK 1447 ms · step parts (ms): books 1331, one-hz 46, market 30, pre-books 12 · inside (ms): book:spot_pb45 59, book:t28_fill 58, book:apex_edge 55, book:t28_ts 54, book:spot_dual 54 · save lag 0
+2026-11-12 18:21:07 mkt=09:26:00 ENGINE tick time last minute: p50 54 ms, p95 118 ms, max 1447 ms over 600 ticks (over 300 ms: 2, over 1 s: 1) · share of time: books 22 %, market 21 %, greeks 19 %, guard-domino-regime 8 % · mean ms per tick: publish 4.0, quant view 1.3, ideas 1.3, weather base 1.0 · save lag 0, last write 19 ms
+2026-11-12 18:21:53 mkt=09:27:00 ENGINE tick time last minute: p50 65 ms, p95 125 ms, max 306 ms over 600 ticks (over 300 ms: 1, over 1 s: 0) · share of time: books 26 %, market 20 %, greeks 17 %, guard-domino-regime 7 % · mean ms per tick: publish 4.6, quant view 1.3, ideas 1.3, straddle 1.1 · save lag 0, last write 19 ms
+2026-11-12 18:23:37 mkt=09:29:00 ENGINE tick time last minute: p50 81 ms, p95 160 ms, max 301 ms over 600 ticks (over 300 ms: 1, over 1 s: 0) · share of time: books 26 %, market 19 %, greeks 16 %, ctx 8 % · mean ms per tick: publish 6.2, forward view 1.9, ideas 1.6, advise 1.5 · save lag 0, last write 18 ms
+2026-11-12 18:24:39 mkt=09:30:00 ENGINE tick time last minute: p50 86 ms, p95 178 ms, max 505 ms over 600 ticks (over 300 ms: 1, over 1 s: 0) · share of time: books 25 %, market 18 %, greeks 15 %, ctx 8 % · mean ms per tick: publish 7.5, forward view 2.1, advise 1.9, straddle 1.7 · save lag 0, last write 16 ms
+2026-11-12 18:25:41 mkt=09:31:00 ENGINE tick time last minute: p50 82 ms, p95 184 ms, max 572 ms over 600 ticks (over 300 ms: 4, over 1 s: 0) · share of time: books 28 %, market 18 %, greeks 15 %, ctx 8 % · mean ms per tick: publish 6.8, forward view 2.0, advise 1.8, straddle 1.7 · save lag 0, last write 39 ms
+2026-11-12 18:26:45 mkt=09:32:00 ENGINE tick time last minute: p50 89 ms, p95 196 ms, max 418 ms over 600 ticks (over 300 ms: 5, over 1 s: 0) · share of time: books 30 %, market 16 %, greeks 15 %, pre-books 9 % · mean ms per tick: publish 8.4, save books (trade) 3.3, forward view 2.1, pred 2.0 · save lag 0, last write 24 ms
+2026-11-12 18:27:49 mkt=09:33:00 ENGINE tick time last minute: p50 87 ms, p95 183 ms, max 343 ms over 600 ticks (over 300 ms: 5, over 1 s: 0) · share of time: books 26 %, market 17 %, greeks 15 %, pre-books 9 % · mean ms per tick: publish 8.5, forward view 2.1, pred 2.0, advise 1.8 · save lag 0, last write 21 ms
+2026-11-12 18:28:58 mkt=09:34:00 ENGINE tick time last minute: p50 93 ms, p95 202 ms, max 389 ms over 600 ticks (over 300 ms: 7, over 1 s: 0) · share of time: books 27 %, market 17 %, greeks 15 %, pre-books 9 % · mean ms per tick: publish 10.0, pred 2.2, advise 2.1, forward view 2.1 · save lag 0, last write 25 ms
+2026-11-12 18:30:03 mkt=09:35:00 ENGINE tick time last minute: p50 87 ms, p95 209 ms, max 439 ms over 600 ticks (over 300 ms: 7, over 1 s: 0) · share of time: books 28 %, market 17 %, greeks 15 %, pre-books 9 % · mean ms per tick: publish 8.5, forward view 2.1, pred 2.1, save books (trade) 2.1 · save lag 0, last write 35 ms
+Traceback (most recent call last):
+  File "<frozen runpy>", line 198, in _run_module_as_main
+  File "<frozen runpy>", line 88, in _run_code
+  File "D:\ApexOptions\apex\replay_batch.py", line 241, in <module>
+    sys.exit(main() or 0)
+             ~~~~^^
+  File "D:\ApexOptions\apex\replay_batch.py", line 163, in main
+    return child(a.child, a.out)
+  File "D:\ApexOptions\apex\replay_batch.py", line 131, in child
+    eng = replay_fast.run(tape, t, b, log=feed_replay.log)
+  File "D:\ApexOptions\apex\replay_fast.py", line 94, in run
+    write_chain(t, d)
+    ~~~~~~~~~~~^^^^^^
+  File "D:\ApexOptions\apex\feed_breeze.py", line 684, in write_chain
+    replace_retry(tmp, os.path.join(config.DATA_DIR, "chain_latest.json"))
+    ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\ApexOptions\apex\feed_core.py", line 49, in replace_retry
+    os.replace(src, dst)
+    ~~~~~~~~~~^^^^^^^^^^
+PermissionError: [WinError 5] Access is denied: 'D:\\ApexOptions\\data\\replay\\batch\\p44_g5\\chain_latest.json.tmp' -> 'D:\\ApexOptions\\data\\replay\\batch\\p44_g5\\chain_latest.json'

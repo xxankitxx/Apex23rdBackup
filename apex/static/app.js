@@ -1709,6 +1709,7 @@ function labWire() {
 function renderLab(p) {
   const t0 = performance.now();
   labMode(p);
+  labTry("labplain", labPlain, p);
   labTry("labsay", labSay, p);
   labTry("labstrip", labStrip, LAB.cur || p);
   labDetail(p);
@@ -1720,6 +1721,85 @@ function labDetail(p) {
   LAB.dirty = false;
   labTry("labfut", labFutChart, p); labTry("labopttabs", labOptTabs, p); labTry("labopt", labOptChart, p);
   labTry("labnext", labNext, p); labTry("labwhatif", labWhatIf, p); labTry("labdecay", labDecay, p); labTry("labscore", labScore, p);
+}
+// 12 Nov late (owner: "very intuitive and more comprehensive"): the Forecast section's top. The forecaster's read with
+// its reason, Nifty now and its normal 5-minute move, where Nifty may be in 5 / 15 / 30 minutes, a running commentary,
+// every forecast option with where its premium may be, then the four plain read-outs. Built from core.plain().
+const FX_TAG = { held: "your trade", buy: "to buy", atm: "at the money" };
+const fxH = (h) => `${h / 60} min`;
+const fxPct = (x) => nil(x) ? "—" : `${Math.round(x * 100)}%`;
+const fxPos = (v, lo, hi) => Math.max(0, Math.min(100, (v - lo) / ((hi - lo) || 1) * 100));
+function fxLadder(lad, F) {
+  if (!lad || !lad.length || nil(F)) return "";
+  const lo = Math.min(F, ...lad.map((r) => r.lo80)), hi = Math.max(F, ...lad.map((r) => r.hi80)), pad = (hi - lo) * 0.04;
+  const L = lo - pad, H = hi + pad, nowX = fxPos(F, L, H);
+  const rows = lad.map((r) => {
+    const a = fxPos(r.lo80, L, H), b = fxPos(r.hi80, L, H), c = fxPos(r.lo50, L, H), d = fxPos(r.hi50, L, H), m = fxPos(r.mid, L, H);
+    return `<div class="fx-lrow"><span class="fx-lh">${fxH(r.h)}</span><div class="fx-track">`
+      + `<i class="fx-b80" style="left:${a}%;width:${b - a}%"></i><i class="fx-b50" style="left:${c}%;width:${d - c}%"></i>`
+      + `<i class="fx-md" style="left:${m}%"></i><i class="fx-now" style="left:${nowX}%"></i>`
+      + `<em class="fx-lo" style="left:${a}%">${fmt(r.lo80, 0)}</em><em class="fx-hi" style="left:${b}%">${fmt(r.hi80, 0)}</em></div>`
+      + `<span class="fx-lw">±${fmt((r.hi80 - r.lo80) / 2, 0)}</span></div>`;
+  }).join("");
+  return `<h4>Where Nifty may be</h4><div class="fx-lgrid">${rows}</div>`
+    + `<p class="fx-key"><i class="k80"></i>8 in 10 chances <i class="k50"></i>5 in 10 <i class="kmid"></i>middle <i class="know"></i>now ${fmt(F, 1)}</p>`;
+}
+function fxFeed(feed) {
+  const li = (feed || []).slice(0, 12).map((e) => `<li class="fx-t-${labE(e.tone || "none")}"><time>${labE((e.t || "").slice(0, 5))}</time><span>${labE(e.text)}</span></li>`).join("");
+  return `<h4>Commentary</h4>${li ? `<ol>${li}</ol>` : `<p class="fx-quiet">Nothing has changed yet. Each change of read, market, decay or ranges is written here as it happens.</p>`}`;
+}
+function fxOption(o) {
+  const vals = [o.now].concat(...o.rows.map((r) => [r.lo, r.hi])).filter((v) => !nil(v));
+  const L = Math.min(...vals), H = Math.max(...vals), nowX = fxPos(o.now, L, H);
+  const pl = !nil(o.entry) ? o.now - o.entry : null;
+  const rows = o.rows.map((r) => {
+    const a = fxPos(r.lo, L, H), b = fxPos(r.hi, L, H), m = fxPos(r.mid, L, H), up = r.chg >= 0;
+    return `<tr><th>${fxH(r.h)}</th><td class="fx-num"><b>${labRs(r.mid, 1)}</b> <span class="${up ? "up" : "down"}">${labSgn(r.chg, 1)}</span></td>`
+      + `<td class="fx-rng"><div class="fx-track sm"><i class="fx-b80" style="left:${a}%;width:${b - a}%"></i><i class="fx-md" style="left:${m}%"></i><i class="fx-now" style="left:${nowX}%"></i></div>`
+      + `<small>${fmt(r.lo, 0)} to ${fmt(r.hi, 0)}</small></td><td class="fx-pp">${o.tag === "held" ? "" : fxPct(r.pp)}</td></tr>`;
+  }).join("");
+  const race = o.race ? `<p class="fx-race">Next 5 min: <span class="up">+5% first ${fxPct(o.race.up)}</span> · <span class="down">−5% first ${fxPct(o.race.down)}</span></p>` : "";
+  return `<div class="fx-opt fx-${o.side === "CE" ? "ce" : "pe"}${o.tag === "held" ? " fx-held" : ""}">`
+    + `<div class="fx-oh"><b>${fmt(o.strike, 0)} ${labE(o.side)}</b><span class="fx-tag">${labE(FX_TAG[o.tag] || o.tag || "")}</span>`
+    + `<span class="fx-onow">${labRs(o.now, 2)}<small>${o.tag === "held" ? "bid" : "ask"}</small></span></div>`
+    + (pl === null ? "" : `<p class="fx-pnl ${pl >= 0 ? "up" : "down"}">Entry ${labRs(o.entry, 2)} · ${labSgn(pl, 2)} (${labSgn(pl / o.entry * 100, 1)}%)</p>`)
+    + `<table class="fx-ot"><tr><th></th><th>expected</th><th>8 in 10 range</th><th>${o.tag === "held" ? "" : "profit odds"}</th></tr>${rows}</table>${race}</div>`;
+}
+// fixed slots, built once: each second only the slots whose words changed are written (the ladder moves with the price
+// like the fan, so its writes are counted apart in LAB.chart)
+function fxSlots(el) {
+  if (el._fx) return el._fx;
+  el.innerHTML = ""; el._h = null;
+  const mk = (parent, cls) => { const d = document.createElement("div"); d.className = cls; parent.appendChild(d); return d; };
+  const hero = mk(el, "fx-hero fx-none"), mid = mk(el, "fx-mid");
+  el._fx = { hero, verdict: mk(hero, "fx-verdict"), say: mk(hero, "fx-say"), nifty: mk(hero, "fx-nifty"), mid,
+    ladder: mk(mid, "fx-card fx-ladder"), feed: mk(mid, "fx-card fx-feed"), board: mk(el, "fx-boardwrap"), reads: mk(el, "lab-pl-rows") };
+  return el._fx;
+}
+function labPlain(p) {
+  const el = $("labplain"); if (!el) return;
+  const X = fxSlots(el), pl = p.plain, v = pl && pl.verdict;
+  const chart = (h) => { const w = LAB.wrote; labPut(X.ladder, h); LAB.chart = (LAB.chart || 0) + (LAB.wrote - w); };
+  const off = () => { labPut(X.nifty, ""); chart(""); labPut(X.feed, ""); labPut(X.board, ""); labPut(X.reads, ""); labCls(X.mid, "fx-mid fx-off"); };
+  if (LAB.stale || !pl) {
+    labCls(X.hero, "fx-hero fx-none");
+    labPut(X.verdict, `<small>Forecaster</small><b>${LAB.stale ? (LAB.staleKind === "old" ? "STOPPED" : "NO FORECAST") : "UPDATE"}</b>`);
+    labPut(X.say, `<p class="fx-why">${labE(LAB.stale || "This forecaster does not write the plain summary yet: restart it to get it.")}</p>`);
+    off(); return;
+  }
+  const rows = pl.rows || [], x5 = (pl.ladder || []).find((r) => r.h === 300);
+  labCls(X.hero, `fx-hero fx-${v ? (v.tone || "none") : "none"}`);
+  labPut(X.verdict, v ? `<small>Forecaster's read</small><b>${labE(v.word)}</b><span class="fx-conf">confidence: ${labE(v.conf || "—")}</span>` : `<small>Forecaster</small><b>WAIT</b>`);
+  labPut(X.say, `<p class="fx-head">${labE(pl.head || "")}</p>${v ? `<p class="fx-why">${labE(v.why || "")}</p>` : ""}`
+    + `<p class="fx-fine">Display only: the Conductor decides every trade and does not read this.</p>`);
+  if (!v) { off(); labPut(X.reads, ""); return; }
+  labPut(X.nifty, `<small>Nifty futures</small><b>${fmt(p.F, 1)}</b><span>${x5 ? `±${fmt((x5.hi80 - x5.lo80) / 2, 0)} pts in 5 min` : ""}</span>`);
+  labCls(X.mid, "fx-mid");
+  chart(fxLadder(pl.ladder, p.F));
+  labPut(X.feed, fxFeed(pl.feed));
+  labPut(X.board, (pl.board || []).length ? `<div class="fx-board-h"><h4>Where each option may be</h4><small>expected premium (middle forecast) and the range it should stay in 8 times in 10</small></div><div class="fx-board">${pl.board.map(fxOption).join("")}</div>` : "");
+  labPut(X.reads, rows.map((r) => `<div class="lab-pl lab-pl-${labE(r.tone || "none")}"><h4>${labE(r.title)}</h4>`
+    + `<p class="lab-pl-t">${labE(r.text)}</p>${r.note ? `<p class="lab-pl-n">${labE(r.note)}</p>` : ""}</div>`).join(""));
 }
 function labSay(p) {
   const el = $("labsay"); if (!el) return;
@@ -1753,29 +1833,21 @@ function labGlance(p) {
   const en = p.earned || {}, live = !LAB.stale, chips = [];
   const x5 = (p.path || []).find((f) => f.h === 300), r5 = ((en.range_h || {}).fut || {})["300"];
   if (live && x5 && r5 && r5.status === "ok")
-    chips.push({ k: "rng", lab: "5-min range (80 %)", val: `${fmt(x5.q10, 0)} to ${fmt(x5.q90, 0)}`, tip: `caught ${labPct(r5.cov)} on ${fmt(r5.checks, 0)} independent checks today` });
-  else chips.push({ k: "rng", lab: "5-min range", val: !live || !r5 ? "not stated" : r5.status === "unchecked" ? `unchecked · ${fmt(r5.checks, 0)} of 10 checks` : `not stated · caught ${labPct(r5.cov)}`,
-    tip: "an 80 % range is stated only when it caught 72 to 88 % on at least 10 independent checks today" });
+    chips.push({ k: "rng", lab: "Next 5 min (80 %)", val: `±${fmt((x5.q90 - x5.q10) / 2, 0)} pts · ${fmt(x5.q10, 0)} to ${fmt(x5.q90, 0)}`, tip: `held the price ${labPct(r5.cov)} of the time on ${fmt(r5.checks, 0)} independent checks today` });
+  else chips.push({ k: "rng", lab: "Next 5 min", val: !live || !x5 ? "no range" : `±${fmt((x5.q90 - x5.q10) / 2, 0)} pts · ${!r5 || r5.status === "unchecked" ? "not checked yet today" : r5.status === "narrow" ? "moves bigger today" : "moves smaller today"}`,
+    tip: "how far Nifty usually moves in 5 minutes; marked (80 %) once today's checks show it holds the price 72 to 88 % of the time" });
   const rent = p.rent || {};
   if (live && !nil(rent.be)) {
     const pay = !nil(rent.d10) && rent.d10 >= rent.be;
-    chips.push({ k: "rent", lab: "Movement vs decay, a min", val: `needs ${fmt(rent.be, 1)} · got ${fmt(rent.d10, 1)}, ${pay ? "paying" : "short"}`, cls: nil(rent.d10) ? "" : pay ? "up" : "down",
+    chips.push({ k: "rent", lab: "Decay", val: nil(rent.d10) ? "—" : pay ? `being paid · ${fmt(rent.ratio, 1)}× the cost` : `not paid · ${fmt(rent.ratio, 1)}× the cost`, cls: nil(rent.d10) ? "" : pay ? "up" : "down",
       tip: "the futures movement that pays for time decay (a calendar day's decay over the 375 trading minutes) against the last 10 minutes, one clock" });
-  } else chips.push({ k: "rent", lab: "Movement vs decay, a min", val: "—", tip: live ? "no option chain right now" : "not shown: the forecaster is not live" });
-  const d5 = (en.dir_h || {})["300"];
-  if (live && d5 && d5.earned) chips.push({ k: "dir", lab: "Direction, 5 min", val: `${d5.lean} · earned`, cls: d5.lean === "up" ? "up" : "down", tip: `${labPct(d5.hit)} right on ${fmt(d5.checks, 0)} independent clear calls, and the earlier days agree` });
-  else chips.push({ k: "dir", lab: "Direction, 5 min", val: d5 ? `no call · ${fmt(d5.checks, 0)} of 20 checks` : "no call", tip: (d5 && d5.why) || "direction is called only when its own record has earned it" });
-  const b5 = (en.buy_detail || {})["300"];
-  let bv = "not earned", btip = "a buy case needs its own checked record at that holding time";
-  if (labHolding(p)) { bv = "not assessed: holding"; btip = "no new buy case is assessed while the account holds a position"; }
-  else if (en.account_unknown) { bv = "not assessed: account unknown"; btip = "the engine report is old"; }
-  else if (live && b5 && b5.earned) bv = "earned at 5 min";
-  else if (b5) {
-    const c = Object.fromEntries((b5.conds || []).map((x) => [x.name, x])), ck = c.checks || {}, br = c.brier || {}, dy = c.days || {};
-    bv = `not earned · ${fmt(ck.have, 0)} of ${ck.need ?? 20} checks`;
-    btip = `win-chance score ${fmt(br.have, 3)} against ${fmt(br.clim, 3)} for the base rate (lower is better) · forward days ${dy.have ?? 0} of ${dy.need ?? 5}`;
-  }
-  chips.push({ k: "buy", lab: "Buy case, 5 min", val: bv, tip: btip });
+  } else chips.push({ k: "rent", lab: "Decay", val: "—", tip: live ? "no option chain right now" : "not shown: the forecaster is not live" });
+  const way = live ? ((p.plain || {}).rows || []).find((r) => r.k === "way") : null;
+  if (way) { const m = /(no lean|(?:slight|clear) lean (?:up|down))/i.exec(way.text); chips.push({ k: "dir", lab: "Which way, 2 min", val: m ? m[1].toLowerCase() : "—", cls: way.tone === "good" ? "up" : way.tone === "bad" ? "down" : "", tip: way.note || "" }); }
+  else chips.push({ k: "dir", lab: "Which way, 2 min", val: "—", tip: live ? "no lean is stated yet" : "not shown: the forecaster is not live" });
+  const rd = live ? (p.plain || {}).verdict : null;     // 12 Nov late: the forecaster's read replaces the buy-case chip
+  chips.push({ k: "read", lab: "Forecaster's read", val: rd ? rd.word : "—", cls: !rd ? "" : rd.tone === "good" ? "up" : rd.tone === "bad" ? "down" : "",
+    tip: rd ? `${rd.why} (confidence: ${rd.conf}; display only)` : "not shown: the forecaster is not live" });
   const cur = LAB.cur;
   if (LAB.stale) {
     const t = cur && !nil(cur.t) ? cur.t : p.t;

@@ -14,6 +14,7 @@ goes to `apex/rules/status.jsonl`, one dated line per change; the latest line is
 import json
 import os
 from datetime import date, timedelta
+from apex import fsutil
 
 ROOT = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 REGISTER = os.path.join(ROOT, "apex", "rules", "register.json")
@@ -31,7 +32,7 @@ def save(reg, path=REGISTER):
     tmp = path + ".tmp"
     with open(tmp, "w", encoding="utf-8", newline="\n") as f:
         json.dump(reg, f, indent=1, ensure_ascii=False)
-    os.replace(tmp, path)
+    fsutil.replace(tmp, path)
 
 
 def next_trading_day(d):

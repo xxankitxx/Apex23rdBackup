@@ -1,0 +1,380 @@
+{"t": 1793587992.4, "time": "08:23:12", "event": "flat", "why": "flat: data blackout"}
+{"t": 1793588012.4, "time": "08:23:32", "event": "flat", "why": "flat: no eligible trigger"}
+{"t": 1793588072.4, "time": "08:24:32", "event": "flat", "why": "flat: no eligible trigger"}
+{"t": 1793588132.4, "time": "08:25:32", "event": "flat", "why": "flat: no eligible trigger"}
+{"t": 1793588192.4, "time": "08:26:32", "event": "flat", "why": "flat: no eligible trigger"}
+{"t": 1793588252.4, "time": "08:27:32", "event": "flat", "why": "flat: no eligible trigger"}
+{"t": 1793588312.4, "time": "08:28:32", "event": "flat", "why": "flat: no eligible trigger"}
+{"t": 1793588372.4, "time": "08:29:32", "event": "flat", "why": "flat: no eligible trigger"}
+{"t": 1793588432.4, "time": "08:30:32", "event": "flat", "why": "flat: no eligible trigger"}
+{"t": 1793588492.4, "time": "08:31:32", "event": "flat", "why": "flat: no eligible trigger"}
+{"t": 1793588552.4, "time": "08:32:32", "event": "flat", "why": "flat: no eligible trigger"}
+{"t": 1793588612.4, "time": "08:33:32", "event": "flat", "why": "flat: no eligible trigger"}
+{"t": 1793588672.4, "time": "08:34:32", "event": "flat", "why": "flat: no eligible trigger"}
+{"t": 1793588732.4, "time": "08:35:32", "event": "flat", "why": "flat: no eligible trigger"}
+{"t": 1793588792.4, "time": "08:36:32", "event": "flat", "why": "flat: no eligible trigger"}
+{"t": 1793588852.4, "time": "08:37:32", "event": "flat", "why": "flat: no eligible trigger"}
+{"t": 1793588912.4, "time": "08:38:32", "event": "flat", "why": "flat: no eligible trigger"}
+{"t": 1793588972.4, "time": "08:39:32", "event": "flat", "why": "flat: no eligible trigger"}
+{"t": 1793589032.4, "time": "08:40:32", "event": "flat", "why": "flat: no eligible trigger"}
+{"t": 1793589092.4, "time": "08:41:32", "event": "flat", "why": "flat: no eligible trigger"}
+{"t": 1793589152.4, "time": "08:42:32", "event": "flat", "why": "flat: no eligible trigger"}
+{"t": 1793589212.4, "time": "08:43:32", "event": "flat", "why": "flat: no eligible trigger"}
+{"t": 1793589272.4, "time": "08:44:32", "event": "flat", "why": "flat: no eligible trigger"}
+{"t": 1793589332.4, "time": "08:45:32", "event": "flat", "why": "flat: no eligible trigger"}
+{"t": 1793589392.4, "time": "08:46:32", "event": "flat", "why": "flat: no eligible trigger"}
+{"t": 1793589452.4, "time": "08:47:32", "event": "flat", "why": "flat: no eligible trigger"}
+{"t": 1793589512.4, "time": "08:48:32", "event": "flat", "why": "flat: no eligible trigger"}
+{"t": 1793589572.4, "time": "08:49:32", "event": "flat", "why": "flat: no eligible trigger"}
+{"t": 1793589632.4, "time": "08:50:32", "event": "flat", "why": "flat: no eligible trigger"}
+{"t": 1793589692.4, "time": "08:51:32", "event": "flat", "why": "flat: no eligible trigger"}
+{"t": 1793589752.4, "time": "08:52:32", "event": "flat", "why": "flat: no eligible trigger"}
+{"t": 1793589812.4, "time": "08:53:32", "event": "flat", "why": "flat: no eligible trigger"}
+{"t": 1793589872.4, "time": "08:54:32", "event": "flat", "why": "flat: no eligible trigger"}
+{"t": 1793589932.4, "time": "08:55:32", "event": "flat", "why": "flat: no eligible trigger"}
+{"t": 1793589992.4, "time": "08:56:32", "event": "flat", "why": "flat: no eligible trigger"}
+{"t": 1793590052.4, "time": "08:57:32", "event": "flat", "why": "flat: no eligible trigger"}
+{"t": 1793590112.4, "time": "08:58:32", "event": "flat", "why": "flat: no eligible trigger"}
+{"t": 1793590172.4, "time": "08:59:32", "event": "flat", "why": "flat: no eligible trigger"}
+{"t": 1793590232.4, "time": "09:00:32", "event": "flat", "why": "flat: no eligible trigger"}
+{"t": 1793590292.4, "time": "09:01:32", "event": "flat", "why": "flat: no eligible trigger"}
+{"t": 1793590352.4, "time": "09:02:32", "event": "flat", "why": "flat: no eligible trigger"}
+{"t": 1793590412.4, "time": "09:03:32", "event": "flat", "why": "flat: no eligible trigger"}
+{"t": 1793590472.4, "time": "09:04:32", "event": "flat", "why": "flat: no eligible trigger"}
+{"t": 1793590532.4, "time": "09:05:32", "event": "flat", "why": "flat: no eligible trigger"}
+{"t": 1793590592.4, "time": "09:06:32", "event": "flat", "why": "flat: no eligible trigger"}
+{"t": 1793590652.4, "time": "09:07:32", "event": "flat", "why": "flat: no eligible trigger"}
+{"t": 1793590712.4, "time": "09:08:32", "event": "flat", "why": "flat: no eligible trigger"}
+{"t": 1793590772.4, "time": "09:09:32", "event": "flat", "why": "flat: no eligible trigger"}
+{"t": 1793590832.4, "time": "09:10:32", "event": "flat", "why": "flat: no eligible trigger"}
+{"t": 1793590892.4, "time": "09:11:32", "event": "flat", "why": "flat: no eligible trigger"}
+{"t": 1793590952.4, "time": "09:12:32", "event": "flat", "why": "flat: no eligible trigger"}
+{"t": 1793591012.4, "time": "09:13:32", "event": "flat", "why": "flat: no eligible trigger"}
+{"t": 1793591072.4, "time": "09:14:32", "event": "flat", "why": "flat: no eligible trigger"}
+{"t": 1793591100.0, "time": "09:15:00", "event": "flat", "why": "flat: data blackout"}
+{"t": 1793591120.2, "time": "09:15:20", "event": "flat", "why": "flat: no eligible trigger"}
+{"t": 1793591180.2, "time": "09:16:20", "event": "flat", "why": "flat: no eligible trigger"}
+{"t": 1793591240.2, "time": "09:17:20", "event": "flat", "why": "flat: no eligible trigger"}
+{"t": 1793591245.3, "time": "09:17:25", "event": "flat", "why": "flat: data blackout"}
+{"t": 1793591272.8, "time": "09:17:52", "event": "flat", "why": "flat: no eligible trigger"}
+{"t": 1793591332.8, "time": "09:18:52", "event": "flat", "why": "flat: no eligible trigger"}
+{"t": 1793591363.4, "time": "09:19:23", "event": "flat", "why": "flat: data blackout"}
+{"t": 1793591413.7, "time": "09:20:13", "event": "flat", "why": "flat: no eligible trigger"}
+{"t": 1793591473.7, "time": "09:21:13", "event": "flat", "why": "flat: no eligible trigger"}
+{"t": 1793591533.7, "time": "09:22:13", "event": "flat", "why": "flat: no eligible trigger"}
+{"t": 1793591593.7, "time": "09:23:13", "event": "flat", "why": "flat: no eligible trigger"}
+{"t": 1793591653.7, "time": "09:24:13", "event": "flat", "why": "flat: no eligible trigger"}
+{"t": 1793591713.7, "time": "09:25:13", "event": "flat", "why": "flat: no eligible trigger"}
+{"t": 1793591727.2, "time": "09:25:27", "event": "flat", "why": "flat: data blackout"}
+{"t": 1793591762.9, "time": "09:26:02", "event": "flat", "why": "flat: no eligible trigger"}
+{"t": 1793591822.9, "time": "09:27:02", "event": "flat", "why": "flat: no eligible trigger"}
+{"t": 1793591882.9, "time": "09:28:02", "event": "flat", "why": "flat: no eligible trigger"}
+{"t": 1793591942.9, "time": "09:29:02", "event": "flat", "why": "flat: no eligible trigger"}
+{"t": 1793592002.9, "time": "09:30:02", "event": "flat", "why": "flat: no eligible trigger"}
+{"t": 1793592062.9, "time": "09:31:02", "event": "flat", "why": "flat: no eligible trigger"}
+{"t": 1793592122.9, "time": "09:32:02", "event": "flat", "why": "flat: no eligible trigger"}
+{"t": 1793592182.9, "time": "09:33:02", "event": "flat", "why": "flat: no eligible trigger"}
+{"t": 1793592242.9, "time": "09:34:02", "event": "flat", "why": "flat: no eligible trigger"}
+{"t": 1793592302.9, "time": "09:35:02", "event": "flat", "why": "flat: no eligible trigger"}
+{"t": 1793592362.9, "time": "09:36:02", "event": "flat", "why": "flat: no eligible trigger"}
+{"t": 1793592422.9, "time": "09:37:02", "event": "flat", "why": "flat: no eligible trigger"}
+{"t": 1793592482.9, "time": "09:38:02", "event": "flat", "why": "flat: no eligible trigger"}
+{"t": 1793592528.9, "time": "09:38:48", "event": "flat", "why": "flat: data blackout"}
+{"t": 1793592549.6, "time": "09:39:09", "event": "flat", "why": "flat: no eligible trigger"}
+{"t": 1793592609.6, "time": "09:40:09", "event": "flat", "why": "flat: no eligible trigger"}
+{"t": 1793592669.6, "time": "09:41:09", "event": "flat", "why": "flat: no eligible trigger"}
+{"t": 1793592729.6, "time": "09:42:09", "event": "flat", "why": "flat: no eligible trigger"}
+{"t": 1793592789.6, "time": "09:43:09", "event": "flat", "why": "flat: no eligible trigger"}
+{"t": 1793592849.6, "time": "09:44:09", "event": "flat", "why": "flat: no eligible trigger"}
+{"t": 1793592909.6, "time": "09:45:09", "event": "flat", "why": "flat: no eligible trigger"}
+{"t": 1793592969.6, "time": "09:46:09", "event": "flat", "why": "flat: no eligible trigger"}
+{"t": 1793593029.6, "time": "09:47:09", "event": "flat", "why": "flat: no eligible trigger"}
+{"t": 1793593089.6, "time": "09:48:09", "event": "flat", "why": "flat: no eligible trigger"}
+{"t": 1793593149.6, "time": "09:49:09", "event": "flat", "why": "flat: no eligible trigger"}
+{"t": 1793593209.6, "time": "09:50:09", "event": "flat", "why": "flat: no eligible trigger"}
+{"t": 1793593269.6, "time": "09:51:09", "event": "flat", "why": "flat: no eligible trigger"}
+{"t": 1793593329.6, "time": "09:52:09", "event": "flat", "why": "flat: no eligible trigger"}
+{"t": 1793593389.6, "time": "09:53:09", "event": "flat", "why": "flat: no eligible trigger"}
+{"t": 1793593449.6, "time": "09:54:09", "event": "flat", "why": "flat: no eligible trigger"}
+{"t": 1793593509.6, "time": "09:55:09", "event": "flat", "why": "flat: no eligible trigger"}
+{"t": 1793593569.6, "time": "09:56:09", "event": "flat", "why": "flat: no eligible trigger"}
+{"t": 1793593629.6, "time": "09:57:09", "event": "flat", "why": "flat: no eligible trigger"}
+{"t": 1793593689.6, "time": "09:58:09", "event": "flat", "why": "flat: no eligible trigger"}
+{"t": 1793593749.6, "time": "09:59:09", "event": "flat", "why": "flat: no eligible trigger"}
+{"t": 1793593809.6, "time": "10:00:09", "event": "flat", "why": "flat: no eligible trigger"}
+{"t": 1793593869.6, "time": "10:01:09", "event": "flat", "why": "flat: no eligible trigger"}
+{"t": 1793593929.6, "time": "10:02:09", "event": "flat", "why": "flat: no eligible trigger"}
+{"t": 1793593989.6, "time": "10:03:09", "event": "flat", "why": "flat: no eligible trigger"}
+{"t": 1793594049.6, "time": "10:04:09", "event": "flat", "why": "flat: no eligible trigger"}
+{"t": 1793594109.6, "time": "10:05:09", "event": "flat", "why": "flat: no eligible trigger"}
+{"t": 1793594169.6, "time": "10:06:09", "event": "flat", "why": "flat: no eligible trigger"}
+{"t": 1793594229.6, "time": "10:07:09", "event": "flat", "why": "flat: no eligible trigger"}
+{"t": 1793594289.6, "time": "10:08:09", "event": "flat", "why": "flat: no eligible trigger"}
+{"t": 1793594349.6, "time": "10:09:09", "event": "flat", "why": "flat: no eligible trigger"}
+{"t": 1793594409.6, "time": "10:10:09", "event": "flat", "why": "flat: no eligible trigger"}
+{"t": 1793594469.6, "time": "10:11:09", "event": "flat", "why": "flat: no eligible trigger"}
+{"t": 1793594529.6, "time": "10:12:09", "event": "flat", "why": "flat: no eligible trigger"}
+{"t": 1793594589.6, "time": "10:13:09", "event": "flat", "why": "flat: no eligible trigger"}
+{"t": 1793594649.6, "time": "10:14:09", "event": "flat", "why": "flat: no eligible trigger"}
+{"t": 1793594709.6, "time": "10:15:09", "event": "flat", "why": "flat: no eligible trigger"}
+{"t": 1793594769.6, "time": "10:16:09", "event": "flat", "why": "flat: no eligible trigger"}
+{"t": 1793594829.6, "time": "10:17:09", "event": "flat", "why": "flat: no eligible trigger"}
+{"t": 1793594889.6, "time": "10:18:09", "event": "flat", "why": "flat: no eligible trigger"}
+{"t": 1793594949.6, "time": "10:19:09", "event": "flat", "why": "flat: no eligible trigger"}
+{"t": 1793595009.6, "time": "10:20:09", "event": "flat", "why": "flat: no eligible trigger"}
+{"t": 1793595069.6, "time": "10:21:09", "event": "flat", "why": "flat: no eligible trigger"}
+{"t": 1793595129.6, "time": "10:22:09", "event": "flat", "why": "flat: no eligible trigger"}
+{"t": 1793595189.6, "time": "10:23:09", "event": "flat", "why": "flat: no eligible trigger"}
+{"t": 1793595249.6, "time": "10:24:09", "event": "flat", "why": "flat: no eligible trigger"}
+{"t": 1793595309.6, "time": "10:25:09", "event": "flat", "why": "flat: no eligible trigger"}
+{"t": 1793595369.6, "time": "10:26:09", "event": "flat", "why": "flat: no eligible trigger"}
+{"t": 1793595429.6, "time": "10:27:09", "event": "flat", "why": "flat: no eligible trigger"}
+{"t": 1793595489.6, "time": "10:28:09", "event": "flat", "why": "flat: no eligible trigger"}
+{"t": 1793595549.6, "time": "10:29:09", "event": "flat", "why": "flat: no eligible trigger"}
+{"t": 1793595609.6, "time": "10:30:09", "event": "flat", "why": "flat: no eligible trigger"}
+{"t": 1793595669.6, "time": "10:31:09", "event": "flat", "why": "flat: no eligible trigger"}
+{"t": 1793595729.6, "time": "10:32:09", "event": "flat", "why": "flat: no eligible trigger"}
+{"t": 1793595789.6, "time": "10:33:09", "event": "flat", "why": "flat: no eligible trigger"}
+{"t": 1793595849.6, "time": "10:34:09", "event": "flat", "why": "flat: no eligible trigger"}
+{"t": 1793595909.6, "time": "10:35:09", "event": "flat", "why": "flat: no eligible trigger"}
+{"t": 1793595969.6, "time": "10:36:09", "event": "flat", "why": "flat: no eligible trigger"}
+{"t": 1793596029.6, "time": "10:37:09", "event": "flat", "why": "flat: no eligible trigger"}
+{"t": 1793596089.6, "time": "10:38:09", "event": "flat", "why": "flat: no eligible trigger"}
+{"t": 1793596149.6, "time": "10:39:09", "event": "flat", "why": "flat: no eligible trigger"}
+{"t": 1793596209.6, "time": "10:40:09", "event": "flat", "why": "flat: no eligible trigger"}
+{"t": 1793596269.6, "time": "10:41:09", "event": "flat", "why": "flat: no eligible trigger"}
+{"t": 1793596329.6, "time": "10:42:09", "event": "flat", "why": "flat: no eligible trigger"}
+{"t": 1793596389.6, "time": "10:43:09", "event": "flat", "why": "flat: no eligible trigger"}
+{"t": 1793596449.6, "time": "10:44:09", "event": "flat", "why": "flat: no eligible trigger"}
+{"t": 1793596509.6, "time": "10:45:09", "event": "flat", "why": "flat: no eligible trigger"}
+{"t": 1793596569.6, "time": "10:46:09", "event": "flat", "why": "flat: no eligible trigger"}
+{"t": 1793596629.6, "time": "10:47:09", "event": "flat", "why": "flat: no eligible trigger"}
+{"t": 1793596689.6, "time": "10:48:09", "event": "flat", "why": "flat: no eligible trigger"}
+{"t": 1793596749.6, "time": "10:49:09", "event": "flat", "why": "flat: no eligible trigger"}
+{"t": 1793596809.6, "time": "10:50:09", "event": "flat", "why": "flat: no eligible trigger"}
+{"t": 1793596869.6, "time": "10:51:09", "event": "flat", "why": "flat: no eligible trigger"}
+{"t": 1793596929.6, "time": "10:52:09", "event": "flat", "why": "flat: no eligible trigger"}
+{"t": 1793596989.6, "time": "10:53:09", "event": "flat", "why": "flat: no eligible trigger"}
+{"t": 1793597049.6, "time": "10:54:09", "event": "flat", "why": "flat: no eligible trigger"}
+{"t": 1793597109.6, "time": "10:55:09", "event": "flat", "why": "flat: no eligible trigger"}
+{"t": 1793597169.6, "time": "10:56:09", "event": "flat", "why": "flat: no eligible trigger"}
+{"t": 1793597229.6, "time": "10:57:09", "event": "flat", "why": "flat: no eligible trigger"}
+{"t": 1793597289.6, "time": "10:58:09", "event": "flat", "why": "flat: no eligible trigger"}
+{"t": 1793597341.8, "time": "10:59:01", "event": "flat", "why": "flat: data blackout"}
+{"t": 1793597362.7, "time": "10:59:22", "event": "flat", "why": "flat: no eligible trigger"}
+{"t": 1793597422.7, "time": "11:00:22", "event": "flat", "why": "flat: no eligible trigger"}
+{"t": 1793597482.7, "time": "11:01:22", "event": "flat", "why": "flat: no eligible trigger"}
+{"t": 1793597542.7, "time": "11:02:22", "event": "flat", "why": "flat: no eligible trigger"}
+{"t": 1793597602.7, "time": "11:03:22", "event": "flat", "why": "flat: no eligible trigger"}
+{"t": 1793597662.7, "time": "11:04:22", "event": "flat", "why": "flat: no eligible trigger"}
+{"t": 1793597722.7, "time": "11:05:22", "event": "flat", "why": "flat: no eligible trigger"}
+{"t": 1793597782.7, "time": "11:06:22", "event": "flat", "why": "flat: no eligible trigger"}
+{"t": 1793597842.7, "time": "11:07:22", "event": "flat", "why": "flat: no eligible trigger"}
+{"t": 1793597902.7, "time": "11:08:22", "event": "flat", "why": "flat: no eligible trigger"}
+{"t": 1793597962.7, "time": "11:09:22", "event": "flat", "why": "flat: no eligible trigger"}
+{"t": 1793598022.7, "time": "11:10:22", "event": "flat", "why": "flat: no eligible trigger"}
+{"t": 1793598082.7, "time": "11:11:22", "event": "flat", "why": "flat: no eligible trigger"}
+{"t": 1793598142.7, "time": "11:12:22", "event": "flat", "why": "flat: no eligible trigger"}
+{"t": 1793598202.7, "time": "11:13:22", "event": "flat", "why": "flat: no eligible trigger"}
+{"t": 1793598262.7, "time": "11:14:22", "event": "flat", "why": "flat: no eligible trigger"}
+{"t": 1793598322.7, "time": "11:15:22", "event": "flat", "why": "flat: no eligible trigger"}
+{"t": 1793598382.7, "time": "11:16:22", "event": "flat", "why": "flat: no eligible trigger"}
+{"t": 1793598442.7, "time": "11:17:22", "event": "flat", "why": "flat: no eligible trigger"}
+{"t": 1793598502.7, "time": "11:18:22", "event": "flat", "why": "flat: no eligible trigger"}
+{"t": 1793598562.7, "time": "11:19:22", "event": "flat", "why": "flat: no eligible trigger"}
+{"t": 1793598622.7, "time": "11:20:22", "event": "flat", "why": "flat: no eligible trigger"}
+{"t": 1793598682.7, "time": "11:21:22", "event": "flat", "why": "flat: no eligible trigger"}
+{"t": 1793598742.7, "time": "11:22:22", "event": "flat", "why": "flat: no eligible trigger"}
+{"t": 1793598802.7, "time": "11:23:22", "event": "flat", "why": "flat: no eligible trigger"}
+{"t": 1793598862.7, "time": "11:24:22", "event": "flat", "why": "flat: no eligible trigger"}
+{"t": 1793598922.7, "time": "11:25:22", "event": "flat", "why": "flat: no eligible trigger"}
+{"t": 1793598982.7, "time": "11:26:22", "event": "flat", "why": "flat: no eligible trigger"}
+{"t": 1793599042.7, "time": "11:27:22", "event": "flat", "why": "flat: no eligible trigger"}
+{"t": 1793599102.7, "time": "11:28:22", "event": "flat", "why": "flat: no eligible trigger"}
+{"t": 1793599162.7, "time": "11:29:22", "event": "flat", "why": "flat: no eligible trigger"}
+{"t": 1793599222.7, "time": "11:30:22", "event": "flat", "why": "flat: no eligible trigger"}
+{"t": 1793599282.7, "time": "11:31:22", "event": "flat", "why": "flat: no eligible trigger"}
+{"t": 1793599342.7, "time": "11:32:22", "event": "flat", "why": "flat: no eligible trigger"}
+{"t": 1793599402.7, "time": "11:33:22", "event": "flat", "why": "flat: no eligible trigger"}
+{"t": 1793599462.7, "time": "11:34:22", "event": "flat", "why": "flat: no eligible trigger"}
+{"t": 1793599522.7, "time": "11:35:22", "event": "flat", "why": "flat: no eligible trigger"}
+{"t": 1793599582.7, "time": "11:36:22", "event": "flat", "why": "flat: no eligible trigger"}
+{"t": 1793599642.7, "time": "11:37:22", "event": "flat", "why": "flat: no eligible trigger"}
+{"t": 1793599702.7, "time": "11:38:22", "event": "flat", "why": "flat: no eligible trigger"}
+{"t": 1793599762.7, "time": "11:39:22", "event": "flat", "why": "flat: no eligible trigger"}
+{"t": 1793599822.7, "time": "11:40:22", "event": "flat", "why": "flat: no eligible trigger"}
+{"t": 1793599882.7, "time": "11:41:22", "event": "flat", "why": "flat: no eligible trigger"}
+{"t": 1793599942.7, "time": "11:42:22", "event": "flat", "why": "flat: no eligible trigger"}
+{"t": 1793600002.7, "time": "11:43:22", "event": "flat", "why": "flat: no eligible trigger"}
+{"t": 1793600062.7, "time": "11:44:22", "event": "flat", "why": "flat: no eligible trigger"}
+{"t": 1793600106.1, "time": "11:45:06", "event": "flat", "why": "flat: data blackout"}
+{"t": 1793600126.2, "time": "11:45:26", "event": "flat", "why": "flat: no eligible trigger"}
+{"t": 1793600186.2, "time": "11:46:26", "event": "flat", "why": "flat: no eligible trigger"}
+{"t": 1793600246.2, "time": "11:47:26", "event": "flat", "why": "flat: no eligible trigger"}
+{"t": 1793600306.2, "time": "11:48:26", "event": "flat", "why": "flat: no eligible trigger"}
+{"t": 1793600366.2, "time": "11:49:26", "event": "flat", "why": "flat: no eligible trigger"}
+{"t": 1793600426.2, "time": "11:50:26", "event": "flat", "why": "flat: no eligible trigger"}
+{"t": 1793600486.2, "time": "11:51:26", "event": "flat", "why": "flat: no eligible trigger"}
+{"t": 1793600546.2, "time": "11:52:26", "event": "flat", "why": "flat: no eligible trigger"}
+{"t": 1793600606.2, "time": "11:53:26", "event": "flat", "why": "flat: no eligible trigger"}
+{"t": 1793600666.2, "time": "11:54:26", "event": "flat", "why": "flat: no eligible trigger"}
+{"t": 1793600726.2, "time": "11:55:26", "event": "flat", "why": "flat: no eligible trigger"}
+{"t": 1793600786.2, "time": "11:56:26", "event": "flat", "why": "flat: no eligible trigger"}
+{"t": 1793600846.2, "time": "11:57:26", "event": "flat", "why": "flat: no eligible trigger"}
+{"t": 1793600906.2, "time": "11:58:26", "event": "flat", "why": "flat: no eligible trigger"}
+{"t": 1793600966.2, "time": "11:59:26", "event": "flat", "why": "flat: no eligible trigger"}
+{"t": 1793601026.2, "time": "12:00:26", "event": "flat", "why": "flat: no eligible trigger"}
+{"t": 1793601086.2, "time": "12:01:26", "event": "flat", "why": "flat: no eligible trigger"}
+{"t": 1793601146.2, "time": "12:02:26", "event": "flat", "why": "flat: no eligible trigger"}
+{"t": 1793601168.0, "time": "12:02:48", "event": "lost_priority", "book": "c20_9v", "rule": null, "key": "NIFTY|OPT|2026-11-03|23350|PE", "to": "c20_9y"}
+{"t": 1793601168.0, "time": "12:02:48", "event": "lost_priority", "book": "c20_9x", "rule": null, "key": "NIFTY|OPT|2026-11-03|23350|PE", "to": "c20_9y"}
+{"t": 1793601168.0, "time": "12:02:48", "event": "lost_priority", "book": "c20_9t", "rule": null, "key": "NIFTY|OPT|2026-11-03|23350|PE", "to": "c20_9y"}
+{"t": 1793601168.0, "time": "12:02:48", "event": "owner", "book": "c20_9y", "rule": null, "standing": "low", "key": "NIFTY|OPT|2026-11-03|23350|PE", "why": "COUNCIL NORM pb v=-1"}
+{"t": 1793601169.0, "time": "12:02:49", "event": "entry", "book": "c20_9y", "rule": null, "key": "NIFTY|OPT|2026-11-03|23350|PE", "entry": 117.4, "lots": 13, "why": "COUNCIL NORM pb v=-1", "fill_delay_s": 1.0}
+{"t": 1793601670.0, "time": "12:11:10", "event": "exit", "book": "c20_9y", "rule": null, "key": "NIFTY|OPT|2026-11-03|23350|PE", "exit": 100.7, "reason": "COUNCIL SL", "pnl_rs": -14111.5, "ret_pct": -14.225, "capital": 85888.5}
+{"t": 1793601670.0, "time": "12:11:10", "event": "flat", "why": "flat: no eligible trigger"}
+{"t": 1793601730.0, "time": "12:12:10", "event": "flat", "why": "flat: no eligible trigger"}
+{"t": 1793601790.0, "time": "12:13:10", "event": "flat", "why": "flat: no eligible trigger"}
+{"t": 1793601850.0, "time": "12:14:10", "event": "flat", "why": "flat: no eligible trigger"}
+{"t": 1793601910.0, "time": "12:15:10", "event": "flat", "why": "flat: no eligible trigger"}
+{"t": 1793601970.0, "time": "12:16:10", "event": "flat", "why": "flat: no eligible trigger"}
+{"t": 1793602030.0, "time": "12:17:10", "event": "flat", "why": "flat: no eligible trigger"}
+{"t": 1793602090.0, "time": "12:18:10", "event": "flat", "why": "flat: no eligible trigger"}
+{"t": 1793602150.0, "time": "12:19:10", "event": "flat", "why": "flat: no eligible trigger"}
+{"t": 1793602210.0, "time": "12:20:10", "event": "flat", "why": "flat: no eligible trigger"}
+{"t": 1793602270.0, "time": "12:21:10", "event": "flat", "why": "flat: no eligible trigger"}
+{"t": 1793602330.0, "time": "12:22:10", "event": "flat", "why": "flat: no eligible trigger"}
+{"t": 1793602390.0, "time": "12:23:10", "event": "flat", "why": "flat: no eligible trigger"}
+{"t": 1793602450.0, "time": "12:24:10", "event": "flat", "why": "flat: no eligible trigger"}
+{"t": 1793602510.0, "time": "12:25:10", "event": "flat", "why": "flat: no eligible trigger"}
+{"t": 1793602570.0, "time": "12:26:10", "event": "flat", "why": "flat: no eligible trigger"}
+{"t": 1793602630.0, "time": "12:27:10", "event": "flat", "why": "flat: no eligible trigger"}
+{"t": 1793602690.0, "time": "12:28:10", "event": "flat", "why": "flat: no eligible trigger"}
+{"t": 1793602750.0, "time": "12:29:10", "event": "flat", "why": "flat: no eligible trigger"}
+{"t": 1793602810.0, "time": "12:30:10", "event": "flat", "why": "flat: no eligible trigger"}
+{"t": 1793602870.0, "time": "12:31:10", "event": "flat", "why": "flat: no eligible trigger"}
+{"t": 1793602930.0, "time": "12:32:10", "event": "flat", "why": "flat: no eligible trigger"}
+{"t": 1793602990.0, "time": "12:33:10", "event": "flat", "why": "flat: no eligible trigger"}
+{"t": 1793603050.0, "time": "12:34:10", "event": "flat", "why": "flat: no eligible trigger"}
+{"t": 1793603110.0, "time": "12:35:10", "event": "flat", "why": "flat: no eligible trigger"}
+{"t": 1793603170.0, "time": "12:36:10", "event": "flat", "why": "flat: no eligible trigger"}
+{"t": 1793603230.0, "time": "12:37:10", "event": "flat", "why": "flat: no eligible trigger"}
+{"t": 1793603290.0, "time": "12:38:10", "event": "flat", "why": "flat: no eligible trigger"}
+{"t": 1793603350.0, "time": "12:39:10", "event": "flat", "why": "flat: no eligible trigger"}
+{"t": 1793603410.0, "time": "12:40:10", "event": "flat", "why": "flat: no eligible trigger"}
+{"t": 1793603470.0, "time": "12:41:10", "event": "flat", "why": "flat: no eligible trigger"}
+{"t": 1793603530.0, "time": "12:42:10", "event": "flat", "why": "flat: no eligible trigger"}
+{"t": 1793603590.0, "time": "12:43:10", "event": "flat", "why": "flat: no eligible trigger"}
+{"t": 1793603650.0, "time": "12:44:10", "event": "flat", "why": "flat: no eligible trigger"}
+{"t": 1793603705.7, "time": "12:45:05", "event": "flat", "why": "flat: data blackout"}
+{"t": 1793603725.9, "time": "12:45:25", "event": "flat", "why": "flat: no eligible trigger"}
+{"t": 1793603785.9, "time": "12:46:25", "event": "flat", "why": "flat: no eligible trigger"}
+{"t": 1793603845.9, "time": "12:47:25", "event": "flat", "why": "flat: no eligible trigger"}
+{"t": 1793603905.9, "time": "12:48:25", "event": "flat", "why": "flat: no eligible trigger"}
+{"t": 1793603965.9, "time": "12:49:25", "event": "flat", "why": "flat: no eligible trigger"}
+{"t": 1793604025.9, "time": "12:50:25", "event": "flat", "why": "flat: no eligible trigger"}
+{"t": 1793604085.9, "time": "12:51:25", "event": "flat", "why": "flat: no eligible trigger"}
+{"t": 1793604145.9, "time": "12:52:25", "event": "flat", "why": "flat: no eligible trigger"}
+{"t": 1793604205.9, "time": "12:53:25", "event": "flat", "why": "flat: no eligible trigger"}
+{"t": 1793604265.9, "time": "12:54:25", "event": "flat", "why": "flat: no eligible trigger"}
+{"t": 1793604325.9, "time": "12:55:25", "event": "flat", "why": "flat: no eligible trigger"}
+{"t": 1793604385.9, "time": "12:56:25", "event": "flat", "why": "flat: no eligible trigger"}
+{"t": 1793604445.9, "time": "12:57:25", "event": "flat", "why": "flat: no eligible trigger"}
+{"t": 1793604505.9, "time": "12:58:25", "event": "flat", "why": "flat: no eligible trigger"}
+{"t": 1793604512.0, "time": "12:58:32", "event": "lost_priority", "book": "c20_9s", "rule": null, "key": "NIFTY|OPT|2026-11-03|23300|PE", "to": "c20_9y"}
+{"t": 1793604512.0, "time": "12:58:32", "event": "lost_priority", "book": "c20_9v", "rule": null, "key": "NIFTY|OPT|2026-11-03|23300|PE", "to": "c20_9y"}
+{"t": 1793604512.0, "time": "12:58:32", "event": "lost_priority", "book": "c20_9x", "rule": null, "key": "NIFTY|OPT|2026-11-03|23300|PE", "to": "c20_9y"}
+{"t": 1793604512.0, "time": "12:58:32", "event": "lost_priority", "book": "c20_9t", "rule": null, "key": "NIFTY|OPT|2026-11-03|23300|PE", "to": "c20_9y"}
+{"t": 1793604512.0, "time": "12:58:32", "event": "owner", "book": "c20_9y", "rule": null, "standing": "low", "key": "NIFTY|OPT|2026-11-03|23300|PE", "why": "COUNCIL NORM pb v=-28"}
+{"t": 1793604513.0, "time": "12:58:33", "event": "entry", "book": "c20_9y", "rule": null, "key": "NIFTY|OPT|2026-11-03|23300|PE", "entry": 100.1, "lots": 13, "why": "COUNCIL NORM pb v=-28", "fill_delay_s": 1.0}
+{"t": 1793605239.0, "time": "13:10:39", "event": "exit", "book": "c20_9y", "rule": null, "key": "NIFTY|OPT|2026-11-03|23300|PE", "exit": 140.8, "reason": "COUNCIL GIVEBACK", "pnl_rs": 34391.5, "ret_pct": 40.659, "capital": 120280.0}
+{"t": 1793605239.0, "time": "13:10:39", "event": "flat", "why": "flat: no eligible trigger"}
+{"t": 1793605299.0, "time": "13:11:39", "event": "flat", "why": "flat: no eligible trigger"}
+{"t": 1793605359.0, "time": "13:12:39", "event": "flat", "why": "flat: no eligible trigger"}
+{"t": 1793605419.0, "time": "13:13:39", "event": "flat", "why": "flat: no eligible trigger"}
+{"t": 1793605479.0, "time": "13:14:39", "event": "flat", "why": "flat: no eligible trigger"}
+{"t": 1793605539.0, "time": "13:15:39", "event": "flat", "why": "flat: no eligible trigger"}
+{"t": 1793605599.0, "time": "13:16:39", "event": "flat", "why": "flat: no eligible trigger"}
+{"t": 1793605659.0, "time": "13:17:39", "event": "flat", "why": "flat: no eligible trigger"}
+{"t": 1793605717.2, "time": "13:18:37", "event": "flat", "why": "flat: data blackout"}
+{"t": 1793605746.2, "time": "13:19:06", "event": "flat", "why": "flat: no eligible trigger"}
+{"t": 1793605806.2, "time": "13:20:06", "event": "flat", "why": "flat: no eligible trigger"}
+{"t": 1793605846.0, "time": "13:20:46", "event": "lost_priority", "book": "c20_9s", "rule": null, "key": "NIFTY|OPT|2026-11-03|23250|PE", "to": "c20_9y"}
+{"t": 1793605846.0, "time": "13:20:46", "event": "lost_priority", "book": "c20_9v", "rule": null, "key": "NIFTY|OPT|2026-11-03|23250|PE", "to": "c20_9y"}
+{"t": 1793605846.0, "time": "13:20:46", "event": "lost_priority", "book": "c20_9x", "rule": null, "key": "NIFTY|OPT|2026-11-03|23250|PE", "to": "c20_9y"}
+{"t": 1793605846.0, "time": "13:20:46", "event": "owner", "book": "c20_9y", "rule": null, "standing": "low", "key": "NIFTY|OPT|2026-11-03|23250|PE", "why": "COUNCIL NORM pb v=-24"}
+{"t": 1793605847.0, "time": "13:20:47", "event": "entry", "book": "c20_9y", "rule": null, "key": "NIFTY|OPT|2026-11-03|23250|PE", "entry": 96.75, "lots": 19, "why": "COUNCIL NORM pb v=-24", "fill_delay_s": 1.0}
+{"t": 1793607096.0, "time": "13:41:36", "event": "exit", "book": "c20_9y", "rule": null, "key": "NIFTY|OPT|2026-11-03|23250|PE", "exit": 113.1, "reason": "COUNCIL RAMP_LOCK", "pnl_rs": 20192.25, "ret_pct": 16.899, "capital": 140472.25}
+{"t": 1793607096.0, "time": "13:41:36", "event": "flat", "why": "flat: no eligible trigger"}
+{"t": 1793607156.0, "time": "13:42:36", "event": "flat", "why": "flat: no eligible trigger"}
+{"t": 1793607216.0, "time": "13:43:36", "event": "flat", "why": "flat: no eligible trigger"}
+{"t": 1793607276.0, "time": "13:44:36", "event": "flat", "why": "flat: no eligible trigger"}
+{"t": 1793607336.0, "time": "13:45:36", "event": "flat", "why": "flat: no eligible trigger"}
+{"t": 1793607396.0, "time": "13:46:36", "event": "flat", "why": "flat: no eligible trigger"}
+{"t": 1793607456.0, "time": "13:47:36", "event": "flat", "why": "flat: no eligible trigger"}
+{"t": 1793607516.0, "time": "13:48:36", "event": "flat", "why": "flat: no eligible trigger"}
+{"t": 1793607576.0, "time": "13:49:36", "event": "flat", "why": "flat: no eligible trigger"}
+{"t": 1793607636.0, "time": "13:50:36", "event": "flat", "why": "flat: no eligible trigger"}
+{"t": 1793607696.0, "time": "13:51:36", "event": "flat", "why": "flat: no eligible trigger"}
+{"t": 1793607756.0, "time": "13:52:36", "event": "flat", "why": "flat: no eligible trigger"}
+{"t": 1793607816.0, "time": "13:53:36", "event": "flat", "why": "flat: no eligible trigger"}
+{"t": 1793607876.0, "time": "13:54:36", "event": "flat", "why": "flat: no eligible trigger"}
+{"t": 1793607936.0, "time": "13:55:36", "event": "flat", "why": "flat: no eligible trigger"}
+{"t": 1793607996.0, "time": "13:56:36", "event": "flat", "why": "flat: no eligible trigger"}
+{"t": 1793608056.0, "time": "13:57:36", "event": "flat", "why": "flat: no eligible trigger"}
+{"t": 1793608116.0, "time": "13:58:36", "event": "flat", "why": "flat: no eligible trigger"}
+{"t": 1793608176.0, "time": "13:59:36", "event": "flat", "why": "flat: no eligible trigger"}
+{"t": 1793608236.0, "time": "14:00:36", "event": "flat", "why": "flat: no eligible trigger"}
+{"t": 1793608296.0, "time": "14:01:36", "event": "flat", "why": "flat: no eligible trigger"}
+{"t": 1793608356.0, "time": "14:02:36", "event": "flat", "why": "flat: no eligible trigger"}
+{"t": 1793608416.0, "time": "14:03:36", "event": "flat", "why": "flat: no eligible trigger"}
+{"t": 1793608476.0, "time": "14:04:36", "event": "flat", "why": "flat: no eligible trigger"}
+{"t": 1793608536.0, "time": "14:05:36", "event": "flat", "why": "flat: no eligible trigger"}
+{"t": 1793608596.0, "time": "14:06:36", "event": "flat", "why": "flat: no eligible trigger"}
+{"t": 1793608655.7, "time": "14:07:35", "event": "flat", "why": "flat: data blackout"}
+{"t": 1793608684.2, "time": "14:08:04", "event": "flat", "why": "flat: no eligible trigger"}
+{"t": 1793608744.2, "time": "14:09:04", "event": "flat", "why": "flat: no eligible trigger"}
+{"t": 1793608804.2, "time": "14:10:04", "event": "flat", "why": "flat: no eligible trigger"}
+{"t": 1793608864.2, "time": "14:11:04", "event": "flat", "why": "flat: no eligible trigger"}
+{"t": 1793608924.2, "time": "14:12:04", "event": "flat", "why": "flat: no eligible trigger"}
+{"t": 1793608984.2, "time": "14:13:04", "event": "flat", "why": "flat: no eligible trigger"}
+{"t": 1793609044.2, "time": "14:14:04", "event": "flat", "why": "flat: no eligible trigger"}
+{"t": 1793609104.2, "time": "14:15:04", "event": "flat", "why": "flat: no eligible trigger"}
+{"t": 1793609164.2, "time": "14:16:04", "event": "flat", "why": "flat: no eligible trigger"}
+{"t": 1793609224.2, "time": "14:17:04", "event": "flat", "why": "flat: no eligible trigger"}
+{"t": 1793609284.2, "time": "14:18:04", "event": "flat", "why": "flat: no eligible trigger"}
+{"t": 1793609344.2, "time": "14:19:04", "event": "flat", "why": "flat: no eligible trigger"}
+{"t": 1793609404.2, "time": "14:20:04", "event": "flat", "why": "flat: no eligible trigger"}
+{"t": 1793609464.2, "time": "14:21:04", "event": "flat", "why": "flat: no eligible trigger"}
+{"t": 1793609524.2, "time": "14:22:04", "event": "flat", "why": "flat: no eligible trigger"}
+{"t": 1793609584.2, "time": "14:23:04", "event": "flat", "why": "flat: no eligible trigger"}
+{"t": 1793609644.2, "time": "14:24:04", "event": "flat", "why": "flat: no eligible trigger"}
+{"t": 1793609704.2, "time": "14:25:04", "event": "flat", "why": "flat: no eligible trigger"}
+{"t": 1793609764.2, "time": "14:26:04", "event": "flat", "why": "flat: no eligible trigger"}
+{"t": 1793609824.2, "time": "14:27:04", "event": "flat", "why": "flat: no eligible trigger"}
+{"t": 1793609884.2, "time": "14:28:04", "event": "flat", "why": "flat: no eligible trigger"}
+{"t": 1793609944.2, "time": "14:29:04", "event": "flat", "why": "flat: no eligible trigger"}
+{"t": 1793610004.2, "time": "14:30:04", "event": "flat", "why": "flat: no eligible trigger"}
+{"t": 1793610064.2, "time": "14:31:04", "event": "flat", "why": "flat: no eligible trigger"}
+{"t": 1793610124.2, "time": "14:32:04", "event": "flat", "why": "flat: no eligible trigger"}
+{"t": 1793610184.2, "time": "14:33:04", "event": "flat", "why": "flat: no eligible trigger"}
+{"t": 1793610244.2, "time": "14:34:04", "event": "flat", "why": "flat: no eligible trigger"}
+{"t": 1793610304.2, "time": "14:35:04", "event": "flat", "why": "flat: no eligible trigger"}
+{"t": 1793610364.2, "time": "14:36:04", "event": "flat", "why": "flat: no eligible trigger"}
+{"t": 1793610384.0, "time": "14:36:24", "event": "lost_priority", "book": "c20_9s", "rule": null, "key": "NIFTY|OPT|2026-11-03|23250|CE", "to": "c20_9y"}
+{"t": 1793610384.0, "time": "14:36:24", "event": "lost_priority", "book": "c20_9v", "rule": null, "key": "NIFTY|OPT|2026-11-03|23250|CE", "to": "c20_9y"}
+{"t": 1793610384.0, "time": "14:36:24", "event": "lost_priority", "book": "c20_9x", "rule": null, "key": "NIFTY|OPT|2026-11-03|23250|CE", "to": "c20_9y"}
+{"t": 1793610384.0, "time": "14:36:24", "event": "lost_priority", "book": "c20_9t", "rule": null, "key": "NIFTY|OPT|2026-11-03|23250|CE", "to": "c20_9y"}
+{"t": 1793610384.0, "time": "14:36:24", "event": "owner", "book": "c20_9y", "rule": null, "standing": "low", "key": "NIFTY|OPT|2026-11-03|23250|CE", "why": "COUNCIL NORM pb v=+40"}
+{"t": 1793610385.0, "time": "14:36:25", "event": "entry", "book": "c20_9y", "rule": null, "key": "NIFTY|OPT|2026-11-03|23250|CE", "entry": 111.9, "lots": 19, "why": "COUNCIL NORM pb v=+40", "fill_delay_s": 1.0}
+{"t": 1793613000.0, "time": "15:20:00", "event": "exit", "book": "c20_9y", "rule": null, "key": "NIFTY|OPT|2026-11-03|23250|CE", "exit": 112.8, "reason": "TIME (council forced flat)", "pnl_rs": 1111.5, "ret_pct": 0.804, "capital": 141583.75}
+{"t": 1793613000.0, "time": "15:20:00", "event": "flat", "why": "flat: no eligible trigger"}
+{"t": 1793613060.0, "time": "15:21:00", "event": "flat", "why": "flat: no eligible trigger"}
+{"t": 1793613120.0, "time": "15:22:00", "event": "flat", "why": "flat: no eligible trigger"}
+{"t": 1793613180.0, "time": "15:23:00", "event": "flat", "why": "flat: no eligible trigger"}
+{"t": 1793613240.0, "time": "15:24:00", "event": "flat", "why": "flat: no eligible trigger"}
+{"t": 1793613300.0, "time": "15:25:00", "event": "flat", "why": "flat: no eligible trigger"}
+{"t": 1793613360.0, "time": "15:26:00", "event": "flat", "why": "flat: no eligible trigger"}
+{"t": 1793613420.0, "time": "15:27:00", "event": "flat", "why": "flat: no eligible trigger"}
+{"t": 1793613480.0, "time": "15:28:00", "event": "flat", "why": "flat: no eligible trigger"}
+{"t": 1793613491.0, "time": "15:28:11", "event": "flat", "why": "flat: data blackout"}

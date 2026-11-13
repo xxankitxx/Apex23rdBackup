@@ -32,7 +32,7 @@ def load(name):
 
 
 def finish(p, cross=None):
-    """What panel() adds after the numbers: earned(), the median flags, the commentary. JSON round trip as written."""
+    """What panel() adds after the numbers: earned(), the median flags, the commentary, the plain rows. JSON round trip as written."""
     p = json.loads(json.dumps(p))
     if p.get("ok"):
         p.setdefault("day", "2026-11-11")
@@ -41,6 +41,7 @@ def finish(p, cross=None):
         for x in p.get("path") or []:
             x["draw_median"] = bool((dh.get(str(x["h"])) or {}).get("earned"))
     p["say"] = core.commentary(p) if p.get("ok") else dict(now=[str(p.get("why"))])
+    p["plain"] = core.plain(p)                       # 12 Nov: the plain-words rows panel() adds
     return json.loads(json.dumps(p))
 
 

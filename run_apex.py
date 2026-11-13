@@ -87,6 +87,10 @@ def child_env(mode, data_dir=None):
     env["APEX_DATA"] = data_dir or data_dir_for(mode)
     env["PYTHONUNBUFFERED"] = "1"
     env["PYTHONIOENCODING"] = "utf-8"
+    # 13 Nov: one math-library thread per process, as the replays run. numpy's OpenBLAS pool otherwise spins on
+    # every core for the engine's small per-tick arrays and slows the other processes; an explicit setting wins.
+    for k in ("OMP_NUM_THREADS", "OPENBLAS_NUM_THREADS", "MKL_NUM_THREADS"):
+        env.setdefault(k, "1")
     return env
 
 

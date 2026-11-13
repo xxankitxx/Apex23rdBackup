@@ -1,0 +1,46 @@
+16:51:54 starting research/nightly_all.py
+16:52:04 priority unchanged: SetPriorityClass refused
+16:52:13 waiting: replay running: p44_g1, p44_g2, p44_g3, p44_g4, p44_g5, p44_g6, p44_g7, p44_g8, p44_g9; next check in 5 min
+16:57:24 waiting: replay running: p44_g1, p44_g2, p44_g3, p44_g4, p44_g5, p44_g6, p44_g7, p44_g8, p44_g9; next check in 5 min
+17:02:40 waiting: replay running: p44_g1, p44_g2, p44_g3, p44_g4, p44_g5, p44_g6, p44_g7, p44_g8, p44_g9; next check in 5 min
+17:08:25 waiting: replay running: p44_g1, p44_g2, p44_g3, p44_g4, p44_g5, p44_g6, p44_g7, p44_g8, p44_g9; next check in 5 min
+17:13:32 waiting: replay running: p44_g1, p44_g2, p44_g3, p44_g4, p44_g5, p44_g6, p44_g7, p44_g8, p44_g9; next check in 5 min
+17:18:33 waiting: replay running: p44_g1, p44_g2, p44_g3, p44_g4, p44_g5, p44_g6, p44_g7, p44_g8, p44_g9; next check in 5 min
+17:25:30 waiting: replay running: p44_g1, p44_g2, p44_g3, p44_g4, p44_g5, p44_g6, p44_g7, p44_g8, p44_g9; next check in 5 min
+17:34:46 waiting: replay running: p44_g1, p44_g2, p44_g3, p44_g4, p44_g5, p44_g6, p44_g7, p44_g8, p44_g9; next check in 5 min
+17:40:49 waiting: replay running: p44_g1, p44_g2, p44_g3, p44_g4, p44_g5, p44_g6, p44_g7, p44_g8, p44_g9; next check in 5 min
+17:47:51 waiting: replay running: p44_g1, p44_g2, p44_g3, p44_g4, p44_g5, p44_g6, p44_g7, p44_g8, p44_g9; next check in 5 min
+17:56:06 waiting: replay running: p44_g1, p44_g2, p44_g3, p44_g4, p44_g5, p44_g6, p44_g7, p44_g8, p44_g9; next check in 5 min
+18:03:28 waiting: replay running: p44_g1, p44_g2, p44_g3, p44_g4, p44_g5, p44_g6, p44_g7, p44_g8, p44_g9; next check in 5 min
+18:08:59 waiting: replay running: p44_g1, p44_g2, p44_g3, p44_g4, p44_g5, p44_g6, p44_g7, p44_g8, p44_g9; next check in 5 min
+18:16:05 waiting: replay running: p44_g1, p44_g2, p44_g3, p44_g4, p44_g5, p44_g6, p44_g7, p44_g8, p44_g9; next check in 5 min
+18:21:08 waiting: replay running: p44_g1, p44_g2, p44_g3, p44_g4, p44_g5, p44_g6, p44_g7, p44_g8, p44_g9; next check in 5 min
+18:26:09 waiting: replay running: p44_g1, p44_g2, p44_g3, p44_g4, p44_g5, p44_g6, p44_g7, p44_g8, p44_g9; next check in 5 min
+18:33:49 waiting: replay running: p44_g1, p44_g2, p44_g3, p44_g4, p44_g6, p44_g7, p44_g8, p44_g9; next check in 5 min
+18:39:04 waiting: replay running: p44_g1, p44_g2, p44_g3, p44_g4, p44_g6, p44_g7, p44_g8, p44_g9; next check in 5 min
+18:44:43 waiting: replay running: p44_g1, p44_g2, p44_g3, p44_g4, p44_g6, p44_g7, p44_g8, p44_g9; next check in 5 min
+18:52:00 waiting: replay running: p44_g1, p44_g2, p44_g3, p44_g4, p44_g6, p44_g7, p44_g8, p44_g9; next check in 5 min
+18:57:19 waiting: replay running: p44_g1, p44_g2, p44_g3, p44_g4, p44_g6, p44_g7, p44_g8, p44_g9; next check in 5 min
+19:02:41 waiting: replay running: p44_g1, p44_g2, p44_g3, p44_g4, p44_g6, p44_g7, p44_g8, p44_g9; next check in 5 min
+19:07:41 waiting: replay running: p44_g1, p44_g2, p44_g3, p44_g4, p44_g6, p44_g7, p44_g8, p44_g9; next check in 5 min
+19:12:43 waiting: replay running: p44_g1, p44_g2, p44_g3, p44_g4, p44_g6, p44_g7, p44_g8, p44_g9; next check in 5 min
+19:17:44 waiting: replay running: p44_g1, p44_g2, p44_g3, p44_g4, p44_g6, p44_g7, p44_g8, p44_g9; next check in 5 min
+19:22:44 waiting: replay running: p44_g1, p44_g2, p44_g3, p44_g4, p44_g6, p44_g7, p44_g8, p44_g9; next check in 5 min
+19:27:46 waiting: replay running: p44_g1, p44_g2, p44_g3, p44_g4, p44_g6, p44_g7, p44_g8, p44_g9; next check in 5 min
+19:32:46 waiting: replay running: p44_g1, p44_g2, p44_g3, p44_g4, p44_g6, p44_g7, p44_g8, p44_g9; next check in 5 min
+19:37:46 waiting: replay running: p44_g1, p44_g2, p44_g3, p44_g4, p44_g6, p44_g7, p44_g8, p44_g9; next check in 5 min
+19:42:47 waiting: replay running: p44_g1, p44_g2, p44_g3, p44_g4, p44_g6, p44_g7, p44_g8, p44_g9; next check in 5 min
+19:47:47 waiting: replay running: p44_g1, p44_g2, p44_g3, p44_g4, p44_g6, p44_g7, p44_g8, p44_g9; next check in 5 min
+19:52:47 waiting: replay running: p44_g1, p44_g2, p44_g3, p44_g4, p44_g6, p44_g7, p44_g8, p44_g9; next check in 5 min
+19:57:48 waiting: replay running: p44_g1, p44_g2, p44_g3, p44_g4, p44_g6, p44_g7, p44_g8, p44_g9; next check in 5 min
+20:02:48 waiting: replay running: p44_g1, p44_g2, p44_g3, p44_g4, p44_g6, p44_g7, p44_g8, p44_g9; next check in 5 min
+20:07:48 waiting: replay running: p44_g1, p44_g2, p44_g3, p44_g4, p44_g6, p44_g7, p44_g8, p44_g9; next check in 5 min
+20:12:49 waiting: replay running: p44_g1, p44_g2, p44_g3, p44_g4, p44_g6, p44_g7, p44_g8, p44_g9; next check in 5 min
+20:17:49 waiting: replay running: p44_g1, p44_g2, p44_g3, p44_g4, p44_g6, p44_g7, p44_g8, p44_g9; next check in 5 min
+20:22:50 waiting: replay running: p44_g1, p44_g2, p44_g3, p44_g4, p44_g6, p44_g7, p44_g8, p44_g9; next check in 5 min
+20:27:50 waiting: replay running: p44_g1, p44_g2, p44_g3, p44_g4, p44_g6, p44_g7, p44_g8, p44_g9; next check in 5 min
+20:32:51 waiting: replay running: p44_g1, p44_g2, p44_g3, p44_g4, p44_g6, p44_g7, p44_g8, p44_g9; next check in 5 min
+20:37:51 waiting: replay running: p44_g1, p44_g2, p44_g3, p44_g4, p44_g6, p44_g7, p44_g8, p44_g9; next check in 5 min
+20:42:56 waiting: replay running: p44_g1, p44_g2, p44_g3, p44_g4, p44_g6, p44_g7, p44_g8, p44_g9; next check in 5 min
+20:47:56 skipped: replay running: p44_g1, p44_g2, p44_g3, p44_g4, p44_g6, p44_g7, p44_g8, p44_g9
+20:47:56 finished with exit code 0

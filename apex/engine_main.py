@@ -13,6 +13,7 @@ import bisect
 import json
 import math
 import os
+
 import sys
 import time
 import traceback
@@ -21,6 +22,7 @@ from datetime import datetime
 
 import numpy as np
 
+from . import fsutil
 from . import audio, config, greeks
 from .engine import learning, paper
 from .engine.extras import BankLead, EpisodeLog, LagMeter, Straddle, event_today
@@ -52,6 +54,9 @@ from .engine.levels import Force, Pressure
 from .engine.market import Market
 from .feed_core import Registry
 from .table import StateBlob, Table, clean, FEED_STATES
+
+EXIT_SAVE_MIN_S = 10.0     # 13 Nov: least time between two exit-state saves (trail / best moved, no trade)
+PUBLISH_EVERY_S = 0.5      # 13 Nov: the dashboard's state, twice a second (was 4 times; display only, ~650 s CPU a day)
 
 try:                                       # C-34: the decision tape groups reasons like the report does
     from .engine.diagnostics import reason_class as _reason_class
@@ -398,7 +403,7 @@ class Engine:
             tmp = self._warm_path(self.day) + ".tmp"
             with open(tmp, "wb") as f:
                 pickle.dump(st, f)
-            os.replace(tmp, self._warm_path(self.day))
+            fsutil.replace(tmp, self._warm_path(self.day))
         except Exception:
             if self.now_s - getattr(self, "_warm_err", 0) > 300:
                 self._warm_err = self.now_s
@@ -1686,9 +1691,11 @@ class Engine:
             paper.save_books_async(self.books, self.day)     # 9 Nov: the disk write no longer holds the step
             self._ph_add("save books (trade)", pc() - ts)
             self._exit_sig, self._exit_sig_t = sig, ctx["now_s"]
-        elif sig != self._exit_sig and (self._exit_sig_t is None or ctx["now_s"] - self._exit_sig_t >= 1.0) \
+        elif sig != self._exit_sig and (self._exit_sig_t is None or ctx["now_s"] - self._exit_sig_t >= EXIT_SAVE_MIN_S) \
                 and not config.REPLAY_FAST:
-            # C-11: an armed trail, a new best or a committed exit must survive a restart (≤ 1 save/s).
+            # C-11: an armed trail, a new best or a committed exit must survive a restart. 13 Nov: at most one such
+            # save every EXIT_SAVE_MIN_S (was 1 s): the books file is 14-17 MB by the afternoon and 12 Nov rewrote it
+            # about 4,700 times (Defender scanning each copy). Entries and exits still save at once.
             # T02: not in a --fast replay (never restarted; the books are saved on every trade and at the stop)
             if self._safe("save exit state", lambda: paper.save_books_async(self.books, self.day) or True, False):
                 self._exit_sig, self._exit_sig_t = sig, ctx["now_s"]
@@ -2285,7 +2292,7 @@ class Engine:
         if not self.tick_nopublish():
             return False
         try:
-            if time.monotonic() - self.last_publish >= 0.25:
+            if time.monotonic() - self.last_publish >= PUBLISH_EVERY_S:
                 self.last_publish = time.monotonic()
                 tp = time.perf_counter()
                 self.publish()

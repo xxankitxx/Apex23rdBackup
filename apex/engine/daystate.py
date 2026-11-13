@@ -15,6 +15,7 @@ Fed once a second from engine_main with the same trusted spot as the 12-min and 
 import json
 import os
 
+from .. import fsutil
 from .. import config
 
 OR_LATE_S = 600      # 7 Nov (review 8.2): a first trusted print later than open + this means the engine started late
@@ -147,6 +148,6 @@ def save_day(ds):
         tmp = p + ".tmp"
         with open(tmp, "w", encoding="utf-8") as f:
             json.dump(d, f, indent=1, sort_keys=True)
-        os.replace(tmp, p)
+        fsutil.replace(tmp, p)
     except Exception:
         pass

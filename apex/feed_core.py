@@ -26,6 +26,7 @@ from collections import deque
 
 import numpy as np
 
+from . import fsutil
 from . import config
 
 
@@ -38,15 +39,9 @@ def _f(x) -> float:
         return np.nan
 
 
-def replace_retry(src, dst, tries=8):
-    """os.replace that tolerates a Windows sharing violation while a reader has the file open."""
-    for k in range(tries):
-        try:
-            os.replace(src, dst)
-            return
-        except PermissionError:
-            time.sleep(0.05 * (k + 1))
-    os.replace(src, dst)
+def replace_retry(src, dst, budget_s=fsutil.DEFAULT_BUDGET_S, must=True):
+    """os.replace that waits out a Windows sharing violation (fsutil.replace). True when done."""
+    return fsutil.replace(src, dst, budget_s=budget_s, must=must)
 
 
 class Registry:

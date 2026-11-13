@@ -355,7 +355,13 @@ class BreezeFeed:
                 interlock.install(self.breeze)
             t0 = time.monotonic()
             log("generate_session: start")
-            self.breeze.generate_session(api_secret=c["api_secret"], session_token=c["session_token"])
+            try:
+                self.breeze.generate_session(api_secret=c["api_secret"], session_token=c["session_token"])
+            except Exception as e:                  # 13 Nov: say what to do, not only the SDK's traceback
+                if "session key is expired" in str(e).lower() or "could not authenticate" in str(e).lower():
+                    log("LOGIN REFUSED: the broker says today's session token is expired or wrong. Get a fresh "
+                        "session token from the broker's login page, save it in the secrets file, then restart.")
+                raise
             log(f"generate_session: done in {time.monotonic() - t0:.1f} s")
         finally:
             socket.setdefaulttimeout(prev_to)
@@ -677,13 +683,21 @@ class BreezeFeed:
             f"{self.rec.lines} lines; {self.bad_packets} bad packets)")
 
 
+WRITE_CHAIN_FAILS = [0]
+
+
 def write_chain(table, payload):
     tmp = os.path.join(config.DATA_DIR, "chain_latest.json.tmp")
     with open(tmp, "w") as f:
         json.dump(payload, f)
-    replace_retry(tmp, os.path.join(config.DATA_DIR, "chain_latest.json"))
+    # 13 Nov: a refused swap (Windows lock) no longer raises; four 12 Nov replays died here. The chain is
+    # written again on the next refresh, and the version moves only when the new file is in place.
+    if not replace_retry(tmp, os.path.join(config.DATA_DIR, "chain_latest.json"), budget_s=1.0, must=False):
+        WRITE_CHAIN_FAILS[0] += 1
+        return False
     table.set("chain_version", int(table.c("chain_version")) + 1)
     table.set("chain_ns", table.now_ns())
+    return True
 
 
 def main():

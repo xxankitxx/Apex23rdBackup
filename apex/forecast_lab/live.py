@@ -31,6 +31,7 @@ os.environ["OMP_NUM_THREADS"] = "1"                 # forced: an inherited value
 os.environ["OPENBLAS_NUM_THREADS"] = "1"
 import numpy as np  # noqa: E402
 
+from .. import fsutil
 from .. import config  # noqa: E402
 from ..table import CTRL_BYTES, CTRL_DTYPE, MAGIC, ROW_DTYPE, TABLE_BYTES, clean  # noqa: E402
 from .core import STATE_VERSION, Lab  # noqa: E402
@@ -102,7 +103,7 @@ class Writer:
         self.fails = 0
         self.last_err = None
 
-    def write(self, path, text):
+    def write(self, path, text, budget_s=fsutil.SNAPSHOT_BUDGET_S):
         tmp = f"{path}.{threading.get_ident()}.tmp"        # per thread: a console-close save never shares a tmp file
         try:
             with open(tmp, "w", encoding="utf-8") as f:
@@ -111,25 +112,20 @@ class Writer:
             self.fails += 1
             self.last_err = f"{os.path.basename(path)}: {type(e).__name__}"
             return False
-        for _ in range(5):
-            try:
-                os.replace(tmp, path)
-                return True
-            except PermissionError:              # the gateway is reading it this instant (Windows): try again
-                time.sleep(0.03)
-            except OSError as e:
-                self.last_err = f"{os.path.basename(path)}: {type(e).__name__}"
-                break
+        # 13 Nov: fsutil.replace waits out a Windows lock (Defender, the static server reading it) inside a budget;
+        # a refused dashboard write is retried by the next second's write, so it gets a short budget.
+        if fsutil.replace(tmp, path, budget_s=budget_s, must=False):
+            return True
         self.fails += 1
-        self.last_err = self.last_err or f"{os.path.basename(path)}: replace refused 5 times"
+        self.last_err = fsutil.STATS["last"] or f"{os.path.basename(path)}: replace refused"
         return False
 
 
 _W = Writer()
 
 
-def write_atomic(path, text):
-    return _W.write(path, text)
+def write_atomic(path, text, budget_s=fsutil.SNAPSHOT_BUDGET_S):
+    return _W.write(path, text, budget_s)
 
 
 def dumps_payload(obj):
@@ -500,11 +496,11 @@ def save_state(lab, path=None, prev=None):
         try:
             tmp = f"{prev}.{threading.get_ident()}.tmp"
             shutil.copyfile(path, tmp)
-            os.replace(tmp, prev)
+            fsutil.replace(tmp, prev)
         except OSError as e:
             _W.fails += 1
             _W.last_err = f"state.prev.json: {type(e).__name__}"
-    return write_atomic(path, json.dumps(clean(lab.to_json()), allow_nan=False, default=_plain))
+    return write_atomic(path, json.dumps(clean(lab.to_json()), allow_nan=False, default=_plain), fsutil.DEFAULT_BUDGET_S)
 
 
 def _plain(o):
@@ -747,7 +743,7 @@ def main():
                         try:
                             ck = lab.checkpoint()
                             if isinstance(ck, dict):
-                                write_atomic(CHECKPOINT, dumps_payload(ck))
+                                write_atomic(CHECKPOINT, dumps_payload(ck), fsutil.DEFAULT_BUDGET_S)
                         except Exception as e:
                             log.error(e)
                     last_save = time.time()

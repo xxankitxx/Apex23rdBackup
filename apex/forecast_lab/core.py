@@ -37,7 +37,8 @@ from . import clock as CK
 
 VERSION = 3                                 # 11 Nov night: every sentence gated on its own checked record (earned())
 STATE_VERSION = 3                           # the saved learning state's own format, separate from the panel's VERSION
-KAPPA_OK = (0.5, 2.0)                       # a saved state outside these bounds is not loaded (a stall or a bug made it)
+KAPPA_OK = (0.5, 2.0)                       # a saved calibration outside these bounds is reset on load (a stall or a bug
+                                            # may have made it); 12 Nov: the rest of the learning is kept, never thrown away
 Z80_OK = (0.9, 2.0)
 Z80_START = 1.2816
 SPY = 365.0 * 86400.0                       # calendar seconds a year: the engine's implied-volatility convention
@@ -343,8 +344,9 @@ class Lab:
                     score={k: (v.tolist() if isinstance(v, np.ndarray) else v) for k, v in self.score.items()})
 
     def load(self, s, bounds=False):
-        """Load a saved learning state. Returns (ok, why, carried). bounds=True (the live runner) also rejects a state
-        whose kappa or z80 is outside KAPPA_OK / Z80_OK; offline walks carry any learned value. When ok is False the lab is left exactly as it
+        """Load a saved learning state. Returns (ok, why, carried). bounds=True (the live runner) also handles a state
+        whose kappa or z80 is outside KAPPA_OK / Z80_OK by resetting those two only (12 Nov: never the rest);
+        offline walks carry any learned value. When ok is False the lab is left exactly as it
         was: every field is checked before any is assigned. Version 1 and 2 files are migrated (migrate()). A current
         file whose volatility basis differs from this lab's (brain added, removed or retrained) keeps the learning
         whose meaning did not change and resets the rest."""
@@ -377,12 +379,12 @@ class Lab:
             return False, "unreadable: calibration rows do not match", []
         basis, mine = s.get("vol_basis"), self.vol_basis()
         same = basis == mine
-        if same and bounds:
-            if kappa.min() < KAPPA_OK[0] or kappa.max() > KAPPA_OK[1]:
-                return False, (f"rejected: kappa {kappa.min():.2f} to {kappa.max():.2f} is outside "
-                               f"{KAPPA_OK[0]} to {KAPPA_OK[1]}"), []
-            if z80.min() < Z80_OK[0] or z80.max() > Z80_OK[1]:
-                return False, f"rejected: z80 {z80.min():.2f} to {z80.max():.2f} is outside {Z80_OK[0]} to {Z80_OK[1]}", []
+        out_cal = None                                            # 12 Nov: an out-of-bounds calibration is reset, not
+        if same and bounds:                                       # a reason to drop the day's learning (z80 0.75 after a
+            if kappa.min() < KAPPA_OK[0] or kappa.max() > KAPPA_OK[1]:    # wide-range day made state.json unloadable)
+                out_cal = f"kappa {kappa.min():.2f} to {kappa.max():.2f} is outside {KAPPA_OK[0]} to {KAPPA_OK[1]}"
+            elif z80.min() < Z80_OK[0] or z80.max() > Z80_OK[1]:
+                out_cal = f"z80 {z80.min():.2f} to {z80.max():.2f} is outside {Z80_OK[0]} to {Z80_OK[1]}"
         iv = self._iv_fields(s)
         if iv is None:
             return False, "unreadable: volatility fields are not finite", []
@@ -396,6 +398,10 @@ class Lab:
                 hedge[j] = hedge[j] / hedge[j].sum()
             kappa, z80, obias, oscale = np.ones(nh), np.full(nh, Z80_START), np.zeros(nh), np.ones(nh)
             why = f"loaded, volatility basis changed ({basis} to {mine}): kappa/z80 reset"
+        elif out_cal is not None:                                 # learning kept; only the range calibration restarts
+            kappa, z80 = np.ones(nh), np.full(nh, Z80_START)
+            carried += ["obias", "oscale", "frozen", "score"]
+            why = f"loaded, kappa/z80 reset: {out_cal}"
         else:
             carried += ["kappa", "z80", "obias", "oscale", "frozen", "score"]
             why = "loaded"
@@ -1430,21 +1436,52 @@ class Lab:
         if c is None or not qa or not qb or self.last_t is None:
             return None
         lo = self.last_t - window
-        ta = {round(x[0], 1): x for x in qa if x[0] >= lo}
-        tb = {round(x[0], 1): x for x in qb if x[0] >= lo}
-        ts = sorted(set(ta) & set(tb))
-        if len(ts) < 30:
+        # 13 Nov: the result depends only on the quotes inside the window and the chain's clock, which change every
+        # 5 s, while the panel asks every second (and twice for the at-the-money call). An exact cache on those
+        # inputs: 12 Nov's panel spent 90 % of its 250 ms here, re-solving the same implied vols.
+        na = nb = 0
+        for x in qa:
+            if x[0] >= lo:
+                break
+            na += 1
+        for x in qb:
+            if x[0] >= lo:
+                break
+            nb += 1
+        ck = (id(c), c["t"], c["T"], na, len(qa), qa[-1][0], nb, len(qb), qb[-1][0])
+        cache = getattr(self, "_md_cache", None)
+        if cache is None or cache.get("_ck") != (id(c), c["t"], c["T"]):
+            cache = self._md_cache = {"_ck": (id(c), c["t"], c["T"])}
+        key = (strike, rr, window, min_blocks) + ck
+        if key in cache:
+            return cache[key]
+        out = cache[key] = self._measured_decay_calc(strike, rr, qa, qb, lo, min_blocks, cache, (strike,) + ck)
+        return out
+
+    def _measured_decay_calc(self, strike, rr, qa, qb, lo, min_blocks, cache, ivkey):
+        c = self.chain
+        got = cache.get(ivkey)
+        if got is None:
+            ta = {round(x[0], 1): x for x in qa if x[0] >= lo}
+            tb = {round(x[0], 1): x for x in qb if x[0] >= lo}
+            ts = sorted(set(ta) & set(tb))
+            if len(ts) < 30:
+                got = cache[ivkey] = (None,)
+            else:
+                t_ = np.array([ta[s][0] for s in ts], float)
+                mc = np.array([ta[s][1] for s in ts], float)
+                mp = np.array([tb[s][1] for s in ts], float)
+                Fs = np.array([ta[s][2] for s in ts], float)
+                T_ = np.maximum(c["T"] + (c["t"] - t_) / SPY, 1e-9)              # calendar time at each stamp
+                with np.errstate(all="ignore"):
+                    iv_c = self._iv_steps(mc, Fs, strike, T_, True)        # one solve per strike, both rights
+                    iv_p = self._iv_steps(mp, Fs, strike, T_, False)
+                got = cache[ivkey] = (ts, t_, mc, mp, Fs, T_, iv_c, iv_p)
+        if got[0] is None:
             return None
-        t_ = np.array([ta[s][0] for s in ts], float)
-        mc = np.array([ta[s][1] for s in ts], float)
-        mp = np.array([tb[s][1] for s in ts], float)
-        Fs = np.array([ta[s][2] for s in ts], float)
+        ts, t_, mc, mp, Fs, T_, iv_c, iv_p = got
         m = mc if rr == 0 else mp
-        T_ = np.maximum(c["T"] + (c["t"] - t_) / SPY, 1e-9)              # calendar time at each stamp
         otm_call = strike >= Fs
-        with np.errstate(all="ignore"):
-            iv_c = self._iv_steps(mc, Fs, strike, T_, True)
-            iv_p = self._iv_steps(mp, Fs, strike, T_, False)
         iv = np.where(otm_call, iv_c, iv_p)
         iv = np.where(np.isfinite(iv), iv, np.where(otm_call, iv_p, iv_c))
         g = b76_greeks(Fs, strike, T_, np.where(np.isfinite(iv), iv, 0.15), np.full(len(ts), rr == 0))
@@ -1604,7 +1641,54 @@ class Lab:
         for x in out.get("path") or []:
             x["draw_median"] = bool((dh.get(str(x["h"])) or {}).get("earned"))
         out["say"] = commentary(out)
+        out["plain"] = plain(out)                     # 12 Nov: the same numbers in plain words
+        self._feed_step(out)
         return out
+
+    def _feed_step(self, out, hold_s=30.0):
+        """12 Nov: the running feed of what changed (verdict, market, decay, ranges). A new verdict is written only after
+        it has held for hold_s seconds, so a read that flickers for a second never fills the feed. Reset each day."""
+        pl = out.get("plain") or {}
+        if not pl.get("verdict"):
+            pl["feed"] = list(getattr(self, "_feed", []) or [])
+            return
+        t, day = float(out["t"]), out.get("day")
+        if getattr(self, "_feed_day", None) != day:
+            self._feed_day, self._feed, self._feed_prev, self._feed_cand, self._feed_rcand = day, [], None, None, None
+        en = out.get("earned") or {}
+        ratio = (out.get("rent") or {}).get("ratio")
+        cur = dict(verdict=pl["verdict"], regime=(out.get("regime") or {}).get("name"),
+                   paid=None if ratio is None else float(ratio) >= 1.0,
+                   range=((en.get("range_h") or {}).get("fut") or {}).get("300", {}).get("status"))
+        prev = self._feed_prev
+        if prev is not None and cur["verdict"]["word"] != prev["verdict"]["word"]:
+            c = self._feed_cand
+            if c is None or c[0] != cur["verdict"]["word"]:
+                self._feed_cand = (cur["verdict"]["word"], t)
+                cur = dict(cur, verdict=prev["verdict"])          # not yet: keep the old read until it holds
+            elif t - c[1] < hold_s:
+                cur = dict(cur, verdict=prev["verdict"])
+            else:
+                self._feed_cand = None
+        else:
+            self._feed_cand = None
+        if prev is not None and cur["regime"] != prev.get("regime"):         # the market word: written once it holds 60 s
+            rc = getattr(self, "_feed_rcand", None)
+            if rc is None or rc[0] != cur["regime"]:
+                self._feed_rcand = (cur["regime"], t)
+                cur = dict(cur, regime=prev.get("regime"))
+            elif t - rc[1] < 2 * hold_s:
+                cur = dict(cur, regime=prev.get("regime"))
+            else:
+                self._feed_rcand = None
+        else:
+            self._feed_rcand = None
+        ev = feed_events(prev, cur, out.get("now"))
+        if ev:
+            self._feed = (ev[::-1] + self._feed)[:FEED_MAX]
+        self._feed_prev = cur
+        pl["verdict"] = cur["verdict"]                            # the page shows the read that has held
+        pl["feed"] = list(self._feed)
 
     def _account(self, out):
         """The account's state, only from an engine report at most ENGINE_FRESH_S old (engine time). An old report
@@ -2235,3 +2319,326 @@ def commentary(p):
     if acc.get("reason"):
         say["account"].append(f"The account (Conductor): {acc['reason']}. The Conductor does not read this panel.")
     return say
+
+
+# ── 12 Nov evening (owner: "not at all intuitive"): the panel in plain words ─────────────────────────────────────────
+# Four short rows a trader can read at a glance, built only from the numbers above: how far Nifty usually moves next,
+# which way it leans for the next two minutes (with how often that lean has been right), what the held trade or a
+# fresh buy needs, and whether movement is paying for time decay. The full commentary stays below it, unchanged.
+# Measured out of sample (data/forecast_lab/walk_forward.json, 11 sessions 27 Oct - 11 Nov, models fitted only on
+# earlier days): the strongest fifth of leans were right this often. Beyond 5 minutes the lean is a coin toss.
+PAST_LEAN_HIT = {60: 0.67, 120: 0.60, 180: 0.59, 300: 0.55}
+PAST_RANGE_CAUGHT = 0.80                       # the same test: the 80 % futures ranges caught 77-82 % on unseen days
+PLAIN_LEAN_H = 120                             # the lean is stated for 2 minutes (1 minute when 2 is past the close)
+
+
+def _half(x, F):
+    """Half the 80 % range in points, or None."""
+    if not x or x.get("q10") is None or x.get("q90") is None:
+        return None
+    return max(0.0, (float(x["q90"]) - float(x["q10"])) / 2.0)
+
+
+def plain(p):
+    """{head, rows, verdict, ladder, board}: the panel in plain words (rows), plus on a live panel the forecaster's
+    read, the Nifty ladder and the option board. tone is good / warn / bad / none (colour only)."""
+    res = _plain_rows(p)
+    if res["rows"]:
+        res.update(verdict=verdict(p), ladder=ladder(p), board=board(p))
+    return res
+
+
+def _plain_rows(p):
+    """{head, rows: [{k, title, text, note, tone}]}."""
+    if not p.get("ok"):
+        return dict(head=f"No forecast: {p.get('why') or 'the forecaster reports a fault'}.", rows=[])
+    if p.get("stale"):
+        return dict(head=f"No forecast: {p['stale']}.", rows=[])
+    if p.get("warm"):
+        return dict(head="Warming up: the forecaster needs 10 minutes of prices before it says anything.", rows=[])
+    F = p.get("F")
+    by_h = {x["h"]: x for x in (p.get("path") or []) if isinstance(x, dict) and "h" in x}
+    en = p.get("earned") or {}
+    rh = (en.get("range_h") or {}).get("fut") or {}
+    rows, head = [], []
+    rg = (p.get("regime") or {}).get("name")
+    mood = {"trending": "Trending market", "choppy": "Choppy market", "mixed": "Mixed market"}.get(rg)
+    if mood:
+        head.append(mood + (", with a sudden jump just now" if (p.get("regime") or {}).get("jump") else ""))
+
+    # 1. how far
+    h5, h15 = _half(by_h.get(300), F), _half(by_h.get(900), F)
+    if h5 is not None:
+        txt = f"Next 5 minutes: about ±{h5:.0f} points ({by_h[300]['q10']:,.0f} to {by_h[300]['q90']:,.0f})."
+        if h15 is not None:
+            txt += f" Next 15 minutes: about ±{h15:.0f}."
+        st = (rh.get("300") or {}).get("status", "unchecked")
+        cov, ck = (rh.get("300") or {}).get("cov"), (rh.get("300") or {}).get("checks") or 0
+        if st == "ok":
+            note, tone = f"Reliable today: these ranges held the price {_pc(cov)} of the time ({ck:.0f} checks).", "good"
+        elif st == "narrow":
+            note, tone = (f"Careful: today moves have been bigger than these ranges (they held only {_pc(cov)}); "
+                          f"they are being widened."), "warn"
+        elif st == "wide":
+            note, tone = f"Today moves have been smaller than these ranges (they held {_pc(cov)}).", "none"
+        else:
+            note, tone = (f"Not checked enough yet today. On earlier days these ranges held the price about "
+                          f"{PAST_RANGE_CAUGHT * 100:.0f} % of the time."), "none"
+        rows.append(dict(k="far", title="How far", text=txt, note=note, tone=tone))
+        head.append(f"moving about ±{h5:.0f} points per 5 minutes")
+
+    # 2. which way
+    hl = PLAIN_LEAN_H if PLAIN_LEAN_H in by_h else 60 if 60 in by_h else None
+    x = by_h.get(hl) if hl else None
+    if x and x.get("mu") is not None and x.get("sd"):
+        z = float(x["mu"]) / float(x["sd"])
+        mins = "2 minutes" if hl == 120 else "1 minute"
+        sc = next((s for s in ((p.get("score") or {}).get("fut") or []) if s.get("h") == hl), {})
+        dn = (sc.get("dir_n") or 0) * ORIGIN_EVERY / float(hl)
+        today = (f" Today such leans were right {_pc(sc.get('dir_hit'))} of the time ({dn:.0f} checks)."
+                 if dn >= RANGE_MIN_CHECKS and sc.get("dir_hit") is not None else "")
+        past = PAST_LEAN_HIT.get(hl)
+        if abs(z) < LEAN_SD:
+            txt, tone = f"Next {mins}: no lean. Up and down are about equally likely.", "none"
+            head.append("no lean")
+        else:
+            word = "up" if z > 0 else "down"
+            size = "Clear" if abs(z) >= 0.35 else "Slight"
+            txt = f"Next {mins}: {size.lower()} lean {word}, about {float(x['mu']):+.1f} points.".replace("-", "−")
+            txt = txt[0].upper() + txt[1:]
+            tone = "good" if word == "up" else "bad"
+            head.append(f"{size.lower()} lean {word} for the next {mins}")
+        note = (f"On earlier days its strongest leans were right about {past * 100:.0f} % of the time." if past else "")
+        # 78 entries: the Conductor's trades 27 Oct - 11 Nov, lean rebuilt out of sample (docs/54_WHY_QUIET_12NOV.md)
+        note += today + (" Beyond 5 minutes it is a coin toss. A hint, not a trade signal: on 78 past Conductor "
+                         "entries, its agreement did not improve them.")
+        rows.append(dict(k="way", title="Which way", text=txt, note=note.strip(), tone=tone))
+
+    # 3. the held trade, or what a fresh buy needs
+    opts = p.get("options") or []
+    held = next((o for o in opts if o.get("tag") == "held"), None)
+    hd = p.get("held") or {}
+    if held is not None or hd.get("strike") is not None:
+        o = held or {}
+        side = o.get("side") or ("CE" if hd.get("side") in (0, "CE") else "PE" if hd.get("side") in (1, "PE") else "")
+        strike = o.get("strike") if o.get("strike") is not None else hd.get("strike")
+        entry, bid, delta = hd.get("entry"), o.get("bid"), o.get("delta")
+        name = f"{float(strike):.0f} {side}" if strike is not None else "position"
+        book = hd.get("book") or (p.get("account") or {}).get("owner")
+        rule = f" Its exit belongs to {book}'s own rules." if book else " Its exit belongs to the book's own rules."
+        if entry and bid is not None and delta and abs(delta) > 0.05:
+            d = float(bid) - float(entry)
+            pct = d / float(entry) * 100.0
+            if d >= 0:
+                back = abs(delta) * (h5 or 0.0)
+                txt = f"Your {name} is {d:.1f} above entry ({pct:+.1f} %)."
+                if h5:
+                    txt += (f" A normal 5-minute move against you (about {h5:.0f} points) would take back about "
+                            f"{back:.1f}" + (", more than the whole gain." if back > d else " of it."))
+                tone = "good"
+            else:
+                need = -d / abs(delta)
+                sign = "+" if side == "CE" else "−"
+                txt = f"Your {name} is {-d:.1f} below entry ({pct:+.1f} %). Nifty needs about {sign}{need:.0f} points to get back to entry."
+                ref = h15 or h5
+                if ref:
+                    within = need <= ref
+                    txt += (f" A normal {'15' if h15 else '5'}-minute move is about ±{ref:.0f}, so that is "
+                            + ("within reach." if within else "more than a normal move."))
+                    tone = "warn" if within else "bad"
+                else:
+                    tone = "warn"
+            rows.append(dict(k="trade", title="Your trade", text=txt, note=rule.strip(), tone=tone))
+        else:
+            rows.append(dict(k="trade", title="Your trade", text=f"Holding the {name}.", note=rule.strip(), tone="none"))
+    else:
+        cands = [o for o in opts if o.get("tag") == "buy"]
+        need = []
+        for o in cands:
+            x5 = {y["h"]: y for y in o.get("path") or []}.get(300)
+            if x5 and x5.get("be") is not None:
+                need.append((o, float(x5["be"])))
+        if need:
+            parts = [f"a {'call' if o['side'] == 'CE' else 'put'} ({o['strike']:.0f} {o['side']}) needs Nifty "
+                     + (f"{be:+.0f}" if abs(be) >= 1 else f"{be:+.1f}").replace("-", "−")
+                     + (" point" if round(abs(be)) == 1 else " points") for o, be in need[:2]]
+            txt = "Bought now, " + " and ".join(parts) + " within 5 minutes to cover decay and the spread."
+            big = max(abs(be) for _, be in need[:2])
+            if h5:
+                if big <= 0.3 * h5:
+                    note, tone = (f"That is small next to a normal 5-minute move of ±{h5:.0f}: the cost is not the "
+                                  f"problem, the direction is."), "none"
+                elif big <= h5:
+                    note, tone = f"A normal 5-minute move is ±{h5:.0f}, so it needs a fair part of one in its favour.", "warn"
+                else:
+                    note, tone = f"That is more than a normal 5-minute move (±{h5:.0f}): buying now needs an unusual move.", "bad"
+            else:
+                note, tone = "", "none"
+            rows.append(dict(k="trade", title="If you buy now", text=txt,
+                             note=(note + " The forecaster places no trade; the Conductor does not read it.").strip(), tone=tone))
+
+    # 4. time decay against movement
+    rent = p.get("rent") or {}
+    atm = next((r for r in (p.get("decay") or []) if r.get("atm")), None)
+    if rent.get("ratio") is not None:
+        r = float(rent["ratio"])
+        cost = f"Time decay costs about ₹{abs(atm['lot_hour']):,.0f} per lot per hour. " if atm and atm.get("lot_hour") is not None else ""
+        if r >= 1.0:
+            txt, tone = cost + f"Nifty has been moving enough to pay for it ({r:.1f} times the cost, last 10 minutes).", "good"
+        else:
+            txt, tone = cost + f"Nifty has not been moving enough to pay for it ({r:.1f} times the cost, last 10 minutes).", "bad"
+        rows.append(dict(k="decay", title="Decay", text=txt,
+                         note="Above 1.0 times the cost, movement beats decay for an option buyer.", tone=tone))
+        head.append("decay " + ("paid" if r >= 1.0 else "not paid"))
+    if not rows:
+        return dict(head="No forecast yet: waiting for prices.", rows=[])
+    h = ", ".join(head)
+    return dict(head=(h[0].upper() + h[1:] + ".") if h else "", rows=rows)
+
+
+# ── 12 Nov late (owner: "very intuitive and more comprehensive ... what option will move where ... tell me what to do,
+# nothing grasps my attention"): the forecaster's read (a verdict), the Nifty ladder, the option board and a running
+# feed of what changed. Display only: it places no order and the Conductor does not read it.
+BOARD_H = (300, 900, 1800)                     # 5, 15 and 30 minutes on the board and the ladder
+FEED_MAX = 40                                  # feed lines kept for the day (newest first on the page)
+
+
+def _lean_of(p):
+    """(z, mu, h) of the short lean: the 2-minute mean over its sd (1 minute near the close); (None, None, None)."""
+    by_h = {x["h"]: x for x in (p.get("path") or []) if isinstance(x, dict) and "h" in x}
+    for h in (PLAIN_LEAN_H, 60):
+        x = by_h.get(h)
+        if x and x.get("mu") is not None and x.get("sd"):
+            return float(x["mu"]) / float(x["sd"]), float(x["mu"]), h
+    return None, None, None
+
+
+def _conf(p, h):
+    """'high' / 'medium' / 'low' from today's hit rate of the lean at h, or 'untested today'."""
+    sc = next((s for s in ((p.get("score") or {}).get("fut") or []) if s.get("h") == h), {})
+    dn = (sc.get("dir_n") or 0) * ORIGIN_EVERY / float(h or 120)
+    hit = sc.get("dir_hit")
+    if hit is None or dn < RANGE_MIN_CHECKS:
+        return "untested today"
+    return "high" if hit >= 0.60 else "medium" if hit >= 0.55 else "low"
+
+
+def verdict(p):
+    """{word, tone, why, conf}: the forecaster's one-word read. Holding: HOLD / PROTECT GAINS / WATCH / UNDER PRESSURE
+    from the held premium's forecast; flat: CALLS FAVOURED / PUTS FAVOURED (clear 2-minute lean), TILT TO CALLS / PUTS
+    (slight lean) or WAIT. Built only from the payload's numbers."""
+    by_h = {x["h"]: x for x in (p.get("path") or []) if isinstance(x, dict) and "h" in x}
+    h5, h15 = _half(by_h.get(300), None), _half(by_h.get(900), None)
+    z, mu, hl = _lean_of(p)
+    conf = _conf(p, hl) if hl else "untested today"
+    ratio = (p.get("rent") or {}).get("ratio")
+    paid = None if ratio is None else float(ratio) >= 1.0
+    opts = p.get("options") or []
+    held = next((o for o in opts if o.get("tag") == "held"), None)
+    hd = p.get("held") or {}
+    if held is not None and hd.get("entry") and held.get("bid") is not None:
+        entry, bid = float(hd["entry"]), float(held["bid"])
+        d = bid - entry
+        x15 = {y["h"]: y for y in held.get("path") or []}.get(900) or {}
+        q50 = x15.get("q50")
+        drift = None if q50 is None else float(q50) - bid
+        dl = abs(float(held.get("delta") or 0.0))
+        side = held.get("side")
+        lean_with = z is not None and abs(z) >= LEAN_SD and ((z > 0) == (side == "CE"))
+        lean_against = z is not None and abs(z) >= LEAN_SD and not lean_with
+        if d >= 0:
+            back = dl * (h5 or 0.0)
+            if back > d and lean_against:
+                return dict(word="PROTECT GAINS", tone="warn", conf=conf,
+                            why=f"In profit by {d:.1f}, but a normal 5-minute move against you could take it all back, "
+                                f"and the short lean is against you.")
+            return dict(word="HOLD", tone="good", conf=conf,
+                        why=f"In profit by {d:.1f}." + (" The short lean is with you." if lean_with else "")
+                            + ("" if drift is None else f" The 15-minute middle forecast is {_rs(q50)} ({drift:+.1f})."))
+        need = -d / dl if dl > 0.05 else None
+        if need is not None and h15 and need > h15:
+            return dict(word="UNDER PRESSURE", tone="bad", conf=conf,
+                        why=f"{-d:.1f} below entry. Getting back needs about {need:.0f} Nifty points, more than a normal "
+                            f"15-minute move (±{h15:.0f}).")
+        return dict(word="WATCH", tone="warn", conf=conf,
+                    why=f"{-d:.1f} below entry." + (f" About {need:.0f} Nifty points gets it back, within a normal "
+                                                     f"15-minute move." if need is not None else "")
+                        + (" The short lean is with you." if lean_with else " The short lean is against you." if lean_against else ""))
+    if held is not None or hd.get("strike") is not None:
+        return dict(word="HOLDING", tone="none", conf=conf, why="The account holds a position; its entry price is not known yet.")
+    if z is None:
+        return dict(word="WAIT", tone="none", conf=conf, why="No short-term forecast yet.")
+    up = z > 0
+    side = "CALLS" if up else "PUTS"
+    move = f"about {mu:+.1f} points in {'2 minutes' if hl == 120 else '1 minute'}".replace("-", "−")
+    dec = "" if paid is None else (" Movement is paying for decay." if paid else " But movement is not paying for decay.")
+    if abs(z) >= 0.35:
+        return dict(word=f"{side} FAVOURED", tone="good" if up else "bad", conf=conf,
+                    why=f"Clear short lean {'up' if up else 'down'}, {move}.{dec}")
+    if abs(z) >= LEAN_SD:
+        return dict(word=f"TILT TO {side}", tone="good" if up else "bad", conf=conf,
+                    why=f"Slight short lean {'up' if up else 'down'}, {move}.{dec}")
+    return dict(word="WAIT", tone="none", conf=conf,
+                why="No lean: up and down are about equally likely." + ("" if paid is None else
+                    " Movement is not paying for decay, so waiting costs nothing." if not paid else
+                    " Movement is paying for decay; a lean would make a case."))
+
+
+def ladder(p):
+    """Nifty's 5 / 15 / 30-minute ranges for the page: [{h, lo80, lo50, mid, hi50, hi80}] in index points (a
+    horizon past the close is not forecast, so after 15:00 the 30-minute row is missing)."""
+    out = []
+    for x in p.get("path") or []:
+        mid = x.get("q50") if x.get("q50") is not None else x.get("mean")       # payloads before 12 Nov: no q50
+        if x.get("h") in BOARD_H and mid is not None and all(x.get(k) is not None for k in ("q10", "q25", "q75", "q90")):
+            out.append(dict(h=x["h"], lo80=x["q10"], lo50=x["q25"], mid=mid, hi50=x["q75"], hi80=x["q90"]))
+    return out
+
+
+def board(p):
+    """Every forecast option, the held one first: where its premium is expected in 5 / 15 / 30 minutes (middle and
+    80 % range), the chance it is worth more than its cost, and the 5-minute race to +5 % or -5 %."""
+    opts = p.get("options") or []
+    hd = p.get("held") or {}
+    order = {"held": 0, "buy": 1, "atm": 2}
+    seen, out = set(), []
+    for o in sorted(opts, key=lambda o: order.get(o.get("tag"), 3)):
+        key = (o.get("strike"), o.get("side"))
+        if key in seen or o.get("strike") is None:
+            continue
+        seen.add(key)
+        held = o.get("tag") == "held"
+        now = o.get("bid") if held else o.get("ask")
+        if now is None:
+            continue
+        rows = []
+        for x in o.get("path") or []:
+            if x.get("h") in BOARD_H and x.get("q50") is not None:
+                rows.append(dict(h=x["h"], mid=x["q50"], chg=r1(float(x["q50"]) - float(now), 1), lo=x.get("q10"),
+                                 hi=x.get("q90"), pp=x.get("pp"), decay=x.get("decay")))
+        bar = o.get("barrier") or None
+        out.append(dict(strike=o["strike"], side=o["side"], tag=o.get("tag"), now=now,
+                        basis="bid (what it sells for)" if held else "ask (what it costs)",
+                        entry=hd.get("entry") if held else None, delta=o.get("delta"), iv=o.get("iv"),
+                        rows=rows, race=dict(up=bar.get("up"), down=bar.get("down")) if bar else None))
+    return out
+
+
+def feed_events(prev, cur, now):
+    """What changed between two plain reads, as feed lines {t, tone, text}."""
+    ev = []
+    if not prev:
+        return [dict(t=now, tone=cur["verdict"]["tone"], text=f"Read: {cur['verdict']['word']}. {cur['verdict']['why']}")]
+    a, b = prev["verdict"], cur["verdict"]
+    if a["word"] != b["word"]:
+        ev.append(dict(t=now, tone=b["tone"], text=f"{a['word']} to {b['word']}. {b['why']}"))
+    if prev.get("regime") != cur.get("regime") and cur.get("regime"):
+        ev.append(dict(t=now, tone="none", text=f"The market turned {cur['regime']}."))
+    if prev.get("paid") is not None and cur.get("paid") is not None and prev["paid"] != cur["paid"]:
+        ev.append(dict(t=now, tone="good" if cur["paid"] else "bad",
+                       text="Movement is now paying for decay." if cur["paid"] else "Movement stopped paying for decay."))
+    if prev.get("range") != cur.get("range") and cur.get("range") in ("narrow", "ok"):
+        ev.append(dict(t=now, tone="warn" if cur["range"] == "narrow" else "good",
+                       text="Moves are bigger than the forecast ranges today; they are being widened." if cur["range"] == "narrow"
+                       else "The 5-minute ranges are on target today."))
+    return ev

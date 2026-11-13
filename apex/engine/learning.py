@@ -50,6 +50,7 @@ import time
 from collections import defaultdict
 from datetime import date, datetime
 
+from .. import fsutil
 from .. import config
 from . import defects
 
@@ -151,14 +152,7 @@ def _atomic_write_lines(path, lines):
         f.write(data)
         f.flush()
         os.fsync(f.fileno())
-    for attempt in range(6):                 # the first try + up to 5 retries
-        try:
-            os.replace(tmp, path)
-            return
-        except PermissionError:
-            if attempt == 5:
-                raise
-            time.sleep(0.2)
+    fsutil.replace(tmp, path)                # 13 Nov: waits out a Windows lock for up to 3 s, then raises
 
 
 def _is_trading(day):

@@ -84,13 +84,13 @@
   "conductor",
   "2026-11-09"
  ],
- "looked_day": "2026-11-11",
+ "looked_day": "2026-11-12",
  "scoreboard": {
-  "n": 4,
-  "sum": 12.97,
-  "go_line": 1003.1,
-  "kill_line": -555.9,
-  "sd_obs": 14.44
+  "n": 7,
+  "sum": 17.83,
+  "go_line": 1006.9,
+  "kill_line": -552.2,
+  "sd_obs": 11.21
  },
- "learned_day": "2026-11-11"
+ "learned_day": "2026-11-12"
 }

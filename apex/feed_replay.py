@@ -24,6 +24,7 @@ from datetime import datetime
 
 import numpy as np
 
+from . import fsutil
 from . import config
 from .feed_breeze import write_chain
 from .feed_core import HotStats, Registry, apply_packet
@@ -54,7 +55,7 @@ def install_registry(table, items, version, prev_items=None, zero=False):
     tmp = config.INSTRUMENTS_JSON + ".tmp"
     with open(tmp, "w", encoding="utf-8") as f:
         json.dump({"version": version, "items": items}, f)
-    os.replace(tmp, config.INSTRUMENTS_JSON)
+    fsutil.replace(tmp, config.INSTRUMENTS_JSON)
     table.set("reg_version", version)
     return Registry.tokens_from_items(items)
 
