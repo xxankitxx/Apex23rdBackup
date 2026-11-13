@@ -1,0 +1,113 @@
+rules tried: 80
+
+== marked: baseline disc {'n': 13056, 'win': 46.85202205882353, 'mean': 0.745246706495098, 'logsum': 4637.360195666975, 'bookdays': 964, 'losing_bookdays': 423, 'mean_bookday': 12.11440286264816} | test {'n': 6121, 'win': 46.23427544518869, 'mean': 0.5041277569024669, 'logsum': 1241.8622243191955, 'bookdays': 374, 'losing_bookdays': 178, 'mean_bookday': 8.786303869368513}
+
+== t28fwd: baseline disc {'n': 972, 'win': 47.73662551440329, 'mean': 1.9651440329218106, 'logsum': 1319.3830614216772, 'bookdays': 84, 'losing_bookdays': 41, 'mean_bookday': 28.785379640035053} | test {'n': 374, 'win': 47.05882352941176, 'mean': 1.5774331550802139, 'logsum': 377.5764213907271, 'bookdays': 35, 'losing_bookdays': 15, 'mean_bookday': 18.20924918485025}
+
+== marked: top 15 by discovery (sum of log returns, pct pts) and their test change
+   set                       rule  fired_disc  fired_test  d_logsum  d_win  t_logsum  t_win  t_mean_bookday  t_losing_bookdays
+marked              m300 futfav<0         737         315   1594.31  -0.91   -573.38  -1.45           -1.97                 -8
+marked             m300 peak<0.08        1352         569   1282.51   0.16   -131.39  -0.38           -0.89                 -7
+marked             m300 futfav<20        1789         627   1222.40   0.87     74.22  -0.34           -0.10                 -7
+marked           m300 theta>delta         928         328   1101.15  -0.29   -584.95  -1.50           -2.05                 -6
+marked             m300 peak<0.10        1571         610   1020.39   0.57   -110.65  -0.29           -0.78                 -9
+marked             m300 futfav<10        1341         461    999.60   0.31   -683.34  -1.14           -2.34                -11
+marked m300 peakage>120&gain<pk/2         711         271    962.04  -0.93   -180.37  -1.36           -0.65                  2
+marked    m300 theta>delta&gain<0         618         281    959.37  -1.57   -853.68  -2.03           -2.66                 16
+marked             m300 peak<0.05         899         372    893.03  -0.40    242.03  -0.65            0.50                -27
+marked            m900 gain<-0.02         195          56    755.27  -0.38     62.41  -0.18           -0.02                  0
+marked            m300 gain<+0.02         938         432    737.52  -1.06   -607.23  -1.24           -2.08                -17
+marked            m300 gain<+0.00         709         327    730.09  -1.94   -768.38  -2.22           -2.39                  5
+marked            m300 gain<-0.02         452         180    660.33  -1.03   -643.95  -1.19           -2.25                  9
+marked           m1800 gain<-0.05          50           7    650.16   0.00    194.39  -0.02            0.35                  0
+marked    m900 theta>delta&gain<0         253         100    613.39  -0.69    107.38  -0.54            0.02                  6
+-- marked: rules better in discovery: 35 of 80; better in test: 47; both: 19
+   set                      rule  fired_disc  fired_test  d_logsum  d_win  t_logsum  t_win  t_mean_bookday  t_losing_bookdays
+marked            m300 futfav<20        1789         627   1222.40   0.87     74.22  -0.34           -0.10                 -7
+marked            m300 peak<0.05         899         372    893.03  -0.40    242.03  -0.65            0.50                -27
+marked           m900 gain<-0.02         195          56    755.27  -0.38     62.41  -0.18           -0.02                  0
+marked          m1800 gain<-0.05          50           7    650.16   0.00    194.39  -0.02            0.35                  0
+marked   m900 theta>delta&gain<0         253         100    613.39  -0.69    107.38  -0.54            0.02                  6
+marked m900 gbshare>0.5&peak>0.1          60          42    590.47   0.20    474.64   0.33            1.41                 -4
+marked           m300 ivchg<-0.5         130           4    513.52   0.02     20.16   0.00            0.09                  0
+marked          m1800 gain<-0.08          14           5    496.82   0.00    208.24   0.00            0.39                  0
+marked           m1800 peak<0.05          51          19    496.31   0.01    101.12   0.02            0.17                  3
+marked           m900 gain<-0.08          41          10    472.62  -0.02    188.72  -0.05            0.32                  1
+marked          m1800 ivchg<-0.5          24           5    454.06  -0.02     51.59   0.08            0.12                  0
+marked           m1800 peak<0.10         134          98    431.52  -0.05    265.08   0.23            0.48                -19
+marked           m1800 peak<0.08         105          70    414.09  -0.01    305.80   0.28            0.63                -12
+marked           m1800 peak<0.03          29           9    352.28   0.00     47.93  -0.05            0.04                  3
+marked m900 gbshare>0.8&peak>0.1          17          34    304.73   0.00    488.63   0.33            1.44                 -5
+marked           m900 gain<-0.05          89          39    242.16  -0.27     68.18  -0.07            0.04                  1
+marked          m900 theta>delta         287         102    199.21  -0.61    129.90  -0.51            0.07                  6
+marked           m300 gain<-0.08          41          14    163.30  -0.11    123.16   0.00            0.24                  0
+marked             m900 futfav<0         252          99     18.98  -0.62     98.47  -0.54           -0.01                  7
+
+== t28fwd: top 15 by discovery (sum of log returns, pct pts) and their test change
+   set                       rule  fired_disc  fired_test  d_logsum  d_win  t_logsum  t_win  t_mean_bookday  t_losing_bookdays
+t28fwd            m300 gain<+0.02         191         106    374.44  -0.51     52.98  -1.07            0.51                 -4
+t28fwd             m300 futfav<10         275         118    363.32   3.40    -13.08  -1.07           -1.32                  2
+t28fwd             m300 peak<0.08         271         129    330.89   2.57     34.53   0.00            0.69                  6
+t28fwd              m300 futfav<0         160          77    326.84  -0.93     34.91  -3.21            0.35                 -2
+t28fwd m300 peakage>120&gain<pk/2         158          80    319.79  -0.62    124.29  -1.34            3.19                 -1
+t28fwd             m300 peak<0.05         172          80    307.52   0.93    143.15  -0.27            3.56                 -6
+t28fwd             m300 futfav<20         356         146    281.90   4.12     18.47   0.00           -0.09                  3
+t28fwd           m300 theta>delta         193          79    231.68   0.72     16.25  -3.21           -0.17                  0
+t28fwd             m300 peak<0.10         316         145    219.02   3.40    -20.18   0.00           -1.83                  5
+t28fwd            m300 gain<+0.00         142          75    169.33  -4.12     64.10  -5.08            1.26                 -2
+t28fwd    m300 theta>delta&gain<0         125          65    120.50  -3.50     22.71  -4.81            0.07                  1
+t28fwd            m900 gain<-0.02          20          11    116.99   0.00    -28.62  -1.07           -1.09                  0
+t28fwd            m300 ivchg<-0.5          21           0     83.01   0.00      0.00   0.00            0.00                  0
+t28fwd            m1800 peak<0.10          23          15     67.76   0.00     34.41   1.34            0.89                 -1
+t28fwd            m1800 peak<0.05          20           4     61.68   0.00     28.19   0.80            0.75                  0
+-- t28fwd: rules better in discovery: 32 of 80; better in test: 34; both: 17
+   set                       rule  fired_disc  fired_test  d_logsum  d_win  t_logsum  t_win  t_mean_bookday  t_losing_bookdays
+t28fwd            m300 gain<+0.02         191         106    374.44  -0.51     52.98  -1.07            0.51                 -4
+t28fwd             m300 peak<0.08         271         129    330.89   2.57     34.53   0.00            0.69                  6
+t28fwd              m300 futfav<0         160          77    326.84  -0.93     34.91  -3.21            0.35                 -2
+t28fwd m300 peakage>120&gain<pk/2         158          80    319.79  -0.62    124.29  -1.34            3.19                 -1
+t28fwd             m300 peak<0.05         172          80    307.52   0.93    143.15  -0.27            3.56                 -6
+t28fwd             m300 futfav<20         356         146    281.90   4.12     18.47   0.00           -0.09                  3
+t28fwd           m300 theta>delta         193          79    231.68   0.72     16.25  -3.21           -0.17                  0
+t28fwd            m300 gain<+0.00         142          75    169.33  -4.12     64.10  -5.08            1.26                 -2
+t28fwd    m300 theta>delta&gain<0         125          65    120.50  -3.50     22.71  -4.81            0.07                  1
+t28fwd            m1800 peak<0.10          23          15     67.76   0.00     34.41   1.34            0.89                 -1
+t28fwd            m1800 peak<0.05          20           4     61.68   0.00     28.19   0.80            0.75                  0
+t28fwd           m1800 gain<-0.05          13           1     61.36   0.00      2.60   0.00            0.07                  0
+t28fwd            m1800 peak<0.08          21          12     60.96   0.00     39.02   1.34            1.10                  0
+t28fwd             m300 peak<0.03          89          43     45.38  -0.62     31.79  -2.14            0.64                 -1
+t28fwd             m900 peak<0.05          46          16     27.80  -0.41     12.07   0.00            0.06                  0
+t28fwd             m900 peak<0.08          54          34     14.47  -0.21     19.03   0.53            0.37                  1
+t28fwd            m300 gain<-0.08           4           1      0.28   0.00      2.52   0.00            0.06                  0
+
+== Spearman of mark feature vs the return still to come (book exit minus exit-now), pool5
+                n           rho       
+per          disc   test   disc   test
+mark feat                             
+300  de    2289.0  733.0  0.148 -0.120
+     ff    2289.0  733.0  0.162 -0.118
+     fg    2289.0  733.0  0.054  0.239
+     g     2289.0  733.0  0.081 -0.148
+     gbs   2279.0  730.0 -0.002  0.101
+     iv    2287.0  733.0  0.041 -0.002
+     pa    2279.0  730.0  0.030  0.189
+     pk    2289.0  733.0  0.123  0.050
+     th    2289.0  733.0  0.001 -0.100
+900  de     678.0  326.0  0.079  0.100
+     ff     678.0  326.0  0.089  0.109
+     fg     678.0  326.0 -0.136 -0.357
+     g      678.0  326.0  0.083  0.043
+     gbs    674.0  325.0 -0.074 -0.216
+     iv     674.0  325.0 -0.113 -0.400
+     pa     674.0  325.0 -0.033  0.032
+     pk     678.0  326.0 -0.044 -0.197
+     th     678.0  326.0 -0.216  0.141
+1800 de     275.0  164.0 -0.052 -0.263
+     ff     275.0  164.0 -0.060 -0.252
+     fg     275.0  164.0  0.054 -0.047
+     g      275.0  164.0 -0.034 -0.245
+     gbs    275.0  164.0 -0.041  0.225
+     iv     274.0  164.0  0.002  0.331
+     pa     275.0  164.0 -0.069 -0.418
+     pk     275.0  164.0  0.205 -0.204
+     th     275.0  164.0 -0.115  0.089

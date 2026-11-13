@@ -41,8 +41,10 @@ def _trades(books, members, order):
     return out
 
 
-def simulate_day(day, books, members, order, reg=None):
-    """One day of the Conductor from the pool books' saved trades. Returns the day's record."""
+def simulate_day(day, books, members, order, reg=None, admit=None):
+    """One day of the Conductor from the pool books' saved trades. Returns the day's record.
+    admit (13 Nov): an account-level yes/no for a shadow Conductor, admit(trig, m, t, taken, books) -> None or a text
+    (conductor.offline_admit gives the engine's AdaptiveConductor policies)."""
     reg = rules.register_rules() if reg is None else reg
     cap = float(config.START_CAPITAL)
     held = None                     # (trigger_t, t_out, book)
@@ -70,6 +72,8 @@ def simulate_day(day, books, members, order, reg=None):
             ctx = {"now_dt": datetime.fromtimestamp(trig, config.IST), "episode": None}
             pattern = diary.entry_pattern(m["book"], t.get("ep_type"), t.get("why"))
             msg = rules.check_rule(m["rule"], t.get("weather_trig") or {}, ctx, pattern, reg)
+        if not msg and admit is not None:
+            msg = admit(trig, m, t, taken, books)
         if msg:
             counts["rule_block"] += 1
             log.append({"t": trig, "event": "rule_block", "book": m["book"], "rule": m.get("rule"), "key": t.get("key"), "why": msg})
@@ -97,14 +101,15 @@ def simulate_day(day, books, members, order, reg=None):
             "occupied_min": round(occupied_s / 60.0, 1), "counts": counts, "log": log}
 
 
-def simulate(days_books, pool, asof="", order=None):
+def simulate(days_books, pool, asof="", order=None, policy=None):
     """{day: record} over several days; the pool as of each day (asof='all': every entry on every day)."""
     out = {}
     for day in sorted(days_books):
         books = days_books[day]
         order_ = order or {n: i for i, n in enumerate(books)}
         members = sorted(cond.active_entries(pool, day, asof), key=lambda e: cond.priority_key(e, order_))
-        out[day] = simulate_day(day, books, members, order_)
+        out[day] = simulate_day(day, books, members, order_,
+                                admit=cond.offline_admit(policy) if policy else None)
         out[day]["pool_n"] = len(members)
     return out
 

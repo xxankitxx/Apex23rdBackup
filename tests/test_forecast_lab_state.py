@@ -146,7 +146,7 @@ def test_out_of_bounds_calibration_is_reset_and_the_learning_kept(tmp_path):
     st, warm = tmp_path / "state.json", tmp_path / "state_warm.json"
     warm.write_text(json.dumps(dict(s_good, kappa=[1.4] * 7)), encoding="utf-8")
     cands = [(str(st), "state.json"), (str(tmp_path / "state.prev.json"), "state.prev.json"), (str(warm), "state_warm.json")]
-    for bad, word in ((dict(s_good, kappa=[3.0] * 7), "kappa 3.00"), (dict(s_good, z80=[0.75] * 7), "z80 0.75")):
+    for bad, word in ((dict(s_good, kappa=[7.0] * 7), "kappa 7.00"), (dict(s_good, z80=[0.5] * 7), "z80 0.50")):
         st.write_text(json.dumps(bad), encoding="utf-8")
         lab = C.Lab(options=False)
         learning, notes, keep = L.pick_state(lab, cands)

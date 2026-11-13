@@ -1,0 +1,8894 @@
+{
+ "days": [
+  "2026-10-19",
+  "2026-10-21",
+  "2026-10-22",
+  "2026-10-23",
+  "2026-10-26",
+  "2026-10-27",
+  "2026-10-28",
+  "2026-10-29",
+  "2026-10-30",
+  "2026-11-02",
+  "2026-11-03",
+  "2026-11-04",
+  "2026-11-05",
+  "2026-11-06",
+  "2026-11-09",
+  "2026-11-11",
+  "2026-11-12"
+ ],
+ "coverage": {
+  "wx_bn60": 1.0,
+  "wx_bn300": 1.0,
+  "wx_fn60": 1.0,
+  "wx_fn300": 1.0,
+  "wx_bank_z": 1.0,
+  "wx_bn_minus_nifty60": 1.0,
+  "wx_bn_minus_nifty300": 0.999,
+  "wx_bn_corr30": 0.825,
+  "wx_nifty60": 1.0,
+  "wx_wmove60_bank": 1.0,
+  "wx_vix": 1.0,
+  "wx_vix_chg5": 1.0,
+  "wx_vix_chg15": 1.0,
+  "wx_vix_chg30": 0.999,
+  "wx_vix_chg_open": 1.0,
+  "wx_vix_day_pos": 1.0,
+  "wx_vix_spot_same5": 0.899,
+  "wx_adv_bank": 1.0,
+  "d_fn_minus_nifty60": 1.0,
+  "d_sis_agree60": 1.0,
+  "d_sis_agree300": 1.0,
+  "d_sis_min60": 1.0,
+  "d_rs_bank60_w": 1.0
+ },
+ "conductor": {
+  "trades": 119,
+  "joined": 119,
+  "days": 17
+ },
+ "auc": {
+  "conductor": {
+   "wx_bn60": {
+    "early": 0.495,
+    "late": 0.469,
+    "n_early": 84,
+    "n_late": 35,
+    "win_med": 0.019,
+    "loss_med": 0.0125
+   },
+   "wx_bn300": {
+    "early": 0.554,
+    "late": 0.492,
+    "n_early": 84,
+    "n_late": 35,
+    "win_med": 0.023,
+    "loss_med": -0.0055
+   },
+   "wx_fn60": {
+    "early": 0.603,
+    "late": 0.542,
+    "n_early": 84,
+    "n_late": 35,
+    "win_med": 0.0,
+    "loss_med": 0.0
+   },
+   "wx_fn300": {
+    "early": 0.598,
+    "late": 0.574,
+    "n_early": 84,
+    "n_late": 35,
+    "win_med": 0.0,
+    "loss_med": 0.0
+   },
+   "wx_bank_z": {
+    "early": 0.523,
+    "late": 0.567,
+    "n_early": 84,
+    "n_late": 35,
+    "win_med": 0.67,
+    "loss_med": 0.6
+   },
+   "wx_bn_minus_nifty60": {
+    "early": 0.499,
+    "late": 0.489,
+    "n_early": 84,
+    "n_late": 35,
+    "win_med": -0.006,
+    "loss_med": -0.0125
+   },
+   "wx_bn_minus_nifty300": {
+    "early": 0.506,
+    "late": 0.546,
+    "n_early": 84,
+    "n_late": 35,
+    "win_med": -0.014,
+    "loss_med": -0.018
+   },
+   "wx_bn_corr30": {
+    "early": 0.448,
+    "late": 0.425,
+    "n_early": 63,
+    "n_late": 33,
+    "win_med": 0.347,
+    "loss_med": 0.375
+   },
+   "wx_nifty60": {
+    "early": 0.517,
+    "late": 0.528,
+    "n_early": 84,
+    "n_late": 35,
+    "win_med": 0.028,
+    "loss_med": 0.0185
+   },
+   "wx_wmove60_bank": {
+    "early": 0.496,
+    "late": 0.467,
+    "n_early": 84,
+    "n_late": 35,
+    "win_med": 1.65,
+    "loss_med": 1.565
+   },
+   "wx_vix": {
+    "early": 0.642,
+    "late": 0.441,
+    "n_early": 84,
+    "n_late": 35,
+    "win_med": 16.68,
+    "loss_med": 15.945
+   },
+   "wx_vix_chg5": {
+    "early": 0.551,
+    "late": 0.438,
+    "n_early": 84,
+    "n_late": 35,
+    "win_med": 0.0,
+    "loss_med": -0.02
+   },
+   "wx_vix_chg15": {
+    "early": 0.579,
+    "late": 0.605,
+    "n_early": 84,
+    "n_late": 35,
+    "win_med": -0.01,
+    "loss_med": -0.03
+   },
+   "wx_vix_chg30": {
+    "early": 0.532,
+    "late": 0.681,
+    "n_early": 84,
+    "n_late": 35,
+    "win_med": 0.02,
+    "loss_med": -0.04
+   },
+   "wx_vix_chg_open": {
+    "early": 0.417,
+    "late": 0.534,
+    "n_early": 84,
+    "n_late": 35,
+    "win_med": 0.3,
+    "loss_med": 0.2
+   },
+   "wx_vix_day_pos": {
+    "early": 0.427,
+    "late": 0.618,
+    "n_early": 84,
+    "n_late": 35,
+    "win_med": 0.508,
+    "loss_med": 0.556
+   },
+   "wx_vix_spot_same5": {
+    "early": 0.5,
+    "late": 0.441,
+    "n_early": 76,
+    "n_late": 34,
+    "win_med": 0.0,
+    "loss_med": 0.0
+   },
+   "wx_adv_bank": {
+    "early": 0.466,
+    "late": 0.469,
+    "n_early": 84,
+    "n_late": 35,
+    "win_med": 0.0,
+    "loss_med": 0.0
+   },
+   "d_fn_minus_nifty60": {
+    "early": 0.609,
+    "late": 0.422,
+    "n_early": 84,
+    "n_late": 35,
+    "win_med": -0.016,
+    "loss_med": -0.019
+   },
+   "d_sis_agree60": {
+    "early": 0.548,
+    "late": 0.541,
+    "n_early": 84,
+    "n_late": 35,
+    "win_med": 1.0,
+    "loss_med": 1.0
+   },
+   "d_sis_agree300": {
+    "early": 0.595,
+    "late": 0.531,
+    "n_early": 84,
+    "n_late": 35,
+    "win_med": 1.0,
+    "loss_med": 1.0
+   },
+   "d_sis_min60": {
+    "early": 0.537,
+    "late": 0.511,
+    "n_early": 84,
+    "n_late": 35,
+    "win_med": 0.0,
+    "loss_med": 0.0
+   },
+   "d_rs_bank60_w": {
+    "early": 0.494,
+    "late": 0.48,
+    "n_early": 84,
+    "n_late": 35,
+    "win_med": -0.004,
+    "loss_med": -0.0079
+   }
+  },
+  "pool_books": {
+   "wx_bn60": {
+    "early": 0.47,
+    "late": 0.483,
+    "n_early": 379,
+    "n_late": 164,
+    "win_med": 0.0185,
+    "loss_med": 0.018
+   },
+   "wx_bn300": {
+    "early": 0.525,
+    "late": 0.469,
+    "n_early": 379,
+    "n_late": 164,
+    "win_med": 0.021,
+    "loss_med": 0.008
+   },
+   "wx_fn60": {
+    "early": 0.586,
+    "late": 0.502,
+    "n_early": 379,
+    "n_late": 164,
+    "win_med": 0.0,
+    "loss_med": 0.0
+   },
+   "wx_fn300": {
+    "early": 0.579,
+    "late": 0.538,
+    "n_early": 379,
+    "n_late": 164,
+    "win_med": 0.0,
+    "loss_med": 0.0
+   },
+   "wx_bank_z": {
+    "early": 0.488,
+    "late": 0.603,
+    "n_early": 379,
+    "n_late": 164,
+    "win_med": 0.67,
+    "loss_med": 0.62
+   },
+   "wx_bn_minus_nifty60": {
+    "early": 0.493,
+    "late": 0.518,
+    "n_early": 379,
+    "n_late": 164,
+    "win_med": -0.006,
+    "loss_med": -0.012
+   },
+   "wx_bn_minus_nifty300": {
+    "early": 0.523,
+    "late": 0.577,
+    "n_early": 379,
+    "n_late": 164,
+    "win_med": -0.014,
+    "loss_med": -0.024
+   },
+   "wx_bn_corr30": {
+    "early": 0.452,
+    "late": 0.44,
+    "n_early": 279,
+    "n_late": 154,
+    "win_med": 0.347,
+    "loss_med": 0.375
+   },
+   "wx_nifty60": {
+    "early": 0.499,
+    "late": 0.504,
+    "n_early": 379,
+    "n_late": 164,
+    "win_med": 0.028,
+    "loss_med": 0.021
+   },
+   "wx_wmove60_bank": {
+    "early": 0.476,
+    "late": 0.451,
+    "n_early": 379,
+    "n_late": 164,
+    "win_med": 1.65,
+    "loss_med": 1.73
+   },
+   "wx_vix": {
+    "early": 0.634,
+    "late": 0.436,
+    "n_early": 379,
+    "n_late": 164,
+    "win_med": 16.67,
+    "loss_med": 15.96
+   },
+   "wx_vix_chg5": {
+    "early": 0.587,
+    "late": 0.461,
+    "n_early": 379,
+    "n_late": 164,
+    "win_med": 0.0,
+    "loss_med": -0.02
+   },
+   "wx_vix_chg15": {
+    "early": 0.585,
+    "late": 0.617,
+    "n_early": 379,
+    "n_late": 164,
+    "win_med": 0.0,
+    "loss_med": -0.03
+   },
+   "wx_vix_chg30": {
+    "early": 0.538,
+    "late": 0.689,
+    "n_early": 379,
+    "n_late": 164,
+    "win_med": 0.02,
+    "loss_med": -0.03
+   },
+   "wx_vix_chg_open": {
+    "early": 0.439,
+    "late": 0.555,
+    "n_early": 379,
+    "n_late": 164,
+    "win_med": 0.28,
+    "loss_med": 0.17
+   },
+   "wx_vix_day_pos": {
+    "early": 0.448,
+    "late": 0.644,
+    "n_early": 379,
+    "n_late": 164,
+    "win_med": 0.51,
+    "loss_med": 0.461
+   },
+   "wx_vix_spot_same5": {
+    "early": 0.474,
+    "late": 0.409,
+    "n_early": 338,
+    "n_late": 157,
+    "win_med": 0.0,
+    "loss_med": 0.0
+   },
+   "wx_adv_bank": {
+    "early": 0.482,
+    "late": 0.466,
+    "n_early": 379,
+    "n_late": 164,
+    "win_med": 0.0,
+    "loss_med": 0.0
+   },
+   "d_fn_minus_nifty60": {
+    "early": 0.623,
+    "late": 0.419,
+    "n_early": 379,
+    "n_late": 164,
+    "win_med": -0.015,
+    "loss_med": -0.019
+   },
+   "d_sis_agree60": {
+    "early": 0.512,
+    "late": 0.527,
+    "n_early": 379,
+    "n_late": 164,
+    "win_med": 1.0,
+    "loss_med": 1.0
+   },
+   "d_sis_agree300": {
+    "early": 0.567,
+    "late": 0.503,
+    "n_early": 379,
+    "n_late": 164,
+    "win_med": 1.0,
+    "loss_med": 1.0
+   },
+   "d_sis_min60": {
+    "early": 0.53,
+    "late": 0.504,
+    "n_early": 379,
+    "n_late": 164,
+    "win_med": 0.0,
+    "loss_med": 0.0
+   },
+   "d_rs_bank60_w": {
+    "early": 0.484,
+    "late": 0.507,
+    "n_early": 379,
+    "n_late": 164,
+    "win_med": -0.004,
+    "loss_med": -0.0072
+   }
+  },
+  "all_books": {
+   "wx_bn60": {
+    "early": 0.489,
+    "late": 0.499,
+    "n_early": 14183,
+    "n_late": 6634,
+    "win_med": 0.006,
+    "loss_med": 0.006
+   },
+   "wx_bn300": {
+    "early": 0.469,
+    "late": 0.485,
+    "n_early": 14183,
+    "n_late": 6634,
+    "win_med": 0.021,
+    "loss_med": 0.029
+   },
+   "wx_fn60": {
+    "early": 0.529,
+    "late": 0.48,
+    "n_early": 14183,
+    "n_late": 6634,
+    "win_med": 0.0,
+    "loss_med": 0.0
+   },
+   "wx_fn300": {
+    "early": 0.515,
+    "late": 0.497,
+    "n_early": 14183,
+    "n_late": 6634,
+    "win_med": 0.0,
+    "loss_med": 0.0
+   },
+   "wx_bank_z": {
+    "early": 0.5,
+    "late": 0.524,
+    "n_early": 14183,
+    "n_late": 6634,
+    "win_med": 0.0,
+    "loss_med": 0.0
+   },
+   "wx_bn_minus_nifty60": {
+    "early": 0.485,
+    "late": 0.492,
+    "n_early": 14183,
+    "n_late": 6634,
+    "win_med": -0.003,
+    "loss_med": -0.001
+   },
+   "wx_bn_minus_nifty300": {
+    "early": 0.484,
+    "late": 0.503,
+    "n_early": 14173,
+    "n_late": 6631,
+    "win_med": -0.002,
+    "loss_med": -0.001
+   },
+   "wx_bn_corr30": {
+    "early": 0.519,
+    "late": 0.487,
+    "n_early": 11292,
+    "n_late": 5879,
+    "win_med": 0.373,
+    "loss_med": 0.363
+   },
+   "wx_nifty60": {
+    "early": 0.504,
+    "late": 0.495,
+    "n_early": 14183,
+    "n_late": 6634,
+    "win_med": 0.009,
+    "loss_med": 0.009
+   },
+   "wx_wmove60_bank": {
+    "early": 0.494,
+    "late": 0.486,
+    "n_early": 14183,
+    "n_late": 6634,
+    "win_med": 0.47,
+    "loss_med": 0.57
+   },
+   "wx_vix": {
+    "early": 0.514,
+    "late": 0.518,
+    "n_early": 14183,
+    "n_late": 6634,
+    "win_med": 16.49,
+    "loss_med": 16.3
+   },
+   "wx_vix_chg5": {
+    "early": 0.518,
+    "late": 0.475,
+    "n_early": 14183,
+    "n_late": 6634,
+    "win_med": 0.0,
+    "loss_med": -0.01
+   },
+   "wx_vix_chg15": {
+    "early": 0.539,
+    "late": 0.495,
+    "n_early": 14183,
+    "n_late": 6634,
+    "win_med": 0.0,
+    "loss_med": -0.02
+   },
+   "wx_vix_chg30": {
+    "early": 0.516,
+    "late": 0.525,
+    "n_early": 14183,
+    "n_late": 6607,
+    "win_med": 0.0,
+    "loss_med": -0.01
+   },
+   "wx_vix_chg_open": {
+    "early": 0.501,
+    "late": 0.497,
+    "n_early": 14183,
+    "n_late": 6634,
+    "win_med": 0.29,
+    "loss_med": 0.27
+   },
+   "wx_vix_day_pos": {
+    "early": 0.503,
+    "late": 0.5,
+    "n_early": 14183,
+    "n_late": 6634,
+    "win_med": 0.587,
+    "loss_med": 0.589
+   },
+   "wx_vix_spot_same5": {
+    "early": 0.484,
+    "late": 0.457,
+    "n_early": 12826,
+    "n_late": 5884,
+    "win_med": 0.0,
+    "loss_med": 0.0
+   },
+   "wx_adv_bank": {
+    "early": 0.486,
+    "late": 0.48,
+    "n_early": 14183,
+    "n_late": 6634,
+    "win_med": 0.0,
+    "loss_med": 0.0
+   },
+   "d_fn_minus_nifty60": {
+    "early": 0.518,
+    "late": 0.484,
+    "n_early": 14183,
+    "n_late": 6634,
+    "win_med": -0.005,
+    "loss_med": -0.005
+   },
+   "d_sis_agree60": {
+    "early": 0.516,
+    "late": 0.494,
+    "n_early": 14183,
+    "n_late": 6634,
+    "win_med": 1.0,
+    "loss_med": 1.0
+   },
+   "d_sis_agree300": {
+    "early": 0.493,
+    "late": 0.493,
+    "n_early": 14183,
+    "n_late": 6634,
+    "win_med": 1.0,
+    "loss_med": 1.0
+   },
+   "d_sis_min60": {
+    "early": 0.502,
+    "late": 0.482,
+    "n_early": 14183,
+    "n_late": 6634,
+    "win_med": 0.0,
+    "loss_med": 0.0
+   },
+   "d_rs_bank60_w": {
+    "early": 0.486,
+    "late": 0.495,
+    "n_early": 14183,
+    "n_late": 6634,
+    "win_med": -0.0003,
+    "loss_med": 0.0005
+   }
+  }
+ },
+ "wf": {
+  "conductor": {
+   "base": {
+    "n": 35,
+    "strike": 51.4,
+    "comp_pct": 200.7,
+    "mean_day_pct": 30.76,
+    "losing_days": 2,
+    "worst_day": -6.0,
+    "per_day": [
+     -6.0,
+     109.2,
+     43.4,
+     12.0,
+     -4.8
+    ],
+    "sum_wo_best_trade": 96.7,
+    "comp_wo_best_day": 43.7
+   },
+   "base_disc": {
+    "n": 84,
+    "strike": 53.6,
+    "comp_pct": 7489.3,
+    "mean_day_pct": 82.24,
+    "losing_days": 3,
+    "worst_day": -37.1,
+    "per_day": [
+     22.8,
+     47.5,
+     8.4,
+     27.4,
+     277.8,
+     541.9,
+     62.5,
+     28.1,
+     -6.0,
+     42.2,
+     -37.1,
+     -28.5
+    ],
+    "sum_wo_best_trade": 543.0,
+    "comp_wo_best_day": 1082.4
+   },
+   "rows": [
+    {
+     "f": "wx_bn60",
+     "side": "keep_above",
+     "cut": -0.0318,
+     "disc": {
+      "n": 67,
+      "strike": 55.2,
+      "comp_pct": 3700.3,
+      "mean_day_pct": 72.37,
+      "losing_days": 5,
+      "worst_day": -37.1,
+      "per_day": [
+       -28.9,
+       68.0,
+       4.6,
+       -11.5,
+       201.4,
+       541.9,
+       44.1,
+       28.1,
+       -6.0,
+       65.8,
+       -37.1,
+       -1.8
+      ],
+      "sum_wo_best_trade": 436.4,
+      "comp_wo_best_day": 492.1
+     },
+     "test": {
+      "n": 28,
+      "strike": 50.0,
+      "comp_pct": 82.4,
+      "mean_day_pct": 14.45,
+      "losing_days": 1,
+      "worst_day": -4.8,
+      "per_day": [
+       0.0,
+       0.0,
+       43.4,
+       33.7,
+       -4.8
+      ],
+      "sum_wo_best_trade": 38.0,
+      "comp_wo_best_day": 27.2
+     }
+    },
+    {
+     "f": "wx_bn60",
+     "side": "keep_above",
+     "cut": -0.0094,
+     "disc": {
+      "n": 56,
+      "strike": 51.8,
+      "comp_pct": 674.7,
+      "mean_day_pct": 51.34,
+      "losing_days": 6,
+      "worst_day": -43.1,
+      "per_day": [
+       -28.9,
+       74.5,
+       -8.1,
+       -11.5,
+       28.6,
+       541.9,
+       38.0,
+       -11.9,
+       -5.3,
+       41.8,
+       -43.1,
+       0.0
+      ],
+      "sum_wo_best_trade": 248.0,
+      "comp_wo_best_day": 20.7
+     },
+     "test": {
+      "n": 23,
+      "strike": 52.2,
+      "comp_pct": 105.4,
+      "mean_day_pct": 17.16,
+      "losing_days": 0,
+      "worst_day": 0.0,
+      "per_day": [
+       0.0,
+       0.0,
+       55.0,
+       23.4,
+       7.4
+      ],
+      "sum_wo_best_trade": 47.6,
+      "comp_wo_best_day": 32.5
+     }
+    },
+    {
+     "f": "wx_bn60",
+     "side": "keep_above",
+     "cut": 0.0,
+     "disc": {
+      "n": 51,
+      "strike": 52.9,
+      "comp_pct": 455.9,
+      "mean_day_pct": 46.84,
+      "losing_days": 6,
+      "worst_day": -34.2,
+      "per_day": [
+       -15.7,
+       77.5,
+       -8.1,
+       -11.5,
+       28.6,
+       541.9,
+       0.0,
+       -11.9,
+       -5.3,
+       0.8,
+       -34.2,
+       0.0
+      ],
+      "sum_wo_best_trade": 200.1,
+      "comp_wo_best_day": -13.4
+     },
+     "test": {
+      "n": 21,
+      "strike": 57.1,
+      "comp_pct": 153.0,
+      "mean_day_pct": 24.34,
+      "losing_days": 0,
+      "worst_day": 0.0,
+      "per_day": [
+       0.0,
+       0.0,
+       90.9,
+       23.4,
+       7.4
+      ],
+      "sum_wo_best_trade": 67.3,
+      "comp_wo_best_day": 32.5
+     }
+    },
+    {
+     "f": "wx_bn60",
+     "side": "keep_above",
+     "cut": 0.0105,
+     "disc": {
+      "n": 42,
+      "strike": 54.8,
+      "comp_pct": 558.6,
+      "mean_day_pct": 49.88,
+      "losing_days": 4,
+      "worst_day": -39.1,
+      "per_day": [
+       -15.1,
+       77.5,
+       0.0,
+       0.0,
+       28.6,
+       563.0,
+       0.0,
+       -11.8,
+       -5.3,
+       0.8,
+       -39.1,
+       0.0
+      ],
+      "sum_wo_best_trade": 212.1,
+      "comp_wo_best_day": -0.7
+     },
+     "test": {
+      "n": 21,
+      "strike": 57.1,
+      "comp_pct": 153.0,
+      "mean_day_pct": 24.34,
+      "losing_days": 0,
+      "worst_day": 0.0,
+      "per_day": [
+       0.0,
+       0.0,
+       90.9,
+       23.4,
+       7.4
+      ],
+      "sum_wo_best_trade": 67.3,
+      "comp_wo_best_day": 32.5
+     }
+    },
+    {
+     "f": "wx_bn60",
+     "side": "keep_below",
+     "cut": -0.0318,
+     "disc": {
+      "n": 17,
+      "strike": 47.1,
+      "comp_pct": 99.7,
+      "mean_day_pct": 8.73,
+      "losing_days": 3,
+      "worst_day": -27.2,
+      "per_day": [
+       72.8,
+       -12.2,
+       3.6,
+       43.9,
+       25.3,
+       0.0,
+       12.8,
+       0.0,
+       0.0,
+       -14.2,
+       0.0,
+       -27.2
+      ],
+      "sum_wo_best_trade": 29.3,
+      "comp_wo_best_day": 15.6
+     },
+     "test": {
+      "n": 7,
+      "strike": 57.1,
+      "comp_pct": 64.8,
+      "mean_day_pct": 17.41,
+      "losing_days": 2,
+      "worst_day": -16.2,
+      "per_day": [
+       -6.0,
+       109.2,
+       0.0,
+       -16.2,
+       0.0
+      ],
+      "sum_wo_best_trade": -2.4,
+      "comp_wo_best_day": -21.2
+     }
+    },
+    {
+     "f": "wx_bn60",
+     "side": "keep_below",
+     "cut": -0.0094,
+     "disc": {
+      "n": 28,
+      "strike": 57.1,
+      "comp_pct": 879.6,
+      "mean_day_pct": 29.8,
+      "losing_days": 3,
+      "worst_day": -28.5,
+      "per_day": [
+       72.8,
+       -15.5,
+       18.0,
+       43.9,
+       193.8,
+       0.0,
+       17.7,
+       45.4,
+       -0.7,
+       0.3,
+       10.4,
+       -28.5
+      ],
+      "sum_wo_best_trade": 214.1,
+      "comp_wo_best_day": 233.4
+     },
+     "test": {
+      "n": 12,
+      "strike": 50.0,
+      "comp_pct": 46.4,
+      "mean_day_pct": 15.03,
+      "losing_days": 4,
+      "worst_day": -11.4,
+      "per_day": [
+       -6.0,
+       109.2,
+       -7.5,
+       -9.2,
+       -11.4
+      ],
+      "sum_wo_best_trade": -12.0,
+      "comp_wo_best_day": -30.0
+     }
+    },
+    {
+     "f": "wx_bn60",
+     "side": "keep_below",
+     "cut": 0.0,
+     "disc": {
+      "n": 32,
+      "strike": 53.1,
+      "comp_pct": 870.7,
+      "mean_day_pct": 29.92,
+      "losing_days": 4,
+      "worst_day": -28.5,
+      "per_day": [
+       45.8,
+       -16.9,
+       18.0,
+       43.9,
+       193.8,
+       0.0,
+       62.5,
+       45.4,
+       -0.7,
+       0.3,
+       -4.4,
+       -28.5
+      ],
+      "sum_wo_best_trade": 221.3,
+      "comp_wo_best_day": 230.4
+     },
+     "test": {
+      "n": 13,
+      "strike": 46.2,
+      "comp_pct": 37.4,
+      "mean_day_pct": 13.89,
+      "losing_days": 4,
+      "worst_day": -13.2,
+      "per_day": [
+       -6.0,
+       109.2,
+       -13.2,
+       -9.2,
+       -11.4
+      ],
+      "sum_wo_best_trade": -18.2,
+      "comp_wo_best_day": -34.3
+     }
+    },
+    {
+     "f": "wx_bn60",
+     "side": "keep_below",
+     "cut": 0.0105,
+     "disc": {
+      "n": 42,
+      "strike": 52.4,
+      "comp_pct": 1052.3,
+      "mean_day_pct": 31.42,
+      "losing_days": 4,
+      "worst_day": -28.5,
+      "per_day": [
+       44.7,
+       -16.9,
+       8.4,
+       27.4,
+       193.8,
+       -3.2,
+       62.5,
+       45.2,
+       -0.7,
+       41.0,
+       3.3,
+       -28.5
+      ],
+      "sum_wo_best_trade": 250.0,
+      "comp_wo_best_day": 292.2
+     },
+     "test": {
+      "n": 14,
+      "strike": 42.9,
+      "comp_pct": 18.9,
+      "mean_day_pct": 11.55,
+      "losing_days": 4,
+      "worst_day": -24.9,
+      "per_day": [
+       -6.0,
+       109.2,
+       -24.9,
+       -9.2,
+       -11.4
+      ],
+      "sum_wo_best_trade": -31.7,
+      "comp_wo_best_day": -43.2
+     }
+    },
+    {
+     "f": "wx_bn300",
+     "side": "keep_above",
+     "cut": -0.091,
+     "disc": {
+      "n": 67,
+      "strike": 56.7,
+      "comp_pct": 7625.9,
+      "mean_day_pct": 73.38,
+      "losing_days": 2,
+      "worst_day": -37.1,
+      "per_day": [
+       22.8,
+       68.0,
+       8.4,
+       30.9,
+       91.0,
+       541.9,
+       69.4,
+       45.9,
+       -2.3,
+       41.8,
+       -37.1,
+       0.0
+      ],
+      "sum_wo_best_trade": 533.0,
+      "comp_wo_best_day": 1103.7
+     },
+     "test": {
+      "n": 29,
+      "strike": 51.7,
+      "comp_pct": 91.0,
+      "mean_day_pct": 15.08,
+      "losing_days": 2,
+      "worst_day": -6.0,
+      "per_day": [
+       -6.0,
+       15.6,
+       34.0,
+       33.7,
+       -2.0
+      ],
+      "sum_wo_best_trade": 43.0,
+      "comp_wo_best_day": 42.5
+     }
+    },
+    {
+     "f": "wx_bn300",
+     "side": "keep_above",
+     "cut": -0.0368,
+     "disc": {
+      "n": 56,
+      "strike": 58.9,
+      "comp_pct": 4495.6,
+      "mean_day_pct": 66.75,
+      "losing_days": 2,
+      "worst_day": -26.9,
+      "per_day": [
+       45.6,
+       70.8,
+       3.6,
+       51.6,
+       0.0,
+       541.9,
+       9.5,
+       65.4,
+       -2.3,
+       41.8,
+       -26.9,
+       0.0
+      ],
+      "sum_wo_best_trade": 453.3,
+      "comp_wo_best_day": 616.0
+     },
+     "test": {
+      "n": 24,
+      "strike": 50.0,
+      "comp_pct": 51.0,
+      "mean_day_pct": 9.21,
+      "losing_days": 1,
+      "worst_day": -6.0,
+      "per_day": [
+       -6.0,
+       5.5,
+       30.7,
+       8.4,
+       7.4
+      ],
+      "sum_wo_best_trade": 13.5,
+      "comp_wo_best_day": 15.5
+     }
+    },
+    {
+     "f": "wx_bn300",
+     "side": "keep_above",
+     "cut": 0.0,
+     "disc": {
+      "n": 43,
+      "strike": 58.1,
+      "comp_pct": 967.9,
+      "mean_day_pct": 52.58,
+      "losing_days": 1,
+      "worst_day": -38.4,
+      "per_day": [
+       45.6,
+       77.5,
+       3.6,
+       0.0,
+       0.0,
+       541.9,
+       0.0,
+       0.0,
+       0.0,
+       0.8,
+       -38.4,
+       0.0
+      ],
+      "sum_wo_best_trade": 269.8,
+      "comp_wo_best_day": 66.4
+     },
+     "test": {
+      "n": 20,
+      "strike": 55.0,
+      "comp_pct": 83.3,
+      "mean_day_pct": 14.62,
+      "losing_days": 0,
+      "worst_day": 0.0,
+      "per_day": [
+       0.0,
+       5.5,
+       56.8,
+       0.0,
+       10.7
+      ],
+      "sum_wo_best_trade": 30.8,
+      "comp_wo_best_day": 16.8
+     }
+    },
+    {
+     "f": "wx_bn300",
+     "side": "keep_above",
+     "cut": 0.0025,
+     "disc": {
+      "n": 42,
+      "strike": 57.1,
+      "comp_pct": 842.4,
+      "mean_day_pct": 46.3,
+      "losing_days": 1,
+      "worst_day": -38.4,
+      "per_day": [
+       45.6,
+       77.5,
+       3.6,
+       0.0,
+       0.0,
+       466.5,
+       0.0,
+       0.0,
+       0.0,
+       0.8,
+       -38.4,
+       0.0
+      ],
+      "sum_wo_best_trade": 256.5,
+      "comp_wo_best_day": 66.4
+     },
+     "test": {
+      "n": 20,
+      "strike": 55.0,
+      "comp_pct": 83.3,
+      "mean_day_pct": 14.62,
+      "losing_days": 0,
+      "worst_day": 0.0,
+      "per_day": [
+       0.0,
+       5.5,
+       56.8,
+       0.0,
+       10.7
+      ],
+      "sum_wo_best_trade": 30.8,
+      "comp_wo_best_day": 16.8
+     }
+    },
+    {
+     "f": "wx_bn300",
+     "side": "keep_below",
+     "cut": -0.091,
+     "disc": {
+      "n": 17,
+      "strike": 41.2,
+      "comp_pct": -1.8,
+      "mean_day_pct": 2.89,
+      "losing_days": 6,
+      "worst_day": -28.5,
+      "per_day": [
+       0.0,
+       -12.2,
+       0.0,
+       -2.6,
+       97.8,
+       0.0,
+       -4.1,
+       -12.2,
+       -3.7,
+       0.3,
+       0.0,
+       -28.5
+      ],
+      "sum_wo_best_trade": -12.7,
+      "comp_wo_best_day": -50.3
+     },
+     "test": {
+      "n": 6,
+      "strike": 50.0,
+      "comp_pct": 57.5,
+      "mean_day_pct": 13.76,
+      "losing_days": 2,
+      "worst_day": -16.2,
+      "per_day": [
+       0.0,
+       80.9,
+       7.0,
+       -16.2,
+       -2.9
+      ],
+      "sum_wo_best_trade": -7.4,
+      "comp_wo_best_day": -13.0
+     }
+    },
+    {
+     "f": "wx_bn300",
+     "side": "keep_below",
+     "cut": -0.0368,
+     "disc": {
+      "n": 28,
+      "strike": 42.9,
+      "comp_pct": 65.1,
+      "mean_day_pct": 18.09,
+      "losing_days": 7,
+      "worst_day": -28.5,
+      "per_day": [
+       -15.6,
+       -13.7,
+       4.6,
+       -16.0,
+       277.8,
+       0.0,
+       48.4,
+       -22.6,
+       -3.7,
+       0.3,
+       -13.9,
+       -28.5
+      ],
+      "sum_wo_best_trade": 8.9,
+      "comp_wo_best_day": -56.3
+     },
+     "test": {
+      "n": 11,
+      "strike": 54.5,
+      "comp_pct": 99.2,
+      "mean_day_pct": 19.98,
+      "losing_days": 1,
+      "worst_day": -11.4,
+      "per_day": [
+       0.0,
+       98.2,
+       9.7,
+       3.4,
+       -11.4
+      ],
+      "sum_wo_best_trade": 22.1,
+      "comp_wo_best_day": 0.5
+     }
+    },
+    {
+     "f": "wx_bn300",
+     "side": "keep_below",
+     "cut": 0.0,
+     "disc": {
+      "n": 40,
+      "strike": 47.5,
+      "comp_pct": 567.9,
+      "mean_day_pct": 30.85,
+      "losing_days": 5,
+      "worst_day": -28.5,
+      "per_day": [
+       -15.6,
+       -16.9,
+       4.6,
+       27.4,
+       277.8,
+       0.0,
+       62.5,
+       28.1,
+       -6.0,
+       41.0,
+       -4.1,
+       -28.5
+      ],
+      "sum_wo_best_trade": 185.9,
+      "comp_wo_best_day": 76.8
+     },
+     "test": {
+      "n": 15,
+      "strike": 46.7,
+      "comp_pct": 64.1,
+      "mean_day_pct": 16.33,
+      "losing_days": 3,
+      "worst_day": -14.0,
+      "per_day": [
+       -6.0,
+       98.2,
+       -8.6,
+       12.0,
+       -14.0
+      ],
+      "sum_wo_best_trade": 4.9,
+      "comp_wo_best_day": -17.2
+     }
+    },
+    {
+     "f": "wx_bn300",
+     "side": "keep_below",
+     "cut": 0.0025,
+     "disc": {
+      "n": 42,
+      "strike": 50.0,
+      "comp_pct": 705.3,
+      "mean_day_pct": 32.48,
+      "losing_days": 4,
+      "worst_day": -28.5,
+      "per_day": [
+       -15.6,
+       -16.9,
+       4.6,
+       27.4,
+       277.8,
+       13.3,
+       62.5,
+       28.1,
+       -6.0,
+       41.0,
+       2.1,
+       -28.5
+      ],
+      "sum_wo_best_trade": 205.6,
+      "comp_wo_best_day": 113.2
+     },
+     "test": {
+      "n": 15,
+      "strike": 46.7,
+      "comp_pct": 64.1,
+      "mean_day_pct": 16.33,
+      "losing_days": 3,
+      "worst_day": -14.0,
+      "per_day": [
+       -6.0,
+       98.2,
+       -8.6,
+       12.0,
+       -14.0
+      ],
+      "sum_wo_best_trade": 4.9,
+      "comp_wo_best_day": -17.2
+     }
+    },
+    {
+     "f": "wx_fn60",
+     "side": "keep_above",
+     "cut": 0.0,
+     "disc": {
+      "n": 16,
+      "strike": 75.0,
+      "comp_pct": 267.3,
+      "mean_day_pct": 16.13,
+      "losing_days": 2,
+      "worst_day": -8.2,
+      "per_day": [
+       -5.9,
+       80.9,
+       0.0,
+       0.0,
+       6.0,
+       119.8,
+       0.0,
+       0.0,
+       0.0,
+       0.8,
+       -8.2,
+       0.0
+      ],
+      "sum_wo_best_trade": 104.1,
+      "comp_wo_best_day": 67.1
+     },
+     "test": {
+      "n": 5,
+      "strike": 40.0,
+      "comp_pct": -19.8,
+      "mean_day_pct": -3.7,
+      "losing_days": 1,
+      "worst_day": -24.0,
+      "per_day": [
+       0.0,
+       5.5,
+       -24.0,
+       0.0,
+       0.0
+      ],
+      "sum_wo_best_trade": -31.1,
+      "comp_wo_best_day": -24.0
+     }
+    },
+    {
+     "f": "wx_fn60",
+     "side": "keep_below",
+     "cut": 0.0,
+     "disc": {
+      "n": 4,
+      "strike": 25.0,
+      "comp_pct": -22.0,
+      "mean_day_pct": -1.89,
+      "losing_days": 3,
+      "worst_day": -13.7,
+      "per_day": [
+       0.0,
+       -12.2,
+       0.0,
+       -13.7,
+       7.3,
+       0.0,
+       -4.1,
+       0.0,
+       0.0,
+       0.0,
+       0.0,
+       0.0
+      ],
+      "sum_wo_best_trade": -30.0,
+      "comp_wo_best_day": -27.3
+     },
+     "test": {
+      "n": 5,
+      "strike": 20.0,
+      "comp_pct": -21.4,
+      "mean_day_pct": -4.59,
+      "losing_days": 4,
+      "worst_day": -12.5,
+      "per_day": [
+       -6.0,
+       0.0,
+       -12.5,
+       -1.4,
+       -3.0
+      ],
+      "sum_wo_best_trade": -30.5,
+      "comp_wo_best_day": -21.4
+     }
+    },
+    {
+     "f": "wx_fn300",
+     "side": "keep_above",
+     "cut": 0.0,
+     "disc": {
+      "n": 36,
+      "strike": 63.9,
+      "comp_pct": 1930.9,
+      "mean_day_pct": 44.79,
+      "losing_days": 3,
+      "worst_day": -16.8,
+      "per_day": [
+       0.8,
+       77.5,
+       3.6,
+       -16.8,
+       277.8,
+       154.9,
+       4.4,
+       45.4,
+       0.0,
+       0.8,
+       -8.2,
+       -2.7
+      ],
+      "sum_wo_best_trade": 321.1,
+      "comp_wo_best_day": 437.6
+     },
+     "test": {
+      "n": 6,
+      "strike": 50.0,
+      "comp_pct": -3.0,
+      "mean_day_pct": -0.51,
+      "losing_days": 1,
+      "worst_day": -8.1,
+      "per_day": [
+       0.0,
+       5.5,
+       -8.1,
+       0.0,
+       0.0
+      ],
+      "sum_wo_best_trade": -17.8,
+      "comp_wo_best_day": -8.1
+     }
+    },
+    {
+     "f": "wx_fn300",
+     "side": "keep_below",
+     "cut": 0.0,
+     "disc": {
+      "n": 12,
+      "strike": 41.7,
+      "comp_pct": 49.5,
+      "mean_day_pct": 4.99,
+      "losing_days": 3,
+      "worst_day": -26.9,
+      "per_day": [
+       24.0,
+       -12.2,
+       0.0,
+       53.1,
+       0.0,
+       -0.4,
+       5.0,
+       0.4,
+       0.0,
+       16.9,
+       -26.9,
+       0.0
+      ],
+      "sum_wo_best_trade": -7.0,
+      "comp_wo_best_day": -2.3
+     },
+     "test": {
+      "n": 11,
+      "strike": 36.4,
+      "comp_pct": 12.8,
+      "mean_day_pct": 8.14,
+      "losing_days": 4,
+      "worst_day": -20.7,
+      "per_day": [
+       -6.0,
+       88.0,
+       -20.7,
+       -9.2,
+       -11.4
+      ],
+      "sum_wo_best_trade": -37.5,
+      "comp_wo_best_day": -40.0
+     }
+    },
+    {
+     "f": "wx_bank_z",
+     "side": "keep_above",
+     "cut": -0.298,
+     "disc": {
+      "n": 67,
+      "strike": 56.7,
+      "comp_pct": 9508.2,
+      "mean_day_pct": 88.42,
+      "losing_days": 3,
+      "worst_day": -43.1,
+      "per_day": [
+       14.3,
+       55.8,
+       18.0,
+       30.9,
+       201.4,
+       651.2,
+       44.9,
+       45.2,
+       -6.0,
+       65.8,
+       -43.1,
+       -17.3
+      ],
+      "sum_wo_best_trade": 557.1,
+      "comp_wo_best_day": 1179.0
+     },
+     "test": {
+      "n": 31,
+      "strike": 51.6,
+      "comp_pct": 205.8,
+      "mean_day_pct": 30.12,
+      "losing_days": 2,
+      "worst_day": -6.0,
+      "per_day": [
+       -6.0,
+       98.4,
+       39.9,
+       23.2,
+       -4.8
+      ],
+      "sum_wo_best_trade": 95.0,
+      "comp_wo_best_day": 54.1
+     }
+    },
+    {
+     "f": "wx_bank_z",
+     "side": "keep_above",
+     "cut": 0.0,
+     "disc": {
+      "n": 56,
+      "strike": 58.9,
+      "comp_pct": 5291.2,
+      "mean_day_pct": 60.78,
+      "losing_days": 4,
+      "worst_day": -36.9,
+      "per_day": [
+       61.4,
+       77.5,
+       18.0,
+       30.9,
+       201.4,
+       318.1,
+       9.5,
+       -0.1,
+       -6.0,
+       65.8,
+       -36.9,
+       -10.1
+      ],
+      "sum_wo_best_trade": 458.6,
+      "comp_wo_best_day": 1189.5
+     },
+     "test": {
+      "n": 26,
+      "strike": 53.8,
+      "comp_pct": 257.4,
+      "mean_day_pct": 33.81,
+      "losing_days": 1,
+      "worst_day": -6.0,
+      "per_day": [
+       -6.0,
+       98.4,
+       49.2,
+       23.2,
+       4.2
+      ],
+      "sum_wo_best_trade": 108.4,
+      "comp_wo_best_day": 80.1
+     }
+    },
+    {
+     "f": "wx_bank_z",
+     "side": "keep_above",
+     "cut": 0.0117,
+     "disc": {
+      "n": 56,
+      "strike": 58.9,
+      "comp_pct": 5291.2,
+      "mean_day_pct": 60.78,
+      "losing_days": 4,
+      "worst_day": -36.9,
+      "per_day": [
+       61.4,
+       77.5,
+       18.0,
+       30.9,
+       201.4,
+       318.1,
+       9.5,
+       -0.1,
+       -6.0,
+       65.8,
+       -36.9,
+       -10.1
+      ],
+      "sum_wo_best_trade": 458.6,
+      "comp_wo_best_day": 1189.5
+     },
+     "test": {
+      "n": 26,
+      "strike": 53.8,
+      "comp_pct": 257.4,
+      "mean_day_pct": 33.81,
+      "losing_days": 1,
+      "worst_day": -6.0,
+      "per_day": [
+       -6.0,
+       98.4,
+       49.2,
+       23.2,
+       4.2
+      ],
+      "sum_wo_best_trade": 108.4,
+      "comp_wo_best_day": 80.1
+     }
+    },
+    {
+     "f": "wx_bank_z",
+     "side": "keep_above",
+     "cut": 0.625,
+     "disc": {
+      "n": 42,
+      "strike": 54.8,
+      "comp_pct": 1083.4,
+      "mean_day_pct": 33.85,
+      "losing_days": 4,
+      "worst_day": -16.7,
+      "per_day": [
+       30.2,
+       77.5,
+       18.0,
+       -16.7,
+       201.4,
+       112.5,
+       0.0,
+       -12.2,
+       -6.0,
+       17.8,
+       -16.3,
+       0.0
+      ],
+      "sum_wo_best_trade": 260.3,
+      "comp_wo_best_day": 292.7
+     },
+     "test": {
+      "n": 19,
+      "strike": 57.9,
+      "comp_pct": 202.9,
+      "mean_day_pct": 27.76,
+      "losing_days": 0,
+      "worst_day": 0.0,
+      "per_day": [
+       0.0,
+       81.1,
+       30.3,
+       23.2,
+       4.2
+      ],
+      "sum_wo_best_trade": 83.2,
+      "comp_wo_best_day": 67.2
+     }
+    },
+    {
+     "f": "wx_bank_z",
+     "side": "keep_below",
+     "cut": -0.298,
+     "disc": {
+      "n": 17,
+      "strike": 41.2,
+      "comp_pct": -21.0,
+      "mean_day_pct": -1.23,
+      "losing_days": 7,
+      "worst_day": -14.6,
+      "per_day": [
+       7.5,
+       -5.3,
+       -8.1,
+       -2.6,
+       25.3,
+       -14.6,
+       12.1,
+       -11.8,
+       0.0,
+       -14.2,
+       10.4,
+       -13.6
+      ],
+      "sum_wo_best_trade": -32.3,
+      "comp_wo_best_day": -37.0
+     },
+     "test": {
+      "n": 4,
+      "strike": 50.0,
+      "comp_pct": -1.7,
+      "mean_day_pct": -0.21,
+      "losing_days": 1,
+      "worst_day": -9.0,
+      "per_day": [
+       0.0,
+       5.4,
+       2.5,
+       -9.0,
+       0.0
+      ],
+      "sum_wo_best_trade": -17.9,
+      "comp_wo_best_day": -6.7
+     }
+    },
+    {
+     "f": "wx_bank_z",
+     "side": "keep_below",
+     "cut": 0.0,
+     "disc": {
+      "n": 21,
+      "strike": 47.6,
+      "comp_pct": 55.1,
+      "mean_day_pct": 5.7,
+      "losing_days": 6,
+      "worst_day": -21.2,
+      "per_day": [
+       7.5,
+       -5.3,
+       -8.1,
+       -2.6,
+       25.3,
+       -14.6,
+       54.7,
+       28.2,
+       0.0,
+       -14.2,
+       18.7,
+       -21.2
+      ],
+      "sum_wo_best_trade": 22.5,
+      "comp_wo_best_day": 0.3
+     },
+     "test": {
+      "n": 6,
+      "strike": 50.0,
+      "comp_pct": -4.0,
+      "mean_day_pct": -0.52,
+      "losing_days": 2,
+      "worst_day": -9.0,
+      "per_day": [
+       0.0,
+       5.4,
+       9.7,
+       -9.0,
+       -8.7
+      ],
+      "sum_wo_best_trade": -19.6,
+      "comp_wo_best_day": -12.4
+     }
+    },
+    {
+     "f": "wx_bank_z",
+     "side": "keep_below",
+     "cut": 0.0117,
+     "disc": {
+      "n": 28,
+      "strike": 42.9,
+      "comp_pct": 40.8,
+      "mean_day_pct": 5.74,
+      "losing_days": 7,
+      "worst_day": -23.9,
+      "per_day": [
+       -23.9,
+       -16.9,
+       -8.1,
+       -2.6,
+       25.3,
+       53.5,
+       48.4,
+       28.2,
+       0.0,
+       -14.2,
+       -0.4,
+       -20.5
+      ],
+      "sum_wo_best_trade": 4.7,
+      "comp_wo_best_day": -8.3
+     },
+     "test": {
+      "n": 9,
+      "strike": 44.4,
+      "comp_pct": -15.9,
+      "mean_day_pct": -3.24,
+      "losing_days": 3,
+      "worst_day": -9.0,
+      "per_day": [
+       0.0,
+       5.4,
+       -3.9,
+       -9.0,
+       -8.7
+      ],
+      "sum_wo_best_trade": -31.3,
+      "comp_wo_best_day": -20.2
+     }
+    },
+    {
+     "f": "wx_bank_z",
+     "side": "keep_below",
+     "cut": 0.625,
+     "disc": {
+      "n": 42,
+      "strike": 52.4,
+      "comp_pct": 541.3,
+      "mean_day_pct": 27.12,
+      "losing_days": 5,
+      "worst_day": -28.5,
+      "per_day": [
+       -5.7,
+       -16.9,
+       -8.1,
+       53.0,
+       25.3,
+       202.1,
+       62.5,
+       45.9,
+       0.0,
+       20.7,
+       -24.8,
+       -28.5
+      ],
+      "sum_wo_best_trade": 203.0,
+      "comp_wo_best_day": 112.3
+     },
+     "test": {
+      "n": 16,
+      "strike": 43.8,
+      "comp_pct": -0.7,
+      "mean_day_pct": 0.37,
+      "losing_days": 3,
+      "worst_day": -9.0,
+      "per_day": [
+       -6.0,
+       15.5,
+       10.1,
+       -9.0,
+       -8.7
+      ],
+      "sum_wo_best_trade": -27.9,
+      "comp_wo_best_day": -14.0
+     }
+    },
+    {
+     "f": "wx_bn_minus_nifty60",
+     "side": "keep_above",
+     "cut": -0.0364,
+     "disc": {
+      "n": 67,
+      "strike": 50.7,
+      "comp_pct": 3497.2,
+      "mean_day_pct": 56.92,
+      "losing_days": 4,
+      "worst_day": -40.8,
+      "per_day": [
+       -9.4,
+       47.5,
+       4.6,
+       27.4,
+       201.4,
+       325.0,
+       51.3,
+       28.1,
+       -6.0,
+       65.8,
+       -40.8,
+       -11.7
+      ],
+      "sum_wo_best_trade": 443.2,
+      "comp_wo_best_day": 746.4
+     },
+     "test": {
+      "n": 25,
+      "strike": 56.0,
+      "comp_pct": 176.1,
+      "mean_day_pct": 30.77,
+      "losing_days": 1,
+      "worst_day": -4.8,
+      "per_day": [
+       0.0,
+       0.0,
+       135.5,
+       23.2,
+       -4.8
+      ],
+      "sum_wo_best_trade": 76.5,
+      "comp_wo_best_day": 17.2
+     }
+    },
+    {
+     "f": "wx_bn_minus_nifty60",
+     "side": "keep_above",
+     "cut": -0.0266,
+     "disc": {
+      "n": 56,
+      "strike": 51.8,
+      "comp_pct": 3729.4,
+      "mean_day_pct": 52.51,
+      "losing_days": 3,
+      "worst_day": -50.3,
+      "per_day": [
+       46.7,
+       47.5,
+       4.6,
+       30.9,
+       145.6,
+       275.1,
+       44.1,
+       28.1,
+       -6.0,
+       65.8,
+       -50.3,
+       -1.8
+      ],
+      "sum_wo_best_trade": 440.8,
+      "comp_wo_best_day": 921.0
+     },
+     "test": {
+      "n": 23,
+      "strike": 52.2,
+      "comp_pct": 127.6,
+      "mean_day_pct": 22.5,
+      "losing_days": 1,
+      "worst_day": -4.8,
+      "per_day": [
+       0.0,
+       0.0,
+       94.1,
+       23.2,
+       -4.8
+      ],
+      "sum_wo_best_trade": 56.2,
+      "comp_wo_best_day": 17.2
+     }
+    },
+    {
+     "f": "wx_bn_minus_nifty60",
+     "side": "keep_above",
+     "cut": -0.0115,
+     "disc": {
+      "n": 42,
+      "strike": 57.1,
+      "comp_pct": 2892.9,
+      "mean_day_pct": 45.52,
+      "losing_days": 3,
+      "worst_day": -38.7,
+      "per_day": [
+       47.8,
+       77.5,
+       -8.1,
+       35.6,
+       145.6,
+       207.7,
+       38.0,
+       28.1,
+       -6.0,
+       17.8,
+       -38.7,
+       0.9
+      ],
+      "sum_wo_best_trade": 396.6,
+      "comp_wo_best_day": 872.6
+     },
+     "test": {
+      "n": 19,
+      "strike": 57.9,
+      "comp_pct": 101.9,
+      "mean_day_pct": 16.56,
+      "losing_days": 0,
+      "worst_day": 0.0,
+      "per_day": [
+       0.0,
+       0.0,
+       44.9,
+       33.7,
+       4.2
+      ],
+      "sum_wo_best_trade": 36.6,
+      "comp_wo_best_day": 39.4
+     }
+    },
+    {
+     "f": "wx_bn_minus_nifty60",
+     "side": "keep_above",
+     "cut": 0.0,
+     "disc": {
+      "n": 31,
+      "strike": 58.1,
+      "comp_pct": 945.7,
+      "mean_day_pct": 27.94,
+      "losing_days": 2,
+      "worst_day": -38.7,
+      "per_day": [
+       36.5,
+       77.5,
+       0.0,
+       57.1,
+       105.0,
+       71.3,
+       0.0,
+       12.6,
+       -3.7,
+       17.8,
+       -38.7,
+       0.0
+      ],
+      "sum_wo_best_trade": 255.5,
+      "comp_wo_best_day": 410.1
+     },
+     "test": {
+      "n": 14,
+      "strike": 50.0,
+      "comp_pct": 55.6,
+      "mean_day_pct": 9.72,
+      "losing_days": 0,
+      "worst_day": 0.0,
+      "per_day": [
+       0.0,
+       0.0,
+       21.0,
+       23.4,
+       4.2
+      ],
+      "sum_wo_best_trade": 8.3,
+      "comp_wo_best_day": 26.1
+     }
+    },
+    {
+     "f": "wx_bn_minus_nifty60",
+     "side": "keep_below",
+     "cut": -0.0364,
+     "disc": {
+      "n": 17,
+      "strike": 64.7,
+      "comp_pct": 111.0,
+      "mean_day_pct": 8.01,
+      "losing_days": 2,
+      "worst_day": -19.0,
+      "per_day": [
+       35.6,
+       0.0,
+       3.6,
+       0.0,
+       25.3,
+       51.0,
+       7.4,
+       0.0,
+       0.0,
+       -14.2,
+       6.3,
+       -19.0
+      ],
+      "sum_wo_best_trade": 51.0,
+      "comp_wo_best_day": 39.7
+     },
+     "test": {
+      "n": 10,
+      "strike": 40.0,
+      "comp_pct": 8.9,
+      "mean_day_pct": 11.01,
+      "losing_days": 3,
+      "worst_day": -39.1,
+      "per_day": [
+       -6.0,
+       109.2,
+       -39.1,
+       -9.0,
+       0.0
+      ],
+      "sum_wo_best_trade": -40.9,
+      "comp_wo_best_day": -47.9
+     }
+    },
+    {
+     "f": "wx_bn_minus_nifty60",
+     "side": "keep_below",
+     "cut": -0.0266,
+     "disc": {
+      "n": 28,
+      "strike": 57.1,
+      "comp_pct": 98.2,
+      "mean_day_pct": 8.96,
+      "losing_days": 4,
+      "worst_day": -27.2,
+      "per_day": [
+       -16.3,
+       0.0,
+       3.6,
+       -2.6,
+       53.8,
+       71.1,
+       12.8,
+       0.0,
+       0.0,
+       -14.2,
+       26.5,
+       -27.2
+      ],
+      "sum_wo_best_trade": 53.4,
+      "comp_wo_best_day": 15.8
+     },
+     "test": {
+      "n": 12,
+      "strike": 50.0,
+      "comp_pct": 32.1,
+      "mean_day_pct": 13.61,
+      "losing_days": 3,
+      "worst_day": -26.2,
+      "per_day": [
+       -6.0,
+       109.2,
+       -26.2,
+       -9.0,
+       0.0
+      ],
+      "sum_wo_best_trade": -20.6,
+      "comp_wo_best_day": -36.8
+     }
+    },
+    {
+     "f": "wx_bn_minus_nifty60",
+     "side": "keep_below",
+     "cut": -0.0115,
+     "disc": {
+      "n": 42,
+      "strike": 50.0,
+      "comp_pct": 153.6,
+      "mean_day_pct": 12.7,
+      "losing_days": 4,
+      "worst_day": -29.2,
+      "per_day": [
+       -16.9,
+       -16.9,
+       18.0,
+       -6.0,
+       53.8,
+       108.6,
+       17.7,
+       0.0,
+       0.0,
+       20.7,
+       2.6,
+       -29.2
+      ],
+      "sum_wo_best_trade": 97.6,
+      "comp_wo_best_day": 21.6
+     },
+     "test": {
+      "n": 16,
+      "strike": 43.8,
+      "comp_pct": 48.9,
+      "mean_day_pct": 15.46,
+      "losing_days": 4,
+      "worst_day": -16.2,
+      "per_day": [
+       -6.0,
+       109.2,
+       -1.0,
+       -16.2,
+       -8.7
+      ],
+      "sum_wo_best_trade": -1.0,
+      "comp_wo_best_day": -28.8
+     }
+    },
+    {
+     "f": "wx_bn_minus_nifty60",
+     "side": "keep_below",
+     "cut": 0.0,
+     "disc": {
+      "n": 53,
+      "strike": 50.9,
+      "comp_pct": 625.7,
+      "mean_day_pct": 32.53,
+      "losing_days": 5,
+      "worst_day": -28.5,
+      "per_day": [
+       -10.0,
+       -16.9,
+       8.4,
+       -18.9,
+       84.3,
+       274.8,
+       62.5,
+       13.8,
+       -2.3,
+       20.7,
+       2.6,
+       -28.5
+      ],
+      "sum_wo_best_trade": 207.9,
+      "comp_wo_best_day": 93.6
+     },
+     "test": {
+      "n": 21,
+      "strike": 52.4,
+      "comp_pct": 93.3,
+      "mean_day_pct": 20.77,
+      "losing_days": 3,
+      "worst_day": -9.2,
+      "per_day": [
+       -6.0,
+       109.2,
+       18.5,
+       -9.2,
+       -8.7
+      ],
+      "sum_wo_best_trade": 27.3,
+      "comp_wo_best_day": -7.6
+     }
+    },
+    {
+     "f": "wx_bn_minus_nifty300",
+     "side": "keep_above",
+     "cut": -0.063,
+     "disc": {
+      "n": 66,
+      "strike": 54.5,
+      "comp_pct": 7061.9,
+      "mean_day_pct": 72.88,
+      "losing_days": 3,
+      "worst_day": -24.2,
+      "per_day": [
+       12.6,
+       47.5,
+       4.6,
+       30.9,
+       160.3,
+       512.2,
+       62.5,
+       28.1,
+       -6.0,
+       65.8,
+       -24.2,
+       -19.5
+      ],
+      "sum_wo_best_trade": 513.6,
+      "comp_wo_best_day": 1069.9
+     },
+     "test": {
+      "n": 23,
+      "strike": 60.9,
+      "comp_pct": 196.0,
+      "mean_day_pct": 29.82,
+      "losing_days": 2,
+      "worst_day": -6.0,
+      "per_day": [
+       -6.0,
+       15.6,
+       107.7,
+       33.7,
+       -2.0
+      ],
+      "sum_wo_best_trade": 81.0,
+      "comp_wo_best_day": 42.5
+     }
+    },
+    {
+     "f": "wx_bn_minus_nifty300",
+     "side": "keep_above",
+     "cut": -0.0396,
+     "disc": {
+      "n": 56,
+      "strike": 53.6,
+      "comp_pct": 3559.4,
+      "mean_day_pct": 50.95,
+      "losing_days": 3,
+      "worst_day": -24.2,
+      "per_day": [
+       1.3,
+       47.5,
+       4.6,
+       30.9,
+       105.0,
+       325.0,
+       55.6,
+       28.1,
+       -2.3,
+       41.8,
+       -24.2,
+       -1.8
+      ],
+      "sum_wo_best_trade": 429.9,
+      "comp_wo_best_day": 761.0
+     },
+     "test": {
+      "n": 23,
+      "strike": 60.9,
+      "comp_pct": 196.0,
+      "mean_day_pct": 29.82,
+      "losing_days": 2,
+      "worst_day": -6.0,
+      "per_day": [
+       -6.0,
+       15.6,
+       107.7,
+       33.7,
+       -2.0
+      ],
+      "sum_wo_best_trade": 81.0,
+      "comp_wo_best_day": 42.5
+     }
+    },
+    {
+     "f": "wx_bn_minus_nifty300",
+     "side": "keep_above",
+     "cut": -0.014,
+     "disc": {
+      "n": 41,
+      "strike": 53.7,
+      "comp_pct": 1059.8,
+      "mean_day_pct": 30.74,
+      "losing_days": 3,
+      "worst_day": -40.0,
+      "per_day": [
+       21.7,
+       70.8,
+       4.6,
+       47.8,
+       7.3,
+       162.9,
+       51.1,
+       45.9,
+       -2.3,
+       0.8,
+       -40.0,
+       -1.8
+      ],
+      "sum_wo_best_trade": 279.1,
+      "comp_wo_best_day": 341.1
+     },
+     "test": {
+      "n": 14,
+      "strike": 64.3,
+      "comp_pct": 79.1,
+      "mean_day_pct": 13.21,
+      "losing_days": 1,
+      "worst_day": -6.0,
+      "per_day": [
+       -6.0,
+       15.6,
+       37.4,
+       8.4,
+       10.7
+      ],
+      "sum_wo_best_trade": 19.2,
+      "comp_wo_best_day": 30.4
+     }
+    },
+    {
+     "f": "wx_bn_minus_nifty300",
+     "side": "keep_above",
+     "cut": 0.0,
+     "disc": {
+      "n": 33,
+      "strike": 54.5,
+      "comp_pct": 1378.5,
+      "mean_day_pct": 37.81,
+      "losing_days": 4,
+      "worst_day": -40.2,
+      "per_day": [
+       19.2,
+       70.8,
+       -8.1,
+       71.2,
+       7.3,
+       240.7,
+       51.1,
+       45.9,
+       -2.3,
+       0.8,
+       -40.2,
+       -2.7
+      ],
+      "sum_wo_best_trade": 296.8,
+      "comp_wo_best_day": 334.0
+     },
+     "test": {
+      "n": 12,
+      "strike": 58.3,
+      "comp_pct": 49.9,
+      "mean_day_pct": 9.06,
+      "losing_days": 1,
+      "worst_day": -6.0,
+      "per_day": [
+       -6.0,
+       15.6,
+       27.3,
+       8.4,
+       0.0
+      ],
+      "sum_wo_best_trade": 0.6,
+      "comp_wo_best_day": 17.8
+     }
+    },
+    {
+     "f": "wx_bn_minus_nifty300",
+     "side": "keep_below",
+     "cut": -0.063,
+     "disc": {
+      "n": 16,
+      "strike": 43.8,
+      "comp_pct": -14.2,
+      "mean_day_pct": -0.8,
+      "losing_days": 4,
+      "worst_day": -17.5,
+      "per_day": [
+       9.1,
+       0.0,
+       3.6,
+       -2.6,
+       18.2,
+       4.9,
+       0.0,
+       0.0,
+       0.0,
+       -14.2,
+       -17.5,
+       -11.1
+      ],
+      "sum_wo_best_trade": -42.7,
+      "comp_wo_best_day": -27.4
+     },
+     "test": {
+      "n": 12,
+      "strike": 33.3,
+      "comp_pct": 1.6,
+      "mean_day_pct": 6.17,
+      "losing_days": 3,
+      "worst_day": -31.0,
+      "per_day": [
+       0.0,
+       80.9,
+       -31.0,
+       -16.2,
+       -2.9
+      ],
+      "sum_wo_best_trade": -45.4,
+      "comp_wo_best_day": -43.8
+     }
+    },
+    {
+     "f": "wx_bn_minus_nifty300",
+     "side": "keep_below",
+     "cut": -0.0396,
+     "disc": {
+      "n": 28,
+      "strike": 53.6,
+      "comp_pct": 107.4,
+      "mean_day_pct": 9.53,
+      "losing_days": 4,
+      "worst_day": -27.2,
+      "per_day": [
+       21.3,
+       0.0,
+       3.6,
+       -2.6,
+       84.3,
+       51.0,
+       4.4,
+       0.0,
+       -3.7,
+       0.3,
+       -17.0,
+       -27.2
+      ],
+      "sum_wo_best_trade": 64.3,
+      "comp_wo_best_day": 12.5
+     },
+     "test": {
+      "n": 12,
+      "strike": 33.3,
+      "comp_pct": 1.6,
+      "mean_day_pct": 6.17,
+      "losing_days": 3,
+      "worst_day": -31.0,
+      "per_day": [
+       0.0,
+       80.9,
+       -31.0,
+       -16.2,
+       -2.9
+      ],
+      "sum_wo_best_trade": -45.4,
+      "comp_wo_best_day": -43.8
+     }
+    },
+    {
+     "f": "wx_bn_minus_nifty300",
+     "side": "keep_below",
+     "cut": -0.014,
+     "disc": {
+      "n": 41,
+      "strike": 53.7,
+      "comp_pct": 588.1,
+      "mean_day_pct": 32.27,
+      "losing_days": 5,
+      "worst_day": -27.2,
+      "per_day": [
+       1.0,
+       -13.7,
+       3.6,
+       -2.6,
+       252.0,
+       144.1,
+       0.1,
+       -12.2,
+       -3.7,
+       41.0,
+       4.8,
+       -27.2
+      ],
+      "sum_wo_best_trade": 187.0,
+      "comp_wo_best_day": 95.5
+     },
+     "test": {
+      "n": 21,
+      "strike": 42.9,
+      "comp_pct": 67.9,
+      "mean_day_pct": 14.94,
+      "losing_days": 1,
+      "worst_day": -14.0,
+      "per_day": [
+       0.0,
+       80.9,
+       4.4,
+       3.4,
+       -14.0
+      ],
+      "sum_wo_best_trade": 16.4,
+      "comp_wo_best_day": -7.2
+     }
+    },
+    {
+     "f": "wx_bn_minus_nifty300",
+     "side": "keep_below",
+     "cut": 0.0,
+     "disc": {
+      "n": 51,
+      "strike": 52.9,
+      "comp_pct": 413.3,
+      "mean_day_pct": 27.79,
+      "losing_days": 5,
+      "worst_day": -26.5,
+      "per_day": [
+       3.1,
+       -13.7,
+       18.0,
+       -25.6,
+       252.0,
+       88.4,
+       7.5,
+       -12.2,
+       -3.7,
+       41.0,
+       5.2,
+       -26.5
+      ],
+      "sum_wo_best_trade": 165.3,
+      "comp_wo_best_day": 45.8
+     },
+     "test": {
+      "n": 23,
+      "strike": 47.8,
+      "comp_pct": 100.6,
+      "mean_day_pct": 18.43,
+      "losing_days": 1,
+      "worst_day": -4.8,
+      "per_day": [
+       0.0,
+       80.9,
+       12.6,
+       3.4,
+       -4.8
+      ],
+      "sum_wo_best_trade": 35.0,
+      "comp_wo_best_day": 10.8
+     }
+    },
+    {
+     "f": "wx_bn_corr30",
+     "side": "keep_above",
+     "cut": 0.2374,
+     "disc": {
+      "n": 71,
+      "strike": 52.1,
+      "comp_pct": 1188.8,
+      "mean_day_pct": 42.49,
+      "losing_days": 4,
+      "worst_day": -43.1,
+      "per_day": [
+       46.4,
+       -18.5,
+       8.4,
+       30.9,
+       277.8,
+       151.3,
+       62.5,
+       27.6,
+       -6.0,
+       1.1,
+       -43.1,
+       -28.5
+      ],
+      "sum_wo_best_trade": 303.7,
+      "comp_wo_best_day": 241.2
+     },
+     "test": {
+      "n": 33,
+      "strike": 51.5,
+      "comp_pct": 218.6,
+      "mean_day_pct": 32.47,
+      "losing_days": 2,
+      "worst_day": -6.0,
+      "per_day": [
+       -6.0,
+       109.2,
+       51.9,
+       12.0,
+       -4.8
+      ],
+      "sum_wo_best_trade": 102.3,
+      "comp_wo_best_day": 52.3
+     }
+    },
+    {
+     "f": "wx_bn_corr30",
+     "side": "keep_above",
+     "cut": 0.2975,
+     "disc": {
+      "n": 63,
+      "strike": 50.8,
+      "comp_pct": 492.7,
+      "mean_day_pct": 32.51,
+      "losing_days": 4,
+      "worst_day": -46.7,
+      "per_day": [
+       22.2,
+       -18.5,
+       8.4,
+       30.9,
+       277.8,
+       104.2,
+       17.7,
+       27.6,
+       -6.0,
+       1.1,
+       -46.7,
+       -28.5
+      ],
+      "sum_wo_best_trade": 207.2,
+      "comp_wo_best_day": 56.9
+     },
+     "test": {
+      "n": 28,
+      "strike": 50.0,
+      "comp_pct": 176.7,
+      "mean_day_pct": 28.27,
+      "losing_days": 2,
+      "worst_day": -6.0,
+      "per_day": [
+       -6.0,
+       109.2,
+       28.1,
+       12.0,
+       -2.0
+      ],
+      "sum_wo_best_trade": 85.0,
+      "comp_wo_best_day": 32.3
+     }
+    },
+    {
+     "f": "wx_bn_corr30",
+     "side": "keep_above",
+     "cut": 0.342,
+     "disc": {
+      "n": 51,
+      "strike": 52.9,
+      "comp_pct": 914.2,
+      "mean_day_pct": 36.67,
+      "losing_days": 4,
+      "worst_day": -37.1,
+      "per_day": [
+       14.6,
+       -7.2,
+       8.4,
+       51.6,
+       277.8,
+       100.9,
+       12.1,
+       45.4,
+       -6.0,
+       1.1,
+       -37.1,
+       -21.6
+      ],
+      "sum_wo_best_trade": 251.3,
+      "comp_wo_best_day": 168.5
+     },
+     "test": {
+      "n": 25,
+      "strike": 52.0,
+      "comp_pct": 263.1,
+      "mean_day_pct": 35.83,
+      "losing_days": 2,
+      "worst_day": -6.0,
+      "per_day": [
+       -6.0,
+       91.0,
+       84.1,
+       12.0,
+       -2.0
+      ],
+      "sum_wo_best_trade": 108.7,
+      "comp_wo_best_day": 90.1
+     }
+    },
+    {
+     "f": "wx_bn_corr30",
+     "side": "keep_below",
+     "cut": 0.2374,
+     "disc": {
+      "n": 34,
+      "strike": 67.6,
+      "comp_pct": 3013.7,
+      "mean_day_pct": 38.61,
+      "losing_days": 1,
+      "worst_day": -3.8,
+      "per_day": [
+       45.8,
+       80.9,
+       18.0,
+       47.6,
+       22.7,
+       156.0,
+       7.4,
+       45.9,
+       0.0,
+       41.8,
+       -3.8,
+       0.9
+      ],
+      "sum_wo_best_trade": 381.5,
+      "comp_wo_best_day": 1116.4
+     },
+     "test": {
+      "n": 4,
+      "strike": 50.0,
+      "comp_pct": -11.7,
+      "mean_day_pct": -2.34,
+      "losing_days": 1,
+      "worst_day": -11.7,
+      "per_day": [
+       0.0,
+       0.0,
+       -11.7,
+       0.0,
+       0.0
+      ],
+      "sum_wo_best_trade": -18.1,
+      "comp_wo_best_day": -11.7
+     }
+    },
+    {
+     "f": "wx_bn_corr30",
+     "side": "keep_below",
+     "cut": 0.2975,
+     "disc": {
+      "n": 42,
+      "strike": 66.7,
+      "comp_pct": 6670.8,
+      "mean_day_pct": 49.89,
+      "losing_days": 0,
+      "worst_day": 0.0,
+      "per_day": [
+       74.7,
+       80.9,
+       18.0,
+       47.6,
+       22.7,
+       215.1,
+       48.2,
+       45.9,
+       0.0,
+       41.8,
+       2.7,
+       0.9
+      ],
+      "sum_wo_best_trade": 478.0,
+      "comp_wo_best_day": 2049.0
+     },
+     "test": {
+      "n": 9,
+      "strike": 55.6,
+      "comp_pct": 1.7,
+      "mean_day_pct": 0.37,
+      "losing_days": 1,
+      "worst_day": -2.9,
+      "per_day": [
+       0.0,
+       0.0,
+       4.8,
+       0.0,
+       -2.9
+      ],
+      "sum_wo_best_trade": -8.1,
+      "comp_wo_best_day": -2.9
+     }
+    },
+    {
+     "f": "wx_bn_corr30",
+     "side": "keep_below",
+     "cut": 0.342,
+     "disc": {
+      "n": 52,
+      "strike": 61.5,
+      "comp_pct": 3959.4,
+      "mean_day_pct": 44.96,
+      "losing_days": 2,
+      "worst_day": -13.0,
+      "per_day": [
+       86.4,
+       58.9,
+       18.0,
+       27.4,
+       22.7,
+       215.1,
+       62.3,
+       28.1,
+       0.0,
+       41.8,
+       -13.0,
+       -8.0
+      ],
+      "sum_wo_best_trade": 436.4,
+      "comp_wo_best_day": 1188.4
+     },
+     "test": {
+      "n": 12,
+      "strike": 50.0,
+      "comp_pct": -22.5,
+      "mean_day_pct": -4.1,
+      "losing_days": 2,
+      "worst_day": -27.1,
+      "per_day": [
+       0.0,
+       9.5,
+       -27.1,
+       0.0,
+       -2.9
+      ],
+      "sum_wo_best_trade": -31.7,
+      "comp_wo_best_day": -29.2
+     }
+    },
+    {
+     "f": "wx_nifty60",
+     "side": "keep_above",
+     "cut": -0.015,
+     "disc": {
+      "n": 66,
+      "strike": 51.5,
+      "comp_pct": 749.5,
+      "mean_day_pct": 50.45,
+      "losing_days": 5,
+      "worst_day": -37.1,
+      "per_day": [
+       22.8,
+       -5.3,
+       4.6,
+       0.0,
+       57.8,
+       541.9,
+       38.2,
+       -11.9,
+       -6.0,
+       21.6,
+       -37.1,
+       -21.2
+      ],
+      "sum_wo_best_trade": 252.5,
+      "comp_wo_best_day": 32.3
+     },
+     "test": {
+      "n": 28,
+      "strike": 50.0,
+      "comp_pct": 76.7,
+      "mean_day_pct": 13.82,
+      "losing_days": 2,
+      "worst_day": -6.0,
+      "per_day": [
+       -6.0,
+       0.0,
+       43.4,
+       33.7,
+       -2.0
+      ],
+      "sum_wo_best_trade": 34.9,
+      "comp_wo_best_day": 23.2
+     }
+    },
+    {
+     "f": "wx_nifty60",
+     "side": "keep_above",
+     "cut": 0.0,
+     "disc": {
+      "n": 58,
+      "strike": 53.4,
+      "comp_pct": 617.0,
+      "mean_day_pct": 48.31,
+      "losing_days": 5,
+      "worst_day": -37.1,
+      "per_day": [
+       22.8,
+       -5.3,
+       -8.1,
+       0.0,
+       57.8,
+       541.9,
+       0.0,
+       0.4,
+       -5.3,
+       21.6,
+       -37.1,
+       -8.9
+      ],
+      "sum_wo_best_trade": 227.2,
+      "comp_wo_best_day": 11.7
+     },
+     "test": {
+      "n": 24,
+      "strike": 50.0,
+      "comp_pct": 54.0,
+      "mean_day_pct": 10.15,
+      "losing_days": 0,
+      "worst_day": 0.0,
+      "per_day": [
+       0.0,
+       0.0,
+       43.4,
+       0.0,
+       7.4
+      ],
+      "sum_wo_best_trade": 17.9,
+      "comp_wo_best_day": 7.4
+     }
+    },
+    {
+     "f": "wx_nifty60",
+     "side": "keep_above",
+     "cut": 0.002,
+     "disc": {
+      "n": 54,
+      "strike": 57.4,
+      "comp_pct": 1004.6,
+      "mean_day_pct": 52.44,
+      "losing_days": 4,
+      "worst_day": -37.1,
+      "per_day": [
+       46.4,
+       -1.7,
+       -8.1,
+       0.0,
+       57.8,
+       541.9,
+       0.0,
+       13.8,
+       -5.3,
+       21.6,
+       -37.1,
+       0.0
+      ],
+      "sum_wo_best_trade": 267.7,
+      "comp_wo_best_day": 72.1
+     },
+     "test": {
+      "n": 24,
+      "strike": 50.0,
+      "comp_pct": 54.0,
+      "mean_day_pct": 10.15,
+      "losing_days": 0,
+      "worst_day": 0.0,
+      "per_day": [
+       0.0,
+       0.0,
+       43.4,
+       0.0,
+       7.4
+      ],
+      "sum_wo_best_trade": 17.9,
+      "comp_wo_best_day": 7.4
+     }
+    },
+    {
+     "f": "wx_nifty60",
+     "side": "keep_above",
+     "cut": 0.016,
+     "disc": {
+      "n": 41,
+      "strike": 58.5,
+      "comp_pct": 593.1,
+      "mean_day_pct": 54.0,
+      "losing_days": 3,
+      "worst_day": -21.6,
+      "per_day": [
+       -1.6,
+       0.0,
+       0.0,
+       0.0,
+       0.0,
+       651.2,
+       0.0,
+       0.0,
+       -1.7,
+       21.6,
+       -21.6,
+       0.0
+      ],
+      "sum_wo_best_trade": 207.1,
+      "comp_wo_best_day": -7.7
+     },
+     "test": {
+      "n": 23,
+      "strike": 47.8,
+      "comp_pct": 42.7,
+      "mean_day_pct": 8.05,
+      "losing_days": 0,
+      "worst_day": 0.0,
+      "per_day": [
+       0.0,
+       0.0,
+       32.9,
+       0.0,
+       7.4
+      ],
+      "sum_wo_best_trade": 10.0,
+      "comp_wo_best_day": 7.4
+     }
+    },
+    {
+     "f": "wx_nifty60",
+     "side": "keep_below",
+     "cut": -0.015,
+     "disc": {
+      "n": 16,
+      "strike": 56.2,
+      "comp_pct": 389.2,
+      "mean_day_pct": 18.86,
+      "losing_days": 2,
+      "worst_day": -13.9,
+      "per_day": [
+       0.0,
+       -13.9,
+       3.6,
+       27.4,
+       139.4,
+       0.0,
+       17.6,
+       45.4,
+       0.0,
+       16.9,
+       0.0,
+       -10.1
+      ],
+      "sum_wo_best_trade": 129.0,
+      "comp_wo_best_day": 104.4
+     },
+     "test": {
+      "n": 7,
+      "strike": 57.1,
+      "comp_pct": 70.2,
+      "mean_day_pct": 18.02,
+      "losing_days": 2,
+      "worst_day": -16.2,
+      "per_day": [
+       0.0,
+       109.2,
+       0.0,
+       -16.2,
+       -2.9
+      ],
+      "sum_wo_best_trade": 0.7,
+      "comp_wo_best_day": -18.6
+     }
+    },
+    {
+     "f": "wx_nifty60",
+     "side": "keep_below",
+     "cut": 0.0,
+     "disc": {
+      "n": 26,
+      "strike": 53.8,
+      "comp_pct": 958.5,
+      "mean_day_pct": 27.11,
+      "losing_days": 2,
+      "worst_day": -21.6,
+      "per_day": [
+       0.0,
+       55.8,
+       18.0,
+       27.4,
+       139.4,
+       0.0,
+       62.5,
+       27.6,
+       -0.7,
+       16.9,
+       0.0,
+       -21.6
+      ],
+      "sum_wo_best_trade": 236.2,
+      "comp_wo_best_day": 342.2
+     },
+     "test": {
+      "n": 9,
+      "strike": 55.6,
+      "comp_pct": 73.4,
+      "mean_day_pct": 18.22,
+      "losing_days": 3,
+      "worst_day": -9.2,
+      "per_day": [
+       -6.0,
+       109.2,
+       0.0,
+       -9.2,
+       -2.9
+      ],
+      "sum_wo_best_trade": 3.1,
+      "comp_wo_best_day": -17.1
+     }
+    },
+    {
+     "f": "wx_nifty60",
+     "side": "keep_below",
+     "cut": 0.002,
+     "disc": {
+      "n": 26,
+      "strike": 53.8,
+      "comp_pct": 958.5,
+      "mean_day_pct": 27.11,
+      "losing_days": 2,
+      "worst_day": -21.6,
+      "per_day": [
+       0.0,
+       55.8,
+       18.0,
+       27.4,
+       139.4,
+       0.0,
+       62.5,
+       27.6,
+       -0.7,
+       16.9,
+       0.0,
+       -21.6
+      ],
+      "sum_wo_best_trade": 236.2,
+      "comp_wo_best_day": 342.2
+     },
+     "test": {
+      "n": 11,
+      "strike": 54.5,
+      "comp_pct": 95.3,
+      "mean_day_pct": 20.78,
+      "losing_days": 2,
+      "worst_day": -11.4,
+      "per_day": [
+       -6.0,
+       109.2,
+       0.0,
+       12.0,
+       -11.4
+      ],
+      "sum_wo_best_trade": 17.7,
+      "comp_wo_best_day": -6.6
+     }
+    },
+    {
+     "f": "wx_nifty60",
+     "side": "keep_below",
+     "cut": 0.016,
+     "disc": {
+      "n": 41,
+      "strike": 46.3,
+      "comp_pct": 637.4,
+      "mean_day_pct": 28.3,
+      "losing_days": 4,
+      "worst_day": -28.5,
+      "per_day": [
+       0.7,
+       47.5,
+       8.4,
+       27.4,
+       215.4,
+       -14.6,
+       62.5,
+       28.1,
+       -4.4,
+       16.9,
+       -19.8,
+       -28.5
+      ],
+      "sum_wo_best_trade": 212.5,
+      "comp_wo_best_day": 133.8
+     },
+     "test": {
+      "n": 12,
+      "strike": 58.3,
+      "comp_pct": 110.7,
+      "mean_day_pct": 22.36,
+      "losing_days": 2,
+      "worst_day": -11.4,
+      "per_day": [
+       -6.0,
+       109.2,
+       7.9,
+       12.0,
+       -11.4
+      ],
+      "sum_wo_best_trade": 25.7,
+      "comp_wo_best_day": 0.7
+     }
+    },
+    {
+     "f": "wx_wmove60_bank",
+     "side": "keep_above",
+     "cut": -1.376,
+     "disc": {
+      "n": 67,
+      "strike": 55.2,
+      "comp_pct": 2474.5,
+      "mean_day_pct": 61.91,
+      "losing_days": 4,
+      "worst_day": -37.1,
+      "per_day": [
+       -17.5,
+       77.9,
+       4.6,
+       35.6,
+       57.8,
+       541.9,
+       44.1,
+       28.1,
+       -6.0,
+       21.6,
+       -37.1,
+       -8.0
+      ],
+      "sum_wo_best_trade": 403.6,
+      "comp_wo_best_day": 301.1
+     },
+     "test": {
+      "n": 25,
+      "strike": 52.0,
+      "comp_pct": 90.0,
+      "mean_day_pct": 14.83,
+      "losing_days": 0,
+      "worst_day": 0.0,
+      "per_day": [
+       0.0,
+       0.0,
+       43.4,
+       23.4,
+       7.4
+      ],
+      "sum_wo_best_trade": 41.2,
+      "comp_wo_best_day": 32.5
+     }
+    },
+    {
+     "f": "wx_wmove60_bank",
+     "side": "keep_above",
+     "cut": -0.2532,
+     "disc": {
+      "n": 56,
+      "strike": 53.6,
+      "comp_pct": 412.2,
+      "mean_day_pct": 45.12,
+      "losing_days": 7,
+      "worst_day": -27.3,
+      "per_day": [
+       -17.5,
+       -1.7,
+       -8.1,
+       -11.5,
+       57.8,
+       541.9,
+       0.0,
+       0.4,
+       -5.3,
+       21.6,
+       -27.3,
+       -8.9
+      ],
+      "sum_wo_best_trade": 184.1,
+      "comp_wo_best_day": -20.2
+     },
+     "test": {
+      "n": 23,
+      "strike": 47.8,
+      "comp_pct": 42.7,
+      "mean_day_pct": 8.05,
+      "losing_days": 0,
+      "worst_day": 0.0,
+      "per_day": [
+       0.0,
+       0.0,
+       32.9,
+       0.0,
+       7.4
+      ],
+      "sum_wo_best_trade": 10.0,
+      "comp_wo_best_day": 7.4
+     }
+    },
+    {
+     "f": "wx_wmove60_bank",
+     "side": "keep_above",
+     "cut": 0.0,
+     "disc": {
+      "n": 54,
+      "strike": 53.7,
+      "comp_pct": 382.9,
+      "mean_day_pct": 43.91,
+      "losing_days": 6,
+      "worst_day": -27.3,
+      "per_day": [
+       -17.5,
+       -1.7,
+       -8.1,
+       0.0,
+       31.7,
+       541.9,
+       0.0,
+       0.4,
+       -5.3,
+       21.6,
+       -27.3,
+       -8.9
+      ],
+      "sum_wo_best_trade": 175.8,
+      "comp_wo_best_day": -24.8
+     },
+     "test": {
+      "n": 23,
+      "strike": 47.8,
+      "comp_pct": 42.7,
+      "mean_day_pct": 8.05,
+      "losing_days": 0,
+      "worst_day": 0.0,
+      "per_day": [
+       0.0,
+       0.0,
+       32.9,
+       0.0,
+       7.4
+      ],
+      "sum_wo_best_trade": 10.0,
+      "comp_wo_best_day": 7.4
+     }
+    },
+    {
+     "f": "wx_wmove60_bank",
+     "side": "keep_above",
+     "cut": 1.42,
+     "disc": {
+      "n": 41,
+      "strike": 53.7,
+      "comp_pct": 234.7,
+      "mean_day_pct": 22.06,
+      "losing_days": 5,
+      "worst_day": -19.4,
+      "per_day": [
+       16.6,
+       -1.7,
+       -8.1,
+       0.0,
+       22.7,
+       267.2,
+       0.0,
+       -11.8,
+       -1.7,
+       0.8,
+       -19.4,
+       0.0
+      ],
+      "sum_wo_best_trade": 117.0,
+      "comp_wo_best_day": -8.8
+     },
+     "test": {
+      "n": 22,
+      "strike": 50.0,
+      "comp_pct": 66.5,
+      "mean_day_pct": 12.48,
+      "losing_days": 0,
+      "worst_day": 0.0,
+      "per_day": [
+       0.0,
+       0.0,
+       55.0,
+       0.0,
+       7.4
+      ],
+      "sum_wo_best_trade": 24.2,
+      "comp_wo_best_day": 7.4
+     }
+    },
+    {
+     "f": "wx_wmove60_bank",
+     "side": "keep_below",
+     "cut": -1.376,
+     "disc": {
+      "n": 17,
+      "strike": 47.1,
+      "comp_pct": 194.8,
+      "mean_day_pct": 14.68,
+      "losing_days": 3,
+      "worst_day": -22.3,
+      "per_day": [
+       48.8,
+       -17.1,
+       3.6,
+       -6.0,
+       139.4,
+       0.0,
+       12.8,
+       0.0,
+       0.0,
+       16.9,
+       0.0,
+       -22.3
+      ],
+      "sum_wo_best_trade": 58.5,
+      "comp_wo_best_day": 23.1
+     },
+     "test": {
+      "n": 10,
+      "strike": 50.0,
+      "comp_pct": 58.3,
+      "mean_day_pct": 16.53,
+      "losing_days": 3,
+      "worst_day": -11.4,
+      "per_day": [
+       -6.0,
+       109.2,
+       0.0,
+       -9.2,
+       -11.4
+      ],
+      "sum_wo_best_trade": -5.6,
+      "comp_wo_best_day": -24.3
+     }
+    },
+    {
+     "f": "wx_wmove60_bank",
+     "side": "keep_below",
+     "cut": -0.2532,
+     "disc": {
+      "n": 28,
+      "strike": 53.6,
+      "comp_pct": 1381.8,
+      "mean_day_pct": 30.94,
+      "losing_days": 3,
+      "worst_day": -21.6,
+      "per_day": [
+       48.8,
+       50.0,
+       18.0,
+       43.9,
+       139.4,
+       0.0,
+       62.5,
+       27.6,
+       -0.7,
+       16.9,
+       -13.5,
+       -21.6
+      ],
+      "sum_wo_best_trade": 279.3,
+      "comp_wo_best_day": 519.0
+     },
+     "test": {
+      "n": 12,
+      "strike": 58.3,
+      "comp_pct": 110.7,
+      "mean_day_pct": 22.36,
+      "losing_days": 2,
+      "worst_day": -11.4,
+      "per_day": [
+       -6.0,
+       109.2,
+       7.9,
+       12.0,
+       -11.4
+      ],
+      "sum_wo_best_trade": 25.7,
+      "comp_wo_best_day": 0.7
+     }
+    },
+    {
+     "f": "wx_wmove60_bank",
+     "side": "keep_below",
+     "cut": 0.0,
+     "disc": {
+      "n": 30,
+      "strike": 53.3,
+      "comp_pct": 1471.7,
+      "mean_day_pct": 33.52,
+      "losing_days": 3,
+      "worst_day": -21.6,
+      "per_day": [
+       48.8,
+       50.0,
+       18.0,
+       27.4,
+       186.8,
+       0.0,
+       62.5,
+       27.6,
+       -0.7,
+       16.9,
+       -13.5,
+       -21.6
+      ],
+      "sum_wo_best_trade": 287.6,
+      "comp_wo_best_day": 448.1
+     },
+     "test": {
+      "n": 12,
+      "strike": 58.3,
+      "comp_pct": 110.7,
+      "mean_day_pct": 22.36,
+      "losing_days": 2,
+      "worst_day": -11.4,
+      "per_day": [
+       -6.0,
+       109.2,
+       7.9,
+       12.0,
+       -11.4
+      ],
+      "sum_wo_best_trade": 25.7,
+      "comp_wo_best_day": 0.7
+     }
+    },
+    {
+     "f": "wx_wmove60_bank",
+     "side": "keep_below",
+     "cut": 1.42,
+     "disc": {
+      "n": 41,
+      "strike": 51.2,
+      "comp_pct": 1390.4,
+      "mean_day_pct": 35.27,
+      "losing_days": 3,
+      "worst_day": -28.5,
+      "per_day": [
+       5.4,
+       50.0,
+       18.0,
+       27.4,
+       207.8,
+       61.6,
+       62.5,
+       45.2,
+       -4.4,
+       0.3,
+       -22.0,
+       -28.5
+      ],
+      "sum_wo_best_trade": 297.5,
+      "comp_wo_best_day": 384.2
+     },
+     "test": {
+      "n": 13,
+      "strike": 53.8,
+      "comp_pct": 80.6,
+      "mean_day_pct": 19.27,
+      "losing_days": 3,
+      "worst_day": -11.4,
+      "per_day": [
+       -6.0,
+       109.2,
+       -7.5,
+       12.0,
+       -11.4
+      ],
+      "sum_wo_best_trade": 11.4,
+      "comp_wo_best_day": -13.7
+     }
+    },
+    {
+     "f": "wx_vix",
+     "side": "keep_above",
+     "cut": 14.828,
+     "disc": {
+      "n": 67,
+      "strike": 55.2,
+      "comp_pct": 4976.2,
+      "mean_day_pct": 79.73,
+      "losing_days": 4,
+      "worst_day": -37.1,
+      "per_day": [
+       -27.9,
+       68.0,
+       8.4,
+       27.4,
+       277.8,
+       541.9,
+       62.5,
+       28.1,
+       -6.0,
+       42.2,
+       -37.1,
+       -28.5
+      ],
+      "sum_wo_best_trade": 464.2,
+      "comp_wo_best_day": 690.8
+     },
+     "test": {
+      "n": 35,
+      "strike": 51.4,
+      "comp_pct": 200.7,
+      "mean_day_pct": 30.76,
+      "losing_days": 2,
+      "worst_day": -6.0,
+      "per_day": [
+       -6.0,
+       109.2,
+       43.4,
+       12.0,
+       -4.8
+      ],
+      "sum_wo_best_trade": 96.7,
+      "comp_wo_best_day": 43.7
+     }
+    },
+    {
+     "f": "wx_vix",
+     "side": "keep_above",
+     "cut": 15.6078,
+     "disc": {
+      "n": 56,
+      "strike": 58.9,
+      "comp_pct": 3378.8,
+      "mean_day_pct": 74.35,
+      "losing_days": 4,
+      "worst_day": -37.1,
+      "per_day": [
+       0.0,
+       -3.5,
+       8.4,
+       27.4,
+       277.8,
+       541.9,
+       62.5,
+       28.2,
+       -1.7,
+       16.9,
+       -37.1,
+       -28.5
+      ],
+      "sum_wo_best_trade": 392.7,
+      "comp_wo_best_day": 442.0
+     },
+     "test": {
+      "n": 34,
+      "strike": 52.9,
+      "comp_pct": 219.8,
+      "mean_day_pct": 31.96,
+      "losing_days": 1,
+      "worst_day": -4.8,
+      "per_day": [
+       0.0,
+       109.2,
+       43.4,
+       12.0,
+       -4.8
+      ],
+      "sum_wo_best_trade": 102.7,
+      "comp_wo_best_day": 52.9
+     }
+    },
+    {
+     "f": "wx_vix",
+     "side": "keep_above",
+     "cut": 15.905,
+     "disc": {
+      "n": 42,
+      "strike": 64.3,
+      "comp_pct": 3292.6,
+      "mean_day_pct": 75.42,
+      "losing_days": 3,
+      "worst_day": -54.8,
+      "per_day": [
+       0.0,
+       -1.9,
+       18.0,
+       27.4,
+       277.8,
+       541.9,
+       62.5,
+       45.4,
+       0.0,
+       0.0,
+       -54.8,
+       -11.1
+      ],
+      "sum_wo_best_trade": 385.3,
+      "comp_wo_best_day": 428.5
+     },
+     "test": {
+      "n": 34,
+      "strike": 52.9,
+      "comp_pct": 219.8,
+      "mean_day_pct": 31.96,
+      "losing_days": 1,
+      "worst_day": -4.8,
+      "per_day": [
+       0.0,
+       109.2,
+       43.4,
+       12.0,
+       -4.8
+      ],
+      "sum_wo_best_trade": 102.7,
+      "comp_wo_best_day": 52.9
+     }
+    },
+    {
+     "f": "wx_vix",
+     "side": "keep_below",
+     "cut": 14.828,
+     "disc": {
+      "n": 17,
+      "strike": 47.1,
+      "comp_pct": 49.5,
+      "mean_day_pct": 4.84,
+      "losing_days": 1,
+      "worst_day": -12.2,
+      "per_day": [
+       70.3,
+       -12.2,
+       0.0,
+       0.0,
+       0.0,
+       0.0,
+       0.0,
+       0.0,
+       0.0,
+       0.0,
+       0.0,
+       0.0
+      ],
+      "sum_wo_best_trade": 28.4,
+      "comp_wo_best_day": -12.2
+     },
+     "test": {
+      "n": 0,
+      "strike": null,
+      "comp_pct": 0.0,
+      "mean_day_pct": 0.0,
+      "losing_days": 0,
+      "worst_day": 0.0,
+      "per_day": [
+       0.0,
+       0.0,
+       0.0,
+       0.0,
+       0.0
+      ]
+     }
+    },
+    {
+     "f": "wx_vix",
+     "side": "keep_below",
+     "cut": 15.6078,
+     "disc": {
+      "n": 28,
+      "strike": 42.9,
+      "comp_pct": 118.2,
+      "mean_day_pct": 7.74,
+      "losing_days": 2,
+      "worst_day": -4.4,
+      "per_day": [
+       22.8,
+       52.9,
+       0.0,
+       0.0,
+       0.0,
+       0.0,
+       0.0,
+       -0.1,
+       -4.4,
+       21.6,
+       0.0,
+       0.0
+      ],
+      "sum_wo_best_trade": 69.4,
+      "comp_wo_best_day": 42.7
+     },
+     "test": {
+      "n": 1,
+      "strike": 0.0,
+      "comp_pct": -6.0,
+      "mean_day_pct": -1.2,
+      "losing_days": 1,
+      "worst_day": -6.0,
+      "per_day": [
+       -6.0,
+       0.0,
+       0.0,
+       0.0,
+       0.0
+      ],
+      "sum_wo_best_trade": 0.0,
+      "comp_wo_best_day": -6.0
+     }
+    },
+    {
+     "f": "wx_vix",
+     "side": "keep_below",
+     "cut": 15.905,
+     "disc": {
+      "n": 42,
+      "strike": 42.9,
+      "comp_pct": 123.7,
+      "mean_day_pct": 9.08,
+      "losing_days": 4,
+      "worst_day": -19.5,
+      "per_day": [
+       22.8,
+       50.4,
+       -8.1,
+       0.0,
+       0.0,
+       0.0,
+       0.0,
+       -11.9,
+       -6.0,
+       42.2,
+       39.1,
+       -19.5
+      ],
+      "sum_wo_best_trade": 76.8,
+      "comp_wo_best_day": 48.8
+     },
+     "test": {
+      "n": 1,
+      "strike": 0.0,
+      "comp_pct": -6.0,
+      "mean_day_pct": -1.2,
+      "losing_days": 1,
+      "worst_day": -6.0,
+      "per_day": [
+       -6.0,
+       0.0,
+       0.0,
+       0.0,
+       0.0
+      ],
+      "sum_wo_best_trade": 0.0,
+      "comp_wo_best_day": -6.0
+     }
+    },
+    {
+     "f": "wx_vix_chg5",
+     "side": "keep_above",
+     "cut": -0.064,
+     "disc": {
+      "n": 67,
+      "strike": 52.2,
+      "comp_pct": 2459.7,
+      "mean_day_pct": 57.03,
+      "losing_days": 4,
+      "worst_day": -28.2,
+      "per_day": [
+       12.8,
+       50.0,
+       4.6,
+       -28.2,
+       86.6,
+       454.1,
+       69.4,
+       45.9,
+       -6.0,
+       40.7,
+       -25.9,
+       -19.5
+      ],
+      "sum_wo_best_trade": 390.0,
+      "comp_wo_best_day": 362.0
+     },
+     "test": {
+      "n": 29,
+      "strike": 51.7,
+      "comp_pct": 112.8,
+      "mean_day_pct": 20.92,
+      "losing_days": 2,
+      "worst_day": -6.0,
+      "per_day": [
+       -6.0,
+       9.5,
+       93.8,
+       12.0,
+       -4.8
+      ],
+      "sum_wo_best_trade": 53.1,
+      "comp_wo_best_day": 9.8
+     }
+    },
+    {
+     "f": "wx_vix_chg5",
+     "side": "keep_above",
+     "cut": -0.03,
+     "disc": {
+      "n": 51,
+      "strike": 60.8,
+      "comp_pct": 7497.2,
+      "mean_day_pct": 78.37,
+      "losing_days": 3,
+      "worst_day": -26.2,
+      "per_day": [
+       84.7,
+       50.0,
+       4.6,
+       -26.2,
+       86.6,
+       606.3,
+       54.7,
+       65.4,
+       -6.0,
+       40.7,
+       -20.3,
+       0.0
+      ],
+      "sum_wo_best_trade": 489.2,
+      "comp_wo_best_day": 975.6
+     },
+     "test": {
+      "n": 22,
+      "strike": 54.5,
+      "comp_pct": 162.4,
+      "mean_day_pct": 28.98,
+      "losing_days": 2,
+      "worst_day": -14.0,
+      "per_day": [
+       -6.0,
+       9.5,
+       121.7,
+       33.7,
+       -14.0
+      ],
+      "sum_wo_best_trade": 69.2,
+      "comp_wo_best_day": 18.4
+     }
+    },
+    {
+     "f": "wx_vix_chg5",
+     "side": "keep_above",
+     "cut": -0.01,
+     "disc": {
+      "n": 39,
+      "strike": 66.7,
+      "comp_pct": 3825.0,
+      "mean_day_pct": 45.89,
+      "losing_days": 3,
+      "worst_day": -7.9,
+      "per_day": [
+       147.5,
+       70.8,
+       4.6,
+       -3.5,
+       52.0,
+       172.9,
+       54.7,
+       65.4,
+       -6.0,
+       0.0,
+       -7.9,
+       0.0
+      ],
+      "sum_wo_best_trade": 375.6,
+      "comp_wo_best_day": 1338.2
+     },
+     "test": {
+      "n": 18,
+      "strike": 50.0,
+      "comp_pct": 44.8,
+      "mean_day_pct": 8.62,
+      "losing_days": 2,
+      "worst_day": -6.0,
+      "per_day": [
+       -6.0,
+       9.5,
+       11.7,
+       33.7,
+       -5.8
+      ],
+      "sum_wo_best_trade": 14.4,
+      "comp_wo_best_day": 8.3
+     }
+    },
+    {
+     "f": "wx_vix_chg5",
+     "side": "keep_above",
+     "cut": 0.0,
+     "disc": {
+      "n": 31,
+      "strike": 61.3,
+      "comp_pct": 1222.6,
+      "mean_day_pct": 30.35,
+      "losing_days": 3,
+      "worst_day": -16.1,
+      "per_day": [
+       147.5,
+       70.8,
+       4.6,
+       -3.5,
+       26.9,
+       26.3,
+       48.2,
+       65.4,
+       -6.0,
+       0.0,
+       -16.1,
+       0.0
+      ],
+      "sum_wo_best_trade": 252.4,
+      "comp_wo_best_day": 434.3
+     },
+     "test": {
+      "n": 17,
+      "strike": 47.1,
+      "comp_pct": 21.0,
+      "mean_day_pct": 4.94,
+      "losing_days": 3,
+      "worst_day": -6.7,
+      "per_day": [
+       -6.0,
+       9.5,
+       -6.7,
+       33.7,
+       -5.8
+      ],
+      "sum_wo_best_trade": -5.3,
+      "comp_wo_best_day": -9.5
+     }
+    },
+    {
+     "f": "wx_vix_chg5",
+     "side": "keep_below",
+     "cut": -0.064,
+     "disc": {
+      "n": 17,
+      "strike": 58.8,
+      "comp_pct": 196.5,
+      "mean_day_pct": 13.76,
+      "losing_days": 5,
+      "worst_day": -15.1,
+      "per_day": [
+       8.9,
+       -1.7,
+       3.6,
+       77.4,
+       102.5,
+       15.8,
+       -4.1,
+       -12.2,
+       0.0,
+       1.1,
+       -15.1,
+       -11.1
+      ],
+      "sum_wo_best_trade": 72.1,
+      "comp_wo_best_day": 46.4
+     },
+     "test": {
+      "n": 6,
+      "strike": 50.0,
+      "comp_pct": 41.3,
+      "mean_day_pct": 12.99,
+      "losing_days": 1,
+      "worst_day": -26.0,
+      "per_day": [
+       0.0,
+       91.0,
+       -26.0,
+       0.0,
+       0.0
+      ],
+      "sum_wo_best_trade": -17.5,
+      "comp_wo_best_day": -26.0
+     }
+    },
+    {
+     "f": "wx_vix_chg5",
+     "side": "keep_below",
+     "cut": -0.03,
+     "disc": {
+      "n": 27,
+      "strike": 48.1,
+      "comp_pct": 56.2,
+      "mean_day_pct": 8.96,
+      "losing_days": 6,
+      "worst_day": -26.5,
+      "per_day": [
+       -22.7,
+       -1.7,
+       3.6,
+       77.4,
+       102.5,
+       6.4,
+       -4.1,
+       -22.6,
+       0.0,
+       1.1,
+       -6.0,
+       -26.5
+      ],
+      "sum_wo_best_trade": 13.4,
+      "comp_wo_best_day": -22.9
+     },
+     "test": {
+      "n": 10,
+      "strike": 40.0,
+      "comp_pct": -0.1,
+      "mean_day_pct": 7.89,
+      "losing_days": 2,
+      "worst_day": -42.5,
+      "per_day": [
+       0.0,
+       91.0,
+       -42.5,
+       -9.0,
+       0.0
+      ],
+      "sum_wo_best_trade": -48.8,
+      "comp_wo_best_day": -47.7
+     }
+    },
+    {
+     "f": "wx_vix_chg5",
+     "side": "keep_below",
+     "cut": -0.01,
+     "disc": {
+      "n": 38,
+      "strike": 42.1,
+      "comp_pct": 66.9,
+      "mean_day_pct": 10.89,
+      "losing_days": 5,
+      "worst_day": -33.5,
+      "per_day": [
+       -33.5,
+       -1.7,
+       3.6,
+       32.0,
+       102.5,
+       63.3,
+       5.0,
+       -22.6,
+       0.0,
+       42.2,
+       -31.7,
+       -28.5
+      ],
+      "sum_wo_best_trade": 54.6,
+      "comp_wo_best_day": -17.6
+     },
+     "test": {
+      "n": 13,
+      "strike": 46.2,
+      "comp_pct": 14.6,
+      "mean_day_pct": 10.03,
+      "losing_days": 2,
+      "worst_day": -35.3,
+      "per_day": [
+       0.0,
+       91.0,
+       -35.3,
+       -16.2,
+       10.7
+      ],
+      "sum_wo_best_trade": -33.6,
+      "comp_wo_best_day": -40.0
+     }
+    },
+    {
+     "f": "wx_vix_chg5",
+     "side": "keep_below",
+     "cut": 0.0,
+     "disc": {
+      "n": 45,
+      "strike": 42.2,
+      "comp_pct": 93.4,
+      "mean_day_pct": 18.31,
+      "losing_days": 5,
+      "worst_day": -50.4,
+      "per_day": [
+       -50.4,
+       -13.7,
+       3.6,
+       32.0,
+       148.5,
+       135.2,
+       5.0,
+       -22.6,
+       0.0,
+       42.2,
+       -31.7,
+       -28.5
+      ],
+      "sum_wo_best_trade": 86.5,
+      "comp_wo_best_day": -22.2
+     },
+     "test": {
+      "n": 17,
+      "strike": 52.9,
+      "comp_pct": 107.7,
+      "mean_day_pct": 20.85,
+      "losing_days": 1,
+      "worst_day": -16.2,
+      "per_day": [
+       0.0,
+       91.0,
+       28.4,
+       -16.2,
+       1.1
+      ],
+      "sum_wo_best_trade": 40.9,
+      "comp_wo_best_day": 8.8
+     }
+    },
+    {
+     "f": "wx_vix_chg15",
+     "side": "keep_above",
+     "cut": -0.1,
+     "disc": {
+      "n": 64,
+      "strike": 56.2,
+      "comp_pct": 7967.2,
+      "mean_day_pct": 83.58,
+      "losing_days": 3,
+      "worst_day": -34.4,
+      "per_day": [
+       16.9,
+       77.5,
+       0.0,
+       66.7,
+       190.4,
+       610.6,
+       38.2,
+       28.1,
+       -6.0,
+       42.2,
+       -34.4,
+       -27.2
+      ],
+      "sum_wo_best_trade": 536.4,
+      "comp_wo_best_day": 1035.3
+     },
+     "test": {
+      "n": 26,
+      "strike": 57.7,
+      "comp_pct": 191.7,
+      "mean_day_pct": 33.7,
+      "losing_days": 2,
+      "worst_day": -6.0,
+      "per_day": [
+       -6.0,
+       15.6,
+       151.6,
+       12.0,
+       -4.8
+      ],
+      "sum_wo_best_trade": 81.4,
+      "comp_wo_best_day": 15.9
+     }
+    },
+    {
+     "f": "wx_vix_chg15",
+     "side": "keep_above",
+     "cut": -0.06,
+     "disc": {
+      "n": 55,
+      "strike": 60.0,
+      "comp_pct": 10228.7,
+      "mean_day_pct": 86.7,
+      "losing_days": 4,
+      "worst_day": -22.7,
+      "per_day": [
+       62.3,
+       77.5,
+       0.0,
+       66.7,
+       190.4,
+       610.6,
+       38.2,
+       -22.6,
+       -5.3,
+       64.4,
+       -22.7,
+       -19.0
+      ],
+      "sum_wo_best_trade": 546.8,
+      "comp_wo_best_day": 1353.6
+     },
+     "test": {
+      "n": 26,
+      "strike": 57.7,
+      "comp_pct": 191.7,
+      "mean_day_pct": 33.7,
+      "losing_days": 2,
+      "worst_day": -6.0,
+      "per_day": [
+       -6.0,
+       15.6,
+       151.6,
+       12.0,
+       -4.8
+      ],
+      "sum_wo_best_trade": 81.4,
+      "comp_wo_best_day": 15.9
+     }
+    },
+    {
+     "f": "wx_vix_chg15",
+     "side": "keep_above",
+     "cut": -0.02,
+     "disc": {
+      "n": 37,
+      "strike": 59.5,
+      "comp_pct": 859.5,
+      "mean_day_pct": 26.33,
+      "losing_days": 4,
+      "worst_day": -19.0,
+      "per_day": [
+       3.9,
+       77.5,
+       0.0,
+       77.4,
+       41.6,
+       99.6,
+       44.1,
+       -11.8,
+       -5.3,
+       16.9,
+       -8.9,
+       -19.0
+      ],
+      "sum_wo_best_trade": 237.8,
+      "comp_wo_best_day": 380.6
+     },
+     "test": {
+      "n": 18,
+      "strike": 61.1,
+      "comp_pct": 185.9,
+      "mean_day_pct": 28.69,
+      "losing_days": 0,
+      "worst_day": 0.0,
+      "per_day": [
+       0.0,
+       15.6,
+       111.3,
+       12.2,
+       4.2
+      ],
+      "sum_wo_best_trade": 74.7,
+      "comp_wo_best_day": 35.3
+     }
+    },
+    {
+     "f": "wx_vix_chg15",
+     "side": "keep_above",
+     "cut": 0.0,
+     "disc": {
+      "n": 32,
+      "strike": 59.4,
+      "comp_pct": 728.5,
+      "mean_day_pct": 23.82,
+      "losing_days": 3,
+      "worst_day": -11.8,
+      "per_day": [
+       3.9,
+       77.5,
+       0.0,
+       77.4,
+       41.6,
+       86.7,
+       4.4,
+       -11.8,
+       -5.3,
+       16.9,
+       5.8,
+       -11.1
+      ],
+      "sum_wo_best_trade": 215.7,
+      "comp_wo_best_day": 343.9
+     },
+     "test": {
+      "n": 18,
+      "strike": 61.1,
+      "comp_pct": 185.9,
+      "mean_day_pct": 28.69,
+      "losing_days": 0,
+      "worst_day": 0.0,
+      "per_day": [
+       0.0,
+       15.6,
+       111.3,
+       12.2,
+       4.2
+      ],
+      "sum_wo_best_trade": 74.7,
+      "comp_wo_best_day": 35.3
+     }
+    },
+    {
+     "f": "wx_vix_chg15",
+     "side": "keep_below",
+     "cut": -0.1,
+     "disc": {
+      "n": 16,
+      "strike": 43.8,
+      "comp_pct": -15.1,
+      "mean_day_pct": -0.56,
+      "losing_days": 6,
+      "worst_day": -16.9,
+      "per_day": [
+       5.9,
+       -16.9,
+       -4.7,
+       -13.7,
+       30.1,
+       -9.7,
+       17.6,
+       0.0,
+       0.0,
+       0.0,
+       -13.5,
+       -1.8
+      ],
+      "sum_wo_best_trade": -29.6,
+      "comp_wo_best_day": -34.7
+     },
+     "test": {
+      "n": 9,
+      "strike": 33.3,
+      "comp_pct": 3.1,
+      "mean_day_pct": 7.58,
+      "losing_days": 1,
+      "worst_day": -43.0,
+      "per_day": [
+       0.0,
+       80.9,
+       -43.0,
+       0.0,
+       0.0
+      ],
+      "sum_wo_best_trade": -45.8,
+      "comp_wo_best_day": -43.0
+     }
+    },
+    {
+     "f": "wx_vix_chg15",
+     "side": "keep_below",
+     "cut": -0.06,
+     "disc": {
+      "n": 26,
+      "strike": 46.2,
+      "comp_pct": 4.0,
+      "mean_day_pct": 2.69,
+      "losing_days": 7,
+      "worst_day": -23.6,
+      "per_day": [
+       -9.6,
+       -16.9,
+       8.4,
+       -23.6,
+       30.1,
+       -9.7,
+       17.6,
+       65.4,
+       0.0,
+       -13.5,
+       -4.2,
+       -11.7
+      ],
+      "sum_wo_best_trade": -17.1,
+      "comp_wo_best_day": -37.1
+     },
+     "test": {
+      "n": 9,
+      "strike": 33.3,
+      "comp_pct": 3.1,
+      "mean_day_pct": 7.58,
+      "losing_days": 1,
+      "worst_day": -43.0,
+      "per_day": [
+       0.0,
+       80.9,
+       -43.0,
+       0.0,
+       0.0
+      ],
+      "sum_wo_best_trade": -45.8,
+      "comp_wo_best_day": -43.0
+     }
+    },
+    {
+     "f": "wx_vix_chg15",
+     "side": "keep_below",
+     "cut": -0.02,
+     "disc": {
+      "n": 41,
+      "strike": 48.8,
+      "comp_pct": 322.7,
+      "mean_day_pct": 22.42,
+      "losing_days": 5,
+      "worst_day": -30.9,
+      "per_day": [
+       18.2,
+       -16.9,
+       8.4,
+       -25.6,
+       30.1,
+       198.4,
+       12.8,
+       65.4,
+       -0.7,
+       21.6,
+       -30.9,
+       -11.7
+      ],
+      "sum_wo_best_trade": 145.2,
+      "comp_wo_best_day": 41.7
+     },
+     "test": {
+      "n": 13,
+      "strike": 38.5,
+      "comp_pct": 15.8,
+      "mean_day_pct": 8.6,
+      "losing_days": 3,
+      "worst_day": -31.8,
+      "per_day": [
+       -6.0,
+       80.9,
+       -31.8,
+       -0.2,
+       0.0
+      ],
+      "sum_wo_best_trade": -31.6,
+      "comp_wo_best_day": -36.0
+     }
+    },
+    {
+     "f": "wx_vix_chg15",
+     "side": "keep_below",
+     "cut": 0.0,
+     "disc": {
+      "n": 50,
+      "strike": 50.0,
+      "comp_pct": 946.8,
+      "mean_day_pct": 38.16,
+      "losing_days": 5,
+      "worst_day": -30.9,
+      "per_day": [
+       18.2,
+       -16.9,
+       8.4,
+       -28.2,
+       166.7,
+       238.3,
+       55.6,
+       45.2,
+       -0.7,
+       21.6,
+       -30.9,
+       -19.5
+      ],
+      "sum_wo_best_trade": 258.6,
+      "comp_wo_best_day": 209.4
+     },
+     "test": {
+      "n": 17,
+      "strike": 41.2,
+      "comp_pct": 5.2,
+      "mean_day_pct": 6.79,
+      "losing_days": 4,
+      "worst_day": -32.2,
+      "per_day": [
+       -6.0,
+       80.9,
+       -32.2,
+       -0.2,
+       -8.7
+      ],
+      "sum_wo_best_trade": -39.1,
+      "comp_wo_best_day": -41.9
+     }
+    },
+    {
+     "f": "wx_vix_chg30",
+     "side": "keep_above",
+     "cut": -0.104,
+     "disc": {
+      "n": 67,
+      "strike": 52.2,
+      "comp_pct": 1964.1,
+      "mean_day_pct": 49.6,
+      "losing_days": 4,
+      "worst_day": -43.2,
+      "per_day": [
+       16.0,
+       53.2,
+       18.0,
+       47.6,
+       207.8,
+       286.6,
+       7.5,
+       -11.8,
+       -6.0,
+       41.0,
+       -43.2,
+       -21.6
+      ],
+      "sum_wo_best_trade": 366.1,
+      "comp_wo_best_day": 433.9
+     },
+     "test": {
+      "n": 24,
+      "strike": 58.3,
+      "comp_pct": 352.1,
+      "mean_day_pct": 44.91,
+      "losing_days": 2,
+      "worst_day": -6.0,
+      "per_day": [
+       -6.0,
+       109.2,
+       112.5,
+       13.7,
+       -4.8
+      ],
+      "sum_wo_best_trade": 131.6,
+      "comp_wo_best_day": 112.8
+     }
+    },
+    {
+     "f": "wx_vix_chg30",
+     "side": "keep_above",
+     "cut": -0.07,
+     "disc": {
+      "n": 54,
+      "strike": 53.7,
+      "comp_pct": 1521.9,
+      "mean_day_pct": 39.14,
+      "losing_days": 4,
+      "worst_day": -41.5,
+      "per_day": [
+       16.0,
+       53.2,
+       18.0,
+       51.6,
+       190.4,
+       141.9,
+       12.1,
+       -11.8,
+       -5.3,
+       64.4,
+       -41.5,
+       -19.4
+      ],
+      "sum_wo_best_trade": 330.7,
+      "comp_wo_best_day": 458.6
+     },
+     "test": {
+      "n": 22,
+      "strike": 59.1,
+      "comp_pct": 236.2,
+      "mean_day_pct": 34.02,
+      "losing_days": 2,
+      "worst_day": -6.0,
+      "per_day": [
+       -6.0,
+       109.2,
+       58.0,
+       13.7,
+       -4.8
+      ],
+      "sum_wo_best_trade": 87.0,
+      "comp_wo_best_day": 60.7
+     }
+    },
+    {
+     "f": "wx_vix_chg30",
+     "side": "keep_above",
+     "cut": -0.02,
+     "disc": {
+      "n": 40,
+      "strike": 55.0,
+      "comp_pct": 915.4,
+      "mean_day_pct": 30.58,
+      "losing_days": 5,
+      "worst_day": -26.7,
+      "per_day": [
+       -3.7,
+       80.9,
+       3.6,
+       71.2,
+       170.5,
+       70.2,
+       12.1,
+       -11.8,
+       -5.3,
+       16.9,
+       -26.7,
+       -11.1
+      ],
+      "sum_wo_best_trade": 263.4,
+      "comp_wo_best_day": 275.3
+     },
+     "test": {
+      "n": 19,
+      "strike": 68.4,
+      "comp_pct": 379.6,
+      "mean_day_pct": 44.09,
+      "losing_days": 1,
+      "worst_day": -6.0,
+      "per_day": [
+       -6.0,
+       109.2,
+       89.6,
+       23.4,
+       4.2
+      ],
+      "sum_wo_best_trade": 120.2,
+      "comp_wo_best_day": 129.2
+     }
+    },
+    {
+     "f": "wx_vix_chg30",
+     "side": "keep_above",
+     "cut": 0.0,
+     "disc": {
+      "n": 38,
+      "strike": 55.3,
+      "comp_pct": 659.4,
+      "mean_day_pct": 28.81,
+      "losing_days": 4,
+      "worst_day": -36.0,
+      "per_day": [
+       -36.0,
+       80.9,
+       3.6,
+       71.2,
+       170.5,
+       70.2,
+       12.1,
+       -11.8,
+       -5.3,
+       16.9,
+       -26.7,
+       0.0
+      ],
+      "sum_wo_best_trade": 224.0,
+      "comp_wo_best_day": 180.7
+     },
+     "test": {
+      "n": 19,
+      "strike": 68.4,
+      "comp_pct": 379.6,
+      "mean_day_pct": 44.09,
+      "losing_days": 1,
+      "worst_day": -6.0,
+      "per_day": [
+       -6.0,
+       109.2,
+       89.6,
+       23.4,
+       4.2
+      ],
+      "sum_wo_best_trade": 120.2,
+      "comp_wo_best_day": 129.2
+     }
+    },
+    {
+     "f": "wx_vix_chg30",
+     "side": "keep_below",
+     "cut": -0.104,
+     "disc": {
+      "n": 17,
+      "strike": 58.8,
+      "comp_pct": 267.7,
+      "mean_day_pct": 14.01,
+      "losing_days": 4,
+      "worst_day": -13.7,
+      "per_day": [
+       5.9,
+       -3.8,
+       -8.1,
+       -13.7,
+       22.7,
+       66.0,
+       51.1,
+       45.2,
+       0.0,
+       0.8,
+       10.7,
+       -8.9
+      ],
+      "sum_wo_best_trade": 97.3,
+      "comp_wo_best_day": 121.4
+     },
+     "test": {
+      "n": 11,
+      "strike": 36.4,
+      "comp_pct": -33.5,
+      "mean_day_pct": -6.79,
+      "losing_days": 2,
+      "worst_day": -32.5,
+      "per_day": [
+       0.0,
+       0.0,
+       -32.5,
+       -1.4,
+       0.0
+      ],
+      "sum_wo_best_trade": -47.3,
+      "comp_wo_best_day": -33.5
+     }
+    },
+    {
+     "f": "wx_vix_chg30",
+     "side": "keep_below",
+     "cut": -0.07,
+     "disc": {
+      "n": 25,
+      "strike": 52.0,
+      "comp_pct": 268.4,
+      "mean_day_pct": 16.8,
+      "losing_days": 7,
+      "worst_day": -13.7,
+      "per_day": [
+       5.9,
+       -3.8,
+       -8.1,
+       -13.7,
+       30.1,
+       132.6,
+       44.9,
+       45.2,
+       -0.7,
+       -13.5,
+       -6.0,
+       -11.4
+      ],
+      "sum_wo_best_trade": 104.8,
+      "comp_wo_best_day": 58.4
+     },
+     "test": {
+      "n": 12,
+      "strike": 33.3,
+      "comp_pct": -44.5,
+      "mean_day_pct": -9.02,
+      "losing_days": 2,
+      "worst_day": -43.7,
+      "per_day": [
+       0.0,
+       0.0,
+       -43.7,
+       -1.4,
+       0.0
+      ],
+      "sum_wo_best_trade": -63.8,
+      "comp_wo_best_day": -44.5
+     }
+    },
+    {
+     "f": "wx_vix_chg30",
+     "side": "keep_below",
+     "cut": -0.02,
+     "disc": {
+      "n": 41,
+      "strike": 51.2,
+      "comp_pct": 510.1,
+      "mean_day_pct": 29.69,
+      "losing_days": 5,
+      "worst_day": -25.6,
+      "per_day": [
+       9.9,
+       -17.1,
+       4.6,
+       -25.6,
+       30.1,
+       277.1,
+       44.9,
+       45.2,
+       -0.7,
+       21.6,
+       -14.2,
+       -19.5
+      ],
+      "sum_wo_best_trade": 178.3,
+      "comp_wo_best_day": 61.8
+     },
+     "test": {
+      "n": 16,
+      "strike": 31.2,
+      "comp_pct": -37.3,
+      "mean_day_pct": -8.45,
+      "losing_days": 3,
+      "worst_day": -24.4,
+      "per_day": [
+       0.0,
+       0.0,
+       -24.4,
+       -9.2,
+       -8.7
+      ],
+      "sum_wo_best_trade": -84.6,
+      "comp_wo_best_day": -37.3
+     }
+    },
+    {
+     "f": "wx_vix_chg30",
+     "side": "keep_below",
+     "cut": 0.0,
+     "disc": {
+      "n": 45,
+      "strike": 51.1,
+      "comp_pct": 564.1,
+      "mean_day_pct": 31.09,
+      "losing_days": 5,
+      "worst_day": -28.5,
+      "per_day": [
+       27.5,
+       -18.5,
+       4.6,
+       -25.6,
+       39.6,
+       277.1,
+       44.9,
+       45.2,
+       -0.7,
+       21.6,
+       -14.2,
+       -28.5
+      ],
+      "sum_wo_best_trade": 188.9,
+      "comp_wo_best_day": 76.1
+     },
+     "test": {
+      "n": 16,
+      "strike": 31.2,
+      "comp_pct": -37.3,
+      "mean_day_pct": -8.45,
+      "losing_days": 3,
+      "worst_day": -24.4,
+      "per_day": [
+       0.0,
+       0.0,
+       -24.4,
+       -9.2,
+       -8.7
+      ],
+      "sum_wo_best_trade": -84.6,
+      "comp_wo_best_day": -37.3
+     }
+    },
+    {
+     "f": "wx_vix_chg_open",
+     "side": "keep_above",
+     "cut": -0.052,
+     "disc": {
+      "n": 67,
+      "strike": 50.7,
+      "comp_pct": 887.8,
+      "mean_day_pct": 35.54,
+      "losing_days": 3,
+      "worst_day": -37.1,
+      "per_day": [
+       22.8,
+       47.5,
+       8.4,
+       27.4,
+       277.8,
+       2.6,
+       69.4,
+       0.0,
+       -6.0,
+       42.2,
+       -37.1,
+       -28.5
+      ],
+      "sum_wo_best_trade": 282.5,
+      "comp_wo_best_day": 161.5
+     },
+     "test": {
+      "n": 9,
+      "strike": 66.7,
+      "comp_pct": 120.4,
+      "mean_day_pct": 23.05,
+      "losing_days": 1,
+      "worst_day": -6.0,
+      "per_day": [
+       -6.0,
+       109.2,
+       0.0,
+       12.0,
+       0.0
+      ],
+      "sum_wo_best_trade": 29.4,
+      "comp_wo_best_day": 5.3
+     }
+    },
+    {
+     "f": "wx_vix_chg_open",
+     "side": "keep_above",
+     "cut": 0.0,
+     "disc": {
+      "n": 66,
+      "strike": 50.0,
+      "comp_pct": 846.4,
+      "mean_day_pct": 34.95,
+      "losing_days": 3,
+      "worst_day": -37.1,
+      "per_day": [
+       22.8,
+       47.5,
+       8.4,
+       27.4,
+       277.8,
+       2.6,
+       62.3,
+       0.0,
+       -6.0,
+       42.2,
+       -37.1,
+       -28.5
+      ],
+      "sum_wo_best_trade": 278.1,
+      "comp_wo_best_day": 150.5
+     },
+     "test": {
+      "n": 9,
+      "strike": 66.7,
+      "comp_pct": 120.4,
+      "mean_day_pct": 23.05,
+      "losing_days": 1,
+      "worst_day": -6.0,
+      "per_day": [
+       -6.0,
+       109.2,
+       0.0,
+       12.0,
+       0.0
+      ],
+      "sum_wo_best_trade": 29.4,
+      "comp_wo_best_day": 5.3
+     }
+    },
+    {
+     "f": "wx_vix_chg_open",
+     "side": "keep_above",
+     "cut": 0.2139,
+     "disc": {
+      "n": 56,
+      "strike": 51.8,
+      "comp_pct": 958.0,
+      "mean_day_pct": 35.04,
+      "losing_days": 2,
+      "worst_day": -37.1,
+      "per_day": [
+       22.8,
+       68.0,
+       18.0,
+       27.4,
+       277.8,
+       0.0,
+       7.4,
+       0.0,
+       -6.0,
+       42.2,
+       -37.1,
+       0.0
+      ],
+      "sum_wo_best_trade": 280.2,
+      "comp_wo_best_day": 180.1
+     },
+     "test": {
+      "n": 5,
+      "strike": 100.0,
+      "comp_pct": 158.1,
+      "mean_day_pct": 26.51,
+      "losing_days": 0,
+      "worst_day": 0.0,
+      "per_day": [
+       0.0,
+       109.2,
+       0.0,
+       23.4,
+       0.0
+      ],
+      "sum_wo_best_trade": 43.9,
+      "comp_wo_best_day": 23.4
+     }
+    },
+    {
+     "f": "wx_vix_chg_open",
+     "side": "keep_above",
+     "cut": 0.39,
+     "disc": {
+      "n": 42,
+      "strike": 50.0,
+      "comp_pct": 244.2,
+      "mean_day_pct": 24.49,
+      "losing_days": 3,
+      "worst_day": -50.0,
+      "per_day": [
+       16.0,
+       -3.5,
+       3.6,
+       27.4,
+       277.8,
+       0.0,
+       7.4,
+       0.0,
+       -1.7,
+       16.9,
+       -50.0,
+       0.0
+      ],
+      "sum_wo_best_trade": 132.9,
+      "comp_wo_best_day": -8.9
+     },
+     "test": {
+      "n": 4,
+      "strike": 100.0,
+      "comp_pct": 109.2,
+      "mean_day_pct": 21.84,
+      "losing_days": 0,
+      "worst_day": 0.0,
+      "per_day": [
+       0.0,
+       109.2,
+       0.0,
+       0.0,
+       0.0
+      ],
+      "sum_wo_best_trade": 20.5,
+      "comp_wo_best_day": 0.0
+     }
+    },
+    {
+     "f": "wx_vix_chg_open",
+     "side": "keep_below",
+     "cut": -0.052,
+     "disc": {
+      "n": 17,
+      "strike": 64.7,
+      "comp_pct": 668.3,
+      "mean_day_pct": 45.79,
+      "losing_days": 1,
+      "worst_day": -4.1,
+      "per_day": [
+       0.0,
+       0.0,
+       0.0,
+       0.0,
+       0.0,
+       525.6,
+       -4.1,
+       28.1,
+       0.0,
+       0.0,
+       0.0,
+       0.0
+      ],
+      "sum_wo_best_trade": 180.9,
+      "comp_wo_best_day": 22.8
+     },
+     "test": {
+      "n": 26,
+      "strike": 46.2,
+      "comp_pct": 36.5,
+      "mean_day_pct": 7.71,
+      "losing_days": 1,
+      "worst_day": -4.8,
+      "per_day": [
+       0.0,
+       0.0,
+       43.4,
+       0.0,
+       -4.8
+      ],
+      "sum_wo_best_trade": 6.2,
+      "comp_wo_best_day": -4.8
+     }
+    },
+    {
+     "f": "wx_vix_chg_open",
+     "side": "keep_below",
+     "cut": 0.0,
+     "disc": {
+      "n": 18,
+      "strike": 66.7,
+      "comp_pct": 701.9,
+      "mean_day_pct": 46.15,
+      "losing_days": 0,
+      "worst_day": 0.0,
+      "per_day": [
+       0.0,
+       0.0,
+       0.0,
+       0.0,
+       0.0,
+       525.6,
+       0.1,
+       28.1,
+       0.0,
+       0.0,
+       0.0,
+       0.0
+      ],
+      "sum_wo_best_trade": 185.2,
+      "comp_wo_best_day": 28.2
+     },
+     "test": {
+      "n": 26,
+      "strike": 46.2,
+      "comp_pct": 36.5,
+      "mean_day_pct": 7.71,
+      "losing_days": 1,
+      "worst_day": -4.8,
+      "per_day": [
+       0.0,
+       0.0,
+       43.4,
+       0.0,
+       -4.8
+      ],
+      "sum_wo_best_trade": 6.2,
+      "comp_wo_best_day": -4.8
+     }
+    },
+    {
+     "f": "wx_vix_chg_open",
+     "side": "keep_below",
+     "cut": 0.2139,
+     "disc": {
+      "n": 28,
+      "strike": 57.1,
+      "comp_pct": 617.4,
+      "mean_day_pct": 47.7,
+      "losing_days": 3,
+      "worst_day": -28.5,
+      "per_day": [
+       0.0,
+       -12.2,
+       -8.1,
+       0.0,
+       0.0,
+       541.9,
+       51.3,
+       28.1,
+       0.0,
+       0.0,
+       0.0,
+       -28.5
+      ],
+      "sum_wo_best_trade": 183.2,
+      "comp_wo_best_day": 11.8
+     },
+     "test": {
+      "n": 30,
+      "strike": 43.3,
+      "comp_pct": 16.5,
+      "mean_day_pct": 4.68,
+      "losing_days": 3,
+      "worst_day": -9.2,
+      "per_day": [
+       -6.0,
+       0.0,
+       43.4,
+       -9.2,
+       -4.8
+      ],
+      "sum_wo_best_trade": -8.3,
+      "comp_wo_best_day": -18.7
+     }
+    },
+    {
+     "f": "wx_vix_chg_open",
+     "side": "keep_below",
+     "cut": 0.39,
+     "disc": {
+      "n": 42,
+      "strike": 57.1,
+      "comp_pct": 2104.6,
+      "mean_day_pct": 58.27,
+      "losing_days": 2,
+      "worst_day": -28.5,
+      "per_day": [
+       5.9,
+       52.9,
+       4.6,
+       0.0,
+       0.0,
+       541.9,
+       51.3,
+       28.1,
+       -4.4,
+       21.6,
+       25.9,
+       -28.5
+      ],
+      "sum_wo_best_trade": 329.2,
+      "comp_wo_best_day": 243.5
+     },
+     "test": {
+      "n": 31,
+      "strike": 45.2,
+      "comp_pct": 43.7,
+      "mean_day_pct": 8.92,
+      "losing_days": 2,
+      "worst_day": -6.0,
+      "per_day": [
+       -6.0,
+       0.0,
+       43.4,
+       12.0,
+       -4.8
+      ],
+      "sum_wo_best_trade": 15.1,
+      "comp_wo_best_day": 0.3
+     }
+    },
+    {
+     "f": "wx_vix_day_pos",
+     "side": "keep_above",
+     "cut": 0.1488,
+     "disc": {
+      "n": 67,
+      "strike": 52.2,
+      "comp_pct": 1688.7,
+      "mean_day_pct": 41.08,
+      "losing_days": 3,
+      "worst_day": -37.1,
+      "per_day": [
+       22.8,
+       68.0,
+       8.4,
+       27.4,
+       277.8,
+       48.7,
+       17.6,
+       45.4,
+       -6.0,
+       42.2,
+       -37.1,
+       -22.3
+      ],
+      "sum_wo_best_trade": 346.5,
+      "comp_wo_best_day": 373.5
+     },
+     "test": {
+      "n": 23,
+      "strike": 56.5,
+      "comp_pct": 125.5,
+      "mean_day_pct": 23.53,
+      "losing_days": 2,
+      "worst_day": -6.0,
+      "per_day": [
+       -6.0,
+       109.2,
+       4.4,
+       12.0,
+       -2.0
+      ],
+      "sum_wo_best_trade": 46.8,
+      "comp_wo_best_day": 7.8
+     }
+    },
+    {
+     "f": "wx_vix_day_pos",
+     "side": "keep_above",
+     "cut": 0.4344,
+     "disc": {
+      "n": 56,
+      "strike": 50.0,
+      "comp_pct": 726.0,
+      "mean_day_pct": 32.92,
+      "losing_days": 3,
+      "worst_day": -37.1,
+      "per_day": [
+       22.8,
+       68.0,
+       3.6,
+       27.4,
+       277.8,
+       0.0,
+       7.4,
+       0.0,
+       -6.0,
+       42.2,
+       -37.1,
+       -11.1
+      ],
+      "sum_wo_best_trade": 255.2,
+      "comp_wo_best_day": 118.6
+     },
+     "test": {
+      "n": 11,
+      "strike": 72.7,
+      "comp_pct": 161.0,
+      "mean_day_pct": 26.59,
+      "losing_days": 1,
+      "worst_day": -6.0,
+      "per_day": [
+       -6.0,
+       109.2,
+       7.0,
+       12.0,
+       10.7
+      ],
+      "sum_wo_best_trade": 47.1,
+      "comp_wo_best_day": 24.8
+     }
+    },
+    {
+     "f": "wx_vix_day_pos",
+     "side": "keep_above",
+     "cut": 0.6175,
+     "disc": {
+      "n": 42,
+      "strike": 47.6,
+      "comp_pct": 431.2,
+      "mean_day_pct": 24.81,
+      "losing_days": 2,
+      "worst_day": -50.0,
+      "per_day": [
+       16.0,
+       74.5,
+       3.6,
+       27.4,
+       186.8,
+       0.0,
+       0.0,
+       0.0,
+       -1.7,
+       41.0,
+       -50.0,
+       0.0
+      ],
+      "sum_wo_best_trade": 202.8,
+      "comp_wo_best_day": 85.2
+     },
+     "test": {
+      "n": 9,
+      "strike": 66.7,
+      "comp_pct": 120.4,
+      "mean_day_pct": 23.05,
+      "losing_days": 1,
+      "worst_day": -6.0,
+      "per_day": [
+       -6.0,
+       109.2,
+       0.0,
+       12.0,
+       0.0
+      ],
+      "sum_wo_best_trade": 29.4,
+      "comp_wo_best_day": 5.3
+     }
+    },
+    {
+     "f": "wx_vix_day_pos",
+     "side": "keep_below",
+     "cut": 0.1488,
+     "disc": {
+      "n": 17,
+      "strike": 58.8,
+      "comp_pct": 324.3,
+      "mean_day_pct": 28.14,
+      "losing_days": 3,
+      "worst_day": -12.2,
+      "per_day": [
+       0.0,
+       -12.2,
+       0.0,
+       0.0,
+       0.0,
+       331.7,
+       38.2,
+       -11.9,
+       0.0,
+       0.0,
+       0.0,
+       -8.0
+      ],
+      "sum_wo_best_trade": 116.9,
+      "comp_wo_best_day": -1.7
+     },
+     "test": {
+      "n": 12,
+      "strike": 41.7,
+      "comp_pct": 33.4,
+      "mean_day_pct": 6.89,
+      "losing_days": 1,
+      "worst_day": -2.9,
+      "per_day": [
+       0.0,
+       0.0,
+       37.4,
+       0.0,
+       -2.9
+      ],
+      "sum_wo_best_trade": -11.2,
+      "comp_wo_best_day": -2.9
+     }
+    },
+    {
+     "f": "wx_vix_day_pos",
+     "side": "keep_below",
+     "cut": 0.4344,
+     "disc": {
+      "n": 28,
+      "strike": 60.7,
+      "comp_pct": 818.8,
+      "mean_day_pct": 49.51,
+      "losing_days": 2,
+      "worst_day": -19.5,
+      "per_day": [
+       0.0,
+       -12.2,
+       4.6,
+       0.0,
+       0.0,
+       541.9,
+       51.3,
+       28.1,
+       0.0,
+       0.0,
+       0.0,
+       -19.5
+      ],
+      "sum_wo_best_trade": 208.1,
+      "comp_wo_best_day": 43.1
+     },
+     "test": {
+      "n": 24,
+      "strike": 41.7,
+      "comp_pct": 15.2,
+      "mean_day_pct": 4.0,
+      "losing_days": 1,
+      "worst_day": -14.0,
+      "per_day": [
+       0.0,
+       0.0,
+       34.0,
+       0.0,
+       -14.0
+      ],
+      "sum_wo_best_trade": -11.5,
+      "comp_wo_best_day": -14.0
+     }
+    },
+    {
+     "f": "wx_vix_day_pos",
+     "side": "keep_below",
+     "cut": 0.6175,
+     "disc": {
+      "n": 42,
+      "strike": 59.5,
+      "comp_pct": 1328.8,
+      "mean_day_pct": 54.41,
+      "losing_days": 3,
+      "worst_day": -28.5,
+      "per_day": [
+       5.9,
+       -15.5,
+       4.6,
+       0.0,
+       31.7,
+       541.9,
+       62.5,
+       28.1,
+       -4.4,
+       0.8,
+       25.9,
+       -28.5
+      ],
+      "sum_wo_best_trade": 260.5,
+      "comp_wo_best_day": 122.6
+     },
+     "test": {
+      "n": 26,
+      "strike": 46.2,
+      "comp_pct": 36.5,
+      "mean_day_pct": 7.71,
+      "losing_days": 1,
+      "worst_day": -4.8,
+      "per_day": [
+       0.0,
+       0.0,
+       43.4,
+       0.0,
+       -4.8
+      ],
+      "sum_wo_best_trade": 6.2,
+      "comp_wo_best_day": -4.8
+     }
+    },
+    {
+     "f": "wx_vix_spot_same5",
+     "side": "keep_above",
+     "cut": 0.0,
+     "disc": {
+      "n": 32,
+      "strike": 59.4,
+      "comp_pct": 1041.8,
+      "mean_day_pct": 37.47,
+      "losing_days": 4,
+      "worst_day": -21.8,
+      "per_day": [
+       -21.8,
+       58.9,
+       0.0,
+       -16.7,
+       232.0,
+       165.0,
+       14.3,
+       0.0,
+       -3.7,
+       40.7,
+       0.1,
+       -19.0
+      ],
+      "sum_wo_best_trade": 246.6,
+      "comp_wo_best_day": 243.9
+     },
+     "test": {
+      "n": 21,
+      "strike": 47.6,
+      "comp_pct": 51.5,
+      "mean_day_pct": 14.0,
+      "losing_days": 3,
+      "worst_day": -26.3,
+      "per_day": [
+       -6.0,
+       81.1,
+       -26.3,
+       23.2,
+       -2.0
+      ],
+      "sum_wo_best_trade": -0.9,
+      "comp_wo_best_day": -16.4
+     }
+    },
+    {
+     "f": "wx_vix_spot_same5",
+     "side": "keep_below",
+     "cut": 0.0,
+     "disc": {
+      "n": 8,
+      "strike": 87.5,
+      "comp_pct": 196.8,
+      "mean_day_pct": 12.51,
+      "losing_days": 0,
+      "worst_day": 0.0,
+      "per_day": [
+       0.0,
+       0.0,
+       0.0,
+       0.0,
+       19.8,
+       116.1,
+       4.4,
+       0.0,
+       0.0,
+       0.0,
+       9.8,
+       0.0
+      ],
+      "sum_wo_best_trade": 80.5,
+      "comp_wo_best_day": 37.3
+     },
+     "test": {
+      "n": 1,
+      "strike": 100.0,
+      "comp_pct": 19.7,
+      "mean_day_pct": 3.94,
+      "losing_days": 0,
+      "worst_day": 0.0,
+      "per_day": [
+       0.0,
+       0.0,
+       19.7,
+       0.0,
+       0.0
+      ],
+      "sum_wo_best_trade": 0.0,
+      "comp_wo_best_day": 0.0
+     }
+    },
+    {
+     "f": "wx_adv_bank",
+     "side": "keep_above",
+     "cut": 0.0,
+     "disc": {
+      "n": 12,
+      "strike": 41.7,
+      "comp_pct": -13.9,
+      "mean_day_pct": -0.65,
+      "losing_days": 6,
+      "worst_day": -14.6,
+      "per_day": [
+       26.4,
+       -1.7,
+       -8.1,
+       -2.6,
+       6.0,
+       -14.6,
+       12.1,
+       -11.8,
+       0.0,
+       0.0,
+       0.0,
+       -13.6
+      ],
+      "sum_wo_best_trade": -25.9,
+      "comp_wo_best_day": -31.9
+     },
+     "test": {
+      "n": 3,
+      "strike": 33.3,
+      "comp_pct": -17.8,
+      "mean_day_pct": -3.58,
+      "losing_days": 2,
+      "worst_day": -14.3,
+      "per_day": [
+       0.0,
+       5.4,
+       -14.3,
+       -9.0,
+       0.0
+      ],
+      "sum_wo_best_trade": -23.3,
+      "comp_wo_best_day": -22.0
+     }
+    },
+    {
+     "f": "wx_adv_bank",
+     "side": "keep_below",
+     "cut": 0.0,
+     "disc": {
+      "n": 0,
+      "strike": null,
+      "comp_pct": 0.0,
+      "mean_day_pct": 0.0,
+      "losing_days": 0,
+      "worst_day": 0.0,
+      "per_day": [
+       0.0,
+       0.0,
+       0.0,
+       0.0,
+       0.0,
+       0.0,
+       0.0,
+       0.0,
+       0.0,
+       0.0,
+       0.0,
+       0.0
+      ]
+     },
+     "test": {
+      "n": 0,
+      "strike": null,
+      "comp_pct": 0.0,
+      "mean_day_pct": 0.0,
+      "losing_days": 0,
+      "worst_day": 0.0,
+      "per_day": [
+       0.0,
+       0.0,
+       0.0,
+       0.0,
+       0.0
+      ]
+     }
+    },
+    {
+     "f": "d_fn_minus_nifty60",
+     "side": "keep_above",
+     "cut": -0.0462,
+     "disc": {
+      "n": 67,
+      "strike": 56.7,
+      "comp_pct": 8334.7,
+      "mean_day_pct": 72.1,
+      "losing_days": 3,
+      "worst_day": -30.9,
+      "per_day": [
+       48.0,
+       68.0,
+       8.4,
+       27.4,
+       252.0,
+       387.1,
+       69.4,
+       28.1,
+       -6.0,
+       42.2,
+       -30.9,
+       -28.5
+      ],
+      "sum_wo_best_trade": 529.4,
+      "comp_wo_best_day": 1631.5
+     },
+     "test": {
+      "n": 16,
+      "strike": 43.8,
+      "comp_pct": 23.4,
+      "mean_day_pct": 13.84,
+      "losing_days": 2,
+      "worst_day": -39.6,
+      "per_day": [
+       0.0,
+       109.2,
+       -39.6,
+       13.7,
+       -14.0
+      ],
+      "sum_wo_best_trade": -24.9,
+      "comp_wo_best_day": -41.0
+     }
+    },
+    {
+     "f": "d_fn_minus_nifty60",
+     "side": "keep_above",
+     "cut": -0.031,
+     "disc": {
+      "n": 55,
+      "strike": 54.5,
+      "comp_pct": 4173.5,
+      "mean_day_pct": 51.14,
+      "losing_days": 3,
+      "worst_day": -35.7,
+      "per_day": [
+       80.4,
+       68.0,
+       8.4,
+       47.6,
+       252.0,
+       87.8,
+       69.4,
+       28.1,
+       -6.0,
+       42.2,
+       -35.7,
+       -28.5
+      ],
+      "sum_wo_best_trade": 439.2,
+      "comp_wo_best_day": 1114.2
+     },
+     "test": {
+      "n": 14,
+      "strike": 50.0,
+      "comp_pct": 35.6,
+      "mean_day_pct": 15.16,
+      "losing_days": 2,
+      "worst_day": -35.7,
+      "per_day": [
+       0.0,
+       109.2,
+       -35.7,
+       13.7,
+       -11.4
+      ],
+      "sum_wo_best_trade": -15.7,
+      "comp_wo_best_day": -35.2
+     }
+    },
+    {
+     "f": "d_fn_minus_nifty60",
+     "side": "keep_above",
+     "cut": -0.012,
+     "disc": {
+      "n": 42,
+      "strike": 57.1,
+      "comp_pct": 3025.6,
+      "mean_day_pct": 44.55,
+      "losing_days": 3,
+      "worst_day": -28.5,
+      "per_day": [
+       41.8,
+       68.0,
+       8.4,
+       47.6,
+       193.8,
+       119.8,
+       69.4,
+       28.1,
+       -4.4,
+       17.8,
+       -27.4,
+       -28.5
+      ],
+      "sum_wo_best_trade": 379.1,
+      "comp_wo_best_day": 963.8
+     },
+     "test": {
+      "n": 11,
+      "strike": 45.5,
+      "comp_pct": 42.4,
+      "mean_day_pct": 15.81,
+      "losing_days": 2,
+      "worst_day": -32.4,
+      "per_day": [
+       0.0,
+       109.2,
+       -32.4,
+       13.7,
+       -11.4
+      ],
+      "sum_wo_best_trade": -12.3,
+      "comp_wo_best_day": -31.9
+     }
+    },
+    {
+     "f": "d_fn_minus_nifty60",
+     "side": "keep_above",
+     "cut": 0.0,
+     "disc": {
+      "n": 30,
+      "strike": 66.7,
+      "comp_pct": 3510.6,
+      "mean_day_pct": 42.56,
+      "losing_days": 3,
+      "worst_day": -21.6,
+      "per_day": [
+       29.3,
+       77.5,
+       18.0,
+       47.6,
+       139.4,
+       119.8,
+       69.4,
+       27.6,
+       -0.7,
+       17.8,
+       -13.5,
+       -21.6
+      ],
+      "sum_wo_best_trade": 383.6,
+      "comp_wo_best_day": 1408.2
+     },
+     "test": {
+      "n": 9,
+      "strike": 44.4,
+      "comp_pct": 26.4,
+      "mean_day_pct": 13.19,
+      "losing_days": 3,
+      "worst_day": -32.4,
+      "per_day": [
+       0.0,
+       109.2,
+       -32.4,
+       -7.9,
+       -2.9
+      ],
+      "sum_wo_best_trade": -26.9,
+      "comp_wo_best_day": -39.6
+     }
+    },
+    {
+     "f": "d_fn_minus_nifty60",
+     "side": "keep_below",
+     "cut": -0.0462,
+     "disc": {
+      "n": 17,
+      "strike": 41.2,
+      "comp_pct": -10.0,
+      "mean_day_pct": -0.26,
+      "losing_days": 4,
+      "worst_day": -17.0,
+      "per_day": [
+       -17.0,
+       -12.2,
+       0.0,
+       0.0,
+       7.3,
+       31.8,
+       -4.1,
+       0.0,
+       0.0,
+       0.0,
+       -9.0,
+       0.0
+      ],
+      "sum_wo_best_trade": -35.2,
+      "comp_wo_best_day": -31.7
+     },
+     "test": {
+      "n": 19,
+      "strike": 57.9,
+      "comp_pct": 143.7,
+      "mean_day_pct": 28.16,
+      "losing_days": 2,
+      "worst_day": -6.0,
+      "per_day": [
+       -6.0,
+       0.0,
+       137.5,
+       -1.4,
+       10.7
+      ],
+      "sum_wo_best_trade": 60.5,
+      "comp_wo_best_day": 2.6
+     }
+    },
+    {
+     "f": "d_fn_minus_nifty60",
+     "side": "keep_below",
+     "cut": -0.031,
+     "disc": {
+      "n": 27,
+      "strike": 48.1,
+      "comp_pct": 24.2,
+      "mean_day_pct": 7.77,
+      "losing_days": 5,
+      "worst_day": -31.9,
+      "per_day": [
+       -31.9,
+       -12.2,
+       0.0,
+       -13.7,
+       7.3,
+       156.7,
+       -4.1,
+       0.0,
+       0.0,
+       0.0,
+       -8.9,
+       0.0
+      ],
+      "sum_wo_best_trade": 14.4,
+      "comp_wo_best_day": -51.6
+     },
+     "test": {
+      "n": 21,
+      "strike": 52.4,
+      "comp_pct": 121.8,
+      "mean_day_pct": 24.57,
+      "losing_days": 2,
+      "worst_day": -6.0,
+      "per_day": [
+       -6.0,
+       0.0,
+       122.8,
+       -1.4,
+       7.4
+      ],
+      "sum_wo_best_trade": 51.3,
+      "comp_wo_best_day": -0.5
+     }
+    },
+    {
+     "f": "d_fn_minus_nifty60",
+     "side": "keep_below",
+     "cut": -0.012,
+     "disc": {
+      "n": 42,
+      "strike": 50.0,
+      "comp_pct": 142.8,
+      "mean_day_pct": 15.23,
+      "losing_days": 6,
+      "worst_day": -13.7,
+      "per_day": [
+       -13.4,
+       -12.2,
+       0.0,
+       -13.7,
+       28.6,
+       192.0,
+       -4.1,
+       0.0,
+       -1.7,
+       20.7,
+       -13.4,
+       0.0
+      ],
+      "sum_wo_best_trade": 113.5,
+      "comp_wo_best_day": -16.8
+     },
+     "test": {
+      "n": 24,
+      "strike": 54.2,
+      "comp_pct": 111.2,
+      "mean_day_pct": 22.44,
+      "losing_days": 2,
+      "worst_day": -6.0,
+      "per_day": [
+       -6.0,
+       0.0,
+       112.2,
+       -1.4,
+       7.4
+      ],
+      "sum_wo_best_trade": 47.9,
+      "comp_wo_best_day": -0.5
+     }
+    },
+    {
+     "f": "d_fn_minus_nifty60",
+     "side": "keep_below",
+     "cut": 0.0,
+     "disc": {
+      "n": 53,
+      "strike": 45.3,
+      "comp_pct": 93.0,
+      "mean_day_pct": 14.48,
+      "losing_days": 8,
+      "worst_day": -27.3,
+      "per_day": [
+       -12.7,
+       -16.9,
+       -8.1,
+       -13.7,
+       57.8,
+       192.0,
+       -4.1,
+       0.4,
+       -5.3,
+       20.7,
+       -27.3,
+       -8.9
+      ],
+      "sum_wo_best_trade": 100.0,
+      "comp_wo_best_day": -33.9
+     },
+     "test": {
+      "n": 24,
+      "strike": 54.2,
+      "comp_pct": 111.2,
+      "mean_day_pct": 22.44,
+      "losing_days": 2,
+      "worst_day": -6.0,
+      "per_day": [
+       -6.0,
+       0.0,
+       112.2,
+       -1.4,
+       7.4
+      ],
+      "sum_wo_best_trade": 47.9,
+      "comp_wo_best_day": -0.5
+     }
+    },
+    {
+     "f": "d_sis_agree60",
+     "side": "keep_above",
+     "cut": 0.0,
+     "disc": {
+      "n": 54,
+      "strike": 53.7,
+      "comp_pct": 491.8,
+      "mean_day_pct": 47.87,
+      "losing_days": 6,
+      "worst_day": -43.1,
+      "per_day": [
+       -2.2,
+       77.5,
+       -8.1,
+       -11.5,
+       36.3,
+       541.9,
+       0.0,
+       -11.9,
+       -5.3,
+       0.8,
+       -43.1,
+       0.0
+      ],
+      "sum_wo_best_trade": 208.7,
+      "comp_wo_best_day": -7.8
+     },
+     "test": {
+      "n": 23,
+      "strike": 56.5,
+      "comp_pct": 131.0,
+      "mean_day_pct": 20.31,
+      "losing_days": 0,
+      "worst_day": 0.0,
+      "per_day": [
+       0.0,
+       5.5,
+       65.2,
+       23.4,
+       7.4
+      ],
+      "sum_wo_best_trade": 59.3,
+      "comp_wo_best_day": 39.8
+     }
+    },
+    {
+     "f": "d_sis_agree60",
+     "side": "keep_above",
+     "cut": 1.0,
+     "disc": {
+      "n": 13,
+      "strike": 76.9,
+      "comp_pct": 245.0,
+      "mean_day_pct": 15.73,
+      "losing_days": 1,
+      "worst_day": -18.9,
+      "per_day": [
+       -18.9,
+       80.9,
+       0.0,
+       0.0,
+       0.0,
+       119.8,
+       0.0,
+       0.0,
+       0.0,
+       0.8,
+       6.2,
+       0.0
+      ],
+      "sum_wo_best_trade": 95.5,
+      "comp_wo_best_day": 56.9
+     },
+     "test": {
+      "n": 3,
+      "strike": 33.3,
+      "comp_pct": -12.2,
+      "mean_day_pct": -2.45,
+      "losing_days": 1,
+      "worst_day": -12.2,
+      "per_day": [
+       0.0,
+       0.0,
+       -12.2,
+       0.0,
+       0.0
+      ],
+      "sum_wo_best_trade": -23.2,
+      "comp_wo_best_day": -12.2
+     }
+    },
+    {
+     "f": "d_sis_agree60",
+     "side": "keep_below",
+     "cut": 0.0,
+     "disc": {
+      "n": 0,
+      "strike": null,
+      "comp_pct": 0.0,
+      "mean_day_pct": 0.0,
+      "losing_days": 0,
+      "worst_day": 0.0,
+      "per_day": [
+       0.0,
+       0.0,
+       0.0,
+       0.0,
+       0.0,
+       0.0,
+       0.0,
+       0.0,
+       0.0,
+       0.0,
+       0.0,
+       0.0
+      ]
+     },
+     "test": {
+      "n": 0,
+      "strike": null,
+      "comp_pct": 0.0,
+      "mean_day_pct": 0.0,
+      "losing_days": 0,
+      "worst_day": 0.0,
+      "per_day": [
+       0.0,
+       0.0,
+       0.0,
+       0.0,
+       0.0
+      ]
+     }
+    },
+    {
+     "f": "d_sis_agree60",
+     "side": "keep_below",
+     "cut": 1.0,
+     "disc": {
+      "n": 30,
+      "strike": 53.3,
+      "comp_pct": 1182.5,
+      "mean_day_pct": 31.49,
+      "losing_days": 3,
+      "worst_day": -28.5,
+      "per_day": [
+       25.6,
+       -16.9,
+       18.0,
+       43.9,
+       177.2,
+       0.0,
+       62.5,
+       45.4,
+       -0.7,
+       41.0,
+       10.4,
+       -28.5
+      ],
+      "sum_wo_best_trade": 253.4,
+      "comp_wo_best_day": 362.7
+     },
+     "test": {
+      "n": 12,
+      "strike": 41.7,
+      "comp_pct": 30.2,
+      "mean_day_pct": 11.69,
+      "losing_days": 4,
+      "worst_day": -13.2,
+      "per_day": [
+       -6.0,
+       98.2,
+       -13.2,
+       -9.2,
+       -11.4
+      ],
+      "sum_wo_best_trade": -23.7,
+      "comp_wo_best_day": -34.3
+     }
+    },
+    {
+     "f": "d_sis_agree300",
+     "side": "keep_above",
+     "cut": 0.0,
+     "disc": {
+      "n": 56,
+      "strike": 58.9,
+      "comp_pct": 4081.0,
+      "mean_day_pct": 76.36,
+      "losing_days": 3,
+      "worst_day": -38.4,
+      "per_day": [
+       22.8,
+       77.5,
+       3.6,
+       -16.8,
+       277.8,
+       541.9,
+       4.4,
+       45.4,
+       0.0,
+       0.8,
+       -38.4,
+       -2.7
+      ],
+      "sum_wo_best_trade": 438.7,
+      "comp_wo_best_day": 551.4
+     },
+     "test": {
+      "n": 20,
+      "strike": 55.0,
+      "comp_pct": 83.3,
+      "mean_day_pct": 14.62,
+      "losing_days": 0,
+      "worst_day": 0.0,
+      "per_day": [
+       0.0,
+       5.5,
+       56.8,
+       0.0,
+       10.7
+      ],
+      "sum_wo_best_trade": 30.8,
+      "comp_wo_best_day": 16.8
+     }
+    },
+    {
+     "f": "d_sis_agree300",
+     "side": "keep_above",
+     "cut": 0.39,
+     "disc": {
+      "n": 56,
+      "strike": 58.9,
+      "comp_pct": 4081.0,
+      "mean_day_pct": 76.36,
+      "losing_days": 3,
+      "worst_day": -38.4,
+      "per_day": [
+       22.8,
+       77.5,
+       3.6,
+       -16.8,
+       277.8,
+       541.9,
+       4.4,
+       45.4,
+       0.0,
+       0.8,
+       -38.4,
+       -2.7
+      ],
+      "sum_wo_best_trade": 438.7,
+      "comp_wo_best_day": 551.4
+     },
+     "test": {
+      "n": 20,
+      "strike": 55.0,
+      "comp_pct": 83.3,
+      "mean_day_pct": 14.62,
+      "losing_days": 0,
+      "worst_day": 0.0,
+      "per_day": [
+       0.0,
+       5.5,
+       56.8,
+       0.0,
+       10.7
+      ],
+      "sum_wo_best_trade": 30.8,
+      "comp_wo_best_day": 16.8
+     }
+    },
+    {
+     "f": "d_sis_agree300",
+     "side": "keep_above",
+     "cut": 1.0,
+     "disc": {
+      "n": 23,
+      "strike": 65.2,
+      "comp_pct": 418.7,
+      "mean_day_pct": 20.68,
+      "losing_days": 1,
+      "worst_day": -8.2,
+      "per_day": [
+       19.5,
+       77.5,
+       3.6,
+       0.0,
+       0.0,
+       154.9,
+       0.0,
+       0.0,
+       0.0,
+       0.8,
+       -8.2,
+       0.0
+      ],
+      "sum_wo_best_trade": 152.2,
+      "comp_wo_best_day": 103.5
+     },
+     "test": {
+      "n": 6,
+      "strike": 50.0,
+      "comp_pct": -3.0,
+      "mean_day_pct": -0.51,
+      "losing_days": 1,
+      "worst_day": -8.1,
+      "per_day": [
+       0.0,
+       5.5,
+       -8.1,
+       0.0,
+       0.0
+      ],
+      "sum_wo_best_trade": -17.8,
+      "comp_wo_best_day": -8.1
+     }
+    },
+    {
+     "f": "d_sis_agree300",
+     "side": "keep_below",
+     "cut": 0.0,
+     "disc": {
+      "n": 0,
+      "strike": null,
+      "comp_pct": 0.0,
+      "mean_day_pct": 0.0,
+      "losing_days": 0,
+      "worst_day": 0.0,
+      "per_day": [
+       0.0,
+       0.0,
+       0.0,
+       0.0,
+       0.0,
+       0.0,
+       0.0,
+       0.0,
+       0.0,
+       0.0,
+       0.0,
+       0.0
+      ]
+     },
+     "test": {
+      "n": 0,
+      "strike": null,
+      "comp_pct": 0.0,
+      "mean_day_pct": 0.0,
+      "losing_days": 0,
+      "worst_day": 0.0,
+      "per_day": [
+       0.0,
+       0.0,
+       0.0,
+       0.0,
+       0.0
+      ]
+     }
+    },
+    {
+     "f": "d_sis_agree300",
+     "side": "keep_below",
+     "cut": 0.39,
+     "disc": {
+      "n": 28,
+      "strike": 42.9,
+      "comp_pct": 81.5,
+      "mean_day_pct": 7.93,
+      "losing_days": 4,
+      "worst_day": -26.5,
+      "per_day": [
+       0.0,
+       -16.9,
+       4.6,
+       53.1,
+       0.0,
+       0.0,
+       55.6,
+       -11.9,
+       -6.0,
+       41.0,
+       2.1,
+       -26.5
+      ],
+      "sum_wo_best_trade": 26.9,
+      "comp_wo_best_day": 16.6
+     },
+     "test": {
+      "n": 15,
+      "strike": 46.7,
+      "comp_pct": 64.1,
+      "mean_day_pct": 16.33,
+      "losing_days": 3,
+      "worst_day": -14.0,
+      "per_day": [
+       -6.0,
+       98.2,
+       -8.6,
+       12.0,
+       -14.0
+      ],
+      "sum_wo_best_trade": 4.9,
+      "comp_wo_best_day": -17.2
+     }
+    },
+    {
+     "f": "d_sis_agree300",
+     "side": "keep_below",
+     "cut": 1.0,
+     "disc": {
+      "n": 28,
+      "strike": 42.9,
+      "comp_pct": 81.5,
+      "mean_day_pct": 7.93,
+      "losing_days": 4,
+      "worst_day": -26.5,
+      "per_day": [
+       0.0,
+       -16.9,
+       4.6,
+       53.1,
+       0.0,
+       0.0,
+       55.6,
+       -11.9,
+       -6.0,
+       41.0,
+       2.1,
+       -26.5
+      ],
+      "sum_wo_best_trade": 26.9,
+      "comp_wo_best_day": 16.6
+     },
+     "test": {
+      "n": 15,
+      "strike": 46.7,
+      "comp_pct": 64.1,
+      "mean_day_pct": 16.33,
+      "losing_days": 3,
+      "worst_day": -14.0,
+      "per_day": [
+       -6.0,
+       98.2,
+       -8.6,
+       12.0,
+       -14.0
+      ],
+      "sum_wo_best_trade": 4.9,
+      "comp_wo_best_day": -17.2
+     }
+    },
+    {
+     "f": "d_sis_min60",
+     "side": "keep_above",
+     "cut": -0.0348,
+     "disc": {
+      "n": 67,
+      "strike": 55.2,
+      "comp_pct": 4009.9,
+      "mean_day_pct": 71.61,
+      "losing_days": 5,
+      "worst_day": -37.1,
+      "per_day": [
+       -17.5,
+       68.0,
+       4.6,
+       -11.5,
+       180.8,
+       541.9,
+       44.1,
+       28.1,
+       -6.0,
+       65.8,
+       -37.1,
+       -1.8
+      ],
+      "sum_wo_best_trade": 445.1,
+      "comp_wo_best_day": 540.3
+     },
+     "test": {
+      "n": 27,
+      "strike": 48.1,
+      "comp_pct": 68.3,
+      "mean_day_pct": 12.38,
+      "losing_days": 1,
+      "worst_day": -4.8,
+      "per_day": [
+       0.0,
+       0.0,
+       43.4,
+       23.4,
+       -4.8
+      ],
+      "sum_wo_best_trade": 29.6,
+      "comp_wo_best_day": 17.4
+     }
+    },
+    {
+     "f": "d_sis_min60",
+     "side": "keep_above",
+     "cut": -0.0116,
+     "disc": {
+      "n": 56,
+      "strike": 50.0,
+      "comp_pct": 617.0,
+      "mean_day_pct": 50.55,
+      "losing_days": 6,
+      "worst_day": -43.1,
+      "per_day": [
+       -28.9,
+       74.5,
+       -8.1,
+       -11.5,
+       19.8,
+       541.9,
+       38.0,
+       -11.9,
+       -6.0,
+       41.8,
+       -43.1,
+       0.0
+      ],
+      "sum_wo_best_trade": 240.0,
+      "comp_wo_best_day": 11.7
+     },
+     "test": {
+      "n": 21,
+      "strike": 57.1,
+      "comp_pct": 142.1,
+      "mean_day_pct": 22.26,
+      "losing_days": 0,
+      "worst_day": 0.0,
+      "per_day": [
+       0.0,
+       0.0,
+       77.2,
+       23.4,
+       10.7
+      ],
+      "sum_wo_best_trade": 63.2,
+      "comp_wo_best_day": 36.6
+     }
+    },
+    {
+     "f": "d_sis_min60",
+     "side": "keep_above",
+     "cut": 0.0,
+     "disc": {
+      "n": 13,
+      "strike": 76.9,
+      "comp_pct": 245.0,
+      "mean_day_pct": 15.73,
+      "losing_days": 1,
+      "worst_day": -18.9,
+      "per_day": [
+       -18.9,
+       80.9,
+       0.0,
+       0.0,
+       0.0,
+       119.8,
+       0.0,
+       0.0,
+       0.0,
+       0.8,
+       6.2,
+       0.0
+      ],
+      "sum_wo_best_trade": 95.5,
+      "comp_wo_best_day": 56.9
+     },
+     "test": {
+      "n": 3,
+      "strike": 33.3,
+      "comp_pct": -12.2,
+      "mean_day_pct": -2.45,
+      "losing_days": 1,
+      "worst_day": -12.2,
+      "per_day": [
+       0.0,
+       0.0,
+       -12.2,
+       0.0,
+       0.0
+      ],
+      "sum_wo_best_trade": -23.2,
+      "comp_wo_best_day": -12.2
+     }
+    },
+    {
+     "f": "d_sis_min60",
+     "side": "keep_below",
+     "cut": -0.0348,
+     "disc": {
+      "n": 17,
+      "strike": 47.1,
+      "comp_pct": 84.7,
+      "mean_day_pct": 7.51,
+      "losing_days": 3,
+      "worst_day": -27.2,
+      "per_day": [
+       48.8,
+       -12.2,
+       3.6,
+       43.9,
+       34.5,
+       0.0,
+       12.8,
+       0.0,
+       0.0,
+       -14.2,
+       0.0,
+       -27.2
+      ],
+      "sum_wo_best_trade": 20.5,
+      "comp_wo_best_day": 24.1
+     },
+     "test": {
+      "n": 8,
+      "strike": 62.5,
+      "comp_pct": 78.6,
+      "mean_day_pct": 18.81,
+      "losing_days": 2,
+      "worst_day": -9.2,
+      "per_day": [
+       -6.0,
+       109.2,
+       0.0,
+       -9.2,
+       0.0
+      ],
+      "sum_wo_best_trade": 6.0,
+      "comp_wo_best_day": -14.6
+     }
+    },
+    {
+     "f": "d_sis_min60",
+     "side": "keep_below",
+     "cut": -0.0116,
+     "disc": {
+      "n": 28,
+      "strike": 60.7,
+      "comp_pct": 958.6,
+      "mean_day_pct": 31.65,
+      "losing_days": 2,
+      "worst_day": -28.5,
+      "per_day": [
+       72.8,
+       -15.5,
+       18.0,
+       43.9,
+       215.4,
+       0.0,
+       17.7,
+       45.4,
+       0.0,
+       0.3,
+       10.4,
+       -28.5
+      ],
+      "sum_wo_best_trade": 222.1,
+      "comp_wo_best_day": 235.7
+     },
+     "test": {
+      "n": 14,
+      "strike": 42.9,
+      "comp_pct": 24.2,
+      "mean_day_pct": 12.18,
+      "losing_days": 4,
+      "worst_day": -19.1,
+      "per_day": [
+       -6.0,
+       109.2,
+       -19.1,
+       -9.2,
+       -14.0
+      ],
+      "sum_wo_best_trade": -27.5,
+      "comp_wo_best_day": -40.6
+     }
+    },
+    {
+     "f": "d_sis_min60",
+     "side": "keep_below",
+     "cut": 0.0,
+     "disc": {
+      "n": 33,
+      "strike": 54.5,
+      "comp_pct": 941.8,
+      "mean_day_pct": 31.71,
+      "losing_days": 4,
+      "worst_day": -28.5,
+      "per_day": [
+       45.8,
+       -16.9,
+       18.0,
+       43.9,
+       215.4,
+       0.0,
+       62.5,
+       45.4,
+       -0.7,
+       0.3,
+       -4.4,
+       -28.5
+      ],
+      "sum_wo_best_trade": 228.7,
+      "comp_wo_best_day": 230.4
+     },
+     "test": {
+      "n": 15,
+      "strike": 40.0,
+      "comp_pct": 16.5,
+      "mean_day_pct": 11.18,
+      "losing_days": 4,
+      "worst_day": -24.1,
+      "per_day": [
+       -6.0,
+       109.2,
+       -24.1,
+       -9.2,
+       -14.0
+      ],
+      "sum_wo_best_trade": -33.7,
+      "comp_wo_best_day": -44.3
+     }
+    },
+    {
+     "f": "d_rs_bank60_w",
+     "side": "keep_above",
+     "cut": -0.0348,
+     "disc": {
+      "n": 67,
+      "strike": 53.7,
+      "comp_pct": 3578.5,
+      "mean_day_pct": 59.3,
+      "losing_days": 4,
+      "worst_day": -40.5,
+      "per_day": [
+       -28.9,
+       68.0,
+       4.6,
+       35.6,
+       201.4,
+       347.2,
+       38.2,
+       28.1,
+       -6.0,
+       65.8,
+       -40.5,
+       -1.8
+      ],
+      "sum_wo_best_trade": 446.6,
+      "comp_wo_best_day": 722.5
+     },
+     "test": {
+      "n": 28,
+      "strike": 50.0,
+      "comp_pct": 96.1,
+      "mean_day_pct": 17.12,
+      "losing_days": 1,
+      "worst_day": -4.8,
+      "per_day": [
+       0.0,
+       0.0,
+       67.3,
+       23.2,
+       -4.8
+      ],
+      "sum_wo_best_trade": 44.4,
+      "comp_wo_best_day": 17.2
+     }
+    },
+    {
+     "f": "d_rs_bank60_w",
+     "side": "keep_above",
+     "cut": -0.0195,
+     "disc": {
+      "n": 56,
+      "strike": 51.8,
+      "comp_pct": 2532.0,
+      "mean_day_pct": 51.44,
+      "losing_days": 4,
+      "worst_day": -50.1,
+      "per_day": [
+       -22.6,
+       68.0,
+       -8.1,
+       57.1,
+       145.6,
+       294.7,
+       44.1,
+       28.1,
+       -6.0,
+       65.8,
+       -50.1,
+       0.9
+      ],
+      "sum_wo_best_trade": 405.5,
+      "comp_wo_best_day": 566.8
+     },
+     "test": {
+      "n": 24,
+      "strike": 54.2,
+      "comp_pct": 142.9,
+      "mean_day_pct": 23.96,
+      "losing_days": 1,
+      "worst_day": -4.8,
+      "per_day": [
+       0.0,
+       0.0,
+       90.9,
+       33.7,
+       -4.8
+      ],
+      "sum_wo_best_trade": 64.0,
+      "comp_wo_best_day": 27.2
+     }
+    },
+    {
+     "f": "d_rs_bank60_w",
+     "side": "keep_above",
+     "cut": -0.0079,
+     "disc": {
+      "n": 42,
+      "strike": 54.8,
+      "comp_pct": 2362.8,
+      "mean_day_pct": 44.55,
+      "losing_days": 3,
+      "worst_day": -48.0,
+      "per_day": [
+       24.8,
+       77.5,
+       -8.1,
+       57.1,
+       145.6,
+       207.7,
+       38.0,
+       28.1,
+       -6.0,
+       17.8,
+       -48.0,
+       0.0
+      ],
+      "sum_wo_best_trade": 378.7,
+      "comp_wo_best_day": 700.3
+     },
+     "test": {
+      "n": 20,
+      "strike": 55.0,
+      "comp_pct": 149.7,
+      "mean_day_pct": 24.35,
+      "losing_days": 0,
+      "worst_day": 0.0,
+      "per_day": [
+       0.0,
+       0.0,
+       94.1,
+       23.4,
+       4.2
+      ],
+      "sum_wo_best_trade": 64.4,
+      "comp_wo_best_day": 28.6
+     }
+    },
+    {
+     "f": "d_rs_bank60_w",
+     "side": "keep_above",
+     "cut": 0.0,
+     "disc": {
+      "n": 34,
+      "strike": 55.9,
+      "comp_pct": 1027.6,
+      "mean_day_pct": 34.41,
+      "losing_days": 3,
+      "worst_day": -38.7,
+      "per_day": [
+       47.8,
+       77.5,
+       0.0,
+       -11.5,
+       105.0,
+       207.7,
+       0.0,
+       12.6,
+       -5.3,
+       17.8,
+       -38.7,
+       0.0
+      ],
+      "sum_wo_best_trade": 269.1,
+      "comp_wo_best_day": 266.4
+     },
+     "test": {
+      "n": 19,
+      "strike": 52.6,
+      "comp_pct": 76.6,
+      "mean_day_pct": 12.98,
+      "losing_days": 0,
+      "worst_day": 0.0,
+      "per_day": [
+       0.0,
+       0.0,
+       37.3,
+       23.4,
+       4.2
+      ],
+      "sum_wo_best_trade": 23.0,
+      "comp_wo_best_day": 28.6
+     }
+    },
+    {
+     "f": "d_rs_bank60_w",
+     "side": "keep_below",
+     "cut": -0.0348,
+     "disc": {
+      "n": 17,
+      "strike": 52.9,
+      "comp_pct": 106.3,
+      "mean_day_pct": 9.08,
+      "losing_days": 4,
+      "worst_day": -27.2,
+      "per_day": [
+       72.8,
+       -12.2,
+       3.6,
+       -6.0,
+       25.3,
+       43.5,
+       17.6,
+       0.0,
+       0.0,
+       -14.2,
+       5.7,
+       -27.2
+      ],
+      "sum_wo_best_trade": 47.6,
+      "comp_wo_best_day": 19.4
+     },
+     "test": {
+      "n": 7,
+      "strike": 57.1,
+      "comp_pct": 53.4,
+      "mean_day_pct": 15.98,
+      "losing_days": 3,
+      "worst_day": -14.3,
+      "per_day": [
+       -6.0,
+       109.2,
+       -14.3,
+       -9.0,
+       0.0
+      ],
+      "sum_wo_best_trade": -8.8,
+      "comp_wo_best_day": -26.7
+     }
+    },
+    {
+     "f": "d_rs_bank60_w",
+     "side": "keep_below",
+     "cut": -0.0195,
+     "disc": {
+      "n": 28,
+      "strike": 57.1,
+      "comp_pct": 188.4,
+      "mean_day_pct": 13.13,
+      "losing_days": 4,
+      "worst_day": -29.2,
+      "per_day": [
+       58.8,
+       -12.2,
+       18.0,
+       -18.9,
+       53.8,
+       62.6,
+       12.8,
+       0.0,
+       0.0,
+       -14.2,
+       26.2,
+       -29.2
+      ],
+      "sum_wo_best_trade": 88.7,
+      "comp_wo_best_day": 77.3
+     },
+     "test": {
+      "n": 11,
+      "strike": 45.5,
+      "comp_pct": 23.8,
+      "mean_day_pct": 12.42,
+      "losing_days": 3,
+      "worst_day": -24.9,
+      "per_day": [
+       -6.0,
+       109.2,
+       -24.9,
+       -16.2,
+       0.0
+      ],
+      "sum_wo_best_trade": -28.4,
+      "comp_wo_best_day": -40.8
+     }
+    },
+    {
+     "f": "d_rs_bank60_w",
+     "side": "keep_below",
+     "cut": -0.0079,
+     "disc": {
+      "n": 42,
+      "strike": 52.4,
+      "comp_pct": 208.2,
+      "mean_day_pct": 14.48,
+      "losing_days": 4,
+      "worst_day": -28.5,
+      "per_day": [
+       -1.6,
+       -16.9,
+       18.0,
+       -18.9,
+       53.8,
+       108.6,
+       17.7,
+       0.0,
+       0.0,
+       20.7,
+       20.9,
+       -28.5
+      ],
+      "sum_wo_best_trade": 115.5,
+      "comp_wo_best_day": 47.7
+     },
+     "test": {
+      "n": 15,
+      "strike": 46.7,
+      "comp_pct": 20.4,
+      "mean_day_pct": 11.84,
+      "losing_days": 4,
+      "worst_day": -26.2,
+      "per_day": [
+       -6.0,
+       109.2,
+       -26.2,
+       -9.2,
+       -8.7
+      ],
+      "sum_wo_best_trade": -28.8,
+      "comp_wo_best_day": -42.4
+     }
+    },
+    {
+     "f": "d_rs_bank60_w",
+     "side": "keep_below",
+     "cut": 0.0,
+     "disc": {
+      "n": 50,
+      "strike": 52.0,
+      "comp_pct": 573.0,
+      "mean_day_pct": 23.48,
+      "losing_days": 4,
+      "worst_day": -28.5,
+      "per_day": [
+       -16.9,
+       -16.9,
+       8.4,
+       43.9,
+       84.3,
+       108.6,
+       62.5,
+       13.8,
+       -0.7,
+       20.7,
+       2.6,
+       -28.5
+      ],
+      "sum_wo_best_trade": 196.5,
+      "comp_wo_best_day": 222.7
+     },
+     "test": {
+      "n": 16,
+      "strike": 50.0,
+      "comp_pct": 70.3,
+      "mean_day_pct": 17.95,
+      "losing_days": 3,
+      "worst_day": -9.2,
+      "per_day": [
+       -6.0,
+       109.2,
+       4.4,
+       -9.2,
+       -8.7
+      ],
+      "sum_wo_best_trade": 12.6,
+      "comp_wo_best_day": -18.6
+     }
+    }
+   ],
+   "variants": 146
+  },
+  "pool_books": {
+   "base": {
+    "c20_9y": {
+     "n": 31,
+     "strike": 48.4,
+     "comp_pct": 174.8,
+     "mean_day_pct": 29.12,
+     "losing_days": 3,
+     "worst_day": -6.0,
+     "per_day": [
+      -6.0,
+      98.4,
+      63.1,
+      -4.8,
+      -5.1
+     ],
+     "sum_wo_best_trade": 82.7,
+     "comp_wo_best_day": 38.5
+    },
+    "c20_9s": {
+     "n": 32,
+     "strike": 50.0,
+     "comp_pct": 204.6,
+     "mean_day_pct": 29.81,
+     "losing_days": 2,
+     "worst_day": -6.0,
+     "per_day": [
+      -6.0,
+      98.4,
+      36.0,
+      23.2,
+      -2.5
+     ],
+     "sum_wo_best_trade": 97.1,
+     "comp_wo_best_day": 53.5
+    },
+    "c20_9v": {
+     "n": 32,
+     "strike": 53.1,
+     "comp_pct": 239.0,
+     "mean_day_pct": 32.2,
+     "losing_days": 1,
+     "worst_day": -4.8,
+     "per_day": [
+      5.9,
+      100.7,
+      36.0,
+      23.3,
+      -4.8
+     ],
+     "sum_wo_best_trade": 107.5,
+     "comp_wo_best_day": 68.9
+    },
+    "c20_9x": {
+     "n": 32,
+     "strike": 50.0,
+     "comp_pct": 197.3,
+     "mean_day_pct": 29.34,
+     "losing_days": 2,
+     "worst_day": -6.0,
+     "per_day": [
+      -6.0,
+      98.4,
+      36.0,
+      23.2,
+      -4.8
+     ],
+     "sum_wo_best_trade": 94.3,
+     "comp_wo_best_day": 49.8
+    },
+    "c20_9t": {
+     "n": 37,
+     "strike": 64.9,
+     "comp_pct": 64.8,
+     "mean_day_pct": 10.68,
+     "losing_days": 0,
+     "worst_day": 4.8,
+     "per_day": [
+      4.8,
+      21.0,
+      15.1,
+      7.0,
+      5.5
+     ],
+     "sum_wo_best_trade": 22.2,
+     "comp_wo_best_day": 36.2
+    }
+   },
+   "base_disc": null,
+   "rows": [
+    {
+     "f": "wx_bn60",
+     "side": "keep_above",
+     "cut": -0.025,
+     "disc_comp_mean": 4365.1,
+     "test_comp_mean": 67.8,
+     "test_strike": 51.1,
+     "test_n": 136,
+     "test_losing_days": 4
+    },
+    {
+     "f": "wx_bn60",
+     "side": "keep_above",
+     "cut": -0.007,
+     "disc_comp_mean": 872.0,
+     "test_comp_mean": 94.6,
+     "test_strike": 54.1,
+     "test_n": 116,
+     "test_losing_days": 0
+    },
+    {
+     "f": "wx_bn60",
+     "side": "keep_above",
+     "cut": 0.0,
+     "disc_comp_mean": 603.6,
+     "test_comp_mean": 130.2,
+     "test_strike": 57.9,
+     "test_n": 105,
+     "test_losing_days": 1
+    },
+    {
+     "f": "wx_bn60",
+     "side": "keep_above",
+     "cut": 0.01,
+     "disc_comp_mean": 699.6,
+     "test_comp_mean": 130.5,
+     "test_strike": 58.0,
+     "test_n": 103,
+     "test_losing_days": 2
+    },
+    {
+     "f": "wx_bn60",
+     "side": "keep_below",
+     "cut": -0.025,
+     "disc_comp_mean": 78.4,
+     "test_comp_mean": 62.9,
+     "test_strike": 64.3,
+     "test_n": 28,
+     "test_losing_days": 8
+    },
+    {
+     "f": "wx_bn60",
+     "side": "keep_below",
+     "cut": -0.007,
+     "disc_comp_mean": 787.4,
+     "test_comp_mean": 40.5,
+     "test_strike": 51.4,
+     "test_n": 48,
+     "test_losing_days": 17
+    },
+    {
+     "f": "wx_bn60",
+     "side": "keep_below",
+     "cut": 0.0,
+     "disc_comp_mean": 790.3,
+     "test_comp_mean": 37.9,
+     "test_strike": 49.4,
+     "test_n": 54,
+     "test_losing_days": 16
+    },
+    {
+     "f": "wx_bn60",
+     "side": "keep_below",
+     "cut": 0.01,
+     "disc_comp_mean": 1111.2,
+     "test_comp_mean": 18.3,
+     "test_strike": 45.3,
+     "test_n": 61,
+     "test_losing_days": 17
+    },
+    {
+     "f": "wx_bn300",
+     "side": "keep_above",
+     "cut": -0.0854,
+     "disc_comp_mean": 8341.3,
+     "test_comp_mean": 79.0,
+     "test_strike": 53.6,
+     "test_n": 141,
+     "test_losing_days": 6
+    },
+    {
+     "f": "wx_bn300",
+     "side": "keep_above",
+     "cut": -0.021,
+     "disc_comp_mean": 4491.2,
+     "test_comp_mean": 73.6,
+     "test_strike": 55.2,
+     "test_n": 108,
+     "test_losing_days": 3
+    },
+    {
+     "f": "wx_bn300",
+     "side": "keep_above",
+     "cut": 0.0,
+     "disc_comp_mean": 1219.3,
+     "test_comp_mean": 63.2,
+     "test_strike": 53.7,
+     "test_n": 98,
+     "test_losing_days": 0
+    },
+    {
+     "f": "wx_bn300",
+     "side": "keep_above",
+     "cut": 0.01,
+     "disc_comp_mean": 817.0,
+     "test_comp_mean": 63.0,
+     "test_strike": 55.8,
+     "test_n": 93,
+     "test_losing_days": 0
+    },
+    {
+     "f": "wx_bn300",
+     "side": "keep_below",
+     "cut": -0.0854,
+     "disc_comp_mean": 15.9,
+     "test_comp_mean": 52.4,
+     "test_strike": 51.3,
+     "test_n": 23,
+     "test_losing_days": 9
+    },
+    {
+     "f": "wx_bn300",
+     "side": "keep_below",
+     "cut": -0.021,
+     "disc_comp_mean": 109.6,
+     "test_comp_mean": 57.4,
+     "test_strike": 49.7,
+     "test_n": 56,
+     "test_losing_days": 10
+    },
+    {
+     "f": "wx_bn300",
+     "side": "keep_below",
+     "cut": 0.0,
+     "disc_comp_mean": 515.7,
+     "test_comp_mean": 67.2,
+     "test_strike": 52.8,
+     "test_n": 66,
+     "test_losing_days": 12
+    },
+    {
+     "f": "wx_bn300",
+     "side": "keep_below",
+     "cut": 0.01,
+     "disc_comp_mean": 562.9,
+     "test_comp_mean": 67.3,
+     "test_strike": 50.4,
+     "test_n": 71,
+     "test_losing_days": 11
+    },
+    {
+     "f": "wx_fn60",
+     "side": "keep_above",
+     "cut": 0.0,
+     "disc_comp_mean": 236.8,
+     "test_comp_mean": -19.6,
+     "test_strike": 42.0,
+     "test_n": 24,
+     "test_losing_days": 5
+    },
+    {
+     "f": "wx_fn60",
+     "side": "keep_below",
+     "cut": 0.0,
+     "disc_comp_mean": -19.0,
+     "test_comp_mean": -11.4,
+     "test_strike": 36.0,
+     "test_n": 22,
+     "test_losing_days": 14
+    },
+    {
+     "f": "wx_fn300",
+     "side": "keep_above",
+     "cut": 0.0,
+     "disc_comp_mean": 1717.0,
+     "test_comp_mean": -3.5,
+     "test_strike": 52.8,
+     "test_n": 34,
+     "test_losing_days": 5
+    },
+    {
+     "f": "wx_fn300",
+     "side": "keep_below",
+     "cut": 0.0,
+     "disc_comp_mean": 41.1,
+     "test_comp_mean": 21.7,
+     "test_strike": 45.3,
+     "test_n": 51,
+     "test_losing_days": 18
+    },
+    {
+     "f": "wx_bank_z",
+     "side": "keep_above",
+     "cut": -0.23,
+     "disc_comp_mean": 6738.6,
+     "test_comp_mean": 218.3,
+     "test_strike": 55.2,
+     "test_n": 149,
+     "test_losing_days": 7
+    },
+    {
+     "f": "wx_bank_z",
+     "side": "keep_above",
+     "cut": 0.0,
+     "disc_comp_mean": 4585.7,
+     "test_comp_mean": 281.2,
+     "test_strike": 58.4,
+     "test_n": 126,
+     "test_losing_days": 5
+    },
+    {
+     "f": "wx_bank_z",
+     "side": "keep_above",
+     "cut": 0.03,
+     "disc_comp_mean": 3012.7,
+     "test_comp_mean": 290.4,
+     "test_strike": 59.3,
+     "test_n": 121,
+     "test_losing_days": 2
+    },
+    {
+     "f": "wx_bank_z",
+     "side": "keep_above",
+     "cut": 0.64,
+     "disc_comp_mean": 856.7,
+     "test_comp_mean": 249.3,
+     "test_strike": 65.9,
+     "test_n": 82,
+     "test_losing_days": 3
+    },
+    {
+     "f": "wx_bank_z",
+     "side": "keep_below",
+     "cut": -0.23,
+     "disc_comp_mean": 8.7,
+     "test_comp_mean": -12.3,
+     "test_strike": 35.0,
+     "test_n": 15,
+     "test_losing_days": 6
+    },
+    {
+     "f": "wx_bank_z",
+     "side": "keep_below",
+     "cut": 0.0,
+     "disc_comp_mean": 96.7,
+     "test_comp_mean": -11.4,
+     "test_strike": 42.7,
+     "test_n": 26,
+     "test_losing_days": 11
+    },
+    {
+     "f": "wx_bank_z",
+     "side": "keep_below",
+     "cut": 0.03,
+     "disc_comp_mean": 97.7,
+     "test_comp_mean": -23.4,
+     "test_strike": 36.3,
+     "test_n": 38,
+     "test_losing_days": 10
+    },
+    {
+     "f": "wx_bank_z",
+     "side": "keep_below",
+     "cut": 0.64,
+     "disc_comp_mean": 732.6,
+     "test_comp_mean": -16.5,
+     "test_strike": 41.0,
+     "test_n": 82,
+     "test_losing_days": 12
+    },
+    {
+     "f": "wx_bn_minus_nifty60",
+     "side": "keep_above",
+     "cut": -0.037,
+     "disc_comp_mean": 4670.9,
+     "test_comp_mean": 151.0,
+     "test_strike": 57.5,
+     "test_n": 118,
+     "test_losing_days": 4
+    },
+    {
+     "f": "wx_bn_minus_nifty60",
+     "side": "keep_above",
+     "cut": -0.026,
+     "disc_comp_mean": 3340.0,
+     "test_comp_mean": 153.9,
+     "test_strike": 57.3,
+     "test_n": 108,
+     "test_losing_days": 4
+    },
+    {
+     "f": "wx_bn_minus_nifty60",
+     "side": "keep_above",
+     "cut": -0.011,
+     "disc_comp_mean": 3329.7,
+     "test_comp_mean": 126.9,
+     "test_strike": 63.2,
+     "test_n": 90,
+     "test_losing_days": 0
+    },
+    {
+     "f": "wx_bn_minus_nifty60",
+     "side": "keep_above",
+     "cut": 0.0,
+     "disc_comp_mean": 901.7,
+     "test_comp_mean": 69.4,
+     "test_strike": 55.2,
+     "test_n": 65,
+     "test_losing_days": 1
+    },
+    {
+     "f": "wx_bn_minus_nifty60",
+     "side": "keep_below",
+     "cut": -0.037,
+     "disc_comp_mean": 130.1,
+     "test_comp_mean": 24.4,
+     "test_strike": 48.0,
+     "test_n": 41,
+     "test_losing_days": 10
+    },
+    {
+     "f": "wx_bn_minus_nifty60",
+     "side": "keep_below",
+     "cut": -0.026,
+     "disc_comp_mean": 95.8,
+     "test_comp_mean": 8.5,
+     "test_strike": 45.5,
+     "test_n": 56,
+     "test_losing_days": 10
+    },
+    {
+     "f": "wx_bn_minus_nifty60",
+     "side": "keep_below",
+     "cut": -0.011,
+     "disc_comp_mean": 192.4,
+     "test_comp_mean": 20.2,
+     "test_strike": 41.3,
+     "test_n": 74,
+     "test_losing_days": 18
+    },
+    {
+     "f": "wx_bn_minus_nifty60",
+     "side": "keep_below",
+     "cut": 0.0,
+     "disc_comp_mean": 839.3,
+     "test_comp_mean": 62.7,
+     "test_strike": 52.1,
+     "test_n": 99,
+     "test_losing_days": 17
+    },
+    {
+     "f": "wx_bn_minus_nifty300",
+     "side": "keep_above",
+     "cut": -0.063,
+     "disc_comp_mean": 8216.0,
+     "test_comp_mean": 198.2,
+     "test_strike": 64.3,
+     "test_n": 107,
+     "test_losing_days": 6
+    },
+    {
+     "f": "wx_bn_minus_nifty300",
+     "side": "keep_above",
+     "cut": -0.041,
+     "disc_comp_mean": 4293.9,
+     "test_comp_mean": 198.2,
+     "test_strike": 64.3,
+     "test_n": 107,
+     "test_losing_days": 6
+    },
+    {
+     "f": "wx_bn_minus_nifty300",
+     "side": "keep_above",
+     "cut": -0.014,
+     "disc_comp_mean": 1089.2,
+     "test_comp_mean": 98.2,
+     "test_strike": 69.1,
+     "test_n": 65,
+     "test_losing_days": 3
+    },
+    {
+     "f": "wx_bn_minus_nifty300",
+     "side": "keep_above",
+     "cut": 0.0,
+     "disc_comp_mean": 1095.3,
+     "test_comp_mean": 79.6,
+     "test_strike": 66.2,
+     "test_n": 59,
+     "test_losing_days": 3
+    },
+    {
+     "f": "wx_bn_minus_nifty300",
+     "side": "keep_below",
+     "cut": -0.063,
+     "disc_comp_mean": -10.3,
+     "test_comp_mean": -7.2,
+     "test_strike": 32.6,
+     "test_n": 57,
+     "test_losing_days": 14
+    },
+    {
+     "f": "wx_bn_minus_nifty300",
+     "side": "keep_below",
+     "cut": -0.041,
+     "disc_comp_mean": 45.8,
+     "test_comp_mean": -7.2,
+     "test_strike": 32.6,
+     "test_n": 57,
+     "test_losing_days": 14
+    },
+    {
+     "f": "wx_bn_minus_nifty300",
+     "side": "keep_below",
+     "cut": -0.014,
+     "disc_comp_mean": 644.2,
+     "test_comp_mean": 37.6,
+     "test_strike": 43.4,
+     "test_n": 99,
+     "test_losing_days": 10
+    },
+    {
+     "f": "wx_bn_minus_nifty300",
+     "side": "keep_below",
+     "cut": 0.0,
+     "disc_comp_mean": 617.1,
+     "test_comp_mean": 52.0,
+     "test_strike": 46.2,
+     "test_n": 105,
+     "test_losing_days": 9
+    },
+    {
+     "f": "wx_bn_corr30",
+     "side": "keep_above",
+     "cut": 0.237,
+     "disc_comp_mean": 1437.7,
+     "test_comp_mean": 231.7,
+     "test_strike": 54.3,
+     "test_n": 150,
+     "test_losing_days": 8
+    },
+    {
+     "f": "wx_bn_corr30",
+     "side": "keep_above",
+     "cut": 0.293,
+     "disc_comp_mean": 767.9,
+     "test_comp_mean": 205.7,
+     "test_strike": 54.0,
+     "test_n": 129,
+     "test_losing_days": 8
+    },
+    {
+     "f": "wx_bn_corr30",
+     "side": "keep_above",
+     "cut": 0.336,
+     "disc_comp_mean": 974.7,
+     "test_comp_mean": 187.7,
+     "test_strike": 53.0,
+     "test_n": 122,
+     "test_losing_days": 7
+    },
+    {
+     "f": "wx_bn_corr30",
+     "side": "keep_below",
+     "cut": 0.237,
+     "disc_comp_mean": 1840.5,
+     "test_comp_mean": -18.2,
+     "test_strike": 47.0,
+     "test_n": 24,
+     "test_losing_days": 4
+    },
+    {
+     "f": "wx_bn_corr30",
+     "side": "keep_below",
+     "cut": 0.293,
+     "disc_comp_mean": 3392.9,
+     "test_comp_mean": -7.4,
+     "test_strike": 51.1,
+     "test_n": 45,
+     "test_losing_days": 8
+    },
+    {
+     "f": "wx_bn_corr30",
+     "side": "keep_below",
+     "cut": 0.336,
+     "disc_comp_mean": 4356.4,
+     "test_comp_mean": -8.0,
+     "test_strike": 53.3,
+     "test_n": 52,
+     "test_losing_days": 9
+    },
+    {
+     "f": "wx_nifty60",
+     "side": "keep_above",
+     "cut": -0.015,
+     "disc_comp_mean": 1136.8,
+     "test_comp_mean": 63.6,
+     "test_strike": 51.5,
+     "test_n": 135,
+     "test_losing_days": 7
+    },
+    {
+     "f": "wx_nifty60",
+     "side": "keep_above",
+     "cut": 0.0,
+     "disc_comp_mean": 857.5,
+     "test_comp_mean": 45.1,
+     "test_strike": 50.5,
+     "test_n": 116,
+     "test_losing_days": 1
+    },
+    {
+     "f": "wx_nifty60",
+     "side": "keep_above",
+     "cut": 0.002,
+     "disc_comp_mean": 1193.0,
+     "test_comp_mean": 41.8,
+     "test_strike": 50.0,
+     "test_n": 115,
+     "test_losing_days": 2
+    },
+    {
+     "f": "wx_nifty60",
+     "side": "keep_above",
+     "cut": 0.019,
+     "disc_comp_mean": 877.2,
+     "test_comp_mean": 59.4,
+     "test_strike": 51.5,
+     "test_n": 110,
+     "test_losing_days": 2
+    },
+    {
+     "f": "wx_nifty60",
+     "side": "keep_below",
+     "cut": -0.015,
+     "disc_comp_mean": 293.1,
+     "test_comp_mean": 67.7,
+     "test_strike": 61.6,
+     "test_n": 29,
+     "test_losing_days": 8
+    },
+    {
+     "f": "wx_nifty60",
+     "side": "keep_below",
+     "cut": 0.0,
+     "disc_comp_mean": 797.9,
+     "test_comp_mean": 77.9,
+     "test_strike": 63.8,
+     "test_n": 39,
+     "test_losing_days": 11
+    },
+    {
+     "f": "wx_nifty60",
+     "side": "keep_below",
+     "cut": 0.002,
+     "disc_comp_mean": 797.9,
+     "test_comp_mean": 94.1,
+     "test_strike": 61.0,
+     "test_n": 49,
+     "test_losing_days": 8
+    },
+    {
+     "f": "wx_nifty60",
+     "side": "keep_below",
+     "cut": 0.019,
+     "disc_comp_mean": 938.8,
+     "test_comp_mean": 72.1,
+     "test_strike": 57.0,
+     "test_n": 54,
+     "test_losing_days": 12
+    },
+    {
+     "f": "wx_wmove60_bank",
+     "side": "keep_above",
+     "cut": -1.26,
+     "disc_comp_mean": 2181.1,
+     "test_comp_mean": 68.3,
+     "test_strike": 52.2,
+     "test_n": 120,
+     "test_losing_days": 1
+    },
+    {
+     "f": "wx_wmove60_bank",
+     "side": "keep_above",
+     "cut": -0.1282,
+     "disc_comp_mean": 453.8,
+     "test_comp_mean": 43.2,
+     "test_strike": 50.2,
+     "test_n": 115,
+     "test_losing_days": 1
+    },
+    {
+     "f": "wx_wmove60_bank",
+     "side": "keep_above",
+     "cut": 0.0,
+     "disc_comp_mean": 524.5,
+     "test_comp_mean": 43.2,
+     "test_strike": 50.2,
+     "test_n": 115,
+     "test_losing_days": 1
+    },
+    {
+     "f": "wx_wmove60_bank",
+     "side": "keep_above",
+     "cut": 1.42,
+     "disc_comp_mean": 315.6,
+     "test_comp_mean": 67.2,
+     "test_strike": 52.5,
+     "test_n": 110,
+     "test_losing_days": 1
+    },
+    {
+     "f": "wx_wmove60_bank",
+     "side": "keep_below",
+     "cut": -1.26,
+     "disc_comp_mean": 178.3,
+     "test_comp_mean": 62.5,
+     "test_strike": 56.5,
+     "test_n": 44,
+     "test_losing_days": 12
+    },
+    {
+     "f": "wx_wmove60_bank",
+     "side": "keep_below",
+     "cut": -0.1282,
+     "disc_comp_mean": 1452.9,
+     "test_comp_mean": 92.9,
+     "test_strike": 60.3,
+     "test_n": 49,
+     "test_losing_days": 8
+    },
+    {
+     "f": "wx_wmove60_bank",
+     "side": "keep_below",
+     "cut": 0.0,
+     "disc_comp_mean": 1276.9,
+     "test_comp_mean": 92.9,
+     "test_strike": 60.3,
+     "test_n": 49,
+     "test_losing_days": 8
+    },
+    {
+     "f": "wx_wmove60_bank",
+     "side": "keep_below",
+     "cut": 1.42,
+     "disc_comp_mean": 1279.6,
+     "test_comp_mean": 65.2,
+     "test_strike": 54.7,
+     "test_n": 54,
+     "test_losing_days": 13
+    },
+    {
+     "f": "wx_vix",
+     "side": "keep_above",
+     "cut": 14.822,
+     "disc_comp_mean": 5285.1,
+     "test_comp_mean": 176.1,
+     "test_strike": 53.3,
+     "test_n": 164,
+     "test_losing_days": 8
+    },
+    {
+     "f": "wx_vix",
+     "side": "keep_above",
+     "cut": 15.6,
+     "disc_comp_mean": 2912.0,
+     "test_comp_mean": 182.0,
+     "test_strike": 53.7,
+     "test_n": 159,
+     "test_losing_days": 5
+    },
+    {
+     "f": "wx_vix",
+     "side": "keep_above",
+     "cut": 15.91,
+     "disc_comp_mean": 3352.3,
+     "test_comp_mean": 182.0,
+     "test_strike": 53.7,
+     "test_n": 159,
+     "test_losing_days": 5
+    },
+    {
+     "f": "wx_vix",
+     "side": "keep_below",
+     "cut": 14.822,
+     "disc_comp_mean": 68.5,
+     "test_comp_mean": 0.0,
+     "test_strike": NaN,
+     "test_n": 0,
+     "test_losing_days": 0
+    },
+    {
+     "f": "wx_vix",
+     "side": "keep_below",
+     "cut": 15.6,
+     "disc_comp_mean": 107.6,
+     "test_comp_mean": -1.5,
+     "test_strike": 100.0,
+     "test_n": 5,
+     "test_losing_days": 3
+    },
+    {
+     "f": "wx_vix",
+     "side": "keep_below",
+     "cut": 15.91,
+     "disc_comp_mean": 197.5,
+     "test_comp_mean": -1.5,
+     "test_strike": 100.0,
+     "test_n": 5,
+     "test_losing_days": 3
+    },
+    {
+     "f": "wx_vix_chg5",
+     "side": "keep_above",
+     "cut": -0.06,
+     "disc_comp_mean": 3506.1,
+     "test_comp_mean": 93.6,
+     "test_strike": 52.6,
+     "test_n": 130,
+     "test_losing_days": 7
+    },
+    {
+     "f": "wx_vix_chg5",
+     "side": "keep_above",
+     "cut": -0.03,
+     "disc_comp_mean": 10357.1,
+     "test_comp_mean": 139.0,
+     "test_strike": 56.0,
+     "test_n": 108,
+     "test_losing_days": 7
+    },
+    {
+     "f": "wx_vix_chg5",
+     "side": "keep_above",
+     "cut": -0.01,
+     "disc_comp_mean": 3979.0,
+     "test_comp_mean": 41.0,
+     "test_strike": 54.5,
+     "test_n": 91,
+     "test_losing_days": 8
+    },
+    {
+     "f": "wx_vix_chg5",
+     "side": "keep_above",
+     "cut": 0.0,
+     "disc_comp_mean": 1309.5,
+     "test_comp_mean": 20.7,
+     "test_strike": 52.3,
+     "test_n": 84,
+     "test_losing_days": 11
+    },
+    {
+     "f": "wx_vix_chg5",
+     "side": "keep_below",
+     "cut": -0.06,
+     "disc_comp_mean": 183.3,
+     "test_comp_mean": 32.6,
+     "test_strike": 50.0,
+     "test_n": 26,
+     "test_losing_days": 5
+    },
+    {
+     "f": "wx_vix_chg5",
+     "side": "keep_below",
+     "cut": -0.03,
+     "disc_comp_mean": 43.2,
+     "test_comp_mean": 3.7,
+     "test_strike": 42.8,
+     "test_n": 46,
+     "test_losing_days": 7
+    },
+    {
+     "f": "wx_vix_chg5",
+     "side": "keep_below",
+     "cut": -0.01,
+     "disc_comp_mean": 53.4,
+     "test_comp_mean": 12.9,
+     "test_strike": 47.2,
+     "test_n": 57,
+     "test_losing_days": 10
+    },
+    {
+     "f": "wx_vix_chg5",
+     "side": "keep_below",
+     "cut": 0.0,
+     "disc_comp_mean": 109.3,
+     "test_comp_mean": 93.5,
+     "test_strike": 51.8,
+     "test_n": 73,
+     "test_losing_days": 6
+    },
+    {
+     "f": "wx_vix_chg15",
+     "side": "keep_above",
+     "cut": -0.1,
+     "disc_comp_mean": 10994.2,
+     "test_comp_mean": 141.4,
+     "test_strike": 58.5,
+     "test_n": 126,
+     "test_losing_days": 8
+    },
+    {
+     "f": "wx_vix_chg15",
+     "side": "keep_above",
+     "cut": -0.05,
+     "disc_comp_mean": 5521.5,
+     "test_comp_mean": 124.1,
+     "test_strike": 58.1,
+     "test_n": 106,
+     "test_losing_days": 9
+    },
+    {
+     "f": "wx_vix_chg15",
+     "side": "keep_above",
+     "cut": -0.02,
+     "disc_comp_mean": 982.0,
+     "test_comp_mean": 168.4,
+     "test_strike": 63.3,
+     "test_n": 85,
+     "test_losing_days": 4
+    },
+    {
+     "f": "wx_vix_chg15",
+     "side": "keep_above",
+     "cut": 0.0,
+     "disc_comp_mean": 796.3,
+     "test_comp_mean": 171.4,
+     "test_strike": 64.8,
+     "test_n": 83,
+     "test_losing_days": 3
+    },
+    {
+     "f": "wx_vix_chg15",
+     "side": "keep_below",
+     "cut": -0.1,
+     "disc_comp_mean": -8.8,
+     "test_comp_mean": 13.3,
+     "test_strike": 35.8,
+     "test_n": 38,
+     "test_losing_days": 5
+    },
+    {
+     "f": "wx_vix_chg15",
+     "side": "keep_below",
+     "cut": -0.05,
+     "disc_comp_mean": -20.8,
+     "test_comp_mean": 0.9,
+     "test_strike": 34.2,
+     "test_n": 45,
+     "test_losing_days": 5
+    },
+    {
+     "f": "wx_vix_chg15",
+     "side": "keep_below",
+     "cut": -0.02,
+     "disc_comp_mean": 346.4,
+     "test_comp_mean": 20.3,
+     "test_strike": 43.9,
+     "test_n": 63,
+     "test_losing_days": 11
+    },
+    {
+     "f": "wx_vix_chg15",
+     "side": "keep_below",
+     "cut": 0.0,
+     "disc_comp_mean": 957.3,
+     "test_comp_mean": 0.9,
+     "test_strike": 41.2,
+     "test_n": 81,
+     "test_losing_days": 14
+    },
+    {
+     "f": "wx_vix_chg30",
+     "side": "keep_above",
+     "cut": -0.1,
+     "disc_comp_mean": 2023.6,
+     "test_comp_mean": 352.4,
+     "test_strike": 61.3,
+     "test_n": 112,
+     "test_losing_days": 8
+    },
+    {
+     "f": "wx_vix_chg30",
+     "side": "keep_above",
+     "cut": -0.0626,
+     "disc_comp_mean": 1772.3,
+     "test_comp_mean": 184.8,
+     "test_strike": 59.9,
+     "test_n": 106,
+     "test_losing_days": 9
+    },
+    {
+     "f": "wx_vix_chg30",
+     "side": "keep_above",
+     "cut": -0.01,
+     "disc_comp_mean": 1227.7,
+     "test_comp_mean": 285.9,
+     "test_strike": 68.7,
+     "test_n": 91,
+     "test_losing_days": 6
+    },
+    {
+     "f": "wx_vix_chg30",
+     "side": "keep_above",
+     "cut": 0.0,
+     "disc_comp_mean": 803.1,
+     "test_comp_mean": 289.8,
+     "test_strike": 70.2,
+     "test_n": 89,
+     "test_losing_days": 5
+    },
+    {
+     "f": "wx_vix_chg30",
+     "side": "keep_below",
+     "cut": -0.1,
+     "disc_comp_mean": 225.2,
+     "test_comp_mean": -33.5,
+     "test_strike": 36.7,
+     "test_n": 52,
+     "test_losing_days": 6
+    },
+    {
+     "f": "wx_vix_chg30",
+     "side": "keep_below",
+     "cut": -0.0626,
+     "disc_comp_mean": 379.9,
+     "test_comp_mean": 1.7,
+     "test_strike": 41.2,
+     "test_n": 58,
+     "test_losing_days": 6
+    },
+    {
+     "f": "wx_vix_chg30",
+     "side": "keep_below",
+     "cut": -0.01,
+     "disc_comp_mean": 639.3,
+     "test_comp_mean": -24.7,
+     "test_strike": 34.6,
+     "test_n": 72,
+     "test_losing_days": 13
+    },
+    {
+     "f": "wx_vix_chg30",
+     "side": "keep_below",
+     "cut": 0.0,
+     "disc_comp_mean": 556.8,
+     "test_comp_mean": -27.2,
+     "test_strike": 34.0,
+     "test_n": 73,
+     "test_losing_days": 13
+    },
+    {
+     "f": "wx_vix_chg_open",
+     "side": "keep_above",
+     "cut": -0.086,
+     "disc_comp_mean": 1008.8,
+     "test_comp_mean": 106.9,
+     "test_strike": 72.7,
+     "test_n": 37,
+     "test_losing_days": 4
+    },
+    {
+     "f": "wx_vix_chg_open",
+     "side": "keep_above",
+     "cut": 0.0,
+     "disc_comp_mean": 1062.1,
+     "test_comp_mean": 106.9,
+     "test_strike": 72.7,
+     "test_n": 37,
+     "test_losing_days": 4
+    },
+    {
+     "f": "wx_vix_chg_open",
+     "side": "keep_above",
+     "cut": 0.21,
+     "disc_comp_mean": 1279.7,
+     "test_comp_mean": 114.6,
+     "test_strike": 100.0,
+     "test_n": 20,
+     "test_losing_days": 0
+    },
+    {
+     "f": "wx_vix_chg_open",
+     "side": "keep_above",
+     "cut": 0.38,
+     "disc_comp_mean": 370.6,
+     "test_comp_mean": 83.4,
+     "test_strike": 100.0,
+     "test_n": 16,
+     "test_losing_days": 0
+    },
+    {
+     "f": "wx_vix_chg_open",
+     "side": "keep_below",
+     "cut": -0.086,
+     "disc_comp_mean": 708.9,
+     "test_comp_mean": 33.5,
+     "test_strike": 47.7,
+     "test_n": 127,
+     "test_losing_days": 4
+    },
+    {
+     "f": "wx_vix_chg_open",
+     "side": "keep_below",
+     "cut": 0.0,
+     "disc_comp_mean": 672.7,
+     "test_comp_mean": 33.5,
+     "test_strike": 47.7,
+     "test_n": 127,
+     "test_losing_days": 4
+    },
+    {
+     "f": "wx_vix_chg_open",
+     "side": "keep_below",
+     "cut": 0.21,
+     "disc_comp_mean": 645.6,
+     "test_comp_mean": 28.3,
+     "test_strike": 46.9,
+     "test_n": 144,
+     "test_losing_days": 12
+    },
+    {
+     "f": "wx_vix_chg_open",
+     "side": "keep_below",
+     "cut": 0.38,
+     "disc_comp_mean": 1837.9,
+     "test_comp_mean": 49.4,
+     "test_strike": 48.3,
+     "test_n": 148,
+     "test_losing_days": 8
+    },
+    {
+     "f": "wx_vix_day_pos",
+     "side": "keep_above",
+     "cut": 0.147,
+     "disc_comp_mean": 2047.8,
+     "test_comp_mean": 145.7,
+     "test_strike": 61.5,
+     "test_n": 102,
+     "test_losing_days": 8
+    },
+    {
+     "f": "wx_vix_day_pos",
+     "side": "keep_above",
+     "cut": 0.4062,
+     "disc_comp_mean": 964.3,
+     "test_comp_mean": 115.2,
+     "test_strike": 69.5,
+     "test_n": 50,
+     "test_losing_days": 7
+    },
+    {
+     "f": "wx_vix_day_pos",
+     "side": "keep_above",
+     "cut": 0.625,
+     "disc_comp_mean": 579.9,
+     "test_comp_mean": 106.9,
+     "test_strike": 72.7,
+     "test_n": 37,
+     "test_losing_days": 4
+    },
+    {
+     "f": "wx_vix_day_pos",
+     "side": "keep_below",
+     "cut": 0.147,
+     "disc_comp_mean": 294.6,
+     "test_comp_mean": 19.2,
+     "test_strike": 40.0,
+     "test_n": 62,
+     "test_losing_days": 3
+    },
+    {
+     "f": "wx_vix_day_pos",
+     "side": "keep_below",
+     "cut": 0.4062,
+     "disc_comp_mean": 757.8,
+     "test_comp_mean": 29.2,
+     "test_strike": 46.2,
+     "test_n": 114,
+     "test_losing_days": 2
+    },
+    {
+     "f": "wx_vix_day_pos",
+     "side": "keep_below",
+     "cut": 0.625,
+     "disc_comp_mean": 1140.3,
+     "test_comp_mean": 33.5,
+     "test_strike": 47.7,
+     "test_n": 127,
+     "test_losing_days": 4
+    },
+    {
+     "f": "wx_vix_spot_same5",
+     "side": "keep_above",
+     "cut": 0.0,
+     "disc_comp_mean": 944.6,
+     "test_comp_mean": 15.5,
+     "test_strike": 47.2,
+     "test_n": 101,
+     "test_losing_days": 12
+    },
+    {
+     "f": "wx_vix_spot_same5",
+     "side": "keep_below",
+     "cut": 0.0,
+     "disc_comp_mean": 178.6,
+     "test_comp_mean": 16.6,
+     "test_strike": 93.3,
+     "test_n": 7,
+     "test_losing_days": 0
+    },
+    {
+     "f": "wx_adv_bank",
+     "side": "keep_above",
+     "cut": 0.0,
+     "disc_comp_mean": -0.8,
+     "test_comp_mean": -13.8,
+     "test_strike": 50.0,
+     "test_n": 7,
+     "test_losing_days": 6
+    },
+    {
+     "f": "wx_adv_bank",
+     "side": "keep_below",
+     "cut": 0.0,
+     "disc_comp_mean": 0.0,
+     "test_comp_mean": 0.0,
+     "test_strike": NaN,
+     "test_n": 0,
+     "test_losing_days": 0
+    },
+    {
+     "f": "d_fn_minus_nifty60",
+     "side": "keep_above",
+     "cut": -0.042,
+     "disc_comp_mean": 5548.5,
+     "test_comp_mean": 11.7,
+     "test_strike": 43.7,
+     "test_n": 71,
+     "test_losing_days": 10
+    },
+    {
+     "f": "d_fn_minus_nifty60",
+     "side": "keep_above",
+     "cut": -0.027,
+     "disc_comp_mean": 5214.8,
+     "test_comp_mean": 18.6,
+     "test_strike": 47.6,
+     "test_n": 61,
+     "test_losing_days": 10
+    },
+    {
+     "f": "d_fn_minus_nifty60",
+     "side": "keep_above",
+     "cut": -0.011,
+     "disc_comp_mean": 2262.3,
+     "test_comp_mean": 30.0,
+     "test_strike": 45.8,
+     "test_n": 52,
+     "test_losing_days": 10
+    },
+    {
+     "f": "d_fn_minus_nifty60",
+     "side": "keep_above",
+     "cut": 0.0,
+     "disc_comp_mean": 2661.7,
+     "test_comp_mean": 19.6,
+     "test_strike": 44.7,
+     "test_n": 42,
+     "test_losing_days": 13
+    },
+    {
+     "f": "d_fn_minus_nifty60",
+     "side": "keep_below",
+     "cut": -0.042,
+     "disc_comp_mean": 46.9,
+     "test_comp_mean": 148.7,
+     "test_strike": 61.3,
+     "test_n": 93,
+     "test_losing_days": 5
+    },
+    {
+     "f": "d_fn_minus_nifty60",
+     "side": "keep_below",
+     "cut": -0.027,
+     "disc_comp_mean": 98.5,
+     "test_comp_mean": 131.4,
+     "test_strike": 56.8,
+     "test_n": 103,
+     "test_losing_days": 7
+    },
+    {
+     "f": "d_fn_minus_nifty60",
+     "side": "keep_below",
+     "cut": -0.011,
+     "disc_comp_mean": 200.4,
+     "test_comp_mean": 110.4,
+     "test_strike": 56.8,
+     "test_n": 112,
+     "test_losing_days": 7
+    },
+    {
+     "f": "d_fn_minus_nifty60",
+     "side": "keep_below",
+     "cut": 0.0,
+     "disc_comp_mean": 191.6,
+     "test_comp_mean": 114.9,
+     "test_strike": 57.2,
+     "test_n": 113,
+     "test_losing_days": 6
+    },
+    {
+     "f": "d_sis_agree60",
+     "side": "keep_above",
+     "cut": 0.0,
+     "disc_comp_mean": 601.0,
+     "test_comp_mean": 110.0,
+     "test_strike": 57.2,
+     "test_n": 115,
+     "test_losing_days": 1
+    },
+    {
+     "f": "d_sis_agree60",
+     "side": "keep_above",
+     "cut": 1.0,
+     "disc_comp_mean": 240.3,
+     "test_comp_mean": -11.8,
+     "test_strike": 36.6,
+     "test_n": 14,
+     "test_losing_days": 5
+    },
+    {
+     "f": "d_sis_agree60",
+     "side": "keep_below",
+     "cut": 0.0,
+     "disc_comp_mean": 0.0,
+     "test_comp_mean": 0.0,
+     "test_strike": NaN,
+     "test_n": 0,
+     "test_losing_days": 0
+    },
+    {
+     "f": "d_sis_agree60",
+     "side": "keep_below",
+     "cut": 1.0,
+     "disc_comp_mean": 1134.8,
+     "test_comp_mean": 30.8,
+     "test_strike": 44.1,
+     "test_n": 49,
+     "test_losing_days": 16
+    },
+    {
+     "f": "d_sis_agree300",
+     "side": "keep_above",
+     "cut": 0.0,
+     "disc_comp_mean": 4698.0,
+     "test_comp_mean": 66.4,
+     "test_strike": 54.3,
+     "test_n": 99,
+     "test_losing_days": 0
+    },
+    {
+     "f": "d_sis_agree300",
+     "side": "keep_above",
+     "cut": 1.0,
+     "disc_comp_mean": 404.2,
+     "test_comp_mean": -5.5,
+     "test_strike": 51.4,
+     "test_n": 33,
+     "test_losing_days": 5
+    },
+    {
+     "f": "d_sis_agree300",
+     "side": "keep_below",
+     "cut": 0.0,
+     "disc_comp_mean": 0.0,
+     "test_comp_mean": 0.0,
+     "test_strike": NaN,
+     "test_n": 0,
+     "test_losing_days": 0
+    },
+    {
+     "f": "d_sis_agree300",
+     "side": "keep_below",
+     "cut": 1.0,
+     "disc_comp_mean": 81.4,
+     "test_comp_mean": 63.9,
+     "test_strike": 51.9,
+     "test_n": 65,
+     "test_losing_days": 12
+    },
+    {
+     "f": "d_sis_min60",
+     "side": "keep_above",
+     "cut": -0.025,
+     "disc_comp_mean": 4356.6,
+     "test_comp_mean": 55.0,
+     "test_strike": 49.3,
+     "test_n": 131,
+     "test_losing_days": 4
+    },
+    {
+     "f": "d_sis_min60",
+     "side": "keep_above",
+     "cut": -0.007,
+     "disc_comp_mean": 868.3,
+     "test_comp_mean": 126.9,
+     "test_strike": 58.3,
+     "test_n": 106,
+     "test_losing_days": 0
+    },
+    {
+     "f": "d_sis_min60",
+     "side": "keep_above",
+     "cut": 0.0,
+     "disc_comp_mean": 240.3,
+     "test_comp_mean": -11.8,
+     "test_strike": 36.6,
+     "test_n": 14,
+     "test_losing_days": 5
+    },
+    {
+     "f": "d_sis_min60",
+     "side": "keep_below",
+     "cut": -0.025,
+     "disc_comp_mean": 80.3,
+     "test_comp_mean": 76.4,
+     "test_strike": 69.8,
+     "test_n": 33,
+     "test_losing_days": 8
+    },
+    {
+     "f": "d_sis_min60",
+     "side": "keep_below",
+     "cut": -0.007,
+     "disc_comp_mean": 792.5,
+     "test_comp_mean": 20.9,
+     "test_strike": 44.2,
+     "test_n": 58,
+     "test_losing_days": 17
+    },
+    {
+     "f": "d_sis_min60",
+     "side": "keep_below",
+     "cut": 0.0,
+     "disc_comp_mean": 794.5,
+     "test_comp_mean": 18.8,
+     "test_strike": 43.1,
+     "test_n": 64,
+     "test_losing_days": 17
+    },
+    {
+     "f": "d_rs_bank60_w",
+     "side": "keep_above",
+     "cut": -0.0345,
+     "disc_comp_mean": 4880.1,
+     "test_comp_mean": 76.8,
+     "test_strike": 51.3,
+     "test_n": 134,
+     "test_losing_days": 5
+    },
+    {
+     "f": "d_rs_bank60_w",
+     "side": "keep_above",
+     "cut": -0.02,
+     "disc_comp_mean": 3061.8,
+     "test_comp_mean": 129.0,
+     "test_strike": 56.2,
+     "test_n": 119,
+     "test_losing_days": 4
+    },
+    {
+     "f": "d_rs_bank60_w",
+     "side": "keep_above",
+     "cut": -0.0072,
+     "disc_comp_mean": 2762.7,
+     "test_comp_mean": 171.1,
+     "test_strike": 59.8,
+     "test_n": 95,
+     "test_losing_days": 0
+    },
+    {
+     "f": "d_rs_bank60_w",
+     "side": "keep_above",
+     "cut": 0.0,
+     "disc_comp_mean": 1101.6,
+     "test_comp_mean": 98.7,
+     "test_strike": 57.6,
+     "test_n": 90,
+     "test_losing_days": 0
+    },
+    {
+     "f": "d_rs_bank60_w",
+     "side": "keep_below",
+     "cut": -0.0345,
+     "disc_comp_mean": 90.5,
+     "test_comp_mean": 54.7,
+     "test_strike": 63.6,
+     "test_n": 30,
+     "test_losing_days": 9
+    },
+    {
+     "f": "d_rs_bank60_w",
+     "side": "keep_below",
+     "cut": -0.02,
+     "disc_comp_mean": 153.4,
+     "test_comp_mean": 19.6,
+     "test_strike": 45.0,
+     "test_n": 45,
+     "test_losing_days": 13
+    },
+    {
+     "f": "d_rs_bank60_w",
+     "side": "keep_below",
+     "cut": -0.0072,
+     "disc_comp_mean": 228.0,
+     "test_comp_mean": 1.9,
+     "test_strike": 44.3,
+     "test_n": 69,
+     "test_losing_days": 18
+    },
+    {
+     "f": "d_rs_bank60_w",
+     "side": "keep_below",
+     "cut": 0.0,
+     "disc_comp_mean": 607.7,
+     "test_comp_mean": 37.2,
+     "test_strike": 48.1,
+     "test_n": 74,
+     "test_losing_days": 17
+    }
+   ],
+   "variants": 144
+  }
+ }
+}

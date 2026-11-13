@@ -326,6 +326,7 @@ def supervise(mode, feed_args, speed=1.0, open_browser=True, data_dir=None):
         except Exception:
             pass
     restarts = 0
+    login_wait = {}                              # 13 Nov: state while the feed waits for a fresh session token
     try:
         while True:
             time.sleep(1.0)
@@ -339,6 +340,23 @@ def supervise(mode, feed_args, speed=1.0, open_browser=True, data_dir=None):
                 procs["gateway"] = spawn("apex.gateway", [], mode, data_dir)
             if mode == "live" and restarts and time.time() - feed_started >= FEED_RESET_S:
                 restarts = 0                    # a feed that has stayed up 10 min starts afresh
+            if procs["feed"].poll() is not None and mode == "live" and procs["feed"].returncode == 3:
+                # 13 Nov (R13 idea 8): the broker refused today's session token. Restarting cannot help until the
+                # owner saves a fresh one, so wait for the credentials file to change (stat only, never read here).
+                from apex import feed_breeze as _fb
+                prof = feed_args[0] if feed_args else ""
+                if login_wait.get("m0", "unset") == "unset":
+                    login_wait["m0"] = _fb.credentials_mtime(prof)
+                    say("FEED login refused: save a fresh session token in the secrets file; the feed restarts by itself "
+                        "when the file changes (checked every 10 s)")
+                if time.time() - login_wait.get("t", 0.0) >= 10.0:
+                    login_wait["t"] = time.time()
+                    if _fb.credentials_mtime(prof) != login_wait["m0"]:
+                        login_wait.clear()
+                        say("FEED credentials changed: starting the feed")
+                        procs["feed"] = spawn(feed_mod, feed_args, mode, data_dir)
+                        feed_started = time.time()
+                continue
             if procs["feed"].poll() is not None and mode == "live":
                 restarts += 1
                 if restarts > 20:
@@ -360,7 +378,12 @@ def supervise(mode, feed_args, speed=1.0, open_browser=True, data_dir=None):
                                                       t.c("feed_hb_ns"), started_ns):
                             if time.time() - last_warn.get(name, 0.0) >= STALE_EVERY_S:
                                 last_warn[name] = time.time()
-                                say(f"{name} STALE {age:.0f} s — heartbeat not advancing (see data/logs/{name.lower()}.log)")
+                                fs = int(t.c("feed_state"))
+                                if name == "FEED" and fs in (3, 4):      # 13 Nov (R13 idea 6): say what is happening
+                                    say(f"FEED reconnecting: no market data for {age:.0f} s (network or broker). "
+                                        f"Entries are paused; open trades wait for fresh quotes.")
+                                else:
+                                    say(f"{name} STALE {age:.0f} s — heartbeat not advancing (see data/logs/{name.lower()}.log)")
                 except Exception:
                     pass
     except KeyboardInterrupt:

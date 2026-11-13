@@ -22,7 +22,7 @@ import time
 import traceback
 from datetime import datetime
 
-from . import config, universe
+from . import config, fsutil, universe
 from .feed_core import HotStats, Recorder, Registry, apply_packet, replace_retry
 from .table import Table
 
@@ -36,6 +36,16 @@ def log(msg):
         LOG.write(line + "\n"); LOG.flush()
     except Exception:
         pass
+
+
+def credentials_mtime(profile: str = ""):
+    """Modified time of the credentials file, or None. Only stats the file: never opens or prints it (13 Nov: the
+    supervisor waits on this after a refused login instead of restarting the feed in a loop)."""
+    name = f"breeze_{profile}.json" if profile else "breeze.json"
+    try:
+        return os.stat(os.path.join(config.SECRETS_DIR, name)).st_mtime
+    except OSError:
+        return None
 
 
 def load_credentials(profile: str = ""):
@@ -251,8 +261,8 @@ class RestLedger:
             self.n += 1
             self.minute.append(now)
             self.t.set("rest_today", self.n)
-            try:
-                json.dump({"day": self.day, "n": self.n}, open(self.path, "w"))
+            try:                                # 13 Nov (R13 idea 10): atomic, never torn by a crash
+                fsutil.write_text(self.path, json.dumps({"day": self.day, "n": self.n}), budget_s=0.25, must=False)
             except Exception:
                 pass
             return True
@@ -360,7 +370,9 @@ class BreezeFeed:
             except Exception as e:                  # 13 Nov: say what to do, not only the SDK's traceback
                 if "session key is expired" in str(e).lower() or "could not authenticate" in str(e).lower():
                     log("LOGIN REFUSED: the broker says today's session token is expired or wrong. Get a fresh "
-                        "session token from the broker's login page, save it in the secrets file, then restart.")
+                        "session token from the broker's login page and save it in the secrets file; the feed "
+                        "starts again by itself once the file changes.")
+                    raise LoginRefused(str(e)) from None
                 raise
             log(f"generate_session: done in {time.monotonic() - t0:.1f} s")
         finally:
@@ -526,26 +538,47 @@ class BreezeFeed:
         log(f"subscribed {len(self.subscribed)} streams ({bad} rejected batches)")
         return bad == 0
 
+    def _nap(self, s):
+        """Sleep s seconds in 0.25 s steps; False as soon as the supervisor asks the feed to stop (13 Nov, R13 idea 6:
+        a reconnect round used to sleep up to 2.5 minutes without looking at the stop flag)."""
+        end = time.monotonic() + s
+        while time.monotonic() < end:
+            if int(self.t.c("stop")):
+                return False
+            time.sleep(0.25)
+        return True
+
     def connect(self):
         self.t.set("feed_state", 1)
+        t_down = getattr(self, "_down_since", None)
         for attempt, wait in enumerate((2, 4, 8, 16, 30, 30, 30), 1):
+            if int(self.t.c("stop")):
+                return False
             try:
                 drop_stream(self.breeze)         # never reuse a half-dead client
                 connect_stream(self.breeze)      # real error text, 15 s wait (SDK: 3 s, one-liner)
                 self.subscribed.clear()
                 if self.subscribe_all():
                     self.t.set("feed_state", 2)
-                    log("websocket LIVE")
+                    if t_down is not None:
+                        d = time.monotonic() - t_down
+                        log(f"websocket LIVE after {int(d // 60)} min {int(d % 60)} s down")
+                        self._down_since = None
+                    else:
+                        log("websocket LIVE")
                     return True
                 log(f"ws connected but subscriptions were rejected ({attempt})")
             except Exception as e:
                 hint = stream_hint(str(e))
                 log(f"ws connect failed ({attempt}): {e}" + (f" — {hint}" if hint else ""))
-            time.sleep(wait)
+            if not self._nap(wait):
+                return False
         self.t.set("feed_state", 4)
         return False
 
     def reconnect(self):
+        if getattr(self, "_down_since", None) is None:
+            self._down_since = time.monotonic()
         self.t.set("feed_state", 3)
         self.t.set("reconnects", int(self.t.c("reconnects")) + 1)
         drop_stream(self.breeze)                # the SDK's ws_disconnect only EMITS an event;
@@ -640,6 +673,9 @@ class BreezeFeed:
         # 7 Nov (review 4.3): runs on the main thread and changes reg.by_token while the read loop reads it. Safe
         # under the GIL (a new token can miss one packet); do not widen feed.lock to cover it. Live, the table's
         # now_ns is never written: Table.now_ns() falls back to wall time by design.
+        if getattr(self, "_reg_retry", False):           # 13 Nov (R13 idea 7): a refused save is retried here
+            if not self._save_registry():
+                return
         i = self.reg.by_key.get("NIFTY|SPOT")
         if i is None:
             return
@@ -667,9 +703,26 @@ class BreezeFeed:
             log(f"re-centering option band {self.band_center:.0f} -> {atm:.0f}")
             self.band_center = atm
             self.add_options(atm)
+            self._save_registry()
+
+    def _save_registry(self):
+        """Save instruments.json, tape the list and subscribe. A Windows lock on the file (Defender, a reader) used to
+        raise out of run() and end the feed in session; now the old version stays and the save is tried again on
+        the next loop (0.25 s later). True when saved."""
+        try:
             self.reg.save(self.t)
-            self.rec.put("reg", time.time_ns(), self.reg.items)
-            self.subscribe_all()
+        except OSError as e:
+            self.reg.version -= 1                         # readers keep the old list and version
+            if not getattr(self, "_reg_retry", False):
+                log(f"registry save refused ({type(e).__name__}: {e}); trying again every loop")
+            self._reg_retry = True
+            return False
+        if getattr(self, "_reg_retry", False):
+            log("registry saved after a refused swap")
+        self._reg_retry = False
+        self.rec.put("reg", time.time_ns(), self.reg.items)
+        self.subscribe_all()
+        return True
 
     def shutdown(self):
         try:
@@ -684,6 +737,11 @@ class BreezeFeed:
 
 
 WRITE_CHAIN_FAILS = [0]
+EXIT_LOGIN_REFUSED = 3                         # 13 Nov (R13 idea 8): run_apex.py waits for a new token on this code
+
+
+class LoginRefused(RuntimeError):
+    """The broker refused today's session token (expired or wrong)."""
 
 
 def write_chain(table, payload):
@@ -720,6 +778,10 @@ def main():
     try:
         feed = BreezeFeed(t, profile)
         feed.run()
+    except LoginRefused:
+        _close_tape(); t.set("feed_state", 4)
+        LOG.flush()
+        sys.exit(EXIT_LOGIN_REFUSED)
     except SystemExit as e:
         log(str(e)); _close_tape(); t.set("feed_state", 4); raise
     except BaseException:

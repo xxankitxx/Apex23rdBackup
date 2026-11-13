@@ -1,0 +1,1333 @@
+[  37.6s] loaded
+
+CLASSIFIER (17 days, leave-one-day-out)
+      cp        target  base_rate  majority_acc  declared_acc  lodo_stump_acc  lodo_3nn_acc  stump_variants_per_fold stump_feature_mode  fixed_test_declared  fixed_test_stump        fixed_stump
+0  0945       y_trend       0.53          0.53          0.65            0.65          0.71                      382            rng_pct                  0.4               0.6    rng_pct > 0.539
+1  0945  y_rest_trend       0.53          0.53          0.53            0.65          0.65                      382               chop                  0.6               0.2        ext < 0.307
+2  0945        y_cont       0.59          0.59          0.35            0.47          0.35                      382             absgap                  0.4               0.6     absgap < 0.319
+3  1015       y_trend       0.53          0.53          0.59            0.76          0.76                      384               chop                  0.6               0.6       chop < 4.217
+4  1015  y_rest_trend       0.47          0.53          0.41            0.65          0.65                      384               absD                  0.4               0.4         er < 0.053
+5  1015        y_cont       0.59          0.59          0.53            0.41          0.65                      384               chop                  0.6               0.6       chop < 4.217
+6  1100       y_trend       0.53          0.53          0.47            0.76          0.59                      382               chop                  0.6               0.8       chop < 5.822
+7  1100  y_rest_trend       0.65          0.65          0.35            0.41          0.59                      382                ext                  0.2               0.6  wx_er_day < 0.076
+8  1100        y_cont       0.59          0.59          0.41            0.53          0.59                      382               chop                  0.6               0.8       chop < 5.822
+                 shape      gapk         cal  y_trend  dec0945  stump0945  rest_trend0945  cont0945  dec1015  stump1015  rest_trend1015  cont1015  dec1100  stump1100  rest_trend1100  cont1100
+day                                                                                                                                                                                            
+2026-10-19  trend_down    no_gap      expiry        1        0          0               1         1        0          0               1         1        0          0               1         1
+2026-10-21  trend_down  gap_fill       other        1        1          1               1         0        0          0               1         1        0          0               1         1
+2026-10-22       range    no_gap       other        0        0          0               0         1        0          0               0         1        0          0               0         0
+2026-10-23       range  gap_fill       other        0        0          0               1         1        1          1               0         1        1          1               0         0
+2026-10-26    trend_up    no_gap  day_before        1        0          0               1         0        0          1               0         1        0          1               0         1
+2026-10-27       range    no_gap      expiry        0        0          0               0         1        0          0               0         0        0          0               0         0
+2026-10-28        V_up  gap_fill       other        0        0          0               0         0        0          0               0         0        0          0               1         0
+2026-10-29    trend_up    no_gap       other        1        0          1               1         1        0          1               1         1        0          1               1         1
+2026-10-30       range    no_gap       other        0        0          0               0         1        0          0               1         0        0          0               1         1
+2026-11-02    trend_up    gap_go  day_before        1        1          1               0         0        1          1               0         0        0          1               0         1
+2026-11-03    trend_up    gap_go      expiry        1        1          1               1         1        1          1               1         1        1          1               1         1
+2026-11-04    trend_up    no_gap       other        1        1          1               0         1        1          1               0         1        0          1               1         1
+2026-11-05    trend_up    gap_go       other        1        1          0               1         1        0          1               1         1        0          1               1         1
+2026-11-06    trend_up    no_gap       other        1        0          1               1         1        0          1               1         1        0          1               1         1
+2026-11-09        V_up  gap_fill      expiry        0        0          1               0         0        0          0               0         0        0          1               1         0
+2026-11-11      V_down  gap_fade       other        0        1          1               1         0        0          0               1         0        0          0               1         0
+2026-11-12       range    no_gap       other        0        1          1               0         0        0          1               0         0        0          0               0         0
+continuation at 0945: 10/17 days; mean rest move when continuing vs reversing 0.684 0.667
+continuation at 1015: 10/17 days; mean rest move when continuing vs reversing 0.576 0.353
+continuation at 1100: 10/17 days; mean rest move when continuing vs reversing 0.66 0.392
+[  82.4s] classifier
+
+Conductor check: total day-% sum 1092.5 trades 119
+
+CONDUCTOR by shape
+             days        mean        med  pos   n   w
+shape                                               
+V_down         1    9.018750   9.018750    1   4   2
+V_up           2   49.700625  49.700625    2  27  15
+range          5  111.099950   7.770750    3  28  14
+trend_down     2   34.924500  34.924500    2  23   9
+trend_up       7   51.241357  24.787750    4  37  23
+         days       mean        med  pos   n   w
+y_trend                                         
+0           8  82.989969  17.122625    6  59  31
+1           9  47.615389  24.787750    6  60  32
+            days        mean        med  pos   n   w
+cal                                                 
+day_before     2  151.251750  151.25175    2  10   9
+expiry         4  140.181437   32.47075    3  66  36
+other         11   20.839000    9.01875    7  43  18
+[  85.3s] conductor
+D:\ApexOptions\data\research\13nov\work\R03\s04_classify_pool.py:187: Pandas4Warning: Starting with pandas version 4.0 all arguments of mean will be keyword-only.
+  st = pd.DataFrame({"mean": M.mean(1), "pos": (M > 0).mean(1), "nd": len(ds)})
+D:\ApexOptions\data\research\13nov\work\R03\s04_classify_pool.py:187: Pandas4Warning: Starting with pandas version 4.0 all arguments of mean will be keyword-only.
+  st = pd.DataFrame({"mean": M.mean(1), "pos": (M > 0).mean(1), "nd": len(ds)})
+D:\ApexOptions\data\research\13nov\work\R03\s04_classify_pool.py:187: Pandas4Warning: Starting with pandas version 4.0 all arguments of mean will be keyword-only.
+  st = pd.DataFrame({"mean": M.mean(1), "pos": (M > 0).mean(1), "nd": len(ds)})
+D:\ApexOptions\data\research\13nov\work\R03\s04_classify_pool.py:187: Pandas4Warning: Starting with pandas version 4.0 all arguments of mean will be keyword-only.
+  st = pd.DataFrame({"mean": M.mean(1), "pos": (M > 0).mean(1), "nd": len(ds)})
+D:\ApexOptions\data\research\13nov\work\R03\s04_classify_pool.py:187: Pandas4Warning: Starting with pandas version 4.0 all arguments of mean will be keyword-only.
+  st = pd.DataFrame({"mean": M.mean(1), "pos": (M > 0).mean(1), "nd": len(ds)})
+D:\ApexOptions\data\research\13nov\work\R03\s04_classify_pool.py:187: Pandas4Warning: Starting with pandas version 4.0 all arguments of mean will be keyword-only.
+  st = pd.DataFrame({"mean": M.mean(1), "pos": (M > 0).mean(1), "nd": len(ds)})
+D:\ApexOptions\data\research\13nov\work\R03\s04_classify_pool.py:187: Pandas4Warning: Starting with pandas version 4.0 all arguments of mean will be keyword-only.
+  st = pd.DataFrame({"mean": M.mean(1), "pos": (M > 0).mean(1), "nd": len(ds)})
+D:\ApexOptions\data\research\13nov\work\R03\s04_classify_pool.py:187: Pandas4Warning: Starting with pandas version 4.0 all arguments of mean will be keyword-only.
+  st = pd.DataFrame({"mean": M.mean(1), "pos": (M > 0).mean(1), "nd": len(ds)})
+D:\ApexOptions\data\research\13nov\work\R03\s04_classify_pool.py:187: Pandas4Warning: Starting with pandas version 4.0 all arguments of mean will be keyword-only.
+  st = pd.DataFrame({"mean": M.mean(1), "pos": (M > 0).mean(1), "nd": len(ds)})
+D:\ApexOptions\data\research\13nov\work\R03\s04_classify_pool.py:187: Pandas4Warning: Starting with pandas version 4.0 all arguments of mean will be keyword-only.
+  st = pd.DataFrame({"mean": M.mean(1), "pos": (M > 0).mean(1), "nd": len(ds)})
+D:\ApexOptions\data\research\13nov\work\R03\s04_classify_pool.py:187: Pandas4Warning: Starting with pandas version 4.0 all arguments of mean will be keyword-only.
+  st = pd.DataFrame({"mean": M.mean(1), "pos": (M > 0).mean(1), "nd": len(ds)})
+D:\ApexOptions\data\research\13nov\work\R03\s04_classify_pool.py:187: Pandas4Warning: Starting with pandas version 4.0 all arguments of mean will be keyword-only.
+  st = pd.DataFrame({"mean": M.mean(1), "pos": (M > 0).mean(1), "nd": len(ds)})
+D:\ApexOptions\data\research\13nov\work\R03\s04_classify_pool.py:187: Pandas4Warning: Starting with pandas version 4.0 all arguments of mean will be keyword-only.
+  st = pd.DataFrame({"mean": M.mean(1), "pos": (M > 0).mean(1), "nd": len(ds)})
+D:\ApexOptions\data\research\13nov\work\R03\s04_classify_pool.py:187: Pandas4Warning: Starting with pandas version 4.0 all arguments of mean will be keyword-only.
+  st = pd.DataFrame({"mean": M.mean(1), "pos": (M > 0).mean(1), "nd": len(ds)})
+D:\ApexOptions\data\research\13nov\work\R03\s04_classify_pool.py:187: Pandas4Warning: Starting with pandas version 4.0 all arguments of mean will be keyword-only.
+  st = pd.DataFrame({"mean": M.mean(1), "pos": (M > 0).mean(1), "nd": len(ds)})
+D:\ApexOptions\data\research\13nov\work\R03\s04_classify_pool.py:187: Pandas4Warning: Starting with pandas version 4.0 all arguments of mean will be keyword-only.
+  st = pd.DataFrame({"mean": M.mean(1), "pos": (M > 0).mean(1), "nd": len(ds)})
+D:\ApexOptions\data\research\13nov\work\R03\s04_classify_pool.py:187: Pandas4Warning: Starting with pandas version 4.0 all arguments of mean will be keyword-only.
+  st = pd.DataFrame({"mean": M.mean(1), "pos": (M > 0).mean(1), "nd": len(ds)})
+D:\ApexOptions\data\research\13nov\work\R03\s04_classify_pool.py:187: Pandas4Warning: Starting with pandas version 4.0 all arguments of mean will be keyword-only.
+  st = pd.DataFrame({"mean": M.mean(1), "pos": (M > 0).mean(1), "nd": len(ds)})
+D:\ApexOptions\data\research\13nov\work\R03\s04_classify_pool.py:187: Pandas4Warning: Starting with pandas version 4.0 all arguments of mean will be keyword-only.
+  st = pd.DataFrame({"mean": M.mean(1), "pos": (M > 0).mean(1), "nd": len(ds)})
+D:\ApexOptions\data\research\13nov\work\R03\s04_classify_pool.py:187: Pandas4Warning: Starting with pandas version 4.0 all arguments of mean will be keyword-only.
+  st = pd.DataFrame({"mean": M.mean(1), "pos": (M > 0).mean(1), "nd": len(ds)})
+D:\ApexOptions\data\research\13nov\work\R03\s04_classify_pool.py:187: Pandas4Warning: Starting with pandas version 4.0 all arguments of mean will be keyword-only.
+  st = pd.DataFrame({"mean": M.mean(1), "pos": (M > 0).mean(1), "nd": len(ds)})
+D:\ApexOptions\data\research\13nov\work\R03\s04_classify_pool.py:187: Pandas4Warning: Starting with pandas version 4.0 all arguments of mean will be keyword-only.
+  st = pd.DataFrame({"mean": M.mean(1), "pos": (M > 0).mean(1), "nd": len(ds)})
+D:\ApexOptions\data\research\13nov\work\R03\s04_classify_pool.py:187: Pandas4Warning: Starting with pandas version 4.0 all arguments of mean will be keyword-only.
+  st = pd.DataFrame({"mean": M.mean(1), "pos": (M > 0).mean(1), "nd": len(ds)})
+D:\ApexOptions\data\research\13nov\work\R03\s04_classify_pool.py:187: Pandas4Warning: Starting with pandas version 4.0 all arguments of mean will be keyword-only.
+  st = pd.DataFrame({"mean": M.mean(1), "pos": (M > 0).mean(1), "nd": len(ds)})
+D:\ApexOptions\data\research\13nov\work\R03\s04_classify_pool.py:187: Pandas4Warning: Starting with pandas version 4.0 all arguments of mean will be keyword-only.
+  st = pd.DataFrame({"mean": M.mean(1), "pos": (M > 0).mean(1), "nd": len(ds)})
+D:\ApexOptions\data\research\13nov\work\R03\s04_classify_pool.py:187: Pandas4Warning: Starting with pandas version 4.0 all arguments of mean will be keyword-only.
+  st = pd.DataFrame({"mean": M.mean(1), "pos": (M > 0).mean(1), "nd": len(ds)})
+D:\ApexOptions\data\research\13nov\work\R03\s04_classify_pool.py:187: Pandas4Warning: Starting with pandas version 4.0 all arguments of mean will be keyword-only.
+  st = pd.DataFrame({"mean": M.mean(1), "pos": (M > 0).mean(1), "nd": len(ds)})
+D:\ApexOptions\data\research\13nov\work\R03\s04_classify_pool.py:187: Pandas4Warning: Starting with pandas version 4.0 all arguments of mean will be keyword-only.
+  st = pd.DataFrame({"mean": M.mean(1), "pos": (M > 0).mean(1), "nd": len(ds)})
+D:\ApexOptions\data\research\13nov\work\R03\s04_classify_pool.py:187: Pandas4Warning: Starting with pandas version 4.0 all arguments of mean will be keyword-only.
+  st = pd.DataFrame({"mean": M.mean(1), "pos": (M > 0).mean(1), "nd": len(ds)})
+D:\ApexOptions\data\research\13nov\work\R03\s04_classify_pool.py:187: Pandas4Warning: Starting with pandas version 4.0 all arguments of mean will be keyword-only.
+  st = pd.DataFrame({"mean": M.mean(1), "pos": (M > 0).mean(1), "nd": len(ds)})
+D:\ApexOptions\data\research\13nov\work\R03\s04_classify_pool.py:187: Pandas4Warning: Starting with pandas version 4.0 all arguments of mean will be keyword-only.
+  st = pd.DataFrame({"mean": M.mean(1), "pos": (M > 0).mean(1), "nd": len(ds)})
+D:\ApexOptions\data\research\13nov\work\R03\s04_classify_pool.py:187: Pandas4Warning: Starting with pandas version 4.0 all arguments of mean will be keyword-only.
+  st = pd.DataFrame({"mean": M.mean(1), "pos": (M > 0).mean(1), "nd": len(ds)})
+D:\ApexOptions\data\research\13nov\work\R03\s04_classify_pool.py:187: Pandas4Warning: Starting with pandas version 4.0 all arguments of mean will be keyword-only.
+  st = pd.DataFrame({"mean": M.mean(1), "pos": (M > 0).mean(1), "nd": len(ds)})
+D:\ApexOptions\data\research\13nov\work\R03\s04_classify_pool.py:187: Pandas4Warning: Starting with pandas version 4.0 all arguments of mean will be keyword-only.
+  st = pd.DataFrame({"mean": M.mean(1), "pos": (M > 0).mean(1), "nd": len(ds)})
+D:\ApexOptions\data\research\13nov\work\R03\s04_classify_pool.py:187: Pandas4Warning: Starting with pandas version 4.0 all arguments of mean will be keyword-only.
+  st = pd.DataFrame({"mean": M.mean(1), "pos": (M > 0).mean(1), "nd": len(ds)})
+D:\ApexOptions\data\research\13nov\work\R03\s04_classify_pool.py:187: Pandas4Warning: Starting with pandas version 4.0 all arguments of mean will be keyword-only.
+  st = pd.DataFrame({"mean": M.mean(1), "pos": (M > 0).mean(1), "nd": len(ds)})
+D:\ApexOptions\data\research\13nov\work\R03\s04_classify_pool.py:187: Pandas4Warning: Starting with pandas version 4.0 all arguments of mean will be keyword-only.
+  st = pd.DataFrame({"mean": M.mean(1), "pos": (M > 0).mean(1), "nd": len(ds)})
+D:\ApexOptions\data\research\13nov\work\R03\s04_classify_pool.py:187: Pandas4Warning: Starting with pandas version 4.0 all arguments of mean will be keyword-only.
+  st = pd.DataFrame({"mean": M.mean(1), "pos": (M > 0).mean(1), "nd": len(ds)})
+D:\ApexOptions\data\research\13nov\work\R03\s04_classify_pool.py:187: Pandas4Warning: Starting with pandas version 4.0 all arguments of mean will be keyword-only.
+  st = pd.DataFrame({"mean": M.mean(1), "pos": (M > 0).mean(1), "nd": len(ds)})
+D:\ApexOptions\data\research\13nov\work\R03\s04_classify_pool.py:187: Pandas4Warning: Starting with pandas version 4.0 all arguments of mean will be keyword-only.
+  st = pd.DataFrame({"mean": M.mean(1), "pos": (M > 0).mean(1), "nd": len(ds)})
+D:\ApexOptions\data\research\13nov\work\R03\s04_classify_pool.py:187: Pandas4Warning: Starting with pandas version 4.0 all arguments of mean will be keyword-only.
+  st = pd.DataFrame({"mean": M.mean(1), "pos": (M > 0).mean(1), "nd": len(ds)})
+D:\ApexOptions\data\research\13nov\work\R03\s04_classify_pool.py:187: Pandas4Warning: Starting with pandas version 4.0 all arguments of mean will be keyword-only.
+  st = pd.DataFrame({"mean": M.mean(1), "pos": (M > 0).mean(1), "nd": len(ds)})
+D:\ApexOptions\data\research\13nov\work\R03\s04_classify_pool.py:187: Pandas4Warning: Starting with pandas version 4.0 all arguments of mean will be keyword-only.
+  st = pd.DataFrame({"mean": M.mean(1), "pos": (M > 0).mean(1), "nd": len(ds)})
+D:\ApexOptions\data\research\13nov\work\R03\s04_classify_pool.py:187: Pandas4Warning: Starting with pandas version 4.0 all arguments of mean will be keyword-only.
+  st = pd.DataFrame({"mean": M.mean(1), "pos": (M > 0).mean(1), "nd": len(ds)})
+D:\ApexOptions\data\research\13nov\work\R03\s04_classify_pool.py:187: Pandas4Warning: Starting with pandas version 4.0 all arguments of mean will be keyword-only.
+  st = pd.DataFrame({"mean": M.mean(1), "pos": (M > 0).mean(1), "nd": len(ds)})
+D:\ApexOptions\data\research\13nov\work\R03\s04_classify_pool.py:187: Pandas4Warning: Starting with pandas version 4.0 all arguments of mean will be keyword-only.
+  st = pd.DataFrame({"mean": M.mean(1), "pos": (M > 0).mean(1), "nd": len(ds)})
+D:\ApexOptions\data\research\13nov\work\R03\s04_classify_pool.py:187: Pandas4Warning: Starting with pandas version 4.0 all arguments of mean will be keyword-only.
+  st = pd.DataFrame({"mean": M.mean(1), "pos": (M > 0).mean(1), "nd": len(ds)})
+D:\ApexOptions\data\research\13nov\work\R03\s04_classify_pool.py:187: Pandas4Warning: Starting with pandas version 4.0 all arguments of mean will be keyword-only.
+  st = pd.DataFrame({"mean": M.mean(1), "pos": (M > 0).mean(1), "nd": len(ds)})
+D:\ApexOptions\data\research\13nov\work\R03\s04_classify_pool.py:187: Pandas4Warning: Starting with pandas version 4.0 all arguments of mean will be keyword-only.
+  st = pd.DataFrame({"mean": M.mean(1), "pos": (M > 0).mean(1), "nd": len(ds)})
+D:\ApexOptions\data\research\13nov\work\R03\s04_classify_pool.py:187: Pandas4Warning: Starting with pandas version 4.0 all arguments of mean will be keyword-only.
+  st = pd.DataFrame({"mean": M.mean(1), "pos": (M > 0).mean(1), "nd": len(ds)})
+D:\ApexOptions\data\research\13nov\work\R03\s04_classify_pool.py:187: Pandas4Warning: Starting with pandas version 4.0 all arguments of mean will be keyword-only.
+  st = pd.DataFrame({"mean": M.mean(1), "pos": (M > 0).mean(1), "nd": len(ds)})
+D:\ApexOptions\data\research\13nov\work\R03\s04_classify_pool.py:187: Pandas4Warning: Starting with pandas version 4.0 all arguments of mean will be keyword-only.
+  st = pd.DataFrame({"mean": M.mean(1), "pos": (M > 0).mean(1), "nd": len(ds)})
+D:\ApexOptions\data\research\13nov\work\R03\s04_classify_pool.py:187: Pandas4Warning: Starting with pandas version 4.0 all arguments of mean will be keyword-only.
+  st = pd.DataFrame({"mean": M.mean(1), "pos": (M > 0).mean(1), "nd": len(ds)})
+D:\ApexOptions\data\research\13nov\work\R03\s04_classify_pool.py:187: Pandas4Warning: Starting with pandas version 4.0 all arguments of mean will be keyword-only.
+  st = pd.DataFrame({"mean": M.mean(1), "pos": (M > 0).mean(1), "nd": len(ds)})
+D:\ApexOptions\data\research\13nov\work\R03\s04_classify_pool.py:187: Pandas4Warning: Starting with pandas version 4.0 all arguments of mean will be keyword-only.
+  st = pd.DataFrame({"mean": M.mean(1), "pos": (M > 0).mean(1), "nd": len(ds)})
+D:\ApexOptions\data\research\13nov\work\R03\s04_classify_pool.py:187: Pandas4Warning: Starting with pandas version 4.0 all arguments of mean will be keyword-only.
+  st = pd.DataFrame({"mean": M.mean(1), "pos": (M > 0).mean(1), "nd": len(ds)})
+D:\ApexOptions\data\research\13nov\work\R03\s04_classify_pool.py:187: Pandas4Warning: Starting with pandas version 4.0 all arguments of mean will be keyword-only.
+  st = pd.DataFrame({"mean": M.mean(1), "pos": (M > 0).mean(1), "nd": len(ds)})
+D:\ApexOptions\data\research\13nov\work\R03\s04_classify_pool.py:187: Pandas4Warning: Starting with pandas version 4.0 all arguments of mean will be keyword-only.
+  st = pd.DataFrame({"mean": M.mean(1), "pos": (M > 0).mean(1), "nd": len(ds)})
+D:\ApexOptions\data\research\13nov\work\R03\s04_classify_pool.py:187: Pandas4Warning: Starting with pandas version 4.0 all arguments of mean will be keyword-only.
+  st = pd.DataFrame({"mean": M.mean(1), "pos": (M > 0).mean(1), "nd": len(ds)})
+D:\ApexOptions\data\research\13nov\work\R03\s04_classify_pool.py:187: Pandas4Warning: Starting with pandas version 4.0 all arguments of mean will be keyword-only.
+  st = pd.DataFrame({"mean": M.mean(1), "pos": (M > 0).mean(1), "nd": len(ds)})
+D:\ApexOptions\data\research\13nov\work\R03\s04_classify_pool.py:187: Pandas4Warning: Starting with pandas version 4.0 all arguments of mean will be keyword-only.
+  st = pd.DataFrame({"mean": M.mean(1), "pos": (M > 0).mean(1), "nd": len(ds)})
+D:\ApexOptions\data\research\13nov\work\R03\s04_classify_pool.py:187: Pandas4Warning: Starting with pandas version 4.0 all arguments of mean will be keyword-only.
+  st = pd.DataFrame({"mean": M.mean(1), "pos": (M > 0).mean(1), "nd": len(ds)})
+D:\ApexOptions\data\research\13nov\work\R03\s04_classify_pool.py:187: Pandas4Warning: Starting with pandas version 4.0 all arguments of mean will be keyword-only.
+  st = pd.DataFrame({"mean": M.mean(1), "pos": (M > 0).mean(1), "nd": len(ds)})
+D:\ApexOptions\data\research\13nov\work\R03\s04_classify_pool.py:187: Pandas4Warning: Starting with pandas version 4.0 all arguments of mean will be keyword-only.
+  st = pd.DataFrame({"mean": M.mean(1), "pos": (M > 0).mean(1), "nd": len(ds)})
+D:\ApexOptions\data\research\13nov\work\R03\s04_classify_pool.py:187: Pandas4Warning: Starting with pandas version 4.0 all arguments of mean will be keyword-only.
+  st = pd.DataFrame({"mean": M.mean(1), "pos": (M > 0).mean(1), "nd": len(ds)})
+D:\ApexOptions\data\research\13nov\work\R03\s04_classify_pool.py:187: Pandas4Warning: Starting with pandas version 4.0 all arguments of mean will be keyword-only.
+  st = pd.DataFrame({"mean": M.mean(1), "pos": (M > 0).mean(1), "nd": len(ds)})
+D:\ApexOptions\data\research\13nov\work\R03\s04_classify_pool.py:187: Pandas4Warning: Starting with pandas version 4.0 all arguments of mean will be keyword-only.
+  st = pd.DataFrame({"mean": M.mean(1), "pos": (M > 0).mean(1), "nd": len(ds)})
+D:\ApexOptions\data\research\13nov\work\R03\s04_classify_pool.py:187: Pandas4Warning: Starting with pandas version 4.0 all arguments of mean will be keyword-only.
+  st = pd.DataFrame({"mean": M.mean(1), "pos": (M > 0).mean(1), "nd": len(ds)})
+D:\ApexOptions\data\research\13nov\work\R03\s04_classify_pool.py:187: Pandas4Warning: Starting with pandas version 4.0 all arguments of mean will be keyword-only.
+  st = pd.DataFrame({"mean": M.mean(1), "pos": (M > 0).mean(1), "nd": len(ds)})
+D:\ApexOptions\data\research\13nov\work\R03\s04_classify_pool.py:187: Pandas4Warning: Starting with pandas version 4.0 all arguments of mean will be keyword-only.
+  st = pd.DataFrame({"mean": M.mean(1), "pos": (M > 0).mean(1), "nd": len(ds)})
+D:\ApexOptions\data\research\13nov\work\R03\s04_classify_pool.py:187: Pandas4Warning: Starting with pandas version 4.0 all arguments of mean will be keyword-only.
+  st = pd.DataFrame({"mean": M.mean(1), "pos": (M > 0).mean(1), "nd": len(ds)})
+D:\ApexOptions\data\research\13nov\work\R03\s04_classify_pool.py:187: Pandas4Warning: Starting with pandas version 4.0 all arguments of mean will be keyword-only.
+  st = pd.DataFrame({"mean": M.mean(1), "pos": (M > 0).mean(1), "nd": len(ds)})
+D:\ApexOptions\data\research\13nov\work\R03\s04_classify_pool.py:187: Pandas4Warning: Starting with pandas version 4.0 all arguments of mean will be keyword-only.
+  st = pd.DataFrame({"mean": M.mean(1), "pos": (M > 0).mean(1), "nd": len(ds)})
+D:\ApexOptions\data\research\13nov\work\R03\s04_classify_pool.py:187: Pandas4Warning: Starting with pandas version 4.0 all arguments of mean will be keyword-only.
+  st = pd.DataFrame({"mean": M.mean(1), "pos": (M > 0).mean(1), "nd": len(ds)})
+D:\ApexOptions\data\research\13nov\work\R03\s04_classify_pool.py:187: Pandas4Warning: Starting with pandas version 4.0 all arguments of mean will be keyword-only.
+  st = pd.DataFrame({"mean": M.mean(1), "pos": (M > 0).mean(1), "nd": len(ds)})
+D:\ApexOptions\data\research\13nov\work\R03\s04_classify_pool.py:187: Pandas4Warning: Starting with pandas version 4.0 all arguments of mean will be keyword-only.
+  st = pd.DataFrame({"mean": M.mean(1), "pos": (M > 0).mean(1), "nd": len(ds)})
+D:\ApexOptions\data\research\13nov\work\R03\s04_classify_pool.py:187: Pandas4Warning: Starting with pandas version 4.0 all arguments of mean will be keyword-only.
+  st = pd.DataFrame({"mean": M.mean(1), "pos": (M > 0).mean(1), "nd": len(ds)})
+D:\ApexOptions\data\research\13nov\work\R03\s04_classify_pool.py:187: Pandas4Warning: Starting with pandas version 4.0 all arguments of mean will be keyword-only.
+  st = pd.DataFrame({"mean": M.mean(1), "pos": (M > 0).mean(1), "nd": len(ds)})
+D:\ApexOptions\data\research\13nov\work\R03\s04_classify_pool.py:187: Pandas4Warning: Starting with pandas version 4.0 all arguments of mean will be keyword-only.
+  st = pd.DataFrame({"mean": M.mean(1), "pos": (M > 0).mean(1), "nd": len(ds)})
+D:\ApexOptions\data\research\13nov\work\R03\s04_classify_pool.py:187: Pandas4Warning: Starting with pandas version 4.0 all arguments of mean will be keyword-only.
+  st = pd.DataFrame({"mean": M.mean(1), "pos": (M > 0).mean(1), "nd": len(ds)})
+D:\ApexOptions\data\research\13nov\work\R03\s04_classify_pool.py:187: Pandas4Warning: Starting with pandas version 4.0 all arguments of mean will be keyword-only.
+  st = pd.DataFrame({"mean": M.mean(1), "pos": (M > 0).mean(1), "nd": len(ds)})
+D:\ApexOptions\data\research\13nov\work\R03\s04_classify_pool.py:187: Pandas4Warning: Starting with pandas version 4.0 all arguments of mean will be keyword-only.
+  st = pd.DataFrame({"mean": M.mean(1), "pos": (M > 0).mean(1), "nd": len(ds)})
+D:\ApexOptions\data\research\13nov\work\R03\s04_classify_pool.py:187: Pandas4Warning: Starting with pandas version 4.0 all arguments of mean will be keyword-only.
+  st = pd.DataFrame({"mean": M.mean(1), "pos": (M > 0).mean(1), "nd": len(ds)})
+D:\ApexOptions\data\research\13nov\work\R03\s04_classify_pool.py:187: Pandas4Warning: Starting with pandas version 4.0 all arguments of mean will be keyword-only.
+  st = pd.DataFrame({"mean": M.mean(1), "pos": (M > 0).mean(1), "nd": len(ds)})
+D:\ApexOptions\data\research\13nov\work\R03\s04_classify_pool.py:187: Pandas4Warning: Starting with pandas version 4.0 all arguments of mean will be keyword-only.
+  st = pd.DataFrame({"mean": M.mean(1), "pos": (M > 0).mean(1), "nd": len(ds)})
+D:\ApexOptions\data\research\13nov\work\R03\s04_classify_pool.py:187: Pandas4Warning: Starting with pandas version 4.0 all arguments of mean will be keyword-only.
+  st = pd.DataFrame({"mean": M.mean(1), "pos": (M > 0).mean(1), "nd": len(ds)})
+D:\ApexOptions\data\research\13nov\work\R03\s04_classify_pool.py:187: Pandas4Warning: Starting with pandas version 4.0 all arguments of mean will be keyword-only.
+  st = pd.DataFrame({"mean": M.mean(1), "pos": (M > 0).mean(1), "nd": len(ds)})
+D:\ApexOptions\data\research\13nov\work\R03\s04_classify_pool.py:187: Pandas4Warning: Starting with pandas version 4.0 all arguments of mean will be keyword-only.
+  st = pd.DataFrame({"mean": M.mean(1), "pos": (M > 0).mean(1), "nd": len(ds)})
+D:\ApexOptions\data\research\13nov\work\R03\s04_classify_pool.py:187: Pandas4Warning: Starting with pandas version 4.0 all arguments of mean will be keyword-only.
+  st = pd.DataFrame({"mean": M.mean(1), "pos": (M > 0).mean(1), "nd": len(ds)})
+D:\ApexOptions\data\research\13nov\work\R03\s04_classify_pool.py:187: Pandas4Warning: Starting with pandas version 4.0 all arguments of mean will be keyword-only.
+  st = pd.DataFrame({"mean": M.mean(1), "pos": (M > 0).mean(1), "nd": len(ds)})
+D:\ApexOptions\data\research\13nov\work\R03\s04_classify_pool.py:187: Pandas4Warning: Starting with pandas version 4.0 all arguments of mean will be keyword-only.
+  st = pd.DataFrame({"mean": M.mean(1), "pos": (M > 0).mean(1), "nd": len(ds)})
+D:\ApexOptions\data\research\13nov\work\R03\s04_classify_pool.py:187: Pandas4Warning: Starting with pandas version 4.0 all arguments of mean will be keyword-only.
+  st = pd.DataFrame({"mean": M.mean(1), "pos": (M > 0).mean(1), "nd": len(ds)})
+D:\ApexOptions\data\research\13nov\work\R03\s04_classify_pool.py:187: Pandas4Warning: Starting with pandas version 4.0 all arguments of mean will be keyword-only.
+  st = pd.DataFrame({"mean": M.mean(1), "pos": (M > 0).mean(1), "nd": len(ds)})
+D:\ApexOptions\data\research\13nov\work\R03\s04_classify_pool.py:187: Pandas4Warning: Starting with pandas version 4.0 all arguments of mean will be keyword-only.
+  st = pd.DataFrame({"mean": M.mean(1), "pos": (M > 0).mean(1), "nd": len(ds)})
+D:\ApexOptions\data\research\13nov\work\R03\s04_classify_pool.py:187: Pandas4Warning: Starting with pandas version 4.0 all arguments of mean will be keyword-only.
+  st = pd.DataFrame({"mean": M.mean(1), "pos": (M > 0).mean(1), "nd": len(ds)})
+D:\ApexOptions\data\research\13nov\work\R03\s04_classify_pool.py:187: Pandas4Warning: Starting with pandas version 4.0 all arguments of mean will be keyword-only.
+  st = pd.DataFrame({"mean": M.mean(1), "pos": (M > 0).mean(1), "nd": len(ds)})
+D:\ApexOptions\data\research\13nov\work\R03\s04_classify_pool.py:187: Pandas4Warning: Starting with pandas version 4.0 all arguments of mean will be keyword-only.
+  st = pd.DataFrame({"mean": M.mean(1), "pos": (M > 0).mean(1), "nd": len(ds)})
+D:\ApexOptions\data\research\13nov\work\R03\s04_classify_pool.py:187: Pandas4Warning: Starting with pandas version 4.0 all arguments of mean will be keyword-only.
+  st = pd.DataFrame({"mean": M.mean(1), "pos": (M > 0).mean(1), "nd": len(ds)})
+D:\ApexOptions\data\research\13nov\work\R03\s04_classify_pool.py:187: Pandas4Warning: Starting with pandas version 4.0 all arguments of mean will be keyword-only.
+  st = pd.DataFrame({"mean": M.mean(1), "pos": (M > 0).mean(1), "nd": len(ds)})
+D:\ApexOptions\data\research\13nov\work\R03\s04_classify_pool.py:187: Pandas4Warning: Starting with pandas version 4.0 all arguments of mean will be keyword-only.
+  st = pd.DataFrame({"mean": M.mean(1), "pos": (M > 0).mean(1), "nd": len(ds)})
+D:\ApexOptions\data\research\13nov\work\R03\s04_classify_pool.py:187: Pandas4Warning: Starting with pandas version 4.0 all arguments of mean will be keyword-only.
+  st = pd.DataFrame({"mean": M.mean(1), "pos": (M > 0).mean(1), "nd": len(ds)})
+D:\ApexOptions\data\research\13nov\work\R03\s04_classify_pool.py:187: Pandas4Warning: Starting with pandas version 4.0 all arguments of mean will be keyword-only.
+  st = pd.DataFrame({"mean": M.mean(1), "pos": (M > 0).mean(1), "nd": len(ds)})
+D:\ApexOptions\data\research\13nov\work\R03\s04_classify_pool.py:187: Pandas4Warning: Starting with pandas version 4.0 all arguments of mean will be keyword-only.
+  st = pd.DataFrame({"mean": M.mean(1), "pos": (M > 0).mean(1), "nd": len(ds)})
+D:\ApexOptions\data\research\13nov\work\R03\s04_classify_pool.py:187: Pandas4Warning: Starting with pandas version 4.0 all arguments of mean will be keyword-only.
+  st = pd.DataFrame({"mean": M.mean(1), "pos": (M > 0).mean(1), "nd": len(ds)})
+D:\ApexOptions\data\research\13nov\work\R03\s04_classify_pool.py:187: Pandas4Warning: Starting with pandas version 4.0 all arguments of mean will be keyword-only.
+  st = pd.DataFrame({"mean": M.mean(1), "pos": (M > 0).mean(1), "nd": len(ds)})
+D:\ApexOptions\data\research\13nov\work\R03\s04_classify_pool.py:187: Pandas4Warning: Starting with pandas version 4.0 all arguments of mean will be keyword-only.
+  st = pd.DataFrame({"mean": M.mean(1), "pos": (M > 0).mean(1), "nd": len(ds)})
+D:\ApexOptions\data\research\13nov\work\R03\s04_classify_pool.py:187: Pandas4Warning: Starting with pandas version 4.0 all arguments of mean will be keyword-only.
+  st = pd.DataFrame({"mean": M.mean(1), "pos": (M > 0).mean(1), "nd": len(ds)})
+D:\ApexOptions\data\research\13nov\work\R03\s04_classify_pool.py:187: Pandas4Warning: Starting with pandas version 4.0 all arguments of mean will be keyword-only.
+  st = pd.DataFrame({"mean": M.mean(1), "pos": (M > 0).mean(1), "nd": len(ds)})
+D:\ApexOptions\data\research\13nov\work\R03\s04_classify_pool.py:187: Pandas4Warning: Starting with pandas version 4.0 all arguments of mean will be keyword-only.
+  st = pd.DataFrame({"mean": M.mean(1), "pos": (M > 0).mean(1), "nd": len(ds)})
+D:\ApexOptions\data\research\13nov\work\R03\s04_classify_pool.py:187: Pandas4Warning: Starting with pandas version 4.0 all arguments of mean will be keyword-only.
+  st = pd.DataFrame({"mean": M.mean(1), "pos": (M > 0).mean(1), "nd": len(ds)})
+D:\ApexOptions\data\research\13nov\work\R03\s04_classify_pool.py:187: Pandas4Warning: Starting with pandas version 4.0 all arguments of mean will be keyword-only.
+  st = pd.DataFrame({"mean": M.mean(1), "pos": (M > 0).mean(1), "nd": len(ds)})
+D:\ApexOptions\data\research\13nov\work\R03\s04_classify_pool.py:187: Pandas4Warning: Starting with pandas version 4.0 all arguments of mean will be keyword-only.
+  st = pd.DataFrame({"mean": M.mean(1), "pos": (M > 0).mean(1), "nd": len(ds)})
+D:\ApexOptions\data\research\13nov\work\R03\s04_classify_pool.py:187: Pandas4Warning: Starting with pandas version 4.0 all arguments of mean will be keyword-only.
+  st = pd.DataFrame({"mean": M.mean(1), "pos": (M > 0).mean(1), "nd": len(ds)})
+D:\ApexOptions\data\research\13nov\work\R03\s04_classify_pool.py:187: Pandas4Warning: Starting with pandas version 4.0 all arguments of mean will be keyword-only.
+  st = pd.DataFrame({"mean": M.mean(1), "pos": (M > 0).mean(1), "nd": len(ds)})
+D:\ApexOptions\data\research\13nov\work\R03\s04_classify_pool.py:187: Pandas4Warning: Starting with pandas version 4.0 all arguments of mean will be keyword-only.
+  st = pd.DataFrame({"mean": M.mean(1), "pos": (M > 0).mean(1), "nd": len(ds)})
+D:\ApexOptions\data\research\13nov\work\R03\s04_classify_pool.py:187: Pandas4Warning: Starting with pandas version 4.0 all arguments of mean will be keyword-only.
+  st = pd.DataFrame({"mean": M.mean(1), "pos": (M > 0).mean(1), "nd": len(ds)})
+D:\ApexOptions\data\research\13nov\work\R03\s04_classify_pool.py:187: Pandas4Warning: Starting with pandas version 4.0 all arguments of mean will be keyword-only.
+  st = pd.DataFrame({"mean": M.mean(1), "pos": (M > 0).mean(1), "nd": len(ds)})
+D:\ApexOptions\data\research\13nov\work\R03\s04_classify_pool.py:187: Pandas4Warning: Starting with pandas version 4.0 all arguments of mean will be keyword-only.
+  st = pd.DataFrame({"mean": M.mean(1), "pos": (M > 0).mean(1), "nd": len(ds)})
+D:\ApexOptions\data\research\13nov\work\R03\s04_classify_pool.py:187: Pandas4Warning: Starting with pandas version 4.0 all arguments of mean will be keyword-only.
+  st = pd.DataFrame({"mean": M.mean(1), "pos": (M > 0).mean(1), "nd": len(ds)})
+D:\ApexOptions\data\research\13nov\work\R03\s04_classify_pool.py:187: Pandas4Warning: Starting with pandas version 4.0 all arguments of mean will be keyword-only.
+  st = pd.DataFrame({"mean": M.mean(1), "pos": (M > 0).mean(1), "nd": len(ds)})
+D:\ApexOptions\data\research\13nov\work\R03\s04_classify_pool.py:187: Pandas4Warning: Starting with pandas version 4.0 all arguments of mean will be keyword-only.
+  st = pd.DataFrame({"mean": M.mean(1), "pos": (M > 0).mean(1), "nd": len(ds)})
+D:\ApexOptions\data\research\13nov\work\R03\s04_classify_pool.py:187: Pandas4Warning: Starting with pandas version 4.0 all arguments of mean will be keyword-only.
+  st = pd.DataFrame({"mean": M.mean(1), "pos": (M > 0).mean(1), "nd": len(ds)})
+D:\ApexOptions\data\research\13nov\work\R03\s04_classify_pool.py:187: Pandas4Warning: Starting with pandas version 4.0 all arguments of mean will be keyword-only.
+  st = pd.DataFrame({"mean": M.mean(1), "pos": (M > 0).mean(1), "nd": len(ds)})
+D:\ApexOptions\data\research\13nov\work\R03\s04_classify_pool.py:187: Pandas4Warning: Starting with pandas version 4.0 all arguments of mean will be keyword-only.
+  st = pd.DataFrame({"mean": M.mean(1), "pos": (M > 0).mean(1), "nd": len(ds)})
+D:\ApexOptions\data\research\13nov\work\R03\s04_classify_pool.py:187: Pandas4Warning: Starting with pandas version 4.0 all arguments of mean will be keyword-only.
+  st = pd.DataFrame({"mean": M.mean(1), "pos": (M > 0).mean(1), "nd": len(ds)})
+D:\ApexOptions\data\research\13nov\work\R03\s04_classify_pool.py:187: Pandas4Warning: Starting with pandas version 4.0 all arguments of mean will be keyword-only.
+  st = pd.DataFrame({"mean": M.mean(1), "pos": (M > 0).mean(1), "nd": len(ds)})
+D:\ApexOptions\data\research\13nov\work\R03\s04_classify_pool.py:187: Pandas4Warning: Starting with pandas version 4.0 all arguments of mean will be keyword-only.
+  st = pd.DataFrame({"mean": M.mean(1), "pos": (M > 0).mean(1), "nd": len(ds)})
+D:\ApexOptions\data\research\13nov\work\R03\s04_classify_pool.py:187: Pandas4Warning: Starting with pandas version 4.0 all arguments of mean will be keyword-only.
+  st = pd.DataFrame({"mean": M.mean(1), "pos": (M > 0).mean(1), "nd": len(ds)})
+D:\ApexOptions\data\research\13nov\work\R03\s04_classify_pool.py:187: Pandas4Warning: Starting with pandas version 4.0 all arguments of mean will be keyword-only.
+  st = pd.DataFrame({"mean": M.mean(1), "pos": (M > 0).mean(1), "nd": len(ds)})
+D:\ApexOptions\data\research\13nov\work\R03\s04_classify_pool.py:187: Pandas4Warning: Starting with pandas version 4.0 all arguments of mean will be keyword-only.
+  st = pd.DataFrame({"mean": M.mean(1), "pos": (M > 0).mean(1), "nd": len(ds)})
+D:\ApexOptions\data\research\13nov\work\R03\s04_classify_pool.py:187: Pandas4Warning: Starting with pandas version 4.0 all arguments of mean will be keyword-only.
+  st = pd.DataFrame({"mean": M.mean(1), "pos": (M > 0).mean(1), "nd": len(ds)})
+D:\ApexOptions\data\research\13nov\work\R03\s04_classify_pool.py:187: Pandas4Warning: Starting with pandas version 4.0 all arguments of mean will be keyword-only.
+  st = pd.DataFrame({"mean": M.mean(1), "pos": (M > 0).mean(1), "nd": len(ds)})
+D:\ApexOptions\data\research\13nov\work\R03\s04_classify_pool.py:187: Pandas4Warning: Starting with pandas version 4.0 all arguments of mean will be keyword-only.
+  st = pd.DataFrame({"mean": M.mean(1), "pos": (M > 0).mean(1), "nd": len(ds)})
+D:\ApexOptions\data\research\13nov\work\R03\s04_classify_pool.py:187: Pandas4Warning: Starting with pandas version 4.0 all arguments of mean will be keyword-only.
+  st = pd.DataFrame({"mean": M.mean(1), "pos": (M > 0).mean(1), "nd": len(ds)})
+D:\ApexOptions\data\research\13nov\work\R03\s04_classify_pool.py:187: Pandas4Warning: Starting with pandas version 4.0 all arguments of mean will be keyword-only.
+  st = pd.DataFrame({"mean": M.mean(1), "pos": (M > 0).mean(1), "nd": len(ds)})
+D:\ApexOptions\data\research\13nov\work\R03\s04_classify_pool.py:187: Pandas4Warning: Starting with pandas version 4.0 all arguments of mean will be keyword-only.
+  st = pd.DataFrame({"mean": M.mean(1), "pos": (M > 0).mean(1), "nd": len(ds)})
+D:\ApexOptions\data\research\13nov\work\R03\s04_classify_pool.py:187: Pandas4Warning: Starting with pandas version 4.0 all arguments of mean will be keyword-only.
+  st = pd.DataFrame({"mean": M.mean(1), "pos": (M > 0).mean(1), "nd": len(ds)})
+D:\ApexOptions\data\research\13nov\work\R03\s04_classify_pool.py:187: Pandas4Warning: Starting with pandas version 4.0 all arguments of mean will be keyword-only.
+  st = pd.DataFrame({"mean": M.mean(1), "pos": (M > 0).mean(1), "nd": len(ds)})
+D:\ApexOptions\data\research\13nov\work\R03\s04_classify_pool.py:187: Pandas4Warning: Starting with pandas version 4.0 all arguments of mean will be keyword-only.
+  st = pd.DataFrame({"mean": M.mean(1), "pos": (M > 0).mean(1), "nd": len(ds)})
+D:\ApexOptions\data\research\13nov\work\R03\s04_classify_pool.py:187: Pandas4Warning: Starting with pandas version 4.0 all arguments of mean will be keyword-only.
+  st = pd.DataFrame({"mean": M.mean(1), "pos": (M > 0).mean(1), "nd": len(ds)})
+D:\ApexOptions\data\research\13nov\work\R03\s04_classify_pool.py:187: Pandas4Warning: Starting with pandas version 4.0 all arguments of mean will be keyword-only.
+  st = pd.DataFrame({"mean": M.mean(1), "pos": (M > 0).mean(1), "nd": len(ds)})
+D:\ApexOptions\data\research\13nov\work\R03\s04_classify_pool.py:187: Pandas4Warning: Starting with pandas version 4.0 all arguments of mean will be keyword-only.
+  st = pd.DataFrame({"mean": M.mean(1), "pos": (M > 0).mean(1), "nd": len(ds)})
+D:\ApexOptions\data\research\13nov\work\R03\s04_classify_pool.py:187: Pandas4Warning: Starting with pandas version 4.0 all arguments of mean will be keyword-only.
+  st = pd.DataFrame({"mean": M.mean(1), "pos": (M > 0).mean(1), "nd": len(ds)})
+D:\ApexOptions\data\research\13nov\work\R03\s04_classify_pool.py:187: Pandas4Warning: Starting with pandas version 4.0 all arguments of mean will be keyword-only.
+  st = pd.DataFrame({"mean": M.mean(1), "pos": (M > 0).mean(1), "nd": len(ds)})
+D:\ApexOptions\data\research\13nov\work\R03\s04_classify_pool.py:187: Pandas4Warning: Starting with pandas version 4.0 all arguments of mean will be keyword-only.
+  st = pd.DataFrame({"mean": M.mean(1), "pos": (M > 0).mean(1), "nd": len(ds)})
+D:\ApexOptions\data\research\13nov\work\R03\s04_classify_pool.py:187: Pandas4Warning: Starting with pandas version 4.0 all arguments of mean will be keyword-only.
+  st = pd.DataFrame({"mean": M.mean(1), "pos": (M > 0).mean(1), "nd": len(ds)})
+D:\ApexOptions\data\research\13nov\work\R03\s04_classify_pool.py:187: Pandas4Warning: Starting with pandas version 4.0 all arguments of mean will be keyword-only.
+  st = pd.DataFrame({"mean": M.mean(1), "pos": (M > 0).mean(1), "nd": len(ds)})
+D:\ApexOptions\data\research\13nov\work\R03\s04_classify_pool.py:187: Pandas4Warning: Starting with pandas version 4.0 all arguments of mean will be keyword-only.
+  st = pd.DataFrame({"mean": M.mean(1), "pos": (M > 0).mean(1), "nd": len(ds)})
+D:\ApexOptions\data\research\13nov\work\R03\s04_classify_pool.py:187: Pandas4Warning: Starting with pandas version 4.0 all arguments of mean will be keyword-only.
+  st = pd.DataFrame({"mean": M.mean(1), "pos": (M > 0).mean(1), "nd": len(ds)})
+D:\ApexOptions\data\research\13nov\work\R03\s04_classify_pool.py:187: Pandas4Warning: Starting with pandas version 4.0 all arguments of mean will be keyword-only.
+  st = pd.DataFrame({"mean": M.mean(1), "pos": (M > 0).mean(1), "nd": len(ds)})
+D:\ApexOptions\data\research\13nov\work\R03\s04_classify_pool.py:187: Pandas4Warning: Starting with pandas version 4.0 all arguments of mean will be keyword-only.
+  st = pd.DataFrame({"mean": M.mean(1), "pos": (M > 0).mean(1), "nd": len(ds)})
+D:\ApexOptions\data\research\13nov\work\R03\s04_classify_pool.py:187: Pandas4Warning: Starting with pandas version 4.0 all arguments of mean will be keyword-only.
+  st = pd.DataFrame({"mean": M.mean(1), "pos": (M > 0).mean(1), "nd": len(ds)})
+D:\ApexOptions\data\research\13nov\work\R03\s04_classify_pool.py:187: Pandas4Warning: Starting with pandas version 4.0 all arguments of mean will be keyword-only.
+  st = pd.DataFrame({"mean": M.mean(1), "pos": (M > 0).mean(1), "nd": len(ds)})
+D:\ApexOptions\data\research\13nov\work\R03\s04_classify_pool.py:187: Pandas4Warning: Starting with pandas version 4.0 all arguments of mean will be keyword-only.
+  st = pd.DataFrame({"mean": M.mean(1), "pos": (M > 0).mean(1), "nd": len(ds)})
+D:\ApexOptions\data\research\13nov\work\R03\s04_classify_pool.py:187: Pandas4Warning: Starting with pandas version 4.0 all arguments of mean will be keyword-only.
+  st = pd.DataFrame({"mean": M.mean(1), "pos": (M > 0).mean(1), "nd": len(ds)})
+D:\ApexOptions\data\research\13nov\work\R03\s04_classify_pool.py:187: Pandas4Warning: Starting with pandas version 4.0 all arguments of mean will be keyword-only.
+  st = pd.DataFrame({"mean": M.mean(1), "pos": (M > 0).mean(1), "nd": len(ds)})
+D:\ApexOptions\data\research\13nov\work\R03\s04_classify_pool.py:187: Pandas4Warning: Starting with pandas version 4.0 all arguments of mean will be keyword-only.
+  st = pd.DataFrame({"mean": M.mean(1), "pos": (M > 0).mean(1), "nd": len(ds)})
+D:\ApexOptions\data\research\13nov\work\R03\s04_classify_pool.py:187: Pandas4Warning: Starting with pandas version 4.0 all arguments of mean will be keyword-only.
+  st = pd.DataFrame({"mean": M.mean(1), "pos": (M > 0).mean(1), "nd": len(ds)})
+D:\ApexOptions\data\research\13nov\work\R03\s04_classify_pool.py:187: Pandas4Warning: Starting with pandas version 4.0 all arguments of mean will be keyword-only.
+  st = pd.DataFrame({"mean": M.mean(1), "pos": (M > 0).mean(1), "nd": len(ds)})
+D:\ApexOptions\data\research\13nov\work\R03\s04_classify_pool.py:187: Pandas4Warning: Starting with pandas version 4.0 all arguments of mean will be keyword-only.
+  st = pd.DataFrame({"mean": M.mean(1), "pos": (M > 0).mean(1), "nd": len(ds)})
+D:\ApexOptions\data\research\13nov\work\R03\s04_classify_pool.py:187: Pandas4Warning: Starting with pandas version 4.0 all arguments of mean will be keyword-only.
+  st = pd.DataFrame({"mean": M.mean(1), "pos": (M > 0).mean(1), "nd": len(ds)})
+D:\ApexOptions\data\research\13nov\work\R03\s04_classify_pool.py:187: Pandas4Warning: Starting with pandas version 4.0 all arguments of mean will be keyword-only.
+  st = pd.DataFrame({"mean": M.mean(1), "pos": (M > 0).mean(1), "nd": len(ds)})
+D:\ApexOptions\data\research\13nov\work\R03\s04_classify_pool.py:187: Pandas4Warning: Starting with pandas version 4.0 all arguments of mean will be keyword-only.
+  st = pd.DataFrame({"mean": M.mean(1), "pos": (M > 0).mean(1), "nd": len(ds)})
+D:\ApexOptions\data\research\13nov\work\R03\s04_classify_pool.py:187: Pandas4Warning: Starting with pandas version 4.0 all arguments of mean will be keyword-only.
+  st = pd.DataFrame({"mean": M.mean(1), "pos": (M > 0).mean(1), "nd": len(ds)})
+D:\ApexOptions\data\research\13nov\work\R03\s04_classify_pool.py:187: Pandas4Warning: Starting with pandas version 4.0 all arguments of mean will be keyword-only.
+  st = pd.DataFrame({"mean": M.mean(1), "pos": (M > 0).mean(1), "nd": len(ds)})
+D:\ApexOptions\data\research\13nov\work\R03\s04_classify_pool.py:187: Pandas4Warning: Starting with pandas version 4.0 all arguments of mean will be keyword-only.
+  st = pd.DataFrame({"mean": M.mean(1), "pos": (M > 0).mean(1), "nd": len(ds)})
+D:\ApexOptions\data\research\13nov\work\R03\s04_classify_pool.py:187: Pandas4Warning: Starting with pandas version 4.0 all arguments of mean will be keyword-only.
+  st = pd.DataFrame({"mean": M.mean(1), "pos": (M > 0).mean(1), "nd": len(ds)})
+D:\ApexOptions\data\research\13nov\work\R03\s04_classify_pool.py:187: Pandas4Warning: Starting with pandas version 4.0 all arguments of mean will be keyword-only.
+  st = pd.DataFrame({"mean": M.mean(1), "pos": (M > 0).mean(1), "nd": len(ds)})
+D:\ApexOptions\data\research\13nov\work\R03\s04_classify_pool.py:187: Pandas4Warning: Starting with pandas version 4.0 all arguments of mean will be keyword-only.
+  st = pd.DataFrame({"mean": M.mean(1), "pos": (M > 0).mean(1), "nd": len(ds)})
+D:\ApexOptions\data\research\13nov\work\R03\s04_classify_pool.py:187: Pandas4Warning: Starting with pandas version 4.0 all arguments of mean will be keyword-only.
+  st = pd.DataFrame({"mean": M.mean(1), "pos": (M > 0).mean(1), "nd": len(ds)})
+D:\ApexOptions\data\research\13nov\work\R03\s04_classify_pool.py:187: Pandas4Warning: Starting with pandas version 4.0 all arguments of mean will be keyword-only.
+  st = pd.DataFrame({"mean": M.mean(1), "pos": (M > 0).mean(1), "nd": len(ds)})
+D:\ApexOptions\data\research\13nov\work\R03\s04_classify_pool.py:187: Pandas4Warning: Starting with pandas version 4.0 all arguments of mean will be keyword-only.
+  st = pd.DataFrame({"mean": M.mean(1), "pos": (M > 0).mean(1), "nd": len(ds)})
+D:\ApexOptions\data\research\13nov\work\R03\s04_classify_pool.py:187: Pandas4Warning: Starting with pandas version 4.0 all arguments of mean will be keyword-only.
+  st = pd.DataFrame({"mean": M.mean(1), "pos": (M > 0).mean(1), "nd": len(ds)})
+D:\ApexOptions\data\research\13nov\work\R03\s04_classify_pool.py:187: Pandas4Warning: Starting with pandas version 4.0 all arguments of mean will be keyword-only.
+  st = pd.DataFrame({"mean": M.mean(1), "pos": (M > 0).mean(1), "nd": len(ds)})
+D:\ApexOptions\data\research\13nov\work\R03\s04_classify_pool.py:187: Pandas4Warning: Starting with pandas version 4.0 all arguments of mean will be keyword-only.
+  st = pd.DataFrame({"mean": M.mean(1), "pos": (M > 0).mean(1), "nd": len(ds)})
+D:\ApexOptions\data\research\13nov\work\R03\s04_classify_pool.py:187: Pandas4Warning: Starting with pandas version 4.0 all arguments of mean will be keyword-only.
+  st = pd.DataFrame({"mean": M.mean(1), "pos": (M > 0).mean(1), "nd": len(ds)})
+D:\ApexOptions\data\research\13nov\work\R03\s04_classify_pool.py:187: Pandas4Warning: Starting with pandas version 4.0 all arguments of mean will be keyword-only.
+  st = pd.DataFrame({"mean": M.mean(1), "pos": (M > 0).mean(1), "nd": len(ds)})
+D:\ApexOptions\data\research\13nov\work\R03\s04_classify_pool.py:187: Pandas4Warning: Starting with pandas version 4.0 all arguments of mean will be keyword-only.
+  st = pd.DataFrame({"mean": M.mean(1), "pos": (M > 0).mean(1), "nd": len(ds)})
+D:\ApexOptions\data\research\13nov\work\R03\s04_classify_pool.py:187: Pandas4Warning: Starting with pandas version 4.0 all arguments of mean will be keyword-only.
+  st = pd.DataFrame({"mean": M.mean(1), "pos": (M > 0).mean(1), "nd": len(ds)})
+D:\ApexOptions\data\research\13nov\work\R03\s04_classify_pool.py:187: Pandas4Warning: Starting with pandas version 4.0 all arguments of mean will be keyword-only.
+  st = pd.DataFrame({"mean": M.mean(1), "pos": (M > 0).mean(1), "nd": len(ds)})
+D:\ApexOptions\data\research\13nov\work\R03\s04_classify_pool.py:187: Pandas4Warning: Starting with pandas version 4.0 all arguments of mean will be keyword-only.
+  st = pd.DataFrame({"mean": M.mean(1), "pos": (M > 0).mean(1), "nd": len(ds)})
+D:\ApexOptions\data\research\13nov\work\R03\s04_classify_pool.py:187: Pandas4Warning: Starting with pandas version 4.0 all arguments of mean will be keyword-only.
+  st = pd.DataFrame({"mean": M.mean(1), "pos": (M > 0).mean(1), "nd": len(ds)})
+D:\ApexOptions\data\research\13nov\work\R03\s04_classify_pool.py:187: Pandas4Warning: Starting with pandas version 4.0 all arguments of mean will be keyword-only.
+  st = pd.DataFrame({"mean": M.mean(1), "pos": (M > 0).mean(1), "nd": len(ds)})
+D:\ApexOptions\data\research\13nov\work\R03\s04_classify_pool.py:187: Pandas4Warning: Starting with pandas version 4.0 all arguments of mean will be keyword-only.
+  st = pd.DataFrame({"mean": M.mean(1), "pos": (M > 0).mean(1), "nd": len(ds)})
+D:\ApexOptions\data\research\13nov\work\R03\s04_classify_pool.py:187: Pandas4Warning: Starting with pandas version 4.0 all arguments of mean will be keyword-only.
+  st = pd.DataFrame({"mean": M.mean(1), "pos": (M > 0).mean(1), "nd": len(ds)})
+D:\ApexOptions\data\research\13nov\work\R03\s04_classify_pool.py:187: Pandas4Warning: Starting with pandas version 4.0 all arguments of mean will be keyword-only.
+  st = pd.DataFrame({"mean": M.mean(1), "pos": (M > 0).mean(1), "nd": len(ds)})
+D:\ApexOptions\data\research\13nov\work\R03\s04_classify_pool.py:187: Pandas4Warning: Starting with pandas version 4.0 all arguments of mean will be keyword-only.
+  st = pd.DataFrame({"mean": M.mean(1), "pos": (M > 0).mean(1), "nd": len(ds)})
+D:\ApexOptions\data\research\13nov\work\R03\s04_classify_pool.py:187: Pandas4Warning: Starting with pandas version 4.0 all arguments of mean will be keyword-only.
+  st = pd.DataFrame({"mean": M.mean(1), "pos": (M > 0).mean(1), "nd": len(ds)})
+D:\ApexOptions\data\research\13nov\work\R03\s04_classify_pool.py:187: Pandas4Warning: Starting with pandas version 4.0 all arguments of mean will be keyword-only.
+  st = pd.DataFrame({"mean": M.mean(1), "pos": (M > 0).mean(1), "nd": len(ds)})
+D:\ApexOptions\data\research\13nov\work\R03\s04_classify_pool.py:187: Pandas4Warning: Starting with pandas version 4.0 all arguments of mean will be keyword-only.
+  st = pd.DataFrame({"mean": M.mean(1), "pos": (M > 0).mean(1), "nd": len(ds)})
+D:\ApexOptions\data\research\13nov\work\R03\s04_classify_pool.py:187: Pandas4Warning: Starting with pandas version 4.0 all arguments of mean will be keyword-only.
+  st = pd.DataFrame({"mean": M.mean(1), "pos": (M > 0).mean(1), "nd": len(ds)})
+D:\ApexOptions\data\research\13nov\work\R03\s04_classify_pool.py:187: Pandas4Warning: Starting with pandas version 4.0 all arguments of mean will be keyword-only.
+  st = pd.DataFrame({"mean": M.mean(1), "pos": (M > 0).mean(1), "nd": len(ds)})
+D:\ApexOptions\data\research\13nov\work\R03\s04_classify_pool.py:187: Pandas4Warning: Starting with pandas version 4.0 all arguments of mean will be keyword-only.
+  st = pd.DataFrame({"mean": M.mean(1), "pos": (M > 0).mean(1), "nd": len(ds)})
+D:\ApexOptions\data\research\13nov\work\R03\s04_classify_pool.py:187: Pandas4Warning: Starting with pandas version 4.0 all arguments of mean will be keyword-only.
+  st = pd.DataFrame({"mean": M.mean(1), "pos": (M > 0).mean(1), "nd": len(ds)})
+D:\ApexOptions\data\research\13nov\work\R03\s04_classify_pool.py:187: Pandas4Warning: Starting with pandas version 4.0 all arguments of mean will be keyword-only.
+  st = pd.DataFrame({"mean": M.mean(1), "pos": (M > 0).mean(1), "nd": len(ds)})
+D:\ApexOptions\data\research\13nov\work\R03\s04_classify_pool.py:187: Pandas4Warning: Starting with pandas version 4.0 all arguments of mean will be keyword-only.
+  st = pd.DataFrame({"mean": M.mean(1), "pos": (M > 0).mean(1), "nd": len(ds)})
+D:\ApexOptions\data\research\13nov\work\R03\s04_classify_pool.py:187: Pandas4Warning: Starting with pandas version 4.0 all arguments of mean will be keyword-only.
+  st = pd.DataFrame({"mean": M.mean(1), "pos": (M > 0).mean(1), "nd": len(ds)})
+D:\ApexOptions\data\research\13nov\work\R03\s04_classify_pool.py:187: Pandas4Warning: Starting with pandas version 4.0 all arguments of mean will be keyword-only.
+  st = pd.DataFrame({"mean": M.mean(1), "pos": (M > 0).mean(1), "nd": len(ds)})
+D:\ApexOptions\data\research\13nov\work\R03\s04_classify_pool.py:187: Pandas4Warning: Starting with pandas version 4.0 all arguments of mean will be keyword-only.
+  st = pd.DataFrame({"mean": M.mean(1), "pos": (M > 0).mean(1), "nd": len(ds)})
+D:\ApexOptions\data\research\13nov\work\R03\s04_classify_pool.py:187: Pandas4Warning: Starting with pandas version 4.0 all arguments of mean will be keyword-only.
+  st = pd.DataFrame({"mean": M.mean(1), "pos": (M > 0).mean(1), "nd": len(ds)})
+D:\ApexOptions\data\research\13nov\work\R03\s04_classify_pool.py:187: Pandas4Warning: Starting with pandas version 4.0 all arguments of mean will be keyword-only.
+  st = pd.DataFrame({"mean": M.mean(1), "pos": (M > 0).mean(1), "nd": len(ds)})
+D:\ApexOptions\data\research\13nov\work\R03\s04_classify_pool.py:187: Pandas4Warning: Starting with pandas version 4.0 all arguments of mean will be keyword-only.
+  st = pd.DataFrame({"mean": M.mean(1), "pos": (M > 0).mean(1), "nd": len(ds)})
+D:\ApexOptions\data\research\13nov\work\R03\s04_classify_pool.py:187: Pandas4Warning: Starting with pandas version 4.0 all arguments of mean will be keyword-only.
+  st = pd.DataFrame({"mean": M.mean(1), "pos": (M > 0).mean(1), "nd": len(ds)})
+D:\ApexOptions\data\research\13nov\work\R03\s04_classify_pool.py:187: Pandas4Warning: Starting with pandas version 4.0 all arguments of mean will be keyword-only.
+  st = pd.DataFrame({"mean": M.mean(1), "pos": (M > 0).mean(1), "nd": len(ds)})
+D:\ApexOptions\data\research\13nov\work\R03\s04_classify_pool.py:187: Pandas4Warning: Starting with pandas version 4.0 all arguments of mean will be keyword-only.
+  st = pd.DataFrame({"mean": M.mean(1), "pos": (M > 0).mean(1), "nd": len(ds)})
+D:\ApexOptions\data\research\13nov\work\R03\s04_classify_pool.py:187: Pandas4Warning: Starting with pandas version 4.0 all arguments of mean will be keyword-only.
+  st = pd.DataFrame({"mean": M.mean(1), "pos": (M > 0).mean(1), "nd": len(ds)})
+D:\ApexOptions\data\research\13nov\work\R03\s04_classify_pool.py:187: Pandas4Warning: Starting with pandas version 4.0 all arguments of mean will be keyword-only.
+  st = pd.DataFrame({"mean": M.mean(1), "pos": (M > 0).mean(1), "nd": len(ds)})
+D:\ApexOptions\data\research\13nov\work\R03\s04_classify_pool.py:187: Pandas4Warning: Starting with pandas version 4.0 all arguments of mean will be keyword-only.
+  st = pd.DataFrame({"mean": M.mean(1), "pos": (M > 0).mean(1), "nd": len(ds)})
+D:\ApexOptions\data\research\13nov\work\R03\s04_classify_pool.py:187: Pandas4Warning: Starting with pandas version 4.0 all arguments of mean will be keyword-only.
+  st = pd.DataFrame({"mean": M.mean(1), "pos": (M > 0).mean(1), "nd": len(ds)})
+D:\ApexOptions\data\research\13nov\work\R03\s04_classify_pool.py:187: Pandas4Warning: Starting with pandas version 4.0 all arguments of mean will be keyword-only.
+  st = pd.DataFrame({"mean": M.mean(1), "pos": (M > 0).mean(1), "nd": len(ds)})
+D:\ApexOptions\data\research\13nov\work\R03\s04_classify_pool.py:187: Pandas4Warning: Starting with pandas version 4.0 all arguments of mean will be keyword-only.
+  st = pd.DataFrame({"mean": M.mean(1), "pos": (M > 0).mean(1), "nd": len(ds)})
+D:\ApexOptions\data\research\13nov\work\R03\s04_classify_pool.py:187: Pandas4Warning: Starting with pandas version 4.0 all arguments of mean will be keyword-only.
+  st = pd.DataFrame({"mean": M.mean(1), "pos": (M > 0).mean(1), "nd": len(ds)})
+D:\ApexOptions\data\research\13nov\work\R03\s04_classify_pool.py:187: Pandas4Warning: Starting with pandas version 4.0 all arguments of mean will be keyword-only.
+  st = pd.DataFrame({"mean": M.mean(1), "pos": (M > 0).mean(1), "nd": len(ds)})
+D:\ApexOptions\data\research\13nov\work\R03\s04_classify_pool.py:187: Pandas4Warning: Starting with pandas version 4.0 all arguments of mean will be keyword-only.
+  st = pd.DataFrame({"mean": M.mean(1), "pos": (M > 0).mean(1), "nd": len(ds)})
+D:\ApexOptions\data\research\13nov\work\R03\s04_classify_pool.py:187: Pandas4Warning: Starting with pandas version 4.0 all arguments of mean will be keyword-only.
+  st = pd.DataFrame({"mean": M.mean(1), "pos": (M > 0).mean(1), "nd": len(ds)})
+D:\ApexOptions\data\research\13nov\work\R03\s04_classify_pool.py:187: Pandas4Warning: Starting with pandas version 4.0 all arguments of mean will be keyword-only.
+  st = pd.DataFrame({"mean": M.mean(1), "pos": (M > 0).mean(1), "nd": len(ds)})
+D:\ApexOptions\data\research\13nov\work\R03\s04_classify_pool.py:187: Pandas4Warning: Starting with pandas version 4.0 all arguments of mean will be keyword-only.
+  st = pd.DataFrame({"mean": M.mean(1), "pos": (M > 0).mean(1), "nd": len(ds)})
+D:\ApexOptions\data\research\13nov\work\R03\s04_classify_pool.py:187: Pandas4Warning: Starting with pandas version 4.0 all arguments of mean will be keyword-only.
+  st = pd.DataFrame({"mean": M.mean(1), "pos": (M > 0).mean(1), "nd": len(ds)})
+D:\ApexOptions\data\research\13nov\work\R03\s04_classify_pool.py:187: Pandas4Warning: Starting with pandas version 4.0 all arguments of mean will be keyword-only.
+  st = pd.DataFrame({"mean": M.mean(1), "pos": (M > 0).mean(1), "nd": len(ds)})
+D:\ApexOptions\data\research\13nov\work\R03\s04_classify_pool.py:187: Pandas4Warning: Starting with pandas version 4.0 all arguments of mean will be keyword-only.
+  st = pd.DataFrame({"mean": M.mean(1), "pos": (M > 0).mean(1), "nd": len(ds)})
+D:\ApexOptions\data\research\13nov\work\R03\s04_classify_pool.py:187: Pandas4Warning: Starting with pandas version 4.0 all arguments of mean will be keyword-only.
+  st = pd.DataFrame({"mean": M.mean(1), "pos": (M > 0).mean(1), "nd": len(ds)})
+D:\ApexOptions\data\research\13nov\work\R03\s04_classify_pool.py:187: Pandas4Warning: Starting with pandas version 4.0 all arguments of mean will be keyword-only.
+  st = pd.DataFrame({"mean": M.mean(1), "pos": (M > 0).mean(1), "nd": len(ds)})
+D:\ApexOptions\data\research\13nov\work\R03\s04_classify_pool.py:187: Pandas4Warning: Starting with pandas version 4.0 all arguments of mean will be keyword-only.
+  st = pd.DataFrame({"mean": M.mean(1), "pos": (M > 0).mean(1), "nd": len(ds)})
+D:\ApexOptions\data\research\13nov\work\R03\s04_classify_pool.py:187: Pandas4Warning: Starting with pandas version 4.0 all arguments of mean will be keyword-only.
+  st = pd.DataFrame({"mean": M.mean(1), "pos": (M > 0).mean(1), "nd": len(ds)})
+D:\ApexOptions\data\research\13nov\work\R03\s04_classify_pool.py:187: Pandas4Warning: Starting with pandas version 4.0 all arguments of mean will be keyword-only.
+  st = pd.DataFrame({"mean": M.mean(1), "pos": (M > 0).mean(1), "nd": len(ds)})
+D:\ApexOptions\data\research\13nov\work\R03\s04_classify_pool.py:187: Pandas4Warning: Starting with pandas version 4.0 all arguments of mean will be keyword-only.
+  st = pd.DataFrame({"mean": M.mean(1), "pos": (M > 0).mean(1), "nd": len(ds)})
+D:\ApexOptions\data\research\13nov\work\R03\s04_classify_pool.py:187: Pandas4Warning: Starting with pandas version 4.0 all arguments of mean will be keyword-only.
+  st = pd.DataFrame({"mean": M.mean(1), "pos": (M > 0).mean(1), "nd": len(ds)})
+D:\ApexOptions\data\research\13nov\work\R03\s04_classify_pool.py:187: Pandas4Warning: Starting with pandas version 4.0 all arguments of mean will be keyword-only.
+  st = pd.DataFrame({"mean": M.mean(1), "pos": (M > 0).mean(1), "nd": len(ds)})
+D:\ApexOptions\data\research\13nov\work\R03\s04_classify_pool.py:187: Pandas4Warning: Starting with pandas version 4.0 all arguments of mean will be keyword-only.
+  st = pd.DataFrame({"mean": M.mean(1), "pos": (M > 0).mean(1), "nd": len(ds)})
+D:\ApexOptions\data\research\13nov\work\R03\s04_classify_pool.py:187: Pandas4Warning: Starting with pandas version 4.0 all arguments of mean will be keyword-only.
+  st = pd.DataFrame({"mean": M.mean(1), "pos": (M > 0).mean(1), "nd": len(ds)})
+D:\ApexOptions\data\research\13nov\work\R03\s04_classify_pool.py:187: Pandas4Warning: Starting with pandas version 4.0 all arguments of mean will be keyword-only.
+  st = pd.DataFrame({"mean": M.mean(1), "pos": (M > 0).mean(1), "nd": len(ds)})
+D:\ApexOptions\data\research\13nov\work\R03\s04_classify_pool.py:187: Pandas4Warning: Starting with pandas version 4.0 all arguments of mean will be keyword-only.
+  st = pd.DataFrame({"mean": M.mean(1), "pos": (M > 0).mean(1), "nd": len(ds)})
+D:\ApexOptions\data\research\13nov\work\R03\s04_classify_pool.py:187: Pandas4Warning: Starting with pandas version 4.0 all arguments of mean will be keyword-only.
+  st = pd.DataFrame({"mean": M.mean(1), "pos": (M > 0).mean(1), "nd": len(ds)})
+D:\ApexOptions\data\research\13nov\work\R03\s04_classify_pool.py:187: Pandas4Warning: Starting with pandas version 4.0 all arguments of mean will be keyword-only.
+  st = pd.DataFrame({"mean": M.mean(1), "pos": (M > 0).mean(1), "nd": len(ds)})
+D:\ApexOptions\data\research\13nov\work\R03\s04_classify_pool.py:187: Pandas4Warning: Starting with pandas version 4.0 all arguments of mean will be keyword-only.
+  st = pd.DataFrame({"mean": M.mean(1), "pos": (M > 0).mean(1), "nd": len(ds)})
+D:\ApexOptions\data\research\13nov\work\R03\s04_classify_pool.py:187: Pandas4Warning: Starting with pandas version 4.0 all arguments of mean will be keyword-only.
+  st = pd.DataFrame({"mean": M.mean(1), "pos": (M > 0).mean(1), "nd": len(ds)})
+D:\ApexOptions\data\research\13nov\work\R03\s04_classify_pool.py:187: Pandas4Warning: Starting with pandas version 4.0 all arguments of mean will be keyword-only.
+  st = pd.DataFrame({"mean": M.mean(1), "pos": (M > 0).mean(1), "nd": len(ds)})
+D:\ApexOptions\data\research\13nov\work\R03\s04_classify_pool.py:187: Pandas4Warning: Starting with pandas version 4.0 all arguments of mean will be keyword-only.
+  st = pd.DataFrame({"mean": M.mean(1), "pos": (M > 0).mean(1), "nd": len(ds)})
+D:\ApexOptions\data\research\13nov\work\R03\s04_classify_pool.py:187: Pandas4Warning: Starting with pandas version 4.0 all arguments of mean will be keyword-only.
+  st = pd.DataFrame({"mean": M.mean(1), "pos": (M > 0).mean(1), "nd": len(ds)})
+D:\ApexOptions\data\research\13nov\work\R03\s04_classify_pool.py:187: Pandas4Warning: Starting with pandas version 4.0 all arguments of mean will be keyword-only.
+  st = pd.DataFrame({"mean": M.mean(1), "pos": (M > 0).mean(1), "nd": len(ds)})
+D:\ApexOptions\data\research\13nov\work\R03\s04_classify_pool.py:187: Pandas4Warning: Starting with pandas version 4.0 all arguments of mean will be keyword-only.
+  st = pd.DataFrame({"mean": M.mean(1), "pos": (M > 0).mean(1), "nd": len(ds)})
+D:\ApexOptions\data\research\13nov\work\R03\s04_classify_pool.py:187: Pandas4Warning: Starting with pandas version 4.0 all arguments of mean will be keyword-only.
+  st = pd.DataFrame({"mean": M.mean(1), "pos": (M > 0).mean(1), "nd": len(ds)})
+D:\ApexOptions\data\research\13nov\work\R03\s04_classify_pool.py:187: Pandas4Warning: Starting with pandas version 4.0 all arguments of mean will be keyword-only.
+  st = pd.DataFrame({"mean": M.mean(1), "pos": (M > 0).mean(1), "nd": len(ds)})
+D:\ApexOptions\data\research\13nov\work\R03\s04_classify_pool.py:187: Pandas4Warning: Starting with pandas version 4.0 all arguments of mean will be keyword-only.
+  st = pd.DataFrame({"mean": M.mean(1), "pos": (M > 0).mean(1), "nd": len(ds)})
+D:\ApexOptions\data\research\13nov\work\R03\s04_classify_pool.py:187: Pandas4Warning: Starting with pandas version 4.0 all arguments of mean will be keyword-only.
+  st = pd.DataFrame({"mean": M.mean(1), "pos": (M > 0).mean(1), "nd": len(ds)})
+D:\ApexOptions\data\research\13nov\work\R03\s04_classify_pool.py:187: Pandas4Warning: Starting with pandas version 4.0 all arguments of mean will be keyword-only.
+  st = pd.DataFrame({"mean": M.mean(1), "pos": (M > 0).mean(1), "nd": len(ds)})
+D:\ApexOptions\data\research\13nov\work\R03\s04_classify_pool.py:187: Pandas4Warning: Starting with pandas version 4.0 all arguments of mean will be keyword-only.
+  st = pd.DataFrame({"mean": M.mean(1), "pos": (M > 0).mean(1), "nd": len(ds)})
+D:\ApexOptions\data\research\13nov\work\R03\s04_classify_pool.py:187: Pandas4Warning: Starting with pandas version 4.0 all arguments of mean will be keyword-only.
+  st = pd.DataFrame({"mean": M.mean(1), "pos": (M > 0).mean(1), "nd": len(ds)})
+D:\ApexOptions\data\research\13nov\work\R03\s04_classify_pool.py:187: Pandas4Warning: Starting with pandas version 4.0 all arguments of mean will be keyword-only.
+  st = pd.DataFrame({"mean": M.mean(1), "pos": (M > 0).mean(1), "nd": len(ds)})
+D:\ApexOptions\data\research\13nov\work\R03\s04_classify_pool.py:187: Pandas4Warning: Starting with pandas version 4.0 all arguments of mean will be keyword-only.
+  st = pd.DataFrame({"mean": M.mean(1), "pos": (M > 0).mean(1), "nd": len(ds)})
+D:\ApexOptions\data\research\13nov\work\R03\s04_classify_pool.py:187: Pandas4Warning: Starting with pandas version 4.0 all arguments of mean will be keyword-only.
+  st = pd.DataFrame({"mean": M.mean(1), "pos": (M > 0).mean(1), "nd": len(ds)})
+D:\ApexOptions\data\research\13nov\work\R03\s04_classify_pool.py:187: Pandas4Warning: Starting with pandas version 4.0 all arguments of mean will be keyword-only.
+  st = pd.DataFrame({"mean": M.mean(1), "pos": (M > 0).mean(1), "nd": len(ds)})
+D:\ApexOptions\data\research\13nov\work\R03\s04_classify_pool.py:187: Pandas4Warning: Starting with pandas version 4.0 all arguments of mean will be keyword-only.
+  st = pd.DataFrame({"mean": M.mean(1), "pos": (M > 0).mean(1), "nd": len(ds)})
+D:\ApexOptions\data\research\13nov\work\R03\s04_classify_pool.py:187: Pandas4Warning: Starting with pandas version 4.0 all arguments of mean will be keyword-only.
+  st = pd.DataFrame({"mean": M.mean(1), "pos": (M > 0).mean(1), "nd": len(ds)})
+D:\ApexOptions\data\research\13nov\work\R03\s04_classify_pool.py:187: Pandas4Warning: Starting with pandas version 4.0 all arguments of mean will be keyword-only.
+  st = pd.DataFrame({"mean": M.mean(1), "pos": (M > 0).mean(1), "nd": len(ds)})
+D:\ApexOptions\data\research\13nov\work\R03\s04_classify_pool.py:187: Pandas4Warning: Starting with pandas version 4.0 all arguments of mean will be keyword-only.
+  st = pd.DataFrame({"mean": M.mean(1), "pos": (M > 0).mean(1), "nd": len(ds)})
+D:\ApexOptions\data\research\13nov\work\R03\s04_classify_pool.py:187: Pandas4Warning: Starting with pandas version 4.0 all arguments of mean will be keyword-only.
+  st = pd.DataFrame({"mean": M.mean(1), "pos": (M > 0).mean(1), "nd": len(ds)})
+D:\ApexOptions\data\research\13nov\work\R03\s04_classify_pool.py:187: Pandas4Warning: Starting with pandas version 4.0 all arguments of mean will be keyword-only.
+  st = pd.DataFrame({"mean": M.mean(1), "pos": (M > 0).mean(1), "nd": len(ds)})
+D:\ApexOptions\data\research\13nov\work\R03\s04_classify_pool.py:187: Pandas4Warning: Starting with pandas version 4.0 all arguments of mean will be keyword-only.
+  st = pd.DataFrame({"mean": M.mean(1), "pos": (M > 0).mean(1), "nd": len(ds)})
+D:\ApexOptions\data\research\13nov\work\R03\s04_classify_pool.py:187: Pandas4Warning: Starting with pandas version 4.0 all arguments of mean will be keyword-only.
+  st = pd.DataFrame({"mean": M.mean(1), "pos": (M > 0).mean(1), "nd": len(ds)})
+D:\ApexOptions\data\research\13nov\work\R03\s04_classify_pool.py:187: Pandas4Warning: Starting with pandas version 4.0 all arguments of mean will be keyword-only.
+  st = pd.DataFrame({"mean": M.mean(1), "pos": (M > 0).mean(1), "nd": len(ds)})
+D:\ApexOptions\data\research\13nov\work\R03\s04_classify_pool.py:187: Pandas4Warning: Starting with pandas version 4.0 all arguments of mean will be keyword-only.
+  st = pd.DataFrame({"mean": M.mean(1), "pos": (M > 0).mean(1), "nd": len(ds)})
+D:\ApexOptions\data\research\13nov\work\R03\s04_classify_pool.py:187: Pandas4Warning: Starting with pandas version 4.0 all arguments of mean will be keyword-only.
+  st = pd.DataFrame({"mean": M.mean(1), "pos": (M > 0).mean(1), "nd": len(ds)})
+D:\ApexOptions\data\research\13nov\work\R03\s04_classify_pool.py:187: Pandas4Warning: Starting with pandas version 4.0 all arguments of mean will be keyword-only.
+  st = pd.DataFrame({"mean": M.mean(1), "pos": (M > 0).mean(1), "nd": len(ds)})
+D:\ApexOptions\data\research\13nov\work\R03\s04_classify_pool.py:187: Pandas4Warning: Starting with pandas version 4.0 all arguments of mean will be keyword-only.
+  st = pd.DataFrame({"mean": M.mean(1), "pos": (M > 0).mean(1), "nd": len(ds)})
+D:\ApexOptions\data\research\13nov\work\R03\s04_classify_pool.py:187: Pandas4Warning: Starting with pandas version 4.0 all arguments of mean will be keyword-only.
+  st = pd.DataFrame({"mean": M.mean(1), "pos": (M > 0).mean(1), "nd": len(ds)})
+D:\ApexOptions\data\research\13nov\work\R03\s04_classify_pool.py:187: Pandas4Warning: Starting with pandas version 4.0 all arguments of mean will be keyword-only.
+  st = pd.DataFrame({"mean": M.mean(1), "pos": (M > 0).mean(1), "nd": len(ds)})
+D:\ApexOptions\data\research\13nov\work\R03\s04_classify_pool.py:187: Pandas4Warning: Starting with pandas version 4.0 all arguments of mean will be keyword-only.
+  st = pd.DataFrame({"mean": M.mean(1), "pos": (M > 0).mean(1), "nd": len(ds)})
+D:\ApexOptions\data\research\13nov\work\R03\s04_classify_pool.py:187: Pandas4Warning: Starting with pandas version 4.0 all arguments of mean will be keyword-only.
+  st = pd.DataFrame({"mean": M.mean(1), "pos": (M > 0).mean(1), "nd": len(ds)})
+D:\ApexOptions\data\research\13nov\work\R03\s04_classify_pool.py:187: Pandas4Warning: Starting with pandas version 4.0 all arguments of mean will be keyword-only.
+  st = pd.DataFrame({"mean": M.mean(1), "pos": (M > 0).mean(1), "nd": len(ds)})
+D:\ApexOptions\data\research\13nov\work\R03\s04_classify_pool.py:187: Pandas4Warning: Starting with pandas version 4.0 all arguments of mean will be keyword-only.
+  st = pd.DataFrame({"mean": M.mean(1), "pos": (M > 0).mean(1), "nd": len(ds)})
+D:\ApexOptions\data\research\13nov\work\R03\s04_classify_pool.py:187: Pandas4Warning: Starting with pandas version 4.0 all arguments of mean will be keyword-only.
+  st = pd.DataFrame({"mean": M.mean(1), "pos": (M > 0).mean(1), "nd": len(ds)})
+D:\ApexOptions\data\research\13nov\work\R03\s04_classify_pool.py:187: Pandas4Warning: Starting with pandas version 4.0 all arguments of mean will be keyword-only.
+  st = pd.DataFrame({"mean": M.mean(1), "pos": (M > 0).mean(1), "nd": len(ds)})
+D:\ApexOptions\data\research\13nov\work\R03\s04_classify_pool.py:187: Pandas4Warning: Starting with pandas version 4.0 all arguments of mean will be keyword-only.
+  st = pd.DataFrame({"mean": M.mean(1), "pos": (M > 0).mean(1), "nd": len(ds)})
+D:\ApexOptions\data\research\13nov\work\R03\s04_classify_pool.py:187: Pandas4Warning: Starting with pandas version 4.0 all arguments of mean will be keyword-only.
+  st = pd.DataFrame({"mean": M.mean(1), "pos": (M > 0).mean(1), "nd": len(ds)})
+D:\ApexOptions\data\research\13nov\work\R03\s04_classify_pool.py:187: Pandas4Warning: Starting with pandas version 4.0 all arguments of mean will be keyword-only.
+  st = pd.DataFrame({"mean": M.mean(1), "pos": (M > 0).mean(1), "nd": len(ds)})
+D:\ApexOptions\data\research\13nov\work\R03\s04_classify_pool.py:187: Pandas4Warning: Starting with pandas version 4.0 all arguments of mean will be keyword-only.
+  st = pd.DataFrame({"mean": M.mean(1), "pos": (M > 0).mean(1), "nd": len(ds)})
+D:\ApexOptions\data\research\13nov\work\R03\s04_classify_pool.py:187: Pandas4Warning: Starting with pandas version 4.0 all arguments of mean will be keyword-only.
+  st = pd.DataFrame({"mean": M.mean(1), "pos": (M > 0).mean(1), "nd": len(ds)})
+D:\ApexOptions\data\research\13nov\work\R03\s04_classify_pool.py:187: Pandas4Warning: Starting with pandas version 4.0 all arguments of mean will be keyword-only.
+  st = pd.DataFrame({"mean": M.mean(1), "pos": (M > 0).mean(1), "nd": len(ds)})
+D:\ApexOptions\data\research\13nov\work\R03\s04_classify_pool.py:187: Pandas4Warning: Starting with pandas version 4.0 all arguments of mean will be keyword-only.
+  st = pd.DataFrame({"mean": M.mean(1), "pos": (M > 0).mean(1), "nd": len(ds)})
+D:\ApexOptions\data\research\13nov\work\R03\s04_classify_pool.py:187: Pandas4Warning: Starting with pandas version 4.0 all arguments of mean will be keyword-only.
+  st = pd.DataFrame({"mean": M.mean(1), "pos": (M > 0).mean(1), "nd": len(ds)})
+D:\ApexOptions\data\research\13nov\work\R03\s04_classify_pool.py:187: Pandas4Warning: Starting with pandas version 4.0 all arguments of mean will be keyword-only.
+  st = pd.DataFrame({"mean": M.mean(1), "pos": (M > 0).mean(1), "nd": len(ds)})
+D:\ApexOptions\data\research\13nov\work\R03\s04_classify_pool.py:187: Pandas4Warning: Starting with pandas version 4.0 all arguments of mean will be keyword-only.
+  st = pd.DataFrame({"mean": M.mean(1), "pos": (M > 0).mean(1), "nd": len(ds)})
+D:\ApexOptions\data\research\13nov\work\R03\s04_classify_pool.py:187: Pandas4Warning: Starting with pandas version 4.0 all arguments of mean will be keyword-only.
+  st = pd.DataFrame({"mean": M.mean(1), "pos": (M > 0).mean(1), "nd": len(ds)})
+D:\ApexOptions\data\research\13nov\work\R03\s04_classify_pool.py:187: Pandas4Warning: Starting with pandas version 4.0 all arguments of mean will be keyword-only.
+  st = pd.DataFrame({"mean": M.mean(1), "pos": (M > 0).mean(1), "nd": len(ds)})
+D:\ApexOptions\data\research\13nov\work\R03\s04_classify_pool.py:187: Pandas4Warning: Starting with pandas version 4.0 all arguments of mean will be keyword-only.
+  st = pd.DataFrame({"mean": M.mean(1), "pos": (M > 0).mean(1), "nd": len(ds)})
+D:\ApexOptions\data\research\13nov\work\R03\s04_classify_pool.py:187: Pandas4Warning: Starting with pandas version 4.0 all arguments of mean will be keyword-only.
+  st = pd.DataFrame({"mean": M.mean(1), "pos": (M > 0).mean(1), "nd": len(ds)})
+D:\ApexOptions\data\research\13nov\work\R03\s04_classify_pool.py:187: Pandas4Warning: Starting with pandas version 4.0 all arguments of mean will be keyword-only.
+  st = pd.DataFrame({"mean": M.mean(1), "pos": (M > 0).mean(1), "nd": len(ds)})
+D:\ApexOptions\data\research\13nov\work\R03\s04_classify_pool.py:187: Pandas4Warning: Starting with pandas version 4.0 all arguments of mean will be keyword-only.
+  st = pd.DataFrame({"mean": M.mean(1), "pos": (M > 0).mean(1), "nd": len(ds)})
+D:\ApexOptions\data\research\13nov\work\R03\s04_classify_pool.py:187: Pandas4Warning: Starting with pandas version 4.0 all arguments of mean will be keyword-only.
+  st = pd.DataFrame({"mean": M.mean(1), "pos": (M > 0).mean(1), "nd": len(ds)})
+D:\ApexOptions\data\research\13nov\work\R03\s04_classify_pool.py:187: Pandas4Warning: Starting with pandas version 4.0 all arguments of mean will be keyword-only.
+  st = pd.DataFrame({"mean": M.mean(1), "pos": (M > 0).mean(1), "nd": len(ds)})
+D:\ApexOptions\data\research\13nov\work\R03\s04_classify_pool.py:187: Pandas4Warning: Starting with pandas version 4.0 all arguments of mean will be keyword-only.
+  st = pd.DataFrame({"mean": M.mean(1), "pos": (M > 0).mean(1), "nd": len(ds)})
+D:\ApexOptions\data\research\13nov\work\R03\s04_classify_pool.py:187: Pandas4Warning: Starting with pandas version 4.0 all arguments of mean will be keyword-only.
+  st = pd.DataFrame({"mean": M.mean(1), "pos": (M > 0).mean(1), "nd": len(ds)})
+D:\ApexOptions\data\research\13nov\work\R03\s04_classify_pool.py:187: Pandas4Warning: Starting with pandas version 4.0 all arguments of mean will be keyword-only.
+  st = pd.DataFrame({"mean": M.mean(1), "pos": (M > 0).mean(1), "nd": len(ds)})
+D:\ApexOptions\data\research\13nov\work\R03\s04_classify_pool.py:187: Pandas4Warning: Starting with pandas version 4.0 all arguments of mean will be keyword-only.
+  st = pd.DataFrame({"mean": M.mean(1), "pos": (M > 0).mean(1), "nd": len(ds)})
+D:\ApexOptions\data\research\13nov\work\R03\s04_classify_pool.py:187: Pandas4Warning: Starting with pandas version 4.0 all arguments of mean will be keyword-only.
+  st = pd.DataFrame({"mean": M.mean(1), "pos": (M > 0).mean(1), "nd": len(ds)})
+D:\ApexOptions\data\research\13nov\work\R03\s04_classify_pool.py:187: Pandas4Warning: Starting with pandas version 4.0 all arguments of mean will be keyword-only.
+  st = pd.DataFrame({"mean": M.mean(1), "pos": (M > 0).mean(1), "nd": len(ds)})
+D:\ApexOptions\data\research\13nov\work\R03\s04_classify_pool.py:187: Pandas4Warning: Starting with pandas version 4.0 all arguments of mean will be keyword-only.
+  st = pd.DataFrame({"mean": M.mean(1), "pos": (M > 0).mean(1), "nd": len(ds)})
+D:\ApexOptions\data\research\13nov\work\R03\s04_classify_pool.py:187: Pandas4Warning: Starting with pandas version 4.0 all arguments of mean will be keyword-only.
+  st = pd.DataFrame({"mean": M.mean(1), "pos": (M > 0).mean(1), "nd": len(ds)})
+D:\ApexOptions\data\research\13nov\work\R03\s04_classify_pool.py:187: Pandas4Warning: Starting with pandas version 4.0 all arguments of mean will be keyword-only.
+  st = pd.DataFrame({"mean": M.mean(1), "pos": (M > 0).mean(1), "nd": len(ds)})
+D:\ApexOptions\data\research\13nov\work\R03\s04_classify_pool.py:187: Pandas4Warning: Starting with pandas version 4.0 all arguments of mean will be keyword-only.
+  st = pd.DataFrame({"mean": M.mean(1), "pos": (M > 0).mean(1), "nd": len(ds)})
+D:\ApexOptions\data\research\13nov\work\R03\s04_classify_pool.py:187: Pandas4Warning: Starting with pandas version 4.0 all arguments of mean will be keyword-only.
+  st = pd.DataFrame({"mean": M.mean(1), "pos": (M > 0).mean(1), "nd": len(ds)})
+D:\ApexOptions\data\research\13nov\work\R03\s04_classify_pool.py:187: Pandas4Warning: Starting with pandas version 4.0 all arguments of mean will be keyword-only.
+  st = pd.DataFrame({"mean": M.mean(1), "pos": (M > 0).mean(1), "nd": len(ds)})
+D:\ApexOptions\data\research\13nov\work\R03\s04_classify_pool.py:187: Pandas4Warning: Starting with pandas version 4.0 all arguments of mean will be keyword-only.
+  st = pd.DataFrame({"mean": M.mean(1), "pos": (M > 0).mean(1), "nd": len(ds)})
+D:\ApexOptions\data\research\13nov\work\R03\s04_classify_pool.py:187: Pandas4Warning: Starting with pandas version 4.0 all arguments of mean will be keyword-only.
+  st = pd.DataFrame({"mean": M.mean(1), "pos": (M > 0).mean(1), "nd": len(ds)})
+D:\ApexOptions\data\research\13nov\work\R03\s04_classify_pool.py:187: Pandas4Warning: Starting with pandas version 4.0 all arguments of mean will be keyword-only.
+  st = pd.DataFrame({"mean": M.mean(1), "pos": (M > 0).mean(1), "nd": len(ds)})
+D:\ApexOptions\data\research\13nov\work\R03\s04_classify_pool.py:187: Pandas4Warning: Starting with pandas version 4.0 all arguments of mean will be keyword-only.
+  st = pd.DataFrame({"mean": M.mean(1), "pos": (M > 0).mean(1), "nd": len(ds)})
+D:\ApexOptions\data\research\13nov\work\R03\s04_classify_pool.py:187: Pandas4Warning: Starting with pandas version 4.0 all arguments of mean will be keyword-only.
+  st = pd.DataFrame({"mean": M.mean(1), "pos": (M > 0).mean(1), "nd": len(ds)})
+D:\ApexOptions\data\research\13nov\work\R03\s04_classify_pool.py:187: Pandas4Warning: Starting with pandas version 4.0 all arguments of mean will be keyword-only.
+  st = pd.DataFrame({"mean": M.mean(1), "pos": (M > 0).mean(1), "nd": len(ds)})
+D:\ApexOptions\data\research\13nov\work\R03\s04_classify_pool.py:187: Pandas4Warning: Starting with pandas version 4.0 all arguments of mean will be keyword-only.
+  st = pd.DataFrame({"mean": M.mean(1), "pos": (M > 0).mean(1), "nd": len(ds)})
+D:\ApexOptions\data\research\13nov\work\R03\s04_classify_pool.py:187: Pandas4Warning: Starting with pandas version 4.0 all arguments of mean will be keyword-only.
+  st = pd.DataFrame({"mean": M.mean(1), "pos": (M > 0).mean(1), "nd": len(ds)})
+D:\ApexOptions\data\research\13nov\work\R03\s04_classify_pool.py:187: Pandas4Warning: Starting with pandas version 4.0 all arguments of mean will be keyword-only.
+  st = pd.DataFrame({"mean": M.mean(1), "pos": (M > 0).mean(1), "nd": len(ds)})
+D:\ApexOptions\data\research\13nov\work\R03\s04_classify_pool.py:187: Pandas4Warning: Starting with pandas version 4.0 all arguments of mean will be keyword-only.
+  st = pd.DataFrame({"mean": M.mean(1), "pos": (M > 0).mean(1), "nd": len(ds)})
+D:\ApexOptions\data\research\13nov\work\R03\s04_classify_pool.py:187: Pandas4Warning: Starting with pandas version 4.0 all arguments of mean will be keyword-only.
+  st = pd.DataFrame({"mean": M.mean(1), "pos": (M > 0).mean(1), "nd": len(ds)})
+D:\ApexOptions\data\research\13nov\work\R03\s04_classify_pool.py:187: Pandas4Warning: Starting with pandas version 4.0 all arguments of mean will be keyword-only.
+  st = pd.DataFrame({"mean": M.mean(1), "pos": (M > 0).mean(1), "nd": len(ds)})
+D:\ApexOptions\data\research\13nov\work\R03\s04_classify_pool.py:187: Pandas4Warning: Starting with pandas version 4.0 all arguments of mean will be keyword-only.
+  st = pd.DataFrame({"mean": M.mean(1), "pos": (M > 0).mean(1), "nd": len(ds)})
+D:\ApexOptions\data\research\13nov\work\R03\s04_classify_pool.py:187: Pandas4Warning: Starting with pandas version 4.0 all arguments of mean will be keyword-only.
+  st = pd.DataFrame({"mean": M.mean(1), "pos": (M > 0).mean(1), "nd": len(ds)})
+D:\ApexOptions\data\research\13nov\work\R03\s04_classify_pool.py:187: Pandas4Warning: Starting with pandas version 4.0 all arguments of mean will be keyword-only.
+  st = pd.DataFrame({"mean": M.mean(1), "pos": (M > 0).mean(1), "nd": len(ds)})
+D:\ApexOptions\data\research\13nov\work\R03\s04_classify_pool.py:187: Pandas4Warning: Starting with pandas version 4.0 all arguments of mean will be keyword-only.
+  st = pd.DataFrame({"mean": M.mean(1), "pos": (M > 0).mean(1), "nd": len(ds)})
+D:\ApexOptions\data\research\13nov\work\R03\s04_classify_pool.py:187: Pandas4Warning: Starting with pandas version 4.0 all arguments of mean will be keyword-only.
+  st = pd.DataFrame({"mean": M.mean(1), "pos": (M > 0).mean(1), "nd": len(ds)})
+D:\ApexOptions\data\research\13nov\work\R03\s04_classify_pool.py:187: Pandas4Warning: Starting with pandas version 4.0 all arguments of mean will be keyword-only.
+  st = pd.DataFrame({"mean": M.mean(1), "pos": (M > 0).mean(1), "nd": len(ds)})
+D:\ApexOptions\data\research\13nov\work\R03\s04_classify_pool.py:187: Pandas4Warning: Starting with pandas version 4.0 all arguments of mean will be keyword-only.
+  st = pd.DataFrame({"mean": M.mean(1), "pos": (M > 0).mean(1), "nd": len(ds)})
+D:\ApexOptions\data\research\13nov\work\R03\s04_classify_pool.py:187: Pandas4Warning: Starting with pandas version 4.0 all arguments of mean will be keyword-only.
+  st = pd.DataFrame({"mean": M.mean(1), "pos": (M > 0).mean(1), "nd": len(ds)})
+D:\ApexOptions\data\research\13nov\work\R03\s04_classify_pool.py:187: Pandas4Warning: Starting with pandas version 4.0 all arguments of mean will be keyword-only.
+  st = pd.DataFrame({"mean": M.mean(1), "pos": (M > 0).mean(1), "nd": len(ds)})
+D:\ApexOptions\data\research\13nov\work\R03\s04_classify_pool.py:187: Pandas4Warning: Starting with pandas version 4.0 all arguments of mean will be keyword-only.
+  st = pd.DataFrame({"mean": M.mean(1), "pos": (M > 0).mean(1), "nd": len(ds)})
+D:\ApexOptions\data\research\13nov\work\R03\s04_classify_pool.py:187: Pandas4Warning: Starting with pandas version 4.0 all arguments of mean will be keyword-only.
+  st = pd.DataFrame({"mean": M.mean(1), "pos": (M > 0).mean(1), "nd": len(ds)})
+D:\ApexOptions\data\research\13nov\work\R03\s04_classify_pool.py:187: Pandas4Warning: Starting with pandas version 4.0 all arguments of mean will be keyword-only.
+  st = pd.DataFrame({"mean": M.mean(1), "pos": (M > 0).mean(1), "nd": len(ds)})
+D:\ApexOptions\data\research\13nov\work\R03\s04_classify_pool.py:187: Pandas4Warning: Starting with pandas version 4.0 all arguments of mean will be keyword-only.
+  st = pd.DataFrame({"mean": M.mean(1), "pos": (M > 0).mean(1), "nd": len(ds)})
+D:\ApexOptions\data\research\13nov\work\R03\s04_classify_pool.py:187: Pandas4Warning: Starting with pandas version 4.0 all arguments of mean will be keyword-only.
+  st = pd.DataFrame({"mean": M.mean(1), "pos": (M > 0).mean(1), "nd": len(ds)})
+D:\ApexOptions\data\research\13nov\work\R03\s04_classify_pool.py:187: Pandas4Warning: Starting with pandas version 4.0 all arguments of mean will be keyword-only.
+  st = pd.DataFrame({"mean": M.mean(1), "pos": (M > 0).mean(1), "nd": len(ds)})
+D:\ApexOptions\data\research\13nov\work\R03\s04_classify_pool.py:187: Pandas4Warning: Starting with pandas version 4.0 all arguments of mean will be keyword-only.
+  st = pd.DataFrame({"mean": M.mean(1), "pos": (M > 0).mean(1), "nd": len(ds)})
+D:\ApexOptions\data\research\13nov\work\R03\s04_classify_pool.py:187: Pandas4Warning: Starting with pandas version 4.0 all arguments of mean will be keyword-only.
+  st = pd.DataFrame({"mean": M.mean(1), "pos": (M > 0).mean(1), "nd": len(ds)})
+D:\ApexOptions\data\research\13nov\work\R03\s04_classify_pool.py:187: Pandas4Warning: Starting with pandas version 4.0 all arguments of mean will be keyword-only.
+  st = pd.DataFrame({"mean": M.mean(1), "pos": (M > 0).mean(1), "nd": len(ds)})
+D:\ApexOptions\data\research\13nov\work\R03\s04_classify_pool.py:187: Pandas4Warning: Starting with pandas version 4.0 all arguments of mean will be keyword-only.
+  st = pd.DataFrame({"mean": M.mean(1), "pos": (M > 0).mean(1), "nd": len(ds)})
+D:\ApexOptions\data\research\13nov\work\R03\s04_classify_pool.py:187: Pandas4Warning: Starting with pandas version 4.0 all arguments of mean will be keyword-only.
+  st = pd.DataFrame({"mean": M.mean(1), "pos": (M > 0).mean(1), "nd": len(ds)})
+D:\ApexOptions\data\research\13nov\work\R03\s04_classify_pool.py:187: Pandas4Warning: Starting with pandas version 4.0 all arguments of mean will be keyword-only.
+  st = pd.DataFrame({"mean": M.mean(1), "pos": (M > 0).mean(1), "nd": len(ds)})
+D:\ApexOptions\data\research\13nov\work\R03\s04_classify_pool.py:187: Pandas4Warning: Starting with pandas version 4.0 all arguments of mean will be keyword-only.
+  st = pd.DataFrame({"mean": M.mean(1), "pos": (M > 0).mean(1), "nd": len(ds)})
+D:\ApexOptions\data\research\13nov\work\R03\s04_classify_pool.py:187: Pandas4Warning: Starting with pandas version 4.0 all arguments of mean will be keyword-only.
+  st = pd.DataFrame({"mean": M.mean(1), "pos": (M > 0).mean(1), "nd": len(ds)})
+D:\ApexOptions\data\research\13nov\work\R03\s04_classify_pool.py:187: Pandas4Warning: Starting with pandas version 4.0 all arguments of mean will be keyword-only.
+  st = pd.DataFrame({"mean": M.mean(1), "pos": (M > 0).mean(1), "nd": len(ds)})
+D:\ApexOptions\data\research\13nov\work\R03\s04_classify_pool.py:187: Pandas4Warning: Starting with pandas version 4.0 all arguments of mean will be keyword-only.
+  st = pd.DataFrame({"mean": M.mean(1), "pos": (M > 0).mean(1), "nd": len(ds)})
+D:\ApexOptions\data\research\13nov\work\R03\s04_classify_pool.py:187: Pandas4Warning: Starting with pandas version 4.0 all arguments of mean will be keyword-only.
+  st = pd.DataFrame({"mean": M.mean(1), "pos": (M > 0).mean(1), "nd": len(ds)})
+D:\ApexOptions\data\research\13nov\work\R03\s04_classify_pool.py:187: Pandas4Warning: Starting with pandas version 4.0 all arguments of mean will be keyword-only.
+  st = pd.DataFrame({"mean": M.mean(1), "pos": (M > 0).mean(1), "nd": len(ds)})
+D:\ApexOptions\data\research\13nov\work\R03\s04_classify_pool.py:187: Pandas4Warning: Starting with pandas version 4.0 all arguments of mean will be keyword-only.
+  st = pd.DataFrame({"mean": M.mean(1), "pos": (M > 0).mean(1), "nd": len(ds)})
+D:\ApexOptions\data\research\13nov\work\R03\s04_classify_pool.py:187: Pandas4Warning: Starting with pandas version 4.0 all arguments of mean will be keyword-only.
+  st = pd.DataFrame({"mean": M.mean(1), "pos": (M > 0).mean(1), "nd": len(ds)})
+D:\ApexOptions\data\research\13nov\work\R03\s04_classify_pool.py:187: Pandas4Warning: Starting with pandas version 4.0 all arguments of mean will be keyword-only.
+  st = pd.DataFrame({"mean": M.mean(1), "pos": (M > 0).mean(1), "nd": len(ds)})
+D:\ApexOptions\data\research\13nov\work\R03\s04_classify_pool.py:187: Pandas4Warning: Starting with pandas version 4.0 all arguments of mean will be keyword-only.
+  st = pd.DataFrame({"mean": M.mean(1), "pos": (M > 0).mean(1), "nd": len(ds)})
+D:\ApexOptions\data\research\13nov\work\R03\s04_classify_pool.py:187: Pandas4Warning: Starting with pandas version 4.0 all arguments of mean will be keyword-only.
+  st = pd.DataFrame({"mean": M.mean(1), "pos": (M > 0).mean(1), "nd": len(ds)})
+D:\ApexOptions\data\research\13nov\work\R03\s04_classify_pool.py:187: Pandas4Warning: Starting with pandas version 4.0 all arguments of mean will be keyword-only.
+  st = pd.DataFrame({"mean": M.mean(1), "pos": (M > 0).mean(1), "nd": len(ds)})
+D:\ApexOptions\data\research\13nov\work\R03\s04_classify_pool.py:187: Pandas4Warning: Starting with pandas version 4.0 all arguments of mean will be keyword-only.
+  st = pd.DataFrame({"mean": M.mean(1), "pos": (M > 0).mean(1), "nd": len(ds)})
+D:\ApexOptions\data\research\13nov\work\R03\s04_classify_pool.py:187: Pandas4Warning: Starting with pandas version 4.0 all arguments of mean will be keyword-only.
+  st = pd.DataFrame({"mean": M.mean(1), "pos": (M > 0).mean(1), "nd": len(ds)})
+D:\ApexOptions\data\research\13nov\work\R03\s04_classify_pool.py:187: Pandas4Warning: Starting with pandas version 4.0 all arguments of mean will be keyword-only.
+  st = pd.DataFrame({"mean": M.mean(1), "pos": (M > 0).mean(1), "nd": len(ds)})
+D:\ApexOptions\data\research\13nov\work\R03\s04_classify_pool.py:187: Pandas4Warning: Starting with pandas version 4.0 all arguments of mean will be keyword-only.
+  st = pd.DataFrame({"mean": M.mean(1), "pos": (M > 0).mean(1), "nd": len(ds)})
+D:\ApexOptions\data\research\13nov\work\R03\s04_classify_pool.py:187: Pandas4Warning: Starting with pandas version 4.0 all arguments of mean will be keyword-only.
+  st = pd.DataFrame({"mean": M.mean(1), "pos": (M > 0).mean(1), "nd": len(ds)})
+D:\ApexOptions\data\research\13nov\work\R03\s04_classify_pool.py:187: Pandas4Warning: Starting with pandas version 4.0 all arguments of mean will be keyword-only.
+  st = pd.DataFrame({"mean": M.mean(1), "pos": (M > 0).mean(1), "nd": len(ds)})
+D:\ApexOptions\data\research\13nov\work\R03\s04_classify_pool.py:187: Pandas4Warning: Starting with pandas version 4.0 all arguments of mean will be keyword-only.
+  st = pd.DataFrame({"mean": M.mean(1), "pos": (M > 0).mean(1), "nd": len(ds)})
+D:\ApexOptions\data\research\13nov\work\R03\s04_classify_pool.py:187: Pandas4Warning: Starting with pandas version 4.0 all arguments of mean will be keyword-only.
+  st = pd.DataFrame({"mean": M.mean(1), "pos": (M > 0).mean(1), "nd": len(ds)})
+D:\ApexOptions\data\research\13nov\work\R03\s04_classify_pool.py:187: Pandas4Warning: Starting with pandas version 4.0 all arguments of mean will be keyword-only.
+  st = pd.DataFrame({"mean": M.mean(1), "pos": (M > 0).mean(1), "nd": len(ds)})
+D:\ApexOptions\data\research\13nov\work\R03\s04_classify_pool.py:187: Pandas4Warning: Starting with pandas version 4.0 all arguments of mean will be keyword-only.
+  st = pd.DataFrame({"mean": M.mean(1), "pos": (M > 0).mean(1), "nd": len(ds)})
+D:\ApexOptions\data\research\13nov\work\R03\s04_classify_pool.py:187: Pandas4Warning: Starting with pandas version 4.0 all arguments of mean will be keyword-only.
+  st = pd.DataFrame({"mean": M.mean(1), "pos": (M > 0).mean(1), "nd": len(ds)})
+D:\ApexOptions\data\research\13nov\work\R03\s04_classify_pool.py:187: Pandas4Warning: Starting with pandas version 4.0 all arguments of mean will be keyword-only.
+  st = pd.DataFrame({"mean": M.mean(1), "pos": (M > 0).mean(1), "nd": len(ds)})
+D:\ApexOptions\data\research\13nov\work\R03\s04_classify_pool.py:187: Pandas4Warning: Starting with pandas version 4.0 all arguments of mean will be keyword-only.
+  st = pd.DataFrame({"mean": M.mean(1), "pos": (M > 0).mean(1), "nd": len(ds)})
+D:\ApexOptions\data\research\13nov\work\R03\s04_classify_pool.py:187: Pandas4Warning: Starting with pandas version 4.0 all arguments of mean will be keyword-only.
+  st = pd.DataFrame({"mean": M.mean(1), "pos": (M > 0).mean(1), "nd": len(ds)})
+D:\ApexOptions\data\research\13nov\work\R03\s04_classify_pool.py:187: Pandas4Warning: Starting with pandas version 4.0 all arguments of mean will be keyword-only.
+  st = pd.DataFrame({"mean": M.mean(1), "pos": (M > 0).mean(1), "nd": len(ds)})
+D:\ApexOptions\data\research\13nov\work\R03\s04_classify_pool.py:187: Pandas4Warning: Starting with pandas version 4.0 all arguments of mean will be keyword-only.
+  st = pd.DataFrame({"mean": M.mean(1), "pos": (M > 0).mean(1), "nd": len(ds)})
+D:\ApexOptions\data\research\13nov\work\R03\s04_classify_pool.py:187: Pandas4Warning: Starting with pandas version 4.0 all arguments of mean will be keyword-only.
+  st = pd.DataFrame({"mean": M.mean(1), "pos": (M > 0).mean(1), "nd": len(ds)})
+D:\ApexOptions\data\research\13nov\work\R03\s04_classify_pool.py:187: Pandas4Warning: Starting with pandas version 4.0 all arguments of mean will be keyword-only.
+  st = pd.DataFrame({"mean": M.mean(1), "pos": (M > 0).mean(1), "nd": len(ds)})
+D:\ApexOptions\data\research\13nov\work\R03\s04_classify_pool.py:187: Pandas4Warning: Starting with pandas version 4.0 all arguments of mean will be keyword-only.
+  st = pd.DataFrame({"mean": M.mean(1), "pos": (M > 0).mean(1), "nd": len(ds)})
+D:\ApexOptions\data\research\13nov\work\R03\s04_classify_pool.py:187: Pandas4Warning: Starting with pandas version 4.0 all arguments of mean will be keyword-only.
+  st = pd.DataFrame({"mean": M.mean(1), "pos": (M > 0).mean(1), "nd": len(ds)})
+D:\ApexOptions\data\research\13nov\work\R03\s04_classify_pool.py:187: Pandas4Warning: Starting with pandas version 4.0 all arguments of mean will be keyword-only.
+  st = pd.DataFrame({"mean": M.mean(1), "pos": (M > 0).mean(1), "nd": len(ds)})
+D:\ApexOptions\data\research\13nov\work\R03\s04_classify_pool.py:187: Pandas4Warning: Starting with pandas version 4.0 all arguments of mean will be keyword-only.
+  st = pd.DataFrame({"mean": M.mean(1), "pos": (M > 0).mean(1), "nd": len(ds)})
+D:\ApexOptions\data\research\13nov\work\R03\s04_classify_pool.py:187: Pandas4Warning: Starting with pandas version 4.0 all arguments of mean will be keyword-only.
+  st = pd.DataFrame({"mean": M.mean(1), "pos": (M > 0).mean(1), "nd": len(ds)})
+D:\ApexOptions\data\research\13nov\work\R03\s04_classify_pool.py:187: Pandas4Warning: Starting with pandas version 4.0 all arguments of mean will be keyword-only.
+  st = pd.DataFrame({"mean": M.mean(1), "pos": (M > 0).mean(1), "nd": len(ds)})
+D:\ApexOptions\data\research\13nov\work\R03\s04_classify_pool.py:187: Pandas4Warning: Starting with pandas version 4.0 all arguments of mean will be keyword-only.
+  st = pd.DataFrame({"mean": M.mean(1), "pos": (M > 0).mean(1), "nd": len(ds)})
+D:\ApexOptions\data\research\13nov\work\R03\s04_classify_pool.py:187: Pandas4Warning: Starting with pandas version 4.0 all arguments of mean will be keyword-only.
+  st = pd.DataFrame({"mean": M.mean(1), "pos": (M > 0).mean(1), "nd": len(ds)})
+D:\ApexOptions\data\research\13nov\work\R03\s04_classify_pool.py:187: Pandas4Warning: Starting with pandas version 4.0 all arguments of mean will be keyword-only.
+  st = pd.DataFrame({"mean": M.mean(1), "pos": (M > 0).mean(1), "nd": len(ds)})
+D:\ApexOptions\data\research\13nov\work\R03\s04_classify_pool.py:187: Pandas4Warning: Starting with pandas version 4.0 all arguments of mean will be keyword-only.
+  st = pd.DataFrame({"mean": M.mean(1), "pos": (M > 0).mean(1), "nd": len(ds)})
+D:\ApexOptions\data\research\13nov\work\R03\s04_classify_pool.py:187: Pandas4Warning: Starting with pandas version 4.0 all arguments of mean will be keyword-only.
+  st = pd.DataFrame({"mean": M.mean(1), "pos": (M > 0).mean(1), "nd": len(ds)})
+D:\ApexOptions\data\research\13nov\work\R03\s04_classify_pool.py:187: Pandas4Warning: Starting with pandas version 4.0 all arguments of mean will be keyword-only.
+  st = pd.DataFrame({"mean": M.mean(1), "pos": (M > 0).mean(1), "nd": len(ds)})
+D:\ApexOptions\data\research\13nov\work\R03\s04_classify_pool.py:187: Pandas4Warning: Starting with pandas version 4.0 all arguments of mean will be keyword-only.
+  st = pd.DataFrame({"mean": M.mean(1), "pos": (M > 0).mean(1), "nd": len(ds)})
+D:\ApexOptions\data\research\13nov\work\R03\s04_classify_pool.py:187: Pandas4Warning: Starting with pandas version 4.0 all arguments of mean will be keyword-only.
+  st = pd.DataFrame({"mean": M.mean(1), "pos": (M > 0).mean(1), "nd": len(ds)})
+D:\ApexOptions\data\research\13nov\work\R03\s04_classify_pool.py:187: Pandas4Warning: Starting with pandas version 4.0 all arguments of mean will be keyword-only.
+  st = pd.DataFrame({"mean": M.mean(1), "pos": (M > 0).mean(1), "nd": len(ds)})
+D:\ApexOptions\data\research\13nov\work\R03\s04_classify_pool.py:187: Pandas4Warning: Starting with pandas version 4.0 all arguments of mean will be keyword-only.
+  st = pd.DataFrame({"mean": M.mean(1), "pos": (M > 0).mean(1), "nd": len(ds)})
+D:\ApexOptions\data\research\13nov\work\R03\s04_classify_pool.py:187: Pandas4Warning: Starting with pandas version 4.0 all arguments of mean will be keyword-only.
+  st = pd.DataFrame({"mean": M.mean(1), "pos": (M > 0).mean(1), "nd": len(ds)})
+D:\ApexOptions\data\research\13nov\work\R03\s04_classify_pool.py:187: Pandas4Warning: Starting with pandas version 4.0 all arguments of mean will be keyword-only.
+  st = pd.DataFrame({"mean": M.mean(1), "pos": (M > 0).mean(1), "nd": len(ds)})
+D:\ApexOptions\data\research\13nov\work\R03\s04_classify_pool.py:187: Pandas4Warning: Starting with pandas version 4.0 all arguments of mean will be keyword-only.
+  st = pd.DataFrame({"mean": M.mean(1), "pos": (M > 0).mean(1), "nd": len(ds)})
+D:\ApexOptions\data\research\13nov\work\R03\s04_classify_pool.py:187: Pandas4Warning: Starting with pandas version 4.0 all arguments of mean will be keyword-only.
+  st = pd.DataFrame({"mean": M.mean(1), "pos": (M > 0).mean(1), "nd": len(ds)})
+D:\ApexOptions\data\research\13nov\work\R03\s04_classify_pool.py:187: Pandas4Warning: Starting with pandas version 4.0 all arguments of mean will be keyword-only.
+  st = pd.DataFrame({"mean": M.mean(1), "pos": (M > 0).mean(1), "nd": len(ds)})
+D:\ApexOptions\data\research\13nov\work\R03\s04_classify_pool.py:187: Pandas4Warning: Starting with pandas version 4.0 all arguments of mean will be keyword-only.
+  st = pd.DataFrame({"mean": M.mean(1), "pos": (M > 0).mean(1), "nd": len(ds)})
+D:\ApexOptions\data\research\13nov\work\R03\s04_classify_pool.py:187: Pandas4Warning: Starting with pandas version 4.0 all arguments of mean will be keyword-only.
+  st = pd.DataFrame({"mean": M.mean(1), "pos": (M > 0).mean(1), "nd": len(ds)})
+D:\ApexOptions\data\research\13nov\work\R03\s04_classify_pool.py:187: Pandas4Warning: Starting with pandas version 4.0 all arguments of mean will be keyword-only.
+  st = pd.DataFrame({"mean": M.mean(1), "pos": (M > 0).mean(1), "nd": len(ds)})
+D:\ApexOptions\data\research\13nov\work\R03\s04_classify_pool.py:187: Pandas4Warning: Starting with pandas version 4.0 all arguments of mean will be keyword-only.
+  st = pd.DataFrame({"mean": M.mean(1), "pos": (M > 0).mean(1), "nd": len(ds)})
+D:\ApexOptions\data\research\13nov\work\R03\s04_classify_pool.py:187: Pandas4Warning: Starting with pandas version 4.0 all arguments of mean will be keyword-only.
+  st = pd.DataFrame({"mean": M.mean(1), "pos": (M > 0).mean(1), "nd": len(ds)})
+D:\ApexOptions\data\research\13nov\work\R03\s04_classify_pool.py:187: Pandas4Warning: Starting with pandas version 4.0 all arguments of mean will be keyword-only.
+  st = pd.DataFrame({"mean": M.mean(1), "pos": (M > 0).mean(1), "nd": len(ds)})
+D:\ApexOptions\data\research\13nov\work\R03\s04_classify_pool.py:187: Pandas4Warning: Starting with pandas version 4.0 all arguments of mean will be keyword-only.
+  st = pd.DataFrame({"mean": M.mean(1), "pos": (M > 0).mean(1), "nd": len(ds)})
+D:\ApexOptions\data\research\13nov\work\R03\s04_classify_pool.py:187: Pandas4Warning: Starting with pandas version 4.0 all arguments of mean will be keyword-only.
+  st = pd.DataFrame({"mean": M.mean(1), "pos": (M > 0).mean(1), "nd": len(ds)})
+D:\ApexOptions\data\research\13nov\work\R03\s04_classify_pool.py:187: Pandas4Warning: Starting with pandas version 4.0 all arguments of mean will be keyword-only.
+  st = pd.DataFrame({"mean": M.mean(1), "pos": (M > 0).mean(1), "nd": len(ds)})
+D:\ApexOptions\data\research\13nov\work\R03\s04_classify_pool.py:187: Pandas4Warning: Starting with pandas version 4.0 all arguments of mean will be keyword-only.
+  st = pd.DataFrame({"mean": M.mean(1), "pos": (M > 0).mean(1), "nd": len(ds)})
+D:\ApexOptions\data\research\13nov\work\R03\s04_classify_pool.py:187: Pandas4Warning: Starting with pandas version 4.0 all arguments of mean will be keyword-only.
+  st = pd.DataFrame({"mean": M.mean(1), "pos": (M > 0).mean(1), "nd": len(ds)})
+D:\ApexOptions\data\research\13nov\work\R03\s04_classify_pool.py:187: Pandas4Warning: Starting with pandas version 4.0 all arguments of mean will be keyword-only.
+  st = pd.DataFrame({"mean": M.mean(1), "pos": (M > 0).mean(1), "nd": len(ds)})
+D:\ApexOptions\data\research\13nov\work\R03\s04_classify_pool.py:187: Pandas4Warning: Starting with pandas version 4.0 all arguments of mean will be keyword-only.
+  st = pd.DataFrame({"mean": M.mean(1), "pos": (M > 0).mean(1), "nd": len(ds)})
+D:\ApexOptions\data\research\13nov\work\R03\s04_classify_pool.py:187: Pandas4Warning: Starting with pandas version 4.0 all arguments of mean will be keyword-only.
+  st = pd.DataFrame({"mean": M.mean(1), "pos": (M > 0).mean(1), "nd": len(ds)})
+D:\ApexOptions\data\research\13nov\work\R03\s04_classify_pool.py:187: Pandas4Warning: Starting with pandas version 4.0 all arguments of mean will be keyword-only.
+  st = pd.DataFrame({"mean": M.mean(1), "pos": (M > 0).mean(1), "nd": len(ds)})
+D:\ApexOptions\data\research\13nov\work\R03\s04_classify_pool.py:187: Pandas4Warning: Starting with pandas version 4.0 all arguments of mean will be keyword-only.
+  st = pd.DataFrame({"mean": M.mean(1), "pos": (M > 0).mean(1), "nd": len(ds)})
+D:\ApexOptions\data\research\13nov\work\R03\s04_classify_pool.py:187: Pandas4Warning: Starting with pandas version 4.0 all arguments of mean will be keyword-only.
+  st = pd.DataFrame({"mean": M.mean(1), "pos": (M > 0).mean(1), "nd": len(ds)})
+D:\ApexOptions\data\research\13nov\work\R03\s04_classify_pool.py:187: Pandas4Warning: Starting with pandas version 4.0 all arguments of mean will be keyword-only.
+  st = pd.DataFrame({"mean": M.mean(1), "pos": (M > 0).mean(1), "nd": len(ds)})
+D:\ApexOptions\data\research\13nov\work\R03\s04_classify_pool.py:187: Pandas4Warning: Starting with pandas version 4.0 all arguments of mean will be keyword-only.
+  st = pd.DataFrame({"mean": M.mean(1), "pos": (M > 0).mean(1), "nd": len(ds)})
+D:\ApexOptions\data\research\13nov\work\R03\s04_classify_pool.py:187: Pandas4Warning: Starting with pandas version 4.0 all arguments of mean will be keyword-only.
+  st = pd.DataFrame({"mean": M.mean(1), "pos": (M > 0).mean(1), "nd": len(ds)})
+D:\ApexOptions\data\research\13nov\work\R03\s04_classify_pool.py:187: Pandas4Warning: Starting with pandas version 4.0 all arguments of mean will be keyword-only.
+  st = pd.DataFrame({"mean": M.mean(1), "pos": (M > 0).mean(1), "nd": len(ds)})
+D:\ApexOptions\data\research\13nov\work\R03\s04_classify_pool.py:187: Pandas4Warning: Starting with pandas version 4.0 all arguments of mean will be keyword-only.
+  st = pd.DataFrame({"mean": M.mean(1), "pos": (M > 0).mean(1), "nd": len(ds)})
+D:\ApexOptions\data\research\13nov\work\R03\s04_classify_pool.py:187: Pandas4Warning: Starting with pandas version 4.0 all arguments of mean will be keyword-only.
+  st = pd.DataFrame({"mean": M.mean(1), "pos": (M > 0).mean(1), "nd": len(ds)})
+D:\ApexOptions\data\research\13nov\work\R03\s04_classify_pool.py:187: Pandas4Warning: Starting with pandas version 4.0 all arguments of mean will be keyword-only.
+  st = pd.DataFrame({"mean": M.mean(1), "pos": (M > 0).mean(1), "nd": len(ds)})
+D:\ApexOptions\data\research\13nov\work\R03\s04_classify_pool.py:187: Pandas4Warning: Starting with pandas version 4.0 all arguments of mean will be keyword-only.
+  st = pd.DataFrame({"mean": M.mean(1), "pos": (M > 0).mean(1), "nd": len(ds)})
+D:\ApexOptions\data\research\13nov\work\R03\s04_classify_pool.py:187: Pandas4Warning: Starting with pandas version 4.0 all arguments of mean will be keyword-only.
+  st = pd.DataFrame({"mean": M.mean(1), "pos": (M > 0).mean(1), "nd": len(ds)})
+D:\ApexOptions\data\research\13nov\work\R03\s04_classify_pool.py:187: Pandas4Warning: Starting with pandas version 4.0 all arguments of mean will be keyword-only.
+  st = pd.DataFrame({"mean": M.mean(1), "pos": (M > 0).mean(1), "nd": len(ds)})
+D:\ApexOptions\data\research\13nov\work\R03\s04_classify_pool.py:187: Pandas4Warning: Starting with pandas version 4.0 all arguments of mean will be keyword-only.
+  st = pd.DataFrame({"mean": M.mean(1), "pos": (M > 0).mean(1), "nd": len(ds)})
+D:\ApexOptions\data\research\13nov\work\R03\s04_classify_pool.py:187: Pandas4Warning: Starting with pandas version 4.0 all arguments of mean will be keyword-only.
+  st = pd.DataFrame({"mean": M.mean(1), "pos": (M > 0).mean(1), "nd": len(ds)})
+D:\ApexOptions\data\research\13nov\work\R03\s04_classify_pool.py:187: Pandas4Warning: Starting with pandas version 4.0 all arguments of mean will be keyword-only.
+  st = pd.DataFrame({"mean": M.mean(1), "pos": (M > 0).mean(1), "nd": len(ds)})
+D:\ApexOptions\data\research\13nov\work\R03\s04_classify_pool.py:187: Pandas4Warning: Starting with pandas version 4.0 all arguments of mean will be keyword-only.
+  st = pd.DataFrame({"mean": M.mean(1), "pos": (M > 0).mean(1), "nd": len(ds)})
+D:\ApexOptions\data\research\13nov\work\R03\s04_classify_pool.py:187: Pandas4Warning: Starting with pandas version 4.0 all arguments of mean will be keyword-only.
+  st = pd.DataFrame({"mean": M.mean(1), "pos": (M > 0).mean(1), "nd": len(ds)})
+D:\ApexOptions\data\research\13nov\work\R03\s04_classify_pool.py:187: Pandas4Warning: Starting with pandas version 4.0 all arguments of mean will be keyword-only.
+  st = pd.DataFrame({"mean": M.mean(1), "pos": (M > 0).mean(1), "nd": len(ds)})
+D:\ApexOptions\data\research\13nov\work\R03\s04_classify_pool.py:187: Pandas4Warning: Starting with pandas version 4.0 all arguments of mean will be keyword-only.
+  st = pd.DataFrame({"mean": M.mean(1), "pos": (M > 0).mean(1), "nd": len(ds)})
+D:\ApexOptions\data\research\13nov\work\R03\s04_classify_pool.py:187: Pandas4Warning: Starting with pandas version 4.0 all arguments of mean will be keyword-only.
+  st = pd.DataFrame({"mean": M.mean(1), "pos": (M > 0).mean(1), "nd": len(ds)})
+D:\ApexOptions\data\research\13nov\work\R03\s04_classify_pool.py:187: Pandas4Warning: Starting with pandas version 4.0 all arguments of mean will be keyword-only.
+  st = pd.DataFrame({"mean": M.mean(1), "pos": (M > 0).mean(1), "nd": len(ds)})
+D:\ApexOptions\data\research\13nov\work\R03\s04_classify_pool.py:187: Pandas4Warning: Starting with pandas version 4.0 all arguments of mean will be keyword-only.
+  st = pd.DataFrame({"mean": M.mean(1), "pos": (M > 0).mean(1), "nd": len(ds)})
+D:\ApexOptions\data\research\13nov\work\R03\s04_classify_pool.py:187: Pandas4Warning: Starting with pandas version 4.0 all arguments of mean will be keyword-only.
+  st = pd.DataFrame({"mean": M.mean(1), "pos": (M > 0).mean(1), "nd": len(ds)})
+D:\ApexOptions\data\research\13nov\work\R03\s04_classify_pool.py:187: Pandas4Warning: Starting with pandas version 4.0 all arguments of mean will be keyword-only.
+  st = pd.DataFrame({"mean": M.mean(1), "pos": (M > 0).mean(1), "nd": len(ds)})
+D:\ApexOptions\data\research\13nov\work\R03\s04_classify_pool.py:187: Pandas4Warning: Starting with pandas version 4.0 all arguments of mean will be keyword-only.
+  st = pd.DataFrame({"mean": M.mean(1), "pos": (M > 0).mean(1), "nd": len(ds)})
+D:\ApexOptions\data\research\13nov\work\R03\s04_classify_pool.py:187: Pandas4Warning: Starting with pandas version 4.0 all arguments of mean will be keyword-only.
+  st = pd.DataFrame({"mean": M.mean(1), "pos": (M > 0).mean(1), "nd": len(ds)})
+D:\ApexOptions\data\research\13nov\work\R03\s04_classify_pool.py:187: Pandas4Warning: Starting with pandas version 4.0 all arguments of mean will be keyword-only.
+  st = pd.DataFrame({"mean": M.mean(1), "pos": (M > 0).mean(1), "nd": len(ds)})
+D:\ApexOptions\data\research\13nov\work\R03\s04_classify_pool.py:187: Pandas4Warning: Starting with pandas version 4.0 all arguments of mean will be keyword-only.
+  st = pd.DataFrame({"mean": M.mean(1), "pos": (M > 0).mean(1), "nd": len(ds)})
+D:\ApexOptions\data\research\13nov\work\R03\s04_classify_pool.py:187: Pandas4Warning: Starting with pandas version 4.0 all arguments of mean will be keyword-only.
+  st = pd.DataFrame({"mean": M.mean(1), "pos": (M > 0).mean(1), "nd": len(ds)})
+D:\ApexOptions\data\research\13nov\work\R03\s04_classify_pool.py:187: Pandas4Warning: Starting with pandas version 4.0 all arguments of mean will be keyword-only.
+  st = pd.DataFrame({"mean": M.mean(1), "pos": (M > 0).mean(1), "nd": len(ds)})
+D:\ApexOptions\data\research\13nov\work\R03\s04_classify_pool.py:187: Pandas4Warning: Starting with pandas version 4.0 all arguments of mean will be keyword-only.
+  st = pd.DataFrame({"mean": M.mean(1), "pos": (M > 0).mean(1), "nd": len(ds)})
+D:\ApexOptions\data\research\13nov\work\R03\s04_classify_pool.py:187: Pandas4Warning: Starting with pandas version 4.0 all arguments of mean will be keyword-only.
+  st = pd.DataFrame({"mean": M.mean(1), "pos": (M > 0).mean(1), "nd": len(ds)})
+D:\ApexOptions\data\research\13nov\work\R03\s04_classify_pool.py:187: Pandas4Warning: Starting with pandas version 4.0 all arguments of mean will be keyword-only.
+  st = pd.DataFrame({"mean": M.mean(1), "pos": (M > 0).mean(1), "nd": len(ds)})
+D:\ApexOptions\data\research\13nov\work\R03\s04_classify_pool.py:187: Pandas4Warning: Starting with pandas version 4.0 all arguments of mean will be keyword-only.
+  st = pd.DataFrame({"mean": M.mean(1), "pos": (M > 0).mean(1), "nd": len(ds)})
+D:\ApexOptions\data\research\13nov\work\R03\s04_classify_pool.py:187: Pandas4Warning: Starting with pandas version 4.0 all arguments of mean will be keyword-only.
+  st = pd.DataFrame({"mean": M.mean(1), "pos": (M > 0).mean(1), "nd": len(ds)})
+D:\ApexOptions\data\research\13nov\work\R03\s04_classify_pool.py:187: Pandas4Warning: Starting with pandas version 4.0 all arguments of mean will be keyword-only.
+  st = pd.DataFrame({"mean": M.mean(1), "pos": (M > 0).mean(1), "nd": len(ds)})
+D:\ApexOptions\data\research\13nov\work\R03\s04_classify_pool.py:187: Pandas4Warning: Starting with pandas version 4.0 all arguments of mean will be keyword-only.
+  st = pd.DataFrame({"mean": M.mean(1), "pos": (M > 0).mean(1), "nd": len(ds)})
+D:\ApexOptions\data\research\13nov\work\R03\s04_classify_pool.py:187: Pandas4Warning: Starting with pandas version 4.0 all arguments of mean will be keyword-only.
+  st = pd.DataFrame({"mean": M.mean(1), "pos": (M > 0).mean(1), "nd": len(ds)})
+D:\ApexOptions\data\research\13nov\work\R03\s04_classify_pool.py:187: Pandas4Warning: Starting with pandas version 4.0 all arguments of mean will be keyword-only.
+  st = pd.DataFrame({"mean": M.mean(1), "pos": (M > 0).mean(1), "nd": len(ds)})
+D:\ApexOptions\data\research\13nov\work\R03\s04_classify_pool.py:187: Pandas4Warning: Starting with pandas version 4.0 all arguments of mean will be keyword-only.
+  st = pd.DataFrame({"mean": M.mean(1), "pos": (M > 0).mean(1), "nd": len(ds)})
+D:\ApexOptions\data\research\13nov\work\R03\s04_classify_pool.py:187: Pandas4Warning: Starting with pandas version 4.0 all arguments of mean will be keyword-only.
+  st = pd.DataFrame({"mean": M.mean(1), "pos": (M > 0).mean(1), "nd": len(ds)})
+D:\ApexOptions\data\research\13nov\work\R03\s04_classify_pool.py:187: Pandas4Warning: Starting with pandas version 4.0 all arguments of mean will be keyword-only.
+  st = pd.DataFrame({"mean": M.mean(1), "pos": (M > 0).mean(1), "nd": len(ds)})
+D:\ApexOptions\data\research\13nov\work\R03\s04_classify_pool.py:187: Pandas4Warning: Starting with pandas version 4.0 all arguments of mean will be keyword-only.
+  st = pd.DataFrame({"mean": M.mean(1), "pos": (M > 0).mean(1), "nd": len(ds)})
+D:\ApexOptions\data\research\13nov\work\R03\s04_classify_pool.py:187: Pandas4Warning: Starting with pandas version 4.0 all arguments of mean will be keyword-only.
+  st = pd.DataFrame({"mean": M.mean(1), "pos": (M > 0).mean(1), "nd": len(ds)})
+D:\ApexOptions\data\research\13nov\work\R03\s04_classify_pool.py:187: Pandas4Warning: Starting with pandas version 4.0 all arguments of mean will be keyword-only.
+  st = pd.DataFrame({"mean": M.mean(1), "pos": (M > 0).mean(1), "nd": len(ds)})
+D:\ApexOptions\data\research\13nov\work\R03\s04_classify_pool.py:187: Pandas4Warning: Starting with pandas version 4.0 all arguments of mean will be keyword-only.
+  st = pd.DataFrame({"mean": M.mean(1), "pos": (M > 0).mean(1), "nd": len(ds)})
+D:\ApexOptions\data\research\13nov\work\R03\s04_classify_pool.py:187: Pandas4Warning: Starting with pandas version 4.0 all arguments of mean will be keyword-only.
+  st = pd.DataFrame({"mean": M.mean(1), "pos": (M > 0).mean(1), "nd": len(ds)})
+D:\ApexOptions\data\research\13nov\work\R03\s04_classify_pool.py:187: Pandas4Warning: Starting with pandas version 4.0 all arguments of mean will be keyword-only.
+  st = pd.DataFrame({"mean": M.mean(1), "pos": (M > 0).mean(1), "nd": len(ds)})
+D:\ApexOptions\data\research\13nov\work\R03\s04_classify_pool.py:187: Pandas4Warning: Starting with pandas version 4.0 all arguments of mean will be keyword-only.
+  st = pd.DataFrame({"mean": M.mean(1), "pos": (M > 0).mean(1), "nd": len(ds)})
+D:\ApexOptions\data\research\13nov\work\R03\s04_classify_pool.py:187: Pandas4Warning: Starting with pandas version 4.0 all arguments of mean will be keyword-only.
+  st = pd.DataFrame({"mean": M.mean(1), "pos": (M > 0).mean(1), "nd": len(ds)})
+D:\ApexOptions\data\research\13nov\work\R03\s04_classify_pool.py:187: Pandas4Warning: Starting with pandas version 4.0 all arguments of mean will be keyword-only.
+  st = pd.DataFrame({"mean": M.mean(1), "pos": (M > 0).mean(1), "nd": len(ds)})
+D:\ApexOptions\data\research\13nov\work\R03\s04_classify_pool.py:187: Pandas4Warning: Starting with pandas version 4.0 all arguments of mean will be keyword-only.
+  st = pd.DataFrame({"mean": M.mean(1), "pos": (M > 0).mean(1), "nd": len(ds)})
+D:\ApexOptions\data\research\13nov\work\R03\s04_classify_pool.py:187: Pandas4Warning: Starting with pandas version 4.0 all arguments of mean will be keyword-only.
+  st = pd.DataFrame({"mean": M.mean(1), "pos": (M > 0).mean(1), "nd": len(ds)})
+D:\ApexOptions\data\research\13nov\work\R03\s04_classify_pool.py:187: Pandas4Warning: Starting with pandas version 4.0 all arguments of mean will be keyword-only.
+  st = pd.DataFrame({"mean": M.mean(1), "pos": (M > 0).mean(1), "nd": len(ds)})
+D:\ApexOptions\data\research\13nov\work\R03\s04_classify_pool.py:187: Pandas4Warning: Starting with pandas version 4.0 all arguments of mean will be keyword-only.
+  st = pd.DataFrame({"mean": M.mean(1), "pos": (M > 0).mean(1), "nd": len(ds)})
+D:\ApexOptions\data\research\13nov\work\R03\s04_classify_pool.py:187: Pandas4Warning: Starting with pandas version 4.0 all arguments of mean will be keyword-only.
+  st = pd.DataFrame({"mean": M.mean(1), "pos": (M > 0).mean(1), "nd": len(ds)})
+D:\ApexOptions\data\research\13nov\work\R03\s04_classify_pool.py:187: Pandas4Warning: Starting with pandas version 4.0 all arguments of mean will be keyword-only.
+  st = pd.DataFrame({"mean": M.mean(1), "pos": (M > 0).mean(1), "nd": len(ds)})
+D:\ApexOptions\data\research\13nov\work\R03\s04_classify_pool.py:187: Pandas4Warning: Starting with pandas version 4.0 all arguments of mean will be keyword-only.
+  st = pd.DataFrame({"mean": M.mean(1), "pos": (M > 0).mean(1), "nd": len(ds)})
+D:\ApexOptions\data\research\13nov\work\R03\s04_classify_pool.py:187: Pandas4Warning: Starting with pandas version 4.0 all arguments of mean will be keyword-only.
+  st = pd.DataFrame({"mean": M.mean(1), "pos": (M > 0).mean(1), "nd": len(ds)})
+D:\ApexOptions\data\research\13nov\work\R03\s04_classify_pool.py:187: Pandas4Warning: Starting with pandas version 4.0 all arguments of mean will be keyword-only.
+  st = pd.DataFrame({"mean": M.mean(1), "pos": (M > 0).mean(1), "nd": len(ds)})
+D:\ApexOptions\data\research\13nov\work\R03\s04_classify_pool.py:187: Pandas4Warning: Starting with pandas version 4.0 all arguments of mean will be keyword-only.
+  st = pd.DataFrame({"mean": M.mean(1), "pos": (M > 0).mean(1), "nd": len(ds)})
+D:\ApexOptions\data\research\13nov\work\R03\s04_classify_pool.py:187: Pandas4Warning: Starting with pandas version 4.0 all arguments of mean will be keyword-only.
+  st = pd.DataFrame({"mean": M.mean(1), "pos": (M > 0).mean(1), "nd": len(ds)})
+D:\ApexOptions\data\research\13nov\work\R03\s04_classify_pool.py:187: Pandas4Warning: Starting with pandas version 4.0 all arguments of mean will be keyword-only.
+  st = pd.DataFrame({"mean": M.mean(1), "pos": (M > 0).mean(1), "nd": len(ds)})
+D:\ApexOptions\data\research\13nov\work\R03\s04_classify_pool.py:187: Pandas4Warning: Starting with pandas version 4.0 all arguments of mean will be keyword-only.
+  st = pd.DataFrame({"mean": M.mean(1), "pos": (M > 0).mean(1), "nd": len(ds)})
+D:\ApexOptions\data\research\13nov\work\R03\s04_classify_pool.py:187: Pandas4Warning: Starting with pandas version 4.0 all arguments of mean will be keyword-only.
+  st = pd.DataFrame({"mean": M.mean(1), "pos": (M > 0).mean(1), "nd": len(ds)})
+D:\ApexOptions\data\research\13nov\work\R03\s04_classify_pool.py:187: Pandas4Warning: Starting with pandas version 4.0 all arguments of mean will be keyword-only.
+  st = pd.DataFrame({"mean": M.mean(1), "pos": (M > 0).mean(1), "nd": len(ds)})
+D:\ApexOptions\data\research\13nov\work\R03\s04_classify_pool.py:187: Pandas4Warning: Starting with pandas version 4.0 all arguments of mean will be keyword-only.
+  st = pd.DataFrame({"mean": M.mean(1), "pos": (M > 0).mean(1), "nd": len(ds)})
+D:\ApexOptions\data\research\13nov\work\R03\s04_classify_pool.py:187: Pandas4Warning: Starting with pandas version 4.0 all arguments of mean will be keyword-only.
+  st = pd.DataFrame({"mean": M.mean(1), "pos": (M > 0).mean(1), "nd": len(ds)})
+D:\ApexOptions\data\research\13nov\work\R03\s04_classify_pool.py:187: Pandas4Warning: Starting with pandas version 4.0 all arguments of mean will be keyword-only.
+  st = pd.DataFrame({"mean": M.mean(1), "pos": (M > 0).mean(1), "nd": len(ds)})
+D:\ApexOptions\data\research\13nov\work\R03\s04_classify_pool.py:187: Pandas4Warning: Starting with pandas version 4.0 all arguments of mean will be keyword-only.
+  st = pd.DataFrame({"mean": M.mean(1), "pos": (M > 0).mean(1), "nd": len(ds)})
+D:\ApexOptions\data\research\13nov\work\R03\s04_classify_pool.py:187: Pandas4Warning: Starting with pandas version 4.0 all arguments of mean will be keyword-only.
+  st = pd.DataFrame({"mean": M.mean(1), "pos": (M > 0).mean(1), "nd": len(ds)})
+D:\ApexOptions\data\research\13nov\work\R03\s04_classify_pool.py:187: Pandas4Warning: Starting with pandas version 4.0 all arguments of mean will be keyword-only.
+  st = pd.DataFrame({"mean": M.mean(1), "pos": (M > 0).mean(1), "nd": len(ds)})
+D:\ApexOptions\data\research\13nov\work\R03\s04_classify_pool.py:187: Pandas4Warning: Starting with pandas version 4.0 all arguments of mean will be keyword-only.
+  st = pd.DataFrame({"mean": M.mean(1), "pos": (M > 0).mean(1), "nd": len(ds)})
+D:\ApexOptions\data\research\13nov\work\R03\s04_classify_pool.py:187: Pandas4Warning: Starting with pandas version 4.0 all arguments of mean will be keyword-only.
+  st = pd.DataFrame({"mean": M.mean(1), "pos": (M > 0).mean(1), "nd": len(ds)})
+D:\ApexOptions\data\research\13nov\work\R03\s04_classify_pool.py:187: Pandas4Warning: Starting with pandas version 4.0 all arguments of mean will be keyword-only.
+  st = pd.DataFrame({"mean": M.mean(1), "pos": (M > 0).mean(1), "nd": len(ds)})
+D:\ApexOptions\data\research\13nov\work\R03\s04_classify_pool.py:187: Pandas4Warning: Starting with pandas version 4.0 all arguments of mean will be keyword-only.
+  st = pd.DataFrame({"mean": M.mean(1), "pos": (M > 0).mean(1), "nd": len(ds)})
+D:\ApexOptions\data\research\13nov\work\R03\s04_classify_pool.py:187: Pandas4Warning: Starting with pandas version 4.0 all arguments of mean will be keyword-only.
+  st = pd.DataFrame({"mean": M.mean(1), "pos": (M > 0).mean(1), "nd": len(ds)})
+D:\ApexOptions\data\research\13nov\work\R03\s04_classify_pool.py:187: Pandas4Warning: Starting with pandas version 4.0 all arguments of mean will be keyword-only.
+  st = pd.DataFrame({"mean": M.mean(1), "pos": (M > 0).mean(1), "nd": len(ds)})
+D:\ApexOptions\data\research\13nov\work\R03\s04_classify_pool.py:187: Pandas4Warning: Starting with pandas version 4.0 all arguments of mean will be keyword-only.
+  st = pd.DataFrame({"mean": M.mean(1), "pos": (M > 0).mean(1), "nd": len(ds)})
+D:\ApexOptions\data\research\13nov\work\R03\s04_classify_pool.py:187: Pandas4Warning: Starting with pandas version 4.0 all arguments of mean will be keyword-only.
+  st = pd.DataFrame({"mean": M.mean(1), "pos": (M > 0).mean(1), "nd": len(ds)})
+D:\ApexOptions\data\research\13nov\work\R03\s04_classify_pool.py:187: Pandas4Warning: Starting with pandas version 4.0 all arguments of mean will be keyword-only.
+  st = pd.DataFrame({"mean": M.mean(1), "pos": (M > 0).mean(1), "nd": len(ds)})
+D:\ApexOptions\data\research\13nov\work\R03\s04_classify_pool.py:187: Pandas4Warning: Starting with pandas version 4.0 all arguments of mean will be keyword-only.
+  st = pd.DataFrame({"mean": M.mean(1), "pos": (M > 0).mean(1), "nd": len(ds)})
+D:\ApexOptions\data\research\13nov\work\R03\s04_classify_pool.py:187: Pandas4Warning: Starting with pandas version 4.0 all arguments of mean will be keyword-only.
+  st = pd.DataFrame({"mean": M.mean(1), "pos": (M > 0).mean(1), "nd": len(ds)})
+D:\ApexOptions\data\research\13nov\work\R03\s04_classify_pool.py:187: Pandas4Warning: Starting with pandas version 4.0 all arguments of mean will be keyword-only.
+  st = pd.DataFrame({"mean": M.mean(1), "pos": (M > 0).mean(1), "nd": len(ds)})
+D:\ApexOptions\data\research\13nov\work\R03\s04_classify_pool.py:187: Pandas4Warning: Starting with pandas version 4.0 all arguments of mean will be keyword-only.
+  st = pd.DataFrame({"mean": M.mean(1), "pos": (M > 0).mean(1), "nd": len(ds)})
+D:\ApexOptions\data\research\13nov\work\R03\s04_classify_pool.py:187: Pandas4Warning: Starting with pandas version 4.0 all arguments of mean will be keyword-only.
+  st = pd.DataFrame({"mean": M.mean(1), "pos": (M > 0).mean(1), "nd": len(ds)})
+D:\ApexOptions\data\research\13nov\work\R03\s04_classify_pool.py:187: Pandas4Warning: Starting with pandas version 4.0 all arguments of mean will be keyword-only.
+  st = pd.DataFrame({"mean": M.mean(1), "pos": (M > 0).mean(1), "nd": len(ds)})
+D:\ApexOptions\data\research\13nov\work\R03\s04_classify_pool.py:187: Pandas4Warning: Starting with pandas version 4.0 all arguments of mean will be keyword-only.
+  st = pd.DataFrame({"mean": M.mean(1), "pos": (M > 0).mean(1), "nd": len(ds)})
+D:\ApexOptions\data\research\13nov\work\R03\s04_classify_pool.py:187: Pandas4Warning: Starting with pandas version 4.0 all arguments of mean will be keyword-only.
+  st = pd.DataFrame({"mean": M.mean(1), "pos": (M > 0).mean(1), "nd": len(ds)})
+D:\ApexOptions\data\research\13nov\work\R03\s04_classify_pool.py:187: Pandas4Warning: Starting with pandas version 4.0 all arguments of mean will be keyword-only.
+  st = pd.DataFrame({"mean": M.mean(1), "pos": (M > 0).mean(1), "nd": len(ds)})
+D:\ApexOptions\data\research\13nov\work\R03\s04_classify_pool.py:187: Pandas4Warning: Starting with pandas version 4.0 all arguments of mean will be keyword-only.
+  st = pd.DataFrame({"mean": M.mean(1), "pos": (M > 0).mean(1), "nd": len(ds)})
+D:\ApexOptions\data\research\13nov\work\R03\s04_classify_pool.py:187: Pandas4Warning: Starting with pandas version 4.0 all arguments of mean will be keyword-only.
+  st = pd.DataFrame({"mean": M.mean(1), "pos": (M > 0).mean(1), "nd": len(ds)})
+D:\ApexOptions\data\research\13nov\work\R03\s04_classify_pool.py:187: Pandas4Warning: Starting with pandas version 4.0 all arguments of mean will be keyword-only.
+  st = pd.DataFrame({"mean": M.mean(1), "pos": (M > 0).mean(1), "nd": len(ds)})
+D:\ApexOptions\data\research\13nov\work\R03\s04_classify_pool.py:187: Pandas4Warning: Starting with pandas version 4.0 all arguments of mean will be keyword-only.
+  st = pd.DataFrame({"mean": M.mean(1), "pos": (M > 0).mean(1), "nd": len(ds)})
+D:\ApexOptions\data\research\13nov\work\R03\s04_classify_pool.py:187: Pandas4Warning: Starting with pandas version 4.0 all arguments of mean will be keyword-only.
+  st = pd.DataFrame({"mean": M.mean(1), "pos": (M > 0).mean(1), "nd": len(ds)})
+D:\ApexOptions\data\research\13nov\work\R03\s04_classify_pool.py:187: Pandas4Warning: Starting with pandas version 4.0 all arguments of mean will be keyword-only.
+  st = pd.DataFrame({"mean": M.mean(1), "pos": (M > 0).mean(1), "nd": len(ds)})
+D:\ApexOptions\data\research\13nov\work\R03\s04_classify_pool.py:187: Pandas4Warning: Starting with pandas version 4.0 all arguments of mean will be keyword-only.
+  st = pd.DataFrame({"mean": M.mean(1), "pos": (M > 0).mean(1), "nd": len(ds)})
+D:\ApexOptions\data\research\13nov\work\R03\s04_classify_pool.py:187: Pandas4Warning: Starting with pandas version 4.0 all arguments of mean will be keyword-only.
+  st = pd.DataFrame({"mean": M.mean(1), "pos": (M > 0).mean(1), "nd": len(ds)})
+D:\ApexOptions\data\research\13nov\work\R03\s04_classify_pool.py:187: Pandas4Warning: Starting with pandas version 4.0 all arguments of mean will be keyword-only.
+  st = pd.DataFrame({"mean": M.mean(1), "pos": (M > 0).mean(1), "nd": len(ds)})
+D:\ApexOptions\data\research\13nov\work\R03\s04_classify_pool.py:187: Pandas4Warning: Starting with pandas version 4.0 all arguments of mean will be keyword-only.
+  st = pd.DataFrame({"mean": M.mean(1), "pos": (M > 0).mean(1), "nd": len(ds)})
+D:\ApexOptions\data\research\13nov\work\R03\s04_classify_pool.py:187: Pandas4Warning: Starting with pandas version 4.0 all arguments of mean will be keyword-only.
+  st = pd.DataFrame({"mean": M.mean(1), "pos": (M > 0).mean(1), "nd": len(ds)})
+D:\ApexOptions\data\research\13nov\work\R03\s04_classify_pool.py:187: Pandas4Warning: Starting with pandas version 4.0 all arguments of mean will be keyword-only.
+  st = pd.DataFrame({"mean": M.mean(1), "pos": (M > 0).mean(1), "nd": len(ds)})
+D:\ApexOptions\data\research\13nov\work\R03\s04_classify_pool.py:187: Pandas4Warning: Starting with pandas version 4.0 all arguments of mean will be keyword-only.
+  st = pd.DataFrame({"mean": M.mean(1), "pos": (M > 0).mean(1), "nd": len(ds)})
+D:\ApexOptions\data\research\13nov\work\R03\s04_classify_pool.py:187: Pandas4Warning: Starting with pandas version 4.0 all arguments of mean will be keyword-only.
+  st = pd.DataFrame({"mean": M.mean(1), "pos": (M > 0).mean(1), "nd": len(ds)})
+D:\ApexOptions\data\research\13nov\work\R03\s04_classify_pool.py:187: Pandas4Warning: Starting with pandas version 4.0 all arguments of mean will be keyword-only.
+  st = pd.DataFrame({"mean": M.mean(1), "pos": (M > 0).mean(1), "nd": len(ds)})
+D:\ApexOptions\data\research\13nov\work\R03\s04_classify_pool.py:187: Pandas4Warning: Starting with pandas version 4.0 all arguments of mean will be keyword-only.
+  st = pd.DataFrame({"mean": M.mean(1), "pos": (M > 0).mean(1), "nd": len(ds)})
+D:\ApexOptions\data\research\13nov\work\R03\s04_classify_pool.py:187: Pandas4Warning: Starting with pandas version 4.0 all arguments of mean will be keyword-only.
+  st = pd.DataFrame({"mean": M.mean(1), "pos": (M > 0).mean(1), "nd": len(ds)})
+D:\ApexOptions\data\research\13nov\work\R03\s04_classify_pool.py:187: Pandas4Warning: Starting with pandas version 4.0 all arguments of mean will be keyword-only.
+  st = pd.DataFrame({"mean": M.mean(1), "pos": (M > 0).mean(1), "nd": len(ds)})
+D:\ApexOptions\data\research\13nov\work\R03\s04_classify_pool.py:187: Pandas4Warning: Starting with pandas version 4.0 all arguments of mean will be keyword-only.
+  st = pd.DataFrame({"mean": M.mean(1), "pos": (M > 0).mean(1), "nd": len(ds)})
+D:\ApexOptions\data\research\13nov\work\R03\s04_classify_pool.py:187: Pandas4Warning: Starting with pandas version 4.0 all arguments of mean will be keyword-only.
+  st = pd.DataFrame({"mean": M.mean(1), "pos": (M > 0).mean(1), "nd": len(ds)})
+D:\ApexOptions\data\research\13nov\work\R03\s04_classify_pool.py:187: Pandas4Warning: Starting with pandas version 4.0 all arguments of mean will be keyword-only.
+  st = pd.DataFrame({"mean": M.mean(1), "pos": (M > 0).mean(1), "nd": len(ds)})
+D:\ApexOptions\data\research\13nov\work\R03\s04_classify_pool.py:187: Pandas4Warning: Starting with pandas version 4.0 all arguments of mean will be keyword-only.
+  st = pd.DataFrame({"mean": M.mean(1), "pos": (M > 0).mean(1), "nd": len(ds)})
+D:\ApexOptions\data\research\13nov\work\R03\s04_classify_pool.py:187: Pandas4Warning: Starting with pandas version 4.0 all arguments of mean will be keyword-only.
+  st = pd.DataFrame({"mean": M.mean(1), "pos": (M > 0).mean(1), "nd": len(ds)})
+D:\ApexOptions\data\research\13nov\work\R03\s04_classify_pool.py:187: Pandas4Warning: Starting with pandas version 4.0 all arguments of mean will be keyword-only.
+  st = pd.DataFrame({"mean": M.mean(1), "pos": (M > 0).mean(1), "nd": len(ds)})
+D:\ApexOptions\data\research\13nov\work\R03\s04_classify_pool.py:187: Pandas4Warning: Starting with pandas version 4.0 all arguments of mean will be keyword-only.
+  st = pd.DataFrame({"mean": M.mean(1), "pos": (M > 0).mean(1), "nd": len(ds)})
+D:\ApexOptions\data\research\13nov\work\R03\s04_classify_pool.py:187: Pandas4Warning: Starting with pandas version 4.0 all arguments of mean will be keyword-only.
+  st = pd.DataFrame({"mean": M.mean(1), "pos": (M > 0).mean(1), "nd": len(ds)})
+D:\ApexOptions\data\research\13nov\work\R03\s04_classify_pool.py:187: Pandas4Warning: Starting with pandas version 4.0 all arguments of mean will be keyword-only.
+  st = pd.DataFrame({"mean": M.mean(1), "pos": (M > 0).mean(1), "nd": len(ds)})
+D:\ApexOptions\data\research\13nov\work\R03\s04_classify_pool.py:187: Pandas4Warning: Starting with pandas version 4.0 all arguments of mean will be keyword-only.
+  st = pd.DataFrame({"mean": M.mean(1), "pos": (M > 0).mean(1), "nd": len(ds)})
+D:\ApexOptions\data\research\13nov\work\R03\s04_classify_pool.py:187: Pandas4Warning: Starting with pandas version 4.0 all arguments of mean will be keyword-only.
+  st = pd.DataFrame({"mean": M.mean(1), "pos": (M > 0).mean(1), "nd": len(ds)})
+D:\ApexOptions\data\research\13nov\work\R03\s04_classify_pool.py:187: Pandas4Warning: Starting with pandas version 4.0 all arguments of mean will be keyword-only.
+  st = pd.DataFrame({"mean": M.mean(1), "pos": (M > 0).mean(1), "nd": len(ds)})
+D:\ApexOptions\data\research\13nov\work\R03\s04_classify_pool.py:187: Pandas4Warning: Starting with pandas version 4.0 all arguments of mean will be keyword-only.
+  st = pd.DataFrame({"mean": M.mean(1), "pos": (M > 0).mean(1), "nd": len(ds)})
+D:\ApexOptions\data\research\13nov\work\R03\s04_classify_pool.py:187: Pandas4Warning: Starting with pandas version 4.0 all arguments of mean will be keyword-only.
+  st = pd.DataFrame({"mean": M.mean(1), "pos": (M > 0).mean(1), "nd": len(ds)})
+D:\ApexOptions\data\research\13nov\work\R03\s04_classify_pool.py:187: Pandas4Warning: Starting with pandas version 4.0 all arguments of mean will be keyword-only.
+  st = pd.DataFrame({"mean": M.mean(1), "pos": (M > 0).mean(1), "nd": len(ds)})
+D:\ApexOptions\data\research\13nov\work\R03\s04_classify_pool.py:187: Pandas4Warning: Starting with pandas version 4.0 all arguments of mean will be keyword-only.
+  st = pd.DataFrame({"mean": M.mean(1), "pos": (M > 0).mean(1), "nd": len(ds)})
+D:\ApexOptions\data\research\13nov\work\R03\s04_classify_pool.py:187: Pandas4Warning: Starting with pandas version 4.0 all arguments of mean will be keyword-only.
+  st = pd.DataFrame({"mean": M.mean(1), "pos": (M > 0).mean(1), "nd": len(ds)})
+D:\ApexOptions\data\research\13nov\work\R03\s04_classify_pool.py:187: Pandas4Warning: Starting with pandas version 4.0 all arguments of mean will be keyword-only.
+  st = pd.DataFrame({"mean": M.mean(1), "pos": (M > 0).mean(1), "nd": len(ds)})
+D:\ApexOptions\data\research\13nov\work\R03\s04_classify_pool.py:187: Pandas4Warning: Starting with pandas version 4.0 all arguments of mean will be keyword-only.
+  st = pd.DataFrame({"mean": M.mean(1), "pos": (M > 0).mean(1), "nd": len(ds)})
+D:\ApexOptions\data\research\13nov\work\R03\s04_classify_pool.py:187: Pandas4Warning: Starting with pandas version 4.0 all arguments of mean will be keyword-only.
+  st = pd.DataFrame({"mean": M.mean(1), "pos": (M > 0).mean(1), "nd": len(ds)})
+D:\ApexOptions\data\research\13nov\work\R03\s04_classify_pool.py:187: Pandas4Warning: Starting with pandas version 4.0 all arguments of mean will be keyword-only.
+  st = pd.DataFrame({"mean": M.mean(1), "pos": (M > 0).mean(1), "nd": len(ds)})
+D:\ApexOptions\data\research\13nov\work\R03\s04_classify_pool.py:187: Pandas4Warning: Starting with pandas version 4.0 all arguments of mean will be keyword-only.
+  st = pd.DataFrame({"mean": M.mean(1), "pos": (M > 0).mean(1), "nd": len(ds)})
+D:\ApexOptions\data\research\13nov\work\R03\s04_classify_pool.py:187: Pandas4Warning: Starting with pandas version 4.0 all arguments of mean will be keyword-only.
+  st = pd.DataFrame({"mean": M.mean(1), "pos": (M > 0).mean(1), "nd": len(ds)})
+D:\ApexOptions\data\research\13nov\work\R03\s04_classify_pool.py:187: Pandas4Warning: Starting with pandas version 4.0 all arguments of mean will be keyword-only.
+  st = pd.DataFrame({"mean": M.mean(1), "pos": (M > 0).mean(1), "nd": len(ds)})
+D:\ApexOptions\data\research\13nov\work\R03\s04_classify_pool.py:187: Pandas4Warning: Starting with pandas version 4.0 all arguments of mean will be keyword-only.
+  st = pd.DataFrame({"mean": M.mean(1), "pos": (M > 0).mean(1), "nd": len(ds)})
+D:\ApexOptions\data\research\13nov\work\R03\s04_classify_pool.py:187: Pandas4Warning: Starting with pandas version 4.0 all arguments of mean will be keyword-only.
+  st = pd.DataFrame({"mean": M.mean(1), "pos": (M > 0).mean(1), "nd": len(ds)})
+D:\ApexOptions\data\research\13nov\work\R03\s04_classify_pool.py:187: Pandas4Warning: Starting with pandas version 4.0 all arguments of mean will be keyword-only.
+  st = pd.DataFrame({"mean": M.mean(1), "pos": (M > 0).mean(1), "nd": len(ds)})
+D:\ApexOptions\data\research\13nov\work\R03\s04_classify_pool.py:187: Pandas4Warning: Starting with pandas version 4.0 all arguments of mean will be keyword-only.
+  st = pd.DataFrame({"mean": M.mean(1), "pos": (M > 0).mean(1), "nd": len(ds)})
+D:\ApexOptions\data\research\13nov\work\R03\s04_classify_pool.py:187: Pandas4Warning: Starting with pandas version 4.0 all arguments of mean will be keyword-only.
+  st = pd.DataFrame({"mean": M.mean(1), "pos": (M > 0).mean(1), "nd": len(ds)})
+D:\ApexOptions\data\research\13nov\work\R03\s04_classify_pool.py:187: Pandas4Warning: Starting with pandas version 4.0 all arguments of mean will be keyword-only.
+  st = pd.DataFrame({"mean": M.mean(1), "pos": (M > 0).mean(1), "nd": len(ds)})
+D:\ApexOptions\data\research\13nov\work\R03\s04_classify_pool.py:187: Pandas4Warning: Starting with pandas version 4.0 all arguments of mean will be keyword-only.
+  st = pd.DataFrame({"mean": M.mean(1), "pos": (M > 0).mean(1), "nd": len(ds)})
+D:\ApexOptions\data\research\13nov\work\R03\s04_classify_pool.py:187: Pandas4Warning: Starting with pandas version 4.0 all arguments of mean will be keyword-only.
+  st = pd.DataFrame({"mean": M.mean(1), "pos": (M > 0).mean(1), "nd": len(ds)})
+D:\ApexOptions\data\research\13nov\work\R03\s04_classify_pool.py:187: Pandas4Warning: Starting with pandas version 4.0 all arguments of mean will be keyword-only.
+  st = pd.DataFrame({"mean": M.mean(1), "pos": (M > 0).mean(1), "nd": len(ds)})
+D:\ApexOptions\data\research\13nov\work\R03\s04_classify_pool.py:187: Pandas4Warning: Starting with pandas version 4.0 all arguments of mean will be keyword-only.
+  st = pd.DataFrame({"mean": M.mean(1), "pos": (M > 0).mean(1), "nd": len(ds)})
+D:\ApexOptions\data\research\13nov\work\R03\s04_classify_pool.py:187: Pandas4Warning: Starting with pandas version 4.0 all arguments of mean will be keyword-only.
+  st = pd.DataFrame({"mean": M.mean(1), "pos": (M > 0).mean(1), "nd": len(ds)})
+D:\ApexOptions\data\research\13nov\work\R03\s04_classify_pool.py:187: Pandas4Warning: Starting with pandas version 4.0 all arguments of mean will be keyword-only.
+  st = pd.DataFrame({"mean": M.mean(1), "pos": (M > 0).mean(1), "nd": len(ds)})
+D:\ApexOptions\data\research\13nov\work\R03\s04_classify_pool.py:187: Pandas4Warning: Starting with pandas version 4.0 all arguments of mean will be keyword-only.
+  st = pd.DataFrame({"mean": M.mean(1), "pos": (M > 0).mean(1), "nd": len(ds)})
+D:\ApexOptions\data\research\13nov\work\R03\s04_classify_pool.py:187: Pandas4Warning: Starting with pandas version 4.0 all arguments of mean will be keyword-only.
+  st = pd.DataFrame({"mean": M.mean(1), "pos": (M > 0).mean(1), "nd": len(ds)})
+D:\ApexOptions\data\research\13nov\work\R03\s04_classify_pool.py:187: Pandas4Warning: Starting with pandas version 4.0 all arguments of mean will be keyword-only.
+  st = pd.DataFrame({"mean": M.mean(1), "pos": (M > 0).mean(1), "nd": len(ds)})
+D:\ApexOptions\data\research\13nov\work\R03\s04_classify_pool.py:187: Pandas4Warning: Starting with pandas version 4.0 all arguments of mean will be keyword-only.
+  st = pd.DataFrame({"mean": M.mean(1), "pos": (M > 0).mean(1), "nd": len(ds)})
+D:\ApexOptions\data\research\13nov\work\R03\s04_classify_pool.py:187: Pandas4Warning: Starting with pandas version 4.0 all arguments of mean will be keyword-only.
+  st = pd.DataFrame({"mean": M.mean(1), "pos": (M > 0).mean(1), "nd": len(ds)})
+D:\ApexOptions\data\research\13nov\work\R03\s04_classify_pool.py:187: Pandas4Warning: Starting with pandas version 4.0 all arguments of mean will be keyword-only.
+  st = pd.DataFrame({"mean": M.mean(1), "pos": (M > 0).mean(1), "nd": len(ds)})
+D:\ApexOptions\data\research\13nov\work\R03\s04_classify_pool.py:187: Pandas4Warning: Starting with pandas version 4.0 all arguments of mean will be keyword-only.
+  st = pd.DataFrame({"mean": M.mean(1), "pos": (M > 0).mean(1), "nd": len(ds)})
+D:\ApexOptions\data\research\13nov\work\R03\s04_classify_pool.py:187: Pandas4Warning: Starting with pandas version 4.0 all arguments of mean will be keyword-only.
+  st = pd.DataFrame({"mean": M.mean(1), "pos": (M > 0).mean(1), "nd": len(ds)})
+D:\ApexOptions\data\research\13nov\work\R03\s04_classify_pool.py:187: Pandas4Warning: Starting with pandas version 4.0 all arguments of mean will be keyword-only.
+  st = pd.DataFrame({"mean": M.mean(1), "pos": (M > 0).mean(1), "nd": len(ds)})
+D:\ApexOptions\data\research\13nov\work\R03\s04_classify_pool.py:187: Pandas4Warning: Starting with pandas version 4.0 all arguments of mean will be keyword-only.
+  st = pd.DataFrame({"mean": M.mean(1), "pos": (M > 0).mean(1), "nd": len(ds)})
+D:\ApexOptions\data\research\13nov\work\R03\s04_classify_pool.py:187: Pandas4Warning: Starting with pandas version 4.0 all arguments of mean will be keyword-only.
+  st = pd.DataFrame({"mean": M.mean(1), "pos": (M > 0).mean(1), "nd": len(ds)})
+D:\ApexOptions\data\research\13nov\work\R03\s04_classify_pool.py:187: Pandas4Warning: Starting with pandas version 4.0 all arguments of mean will be keyword-only.
+  st = pd.DataFrame({"mean": M.mean(1), "pos": (M > 0).mean(1), "nd": len(ds)})
+D:\ApexOptions\data\research\13nov\work\R03\s04_classify_pool.py:187: Pandas4Warning: Starting with pandas version 4.0 all arguments of mean will be keyword-only.
+  st = pd.DataFrame({"mean": M.mean(1), "pos": (M > 0).mean(1), "nd": len(ds)})
+D:\ApexOptions\data\research\13nov\work\R03\s04_classify_pool.py:187: Pandas4Warning: Starting with pandas version 4.0 all arguments of mean will be keyword-only.
+  st = pd.DataFrame({"mean": M.mean(1), "pos": (M > 0).mean(1), "nd": len(ds)})
+D:\ApexOptions\data\research\13nov\work\R03\s04_classify_pool.py:187: Pandas4Warning: Starting with pandas version 4.0 all arguments of mean will be keyword-only.
+  st = pd.DataFrame({"mean": M.mean(1), "pos": (M > 0).mean(1), "nd": len(ds)})
+D:\ApexOptions\data\research\13nov\work\R03\s04_classify_pool.py:187: Pandas4Warning: Starting with pandas version 4.0 all arguments of mean will be keyword-only.
+  st = pd.DataFrame({"mean": M.mean(1), "pos": (M > 0).mean(1), "nd": len(ds)})
+D:\ApexOptions\data\research\13nov\work\R03\s04_classify_pool.py:187: Pandas4Warning: Starting with pandas version 4.0 all arguments of mean will be keyword-only.
+  st = pd.DataFrame({"mean": M.mean(1), "pos": (M > 0).mean(1), "nd": len(ds)})
+D:\ApexOptions\data\research\13nov\work\R03\s04_classify_pool.py:187: Pandas4Warning: Starting with pandas version 4.0 all arguments of mean will be keyword-only.
+  st = pd.DataFrame({"mean": M.mean(1), "pos": (M > 0).mean(1), "nd": len(ds)})
+D:\ApexOptions\data\research\13nov\work\R03\s04_classify_pool.py:187: Pandas4Warning: Starting with pandas version 4.0 all arguments of mean will be keyword-only.
+  st = pd.DataFrame({"mean": M.mean(1), "pos": (M > 0).mean(1), "nd": len(ds)})
+D:\ApexOptions\data\research\13nov\work\R03\s04_classify_pool.py:187: Pandas4Warning: Starting with pandas version 4.0 all arguments of mean will be keyword-only.
+  st = pd.DataFrame({"mean": M.mean(1), "pos": (M > 0).mean(1), "nd": len(ds)})
+D:\ApexOptions\data\research\13nov\work\R03\s04_classify_pool.py:187: Pandas4Warning: Starting with pandas version 4.0 all arguments of mean will be keyword-only.
+  st = pd.DataFrame({"mean": M.mean(1), "pos": (M > 0).mean(1), "nd": len(ds)})
+D:\ApexOptions\data\research\13nov\work\R03\s04_classify_pool.py:187: Pandas4Warning: Starting with pandas version 4.0 all arguments of mean will be keyword-only.
+  st = pd.DataFrame({"mean": M.mean(1), "pos": (M > 0).mean(1), "nd": len(ds)})
+D:\ApexOptions\data\research\13nov\work\R03\s04_classify_pool.py:187: Pandas4Warning: Starting with pandas version 4.0 all arguments of mean will be keyword-only.
+  st = pd.DataFrame({"mean": M.mean(1), "pos": (M > 0).mean(1), "nd": len(ds)})
+D:\ApexOptions\data\research\13nov\work\R03\s04_classify_pool.py:187: Pandas4Warning: Starting with pandas version 4.0 all arguments of mean will be keyword-only.
+  st = pd.DataFrame({"mean": M.mean(1), "pos": (M > 0).mean(1), "nd": len(ds)})
+D:\ApexOptions\data\research\13nov\work\R03\s04_classify_pool.py:187: Pandas4Warning: Starting with pandas version 4.0 all arguments of mean will be keyword-only.
+  st = pd.DataFrame({"mean": M.mean(1), "pos": (M > 0).mean(1), "nd": len(ds)})
+D:\ApexOptions\data\research\13nov\work\R03\s04_classify_pool.py:187: Pandas4Warning: Starting with pandas version 4.0 all arguments of mean will be keyword-only.
+  st = pd.DataFrame({"mean": M.mean(1), "pos": (M > 0).mean(1), "nd": len(ds)})
+D:\ApexOptions\data\research\13nov\work\R03\s04_classify_pool.py:187: Pandas4Warning: Starting with pandas version 4.0 all arguments of mean will be keyword-only.
+  st = pd.DataFrame({"mean": M.mean(1), "pos": (M > 0).mean(1), "nd": len(ds)})
+D:\ApexOptions\data\research\13nov\work\R03\s04_classify_pool.py:187: Pandas4Warning: Starting with pandas version 4.0 all arguments of mean will be keyword-only.
+  st = pd.DataFrame({"mean": M.mean(1), "pos": (M > 0).mean(1), "nd": len(ds)})
+D:\ApexOptions\data\research\13nov\work\R03\s04_classify_pool.py:187: Pandas4Warning: Starting with pandas version 4.0 all arguments of mean will be keyword-only.
+  st = pd.DataFrame({"mean": M.mean(1), "pos": (M > 0).mean(1), "nd": len(ds)})
+D:\ApexOptions\data\research\13nov\work\R03\s04_classify_pool.py:187: Pandas4Warning: Starting with pandas version 4.0 all arguments of mean will be keyword-only.
+  st = pd.DataFrame({"mean": M.mean(1), "pos": (M > 0).mean(1), "nd": len(ds)})
+D:\ApexOptions\data\research\13nov\work\R03\s04_classify_pool.py:187: Pandas4Warning: Starting with pandas version 4.0 all arguments of mean will be keyword-only.
+  st = pd.DataFrame({"mean": M.mean(1), "pos": (M > 0).mean(1), "nd": len(ds)})
+D:\ApexOptions\data\research\13nov\work\R03\s04_classify_pool.py:187: Pandas4Warning: Starting with pandas version 4.0 all arguments of mean will be keyword-only.
+  st = pd.DataFrame({"mean": M.mean(1), "pos": (M > 0).mean(1), "nd": len(ds)})
+D:\ApexOptions\data\research\13nov\work\R03\s04_classify_pool.py:187: Pandas4Warning: Starting with pandas version 4.0 all arguments of mean will be keyword-only.
+  st = pd.DataFrame({"mean": M.mean(1), "pos": (M > 0).mean(1), "nd": len(ds)})
+D:\ApexOptions\data\research\13nov\work\R03\s04_classify_pool.py:187: Pandas4Warning: Starting with pandas version 4.0 all arguments of mean will be keyword-only.
+  st = pd.DataFrame({"mean": M.mean(1), "pos": (M > 0).mean(1), "nd": len(ds)})
+D:\ApexOptions\data\research\13nov\work\R03\s04_classify_pool.py:187: Pandas4Warning: Starting with pandas version 4.0 all arguments of mean will be keyword-only.
+  st = pd.DataFrame({"mean": M.mean(1), "pos": (M > 0).mean(1), "nd": len(ds)})
+D:\ApexOptions\data\research\13nov\work\R03\s04_classify_pool.py:187: Pandas4Warning: Starting with pandas version 4.0 all arguments of mean will be keyword-only.
+  st = pd.DataFrame({"mean": M.mean(1), "pos": (M > 0).mean(1), "nd": len(ds)})
+D:\ApexOptions\data\research\13nov\work\R03\s04_classify_pool.py:187: Pandas4Warning: Starting with pandas version 4.0 all arguments of mean will be keyword-only.
+  st = pd.DataFrame({"mean": M.mean(1), "pos": (M > 0).mean(1), "nd": len(ds)})
+D:\ApexOptions\data\research\13nov\work\R03\s04_classify_pool.py:187: Pandas4Warning: Starting with pandas version 4.0 all arguments of mean will be keyword-only.
+  st = pd.DataFrame({"mean": M.mean(1), "pos": (M > 0).mean(1), "nd": len(ds)})
+D:\ApexOptions\data\research\13nov\work\R03\s04_classify_pool.py:187: Pandas4Warning: Starting with pandas version 4.0 all arguments of mean will be keyword-only.
+  st = pd.DataFrame({"mean": M.mean(1), "pos": (M > 0).mean(1), "nd": len(ds)})
+D:\ApexOptions\data\research\13nov\work\R03\s04_classify_pool.py:187: Pandas4Warning: Starting with pandas version 4.0 all arguments of mean will be keyword-only.
+  st = pd.DataFrame({"mean": M.mean(1), "pos": (M > 0).mean(1), "nd": len(ds)})
+D:\ApexOptions\data\research\13nov\work\R03\s04_classify_pool.py:187: Pandas4Warning: Starting with pandas version 4.0 all arguments of mean will be keyword-only.
+  st = pd.DataFrame({"mean": M.mean(1), "pos": (M > 0).mean(1), "nd": len(ds)})
+D:\ApexOptions\data\research\13nov\work\R03\s04_classify_pool.py:187: Pandas4Warning: Starting with pandas version 4.0 all arguments of mean will be keyword-only.
+  st = pd.DataFrame({"mean": M.mean(1), "pos": (M > 0).mean(1), "nd": len(ds)})
+D:\ApexOptions\data\research\13nov\work\R03\s04_classify_pool.py:187: Pandas4Warning: Starting with pandas version 4.0 all arguments of mean will be keyword-only.
+  st = pd.DataFrame({"mean": M.mean(1), "pos": (M > 0).mean(1), "nd": len(ds)})
+D:\ApexOptions\data\research\13nov\work\R03\s04_classify_pool.py:187: Pandas4Warning: Starting with pandas version 4.0 all arguments of mean will be keyword-only.
+  st = pd.DataFrame({"mean": M.mean(1), "pos": (M > 0).mean(1), "nd": len(ds)})
+D:\ApexOptions\data\research\13nov\work\R03\s04_classify_pool.py:187: Pandas4Warning: Starting with pandas version 4.0 all arguments of mean will be keyword-only.
+  st = pd.DataFrame({"mean": M.mean(1), "pos": (M > 0).mean(1), "nd": len(ds)})
+D:\ApexOptions\data\research\13nov\work\R03\s04_classify_pool.py:187: Pandas4Warning: Starting with pandas version 4.0 all arguments of mean will be keyword-only.
+  st = pd.DataFrame({"mean": M.mean(1), "pos": (M > 0).mean(1), "nd": len(ds)})
+D:\ApexOptions\data\research\13nov\work\R03\s04_classify_pool.py:187: Pandas4Warning: Starting with pandas version 4.0 all arguments of mean will be keyword-only.
+  st = pd.DataFrame({"mean": M.mean(1), "pos": (M > 0).mean(1), "nd": len(ds)})
+D:\ApexOptions\data\research\13nov\work\R03\s04_classify_pool.py:187: Pandas4Warning: Starting with pandas version 4.0 all arguments of mean will be keyword-only.
+  st = pd.DataFrame({"mean": M.mean(1), "pos": (M > 0).mean(1), "nd": len(ds)})
+D:\ApexOptions\data\research\13nov\work\R03\s04_classify_pool.py:187: Pandas4Warning: Starting with pandas version 4.0 all arguments of mean will be keyword-only.
+  st = pd.DataFrame({"mean": M.mean(1), "pos": (M > 0).mean(1), "nd": len(ds)})
+D:\ApexOptions\data\research\13nov\work\R03\s04_classify_pool.py:187: Pandas4Warning: Starting with pandas version 4.0 all arguments of mean will be keyword-only.
+  st = pd.DataFrame({"mean": M.mean(1), "pos": (M > 0).mean(1), "nd": len(ds)})
+D:\ApexOptions\data\research\13nov\work\R03\s04_classify_pool.py:187: Pandas4Warning: Starting with pandas version 4.0 all arguments of mean will be keyword-only.
+  st = pd.DataFrame({"mean": M.mean(1), "pos": (M > 0).mean(1), "nd": len(ds)})
+D:\ApexOptions\data\research\13nov\work\R03\s04_classify_pool.py:187: Pandas4Warning: Starting with pandas version 4.0 all arguments of mean will be keyword-only.
+  st = pd.DataFrame({"mean": M.mean(1), "pos": (M > 0).mean(1), "nd": len(ds)})
+D:\ApexOptions\data\research\13nov\work\R03\s04_classify_pool.py:187: Pandas4Warning: Starting with pandas version 4.0 all arguments of mean will be keyword-only.
+  st = pd.DataFrame({"mean": M.mean(1), "pos": (M > 0).mean(1), "nd": len(ds)})
+D:\ApexOptions\data\research\13nov\work\R03\s04_classify_pool.py:187: Pandas4Warning: Starting with pandas version 4.0 all arguments of mean will be keyword-only.
+  st = pd.DataFrame({"mean": M.mean(1), "pos": (M > 0).mean(1), "nd": len(ds)})
+D:\ApexOptions\data\research\13nov\work\R03\s04_classify_pool.py:187: Pandas4Warning: Starting with pandas version 4.0 all arguments of mean will be keyword-only.
+  st = pd.DataFrame({"mean": M.mean(1), "pos": (M > 0).mean(1), "nd": len(ds)})
+D:\ApexOptions\data\research\13nov\work\R03\s04_classify_pool.py:187: Pandas4Warning: Starting with pandas version 4.0 all arguments of mean will be keyword-only.
+  st = pd.DataFrame({"mean": M.mean(1), "pos": (M > 0).mean(1), "nd": len(ds)})
+D:\ApexOptions\data\research\13nov\work\R03\s04_classify_pool.py:187: Pandas4Warning: Starting with pandas version 4.0 all arguments of mean will be keyword-only.
+  st = pd.DataFrame({"mean": M.mean(1), "pos": (M > 0).mean(1), "nd": len(ds)})
+D:\ApexOptions\data\research\13nov\work\R03\s04_classify_pool.py:187: Pandas4Warning: Starting with pandas version 4.0 all arguments of mean will be keyword-only.
+  st = pd.DataFrame({"mean": M.mean(1), "pos": (M > 0).mean(1), "nd": len(ds)})
+D:\ApexOptions\data\research\13nov\work\R03\s04_classify_pool.py:187: Pandas4Warning: Starting with pandas version 4.0 all arguments of mean will be keyword-only.
+  st = pd.DataFrame({"mean": M.mean(1), "pos": (M > 0).mean(1), "nd": len(ds)})
+D:\ApexOptions\data\research\13nov\work\R03\s04_classify_pool.py:187: Pandas4Warning: Starting with pandas version 4.0 all arguments of mean will be keyword-only.
+  st = pd.DataFrame({"mean": M.mean(1), "pos": (M > 0).mean(1), "nd": len(ds)})
+D:\ApexOptions\data\research\13nov\work\R03\s04_classify_pool.py:187: Pandas4Warning: Starting with pandas version 4.0 all arguments of mean will be keyword-only.
+  st = pd.DataFrame({"mean": M.mean(1), "pos": (M > 0).mean(1), "nd": len(ds)})
+D:\ApexOptions\data\research\13nov\work\R03\s04_classify_pool.py:187: Pandas4Warning: Starting with pandas version 4.0 all arguments of mean will be keyword-only.
+  st = pd.DataFrame({"mean": M.mean(1), "pos": (M > 0).mean(1), "nd": len(ds)})
+D:\ApexOptions\data\research\13nov\work\R03\s04_classify_pool.py:187: Pandas4Warning: Starting with pandas version 4.0 all arguments of mean will be keyword-only.
+  st = pd.DataFrame({"mean": M.mean(1), "pos": (M > 0).mean(1), "nd": len(ds)})
+D:\ApexOptions\data\research\13nov\work\R03\s04_classify_pool.py:187: Pandas4Warning: Starting with pandas version 4.0 all arguments of mean will be keyword-only.
+  st = pd.DataFrame({"mean": M.mean(1), "pos": (M > 0).mean(1), "nd": len(ds)})
+D:\ApexOptions\data\research\13nov\work\R03\s04_classify_pool.py:187: Pandas4Warning: Starting with pandas version 4.0 all arguments of mean will be keyword-only.
+  st = pd.DataFrame({"mean": M.mean(1), "pos": (M > 0).mean(1), "nd": len(ds)})
+D:\ApexOptions\data\research\13nov\work\R03\s04_classify_pool.py:187: Pandas4Warning: Starting with pandas version 4.0 all arguments of mean will be keyword-only.
+  st = pd.DataFrame({"mean": M.mean(1), "pos": (M > 0).mean(1), "nd": len(ds)})
+D:\ApexOptions\data\research\13nov\work\R03\s04_classify_pool.py:187: Pandas4Warning: Starting with pandas version 4.0 all arguments of mean will be keyword-only.
+  st = pd.DataFrame({"mean": M.mean(1), "pos": (M > 0).mean(1), "nd": len(ds)})
+D:\ApexOptions\data\research\13nov\work\R03\s04_classify_pool.py:187: Pandas4Warning: Starting with pandas version 4.0 all arguments of mean will be keyword-only.
+  st = pd.DataFrame({"mean": M.mean(1), "pos": (M > 0).mean(1), "nd": len(ds)})
+D:\ApexOptions\data\research\13nov\work\R03\s04_classify_pool.py:187: Pandas4Warning: Starting with pandas version 4.0 all arguments of mean will be keyword-only.
+  st = pd.DataFrame({"mean": M.mean(1), "pos": (M > 0).mean(1), "nd": len(ds)})
+D:\ApexOptions\data\research\13nov\work\R03\s04_classify_pool.py:187: Pandas4Warning: Starting with pandas version 4.0 all arguments of mean will be keyword-only.
+  st = pd.DataFrame({"mean": M.mean(1), "pos": (M > 0).mean(1), "nd": len(ds)})
+D:\ApexOptions\data\research\13nov\work\R03\s04_classify_pool.py:187: Pandas4Warning: Starting with pandas version 4.0 all arguments of mean will be keyword-only.
+  st = pd.DataFrame({"mean": M.mean(1), "pos": (M > 0).mean(1), "nd": len(ds)})
+D:\ApexOptions\data\research\13nov\work\R03\s04_classify_pool.py:187: Pandas4Warning: Starting with pandas version 4.0 all arguments of mean will be keyword-only.
+  st = pd.DataFrame({"mean": M.mean(1), "pos": (M > 0).mean(1), "nd": len(ds)})
+D:\ApexOptions\data\research\13nov\work\R03\s04_classify_pool.py:187: Pandas4Warning: Starting with pandas version 4.0 all arguments of mean will be keyword-only.
+  st = pd.DataFrame({"mean": M.mean(1), "pos": (M > 0).mean(1), "nd": len(ds)})
+D:\ApexOptions\data\research\13nov\work\R03\s04_classify_pool.py:187: Pandas4Warning: Starting with pandas version 4.0 all arguments of mean will be keyword-only.
+  st = pd.DataFrame({"mean": M.mean(1), "pos": (M > 0).mean(1), "nd": len(ds)})
+D:\ApexOptions\data\research\13nov\work\R03\s04_classify_pool.py:187: Pandas4Warning: Starting with pandas version 4.0 all arguments of mean will be keyword-only.
+  st = pd.DataFrame({"mean": M.mean(1), "pos": (M > 0).mean(1), "nd": len(ds)})
+D:\ApexOptions\data\research\13nov\work\R03\s04_classify_pool.py:187: Pandas4Warning: Starting with pandas version 4.0 all arguments of mean will be keyword-only.
+  st = pd.DataFrame({"mean": M.mean(1), "pos": (M > 0).mean(1), "nd": len(ds)})
+D:\ApexOptions\data\research\13nov\work\R03\s04_classify_pool.py:187: Pandas4Warning: Starting with pandas version 4.0 all arguments of mean will be keyword-only.
+  st = pd.DataFrame({"mean": M.mean(1), "pos": (M > 0).mean(1), "nd": len(ds)})
+D:\ApexOptions\data\research\13nov\work\R03\s04_classify_pool.py:187: Pandas4Warning: Starting with pandas version 4.0 all arguments of mean will be keyword-only.
+  st = pd.DataFrame({"mean": M.mean(1), "pos": (M > 0).mean(1), "nd": len(ds)})
+D:\ApexOptions\data\research\13nov\work\R03\s04_classify_pool.py:187: Pandas4Warning: Starting with pandas version 4.0 all arguments of mean will be keyword-only.
+  st = pd.DataFrame({"mean": M.mean(1), "pos": (M > 0).mean(1), "nd": len(ds)})
+D:\ApexOptions\data\research\13nov\work\R03\s04_classify_pool.py:187: Pandas4Warning: Starting with pandas version 4.0 all arguments of mean will be keyword-only.
+  st = pd.DataFrame({"mean": M.mean(1), "pos": (M > 0).mean(1), "nd": len(ds)})
+D:\ApexOptions\data\research\13nov\work\R03\s04_classify_pool.py:187: Pandas4Warning: Starting with pandas version 4.0 all arguments of mean will be keyword-only.
+  st = pd.DataFrame({"mean": M.mean(1), "pos": (M > 0).mean(1), "nd": len(ds)})
+D:\ApexOptions\data\research\13nov\work\R03\s04_classify_pool.py:187: Pandas4Warning: Starting with pandas version 4.0 all arguments of mean will be keyword-only.
+  st = pd.DataFrame({"mean": M.mean(1), "pos": (M > 0).mean(1), "nd": len(ds)})
+D:\ApexOptions\data\research\13nov\work\R03\s04_classify_pool.py:187: Pandas4Warning: Starting with pandas version 4.0 all arguments of mean will be keyword-only.
+  st = pd.DataFrame({"mean": M.mean(1), "pos": (M > 0).mean(1), "nd": len(ds)})
+D:\ApexOptions\data\research\13nov\work\R03\s04_classify_pool.py:187: Pandas4Warning: Starting with pandas version 4.0 all arguments of mean will be keyword-only.
+  st = pd.DataFrame({"mean": M.mean(1), "pos": (M > 0).mean(1), "nd": len(ds)})
+D:\ApexOptions\data\research\13nov\work\R03\s04_classify_pool.py:187: Pandas4Warning: Starting with pandas version 4.0 all arguments of mean will be keyword-only.
+  st = pd.DataFrame({"mean": M.mean(1), "pos": (M > 0).mean(1), "nd": len(ds)})
+D:\ApexOptions\data\research\13nov\work\R03\s04_classify_pool.py:187: Pandas4Warning: Starting with pandas version 4.0 all arguments of mean will be keyword-only.
+  st = pd.DataFrame({"mean": M.mean(1), "pos": (M > 0).mean(1), "nd": len(ds)})
+D:\ApexOptions\data\research\13nov\work\R03\s04_classify_pool.py:187: Pandas4Warning: Starting with pandas version 4.0 all arguments of mean will be keyword-only.
+  st = pd.DataFrame({"mean": M.mean(1), "pos": (M > 0).mean(1), "nd": len(ds)})
+D:\ApexOptions\data\research\13nov\work\R03\s04_classify_pool.py:187: Pandas4Warning: Starting with pandas version 4.0 all arguments of mean will be keyword-only.
+  st = pd.DataFrame({"mean": M.mean(1), "pos": (M > 0).mean(1), "nd": len(ds)})
+D:\ApexOptions\data\research\13nov\work\R03\s04_classify_pool.py:187: Pandas4Warning: Starting with pandas version 4.0 all arguments of mean will be keyword-only.
+  st = pd.DataFrame({"mean": M.mean(1), "pos": (M > 0).mean(1), "nd": len(ds)})
+D:\ApexOptions\data\research\13nov\work\R03\s04_classify_pool.py:187: Pandas4Warning: Starting with pandas version 4.0 all arguments of mean will be keyword-only.
+  st = pd.DataFrame({"mean": M.mean(1), "pos": (M > 0).mean(1), "nd": len(ds)})
+D:\ApexOptions\data\research\13nov\work\R03\s04_classify_pool.py:187: Pandas4Warning: Starting with pandas version 4.0 all arguments of mean will be keyword-only.
+  st = pd.DataFrame({"mean": M.mean(1), "pos": (M > 0).mean(1), "nd": len(ds)})
+D:\ApexOptions\data\research\13nov\work\R03\s04_classify_pool.py:187: Pandas4Warning: Starting with pandas version 4.0 all arguments of mean will be keyword-only.
+  st = pd.DataFrame({"mean": M.mean(1), "pos": (M > 0).mean(1), "nd": len(ds)})

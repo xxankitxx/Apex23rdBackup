@@ -1,0 +1,7 @@
+dtype  rr   n   T_hrs  sigma  measured_slope/hr (se)   kit-clock prediction/hr   implied clock multiple of calendar
+normal     CE  3336  123.4  14.98  -0.169 (0.019)            -0.172                 3.79
+normal     PE  3399  124.2  15.28  -0.239 (0.016)            -0.175                 4.89
+day_before CE  1305   29.1  18.23  -0.768 (0.040)            -0.890                 3.45
+day_before PE   973   28.4  18.24  -0.797 (0.042)            -0.911                 3.48
+expiry     CE  2315    3.9  32.72  +1.140 (0.337)            -12.049                 0.73
+expiry     PE  1978    3.5  32.19  +0.035 (0.304)            -13.107                 0.99

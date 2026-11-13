@@ -1,0 +1,9 @@
+fam:t28 n 2050 beam real 12.1 best [12.183, 18.652, 24.58]
+fam:t28 perms 13 p {'single': 0.07142857142857142, 'pair': 0.07142857142857142, 'triple': 0.07142857142857142} null95 [8.805, 10.604, 12.562]
+  singles [('hw_n_with', '<', 12.0)] 12.1829 1608 0.569 | test {'n': 802, 'sr': 0.491, 'kept': 566, 'kept_sr': 0.479, 'dG': -5.5794, 'days_pos': 3, 'days_neg': 2}
+  singles [('oi_own_chg_open', '<', 7107230.0)] 11.1886 1639 0.569 | test {'n': 802, 'sr': 0.491, 'kept': 581, 'kept_sr': 0.458, 'dG': -9.585, 'days_pos': 1, 'days_neg': 2}
+  pairs [('ep_first=ICICIBANK', '<', 0.5), ('hw_n_with', '<', 12.0)] 18.6517 1238 0.637 | test {'n': 802, 'sr': 0.491, 'kept': 494, 'kept_sr': 0.498, 'dG': -4.4337, 'days_pos': 0, 'days_neg': 5}
+  pairs [('hw_n_with', '<', 12.0), ('hk_sell', '<', 0.28700000047683716)] 18.4301 1363 0.605 | test {'n': 802, 'sr': 0.491, 'kept': 422, 'kept_sr': 0.505, 'dG': -5.7911, 'days_pos': 3, 'days_neg': 2}
+  triples [('ep_first=ICICIBANK', '<', 0.5), ('hw_n_with', '<', 12.0), ('to_pdh', '>=', -156.23499603271543)] 24.58 1015 0.696 | test {'n': 802, 'sr': 0.491, 'kept': 355, 'kept_sr': 0.515, 'dG': -2.7482, 'days_pos': 1, 'days_neg': 4}
+  triples [('ep_first=ICICIBANK', '<', 0.5), ('hw_n_with', '<', 12.0), ('to_pdc', '>=', -266.4849960327154)] 24.58 1015 0.696 | test {'n': 802, 'sr': 0.491, 'kept': 359, 'kept_sr': 0.51, 'dG': -3.0474, 'days_pos': 1, 'days_neg': 4}
+done 169.3

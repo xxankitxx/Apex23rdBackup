@@ -89,12 +89,15 @@
 
   <!-- 12 Nov: the held-trade card (filled by held.js when it is installed) and the forecast glance row. Both have fixed
        heights, so the commentary above them never moves. -->
+  <!-- 13 Nov (owner point 4): the Conductor's own voice, "What I would do now" (apex/engine/voice.py, voice.js). -->
+  <section class="voicecard v-wait" id="voicecard" aria-label="What I would do now" aria-live="polite" hidden></section>
   <section class="heldcard" id="heldcard" aria-label="Held trade" hidden></section>
   <section class="lab-glance" id="labglance" aria-label="Forecast at a glance"><span class="lab-chip"><small>Forecaster</small><b>waiting</b></span></section>
 
   <!-- 11 Nov: the Forecast Lab (apex/forecast_lab, a separate process). Display only: nothing here trades. -->
   <section class="forecast" id="fcsec" aria-label="Forecast">
-    <div class="sec-head"><h2>Forecast <small class="id-note">how far, which way, your trade and decay, in plain words · display only, the Conductor does not read it</small></h2><span id="labhint"></span></div>
+    <div class="sec-head"><h2>Forecast <small class="id-note">my stand, how far, which way, decay · display only, the Conductor does not read it</small></h2><span id="labhint"></span></div>
+    <div class="lab-stand" id="labstand" aria-live="polite"></div>   <!-- 13 Nov: my stand (voice.js labStand) -->
     <div class="lab-strip" id="labstrip"></div>
     <!-- 12 Nov evening (owner: "not at all intuitive"): the same numbers in plain words first; the full notes fold below -->
     <div class="lab-plain" id="labplain"><p class="small">Waiting for the forecaster…</p></div>
@@ -235,6 +238,7 @@
 </main>
 <script src="/static/app.js"></script>
 <script src="/static/commentary.js"></script>
+<script src="/static/voice.js"></script>
 <script src="/static/held.js" defer onerror="this.remove()"></script>
 </body>
 </html>

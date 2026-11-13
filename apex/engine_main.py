@@ -31,6 +31,7 @@ from .engine.gex import GexMap
 from .engine.guard import RESUME_S, DataGuard, in_session
 from .engine.ledger import Ledger
 from .engine.commentary import Commentary
+from .engine.voice import Voice               # 13 Nov: the Conductor's voice (display only)
 from .engine.regime import Regime
 from .engine import missed as missed_mod      # 7 Nov: missed-signal recorder (replays, APEX_RECORD_MISSED=1)
 try:                                     # 5 Nov: display-only quant evidence (needs scipy)
@@ -334,8 +335,13 @@ class Engine:
         # 8 Nov (owner): the Conductor's account mirrors the pool books (apex/engine/conductor.py); the book order
         # here is the same-tick tiebreak order, recorded in every run manifest
         self.conductor = None
-        if any(b.p.get("conductor") for b in books.values()):
+        if conductor_mod.BOOK in books:
             self.conductor = conductor_mod.Conductor(day, list(books))
+        # 13 Nov: shadow Conductors (books with a shadow_policy), stepped right after the live one, never the champion
+        self.shadow_conductors = {n: conductor_mod.AdaptiveConductor(day, list(books), b.p["shadow_policy"], n)
+                                  for n, b in books.items() if b.p.get("conductor") and b.p.get("shadow_policy")
+                                  and n != conductor_mod.BOOK}
+        if self.conductor is not None:
             log(f"CONDUCTOR pool as of {day}: {len(self.conductor.members)} pair(s)"
                 + (f" (APEX_POOL_ASOF={self.conductor.asof})" if self.conductor.asof else "")
                 + "".join(f" · {m['book']}+{m.get('rule') or 'free'}/{m.get('standing')}" for m in self.conductor.members))
@@ -377,6 +383,7 @@ class Engine:
             self._safe("missed close", self.missed.close)
         self.missed = (missed_mod.MissedRecorder(day, config.PAPER_DIR) if missed_mod.enabled() else None)
         self.commentary = Commentary(day, paper_dir=config.PAPER_DIR, log=log)   # council 5: the live-trade commentary
+        self.voice = Voice()             # 13 Nov (owner point 4): the Conductor's own first-person voice, display only
         self._exit_sig, self._exit_sig_t = self._exit_signature(), None
         self._dec_cls, self._dec_n = None, 0
         self.ev("SYSTEM", f"day {day} · champion {champ} · gates {', '.join(self.gates) or 'none'} · "
@@ -1680,7 +1687,14 @@ class Engine:
                 changed = self._conductor_step(ctx) or changed
             except Exception:
                 self._fault("conductor")
+            for sn, sc in (getattr(self, "shadow_conductors", None) or {}).items():   # 13 Nov: shadows, own accounts
+                try:
+                    changed = (sc.step(self.books[sn], self.books, ctx) is not None) or changed
+                except Exception:
+                    self._fault(f"conductor {sn}")
             self._ph_add("conductor", pc() - tc)
+            if getattr(self, "voice", None) is not None:             # 13 Nov: observer, never a decision
+                self._safe("voice", lambda: self.voice.view(self, ctx))
         if not self._photo_checked:
             self._safe("photo check", lambda: self._photo_check(ctx))
         if self.missed is not None:
@@ -2148,6 +2162,7 @@ class Engine:
                            "swing_last": (champ.ctl.get("swing_last") if champ else None)},
             "champion": self.champion, "gates": self.gates,
             "conductor": self._conductor_view(),   # 8 Nov: the pool and the account's state, for the dashboard
+            "voice": (self.voice.v if getattr(self, "voice", None) is not None else None),   # 13 Nov: display only
             "forecast": (self._safe("forecast panel", self.pred.panel, None)   # 11 Nov: display only
                          if getattr(self, "pred", None) is not None else None),
             "learning": {k: self.lstate.get(k) for k in ("status", "scoreboard", "champion_since", "retired", "candidates")},

@@ -1,0 +1,75 @@
+{"t": "09:00:01", "k": "SYSTEM", "x": "day 2026-11-13 \u00b7 champion conductor \u00b7 gates none \u00b7 capital \u20b9100,000", "mkt_t": 1794540601.528994}
+{"t": "09:15:00", "k": "GAP", "x": "data gap: feed stale: futures quote 380 s old \u2014 entries paused until 20 s of fresh data", "mkt_t": 1794541500.0791488}
+{"t": "09:15:20", "k": "GAP", "x": "data back after 20 s (feed stale: futures quote 380 s old); entries resume", "mkt_t": 1794541520.2748659}
+{"t": "09:17:01", "k": "SHIFT", "x": "ATM rolled 25200 \u2192 25100: straddle 354.9 \u2192 345.5 (spot settled at the new strike)", "mkt_t": 1794541621.867845}
+{"t": "09:36:22", "k": "SHIFT", "x": "ATM rolled 25100 \u2192 25200: straddle 340.0 \u2192 337.5 (spot settled at the new strike)", "mkt_t": 1794542782.9375014}
+{"t": "09:37:13", "k": "SYSTEM", "x": "engine slow: median step 168 ms in the last minute (282 steps); most time in books 34 %, greeks 17 %", "mkt_t": 1794542833.604573}
+{"t": "10:44:13", "k": "SYSTEM", "x": "engine slow: median step 152 ms in the last minute (314 steps); most time in greeks 20 %, pre-books 16 %", "mkt_t": 1794546853.621812}
+{"t": "10:50:13", "k": "SYSTEM", "x": "engine slow: median step 153 ms in the last minute (323 steps); most time in greeks 20 %, books 15 %", "mkt_t": 1794547213.7245545}
+{"t": "10:52:42", "k": "SHIFT", "x": "ATM rolled 25200 \u2192 25250: straddle 323.2 \u2192 321.5 (spot settled at the new strike)", "mkt_t": 1794547362.8357465}
+{"t": "10:53:36", "k": "RAW-ENTRY", "x": "BUY 8 lots NIFTY 25200 CE (2026-11-17) @ 182.05 \u00b7 COUNCIL NORM pb v=+22", "mkt_t": 1794547416.0903432}
+{"t": "10:53:36", "k": "ENTRY", "x": "BUY 8 lots NIFTY 25200 CE (2026-11-17) @ 182.05 \u00b7 COUNCIL NORM pb v=+22 \u00b7 via c20_9y", "mkt_t": 1794547416.0903432}
+{"t": "10:56:13", "k": "SYSTEM", "x": "engine slow: median step 242 ms in the last minute (211 steps); most time in books 24 %, greeks 17 %", "mkt_t": 1794547573.624208}
+{"t": "11:01:13", "k": "SYSTEM", "x": "engine slow: median step 297 ms in the last minute (167 steps); most time in books 31 %, pre-books 15 %", "mkt_t": 1794547873.2815082}
+{"t": "11:03:27", "k": "RAW-EXIT", "x": "CE 25200 8 lots \u00b7 182.05 \u2192 159.55 = -22.50 pts / \u20b9-11,700 \u00b7 COUNCIL FWD_TRAIL \u00b7 capital \u20b988,300", "mkt_t": 1794548007.3044393}
+{"t": "11:03:27", "k": "EXIT", "x": "CE 25200 8 lots \u00b7 182.05 \u2192 159.55 = -22.50 pts / \u20b9-11,700 \u00b7 COUNCIL FWD_TRAIL \u00b7 via c20_9y \u00b7 capital \u20b988,300", "mkt_t": 1794548007.3044393}
+{"t": "11:07:13", "k": "SYSTEM", "x": "engine slow: median step 257 ms in the last minute (208 steps); most time in books 23 %, greeks 18 %", "mkt_t": 1794548233.7157671}
+{"t": "11:08:01", "k": "SHIFT", "x": "ATM rolled 25250 \u2192 25200: straddle 320.1 \u2192 315.5 (spot settled at the new strike)", "mkt_t": 1794548281.5575511}
+{"t": "11:12:13", "k": "SYSTEM", "x": "engine slow: median step 223 ms in the last minute (243 steps); most time in greeks 20 %, pre-books 17 %", "mkt_t": 1794548533.698715}
+{"t": "11:18:13", "k": "SYSTEM", "x": "engine slow: median step 186 ms in the last minute (262 steps); most time in greeks 19 %, pre-books 17 %", "mkt_t": 1794548893.704015}
+{"t": "11:23:13", "k": "SYSTEM", "x": "engine slow: median step 187 ms in the last minute (270 steps); most time in greeks 19 %, pre-books 18 %", "mkt_t": 1794549193.6104689}
+{"t": "11:29:13", "k": "SYSTEM", "x": "engine slow: median step 212 ms in the last minute (234 steps); most time in greeks 19 %, pre-books 18 %", "mkt_t": 1794549553.4659557}
+{"t": "11:30:17", "k": "GAP", "x": "data gap: feed silent: no quote on any instrument for 3 s \u2014 entries paused until 20 s of fresh data", "mkt_t": 1794549617.530021}
+{"t": "11:32:13", "k": "DATA", "x": "no trade for 120 s on hero contract(s): 25050 CE, 25050 PE, 25100 CE, 25100 PE, 25150 CE, 25150 PE, 25250 CE, 25250 PE", "mkt_t": 1794549733.3073704}
+{"t": "11:32:14", "k": "DATA", "x": "no trade for 120 s on hero contract(s): 25200 CE, 25200 PE", "mkt_t": 1794549734.314701}
+{"t": "11:40:44", "k": "SHIFT", "x": "ATM rolled 25200 \u2192 25150: straddle 311.6 \u2192 310.9 (spot settled at the new strike)", "mkt_t": 1794550244.5965414}
+{"t": "12:23:37", "k": "GAP", "x": "data back after 3200 s (feed stale: futures quote 3184 s old); entries resume", "mkt_t": 1794552817.2622387}
+{"t": "12:36:27", "k": "RAW-ENTRY", "x": "BUY 7 lots NIFTY 25200 PE (2026-11-17) @ 184.10 \u00b7 COUNCIL NORM pb v=-42", "mkt_t": 1794553587.7319872}
+{"t": "12:36:27", "k": "ENTRY", "x": "BUY 7 lots NIFTY 25200 PE (2026-11-17) @ 184.10 \u00b7 COUNCIL NORM pb v=-42 \u00b7 via c20_9y", "mkt_t": 1794553587.7319872}
+{"t": "13:18:20", "k": "GAP", "x": "data gap: feed silent: no quote on any instrument for 3 s \u2014 entries paused until 20 s of fresh data", "mkt_t": 1794556100.227481}
+{"t": "13:18:41", "k": "GAP", "x": "data back after 21 s (feed silent: no quote on any instrument for 4 s); entries resume", "mkt_t": 1794556121.1919107}
+{"t": "13:19:02", "k": "RAW-EXIT", "x": "PE 25200 7 lots \u00b7 184.10 \u2192 170.95 = -13.15 pts / \u20b9-5,983 \u00b7 COUNCIL FWD_TRAIL \u00b7 capital \u20b982,317", "mkt_t": 1794556142.0901513}
+{"t": "13:19:02", "k": "EXIT", "x": "PE 25200 7 lots \u00b7 184.10 \u2192 170.95 = -13.15 pts / \u20b9-5,983 \u00b7 COUNCIL FWD_TRAIL \u00b7 via c20_9y \u00b7 capital \u20b982,317", "mkt_t": 1794556142.0901513}
+{"t": "13:56:48", "k": "SHIFT", "x": "ATM rolled 25150 \u2192 25100: straddle 282.3 \u2192 280.1 (spot settled at the new strike)", "mkt_t": 1794558408.544567}
+{"t": "14:29:47", "k": "RAW-ENTRY", "x": "BUY 7 lots NIFTY 25150 PE (2026-11-17) @ 166.90 \u00b7 COUNCIL NORM pb v=-3", "mkt_t": 1794560387.0021954}
+{"t": "14:29:47", "k": "ENTRY", "x": "BUY 7 lots NIFTY 25150 PE (2026-11-17) @ 166.90 \u00b7 COUNCIL NORM pb v=-3 \u00b7 via c20_9y", "mkt_t": 1794560387.0021954}
+{"t": "14:33:17", "k": "RAW-EXIT", "x": "PE 25150 7 lots \u00b7 166.90 \u2192 146.20 = -20.70 pts / \u20b9-9,418 \u00b7 COUNCIL FWD_TRAIL \u00b7 capital \u20b972,898", "mkt_t": 1794560597.0393426}
+{"t": "14:33:17", "k": "EXIT", "x": "PE 25150 7 lots \u00b7 166.90 \u2192 146.20 = -20.70 pts / \u20b9-9,418 \u00b7 COUNCIL FWD_TRAIL \u00b7 via c20_9y \u00b7 capital \u20b972,898", "mkt_t": 1794560597.0393426}
+{"t": "14:45:05", "k": "GAP", "x": "data gap: feed silent: no quote on any instrument for 3 s \u2014 entries paused until 20 s of fresh data", "mkt_t": 1794561305.2073035}
+{"t": "14:45:25", "k": "GAP", "x": "data back after 20 s (feed silent: no quote on any instrument for 3 s); entries resume", "mkt_t": 1794561325.6342316}
+{"t": "14:54:52", "k": "SHIFT", "x": "ATM rolled 25100 \u2192 25150: straddle 276.8 \u2192 276.3 (spot settled at the new strike)", "mkt_t": 1794561892.4649267}
+{"t": "15:15:58", "k": "DATA", "x": "NIFTY index not trusted: spot unchanged for 58 s while the future moved -6", "mkt_t": 1794563158.3249092}
+{"t": "15:16:01", "k": "DATA", "x": "NIFTY index trusted again", "mkt_t": 1794563161.737587}
+{"t": "15:16:33", "k": "DATA", "x": "NIFTY index not trusted: spot unchanged for 93 s while the future moved -6", "mkt_t": 1794563193.3457363}
+{"t": "15:16:34", "k": "DATA", "x": "NIFTY index trusted again", "mkt_t": 1794563194.986626}
+{"t": "15:17:02", "k": "DATA", "x": "NIFTY index not trusted: spot unchanged for 122 s while the future moved -6", "mkt_t": 1794563222.4371784}
+{"t": "15:17:05", "k": "DATA", "x": "NIFTY index trusted again", "mkt_t": 1794563225.6942835}
+{"t": "15:17:07", "k": "DATA", "x": "NIFTY index not trusted: spot unchanged for 127 s while the future moved -6", "mkt_t": 1794563227.4729106}
+{"t": "15:17:34", "k": "DATA", "x": "NIFTY index trusted again", "mkt_t": 1794563254.1275816}
+{"t": "15:20:01", "k": "DATA", "x": "NIFTY index not trusted: spot 25042.2 is +90 pts off its usual spread to the future", "mkt_t": 1794563401.5914798}
+{"t": "15:20:02", "k": "DATA", "x": "NIFTY index trusted again", "mkt_t": 1794563402.750841}
+{"t": "15:20:04", "k": "DATA", "x": "NIFTY index not trusted: spot 25005.0 is +128 pts off its usual spread to the future", "mkt_t": 1794563404.1590633}
+{"t": "15:20:05", "k": "DATA", "x": "NIFTY index trusted again", "mkt_t": 1794563405.18544}
+{"t": "15:20:05", "k": "DATA", "x": "NIFTY index not trusted: spot 25218.6 is -86 pts off its usual spread to the future", "mkt_t": 1794563405.66258}
+{"t": "15:20:06", "k": "DATA", "x": "NIFTY index trusted again", "mkt_t": 1794563406.6674979}
+{"t": "15:27:21", "k": "GAP", "x": "data gap: feed silent: no quote on any instrument for 3 s \u2014 entries paused until 20 s of fresh data", "mkt_t": 1794563841.350925}
+{"t": "15:27:49", "k": "GAP", "x": "data back after 28 s (feed silent: no quote on any instrument for 3 s); entries resume", "mkt_t": 1794563869.6494398}
+{"t": "15:31:47", "k": "DATA", "x": "NIFTY index not trusted: spot unchanged for 223 s while the future moved -8", "mkt_t": 1794564107.8428948}
+{"t": "15:34:03", "k": "DATA", "x": "NIFTY index trusted again", "mkt_t": 1794564243.0443306}
+{"t": "15:34:04", "k": "DATA", "x": "NIFTY index not trusted: spot unchanged for 360 s while the future moved -6", "mkt_t": 1794564244.63518}
+{"t": "15:34:25", "k": "DATA", "x": "NIFTY index trusted again", "mkt_t": 1794564265.5064933}
+{"t": "15:34:38", "k": "DATA", "x": "NIFTY index not trusted: spot unchanged for 394 s while the future moved -6", "mkt_t": 1794564278.5352535}
+{"t": "15:34:45", "k": "DATA", "x": "NIFTY index trusted again", "mkt_t": 1794564285.1237369}
+{"t": "15:34:51", "k": "DATA", "x": "NIFTY index not trusted: spot unchanged for 407 s while the future moved -6", "mkt_t": 1794564291.4724586}
+{"t": "15:34:54", "k": "DATA", "x": "NIFTY index trusted again", "mkt_t": 1794564294.690463}
+{"t": "15:35:01", "k": "DATA", "x": "NIFTY index not trusted: spot unchanged for 417 s while the future moved -6", "mkt_t": 1794564301.3376071}
+{"t": "15:35:31", "k": "DATA", "x": "NIFTY index trusted again", "mkt_t": 1794564331.9960053}
+{"t": "15:38:57", "k": "DATA", "x": "NIFTY index not trusted: spot unchanged for 653 s while the future moved +6", "mkt_t": 1794564537.4583719}
+{"t": "15:39:12", "k": "DATA", "x": "NIFTY index trusted again", "mkt_t": 1794564552.1234078}
+{"t": "15:39:17", "k": "DATA", "x": "NIFTY index not trusted: spot unchanged for 673 s while the future moved +7", "mkt_t": 1794564557.1820867}
+{"t": "15:39:30", "k": "DATA", "x": "NIFTY index trusted again", "mkt_t": 1794564570.5188031}
+{"t": "15:39:42", "k": "DATA", "x": "NIFTY index not trusted: spot unchanged for 698 s while the future moved +10", "mkt_t": 1794564582.2185256}
+{"t": "15:39:53", "k": "DATA", "x": "NIFTY index trusted again", "mkt_t": 1794564593.8506782}
+{"t": "15:41:00", "k": "LEARN", "x": "2026-11-13: champion next session conductor, gates none, status COLLECTING", "mkt_t": 1794564660.0547187}
+{"t": "15:41:21", "k": "GAP", "x": "data gap: engine paused 21 s \u2014 entries paused until 20 s of fresh data", "mkt_t": 1794564681.1332755}
+{"t": "15:41:41", "k": "GAP", "x": "data back after 20 s (engine paused 21 s); entries resume", "mkt_t": 1794564701.2675614}

@@ -1,0 +1,74 @@
+{
+ "v": 1,
+ "t": 1793938615.0,
+ "time": "09:46:55",
+ "lead": "c20_9y",
+ "capital": 100000,
+ "day": {
+  "trades": 0,
+  "won": 0,
+  "pnl_rs": 0
+ },
+ "recent": [],
+ "trigger": {
+  "mode": "normal",
+  "pb_entry": true,
+  "need_pts": 40.0,
+  "window_min": 20,
+  "vel_min": 20,
+  "fwd": 25048.3,
+  "t0": "09:16",
+  "t1": "15:00",
+  "hm": 586.9166666666666,
+  "hi": 25049.7,
+  "lo": 25000.0,
+  "range_pts": 49.7,
+  "move_pts": 48.3,
+  "gap_hi": 1.4,
+  "gap_lo": 48.3,
+  "warm": false,
+  "ready_at": "09:35",
+  "cool_left_s": 0,
+  "arm": {
+   "side": "CE",
+   "impulse_pts": 49.7,
+   "pullback_pts": 1.4,
+   "need_pts": 24.9,
+   "max_pts": 37.3,
+   "pullback_pct": 3.0,
+   "need_pct": 50,
+   "max_pct": 75,
+   "since": "09:44",
+   "age_s": 132,
+   "expires": "09:59",
+   "left_s": 768,
+   "resume_pts": 0.0,
+   "resume_need": 5.0,
+   "in_zone": false,
+   "fire_level": 25053.3,
+   "drop_level": 25012.4,
+   "printing": false
+  },
+  "p_fire": {
+   "m5": 0.09,
+   "m10": 0.18,
+   "m15": 0.24
+  },
+  "progress": 0.06
+ },
+ "mode": "ARMED",
+ "books": [
+  {
+   "book": "c20_9y",
+   "ready": true,
+   "veto": null,
+   "text": "ready"
+  }
+ ],
+ "would_buy": null,
+ "headline": "Armed for a CALL since 09:44 (impulse 50 pts). The pullback is 1 of the 25 pts I need.",
+ "lines": [
+  "If it falls back more than 37 pts (past 25,012) I drop the idea. The arm expires at 09:59.",
+  "From here I fired within 10 minutes about 2 times in 10 (normal days 19 Oct to 11 Nov; slower in the last week)."
+ ]
+}

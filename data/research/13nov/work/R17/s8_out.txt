@@ -1,0 +1,80 @@
+base (949.91975, 53.57142857142857, 84) (142.5384999999999, 51.42857142857143, 35)
+lt   0.0 M  2: early   965.3 SR 53.7 n  82 | late  109.2 SR 48.6 n 35 | better 1 worse 1 worst day -36.3
+lt   0.0 M  4: early   945.9 SR 53.2 n  79 | late  119.5 SR 48.5 n 33 | better 1 worse 2 worst day -26.7
+lt   0.0 M  6: early   954.3 SR 53.8 n  78 | late  112.8 SR 46.9 n 32 | better 1 worse 2 worst day -26.7
+lt   0.0 M  8: early   930.5 SR 54.5 n  77 | late  178.6 SR 53.3 n 30 | better 3 worse 1 worst day -24.8
+lt   0.0 M 10: early   995.0 SR 59.5 n  74 | late  172.9 SR 51.7 n 29 | better 5 worse 1 worst day -24.8
+lt   0.0 M 12: early  1008.8 SR 58.9 n  73 | late  116.0 SR 46.4 n 28 | better 5 worse 2 worst day -24.8
+lt   0.0 M 14: early   991.8 SR 57.1 n  70 | late  119.1 SR 48.1 n 27 | better 4 worse 3 worst day -41.8
+lt   0.0 M 16: early   948.5 SR 55.9 n  68 | late  100.4 SR 44.0 n 25 | better 4 worse 4 worst day -41.8
+lt   0.0 M 18: early   649.5 SR 56.7 n  67 | late  127.9 SR 48.0 n 25 | better 5 worse 4 worst day -26.9
+lt   0.0 M 20: early   649.5 SR 56.7 n  67 | late  127.9 SR 48.0 n 25 | better 5 worse 4 worst day -26.9
+lt   0.0 M 22: early   702.4 SR 57.6 n  66 | late  165.0 SR 53.8 n 26 | better 7 worse 2 worst day -26.9
+lt   0.0 M 24: early   669.7 SR 56.9 n  65 | late  165.0 SR 53.8 n 26 | better 7 worse 2 worst day -22.0
+lt   0.0 M 26: early   626.4 SR 56.2 n  64 | late  153.3 SR 52.2 n 23 | better 6 worse 3 worst day -22.0
+lt   0.0 M 28: early   626.4 SR 56.2 n  64 | late  153.8 SR 52.2 n 23 | better 6 worse 3 worst day -22.0
+lt   0.0 M 30: early   649.6 SR 57.8 n  64 | late  156.7 SR 54.5 n 22 | better 7 worse 3 worst day -13.9
+lt  -3.0 M  2: early   965.3 SR 53.7 n  82 | late  109.2 SR 48.6 n 35 | better 1 worse 1 worst day -36.3
+lt  -3.0 M  4: early   914.9 SR 52.5 n  80 | late  119.5 SR 48.5 n 33 | better 1 worse 2 worst day -26.7
+lt  -3.0 M  6: early   918.8 SR 53.2 n  79 | late  112.8 SR 46.9 n 32 | better 1 worse 2 worst day -26.7
+lt  -3.0 M  8: early   896.6 SR 53.2 n  79 | late  178.6 SR 53.3 n 30 | better 2 worse 1 worst day -43.1
+lt  -3.0 M 10: early   967.9 SR 57.3 n  75 | late  178.6 SR 53.3 n 30 | better 5 worse 1 worst day -24.8
+lt  -3.0 M 12: early   961.5 SR 56.0 n  75 | late  120.2 SR 48.3 n 29 | better 5 worse 2 worst day -24.8
+lt  -3.0 M 14: early   944.4 SR 54.2 n  72 | late  124.1 SR 50.0 n 28 | better 4 worse 3 worst day -41.8
+lt  -3.0 M 16: early   901.9 SR 53.5 n  71 | late  103.2 SR 46.2 n 26 | better 4 worse 4 worst day -41.8
+lt  -3.0 M 18: early   848.7 SR 53.5 n  71 | late  131.1 SR 50.0 n 26 | better 4 worse 5 worst day -41.8
+lt  -3.0 M 20: early   848.7 SR 53.5 n  71 | late  131.1 SR 50.0 n 26 | better 4 worse 5 worst day -41.8
+lt  -3.0 M 22: early   894.6 SR 54.3 n  70 | late  169.8 SR 55.6 n 27 | better 6 worse 3 worst day -41.8
+lt  -3.0 M 24: early   865.0 SR 53.6 n  69 | late  169.8 SR 55.6 n 27 | better 5 worse 4 worst day -37.9
+lt  -3.0 M 26: early   827.3 SR 52.9 n  68 | late  136.8 SR 52.0 n 25 | better 4 worse 5 worst day -37.9
+lt  -3.0 M 28: early   827.3 SR 52.9 n  68 | late  161.5 SR 54.2 n 24 | better 5 worse 4 worst day -37.9
+lt  -3.0 M 30: early   853.1 SR 55.2 n  67 | late  161.5 SR 54.2 n 24 | better 6 worse 3 worst day -26.3
+lt  -5.0 M  2: early   965.3 SR 53.7 n  82 | late  109.2 SR 48.6 n 35 | better 1 worse 1 worst day -36.3
+lt  -5.0 M  4: early   914.9 SR 52.5 n  80 | late  119.5 SR 48.5 n 33 | better 1 worse 2 worst day -26.7
+lt  -5.0 M  6: early   918.8 SR 53.2 n  79 | late  112.8 SR 46.9 n 32 | better 1 worse 2 worst day -26.7
+lt  -5.0 M  8: early   896.6 SR 53.2 n  79 | late  178.6 SR 53.3 n 30 | better 2 worse 1 worst day -43.1
+lt  -5.0 M 10: early   967.3 SR 56.6 n  76 | late  178.6 SR 53.3 n 30 | better 4 worse 1 worst day -24.8
+lt  -5.0 M 12: early   968.4 SR 56.6 n  76 | late  120.2 SR 48.3 n 29 | better 4 worse 2 worst day -24.8
+lt  -5.0 M 14: early   951.4 SR 54.8 n  73 | late  124.1 SR 50.0 n 28 | better 3 worse 3 worst day -41.8
+lt  -5.0 M 16: early   908.8 SR 54.2 n  72 | late  103.2 SR 46.2 n 26 | better 3 worse 4 worst day -41.8
+lt  -5.0 M 18: early   908.8 SR 54.2 n  72 | late  131.1 SR 50.0 n 26 | better 3 worse 4 worst day -41.8
+lt  -5.0 M 20: early   908.8 SR 54.2 n  72 | late  131.1 SR 50.0 n 26 | better 3 worse 4 worst day -41.8
+lt  -5.0 M 22: early   954.8 SR 54.9 n  71 | late  169.8 SR 55.6 n 27 | better 5 worse 2 worst day -41.8
+lt  -5.0 M 24: early   925.2 SR 54.3 n  70 | late  169.8 SR 55.6 n 27 | better 4 worse 3 worst day -37.9
+lt  -5.0 M 26: early   887.5 SR 53.6 n  69 | late  136.8 SR 52.0 n 25 | better 3 worse 4 worst day -37.9
+lt  -5.0 M 28: early   887.5 SR 53.6 n  69 | late  161.5 SR 54.2 n 24 | better 4 worse 3 worst day -37.9
+lt  -5.0 M 30: early   913.3 SR 55.9 n  68 | late  161.5 SR 54.2 n 24 | better 5 worse 2 worst day -26.3
+lt -10.0 M  2: early   965.3 SR 53.7 n  82 | late  142.5 SR 51.4 n 35 | better 1 worse 0 worst day -36.3
+lt -10.0 M  4: early   914.9 SR 52.5 n  80 | late  129.2 SR 50.0 n 34 | better 1 worse 2 worst day -26.7
+lt -10.0 M  6: early   918.8 SR 53.2 n  79 | late  120.8 SR 48.5 n 33 | better 1 worse 2 worst day -26.7
+lt -10.0 M  8: early   896.6 SR 53.2 n  79 | late  182.4 SR 53.1 n 32 | better 2 worse 1 worst day -43.1
+lt -10.0 M 10: early   967.3 SR 56.6 n  76 | late  182.4 SR 53.1 n 32 | better 4 worse 1 worst day -24.8
+lt -10.0 M 12: early   968.4 SR 56.6 n  76 | late  139.5 SR 50.0 n 32 | better 3 worse 2 worst day -24.8
+lt -10.0 M 14: early   951.4 SR 54.8 n  73 | late  139.5 SR 50.0 n 32 | better 2 worse 3 worst day -41.8
+lt -10.0 M 16: early   951.4 SR 54.8 n  73 | late  135.9 SR 50.0 n 30 | better 2 worse 3 worst day -41.8
+lt -10.0 M 18: early   951.4 SR 54.8 n  73 | late  149.2 SR 51.7 n 29 | better 3 worse 2 worst day -41.8
+lt -10.0 M 20: early   951.4 SR 54.8 n  73 | late  149.2 SR 51.7 n 29 | better 3 worse 2 worst day -41.8
+lt -10.0 M 22: early   997.3 SR 55.6 n  72 | late  149.2 SR 51.7 n 29 | better 4 worse 1 worst day -41.8
+lt -10.0 M 24: early   967.7 SR 54.9 n  71 | late  149.2 SR 51.7 n 29 | better 3 worse 2 worst day -37.9
+lt -10.0 M 26: early   930.0 SR 54.3 n  70 | late  153.3 SR 53.6 n 28 | better 3 worse 2 worst day -37.9
+lt -10.0 M 28: early   930.0 SR 54.3 n  70 | late  183.9 SR 55.6 n 27 | better 3 worse 2 worst day -37.9
+lt -10.0 M 30: early   955.8 SR 56.5 n  69 | late  183.9 SR 55.6 n 27 | better 4 worse 1 worst day -26.3
+diffbook 6 959.3 53.1 81 | 130.9 50.0 34
+diffbook 10 985.1 55.0 80 | 130.9 50.0 34
+diffbook 14 962.6 53.1 81 | 136.2 50.0 34
+rolling choice per day (day, chosen (lt,M), guarded day %, base day %)
+('10-23', (-5.0, 22), 47.7, 25.2)
+('10-26', (-5.0, 22), 260.9, 260.9)
+('10-27', (-5.0, 22), 489.5, 532.0)
+('10-28', (-10.0, 22), 56.2, 56.2)
+('10-29', (-10.0, 22), 24.8, 24.8)
+('10-30', (-10.0, 22), -5.6, -5.6)
+('11-02', (-10.0, 22), 41.6, 41.6)
+('11-03', (-10.0, 22), -41.8, -36.3)
+('11-04', (0.0, 12), -10.1, -26.7)
+('11-05', (0.0, 12), -5.9, -5.9)
+('11-06', (0.0, 12), 100.2, 100.2)
+('11-09', (0.0, 12), 11.4, 43.2)
+('11-11', (0.0, 10), 9.0, 9.0)
+('11-12', (0.0, 10), -4.0, -4.0)
+rolling total 973.9 base 1014.6 days better 2 worse 3

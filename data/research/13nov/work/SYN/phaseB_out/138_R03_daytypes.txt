@@ -1,0 +1,46 @@
+2026-10-19 4 trend_down 6.6
+2026-10-21 1 trend_down 6.8
+2026-10-22 1 range 6.9
+2026-10-23 2 range 6.9
+2026-10-26 1 trend_up 7.0
+2026-10-27 2 range 7.2
+2026-10-28 1 V_up 7.3
+2026-10-29 3 trend_up 7.3
+2026-10-30 1 range 7.4
+2026-11-02 1 trend_up 7.5
+2026-11-03 1 trend_up 7.6
+2026-11-04 1 trend_up 7.7
+2026-11-05 1 trend_up 7.8
+2026-11-06 1 trend_up 7.9
+2026-11-09 1 V_up 8.0
+2026-11-11 1 V_down 8.2
+
+label agreement with s03 (collect path): 16 / 16
+                 shape   shape_s03
+day                               
+2026-10-19  trend_down  trend_down
+2026-10-21  trend_down  trend_down
+2026-10-22       range       range
+2026-10-23       range       range
+2026-10-26    trend_up    trend_up
+2026-10-27       range       range
+2026-10-28        V_up        V_up
+2026-10-29    trend_up    trend_up
+2026-10-30       range       range
+2026-11-02    trend_up    trend_up
+2026-11-03    trend_up    trend_up
+2026-11-04    trend_up    trend_up
+2026-11-05    trend_up    trend_up
+2026-11-06    trend_up    trend_up
+2026-11-09        V_up        V_up
+2026-11-11      V_down      V_down
+
+LODO stump on ds_v2 features (incl. weighted heavyweight breadth)
+      cp  target  days  base  majority  lodo_stump
+0  0945  y_rest    16  0.56      0.56        0.69
+1  0945  y_cont    16  0.62      0.62        0.44
+2  1015  y_rest    16  0.50      0.50        0.62
+3  1015  y_cont    16  0.62      0.62        0.75
+4  1100  y_rest    16  0.69      0.69        0.69
+5  1100  y_cont    16  0.62      0.62        0.38
+done 11.6

@@ -1,0 +1,219 @@
+
+FAMILY mean book-day return % by dtype  (days: {'range': 5, 'trend_up': 4, 'gap_go': 3, 'trend_down': 2, 'V_up': 2, 'V_down': 1})
+ dtype                          V_down  V_up  gap_go  range  trend_down  trend_up
+fam                                                                             
+basket gap                        0.0   6.0    -0.5    4.9        -2.3       0.0
+burst fade                      -33.0 -35.3    -0.1    0.3        73.9     -13.1
+c20 council                      13.9  38.2    -2.9   85.3        44.6      66.3
+c20 council (RAW copy)           23.2  45.3    -2.3  113.4        43.4      82.5
+c20 exit/re-entry twins          -2.9  47.4     5.0   96.6        78.5      72.9
+control                          13.7  11.3   -19.6   -1.8       -18.7       1.1
+edge                             20.1  -5.1    -2.9   14.5        19.7       2.7
+impulse+basket m-grid            -1.1  14.8    -4.4    7.5        -6.0       2.8
+lvl_trail pullback               17.9  32.2    -5.3   25.9        80.0      17.7
+new-idea books (n/p/s)            3.7  -0.4     2.6    0.6        -2.6      -0.5
+new-idea controls (n/p/s ctl)   -16.0 -19.9   -10.8   -0.1        -6.0      -5.6
+opening range                    15.3  16.9    -9.2    4.9        13.5       7.2
+spot 45-min pullback             24.3  10.8    -8.9   -6.4        81.7      11.6
+spot first-touch                 -6.7  44.9   -10.6   16.9        22.8       3.9
+spot retest                       3.7  19.4   -11.1   -1.0        62.2      20.2
+straddle spike                    0.0 -27.0   -21.5    0.5       -12.5      -1.8
+t28 45-min pullback               4.0  32.7    -3.6   26.0       106.1      12.7
+
+FAMILY strike % by dtype
+ dtype                          V_down   V_up  gap_go  range  trend_down  trend_up
+fam                                                                              
+basket gap                        NaN   50.0     0.0   93.0         0.0       NaN
+burst fade                       41.0   47.0    50.0   48.0        57.0      47.0
+c20 council                      60.0   56.0    56.0   57.0        47.0      65.0
+c20 council (RAW copy)           67.0   54.0    53.0   50.0        38.0      62.0
+c20 exit/re-entry twins          44.0   64.0    65.0   64.0        44.0      63.0
+control                          67.0   45.0    40.0   37.0        34.0      44.0
+edge                             87.0   33.0    38.0   49.0        54.0      47.0
+impulse+basket m-grid            46.0   64.0     0.0   67.0         2.0      62.0
+lvl_trail pullback               80.0   45.0    44.0   50.0        54.0      57.0
+new-idea books (n/p/s)           51.0   48.0    47.0   46.0        42.0      44.0
+new-idea controls (n/p/s ctl)    46.0   46.0    46.0   49.0        47.0      48.0
+opening range                   100.0  100.0    71.0   74.0       100.0     100.0
+spot 45-min pullback             71.0   47.0    46.0   41.0        62.0      66.0
+spot first-touch                 39.0   46.0    41.0   42.0        45.0      39.0
+spot retest                      32.0   37.0    28.0   32.0        43.0      44.0
+straddle spike                    NaN   31.0    15.0   44.0        31.0      33.0
+t28 45-min pullback              63.0   46.0    43.0   51.0        60.0      49.0
+
+FAMILY mean book-day return % by shape  (days: {'trend_up': 7, 'range': 5, 'trend_down': 2, 'V_up': 2, 'V_down': 1})
+ shape                          V_down  V_up  range  trend_down  trend_up
+fam                                                                     
+basket gap                        0.0   6.0    4.9        -2.3      -0.2
+burst fade                      -33.0 -35.3    0.3        73.9      -7.5
+c20 council                      13.9  38.2   85.3        44.6      36.7
+c20 council (RAW copy)           23.2  45.3  113.4        43.4      46.1
+c20 exit/re-entry twins          -2.9  47.4   96.6        78.5      43.8
+control                          13.7  11.3   -1.8       -18.7      -7.8
+edge                             20.1  -5.1   14.5        19.7       0.3
+impulse+basket m-grid            -1.1  14.8    7.5        -6.0      -0.3
+lvl_trail pullback               17.9  32.2   25.9        80.0       7.8
+new-idea books (n/p/s)            3.7  -0.4    0.6        -2.6       0.8
+new-idea controls (n/p/s ctl)   -16.0 -19.9   -0.1        -6.0      -7.8
+opening range                    15.3  16.9    4.9        13.5       0.2
+spot 45-min pullback             24.3  10.8   -6.4        81.7       2.8
+spot first-touch                 -6.7  44.9   16.9        22.8      -2.3
+spot retest                       3.7  19.4   -1.0        62.2       6.8
+straddle spike                    0.0 -27.0    0.5       -12.5     -10.2
+t28 45-min pullback               4.0  32.7   26.0       106.1       5.7
+
+FAMILY strike % by shape
+ shape                          V_down   V_up  range  trend_down  trend_up
+fam                                                                      
+basket gap                        NaN   50.0   93.0         0.0       0.0
+burst fade                       41.0   47.0   48.0        57.0      48.0
+c20 council                      60.0   56.0   57.0        47.0      60.0
+c20 council (RAW copy)           67.0   54.0   50.0        38.0      58.0
+c20 exit/re-entry twins          44.0   64.0   64.0        44.0      64.0
+control                          67.0   45.0   37.0        34.0      42.0
+edge                             87.0   33.0   49.0        54.0      43.0
+impulse+basket m-grid            46.0   64.0   67.0         2.0      42.0
+lvl_trail pullback               80.0   45.0   50.0        54.0      50.0
+new-idea books (n/p/s)           51.0   48.0   46.0        42.0      46.0
+new-idea controls (n/p/s ctl)    46.0   46.0   49.0        47.0      47.0
+opening range                   100.0  100.0   74.0       100.0      82.0
+spot 45-min pullback             71.0   47.0   41.0        62.0      53.0
+spot first-touch                 39.0   46.0   42.0        45.0      40.0
+spot retest                      32.0   37.0   32.0        43.0      38.0
+straddle spike                    NaN   31.0   44.0        31.0      21.0
+t28 45-min pullback              63.0   46.0   51.0        60.0      46.0
+
+FAMILY mean book-day return % by gapk  (days: {'no_gap': 9, 'gap_fill': 4, 'gap_go': 3, 'gap_fade': 1})
+ gapk                           gap_fade  gap_fill  gap_go  no_gap
+fam                                                              
+basket gap                          0.0       2.0    -0.5     2.6
+burst fade                        -33.0       4.3    -0.1     1.0
+c20 council                        13.9      36.3    -2.9    79.2
+c20 council (RAW copy)             23.2      41.4    -2.3   101.0
+c20 exit/re-entry twins            -2.9      51.4     5.0    91.2
+control                            13.7       1.1   -19.6    -2.6
+edge                               20.1      18.8    -2.9     4.2
+impulse+basket m-grid              -1.1       4.5    -4.4     5.3
+lvl_trail pullback                 17.9      47.6    -5.3    26.0
+new-idea books (n/p/s)              3.7       1.0     2.6    -1.0
+new-idea controls (n/p/s ctl)     -16.0      -8.8   -10.8    -4.4
+opening range                      15.3      12.7    -9.2     7.0
+spot 45-min pullback               24.3      36.3    -8.9     6.0
+spot first-touch                   -6.7      23.1   -10.6    15.9
+spot retest                         3.7      17.7   -11.1    18.7
+straddle spike                      0.0     -12.7   -21.5    -3.6
+t28 45-min pullback                 4.0      58.1    -3.6    25.2
+
+FAMILY strike % by gapk
+ gapk                           gap_fade  gap_fill  gap_go  no_gap
+fam                                                              
+basket gap                          NaN      45.0     0.0   100.0
+burst fade                         41.0      52.0    50.0    47.0
+c20 council                        60.0      51.0    56.0    59.0
+c20 council (RAW copy)             67.0      44.0    53.0    55.0
+c20 exit/re-entry twins            44.0      61.0    65.0    61.0
+control                            67.0      41.0    40.0    39.0
+edge                               87.0      47.0    38.0    46.0
+impulse+basket m-grid              46.0      43.0     0.0    66.0
+lvl_trail pullback                 80.0      50.0    44.0    51.0
+new-idea books (n/p/s)             51.0      47.0    47.0    45.0
+new-idea controls (n/p/s ctl)      46.0      47.0    46.0    48.0
+opening range                     100.0     100.0    71.0    81.0
+spot 45-min pullback               71.0      55.0    46.0    48.0
+spot first-touch                   39.0      44.0    41.0    42.0
+spot retest                        32.0      36.0    28.0    39.0
+straddle spike                      NaN      33.0    15.0    36.0
+t28 45-min pullback                63.0      56.0    43.0    49.0
+
+FAMILY mean book-day return % by cal  (days: {'other': 11, 'expiry': 4, 'day_before': 2})
+ cal                            day_before  expiry  other
+fam                                                     
+basket gap                           -0.8     7.5    0.2
+burst fade                            6.2   -14.2    3.4
+c20 council                         110.1   110.2   18.4
+c20 council (RAW copy)              137.1   143.5   22.0
+c20 exit/re-entry twins             128.6   142.5   19.2
+control                             -14.1     5.2   -5.2
+edge                                  7.3     8.7    6.8
+impulse+basket m-grid                 2.7    13.7   -0.8
+lvl_trail pullback                   17.0    63.2   12.7
+new-idea books (n/p/s)                1.9     1.3   -0.2
+new-idea controls (n/p/s ctl)        -9.9   -18.3   -2.7
+opening range                       -22.7    17.1    7.2
+spot 45-min pullback                 -8.3    23.5   10.9
+spot first-touch                    -15.5    48.9    3.0
+spot retest                           1.1    38.3    4.9
+straddle spike                       -4.5   -33.8   -0.3
+t28 45-min pullback                  14.4    64.5   15.0
+
+FAMILY strike % by cal
+ cal                            day_before  expiry  other
+fam                                                     
+basket gap                            0.0    68.0   56.0
+burst fade                           52.0    46.0   49.0
+c20 council                          89.0    56.0   48.0
+c20 council (RAW copy)               88.0    53.0   41.0
+c20 exit/re-entry twins              87.0    64.0   50.0
+control                              38.0    44.0   39.0
+edge                                 44.0    43.0   50.0
+impulse+basket m-grid                44.0    65.0   42.0
+lvl_trail pullback                   56.0    50.0   51.0
+new-idea books (n/p/s)               48.0    46.0   46.0
+new-idea controls (n/p/s ctl)        46.0    46.0   48.0
+opening range                        56.0   100.0   83.0
+spot 45-min pullback                 59.0    48.0   53.0
+spot first-touch                     35.0    46.0   41.0
+spot retest                          30.0    45.0   34.0
+straddle spike                       43.0    29.0   33.0
+t28 45-min pullback                  48.0    51.0   51.0
+
+FAMILY x DAY mean book-day %
+                                10-19  10-21  10-22  10-23  10-26  10-27  10-28  10-29  10-30  11-02  11-03  11-04  11-05  11-06  11-09  11-11  11-12
+fam                                                                                                                                                 
+basket gap                       0.0   -5.0    5.0    1.0    0.0   18.0    0.0    0.0    0.0   -2.0    0.0    0.0    0.0    0.0   12.0    0.0    0.0
+burst fade                     110.0   37.0   25.0   51.0   -5.0  -91.0   10.0  -22.0   21.0   18.0    4.0   -1.0  -22.0  -24.0  -80.0  -33.0   -4.0
+c20 council                     44.0   45.0    7.0   23.0  190.0  399.0   43.0   27.0   -0.0   30.0  -35.0  -24.0   -3.0   73.0   33.0   14.0   -3.0
+c20 council (RAW copy)          39.0   47.0    8.0   27.0  232.0  542.0   55.0   28.0   -6.0   42.0  -43.0  -29.0   -6.0   98.0   36.0   23.0   -5.0
+c20 exit/re-entry twins        104.0   53.0   14.0   58.0  232.0  418.0   43.0   18.0   -2.0   25.0   -3.0  -28.0   -7.0   70.0   51.0   -3.0   -4.0
+control                        -25.0  -12.0   -8.0   -6.0   -3.0   44.0  -11.0    9.0  -30.0  -25.0  -31.0    1.0   -3.0   -2.0   34.0   14.0   -8.0
+edge                            24.0   15.0    5.0   70.0  -11.0   14.0  -25.0    8.0  -12.0   26.0  -18.0   14.0  -17.0    1.0   15.0   20.0   -4.0
+impulse+basket m-grid           -2.0  -10.0    1.0   -1.0    8.0   37.0    0.0    7.0    1.0   -3.0  -10.0   -4.0    0.0   -0.0   30.0   -1.0   -0.0
+lvl_trail pullback             136.0   24.0   16.0  101.0   13.0   41.0  -30.0    6.0  -19.0   21.0  -18.0   24.0  -19.0   28.0   94.0   18.0  -10.0
+new-idea books (n/p/s)          -8.0    3.0    4.0    2.0    0.0    4.0   -1.0    6.0   -5.0    4.0   10.0   -0.0   -6.0   -8.0   -0.0    4.0   -1.0
+new-idea controls (n/p/s ctl)  -10.0   -2.0  -11.0    6.0  -18.0   10.0   -1.0   -3.0  -10.0   -2.0  -34.0    1.0    4.0   -2.0  -38.0  -16.0    4.0
+opening range                   20.0    7.0   14.0   10.0   10.0   31.0   28.0   12.0   -3.0  -55.0   12.0    0.0   16.0    7.0    6.0   15.0  -28.0
+spot 45-min pullback           117.0   46.0  -26.0   77.0   -8.0  -33.0    4.0   14.0  -36.0   -9.0   -8.0   28.0  -10.0   12.0   18.0   24.0  -14.0
+spot first-touch                56.0  -10.0    9.0   13.0  -19.0  111.0   13.0   -2.0  -22.0  -12.0  -48.0    3.0   28.0   34.0   76.0   -7.0  -26.0
+spot retest                    124.0   -0.0  -21.0   32.0   18.0   18.0   -1.0    2.0  -15.0  -16.0  -29.0   17.0   12.0   43.0   40.0    4.0  -20.0
+straddle spike                 -25.0    0.0    0.0    3.0   -5.0   -1.0    0.0   -2.0    0.0   -4.0  -56.0    0.0   -5.0    1.0  -54.0    0.0    0.0
+t28 45-min pullback            139.0   73.0   11.0   93.0   17.0   48.0  -17.0   -3.0  -17.0   11.0  -12.0   15.0  -11.0   21.0   83.0    4.0   -5.0
+
+POOL books and shipped Conductor by day
+             c20_9s  c20_9t  c20_9v  c20_9x  c20_9y  conductor  ship_n  ship_w   ship_pnl  ship_ret  occ_min       dtype         cal      gapk
+day                                                                                                                                          
+2026-10-19    39.2    10.8    39.2    39.2   103.8       22.8      18       8   21775.00    21.775    102.9  trend_down      expiry    no_gap
+2026-10-21    50.0    34.8    79.0    47.5    53.2       47.5       5       1   48074.00    48.074    164.4  trend_down       other  gap_fill
+2026-10-22    18.0     5.7     8.4     8.4     8.4        8.4       3       2    7770.75     7.771     72.3       range       other    no_gap
+2026-10-23    27.4    -7.6     3.4    27.4    57.5       27.4       5       1   25226.50    25.226    117.6       range       other  gap_fill
+2026-10-26   232.0   164.1   232.0   232.0   232.0      277.8       6       6  260919.75   260.920    102.9    trend_up  day_before    no_gap
+2026-10-27   541.9   175.6   541.9   541.9   541.9      541.9      13      10  532038.00   532.038    119.0       range      expiry    no_gap
+2026-10-28    54.7    10.3    84.3    54.7    54.7       62.5       5       4   56234.75    56.235    202.5        V_up       other  gap_fill
+2026-10-29    65.4    -3.3    28.1    28.1    28.1       28.1       4       2   24787.75    24.788    171.3    trend_up       other    no_gap
+2026-10-30    -6.0    20.2    12.6    -6.0    -2.3       -6.0       3       0   -5557.50    -5.558     56.1       range       other    no_gap
+2026-11-02    65.8    -5.3    42.2    42.2    42.2       42.2       4       3   41583.75    41.584     84.9      gap_go  day_before    gap_go
+2026-11-03   -43.2   -22.1   -43.2   -43.2    -2.6      -37.1      13       7  -36253.75   -36.254    102.4      gap_go      expiry    gap_go
+2026-11-04   -26.5   -16.0   -28.5   -28.5   -28.5      -28.5       5       1  -26679.25   -26.679     48.8    trend_up       other    no_gap
+2026-11-05    -6.0     4.8     5.9    -6.0    -6.0       -6.0       1       0   -5902.00    -5.902     64.5      gap_go       other    gap_go
+2026-11-06    98.4    21.0   100.7    98.4    98.4      109.2       4       4  100233.25   100.233    114.2    trend_up       other    no_gap
+2026-11-09    36.0    15.1    36.0    36.0    63.1       43.4      22      11   43166.50    43.166    110.6        V_up      expiry  gap_fill
+2026-11-11    23.2     7.0    23.3    23.2    -4.8       12.0       4       2    9018.75     9.019     78.1      V_down       other  gap_fade
+2026-11-12    -2.5     5.5    -4.8    -4.8    -5.1       -4.8       4       1   -3978.00    -3.978    108.7       range       other    no_gap
+            days        mean      med  pos   n   w
+dtype                                             
+V_down         1    9.019000   9.0190    1   4   2
+V_up           2   49.700500  49.7005    2  27  15
+gap_go         3   -0.190667  -5.9020    1  18  10
+range          5  111.099800   7.7710    3  28  14
+trend_down     2   34.924500  34.9245    2  23   9
+trend_up       4   89.815500  62.5105    3  19  13
+7.6

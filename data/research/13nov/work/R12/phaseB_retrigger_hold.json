@@ -1,0 +1,570 @@
+[
+ {
+  "day": "2026-10-19",
+  "time_in": "09:25:34",
+  "same": true,
+  "after_fire_to_exit": 41.054945054945044,
+  "actual": 48.84,
+  "exit_at_fire": 5.519480519480524
+ },
+ {
+  "day": "2026-10-19",
+  "time_in": "09:28:51",
+  "same": true,
+  "after_fire_to_exit": -21.857923497267763,
+  "actual": -18.596,
+  "exit_at_fire": 4.174573055028463
+ },
+ {
+  "day": "2026-10-19",
+  "time_in": "09:35:16",
+  "same": true,
+  "after_fire_to_exit": 11.107311421239885,
+  "actual": 8.911,
+  "exit_at_fire": -1.9765473690064872
+ },
+ {
+  "day": "2026-10-19",
+  "time_in": "09:55:07",
+  "same": true,
+  "after_fire_to_exit": 24.8910411622276,
+  "actual": 29.273,
+  "exit_at_fire": 3.5087719298245723
+ },
+ {
+  "day": "2026-10-19",
+  "time_in": "10:19:48",
+  "same": true,
+  "after_fire_to_exit": 0.04514672686231069,
+  "actual": -0.761,
+  "exit_at_fire": -0.8060904612628761
+ },
+ {
+  "day": "2026-10-19",
+  "time_in": "10:30:06",
+  "same": true,
+  "after_fire_to_exit": -13.102122015330231,
+  "actual": -14.583,
+  "exit_at_fire": -1.7045425646232792
+ },
+ {
+  "day": "2026-10-19",
+  "time_in": "10:34:15",
+  "same": true,
+  "after_fire_to_exit": 25.423732417729326,
+  "actual": 23.965,
+  "exit_at_fire": -1.1633346223897778
+ },
+ {
+  "day": "2026-10-19",
+  "time_in": "11:34:58",
+  "same": true,
+  "after_fire_to_exit": 13.42622351044158,
+  "actual": 16.073,
+  "exit_at_fire": 2.3331133483372346
+ },
+ {
+  "day": "2026-10-19",
+  "time_in": "11:51:14",
+  "same": true,
+  "after_fire_to_exit": 12.577125503360808,
+  "actual": 20.04,
+  "exit_at_fire": 6.629553111458608
+ },
+ {
+  "day": "2026-10-19",
+  "time_in": "12:26:31",
+  "same": true,
+  "after_fire_to_exit": -14.033898305084747,
+  "actual": -14.956,
+  "exit_at_fire": -1.0731052984574108
+ },
+ {
+  "day": "2026-10-19",
+  "time_in": "12:50:10",
+  "same": true,
+  "after_fire_to_exit": -22.76119549573461,
+  "actual": -15.625,
+  "exit_at_fire": 9.239132507987646
+ },
+ {
+  "day": "2026-10-19",
+  "time_in": "13:03:21",
+  "same": true,
+  "after_fire_to_exit": -2.384388758682021,
+  "actual": 3.763,
+  "exit_at_fire": 6.297998384396619
+ },
+ {
+  "day": "2026-10-19",
+  "time_in": "13:10:36",
+  "same": true,
+  "after_fire_to_exit": 24.843304843304836,
+  "actual": 50.481,
+  "exit_at_fire": 20.535714285714278
+ },
+ {
+  "day": "2026-10-19",
+  "time_in": "13:44:35",
+  "same": true,
+  "after_fire_to_exit": -14.010003396416815,
+  "actual": -14.01,
+  "exit_at_fire": -4.362770289478846e-06
+ },
+ {
+  "day": "2026-10-21",
+  "time_in": "10:39:47",
+  "same": true,
+  "after_fire_to_exit": -4.7644101572205555,
+  "actual": -3.751,
+  "exit_at_fire": 1.0641111722491159
+ },
+ {
+  "day": "2026-10-21",
+  "time_in": "11:15:11",
+  "same": true,
+  "after_fire_to_exit": 72.25840336384957,
+  "actual": 80.93,
+  "exit_at_fire": 5.034198056493677
+ },
+ {
+  "day": "2026-10-21",
+  "time_in": "13:16:29",
+  "same": true,
+  "after_fire_to_exit": -3.23255813953488,
+  "actual": -1.909,
+  "exit_at_fire": 1.3672795851013664
+ },
+ {
+  "day": "2026-10-22",
+  "time_in": "13:04:56",
+  "same": false,
+  "after_fire_to_exit": -9.76047904191617,
+  "actual": -8.082,
+  "exit_at_fire": 1.8603232692894212
+ },
+ {
+  "day": "2026-10-22",
+  "time_in": "14:02:48",
+  "same": true,
+  "after_fire_to_exit": 5.041551246537401,
+  "actual": 13.806,
+  "exit_at_fire": 8.343337334933976
+ },
+ {
+  "day": "2026-10-23",
+  "time_in": "11:44:41",
+  "same": true,
+  "after_fire_to_exit": -7.509003700414951,
+  "actual": -2.625,
+  "exit_at_fire": 5.2800448939569256
+ },
+ {
+  "day": "2026-10-23",
+  "time_in": "12:23:46",
+  "same": false,
+  "after_fire_to_exit": -10.531107738998479,
+  "actual": -13.7,
+  "exit_at_fire": -3.5421545667447374
+ },
+ {
+  "day": "2026-10-27",
+  "time_in": "09:28:07",
+  "same": true,
+  "after_fire_to_exit": -1.9323693740517234,
+  "actual": 2.605,
+  "exit_at_fire": 4.6267519842595695
+ },
+ {
+  "day": "2026-10-27",
+  "time_in": "09:40:34",
+  "same": true,
+  "after_fire_to_exit": -19.331001526116264,
+  "actual": -9.669,
+  "exit_at_fire": 11.977354574701927
+ },
+ {
+  "day": "2026-10-27",
+  "time_in": "10:00:37",
+  "same": true,
+  "after_fire_to_exit": 5.8896696545033045,
+  "actual": 5.235,
+  "exit_at_fire": -0.6182992153686562
+ },
+ {
+  "day": "2026-10-27",
+  "time_in": "10:17:04",
+  "same": true,
+  "after_fire_to_exit": 24.531313841401705,
+  "actual": 26.294,
+  "exit_at_fire": 1.4158563706481386
+ },
+ {
+  "day": "2026-10-27",
+  "time_in": "10:34:07",
+  "same": true,
+  "after_fire_to_exit": 12.657566636592543,
+  "actual": 13.312,
+  "exit_at_fire": 0.5810849955015129
+ },
+ {
+  "day": "2026-10-27",
+  "time_in": "11:29:35",
+  "same": true,
+  "after_fire_to_exit": 0.8973622663246639,
+  "actual": 1.638,
+  "exit_at_fire": 0.7344650009931231
+ },
+ {
+  "day": "2026-10-27",
+  "time_in": "12:31:47",
+  "same": true,
+  "after_fire_to_exit": 40.67163721433082,
+  "actual": 42.649,
+  "exit_at_fire": 1.4054087046030395
+ },
+ {
+  "day": "2026-10-27",
+  "time_in": "12:52:25",
+  "same": true,
+  "after_fire_to_exit": 30.529595015576326,
+  "actual": 33.1,
+  "exit_at_fire": 1.9695044472681111
+ },
+ {
+  "day": "2026-10-27",
+  "time_in": "13:08:53",
+  "same": true,
+  "after_fire_to_exit": 40.21257560719742,
+  "actual": 44.04,
+  "exit_at_fire": 2.7297557105358417
+ },
+ {
+  "day": "2026-10-27",
+  "time_in": "13:57:45",
+  "same": true,
+  "after_fire_to_exit": -14.780834556227052,
+  "actual": 8.15,
+  "exit_at_fire": 26.908148090712935
+ },
+ {
+  "day": "2026-10-27",
+  "time_in": "14:15:03",
+  "same": true,
+  "after_fire_to_exit": -2.2759644129457857,
+  "actual": -0.363,
+  "exit_at_fire": 1.9579449626654144
+ },
+ {
+  "day": "2026-10-27",
+  "time_in": "14:36:18",
+  "same": true,
+  "after_fire_to_exit": 74.10500559276478,
+  "actual": 79.68,
+  "exit_at_fire": 3.2019742016721864
+ },
+ {
+  "day": "2026-10-28",
+  "time_in": "13:28:51",
+  "same": false,
+  "after_fire_to_exit": 7.604119458969172,
+  "actual": 4.38,
+  "exit_at_fire": -2.9959160470984236
+ },
+ {
+  "day": "2026-10-29",
+  "time_in": "09:43:44",
+  "same": true,
+  "after_fire_to_exit": 37.78501856941643,
+  "actual": 45.361,
+  "exit_at_fire": 5.49828003908488
+ },
+ {
+  "day": "2026-10-30",
+  "time_in": "09:45:12",
+  "same": true,
+  "after_fire_to_exit": -13.135802469135804,
+  "actual": -1.677,
+  "exit_at_fire": 13.191727221911687
+ },
+ {
+  "day": "2026-11-03",
+  "time_in": "09:26:00",
+  "same": true,
+  "after_fire_to_exit": -2.614047126584751,
+  "actual": 0.582,
+  "exit_at_fire": 3.2821631040315546
+ },
+ {
+  "day": "2026-11-03",
+  "time_in": "09:48:05",
+  "same": true,
+  "after_fire_to_exit": -12.92671704266467,
+  "actual": -13.478,
+  "exit_at_fire": -0.6331990283843569
+ },
+ {
+  "day": "2026-11-03",
+  "time_in": "10:14:32",
+  "same": true,
+  "after_fire_to_exit": 10.96865775261664,
+  "actual": 10.444,
+  "exit_at_fire": -0.4725869076013134
+ },
+ {
+  "day": "2026-11-03",
+  "time_in": "11:04:32",
+  "same": true,
+  "after_fire_to_exit": -3.3880918626085554,
+  "actual": 0.427,
+  "exit_at_fire": 3.9487743072346815
+ },
+ {
+  "day": "2026-11-03",
+  "time_in": "11:37:00",
+  "same": true,
+  "after_fire_to_exit": 5.841920698695224,
+  "actual": 7.442,
+  "exit_at_fire": 1.5116314555323473
+ },
+ {
+  "day": "2026-11-03",
+  "time_in": "12:10:34",
+  "same": true,
+  "after_fire_to_exit": -7.151092464217079,
+  "actual": -0.556,
+  "exit_at_fire": 7.103146322720422
+ },
+ {
+  "day": "2026-11-03",
+  "time_in": "12:29:01",
+  "same": true,
+  "after_fire_to_exit": -17.78017511761846,
+  "actual": -16.062,
+  "exit_at_fire": 2.0902123781713966
+ },
+ {
+  "day": "2026-11-03",
+  "time_in": "12:49:49",
+  "same": true,
+  "after_fire_to_exit": 5.885586781423724,
+  "actual": 6.412,
+  "exit_at_fire": 0.49751412479701607
+ },
+ {
+  "day": "2026-11-03",
+  "time_in": "13:16:51",
+  "same": true,
+  "after_fire_to_exit": 1.0789289214263365,
+  "actual": 5.701,
+  "exit_at_fire": 4.572450180234933
+ },
+ {
+  "day": "2026-11-03",
+  "time_in": "13:54:06",
+  "same": true,
+  "after_fire_to_exit": -12.730185213476142,
+  "actual": -13.902,
+  "exit_at_fire": -1.3428108010435147
+ },
+ {
+  "day": "2026-11-03",
+  "time_in": "14:18:35",
+  "same": true,
+  "after_fire_to_exit": -22.845693742046656,
+  "actual": -20.207,
+  "exit_at_fire": 3.419692281614317
+ },
+ {
+  "day": "2026-11-03",
+  "time_in": "14:24:49",
+  "same": true,
+  "after_fire_to_exit": -16.162670781288966,
+  "actual": -15.1,
+  "exit_at_fire": 1.267161062174127
+ },
+ {
+  "day": "2026-11-03",
+  "time_in": "14:34:43",
+  "same": true,
+  "after_fire_to_exit": 6.550910222317063,
+  "actual": 10.747,
+  "exit_at_fire": 3.937651311109258
+ },
+ {
+  "day": "2026-11-04",
+  "time_in": "12:04:24",
+  "same": true,
+  "after_fire_to_exit": -7.1638418079095985,
+  "actual": 0.934,
+  "exit_at_fire": 8.722358722358713
+ },
+ {
+  "day": "2026-11-05",
+  "time_in": "10:16:28",
+  "same": true,
+  "after_fire_to_exit": -9.303506472883916,
+  "actual": -5.982,
+  "exit_at_fire": 3.662712489192188
+ },
+ {
+  "day": "2026-11-06",
+  "time_in": "10:27:11",
+  "same": true,
+  "after_fire_to_exit": -3.6053565990769143,
+  "actual": 9.544,
+  "exit_at_fire": 13.640827332441429
+ },
+ {
+  "day": "2026-11-09",
+  "time_in": "09:26:56",
+  "same": true,
+  "after_fire_to_exit": -10.86455331412104,
+  "actual": -12.528,
+  "exit_at_fire": -1.8665158371040769
+ },
+ {
+  "day": "2026-11-09",
+  "time_in": "09:35:30",
+  "same": true,
+  "after_fire_to_exit": 5.779939793666333,
+  "actual": 6.972,
+  "exit_at_fire": 1.1267648616307246
+ },
+ {
+  "day": "2026-11-09",
+  "time_in": "09:45:30",
+  "same": true,
+  "after_fire_to_exit": -9.560975609756095,
+  "actual": -8.909,
+  "exit_at_fire": 0.720602685882743
+ },
+ {
+  "day": "2026-11-09",
+  "time_in": "09:55:08",
+  "same": true,
+  "after_fire_to_exit": -5.992779783393509,
+  "actual": -5.24,
+  "exit_at_fire": 0.8005822416302655
+ },
+ {
+  "day": "2026-11-09",
+  "time_in": "10:20:17",
+  "same": true,
+  "after_fire_to_exit": -12.520927579041752,
+  "actual": -6.176,
+  "exit_at_fire": 7.253146214373873
+ },
+ {
+  "day": "2026-11-09",
+  "time_in": "10:26:14",
+  "same": true,
+  "after_fire_to_exit": 6.537245048540963,
+  "actual": 7.905,
+  "exit_at_fire": 1.2841067000338713
+ },
+ {
+  "day": "2026-11-09",
+  "time_in": "10:38:11",
+  "same": true,
+  "after_fire_to_exit": 14.505494505494498,
+  "actual": 12.43,
+  "exit_at_fire": -1.8126888217522619
+ },
+ {
+  "day": "2026-11-09",
+  "time_in": "11:13:11",
+  "same": true,
+  "after_fire_to_exit": 15.331007387087968,
+  "actual": 14.187,
+  "exit_at_fire": -0.9918041813214207
+ },
+ {
+  "day": "2026-11-09",
+  "time_in": "11:33:14",
+  "same": true,
+  "after_fire_to_exit": 64.68978331475061,
+  "actual": 61.089,
+  "exit_at_fire": -2.1865252350548037
+ },
+ {
+  "day": "2026-11-09",
+  "time_in": "11:44:20",
+  "same": true,
+  "after_fire_to_exit": -13.573652586772234,
+  "actual": -14.298,
+  "exit_at_fire": -0.8384832532029152
+ },
+ {
+  "day": "2026-11-09",
+  "time_in": "11:56:07",
+  "same": true,
+  "after_fire_to_exit": 20.707681416850065,
+  "actual": 19.697,
+  "exit_at_fire": -0.8373217909720232
+ },
+ {
+  "day": "2026-11-09",
+  "time_in": "12:16:33",
+  "same": true,
+  "after_fire_to_exit": 19.515204311680012,
+  "actual": 19.613,
+  "exit_at_fire": 0.0822343324360153
+ },
+ {
+  "day": "2026-11-09",
+  "time_in": "12:39:44",
+  "same": true,
+  "after_fire_to_exit": -2.3137463962497717,
+  "actual": 7.649,
+  "exit_at_fire": 10.198881235857037
+ },
+ {
+  "day": "2026-11-09",
+  "time_in": "13:02:07",
+  "same": true,
+  "after_fire_to_exit": -15.891647855530467,
+  "actual": 0.594,
+  "exit_at_fire": 19.600431965442766
+ },
+ {
+  "day": "2026-11-09",
+  "time_in": "13:11:29",
+  "same": true,
+  "after_fire_to_exit": 39.60113555528151,
+  "actual": 41.414,
+  "exit_at_fire": 1.2987042344952515
+ },
+ {
+  "day": "2026-11-09",
+  "time_in": "13:31:53",
+  "same": true,
+  "after_fire_to_exit": -2.234997424714058,
+  "actual": -0.842,
+  "exit_at_fire": 1.4248744193753993
+ },
+ {
+  "day": "2026-11-09",
+  "time_in": "13:46:30",
+  "same": true,
+  "after_fire_to_exit": -12.798410252772763,
+  "actual": 2.976,
+  "exit_at_fire": 18.089274120405484
+ },
+ {
+  "day": "2026-11-09",
+  "time_in": "14:02:29",
+  "same": true,
+  "after_fire_to_exit": -15.112359550561806,
+  "actual": -14.294,
+  "exit_at_fire": 0.9642654566080378
+ },
+ {
+  "day": "2026-11-09",
+  "time_in": "14:30:40",
+  "same": true,
+  "after_fire_to_exit": -20.581112334338926,
+  "actual": -16.645,
+  "exit_at_fire": 4.955525380077619
+ }
+]

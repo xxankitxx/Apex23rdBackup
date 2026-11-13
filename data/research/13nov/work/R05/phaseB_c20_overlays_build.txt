@@ -1,0 +1,2 @@
+A paths 1024 trades 30.5 s
+paths cached; run again with --group=P|K|T|L|KE (one group per run, 3-minute limit)

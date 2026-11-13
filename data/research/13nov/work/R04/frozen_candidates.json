@@ -1,0 +1,7 @@
+{"frozen_on": "2026-11-13 (before the close; lines chosen on 19 Oct - 4 Nov, seen on 5 - 12 Nov)",
+ "note": "Hypotheses only. Each is applied to EVERY pool book's trigger (account-level gate, missing value = blocked). Judge only on days after 12 Nov.",
+ "candidates": [
+  {"id": "R04-A", "factor": "sign_none_share300", "op": ">=", "line": 0.0197, "why": "passed every trade-level bar in pool_trades and c20; best at the account on 5-12 Nov, but picked after seeing those days"},
+  {"id": "R04-B", "factor": "atm_iv_day_pos", "op": "<", "line": 0.874, "why": "rank 3 at the account on discovery; helped only on 9 Nov"},
+  {"id": "R04-CTRL", "factor": "agree_same", "op": ">=", "line": 7.0, "why": "control: the best discovery line (R-019 idea) applied at the account; failed 5-12 Nov"}
+ ]}

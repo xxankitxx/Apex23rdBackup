@@ -1,0 +1,6 @@
+none                   E: sum day%   22637.1 SR 47.7 n 14122 losing book-days  468 | L: sum day%    5016.0 SR 47.0 n  6596 losing book-days  208 | book-days better 0 worse 0
+after_loss_10m         E: sum day%   20636.6 SR 48.9 n  9298 losing book-days  467 | L: sum day%    4770.0 SR 45.9 n  4068 losing book-days  214 | book-days better 359 worse 335
+whipsaw_30m            E: sum day%   18122.9 SR 46.7 n 10055 losing book-days  525 | L: sum day%    5727.7 SR 47.4 n  4437 losing book-days  216 | book-days better 296 worse 340
+whipsaw_60m            E: sum day%   23351.0 SR 48.4 n  8729 losing book-days  500 | L: sum day%    5258.1 SR 48.3 n  3638 losing book-days  226 | book-days better 362 worse 314
+flip_after_loss_10m    E: sum day%   21947.5 SR 48.4 n 11628 losing book-days  471 | L: sum day%    4991.8 SR 47.2 n  5303 losing book-days  207 | book-days better 339 worse 296
+against100_er0.1       E: sum day%   22768.4 SR 48.3 n 12509 losing book-days  419 | L: sum day%    4080.6 SR 47.5 n  5482 losing book-days  197 | book-days better 369 worse 305

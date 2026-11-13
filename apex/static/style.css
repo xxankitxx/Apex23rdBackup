@@ -342,6 +342,7 @@ main { display: grid; gap: 18px; padding: 18px 22px 40px;
   grid-template-columns: minmax(0, 5fr) minmax(0, 4fr) minmax(0, 4fr);
   grid-template-areas:
     "pos pos pos"
+    "voice voice voice"
     "glance glance glance"
     "fc fc fc"
     "vortex trades trades"
@@ -352,12 +353,13 @@ main { display: grid; gap: 18px; padding: 18px 22px 40px;
     "books heavy heavy"
     "books tape tape";
   /* the tall vortex spans the trades and trace rows: its spare height goes to the trace row (1fr), where the chart takes it */
-  grid-template-rows: auto auto auto auto minmax(0, 1fr) auto auto auto auto auto; }
+  grid-template-rows: auto auto auto auto auto minmax(0, 1fr) auto auto auto auto auto; }
 /* while a trade is open (and for 60 s after), the commentary takes the slot directly under the band, then the held
    card and the forecast glance row (both fixed height), then the Forecast Lab: nothing above the commentary changes height */
 body.cmt-on main {
   grid-template-areas:
     "pos pos pos"
+    "voice voice voice"
     "cmt cmt cmt"
     "held held held"
     "glance glance glance"
@@ -369,7 +371,7 @@ body.cmt-on main {
     "oimap ladder ladder"
     "books heavy heavy"
     "books tape tape";
-  grid-template-rows: auto auto auto auto auto auto minmax(0, 1fr) auto auto auto auto auto; }
+  grid-template-rows: auto auto auto auto auto auto auto minmax(0, 1fr) auto auto auto auto auto; }
 /* the shared panel: layered glass, hairline border, 1 px top highlight, soft drop */
 section { position: relative; background: var(--panel-bg); border: 1px solid var(--hair-2); border-radius: 14px;
   padding: 16px 18px; min-width: 0; box-shadow: var(--shadow-1); }
@@ -386,7 +388,7 @@ section { position: relative; background: var(--panel-bg); border: 1px solid var
 .ladder { grid-area: ladder; } .pos { grid-area: pos; } .trace { grid-area: trace; } .oimap { grid-area: oimap; }
 .heavy { grid-area: heavy; } .trades { grid-area: trades; } .books { grid-area: books; } .tape { grid-area: tape; }
 .straddle { grid-area: straddle; } .cmt { grid-area: cmt; } .ideas { grid-area: ideas; } .forecast { grid-area: fc; }
-.lab-glance { grid-area: glance; } .heldcard { grid-area: held; }
+.lab-glance { grid-area: glance; } .heldcard { grid-area: held; } .voicecard { grid-area: voice; }
 /* FROZEN: every plain panel's frame goes dashed and grey; section owners add their own detail */
 body.stale main > section:not(.vortex):not(.pos):not(.cmt) { border-style: dashed; border-color: var(--line-strong); box-shadow: none; }
 body.stale .sec-head h2::before { background: var(--mist); }
@@ -1452,8 +1454,8 @@ body.stale .cmt-head::after, body.stale .rmk.new, body.stale .cmt.flash-warn { a
 @media (max-width: 1280px) {
   main, body.cmt-on main { grid-template-rows: none; }
   main { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
-    grid-template-areas: "pos pos" "glance glance" "fc fc" "trades trades" "vortex trace" "ideas ideas" "straddle straddle" "ladder ladder" "oimap heavy" "books tape"; }
-  body.cmt-on main { grid-template-areas: "pos pos" "cmt cmt" "held held" "glance glance" "fc fc" "trades trades" "vortex trace" "ideas ideas" "straddle straddle" "ladder ladder" "oimap heavy" "books tape"; }
+    grid-template-areas: "pos pos" "voice voice" "glance glance" "fc fc" "trades trades" "vortex trace" "ideas ideas" "straddle straddle" "ladder ladder" "oimap heavy" "books tape"; }
+  body.cmt-on main { grid-template-areas: "pos pos" "voice voice" "cmt cmt" "held held" "glance glance" "fc fc" "trades trades" "vortex trace" "ideas ideas" "straddle straddle" "ladder ladder" "oimap heavy" "books tape"; }
 }
 @media (max-width: 820px) {
   :root { --hn: 28px; }
@@ -1463,8 +1465,8 @@ body.stale .cmt-head::after, body.stale .rmk.new, body.stale .cmt.flash-warn { a
   .stale-banner::before { left: 12px; }
   .money { text-align: left; padding-left: 4px; }
   main { grid-template-columns: minmax(0, 1fr);
-    grid-template-areas: "pos" "glance" "fc" "trades" "vortex" "trace" "ideas" "straddle" "ladder" "oimap" "heavy" "books" "tape"; }
-  body.cmt-on main { grid-template-areas: "pos" "cmt" "held" "glance" "fc" "trades" "vortex" "trace" "ideas" "straddle" "ladder" "oimap" "heavy" "books" "tape"; }
+    grid-template-areas: "pos" "voice" "glance" "fc" "trades" "vortex" "trace" "ideas" "straddle" "ladder" "oimap" "heavy" "books" "tape"; }
+  body.cmt-on main { grid-template-areas: "pos" "voice" "cmt" "held" "glance" "fc" "trades" "vortex" "trace" "ideas" "straddle" "ladder" "oimap" "heavy" "books" "tape"; }
 }
 /* phones: the six-row header would cover half the screen if it stayed pinned, so it scrolls away with the page */
 @media (max-width: 820px) { .bar { position: relative; } }
@@ -1696,3 +1698,65 @@ body.holding .heldcard:not([hidden]) { height: 96px; }
   .fx-mid { grid-template-columns: minmax(0, 1fr); }
 }
 .fx-mid.fx-off, .fx-boardwrap:empty, .lab-pl-rows:empty, .fx-nifty:empty { display: none; }
+
+/* ── 13 Nov: "What I would do now" (voice.js): the Conductor's own first-person card ─────────────────────── */
+.voicecard { --vc: var(--mist); --vc-tint: transparent; border-left: 3px solid var(--vc); background: linear-gradient(90deg, var(--vc-tint), transparent 55%), var(--panel-bg); }
+.voicecard.v-wait { --vc: var(--line-strong); }
+.voicecard.v-near { --vc: var(--beacon); --vc-tint: var(--beacon-tint); }
+.voicecard.v-fire { --vc: var(--beacon); --vc-tint: var(--beacon-tint); box-shadow: var(--shadow-1), var(--glow-beacon); }
+.voicecard.v-hold { --vc: var(--up); --vc-tint: var(--up-tint); }
+.voicecard.v-exit { --vc: var(--down); --vc-tint: var(--down-tint); }
+.v-head { display: flex; align-items: center; flex-wrap: wrap; gap: var(--sp-2) var(--sp-3); }
+.v-head h2 { margin: 0; font: 600 15px/1.2 var(--txt); color: var(--ink-2); letter-spacing: .02em; }
+.v-pill { font: 700 var(--fs-sm)/1 var(--num); letter-spacing: .12em; padding: 6px 12px; border-radius: var(--r-pill);
+  color: var(--abyss); background: var(--vc); }
+.voicecard.v-wait .v-pill { color: var(--ink-2); background: var(--s3); }
+.v-day { margin-left: auto; color: var(--mist); font: 500 var(--fs-sm)/1.3 var(--txt); font-variant-numeric: tabular-nums; }
+.v-headline { margin: var(--sp-3) 0 var(--sp-2); font: 600 20px/1.35 var(--txt); color: var(--ink); text-wrap: balance; max-width: 95ch; }
+.v-body { display: grid; grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr); gap: var(--sp-4); }
+.v-lines { margin: 0; padding-left: 18px; color: var(--ink-2); font: 400 15px/1.5 var(--txt); }
+.v-lines li { margin: 2px 0; }
+.vg { display: grid; grid-template-columns: 9em minmax(0, 1fr) auto; align-items: center; gap: var(--sp-2); margin: 6px 0; font: 500 var(--fs-sm)/1.2 var(--txt); color: var(--mist); }
+.vg-bar { position: relative; height: 8px; border-radius: var(--r-pill); background: var(--s3); overflow: visible; }
+.vg-bar b { display: block; height: 100%; border-radius: var(--r-pill); background: var(--refill); }
+.vg.met .vg-bar b { background: var(--beacon); }
+.vg-need, .vg-max { position: absolute; top: -3px; bottom: -3px; width: 2px; background: var(--ink-2); }
+.vg-max { background: var(--down); }
+.vg-n { font-family: var(--num); color: var(--ink-2); font-variant-numeric: tabular-nums; white-space: nowrap; }
+.vt-note, .v-recent { margin: 6px 0 0; color: var(--mist); font: 400 var(--fs-sm)/1.4 var(--txt); }
+.v-buy { margin: var(--sp-2) 0; color: var(--ink-2); font: 500 14px/1.4 var(--txt); }
+.v-buy b { color: var(--beacon); font-family: var(--num); }
+.v-ladder { list-style: none; margin: 0; padding: 0; font: 500 14px/1.3 var(--txt); }
+.v-ladder li { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.2fr) auto; gap: var(--sp-2); padding: 5px 0; border-bottom: 1px solid var(--hair); color: var(--ink-2); }
+.v-ladder li b { font-family: var(--num); font-variant-numeric: tabular-nums; color: var(--ink); }
+.v-ladder li.nearest { color: var(--beacon); } .v-ladder li.nearest b { color: var(--beacon); }
+.v-books { display: flex; flex-wrap: wrap; gap: 6px; margin-top: var(--sp-2); }
+.v-book { font: 600 11px/1 var(--num); letter-spacing: .06em; padding: 5px 8px; border-radius: var(--r-pill); border: 1px solid var(--hair-2); color: var(--mist); }
+.v-book.ready { color: var(--up); border-color: var(--up-line); }
+.v-book.veto { color: var(--down); border-color: var(--down-line); }
+@media (max-width: 820px) { .v-body { grid-template-columns: minmax(0, 1fr); } .v-headline { font-size: 17px; } .v-day { margin-left: 0; } }
+
+/* ── 13 Nov: the stand banner at the top of the Forecast section (voice.js labStand) ───────────────────────── */
+.lab-stand { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.6fr) minmax(0, 1fr); gap: var(--sp-4);
+  margin: 0 0 var(--sp-4); padding: var(--sp-4); border-radius: var(--r-md); border: 1px solid var(--hair-2); background: var(--card-bg);
+  --st: var(--mist); border-left: 4px solid var(--st); }
+.lab-stand.st-bull { --st: var(--up); } .lab-stand.st-bear { --st: var(--down); } .lab-stand.st-side { --st: var(--refill); }
+.lab-stand.st-none { display: block; }
+.lab-stand small { display: block; color: var(--mist); font: 600 var(--fs-2xs)/1.4 var(--num); letter-spacing: .14em; }
+.st-left { display: flex; flex-direction: column; gap: 4px; min-width: 0; }
+.st-word { font: 700 40px/1 var(--num); color: var(--st); letter-spacing: .03em; }
+.st-since { color: var(--mist); font: 500 var(--fs-sm)/1.3 var(--txt); }
+.st-num { font: 700 22px/1.2 var(--num); color: var(--ink); font-variant-numeric: tabular-nums; }
+.st-num small { display: inline; font: 400 12px/1.2 var(--txt); letter-spacing: 0; }
+.st-meter { position: relative; height: 8px; margin: 10px 0 14px; border-radius: var(--r-pill);
+  background: linear-gradient(90deg, var(--down-tint), var(--s3) 50%, var(--up-tint)); }
+.st-meter i { position: absolute; top: -4px; width: 4px; height: 16px; margin-left: -2px; border-radius: 2px; background: var(--st); }
+.st-meter em { position: absolute; top: 10px; font: 400 11px/1 var(--txt); color: var(--mist); font-style: normal; }
+.st-meter em.l { left: 0; } .st-meter em.r { right: 0; }
+.st-mid p { margin: 4px 0 8px; font: 500 17px/1.45 var(--txt); color: var(--ink); max-width: 75ch; }
+.st-facts { display: flex; flex-wrap: wrap; gap: 6px; }
+.st-fact { font: 500 12px/1.2 var(--txt); padding: 4px 8px; border-radius: var(--r-pill); border: 1px solid var(--hair-2); color: var(--ink-2); }
+.st-fact.pro { border-color: var(--up-line); } .st-fact.con { border-color: var(--down-line); }
+.st-right p { margin: 4px 0; font: 400 var(--fs-sm)/1.45 var(--txt); color: var(--ink-2); }
+.st-wait { margin: 0; color: var(--mist); }
+@media (max-width: 820px) { .lab-stand { grid-template-columns: minmax(0, 1fr); } .st-word { font-size: 32px; } }

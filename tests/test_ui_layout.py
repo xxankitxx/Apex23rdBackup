@@ -49,7 +49,7 @@ def test_commentary_directly_under_the_band_while_holding():
         assert None not in (pos, cmt, held, glance, fc), t
         assert pos < cmt < held < glance < fc, t
         # nothing but the band sits above the commentary
-        assert set(t[:cmt]) == {"pos"}, t
+        assert set(t[:cmt]) <= {"pos", "voice"}, t        # 13 Nov: the band and the voice card ("What I would do now", docs/56) only
 
 
 def test_flat_page_has_the_glance_row_before_the_lab():

@@ -325,6 +325,7 @@ function render(s) {
   }
   if (!nil(s.fut)) { futBuf.push([now, s.fut]); while (futBuf.length && now - futBuf[0][0] > 300) futBuf.shift(); }
   renderVerdict(s); renderLadder(s); renderPos(s, now);
+  if (typeof renderVoice === "function") { try { renderVoice(s); } catch (e) { const v = $("voicecard"); if (v) v.textContent = "Voice panel error: " + e.message; } }   // voice.js (13 Nov)
   if (typeof renderCommentary === "function") renderCommentary(s, now);   // commentary.js (T09)
   drawTrace(s); drawOI(s); renderQuant(s);
   renderIdeas(s);
@@ -1709,6 +1710,7 @@ function labWire() {
 function renderLab(p) {
   const t0 = performance.now();
   labMode(p);
+  if (typeof labStand === "function") labTry("labstand", labStand, p);   // voice.js (13 Nov)
   labTry("labplain", labPlain, p);
   labTry("labsay", labSay, p);
   labTry("labstrip", labStrip, LAB.cur || p);

@@ -1,0 +1,6 @@
+whip15: cond early 1022.8 SR 57.7 n78 | late 130.2 SR 50.0 n34 | changed days {'10-19': 46.4, '10-23': 22.4, '10-30': 0.6, '11-03': -3.9, '11-04': 7.3, '11-09': -12.3} | family delta early 11.1 late 11.3 book-days better 27 worse 14
+whip30: cond early 978.2 SR 57.9 n76 | late 169.5 SR 53.1 n32 | changed days {'10-19': -5.7, '10-23': 22.4, '10-30': 0.6, '11-03': -3.9, '11-04': 14.8, '11-09': 27.0} | family delta early 64.0 late 306.2 book-days better 30 worse 12
+whip60: cond early 1006.6 SR 58.0 n69 | late 171.9 SR 53.3 n30 | changed days {'10-19': 7.6, '10-23': 22.1, '10-30': 0.6, '11-03': 11.6, '11-04': 14.8, '11-09': 29.4} | family delta early 297.0 late 339.5 book-days better 36 worse 6
+whip999: cond early 1038.9 SR 59.1 n66 | late 81.5 SR 47.1 n17 | changed days {'10-19': 28.7, '10-23': 22.1, '10-30': 0.6, '11-03': 23.6, '11-04': 14.0, '11-09': -61.1} | family delta early 417.3 late -378.1 book-days better 30 worse 12
+sideban2: cond early 961.4 SR 54.2 n83 | late 99.9 SR 48.5 n33 | changed days {'11-03': 11.5, '11-09': -42.7} | family delta early 61.5 late -290.5 book-days better 11 worse 19
+sideban3: cond early 949.9 SR 53.6 n84 | late 142.5 SR 51.4 n35 | changed days {} | family delta early -198.2 late 0.0 book-days better 2 worse 8

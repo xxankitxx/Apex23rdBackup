@@ -1,0 +1,50 @@
+Traceback (most recent call last):
+  File "D:\ApexOptions\data\research\13nov\work\R19\harness.py", line 495, in <module>
+    main()
+    ~~~~^^
+  File "D:\ApexOptions\data\research\13nov\work\R19\harness.py", line 490, in main
+    evaluate(a.filter, a.exit, a.mark, a.books, a.apply_to, a.split, a.perms, a.seed, a.name,
+    ~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+             not a.no_conductor, not a.no_ledger, holdfile=a.holdfile)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\ApexOptions\data\research\13nov\work\R19\harness.py", line 371, in evaluate
+    rdf = apply_exit(df, exit_expr, mark, apply_to)
+  File "D:\ApexOptions\data\research\13nov\work\R19\harness.py", line 198, in apply_exit
+    hit = m & still_open & d["book"].isin(apply_to) & d[g].notna()
+          ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~~
+  File "C:\Users\Ankit Madhogaria\AppData\Local\Programs\Python\Python313\Lib\site-packages\pandas\core\ops\common.py", line 85, in new_method
+    return method(self, other)
+  File "C:\Users\Ankit Madhogaria\AppData\Local\Programs\Python\Python313\Lib\site-packages\pandas\core\arraylike.py", line 76, in __rand__
+    return self._logical_method(other, roperator.rand_)
+           ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Ankit Madhogaria\AppData\Local\Programs\Python\Python313\Lib\site-packages\pandas\core\frame.py", line 9136, in _arith_method
+    self, other = self._align_for_op(other, axis, flex=True, level=None)
+                  ~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Ankit Madhogaria\AppData\Local\Programs\Python\Python313\Lib\site-packages\pandas\core\frame.py", line 9448, in _align_for_op
+    left, right = left.align(
+                  ~~~~~~~~~~^
+        right,
+        ^^^^^^
+    ...<2 lines>...
+        level=level,
+        ^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Users\Ankit Madhogaria\AppData\Local\Programs\Python\Python313\Lib\site-packages\pandas\core\generic.py", line 9844, in align
+    left, _right, join_index = self._align_series(
+                               ~~~~~~~~~~~~~~~~~~^
+        other,
+        ^^^^^^
+    ...<3 lines>...
+        fill_value=fill_value,
+        ^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Users\Ankit Madhogaria\AppData\Local\Programs\Python\Python313\Lib\site-packages\pandas\core\generic.py", line 9967, in _align_series
+    fdata = fdata.reindex_indexer(join_index, lidx, axis=bm_axis)
+  File "C:\Users\Ankit Madhogaria\AppData\Local\Programs\Python\Python313\Lib\site-packages\pandas\core\internals\managers.py", line 833, in reindex_indexer
+    self.axes[axis]._validate_can_reindex(indexer)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\Ankit Madhogaria\AppData\Local\Programs\Python\Python313\Lib\site-packages\pandas\core\indexes\base.py", line 4145, in _validate_can_reindex
+    raise ValueError("cannot reindex on an axis with duplicate labels")
+ValueError: cannot reindex on an axis with duplicate labels

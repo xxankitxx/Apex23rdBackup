@@ -1,11 +1,21 @@
 {
- "day": "2026-11-12",
- "started": "2026-11-12 16:52:03",
- "steps": {},
- "missed_days": [],
+ "day": "2026-11-13",
+ "started": "2026-11-13 17:13:18",
+ "steps": {
+  "2026-11-12 lab": {
+   "status": "fail",
+   "secs": 7460.3,
+   "why": "exit code 1"
+  }
+ },
+ "missed_days": [
+  "2026-11-12",
+  "2026-11-13"
+ ],
  "processed_days": [],
- "outcome": "skipped: replay running: p44_g1, p44_g2, p44_g3, p44_g4, p44_g6, p44_g7, p44_g8, p44_g9",
- "end_t": "2026-11-12 20:47:56",
+ "outcome": "failed: 2026-11-12 lab",
+ "end_t": "2026-11-13 19:56:42",
  "notes": [],
- "history": {}
+ "history": {},
+ "planned_end": "2026-11-13 18:55:32"
 }

@@ -1,0 +1,63 @@
+{
+ "v": 1,
+ "t": 1793943700.0,
+ "time": "11:11:40",
+ "lead": "c20_9y",
+ "capital": 100000,
+ "day": {
+  "trades": 0,
+  "won": 0,
+  "pnl_rs": 0
+ },
+ "recent": [],
+ "hold": {
+  "key": "NIFTY|OPT|2026-11-11|25000|CE",
+  "rr": "CE",
+  "strike": 25000.0,
+  "lots": 6,
+  "entry": 200.0,
+  "bid": 210.0,
+  "ret_pct": 5.0,
+  "peak_pct": 8.0,
+  "since": "11:02:03",
+  "src": "c20_9y",
+  "held_s": 600.0,
+  "exits": [
+   {
+    "kind": "SL",
+    "label": "premium stop -15 %",
+    "px": 170.0,
+    "away_px": 40.0
+   },
+   {
+    "kind": "FWD_TRAIL",
+    "label": "forward trail 40 pts",
+    "fwd_level": 25010.0,
+    "fwd_now": 25038.0,
+    "away_fwd": 28.0,
+    "away_px": 16.8
+   },
+   {
+    "kind": "CLOCK",
+    "label": "hold clock",
+    "left_s": 4800
+   },
+   {
+    "kind": "TIME",
+    "label": "forced flat",
+    "at": "15:20"
+   }
+  ],
+  "nearest": "FWD_TRAIL",
+  "level": "HOLD",
+  "floor_arms_pct": 15.0,
+  "mode": "normal"
+ },
+ "mode": "HOLDING",
+ "headline": "I hold 6 lots of the 25000 CE (CALL), +5.0 % now, best +8.0 %.",
+ "lines": [
+  "I sell at the first of: bid 170.00 (my -15 % stop); forward back to 25,010 (28 pts away); 80 min more on the clock; 15:20.",
+  "My profit floor arms once the bid is +15 % over my entry.",
+  "Nothing says sell yet. I hold."
+ ]
+}

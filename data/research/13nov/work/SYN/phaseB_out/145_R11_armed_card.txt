@@ -1,0 +1,17 @@
+2026-10-19 {'seconds': 20240, 'ready_share': 0.2926383399209486, 'arms': 9, 'fires': 4, 'fire_rate': 0.4444444444444444, 'wait_s_median': 244.5, 'fwd15_right': 0.25}
+2026-10-21 {'seconds': 20607, 'ready_share': 0.40772553015965446, 'arms': 11, 'fires': 5, 'fire_rate': 0.45454545454545453, 'wait_s_median': 646.0, 'fwd15_right': 0.8}
+2026-10-22 {'seconds': 20556, 'ready_share': 0.3853862619186612, 'arms': 16, 'fires': 10, 'fire_rate': 0.625, 'wait_s_median': 281.0, 'fwd15_right': 0.3}
+2026-10-23 {'seconds': 16401, 'ready_share': 0.2837631851716359, 'arms': 9, 'fires': 6, 'fire_rate': 0.6666666666666666, 'wait_s_median': 315.5, 'fwd15_right': 0.3333333333333333}
+2026-10-26 {'seconds': 20549, 'ready_share': 0.3144678573166577, 'arms': 12, 'fires': 9, 'fire_rate': 0.75, 'wait_s_median': 398.0, 'fwd15_right': 0.6666666666666666}
+2026-10-27 {'seconds': 20215, 'ready_share': 0.38506059856542174, 'arms': 12, 'fires': 6, 'fire_rate': 0.5, 'wait_s_median': 467.0, 'fwd15_right': 0.3333333333333333}
+2026-10-28 {'seconds': 20156, 'ready_share': 0.408563206985513, 'arms': 11, 'fires': 5, 'fire_rate': 0.45454545454545453, 'wait_s_median': 556.0, 'fwd15_right': 0.2}
+2026-10-29 {'seconds': 20527, 'ready_share': 0.2921030837433624, 'arms': 9, 'fires': 5, 'fire_rate': 0.5555555555555556, 'wait_s_median': 381.0, 'fwd15_right': 0.6}
+2026-10-30 {'seconds': 20605, 'ready_share': 0.37675321523901967, 'arms': 13, 'fires': 4, 'fire_rate': 0.3076923076923077, 'wait_s_median': 390.0, 'fwd15_right': 0.75}
+2026-11-02 {'seconds': 20535, 'ready_share': 0.3629900170440711, 'arms': 11, 'fires': 4, 'fire_rate': 0.36363636363636365, 'wait_s_median': 472.5, 'fwd15_right': 0.75}
+2026-11-03 {'seconds': 20602, 'ready_share': 0.29972818172992916, 'arms': 8, 'fires': 3, 'fire_rate': 0.375, 'wait_s_median': 707.0, 'fwd15_right': 0.3333333333333333}
+2026-11-04 {'seconds': 20545, 'ready_share': 0.41542954490143585, 'arms': 14, 'fires': 8, 'fire_rate': 0.5714285714285714, 'wait_s_median': 388.5, 'fwd15_right': 0.5}
+2026-11-05 {'seconds': 20539, 'ready_share': 0.3166171673401821, 'arms': 9, 'fires': 2, 'fire_rate': 0.2222222222222222, 'wait_s_median': 304.0, 'fwd15_right': 0.0}
+2026-11-06 {'seconds': 20455, 'ready_share': 0.42517721828403815, 'arms': 14, 'fires': 6, 'fire_rate': 0.42857142857142855, 'wait_s_median': 275.0, 'fwd15_right': 0.5}
+2026-11-09 {'seconds': 20586, 'ready_share': 0.29024579811522394, 'arms': 9, 'fires': 4, 'fire_rate': 0.4444444444444444, 'wait_s_median': 658.5, 'fwd15_right': 0.5}
+2026-11-11 {'seconds': 20486, 'ready_share': 0.3160695108854828, 'arms': 10, 'fires': 5, 'fire_rate': 0.5, 'wait_s_median': 560.0, 'fwd15_right': 0.6}
+conductor trades read: 0 keys: None

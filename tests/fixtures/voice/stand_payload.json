@@ -1,0 +1,8 @@
+{"stand": {"ok": true, "word": "BULLISH", "strength": 64, "raw": 71, "since": "13:57", "held_min": 8, "pending": null,
+ "say": "Buyers are in control since 13:57: futures +54 pts in 20 minutes, 21 pts above VWAP. Over the last 10 seconds BANKNIFTY and FINNIFTY moved like +6 Nifty pts, 4 pts stronger than the Nifty future (a push up may follow within a minute).",
+ "facts": [{"k": "move20", "text": "futures +54 pts in 20 min", "pro": true}, {"k": "vwap", "text": "21 pts above VWAP 25,180", "pro": true},
+           {"k": "range60", "text": "last hour 25,120 to 25,215 (95 pts)", "pro": null},
+           {"k": "hw", "text": "heavyweights (Nifty-weighted) moved like -3 Nifty pts in 2 min (against futures), 40 % of them up", "pro": false},
+           {"k": "sisters", "text": "BANKNIFTY and FINNIFTY +6 Nifty pts in 10 s (4 pts stronger than the Nifty future)", "pro": true}],
+ "record": {"hit15": 49.9, "days_better": 8, "days": 16, "changes_day": 14.5}, "m20": 54.0, "vwap_dist": 21.0,
+ "note": "A description of who is in control, not a forecast"}}

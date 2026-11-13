@@ -1,0 +1,38 @@
+== early: rows 51312
+label              share  | follow-rate lag0 at 1/3/5/10/15 min | lag30 at 3/10 min | mean signed move (sd) 3m/10m | |move| 5m (sd)
+breaking out up     0.7% | 0.547 0.437 0.421 0.584 0.559 | 0.387 0.589 | +0.090 +0.385 | 0.94
+breaking out down   0.7% | 0.524 0.548 0.637 0.660 0.622 | 0.577 0.678 | +0.048 +0.401 | 0.86
+reversing up        0.2% | 0.357 0.371 0.342 0.289 0.337 | 0.347 0.227 | -0.202 -0.296 | 0.72
+reversing down      0.4% | 0.355 0.424 0.475 0.569 0.557 | 0.503 0.650 | -0.238 +0.155 | 0.52
+trending up         5.8% | 0.412 0.325 0.415 0.459 0.501 | 0.349 0.471 | -0.223 -0.049 | 0.70
+trending down       5.0% | 0.466 0.452 0.435 0.479 0.437 | 0.463 0.466 | -0.071 -0.042 | 0.83
+chopping           65.5% | 0.514 0.522 0.524 0.516 0.508 | 0.518 0.513 | +0.050 +0.060 | 0.72
+drifting           21.8% | 0.485 0.494 0.516 0.519 0.526 | 0.505 0.518 | +0.015 +0.082 | 0.72
+== late: rows 17417
+label              share  | follow-rate lag0 at 1/3/5/10/15 min | lag30 at 3/10 min | mean signed move (sd) 3m/10m | |move| 5m (sd)
+breaking out up     1.8% | 0.556 0.584 0.601 0.622 0.646 | 0.603 0.699 | +0.230 +0.660 | 1.04
+breaking out down   0.6% | 0.583 0.565 0.435 0.130 0.185 | 0.481 0.130 | +0.147 -0.854 | 0.85
+reversing up        0.4% | 0.731 0.821 0.955 0.955 0.950 | 0.896 0.955 | +1.106 +1.559 | 1.46
+reversing down      0.8% | 0.489 0.462 0.408 0.398 0.339 | 0.364 0.368 | -0.277 -0.313 | 0.94
+trending up         5.7% | 0.541 0.549 0.560 0.627 0.629 | 0.560 0.615 | +0.211 +0.350 | 0.82
+trending down       3.9% | 0.516 0.437 0.429 0.365 0.366 | 0.463 0.375 | -0.088 -0.253 | 0.84
+chopping           67.1% | 0.508 0.512 0.506 0.498 0.497 | 0.521 0.507 | +0.028 +0.030 | 0.71
+drifting           19.8% | 0.515 0.502 0.497 0.509 0.500 | 0.500 0.502 | +0.039 +0.054 | 0.79
+median run length (s): {'breaking out up': 10, 'breaking out down': 10, 'reversing up': 10, 'reversing down': 10, 'trending up': 15, 'trending down': 15, 'chopping': 20, 'drifting': 10}
+== early
+  breaking out up    runs    1 median   370 s | follow 5m 0.851 15m 0.644 | mean signed 15m +0.105 sd
+  breaking out down  runs    3 median   210 s | follow 5m 0.549 15m 0.628 | mean signed 15m +0.070 sd
+  reversing up       runs    1 median   155 s | follow 5m 0.000 15m 0.968 | mean signed 15m +0.510 sd
+  reversing down     runs    4 median   190 s | follow 5m 0.591 15m 0.873 | mean signed 15m +0.621 sd
+  trending up        runs   61 median   215 s | follow 5m 0.440 15m 0.506 | mean signed 15m -0.144 sd
+  trending down      runs   49 median   180 s | follow 5m 0.472 15m 0.376 | mean signed 15m -0.187 sd
+  chopping           runs  187 median   625 s | follow 5m 0.516 15m 0.509 | mean signed 15m +0.058 sd
+  drifting           runs   99 median   190 s | follow 5m 0.504 15m 0.546 | mean signed 15m +0.185 sd
+== late
+  breaking out up    runs    2 median   210 s | follow 5m 0.631 15m 0.976 | mean signed 15m +0.896 sd
+  reversing up       runs    2 median   155 s | follow 5m 1.000 15m 1.000 | mean signed 15m +1.927 sd
+  reversing down     runs    3 median   145 s | follow 5m 0.232 15m 0.000 | mean signed 15m -0.397 sd
+  trending up        runs   17 median   280 s | follow 5m 0.561 15m 0.560 | mean signed 15m +0.150 sd
+  trending down      runs   14 median   277 s | follow 5m 0.372 15m 0.410 | mean signed 15m -0.325 sd
+  chopping           runs   58 median   782 s | follow 5m 0.510 15m 0.501 | mean signed 15m +0.024 sd
+  drifting           runs   28 median   180 s | follow 5m 0.499 15m 0.544 | mean signed 15m +0.040 sd

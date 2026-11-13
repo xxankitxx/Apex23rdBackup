@@ -1,0 +1,54 @@
+{
+ "v": 1,
+ "t": 1793937950.0,
+ "time": "09:35:50",
+ "lead": "c20_9y",
+ "capital": 100000,
+ "day": {
+  "trades": 0,
+  "won": 0,
+  "pnl_rs": 0
+ },
+ "recent": [],
+ "trigger": {
+  "mode": "normal",
+  "pb_entry": true,
+  "need_pts": 40.0,
+  "window_min": 20,
+  "vel_min": 20,
+  "fwd": 25000.0,
+  "t0": "09:16",
+  "t1": "15:00",
+  "hm": 575.8333333333334,
+  "hi": 25000.0,
+  "lo": 25000.0,
+  "range_pts": 0.0,
+  "move_pts": 0.0,
+  "gap_hi": 0.0,
+  "gap_lo": 0.0,
+  "warm": false,
+  "ready_at": "09:35",
+  "cool_left_s": 0,
+  "p_fire": {
+   "m5": 0.01,
+   "m10": 0.06,
+   "m15": 0.12
+  },
+  "progress": 0.0
+ },
+ "mode": "WAITING",
+ "books": [
+  {
+   "book": "c20_9y",
+   "ready": true,
+   "veto": null,
+   "text": "ready"
+  }
+ ],
+ "would_buy": null,
+ "headline": "I am flat. I need a 40-pt move of the forward in 20 min to a new 20-min high or low.",
+ "lines": [
+  "The forward has moved +0 pts and sits 0 pts under its high. 20-min range 0 pts.",
+  "From here I fired within 10 minutes about 1 time in 10 (normal days 19 Oct to 11 Nov; slower in the last week)."
+ ]
+}

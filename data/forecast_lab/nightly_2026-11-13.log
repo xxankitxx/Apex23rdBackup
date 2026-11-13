@@ -1,0 +1,40 @@
+16:54:24 starting research/nightly_all.py
+17:20:00 priority unchanged: SetPriorityClass refused
+17:45:35 days to run: 2026-11-12, 2026-11-13; steps: lab, label_parity, reprice, straddle_clock; planned end 2026-11-13 18:55:32
+17:52:10 step lab for 2026-11-12
+18:09:05 converting 2026-11-12
+{"part": "2026-11-12", "rows": 0, "packets": 0, "disorder": 0, "tape_end_marker": true, "tape_torn": false, "expiry": null, "expiry2": null, "strikes": 0, "strikes2": 0, "stocks": 0, "stock_futures": 0}
+18:23:47 converting 2026-11-12.p2
+{"part": "2026-11-12.p2", "rows": 0, "packets": 0, "disorder": 0, "tape_end_marker": true, "tape_torn": false, "expiry": null, "expiry2": null, "strikes": 0, "strikes2": 0, "stocks": 0, "stock_futures": 0}
+18:39:30 converting 2026-11-12.p3
+{"part": "2026-11-12.p3", "rows": 0, "packets": 0, "disorder": 0, "tape_end_marker": true, "tape_torn": false, "expiry": null, "expiry2": null, "strikes": 0, "strikes2": 0, "stocks": 0, "stock_futures": 0}
+18:56:26 converting 2026-11-12.p4
+{"part": "2026-11-12.p4", "rows": 0, "packets": 0, "disorder": 0, "tape_end_marker": true, "tape_torn": false, "expiry": null, "expiry2": null, "strikes": 0, "strikes2": 0, "stocks": 0, "stock_futures": 0}
+19:13:13 converting 2026-11-12.p5
+Traceback (most recent call last):
+  File "D:\ApexOptions\research/forecast_lab/nightly.py", line 970, in <module>
+    sys.exit(main())
+             ~~~~^^
+  File "D:\ApexOptions\research/forecast_lab/nightly.py", line 950, in main
+    r = run_day(args[0], force='--force' in argv, convert='--no-convert' not in argv and not check_only,
+                online=online, check_only=check_only)
+  File "D:\ApexOptions\research/forecast_lab/nightly.py", line 772, in run_day
+    convert_and_collect(day)
+    ~~~~~~~~~~~~~~~~~~~^^^^^
+  File "D:\ApexOptions\research/forecast_lab/nightly.py", line 711, in convert_and_collect
+    subprocess.run([sys.executable, os.path.join(ROOT, 'data', 'replay', 'batch', 'gen2_research_v2_2026-11-10', 'ds2.py'), part],
+    ~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+                   cwd=ROOT, env=ENV, check=True, timeout=timeout)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Ankit Madhogaria\AppData\Local\Programs\Python\Python313\Lib\subprocess.py", line 556, in run
+    stdout, stderr = process.communicate(input, timeout=timeout)
+                     ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Ankit Madhogaria\AppData\Local\Programs\Python\Python313\Lib\subprocess.py", line 1238, in communicate
+    sts = self.wait(timeout=self._remaining_time(endtime))
+  File "C:\Users\Ankit Madhogaria\AppData\Local\Programs\Python\Python313\Lib\subprocess.py", line 1274, in wait
+    return self._wait(timeout=timeout)
+           ~~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "C:\Users\Ankit Madhogaria\AppData\Local\Programs\Python\Python313\Lib\subprocess.py", line 1603, in _wait
+    raise TimeoutExpired(self.args, timeout)
+subprocess.TimeoutExpired: Command '['C:\\Users\\Ankit Madhogaria\\AppData\\Local\\Programs\\Python\\Python313\\python.exe', 'D:\\ApexOptions\\data\\replay\\batch\\gen2_research_v2_2026-11-10\\ds2.py', '2026-11-12.p5']' timed out after 1799.9999644999916 seconds
+19:56:32 step lab for 2026-11-12: fail (exit code 1), 7460.3 s

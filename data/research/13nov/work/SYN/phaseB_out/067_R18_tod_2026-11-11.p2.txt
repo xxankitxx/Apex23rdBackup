@@ -1,0 +1,8 @@
+Traceback (most recent call last):
+  File "D:\ApexOptions\data\research\13nov\work\R18\phaseB_tod_baseline.py", line 117, in <module>
+    main(sys.argv[1:])
+    ~~~~^^^^^^^^^^^^^^
+  File "D:\ApexOptions\data\research\13nov\work\R18\phaseB_tod_baseline.py", line 49, in main
+    t = z["t"]; f = z["fut"][:, 0].astype(float)
+                    ~~~~~~~~^^^^^^
+IndexError: too many indices for array: array is 1-dimensional, but 2 were indexed

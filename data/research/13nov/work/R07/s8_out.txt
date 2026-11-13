@@ -1,0 +1,16 @@
+
+[all books] n by day {'2026-11-04': 964, '2026-11-05': 865, '2026-11-06': 1306}
+  gap_dev_w  Spearman with ret per day: {'11-04': -0.067, '11-05': 0.136, '11-06': 0.057}  median 0.35
+  fwd5_w     Spearman with ret per day: {'11-04': -0.128, '11-05': 0.114, '11-06': 0.045}  median 0.83
+  fut5_w     Spearman with ret per day: {'11-04': -0.103, '11-05': 0.058, '11-06': -0.009}  median 0.2
+  after the fill + 30s: forward median +0.25 (share>0 0.52)   future median +0.45 (share>0 0.53)
+  after the fill + 60s: forward median +0.42 (share>0 0.53)   future median +1.00 (share>0 0.54)
+  after the fill +300s: forward median -0.75 (share>0 0.48)   future median +0.15 (share>0 0.50)
+
+[pool books] n by day {'2026-11-04': 24, '2026-11-05': 5, '2026-11-06': 16}
+  gap_dev_w  Spearman with ret per day: {'11-04': -0.53, '11-05': nan, '11-06': 0.256}  median 1.51
+  fwd5_w     Spearman with ret per day: {'11-04': 0.349, '11-05': nan, '11-06': 0.609}  median 5.02
+  fut5_w     Spearman with ret per day: {'11-04': 0.131, '11-05': nan, '11-06': 0.453}  median 2.85
+  after the fill + 30s: forward median -0.58 (share>0 0.44)   future median -1.20 (share>0 0.44)
+  after the fill + 60s: forward median -2.93 (share>0 0.31)   future median -2.70 (share>0 0.42)
+  after the fill +300s: forward median -2.25 (share>0 0.42)   future median -3.25 (share>0 0.33)

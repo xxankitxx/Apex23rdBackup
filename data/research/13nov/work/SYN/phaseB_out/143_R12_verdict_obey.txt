@@ -1,0 +1,127 @@
+{'day': '2026-10-19', 'time_in': '09:25:34', 'actual': 48.84, 'obey1': 51.57698877224897, 'obey120': 48.84, 'first_exit_s': 60, 'reason1': 'exit already triggered (COUNCIL PREM_TRAIL), waiting for a f'}
+{'day': '2026-10-19', 'time_in': '09:28:51', 'actual': -18.596, 'obey1': 2.3149928286586796, 'obey120': -18.596, 'first_exit_s': 13, 'reason1': '66% of the best gain (+7 %) is gone'}
+{'day': '2026-10-19', 'time_in': '09:35:16', 'actual': 8.911, 'obey1': 3.1490766822393157, 'obey120': 11.825791555433419, 'first_exit_s': 35, 'reason1': '69% of the best gain (+7 %) is gone'}
+{'day': '2026-10-19', 'time_in': '09:52:13', 'actual': -16.234, 'obey1': -16.287880439262892, 'obey120': -16.234, 'first_exit_s': 48, 'reason1': 'exit already triggered (COUNCIL SL), waiting for a fresh quo'}
+{'day': '2026-10-19', 'time_in': '09:55:07', 'actual': 29.273, 'obey1': 27.56892230576442, 'obey120': 27.56892230576442, 'first_exit_s': 341, 'reason1': 'exit already triggered (COUNCIL FWD_TRAIL), waiting for a fr'}
+{'day': '2026-10-19', 'time_in': '10:19:48', 'actual': -0.761, 'obey1': 3.8961038961038863, 'obey120': 3.8961038961038863, 'first_exit_s': 206, 'reason1': '62% of the best gain (+9 %) is gone'}
+{'day': '2026-10-19', 'time_in': '10:30:06', 'actual': -14.583, 'obey1': -7.670454545454541, 'obey120': -14.583, 'first_exit_s': 30, 'reason1': 'the basket flipped against you: 56% of the weight the other '}
+{'day': '2026-10-19', 'time_in': '10:34:15', 'actual': 23.965, 'obey1': 3.769194974406709, 'obey120': 3.769194974406709, 'first_exit_s': 214, 'reason1': '75% of the best gain (+15 %) is gone'}
+{'day': '2026-10-19', 'time_in': '11:34:58', 'actual': 16.073, 'obey1': 4.0181464679196255, 'obey120': 23.33117501734141, 'first_exit_s': 44, 'reason1': '62% of the best gain (+11 %) is gone'}
+{'day': '2026-10-19', 'time_in': '11:51:14', 'actual': 20.04, 'obey1': 0.2024291497975783, 'obey120': 0.2024291497975783, 'first_exit_s': 361, 'reason1': '94% of the best gain (+8 %) is gone'}
+{'day': '2026-10-19', 'time_in': '12:16:20', 'actual': -15.574, 'obey1': -8.371189520933031, 'obey120': -15.574, 'first_exit_s': 37, 'reason1': 'the basket flipped against you: 60% of the weight the other '}
+{'day': '2026-10-19', 'time_in': '12:26:31', 'actual': -14.956, 'obey1': -6.103286384976525, 'obey120': -6.103286384976525, 'first_exit_s': 120, 'reason1': 'the basket flipped against you: 68% of the weight the other '}
+{'day': '2026-10-19', 'time_in': '12:41:36', 'actual': -13.957, 'obey1': -15.040649372710767, 'obey120': -13.957, 'first_exit_s': 80, 'reason1': 'exit already triggered (COUNCIL SL), waiting for a fresh quo'}
+{'day': '2026-10-19', 'time_in': '12:50:10', 'actual': -15.625, 'obey1': 1.5625, 'obey120': 1.5625, 'first_exit_s': 348, 'reason1': '60% of the best gain (+10 %) is gone'}
+{'day': '2026-10-19', 'time_in': '13:03:21', 'actual': 3.763, 'obey1': 2.8417771862399244, 'obey120': 3.763, 'first_exit_s': 21, 'reason1': 'exit already triggered (COUNCIL RENT_TRAIL), waiting for a f'}
+{'day': '2026-10-19', 'time_in': '13:10:36', 'actual': 50.481, 'obey1': None, 'obey120': None, 'first_exit_s': 669, 'reason1': '63% of the best gain (+30 %) is gone'}
+{'day': '2026-10-19', 'time_in': '13:44:35', 'actual': -14.01, 'obey1': None, 'obey120': None, 'first_exit_s': 200, 'reason1': 'the basket flipped against you: 77% of the weight the other '}
+{'day': '2026-10-19', 'time_in': '14:33:20', 'actual': -16.106, 'obey1': -15.264423076923084, 'obey120': -16.106, 'first_exit_s': 50, 'reason1': 'exit already triggered (COUNCIL SL), waiting for a fresh quo'}
+{'day': '2026-10-21', 'time_in': '09:46:49', 'actual': -12.199, 'obey1': -12.198870808940121, 'obey120': -12.198870808940121, 'first_exit_s': 263, 'reason1': 'exit already triggered (COUNCIL FWD_TRAIL), waiting for a fr'}
+{'day': '2026-10-21', 'time_in': '10:39:47', 'actual': -3.751, 'obey1': 2.633675922577483, 'obey120': 4.096831017017499, 'first_exit_s': 105, 'reason1': '62% of the best gain (+4 %) is gone'}
+{'day': '2026-10-21', 'time_in': '11:15:11', 'actual': 80.93, 'obey1': 2.9822144723623545, 'obey120': 2.9822144723623545, 'first_exit_s': 149, 'reason1': '61% of the best gain (+7 %) is gone'}
+{'day': '2026-10-21', 'time_in': '13:16:29', 'actual': -1.909, 'obey1': -3.064589295843645, 'obey120': -3.064589295843645, 'first_exit_s': 426, 'reason1': 'the basket flipped against you: 54% of the weight the other '}
+{'day': '2026-10-21', 'time_in': '14:34:54', 'actual': -1.658, 'obey1': 1.8139398539736673, 'obey120': 1.8139398539736673, 'first_exit_s': 301, 'reason1': '65% of the best gain (+6 %) is gone'}
+{'day': '2026-10-22', 'time_in': '09:41:06', 'actual': 3.643, 'obey1': 1.834618452539205, 'obey120': 4.865725577368885, 'first_exit_s': 35, 'reason1': '65% of the best gain (+5 %) is gone'}
+{'day': '2026-10-22', 'time_in': '13:04:56', 'actual': -8.082, 'obey1': 1.6773387912425664, 'obey120': 1.6773387912425664, 'first_exit_s': 135, 'reason1': '63% of the best gain (+5 %) is gone'}
+{'day': '2026-10-22', 'time_in': '14:02:48', 'actual': 13.806, 'obey1': -6.392558854596519, 'obey120': -6.392558854596519, 'first_exit_s': 604, 'reason1': 'the basket flipped against you: 52% of the weight the other '}
+{'day': '2026-10-23', 'time_in': '09:41:08', 'actual': 77.415, 'obey1': 2.0839200225288623, 'obey120': 2.0839200225288623, 'first_exit_s': 239, 'reason1': '63% of the best gain (+6 %) is gone'}
+{'day': '2026-10-23', 'time_in': '11:02:40', 'actual': -3.48, 'obey1': 3.99315633300501, 'obey120': 3.99315633300501, 'first_exit_s': 193, 'reason1': '60% of the best gain (+11 %) is gone'}
+{'day': '2026-10-23', 'time_in': '11:22:31', 'actual': -11.454, 'obey1': -11.568121649952701, 'obey120': -11.568121649952701, 'first_exit_s': 817, 'reason1': 'exit already triggered (COUNCIL FWD_TRAIL), waiting for a fr'}
+{'day': '2026-10-23', 'time_in': '11:44:41', 'actual': -2.625, 'obey1': 1.4294084617944014, 'obey120': 1.4294084617944014, 'first_exit_s': 426, 'reason1': '73% of the best gain (+6 %) is gone'}
+{'day': '2026-10-23', 'time_in': '12:23:46', 'actual': -13.7, 'obey1': -9.77751399091592, 'obey120': -9.77751399091592, 'first_exit_s': 1289, 'reason1': 'the basket flipped against you: 54% of the weight the other '}
+{'day': '2026-10-26', 'time_in': '09:49:27', 'actual': 90.989, 'obey1': 1.5122911805391492, 'obey120': 91.6824273516265, 'first_exit_s': 42, 'reason1': '61% of the best gain (+4 %) is gone'}
+{'day': '2026-10-26', 'time_in': '10:31:50', 'actual': 18.242, 'obey1': 21.04873995309038, 'obey120': 21.04873995309038, 'first_exit_s': 424, 'reason1': 'the basket flipped against you: 51% of the weight the other '}
+{'day': '2026-10-26', 'time_in': '11:20:00', 'actual': 19.792, 'obey1': 4.756948682996964, 'obey120': 4.756948682996964, 'first_exit_s': 423, 'reason1': '61% of the best gain (+12 %) is gone'}
+{'day': '2026-10-26', 'time_in': '11:44:44', 'actual': 6.005, 'obey1': -5.895276455510812, 'obey120': 3.405343792194926, 'first_exit_s': 87, 'reason1': 'the basket flipped against you: 60% of the weight the other '}
+{'day': '2026-10-26', 'time_in': '13:42:13', 'actual': 22.736, 'obey1': 3.8817005545286554, 'obey120': 3.8817005545286554, 'first_exit_s': 246, 'reason1': '64% of the best gain (+11 %) is gone'}
+{'day': '2026-10-26', 'time_in': '14:17:43', 'actual': 7.33, 'obey1': 2.312818502548031, 'obey120': 2.312818502548031, 'first_exit_s': 857, 'reason1': '68% of the best gain (+7 %) is gone'}
+{'day': '2026-10-27', 'time_in': '09:28:07', 'actual': 2.605, 'obey1': 6.8818016704838225, 'obey120': 6.8818016704838225, 'first_exit_s': 152, 'reason1': '60% of the best gain (+19 %) is gone'}
+{'day': '2026-10-27', 'time_in': '09:40:34', 'actual': -9.669, 'obey1': 4.573173390032936, 'obey120': 4.573173390032936, 'first_exit_s': 214, 'reason1': '68% of the best gain (+12 %) is gone'}
+{'day': '2026-10-27', 'time_in': '10:00:37', 'actual': 5.235, 'obey1': 3.0502885408079106, 'obey120': 9.604284376127126, 'first_exit_s': 27, 'reason1': '62% of the best gain (+10 %) is gone'}
+{'day': '2026-10-27', 'time_in': '10:17:04', 'actual': 26.294, 'obey1': 4.3689320388349495, 'obey120': 3.5598705501618255, 'first_exit_s': 13, 'reason1': '72% of the best gain (+5 %) is gone'}
+{'day': '2026-10-27', 'time_in': '10:34:07', 'actual': 13.312, 'obey1': 7.448491228993315, 'obey120': 7.448491228993315, 'first_exit_s': 267, 'reason1': '61% of the best gain (+16 %) is gone'}
+{'day': '2026-10-27', 'time_in': '11:29:35', 'actual': 1.638, 'obey1': 1.5254220046565958, 'obey120': 1.5254220046565958, 'first_exit_s': 142, 'reason1': '67% of the best gain (+8 %) is gone'}
+{'day': '2026-10-27', 'time_in': '11:47:10', 'actual': -14.554, 'obey1': -15.349633941737139, 'obey120': -14.554, 'first_exit_s': 80, 'reason1': 'exit already triggered (COUNCIL SL), waiting for a fresh quo'}
+{'day': '2026-10-27', 'time_in': '12:31:47', 'actual': 42.649, 'obey1': 5.5135118639146885, 'obey120': 5.5135118639146885, 'first_exit_s': 437, 'reason1': '62% of the best gain (+15 %) is gone'}
+{'day': '2026-10-27', 'time_in': '12:52:25', 'actual': 33.1, 'obey1': 4.828462515883092, 'obey120': 3.6213507646223775, 'first_exit_s': 50, 'reason1': '62% of the best gain (+12 %) is gone'}
+{'day': '2026-10-27', 'time_in': '13:08:53', 'actual': 44.04, 'obey1': 1.9108280254777066, 'obey120': 12.010917628863593, 'first_exit_s': 34, 'reason1': '85% of the best gain (+13 %) is gone'}
+{'day': '2026-10-27', 'time_in': '13:57:45', 'actual': 8.15, 'obey1': 17.529105399897936, 'obey120': 17.529105399897936, 'first_exit_s': 474, 'reason1': '61% of the best gain (+38 %) is gone'}
+{'day': '2026-10-27', 'time_in': '14:15:03', 'actual': -0.363, 'obey1': 5.946342352078049, 'obey120': 4.568525705759385, 'first_exit_s': 45, 'reason1': '61% of the best gain (+19 %) is gone'}
+{'day': '2026-10-27', 'time_in': '14:36:18', 'actual': 79.68, 'obey1': 0.9852216748768461, 'obey120': 21.30541871921181, 'first_exit_s': 27, 'reason1': '69% of the best gain (+16 %) is gone'}
+{'day': '2026-10-28', 'time_in': '10:46:37', 'actual': 7.396, 'obey1': 1.5766302118051412, 'obey120': 7.34987247855321, 'first_exit_s': 51, 'reason1': '61% of the best gain (+3 %) is gone'}
+{'day': '2026-10-28', 'time_in': '11:10:44', 'actual': 9.496, 'obey1': 0.7194244604316502, 'obey120': 0.9832148929294071, 'first_exit_s': 36, 'reason1': '78% of the best gain (+4 %) is gone'}
+{'day': '2026-10-28', 'time_in': '12:17:46', 'actual': 38.015, 'obey1': 1.4460769354128322, 'obey120': 1.9852956136067634, 'first_exit_s': 111, 'reason1': '70% of the best gain (+5 %) is gone'}
+{'day': '2026-10-28', 'time_in': '13:28:51', 'actual': 4.38, 'obey1': 0.5674094651646922, 'obey120': 0.5674094651646922, 'first_exit_s': 2000, 'reason1': '86% of the best gain (+3 %) is gone'}
+{'day': '2026-10-28', 'time_in': '14:44:49', 'actual': -4.097, 'obey1': -4.555314533622557, 'obey120': -4.555314533622557, 'first_exit_s': 1006, 'reason1': 'the basket flipped against you: 54% of the weight the other '}
+{'day': '2026-10-29', 'time_in': '09:43:44', 'actual': 45.361, 'obey1': 2.2336769759450315, 'obey120': 1.4032090788991036, 'first_exit_s': 77, 'reason1': '62% of the best gain (+6 %) is gone'}
+{'day': '2026-10-29', 'time_in': '11:15:48', 'actual': -11.784, 'obey1': None, 'obey120': None, 'first_exit_s': 3196, 'reason1': 'exit already triggered (COUNCIL FWD_TRAIL), waiting for a fr'}
+{'day': '2026-10-29', 'time_in': '12:59:58', 'actual': -12.227, 'obey1': -6.72340771830674, 'obey120': -6.72340771830674, 'first_exit_s': 1297, 'reason1': 'the basket flipped against you: 57% of the weight the other '}
+{'day': '2026-10-29', 'time_in': '14:12:39', 'actual': 13.778, 'obey1': 1.6900601546834704, 'obey120': 1.6900601546834704, 'first_exit_s': 613, 'reason1': '62% of the best gain (+4 %) is gone'}
+{'day': '2026-10-30', 'time_in': '09:45:12', 'actual': -1.677, 'obey1': 2.543318584819554, 'obey120': 2.543318584819554, 'first_exit_s': 351, 'reason1': '68% of the best gain (+10 %) is gone'}
+{'day': '2026-10-30', 'time_in': '13:50:35', 'actual': -3.723, 'obey1': 2.375890853557183, 'obey120': 2.375890853557183, 'first_exit_s': 405, 'reason1': '65% of the best gain (+7 %) is gone'}
+{'day': '2026-10-30', 'time_in': '14:21:46', 'actual': -0.671, 'obey1': 7.190764607686773, 'obey120': 7.190764607686773, 'first_exit_s': 1290, 'reason1': '60% of the best gain (+18 %) is gone'}
+{'day': '2026-11-02', 'time_in': '12:02:49', 'actual': -14.225, 'obey1': -7.027255940477939, 'obey120': -14.480407558876573, 'first_exit_s': 47, 'reason1': 'the basket flipped against you: 66% of the weight the other '}
+{'day': '2026-11-02', 'time_in': '12:58:33', 'actual': 40.659, 'obey1': 46.10389610389611, 'obey120': 46.10389610389611, 'first_exit_s': 683, 'reason1': 'the basket flipped against you: 63% of the weight the other '}
+{'day': '2026-11-02', 'time_in': '13:20:47', 'actual': 16.899, 'obey1': 2.2222237993580363, 'obey120': 2.2222237993580363, 'first_exit_s': 191, 'reason1': '64% of the best gain (+8 %) is gone'}
+{'day': '2026-11-02', 'time_in': '14:36:25', 'actual': 0.804, 'obey1': 2.5469168900804195, 'obey120': 2.5469168900804195, 'first_exit_s': 484, 'reason1': '62% of the best gain (+7 %) is gone'}
+{'day': '2026-11-03', 'time_in': '09:26:00', 'actual': 0.582, 'obey1': 2.593966676420223, 'obey120': 5.981999443219799, 'first_exit_s': 17, 'reason1': '61% of the best gain (+7 %) is gone'}
+{'day': '2026-11-03', 'time_in': '09:48:05', 'actual': -13.478, 'obey1': -13.523294008031572, 'obey120': -13.523294008031572, 'first_exit_s': 864, 'reason1': 'exit already triggered (COUNCIL FWD_TRAIL), waiting for a fr'}
+{'day': '2026-11-03', 'time_in': '10:14:32', 'actual': 10.444, 'obey1': 3.0245746691871522, 'obey120': 3.497164461247637, 'first_exit_s': 65, 'reason1': '68% of the best gain (+9 %) is gone'}
+{'day': '2026-11-03', 'time_in': '11:04:32', 'actual': 0.427, 'obey1': 6.7235859124866515, 'obey120': 0.427, 'first_exit_s': 107, 'reason1': '62% of the best gain (+18 %) is gone'}
+{'day': '2026-11-03', 'time_in': '11:37:00', 'actual': 7.442, 'obey1': 6.1046511627907085, 'obey120': 6.1046511627907085, 'first_exit_s': 810, 'reason1': '63% of the best gain (+18 %) is gone'}
+{'day': '2026-11-03', 'time_in': '12:10:34', 'actual': -0.556, 'obey1': 2.161824519137978, 'obey120': -0.556, 'first_exit_s': 11, 'reason1': '75% of the best gain (+8 %) is gone'}
+{'day': '2026-11-03', 'time_in': '12:29:01', 'actual': -16.062, 'obey1': -16.06160280334674, 'obey120': -16.06160280334674, 'first_exit_s': 455, 'reason1': 'exit already triggered (COUNCIL SL), waiting for a fresh quo'}
+{'day': '2026-11-03', 'time_in': '12:49:49', 'actual': 6.412, 'obey1': 2.985076313851742, 'obey120': 2.985076313851742, 'first_exit_s': 411, 'reason1': '64% of the best gain (+8 %) is gone'}
+{'day': '2026-11-03', 'time_in': '13:16:51', 'actual': 5.701, 'obey1': 2.7315914489311144, 'obey120': 5.166274408263427, 'first_exit_s': 55, 'reason1': '62% of the best gain (+8 %) is gone'}
+{'day': '2026-11-03', 'time_in': '13:54:06', 'actual': -13.902, 'obey1': -15.481832543443918, 'obey120': -13.902, 'first_exit_s': 52, 'reason1': 'exit already triggered (COUNCIL SL), waiting for a fresh quo'}
+{'day': '2026-11-03', 'time_in': '14:18:35', 'actual': -20.207, 'obey1': -20.207253886010367, 'obey120': -20.207253886010367, 'first_exit_s': 137, 'reason1': 'exit already triggered (COUNCIL SL), waiting for a fresh quo'}
+{'day': '2026-11-03', 'time_in': '14:24:49', 'actual': -15.1, 'obey1': 2.9567053854276715, 'obey120': 2.9567053854276715, 'first_exit_s': 186, 'reason1': '69% of the best gain (+14 %) is gone'}
+{'day': '2026-11-03', 'time_in': '14:34:43', 'actual': 10.747, 'obey1': 10.992619402590487, 'obey120': 10.747, 'first_exit_s': 108, 'reason1': 'exit already triggered (COUNCIL RENT_TRAIL), waiting for a f'}
+{'day': '2026-11-04', 'time_in': '10:34:58', 'actual': -2.722, 'obey1': 1.2271334687709246, 'obey120': 3.07898259705488, 'first_exit_s': 29, 'reason1': '63% of the best gain (+3 %) is gone'}
+{'day': '2026-11-04', 'time_in': '10:54:25', 'actual': -11.147, 'obey1': -5.893956571266179, 'obey120': -11.516649126271583, 'first_exit_s': 19, 'reason1': 'the basket flipped against you: 50% of the weight the other '}
+{'day': '2026-11-04', 'time_in': '11:11:10', 'actual': -10.084, 'obey1': -10.503030323016127, 'obey120': -10.503030323016127, 'first_exit_s': 437, 'reason1': 'exit already triggered (COUNCIL FWD_TRAIL), waiting for a fr'}
+{'day': '2026-11-04', 'time_in': '11:27:55', 'actual': -8.875, 'obey1': -7.896577242840818, 'obey120': -7.896577242840818, 'first_exit_s': 372, 'reason1': 'the basket flipped against you: 65% of the weight the other '}
+{'day': '2026-11-04', 'time_in': '12:04:24', 'actual': 0.934, 'obey1': 4.938576438210229, 'obey120': 4.938576438210229, 'first_exit_s': 877, 'reason1': '66% of the best gain (+15 %) is gone'}
+{'day': '2026-11-05', 'time_in': '10:16:28', 'actual': -5.982, 'obey1': -6.350462741374341, 'obey120': -6.350462741374341, 'first_exit_s': 831, 'reason1': 'the basket flipped against you: 53% of the weight the other '}
+{'day': '2026-11-06', 'time_in': '10:27:11', 'actual': 9.544, 'obey1': 9.56820561911571, 'obey120': 9.56820561911571, 'first_exit_s': 505, 'reason1': 'exit already triggered (COUNCIL FWD_TRAIL), waiting for a fr'}
+{'day': '2026-11-06', 'time_in': '10:46:29', 'actual': 5.54, 'obey1': 5.669172199593908, 'obey120': 5.669172199593908, 'first_exit_s': 557, 'reason1': '61% of the best gain (+14 %) is gone'}
+{'day': '2026-11-06', 'time_in': '11:05:12', 'actual': 5.441, 'obey1': 2.6273917746898245, 'obey120': 0.6369459148171996, 'first_exit_s': 39, 'reason1': '67% of the best gain (+4 %) is gone'}
+{'day': '2026-11-06', 'time_in': '14:09:29', 'actual': 71.609, 'obey1': 3.122540015743902, 'obey120': 3.122540015743902, 'first_exit_s': 213, 'reason1': '60% of the best gain (+8 %) is gone'}
+{'day': '2026-11-09', 'time_in': '09:26:56', 'actual': -12.528, 'obey1': -12.613122171945712, 'obey120': -12.613122171945712, 'first_exit_s': 172, 'reason1': 'exit already triggered (COUNCIL FWD_TRAIL), waiting for a fr'}
+{'day': '2026-11-09', 'time_in': '09:35:30', 'actual': 6.972, 'obey1': 8.908446405974901, 'obey120': 8.908446405974901, 'first_exit_s': 406, 'reason1': '62% of the best gain (+24 %) is gone'}
+{'day': '2026-11-09', 'time_in': '09:45:30', 'actual': -8.909, 'obey1': 4.127086110869427, 'obey120': -8.909, 'first_exit_s': 52, 'reason1': '72% of the best gain (+11 %) is gone'}
+{'day': '2026-11-09', 'time_in': '09:55:08', 'actual': -5.24, 'obey1': 0.7641899186624279, 'obey120': 2.110628130828096, 'first_exit_s': 49, 'reason1': '88% of the best gain (+8 %) is gone'}
+{'day': '2026-11-09', 'time_in': '10:20:17', 'actual': -6.176, 'obey1': 4.41651267252019, 'obey120': 4.093355079527594, 'first_exit_s': 79, 'reason1': '61% of the best gain (+11 %) is gone'}
+{'day': '2026-11-09', 'time_in': '10:26:14', 'actual': 7.905, 'obey1': 7.54414125200642, 'obey120': 7.905, 'first_exit_s': 83, 'reason1': 'exit already triggered (COUNCIL RENT_TRAIL), waiting for a f'}
+{'day': '2026-11-09', 'time_in': '10:38:11', 'actual': 12.43, 'obey1': 2.8053504308339194, 'obey120': 2.8053504308339194, 'first_exit_s': 182, 'reason1': '64% of the best gain (+10 %) is gone'}
+{'day': '2026-11-09', 'time_in': '10:56:20', 'actual': -14.365, 'obey1': -14.365412855303495, 'obey120': -14.365, 'first_exit_s': 103, 'reason1': 'exit already triggered (COUNCIL SL), waiting for a fresh quo'}
+{'day': '2026-11-09', 'time_in': '11:13:11', 'actual': 14.187, 'obey1': 3.7947377957059825, 'obey120': 27.16687964488329, 'first_exit_s': 44, 'reason1': '64% of the best gain (+8 %) is gone'}
+{'day': '2026-11-09', 'time_in': '11:33:14', 'actual': 61.089, 'obey1': 14.547082644815369, 'obey120': 36.09995537706381, 'first_exit_s': 75, 'reason1': 'the basket flipped against you: 64% of the weight the other '}
+{'day': '2026-11-09', 'time_in': '11:44:20', 'actual': -14.298, 'obey1': -15.092677009494981, 'obey120': -14.298, 'first_exit_s': 33, 'reason1': 'exit already triggered (COUNCIL SL), waiting for a fresh quo'}
+{'day': '2026-11-09', 'time_in': '11:51:29', 'actual': -13.46, 'obey1': -13.4599130364913, 'obey120': -13.4599130364913, 'first_exit_s': 130, 'reason1': 'exit already triggered (COUNCIL FWD_TRAIL), waiting for a fr'}
+{'day': '2026-11-09', 'time_in': '11:56:07', 'actual': 19.697, 'obey1': 2.3524769565515413, 'obey120': 2.3524769565515413, 'first_exit_s': 228, 'reason1': '64% of the best gain (+7 %) is gone'}
+{'day': '2026-11-09', 'time_in': '12:16:33', 'actual': 19.613, 'obey1': 1.274672307466207, 'obey120': 1.274672307466207, 'first_exit_s': 288, 'reason1': '62% of the best gain (+6 %) is gone'}
+{'day': '2026-11-09', 'time_in': '12:39:44', 'actual': 7.649, 'obey1': 4.8954599430097945, 'obey120': 4.8954599430097945, 'first_exit_s': 709, 'reason1': '62% of the best gain (+14 %) is gone'}
+{'day': '2026-11-09', 'time_in': '13:02:07', 'actual': 0.594, 'obey1': 7.559393600562747, 'obey120': 0.594, 'first_exit_s': 17, 'reason1': '65% of the best gain (+20 %) is gone'}
+{'day': '2026-11-09', 'time_in': '13:11:29', 'actual': 41.414, 'obey1': -0.3847974490064354, 'obey120': 5.627708563499567, 'first_exit_s': 50, 'reason1': '64% of the best gain (+9 %) is gone'}
+{'day': '2026-11-09', 'time_in': '13:31:53', 'actual': -0.842, 'obey1': 2.7202112069401707, 'obey120': 2.7202112069401707, 'first_exit_s': 130, 'reason1': '66% of the best gain (+8 %) is gone'}
+{'day': '2026-11-09', 'time_in': '13:46:30', 'actual': 2.976, 'obey1': 9.631949882537194, 'obey120': 9.631949882537194, 'first_exit_s': 165, 'reason1': '63% of the best gain (+26 %) is gone'}
+{'day': '2026-11-09', 'time_in': '14:02:29', 'actual': -14.294, 'obey1': -15.08792005204641, 'obey120': -14.294, 'first_exit_s': 64, 'reason1': 'exit already triggered (COUNCIL SL), waiting for a fresh quo'}
+{'day': '2026-11-09', 'time_in': '14:05:35', 'actual': -16.536, 'obey1': -15.213469633193032, 'obey120': -16.536, 'first_exit_s': 64, 'reason1': 'the basket flipped against you: 56% of the weight the other '}
+{'day': '2026-11-09', 'time_in': '14:30:40', 'actual': -16.645, 'obey1': 5.844984817989585, 'obey120': -16.645, 'first_exit_s': 8, 'reason1': '65% of the best gain (+8 %) is gone'}
+{'day': '2026-11-11', 'time_in': '12:18:45', 'actual': 8.358, 'obey1': 0.6569298514484512, 'obey120': 1.7518203623973605, 'first_exit_s': 38, 'reason1': '60% of the best gain (+2 %) is gone'}
+{'day': '2026-11-11', 'time_in': '13:20:11', 'actual': 23.374, 'obey1': 16.815584740355828, 'obey120': 16.815584740355828, 'first_exit_s': 931, 'reason1': 'the basket flipped against you: 50% of the weight the other '}
+{'day': '2026-11-11', 'time_in': '14:00:35', 'actual': -9.022, 'obey1': -8.43714494082377, 'obey120': -8.43714494082377, 'first_exit_s': 247, 'reason1': 'the basket flipped against you: 52% of the weight the other '}
+{'day': '2026-11-11', 'time_in': '14:15:15', 'actual': -7.875, 'obey1': -7.8958066537412215, 'obey120': -7.8958066537412215, 'first_exit_s': 282, 'reason1': 'exit already triggered (COUNCIL FWD_TRAIL), waiting for a fr'}
+actual   n=112 won 61/112 mean +6.98% compounded +20906.4%
+obey1    n=112 won 79/112 mean +0.94% compounded +60.4%
+obey120  n=112 won 77/112 mean +2.12% compounded +281.3%
+after WATCH    : n=1918 next-300s bid change mean +1.72% median +0.66% share up 0.54
+after HOLD     : n=1515 next-300s bid change mean +1.79% median +0.85% share up 0.56
+after EXIT-SOON: n=535 next-300s bid change mean +1.79% median +0.00% share up 0.49
+early actual   trades 81 won 44 comp +6548.5% losing days 4/12 10-19:-5.1 10-21:+47.5 10-22:+8.4 10-23:+27.4 10-26:+277.8 10-27:+541.9 10-28:+62.5 10-29:+45.2 10-30:-6.0 11-02:+42.2 11-03:-37.1 11-04:-28.5
+early obey1    trades 81 won 58 comp +63.5% losing days 7/12 10-19:+14.7 10-21:-8.4 10-22:-3.1 10-23:-14.1 10-26:+28.7 10-27:+57.3 10-28:-0.4 10-29:-3.0 10-30:+12.5 11-02:+42.4 11-03:-27.6 11-04:-17.6
+early obey120  trades 81 won 57 comp +287.8% losing days 7/12 10-19:-0.6 10-21:-7.1 10-22:-0.2 10-23:-14.1 10-26:+167.1 10-27:+115.9 10-28:+6.1 10-29:-3.8 10-30:+12.5 11-02:+31.0 11-03:-28.4 11-04:-21.1
+late actual   trades 31 won 17 comp +216.0% losing days 1/4 11-05:-6.0 11-06:+109.2 11-09:+43.4 11-11:+12.0
+late obey1    trades 31 won 21 comp -1.9% losing days 3/4 11-05:-6.4 11-06:+22.5 11-09:-13.8 11-11:-0.8
+late obey120  trades 31 won 20 comp -1.7% losing days 2/4 11-05:-6.4 11-06:+20.2 11-09:-12.8 11-11:+0.2

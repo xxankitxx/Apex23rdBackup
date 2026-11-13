@@ -1,0 +1,30 @@
+2026-10-21 done 4 s {'n': 3, 'won': 2, 'comp': np.float64(54.64), 'sumlog': 0.4359} AGE {'n': 1, 'won': 0, 'comp': np.float64(-10.95)}
+2026-10-22 done 9 s {'n': 6, 'won': 3, 'comp': np.float64(-4.73), 'sumlog': -0.0484} AGE {'n': 1, 'won': 0, 'comp': np.float64(-5.32)}
+2026-10-23 done 13 s {'n': 4, 'won': 1, 'comp': np.float64(26.72), 'sumlog': 0.2368} AGE {'n': 1, 'won': 0, 'comp': np.float64(-33.21)}
+2026-10-26 done 17 s {'n': 6, 'won': 3, 'comp': np.float64(155.43), 'sumlog': 0.9378} AGE {'n': 1, 'won': 0, 'comp': np.float64(-0.19)}
+2026-10-28 done 21 s {'n': 2, 'won': 1, 'comp': np.float64(16.37), 'sumlog': 0.1516} AGE {'n': 1, 'won': 1, 'comp': np.float64(8.02)}
+2026-10-29 done 26 s {'n': 3, 'won': 2, 'comp': np.float64(48.44), 'sumlog': 0.395} AGE {'n': 1, 'won': 1, 'comp': np.float64(0.45)}
+2026-10-30 done 33 s {'n': 1, 'won': 1, 'comp': np.float64(0.44), 'sumlog': 0.0044} AGE {'n': 2, 'won': 1, 'comp': np.float64(17.91)}
+2026-11-02 done 39 s {'n': 3, 'won': 2, 'comp': np.float64(12.22), 'sumlog': 0.1153} AGE {'n': 4, 'won': 2, 'comp': np.float64(-18.69)}
+2026-11-04 done 44 s {'n': 3, 'won': 0, 'comp': np.float64(-19.4), 'sumlog': -0.2157} AGE {'n': 1, 'won': 1, 'comp': np.float64(5.36)}
+2026-11-05 done 49 s {'n': 1, 'won': 0, 'comp': np.float64(-5.03), 'sumlog': -0.0516} AGE {'n': 1, 'won': 0, 'comp': np.float64(-15.27)}
+2026-11-06 done 55 s {'n': 4, 'won': 2, 'comp': np.float64(38.5), 'sumlog': 0.3257} AGE {'n': 4, 'won': 1, 'comp': np.float64(-3.25)}
+2026-11-11 done 58 s {'n': 3, 'won': 1, 'comp': np.float64(6.84), 'sumlog': 0.0662} AGE {'n': 2, 'won': 0, 'comp': np.float64(-18.27)}
+
+variant  D(sr, n, sumlog, losing days)  T(sr, n, sumlog, losing days)
+0.25/600  0.423 52 1.1607 2 | 0.562 16 1.5263 0 [np.float64(44.48), np.float64(187.04), np.float64(10.95)]
+0.25/900  0.397 58 0.6194 3 | 0.444 18 0.7892 2 [np.float64(-16.12), np.float64(164.28), np.float64(-0.68)]
+0.25/1200 0.411 56 1.0696 3 | 0.5 18 1.2366 1 [np.float64(20.81), np.float64(187.04), np.float64(-0.68)]
+0.33/600  0.426 47 1.3032 2 | 0.571 14 1.5063 0 [np.float64(44.48), np.float64(199.94), np.float64(4.07)]
+0.33/900  0.373 51 0.6093 3 | 0.438 16 0.7797 1 [np.float64(-16.12), np.float64(149.84), np.float64(4.07)]
+0.33/1200 0.404 52 1.0007 3 | 0.5 16 1.1939 0 [np.float64(16.84), np.float64(171.36), np.float64(4.07)]
+0.4/600   0.424 33 1.7334 2 | 0.545 11 0.958 0 [np.float64(51.57), np.float64(63.49), np.float64(5.18)]
+0.4/900   0.439 41 2.128 2 | 0.417 12 0.4285 0 [np.float64(6.57), np.float64(36.95), np.float64(5.18)]
+0.4/1200  0.409 44 1.5263 3 | 0.333 12 -0.194 2 [np.float64(-11.11), np.float64(-11.9), np.float64(5.18)]
+0.5/600   0.542 24 2.0839 1 | 0.375 8 0.3306 2 [np.float64(-5.03), np.float64(53.09), np.float64(-4.27)]
+0.5/900   0.484 31 2.0127 2 | 0.375 8 0.3403 1 [np.float64(-5.03), np.float64(38.5), np.float64(6.84)]
+0.5/1200  0.447 38 1.7898 3 | 0.333 9 -0.0287 2 [np.float64(23.04), np.float64(-17.5), np.float64(-4.27)]
+pick on discovery: 0.5/600 (live c20 = 0.5/900); 12 variants tried
+aged-out arms: 52; futures move 900s after, in the arm's direction: median +2.4, share > 0 0.56; shallow (< 0.35) n 23 median +2.2
+aged-out arms: 52; futures move 1800s after, in the arm's direction: median +1.6, share > 0 0.52; shallow (< 0.35) n 23 median -5.1
+AGE entries: {'n': 20, 'won': 7, 'comp': np.float64(-58.73), 'sumlog': -0.8849}

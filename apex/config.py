@@ -461,6 +461,16 @@ VARIANTS["fr_c20_9y"] = dict(_G, council="c20_9y", twin=True, fc_hold=True)
 # hx_c20_9y (hold_exit=True) is NOT added: on leave-one-day-out every line that sells early lost 8.8 to 31 lakh, so
 # the honest line never acts (docs/49 section 7). The code stays for a better model.
 VARIANTS["rx_c20_9y"] = dict(_G, council="c20_9y", twin=True, reenter=True)
+# 13 Nov (owner: "Yes, both", the 20-analyst study docs/research/13nov, master plan tier 1): two exit twins of c20_9y,
+# shadow only, judged forward under the 7-test standard. tp: expiry-day take-profit at +60 %; pgb: c20_9v's premium
+# give-back exit alone on normal days. Registered LAST (the same-tick order of the older books must not move).
+VARIANTS["tp_c20_9y"] = dict(_G, council="c20_9y_tp60", twin=True)
+VARIANTS["pgb_c20_9y"] = dict(_G, council="c20_9y_pgb", twin=True)
+VARIANTS["pm_c20_9y"] = dict(_G, council="c20_9y_pm", twin=True)       # 13 Nov: no expiry entry from 13:30 (R18)
+# 13 Nov (master plan tier 2): two SHADOW Conductors, same pool and priority, their own all-in accounts. Never the
+# champion (CHAMPION_OWNER names "conductor"); scored forward as ONE hypothesis (loss memory, R17 and R20).
+VARIANTS["conductor_sl"] = dict(_G, conductor=True, shadow_policy="sidelock", twin=True, raw_of="c20_9x")
+VARIANTS["conductor_wp60"] = dict(_G, conductor=True, shadow_policy="whipsaw", twin=True, raw_of="c20_9x")
 CHAMPION_DEFAULT = "c20_9x"  # 1 Nov (owner): back from c20_9t after its 8-day replay; before: c20_9t (31 Oct, never live), t28_gap (29 Oct 11:40), t28_cheap (29 Oct morning), t28_gap (28 Oct evening), lvl_trail_re (28 Oct), edge_gate_trail and edge_gate_only (27 Oct), spot_dual_lvl (D-142), edge_gate_trail and edge_gate_only (27 Oct), spot_dual_lvl (D-142)
 # D-124 (owner, 20 Oct 16:16: "Apply spot_dc12_t12 thoroughly on my code"): the champion is the owner's choice.
 # learning.load_state applies it ONCE to an existing state (the champion lives in data/learning/state.json,
@@ -685,7 +695,7 @@ def holiday_coverage_gaps(now: datetime) -> list:
 
 
 # ── self-check (D-073): a mis-typed number fails preflight, not the session ─────
-VARIANT_KEYS = frozenset(("twin", "fc_exit", "fc_hold", "hold_exit", "reenter", "m_star", "s_star", "L_star", "d_star", "s_exit", "iv_interp",
+VARIANT_KEYS = frozenset(("twin", "shadow_policy", "fc_exit", "fc_hold", "hold_exit", "reenter", "m_star", "s_star", "L_star", "d_star", "s_exit", "iv_interp",
                           "gap_star", "exit_book", "spike", "random", "momentum", "novol", "trend",
                           "spot_dc", "spot_trail", "swing", "cooldown_s", "no_streak_pause", "spot_expiry_end",
                           "no_trade_cap", "expiry_window_exempt", "tv_novol", "tv_hold_s",

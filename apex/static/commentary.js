@@ -176,8 +176,13 @@ function renderCommentary(s, now) {
     const early = (nil(p.hold_s) ? now - clockSecs((s.now || "").slice(0, 11) + p.time_in) : p.hold_s) < CMT.ENTRY_CARD_S;
     const showEntry = early && c.entry_card && (c.entry_card.lines || []).length;
     renderCard("cmtentry", showEntry ? c.entry_card : null);
-    $("cmtvcard").hidden = !!showEntry;
-    if (!showEntry) renderVerdictCard(c, state);
+    // 13 Nov: the old HOLD / WATCH / EXIT-SOON verdict is retired from view when the Conductor's voice is present
+    // (R12: obeying it turned +182 % into -1 %, and it fired on 119 of 119 trades). The voice card above shows the
+    // real exit ladder instead. The verdict is still computed and taped for study.
+    const voiced = !!(s.voice && s.voice.hold);
+    $("cmtstate").hidden = voiced;
+    $("cmtvcard").hidden = !!showEntry || voiced;
+    if (!showEntry && !voiced) renderVerdictCard(c, state);
     return;
   }
   // flat: a review card for 60 s after the exit, then the panel folds away

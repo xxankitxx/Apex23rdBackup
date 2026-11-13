@@ -1,0 +1,51 @@
+Conductor trades repriced: 115 days 16 | discovery 84 test 31
+
+== DISCOVERY days (19 Oct - 4 Nov) ==
+                                                             policy  n  win  mean  comp_pct  loss_days  days  worst_day_pct  wo_best_trade_pct  wo_best_day_pct
+                                                P0 base (as traded) 84 53.6  6.60    2621.0          4    12          -68.9             1343.6            354.1
+                                           P1 one deeper ITM always 84 54.8  5.46    1385.3          4    12          -73.9              726.2            299.1
+                                           P2 two deeper ITM always 84 52.4  4.67     914.0          4    12          -73.1              495.9            234.9
+                                 P3 one OTM-ward always (reference) 84 50.0  7.24    2896.8          4    12          -67.2             1400.4            360.3
+                                   P4 deeper ITM on expiry day only 84 54.8  5.81    1642.4          4    12          -73.9              824.4            368.2
+                                  P5 deeper ITM on normal days only 84 53.6  6.26    2219.5          4    12          -68.9             1190.3            287.1
+                              P6 CE deeper ITM, PE as is (spot-vol) 84 53.6  5.76    1672.7          4    12          -67.2              883.2            327.6
+                         P7 next weekly delta-matched on expiry day 84 52.4  4.47     877.7          4    12          -71.0              418.7            173.5
+                           P8 next weekly same strike on expiry day 84 53.6  5.15    1764.9          4    12          -48.8              889.4            421.7
+                                P9 next weekly delta-matched always 84 53.6  2.13     173.9          4    12          -71.0               80.0             44.4
+P10 deeper ITM when IV vs median > x (x=0.564, chosen on discovery) 84 54.8  6.34    2255.7          4    12          -72.2             1149.8            398.2
+   P11 deeper ITM when theta %/hr > x (x=16.9, chosen on discovery) 84 54.8  6.85    3379.3          4    12          -69.0             1745.9            454.2
+  P12 deeper ITM when theta_ratio > x (x=0.21, chosen on discovery) 84 53.6  6.15    1728.0          4    12          -77.7              869.8            298.6
+
+== TEST days (5 Nov on) ==
+                                                             policy  n  win  mean  comp_pct  loss_days  days  worst_day_pct  wo_best_trade_pct  wo_best_day_pct
+                                                P0 base (as traded) 31 51.6  5.18     185.0          1     4           -5.8               66.4             37.3
+                                           P1 one deeper ITM always 31 58.1  4.99     200.5          1     4           -5.4               80.4             51.5
+                                           P2 two deeper ITM always 31 54.8  4.18     156.9          1     4           -4.6               59.5             35.4
+                                 P3 one OTM-ward always (reference) 31 54.8  5.84     201.7          1     4           -6.4               70.7             41.3
+                                   P4 deeper ITM on expiry day only 31 58.1  5.23     215.9          1     4           -5.8               84.5             52.2
+                                  P5 deeper ITM on normal days only 31 51.6  4.95     171.1          1     4           -5.4               62.8             36.6
+                              P6 CE deeper ITM, PE as is (spot-vol) 31 58.1  5.02     189.1          1     4           -5.8               73.6             44.1
+                         P7 next weekly delta-matched on expiry day 31 51.6  3.47     130.0          1     4           -5.8               34.3             10.8
+                           P8 next weekly same strike on expiry day 31 51.6  3.61     139.4          1     4           -5.8               39.8             15.3
+                                P9 next weekly delta-matched always 31 51.6  2.00      68.0          1     4           -3.7               22.3              8.4
+P10 deeper ITM when IV vs median > x (x=0.564, chosen on discovery) 31 51.6  4.94     187.0          1     4           -5.8               67.6             38.2
+   P11 deeper ITM when theta %/hr > x (x=16.9, chosen on discovery) 31 51.6  5.35     203.5          1     4           -5.8               77.2             46.2
+  P12 deeper ITM when theta_ratio > x (x=0.21, chosen on discovery) 31 51.6  5.17     184.0          1     4           -5.8               65.9             36.8
+
+== TEST days, per day compounded % ==
+                                          2026-11-05  2026-11-06  2026-11-09  2026-11-11
+P0 base (as traded)                             -5.8       107.6        31.0        11.2
+P1 one deeper ITM always                        -5.4        98.4        45.2        10.3
+P2 two deeper ITM always                        -4.6        89.8        29.2         9.8
+P3 one OTM-ward always (reference)              -6.4       113.6        34.4        12.3
+P4 deeper ITM on expiry day only                -5.8       107.6        45.2        11.2
+P5 deeper ITM on normal days only               -5.4        98.4        31.0        10.3
+P6 CE deeper ITM, PE as is (spot-vol)           -5.8       100.6        37.6        11.1
+P7 next weekly delta-matched on expiry d        -5.8       107.6         5.7        11.2
+P8 next weekly same strike on expiry day        -5.8       107.6        10.0        11.2
+P9 next weekly delta-matched always             -3.7        54.9         5.7         6.5
+P10 deeper ITM when IV vs median > x (x=        -5.8       107.6        31.9        11.2
+P11 deeper ITM when theta %/hr > x (x=16        -5.8       107.6        39.5        11.2
+P12 deeper ITM when theta_ratio > x (x=0        -5.8       107.6        30.5        11.2
+
+variants tried: 10 fixed policies + 3 x 9 thresholds = 37 (multiple testing: treat any single winner with caution)

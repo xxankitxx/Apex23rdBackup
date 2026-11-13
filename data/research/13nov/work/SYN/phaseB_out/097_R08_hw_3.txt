@@ -1,0 +1,14 @@
+2026-11-04 done 2.0
+2026-11-05 done 3.0
+2026-11-06 done 4.3
+2026-11-09 done 5.5
+Traceback (most recent call last):
+  File "D:\ApexOptions\data\research\13nov\work\R08\phaseB_hw_all17.py", line 105, in <module>
+    one(p, T)
+    ~~~^^^^^^
+  File "D:\ApexOptions\data\research\13nov\work\R08\phaseB_hw_all17.py", line 25, in one
+    D = load(p); F = D["F"]; w = D["w"]; t0 = D["t0"]; n = D["n"]
+  File "D:\ApexOptions\data\research\13nov\work\R08\s04_leadlag_lib.py", line 11, in load
+    t = z["t"].astype(np.int64); fut = z["fut"]; fa = z["fa"][:, 0]
+                                                      ~~~~~~~^^^^^^
+IndexError: too many indices for array: array is 1-dimensional, but 2 were indexed

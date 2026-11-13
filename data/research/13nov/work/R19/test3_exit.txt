@@ -1,0 +1,49 @@
+
+=== t28_gap: cut at 5 min if below -5 pct  [exit@300s]  on t28_gap  (split 2026-11-05) ===
+       day  win  book_n  rule_n  book_sr  rule_sr  book_mean  rule_mean  cond_n  cond_rule_n  cond_day%  cond_rule_day%
+2026-10-19 disc      18      18     56.0     56.0        5.8        5.8      18           18      131.7           131.7
+2026-10-21 disc       4       4     75.0     75.0       11.1       11.1       4            4       44.5            44.5
+2026-10-22 disc       4       4     50.0     50.0        4.4        4.4       4            4       15.9            15.9
+2026-10-23 disc       6       6     83.0     83.0       16.4       16.4       6            6      115.8           115.8
+2026-10-26 disc       7       7     43.0     43.0        1.2        1.2       7            7        2.2             2.2
+2026-10-27 disc      18      18     50.0     50.0        2.9        2.9      18           18       46.4            46.4
+2026-10-28 disc       5       5     20.0     20.0       -4.8       -4.3       4            4      -15.3           -12.4
+2026-10-29 disc       3       3     67.0     67.0        2.2        2.2       3            3        4.6             4.6
+2026-10-30 disc       5       5     40.0     40.0       -3.9       -3.9       5            5      -17.4           -17.4
+2026-11-02 disc       4       4     75.0     75.0        6.4        6.4       4            4       24.3            24.3
+2026-11-03 disc      11      11     45.0     45.0       -0.7       -0.7      11           11       -9.8            -9.8
+2026-11-04 disc       1       1    100.0    100.0       24.4       24.4       1            1       22.4            22.4
+2026-11-05 test       5       5     20.0     20.0       -4.6       -4.6       5            5      -21.1           -21.1
+2026-11-06 test       4       4     50.0     50.0        6.6        6.6       4            4       21.4            21.4
+2026-11-09 test      21      21     52.0     52.0        4.3        4.3      21           21      101.0           101.0
+2026-11-11 test       4       4     75.0     50.0        1.1       -1.6       3            4       13.9            -6.9
+2026-11-12 test       1       1      0.0      0.0      -10.4      -10.4       1            1       -9.6            -9.6
+
+-- W1 discovery 2026-10-19..2026-11-04: 12 days
+   book level  : 86 -> 86 trades, strike 53% -> 53%, mean +3.84% -> +3.87%
+   Conductor   : 85 -> 85 trades, strike 54% -> 54%, sum of day % +365.1 -> +368.0, geometric day +23.5% -> +23.8%, losing days 3 -> 3, worst -17.4% -> -17.4%
+   p (daily sign flip) 0.500   p (mask shuffle through Conductor) nan
+   [fail] 1 wins more often: strike 53% vs 53%
+   [fail] 2 makes more: paired mean change +0.03% per trade, sign-flip p 0.502, 1 trades changed
+   [PASS] 3 makes money at all: sum of day % +368.0, without best trade +295.0, without best day +236.3
+   [PASS] 4 not one win: w/o best trade +295.0 vs +292.1; w/o best day +236.3 vs +233.4
+   [PASS] 5 keeps the big wins: 8 of 8 top trades kept
+   [PASS] 5b no worse on bad days: worst day -17.4% vs -17.4%
+   [fail] 6 sample: 1 trades changed
+   all promotion tests: FAIL
+
+-- W2 test 2026-11-05..2026-11-12: 5 days
+   book level  : 35 -> 35 trades, strike 49% -> 46%, mean +2.49% -> +2.18%
+   Conductor   : 34 -> 35 trades, strike 50% -> 46%, sum of day % +105.6 -> +84.8, geometric day +14.7% -> +10.1%, losing days 2 -> 3, worst -21.1% -> -21.1%
+   p (daily sign flip) 1.000   p (mask shuffle through Conductor) nan
+   [fail] 1 wins more often: strike 46% vs 49%
+   [fail] 2 makes more: paired mean change -0.31% per trade, sign-flip p 1.000, 1 trades changed
+   [fail] 3 makes money at all: sum of day % +84.8, without best trade +28.0, without best day -16.2
+   [fail] 4 not one win: w/o best trade +28.0 vs +48.8; w/o best day -16.2 vs +4.6
+   [PASS] 5 keeps the big wins: 3 of 3 top trades kept
+   [PASS] 5b no worse on bad days: worst day -21.1% vs -21.1%
+   [fail] 6 sample: 1 trades changed
+   all promotion tests: FAIL
+
+multiple testing: 4 ideas in the ledger; test-window p 1.000 -> Bonferroni-adjusted 1.000
+VERDICT: REJECT: fails the test window   (3.6 s)

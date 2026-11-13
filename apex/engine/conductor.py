@@ -25,6 +25,7 @@ overrides that for an in-sample study, which the output then says). A released o
 unaffordable) frees the account on the same step, and the triggers that fired on that step are still admissible. apex/conductor/account_sim.py computes the same account offline from a run's saved trades; the two agree
 to the trade (tests/test_conductor.py), the sim being the oracle for the engine path.
 """
+import collections
 import copy
 import json
 import os
@@ -99,8 +100,9 @@ def priority_key(e, order):
 
 
 class Conductor:
-    def __init__(self, day, book_order, pool=None, pool_path=POOL, asof=None, log_dir=None):
+    def __init__(self, day, book_order, pool=None, pool_path=POOL, asof=None, log_dir=None, name=BOOK):
         self.day = day
+        self.name = name                               # 13 Nov: the account's book name (shadow Conductors log apart)
         self.pool = load_pool(pool_path) if pool is None else pool
         self.asof = asof if asof is not None else os.environ.get("APEX_POOL_ASOF", "")
         self.order = {n: i for i, n in enumerate(book_order)}
@@ -110,6 +112,7 @@ class Conductor:
         self.log_dir = log_dir if log_dir is not None else config.PAPER_DIR
         self._reason_t = None
         self.events = 0
+        self.recent = collections.deque(maxlen=5)    # 13 Nov: the voice's last events (display only)
 
     # ── log ────────────────────────────────────────────────────────────────
     def _log(self, ctx, event, **kw):
@@ -117,9 +120,11 @@ class Conductor:
                "event": event}
         row.update(kw)
         self.events += 1
+        if event != "flat":
+            self.recent.append({k: row.get(k) for k in ("time", "event", "book", "key", "why", "reason", "ret_pct")})
         if self.log_dir:
             try:
-                with open(os.path.join(self.log_dir, f"conductor_{self.day}.jsonl"), "a", encoding="utf-8") as fh:
+                with open(os.path.join(self.log_dir, f"{self.name}_{self.day}.jsonl"), "a", encoding="utf-8") as fh:
                     fh.write(json.dumps(row, default=str) + "\n")
             except OSError:
                 pass
@@ -181,6 +186,8 @@ class Conductor:
                 w = pe.get("weather_trig") or {}
                 pattern = rules.entry_pattern(books[m["book"]], ctx, pe.get("why"))
                 msg = rules.check_rule(m["rule"], w, ctx, pattern, reg)
+            if not msg:
+                msg = self.admit(m, pe, cb, books, ctx)  # 13 Nov: None in the live Conductor (shadow policies below)
             if msg:
                 self._log(ctx, "rule_block", book=m["book"], rule=m.get("rule"), key=pe.get("key"), why=msg)
             else:
@@ -197,6 +204,11 @@ class Conductor:
         self._log(ctx, "owner", **own)
         self.reason = f"entry pending via {m['book']}: {pe.get('why')}"
         return exited or ("owner", own)
+
+    def admit(self, m, pe, cb, books, ctx):
+        """An account-level yes/no on a pool trigger: None admits it, a text refuses it (logged as rule_block). The live
+        Conductor admits everything here; AdaptiveConductor (shadow accounts) overrides it."""
+        return None
 
     def _fired(self, books, now):
         """Pool books whose trigger fired THIS step, in priority order: (entry, pending_entry)."""
@@ -310,3 +322,94 @@ class Conductor:
                   pnl_rs=closed["pnl_rs"], ret_pct=closed["ret_pct"], capital=cb.capital)
         self.reason = f"flat after {pos.get('src')} {reason}"
         return ("exit", closed)
+
+
+# ── 13 Nov: shadow Conductors (docs/research/13nov master plan tier 2). Same pool, same priority, its own account. ──
+# Never the champion; the live Conductor above is unchanged (admit() returns None there).
+SIDE_TAPE_BOOKS = ("c20_8x", "c20_9x", "c20_9t", "c20_9v", "c20_9e", "c20_9h", "c20_9s", "c20_9y", "c20_9x_r002",
+                   "c20_9x_r004", "fx_c20_9y", "fr_c20_9y", "rx_c20_9y")   # R20 E6: the c20 family's shadow trades
+SIDE_N, SIDE_MIN = 12, 3
+WHIPSAW_S = 3600.0
+
+
+def _side_of(t):
+    return t.get("rr") or str(t.get("key") or "").rsplit("|", 1)[-1]
+
+
+class AdaptiveConductor(Conductor):
+    """policy "sidelock" (R20 E6, conductor_sl): refuse a trigger on side s when today's last SIDE_N closed c20-family
+    trades on s number at least SIDE_MIN and losses exceed wins. It lifts by itself when wins catch up.
+    policy "whipsaw" (R17, conductor_wp60): after the account's last two closed trades both lost and were on opposite
+    sides, refuse every trigger for WHIPSAW_S after the last exit."""
+
+    def __init__(self, day, book_order, policy, name, **kw):
+        super().__init__(day, book_order, name=name, **kw)
+        if policy not in ("sidelock", "whipsaw"):
+            raise ValueError(f"unknown shadow Conductor policy {policy!r}")
+        self.policy = policy
+        self._ptr = {}                                  # book -> trades already read (O(new trades) a step)
+        self._tape = {"CE": collections.deque(maxlen=SIDE_N), "PE": collections.deque(maxlen=SIDE_N)}
+
+    def _read_tape(self, books):
+        for name in SIDE_TAPE_BOOKS:
+            b = books.get(name)
+            if b is None:
+                continue
+            k = self._ptr.get(name, 0)
+            ts = b.trades
+            if k > len(ts):                             # a new day or a reload: start again
+                k = 0
+            new = sorted(ts[k:], key=lambda t: t.get("t_out") or 0.0)
+            for t in new:
+                if t.get("adjustment"):
+                    continue
+                sd = _side_of(t)
+                if sd in self._tape:
+                    self._tape[sd].append(1 if (t.get("pnl_rs") or 0.0) > 0 else 0)
+            self._ptr[name] = len(ts)
+
+    def admit(self, m, pe, cb, books, ctx):
+        if self.policy == "sidelock":
+            self._read_tape(books)
+            sd = str(pe.get("key") or "").rsplit("|", 1)[-1]
+            tp = self._tape.get(sd)
+            if tp is not None and len(tp) >= SIDE_MIN:
+                won = sum(tp)
+                lost = len(tp) - won
+                if lost > won:
+                    return f"side lock: c20 {sd} today {won} won, {lost} lost (last {len(tp)})"
+            return None
+        ts = [t for t in cb.trades if not t.get("adjustment")]
+        if len(ts) >= 2:
+            a, b = ts[-2], ts[-1]
+            if (a.get("pnl_rs") or 0) < 0 and (b.get("pnl_rs") or 0) < 0 and _side_of(a) != _side_of(b):
+                left = WHIPSAW_S - ((ctx.get("now_s") or 0.0) - (b.get("t_out") or 0.0))
+                if left > 0:
+                    return f"whipsaw pause: two losses on opposite sides, {int(left // 60)} min left"
+        return None
+
+
+def offline_admit(policy):
+    """The AdaptiveConductor policies for apex/conductor/account_sim (saved trades of one day): admit(trig, m, t, taken,
+    books) -> None or the refusal text. Same rules as the engine: the side tape holds c20-family trades closed by the
+    trigger second, the whipsaw reads the account's own closed trades."""
+    def sidelock(trig, m, t, taken, books):
+        sd = _side_of(t)
+        rows = []
+        for name in SIDE_TAPE_BOOKS:
+            for x in ((books.get(name) or {}).get("trades") or []):
+                if not x.get("adjustment") and x.get("t_out") is not None and float(x["t_out"]) <= trig and _side_of(x) == sd:
+                    rows.append((float(x["t_out"]), 1 if (x.get("pnl_rs") or 0) > 0 else 0))
+        rows.sort()
+        last = [w for _, w in rows[-SIDE_N:]]
+        if len(last) >= SIDE_MIN and len(last) - sum(last) > sum(last):
+            return f"side lock: c20 {sd} today {sum(last)} won, {len(last) - sum(last)} lost (last {len(last)})"
+        return None
+
+    def whipsaw(trig, m, t, taken, books):
+        if len(taken) >= 2:
+            a, b = taken[-2], taken[-1]
+            if a["pnl_rs"] < 0 and b["pnl_rs"] < 0 and _side_of(a) != _side_of(b) and trig - float(b["t_out"]) < WHIPSAW_S:
+                return "whipsaw pause"
+        return None
+    return {"sidelock": sidelock, "whipsaw": whipsaw}[policy]

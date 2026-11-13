@@ -1,0 +1,1820 @@
+book,day,n,w,ret,fam,shape,gapk,cal
+RAW,2026-10-19,16.0,7.0,39.20723089967593,c20 council (RAW copy),trend_down,no_gap,expiry
+RAW,2026-10-21,5.0,1.0,47.49403944258987,c20 council (RAW copy),trend_down,gap_fill,other
+RAW,2026-10-22,3.0,2.0,8.419075772484398,c20 council (RAW copy),range,no_gap,other
+RAW,2026-10-23,5.0,1.0,27.419196538585933,c20 council (RAW copy),range,gap_fill,other
+RAW,2026-10-26,4.0,4.0,232.03197061475728,c20 council (RAW copy),trend_up,no_gap,day_before
+RAW,2026-10-27,13.0,10.0,541.8725810381759,c20 council (RAW copy),range,no_gap,expiry
+RAW,2026-10-28,3.0,3.0,54.71473881572,c20 council (RAW copy),V_up,gap_fill,other
+RAW,2026-10-29,4.0,2.0,28.06029602222413,c20 council (RAW copy),trend_up,no_gap,other
+RAW,2026-10-30,3.0,0.0,-5.972750226904089,c20 council (RAW copy),range,no_gap,other
+RAW,2026-11-02,4.0,3.0,42.17289733422784,c20 council (RAW copy),trend_up,gap_go,day_before
+RAW,2026-11-03,12.0,6.0,-43.20815623914568,c20 council (RAW copy),trend_up,gap_go,expiry
+RAW,2026-11-04,5.0,1.0,-28.51766451386929,c20 council (RAW copy),trend_up,no_gap,other
+RAW,2026-11-05,1.0,0.0,-5.981999999999998,c20 council (RAW copy),trend_up,gap_go,other
+RAW,2026-11-06,3.0,3.0,98.40186286798398,c20 council (RAW copy),trend_up,no_gap,other
+RAW,2026-11-09,21.0,10.0,35.9624217628121,c20 council (RAW copy),V_up,gap_fill,expiry
+RAW,2026-11-11,3.0,2.0,23.157858005050013,c20 council (RAW copy),V_down,gap_fade,other
+RAW,2026-11-12,4.0,1.0,-4.824585009746252,c20 council (RAW copy),range,no_gap,other
+apex_edge,2026-10-19,3.0,2.0,27.375431147795616,edge,trend_down,no_gap,expiry
+apex_edge,2026-10-21,3.0,0.0,-21.621208477043595,edge,trend_down,gap_fill,other
+apex_edge,2026-10-22,4.0,2.0,17.453920670345614,edge,range,no_gap,other
+apex_edge,2026-10-23,7.0,5.0,54.06924171625107,edge,range,gap_fill,other
+apex_edge,2026-10-26,3.0,0.0,-26.1506608235872,edge,trend_up,no_gap,day_before
+apex_edge,2026-10-27,1.0,1.0,22.685,edge,range,no_gap,expiry
+apex_edge,2026-10-28,3.0,0.0,-26.060641099609605,edge,V_up,gap_fill,other
+apex_edge,2026-10-29,3.0,2.0,8.220209699646208,edge,trend_up,no_gap,other
+apex_edge,2026-10-30,4.0,1.0,-12.97649143303362,edge,range,no_gap,other
+apex_edge,2026-11-02,2.0,2.0,43.78827719000002,edge,trend_up,gap_go,day_before
+apex_edge,2026-11-03,1.0,0.0,-10.095,edge,trend_up,gap_go,expiry
+apex_edge,2026-11-04,1.0,1.0,19.178000000000004,edge,trend_up,no_gap,other
+apex_edge,2026-11-05,2.0,1.0,-8.11245975999999,edge,trend_up,gap_go,other
+apex_edge,2026-11-06,3.0,2.0,11.054917212217983,edge,trend_up,no_gap,other
+apex_edge,2026-11-09,1.0,0.0,-10.9,edge,V_up,gap_fill,expiry
+apex_edge,2026-11-11,3.0,3.0,16.810411409999993,edge,V_down,gap_fade,other
+apex_edge,2026-11-12,1.0,1.0,1.2369999999999992,edge,range,no_gap,other
+c20_8x,2026-10-19,15.0,7.0,88.38093410344246,c20 council,trend_down,no_gap,expiry
+c20_8x,2026-10-21,5.0,1.0,42.15711869497487,c20 council,trend_down,gap_fill,other
+c20_8x,2026-10-22,3.0,1.0,1.3567160878864115,c20 council,range,no_gap,other
+c20_8x,2026-10-23,5.0,1.0,23.94024274080724,c20 council,range,gap_fill,other
+c20_8x,2026-10-26,4.0,4.0,176.95702486767092,c20 council,trend_up,no_gap,day_before
+c20_8x,2026-10-27,14.0,10.0,411.0310985113883,c20 council,range,no_gap,expiry
+c20_8x,2026-10-28,3.0,3.0,54.310586227364,c20 council,V_up,gap_fill,other
+c20_8x,2026-10-29,4.0,2.0,34.46190428227596,c20 council,trend_up,no_gap,other
+c20_8x,2026-10-30,3.0,0.0,-5.972750226904089,c20 council,range,no_gap,other
+c20_8x,2026-11-02,3.0,2.0,25.93919363674,c20 council,trend_up,gap_go,day_before
+c20_8x,2026-11-03,14.0,6.0,-56.83800543490587,c20 council,trend_up,gap_go,expiry
+c20_8x,2026-11-04,5.0,1.0,-28.688308916285887,c20 council,trend_up,no_gap,other
+c20_8x,2026-11-05,1.0,0.0,-5.981999999999998,c20 council,trend_up,gap_go,other
+c20_8x,2026-11-06,3.0,3.0,98.61366544152804,c20 council,trend_up,no_gap,other
+c20_8x,2026-11-09,22.0,10.0,55.79156246313974,c20 council,V_up,gap_fill,expiry
+c20_8x,2026-11-11,3.0,2.0,20.730709410575,c20 council,V_down,gap_fade,other
+c20_8x,2026-11-12,4.0,1.0,-6.013554462921855,c20 council,range,no_gap,other
+c20_9e,2026-10-19,26.0,16.0,28.87669634953003,c20 council,trend_down,no_gap,expiry
+c20_9e,2026-10-21,5.0,1.0,47.49403944258987,c20 council,trend_down,gap_fill,other
+c20_9e,2026-10-22,3.0,2.0,8.419075772484398,c20 council,range,no_gap,other
+c20_9e,2026-10-23,5.0,1.0,27.419196538585933,c20 council,range,gap_fill,other
+c20_9e,2026-10-26,4.0,4.0,232.03197061475728,c20 council,trend_up,no_gap,day_before
+c20_9e,2026-10-27,20.0,15.0,96.86705088615967,c20 council,range,no_gap,expiry
+c20_9e,2026-10-28,3.0,3.0,54.71473881572,c20 council,V_up,gap_fill,other
+c20_9e,2026-10-29,4.0,2.0,28.06029602222413,c20 council,trend_up,no_gap,other
+c20_9e,2026-10-30,3.0,0.0,-5.972750226904089,c20 council,range,no_gap,other
+c20_9e,2026-11-02,4.0,3.0,42.17289733422784,c20 council,trend_up,gap_go,day_before
+c20_9e,2026-11-03,14.0,9.0,-13.309558934564125,c20 council,trend_up,gap_go,expiry
+c20_9e,2026-11-04,5.0,1.0,-28.51766451386929,c20 council,trend_up,no_gap,other
+c20_9e,2026-11-05,1.0,0.0,-5.981999999999998,c20 council,trend_up,gap_go,other
+c20_9e,2026-11-06,3.0,3.0,98.40186286798398,c20 council,trend_up,no_gap,other
+c20_9e,2026-11-09,30.0,20.0,24.34228274404737,c20 council,V_up,gap_fill,expiry
+c20_9e,2026-11-11,3.0,2.0,23.157858005050013,c20 council,V_down,gap_fade,other
+c20_9e,2026-11-12,4.0,1.0,-4.824585009746252,c20 council,range,no_gap,other
+c20_9h,2026-10-19,18.0,9.0,9.921808479876717,c20 council,trend_down,no_gap,expiry
+c20_9h,2026-10-21,5.0,1.0,47.49403944258987,c20 council,trend_down,gap_fill,other
+c20_9h,2026-10-22,3.0,2.0,8.419075772484398,c20 council,range,no_gap,other
+c20_9h,2026-10-23,5.0,1.0,27.419196538585933,c20 council,range,gap_fill,other
+c20_9h,2026-10-26,4.0,4.0,232.03197061475728,c20 council,trend_up,no_gap,day_before
+c20_9h,2026-10-27,18.0,12.0,54.6605897605553,c20 council,range,no_gap,expiry
+c20_9h,2026-10-28,3.0,3.0,54.71473881572,c20 council,V_up,gap_fill,other
+c20_9h,2026-10-29,4.0,2.0,28.06029602222413,c20 council,trend_up,no_gap,other
+c20_9h,2026-10-30,3.0,0.0,-5.972750226904089,c20 council,range,no_gap,other
+c20_9h,2026-11-02,4.0,3.0,42.17289733422784,c20 council,trend_up,gap_go,day_before
+c20_9h,2026-11-03,13.0,7.0,-40.80143512815021,c20 council,trend_up,gap_go,expiry
+c20_9h,2026-11-04,5.0,1.0,-28.51766451386929,c20 council,trend_up,no_gap,other
+c20_9h,2026-11-05,1.0,0.0,-5.981999999999998,c20 council,trend_up,gap_go,other
+c20_9h,2026-11-06,3.0,3.0,98.40186286798398,c20 council,trend_up,no_gap,other
+c20_9h,2026-11-09,23.0,11.0,-4.715154637313212,c20 council,V_up,gap_fill,expiry
+c20_9h,2026-11-11,3.0,2.0,23.157858005050013,c20 council,V_down,gap_fade,other
+c20_9h,2026-11-12,4.0,1.0,-4.824585009746252,c20 council,range,no_gap,other
+c20_9s,2026-10-19,16.0,7.0,39.20723089967593,c20 council,trend_down,no_gap,expiry
+c20_9s,2026-10-21,4.0,1.0,49.980719776484,c20 council,trend_down,gap_fill,other
+c20_9s,2026-10-22,2.0,2.0,17.951952579999997,c20 council,range,no_gap,other
+c20_9s,2026-10-23,5.0,1.0,27.419196538585933,c20 council,range,gap_fill,other
+c20_9s,2026-10-26,4.0,4.0,232.03197061475728,c20 council,trend_up,no_gap,day_before
+c20_9s,2026-10-27,13.0,10.0,541.8725810381759,c20 council,range,no_gap,expiry
+c20_9s,2026-10-28,3.0,3.0,54.71473881572,c20 council,V_up,gap_fill,other
+c20_9s,2026-10-29,2.0,2.0,65.38883857999997,c20 council,trend_up,no_gap,other
+c20_9s,2026-10-30,3.0,0.0,-5.972750226904089,c20 council,range,no_gap,other
+c20_9s,2026-11-02,3.0,3.0,65.7509732838564,c20 council,trend_up,gap_go,day_before
+c20_9s,2026-11-03,12.0,6.0,-43.20815623914568,c20 council,trend_up,gap_go,expiry
+c20_9s,2026-11-04,4.0,1.0,-26.517470048591964,c20 council,trend_up,no_gap,other
+c20_9s,2026-11-05,1.0,0.0,-5.981999999999998,c20 council,trend_up,gap_go,other
+c20_9s,2026-11-06,3.0,3.0,98.40186286798398,c20 council,trend_up,no_gap,other
+c20_9s,2026-11-09,21.0,10.0,35.9624217628121,c20 council,V_up,gap_fill,expiry
+c20_9s,2026-11-11,3.0,2.0,23.157858005050013,c20 council,V_down,gap_fade,other
+c20_9s,2026-11-12,4.0,1.0,-2.4709027394030803,c20 council,range,no_gap,other
+c20_9t,2026-10-19,19.0,11.0,10.81626411948424,c20 council,trend_down,no_gap,expiry
+c20_9t,2026-10-21,6.0,5.0,34.843252735151275,c20 council,trend_down,gap_fill,other
+c20_9t,2026-10-22,3.0,2.0,5.722551400474374,c20 council,range,no_gap,other
+c20_9t,2026-10-23,5.0,3.0,-7.56197301307181,c20 council,range,gap_fill,other
+c20_9t,2026-10-26,6.0,6.0,164.09441163638462,c20 council,trend_up,no_gap,day_before
+c20_9t,2026-10-27,14.0,11.0,175.6496412021783,c20 council,range,no_gap,expiry
+c20_9t,2026-10-28,4.0,3.0,10.31629279934756,c20 council,V_up,gap_fill,other
+c20_9t,2026-10-29,4.0,2.0,-3.251025551388831,c20 council,trend_up,no_gap,other
+c20_9t,2026-10-30,3.0,3.0,20.209882173433023,c20 council,range,no_gap,other
+c20_9t,2026-11-02,3.0,2.0,-5.253575293220003,c20 council,trend_up,gap_go,day_before
+c20_9t,2026-11-03,13.0,8.0,-22.074580726902017,c20 council,trend_up,gap_go,expiry
+c20_9t,2026-11-04,5.0,2.0,-15.977288284426171,c20 council,trend_up,no_gap,other
+c20_9t,2026-11-05,1.0,1.0,4.848000000000008,c20 council,trend_up,gap_go,other
+c20_9t,2026-11-06,4.0,4.0,20.982118161659336,c20 council,trend_up,no_gap,other
+c20_9t,2026-11-09,24.0,14.0,15.088872681773946,c20 council,V_up,gap_fill,expiry
+c20_9t,2026-11-11,4.0,2.0,6.975080938944567,c20 council,V_down,gap_fade,other
+c20_9t,2026-11-12,4.0,3.0,5.51600099192211,c20 council,range,no_gap,other
+c20_9v,2026-10-19,16.0,7.0,39.20723089967593,c20 council,trend_down,no_gap,expiry
+c20_9v,2026-10-21,5.0,3.0,79.04411465747354,c20 council,trend_down,gap_fill,other
+c20_9v,2026-10-22,3.0,2.0,8.419075772484398,c20 council,range,no_gap,other
+c20_9v,2026-10-23,5.0,3.0,3.4065354001200365,c20 council,range,gap_fill,other
+c20_9v,2026-10-26,4.0,4.0,232.03197061475728,c20 council,trend_up,no_gap,day_before
+c20_9v,2026-10-27,13.0,10.0,541.8725810381759,c20 council,range,no_gap,expiry
+c20_9v,2026-10-28,4.0,4.0,84.31004792552743,c20 council,V_up,gap_fill,other
+c20_9v,2026-10-29,4.0,2.0,28.06029602222413,c20 council,trend_up,no_gap,other
+c20_9v,2026-10-30,3.0,2.0,12.564515647332808,c20 council,range,no_gap,other
+c20_9v,2026-11-02,4.0,3.0,42.17289733422784,c20 council,trend_up,gap_go,day_before
+c20_9v,2026-11-03,12.0,6.0,-43.20815623914568,c20 council,trend_up,gap_go,expiry
+c20_9v,2026-11-04,5.0,1.0,-28.51766451386929,c20 council,trend_up,no_gap,other
+c20_9v,2026-11-05,1.0,1.0,5.875999999999992,c20 council,trend_up,gap_go,other
+c20_9v,2026-11-06,3.0,3.0,100.66015181238016,c20 council,trend_up,no_gap,other
+c20_9v,2026-11-09,21.0,10.0,35.9624217628121,c20 council,V_up,gap_fill,expiry
+c20_9v,2026-11-11,3.0,2.0,23.30220404287502,c20 council,V_down,gap_fade,other
+c20_9v,2026-11-12,4.0,1.0,-4.824585009746252,c20 council,range,no_gap,other
+c20_9x,2026-10-19,16.0,7.0,39.20723089967593,c20 council,trend_down,no_gap,expiry
+c20_9x,2026-10-21,5.0,1.0,47.49403944258987,c20 council,trend_down,gap_fill,other
+c20_9x,2026-10-22,3.0,2.0,8.419075772484398,c20 council,range,no_gap,other
+c20_9x,2026-10-23,5.0,1.0,27.419196538585933,c20 council,range,gap_fill,other
+c20_9x,2026-10-26,4.0,4.0,232.03197061475728,c20 council,trend_up,no_gap,day_before
+c20_9x,2026-10-27,13.0,10.0,541.8725810381759,c20 council,range,no_gap,expiry
+c20_9x,2026-10-28,3.0,3.0,54.71473881572,c20 council,V_up,gap_fill,other
+c20_9x,2026-10-29,4.0,2.0,28.06029602222413,c20 council,trend_up,no_gap,other
+c20_9x,2026-10-30,3.0,0.0,-5.972750226904089,c20 council,range,no_gap,other
+c20_9x,2026-11-02,4.0,3.0,42.17289733422784,c20 council,trend_up,gap_go,day_before
+c20_9x,2026-11-03,12.0,6.0,-43.20815623914568,c20 council,trend_up,gap_go,expiry
+c20_9x,2026-11-04,5.0,1.0,-28.51766451386929,c20 council,trend_up,no_gap,other
+c20_9x,2026-11-05,1.0,0.0,-5.981999999999998,c20 council,trend_up,gap_go,other
+c20_9x,2026-11-06,3.0,3.0,98.40186286798398,c20 council,trend_up,no_gap,other
+c20_9x,2026-11-09,21.0,10.0,35.9624217628121,c20 council,V_up,gap_fill,expiry
+c20_9x,2026-11-11,3.0,2.0,23.157858005050013,c20 council,V_down,gap_fade,other
+c20_9x,2026-11-12,4.0,1.0,-4.824585009746252,c20 council,range,no_gap,other
+c20_9x_r002,2026-10-19,16.0,7.0,39.20723089967593,c20 council,trend_down,no_gap,expiry
+c20_9x_r002,2026-10-21,0.0,0.0,0.0,c20 council,trend_down,gap_fill,other
+c20_9x_r002,2026-10-22,0.0,0.0,0.0,c20 council,range,no_gap,other
+c20_9x_r002,2026-10-23,0.0,0.0,0.0,c20 council,range,gap_fill,other
+c20_9x_r002,2026-10-26,0.0,0.0,0.0,c20 council,trend_up,no_gap,day_before
+c20_9x_r002,2026-10-27,13.0,10.0,541.8725810381759,c20 council,range,no_gap,expiry
+c20_9x_r002,2026-10-28,0.0,0.0,0.0,c20 council,V_up,gap_fill,other
+c20_9x_r002,2026-10-29,0.0,0.0,0.0,c20 council,trend_up,no_gap,other
+c20_9x_r002,2026-10-30,0.0,0.0,0.0,c20 council,range,no_gap,other
+c20_9x_r002,2026-11-02,0.0,0.0,0.0,c20 council,trend_up,gap_go,day_before
+c20_9x_r002,2026-11-03,12.0,6.0,-43.20815623914568,c20 council,trend_up,gap_go,expiry
+c20_9x_r002,2026-11-04,0.0,0.0,0.0,c20 council,trend_up,no_gap,other
+c20_9x_r002,2026-11-05,0.0,0.0,0.0,c20 council,trend_up,gap_go,other
+c20_9x_r002,2026-11-06,0.0,0.0,0.0,c20 council,trend_up,no_gap,other
+c20_9x_r002,2026-11-09,21.0,10.0,35.9624217628121,c20 council,V_up,gap_fill,expiry
+c20_9x_r002,2026-11-11,0.0,0.0,0.0,c20 council,V_down,gap_fade,other
+c20_9x_r002,2026-11-12,0.0,0.0,0.0,c20 council,range,no_gap,other
+c20_9x_r004,2026-10-19,16.0,7.0,39.20723089967593,c20 council,trend_down,no_gap,expiry
+c20_9x_r004,2026-10-21,3.0,1.0,52.899572617756974,c20 council,trend_down,gap_fill,other
+c20_9x_r004,2026-10-22,1.0,1.0,3.642999999999996,c20 council,range,no_gap,other
+c20_9x_r004,2026-10-23,4.0,1.0,47.64680943057466,c20 council,range,gap_fill,other
+c20_9x_r004,2026-10-26,3.0,3.0,170.5253312921696,c20 council,trend_up,no_gap,day_before
+c20_9x_r004,2026-10-27,13.0,10.0,541.8725810381759,c20 council,range,no_gap,expiry
+c20_9x_r004,2026-10-28,1.0,1.0,7.396000000000003,c20 council,V_up,gap_fill,other
+c20_9x_r004,2026-10-29,2.0,1.0,28.231659759999992,c20 council,trend_up,no_gap,other
+c20_9x_r004,2026-10-30,1.0,0.0,-1.6769999999999952,c20 council,range,no_gap,other
+c20_9x_r004,2026-11-02,0.0,0.0,0.0,c20 council,trend_up,gap_go,day_before
+c20_9x_r004,2026-11-03,12.0,6.0,-43.20815623914568,c20 council,trend_up,gap_go,expiry
+c20_9x_r004,2026-11-04,4.0,0.0,-29.179131426347205,c20 council,trend_up,no_gap,other
+c20_9x_r004,2026-11-05,1.0,0.0,-5.981999999999998,c20 council,trend_up,gap_go,other
+c20_9x_r004,2026-11-06,2.0,2.0,15.612737599999992,c20 council,trend_up,no_gap,other
+c20_9x_r004,2026-11-09,21.0,10.0,35.9624217628121,c20 council,V_up,gap_fill,expiry
+c20_9x_r004,2026-11-11,0.0,0.0,0.0,c20 council,V_down,gap_fade,other
+c20_9x_r004,2026-11-12,2.0,1.0,1.0848151599999856,c20 council,range,no_gap,other
+c20_9y,2026-10-19,14.0,7.0,103.83799895381358,c20 council,trend_down,no_gap,expiry
+c20_9y,2026-10-21,4.0,1.0,53.242152586094285,c20 council,trend_down,gap_fill,other
+c20_9y,2026-10-22,3.0,2.0,8.419075772484398,c20 council,range,no_gap,other
+c20_9y,2026-10-23,3.0,2.0,57.52903596394301,c20 council,range,gap_fill,other
+c20_9y,2026-10-26,4.0,4.0,232.03197061475728,c20 council,trend_up,no_gap,day_before
+c20_9y,2026-10-27,13.0,10.0,541.8725810381759,c20 council,range,no_gap,expiry
+c20_9y,2026-10-28,3.0,3.0,54.71473881572,c20 council,V_up,gap_fill,other
+c20_9y,2026-10-29,4.0,2.0,28.06029602222413,c20 council,trend_up,no_gap,other
+c20_9y,2026-10-30,2.0,0.0,-2.33674733,c20 council,range,no_gap,other
+c20_9y,2026-11-02,4.0,3.0,42.17289733422784,c20 council,trend_up,gap_go,day_before
+c20_9y,2026-11-03,9.0,6.0,-2.631064672538075,c20 council,trend_up,gap_go,expiry
+c20_9y,2026-11-04,5.0,1.0,-28.51766451386929,c20 council,trend_up,no_gap,other
+c20_9y,2026-11-05,1.0,0.0,-5.981999999999998,c20 council,trend_up,gap_go,other
+c20_9y,2026-11-06,3.0,3.0,98.40186286798398,c20 council,trend_up,no_gap,other
+c20_9y,2026-11-09,20.0,10.0,63.11249686618932,c20 council,V_up,gap_fill,expiry
+c20_9y,2026-11-11,3.0,1.0,-4.7885753309955925,c20 council,V_down,gap_fade,other
+c20_9y,2026-11-12,4.0,1.0,-5.139211639017837,c20 council,range,no_gap,other
+conductor,2026-10-19,18.0,8.0,22.84231521222544,conductor,trend_down,no_gap,expiry
+conductor,2026-10-21,5.0,1.0,47.49403944258987,conductor,trend_down,gap_fill,other
+conductor,2026-10-22,3.0,2.0,8.419075772484398,conductor,range,no_gap,other
+conductor,2026-10-23,5.0,1.0,27.419196538585933,conductor,range,gap_fill,other
+conductor,2026-10-26,6.0,6.0,277.7699274001712,conductor,trend_up,no_gap,day_before
+conductor,2026-10-27,13.0,10.0,541.8725810381759,conductor,range,no_gap,expiry
+conductor,2026-10-28,5.0,4.0,62.46586814021311,conductor,V_up,gap_fill,other
+conductor,2026-10-29,4.0,2.0,28.06029602222413,conductor,trend_up,no_gap,other
+conductor,2026-10-30,3.0,0.0,-5.972750226904089,conductor,range,no_gap,other
+conductor,2026-11-02,4.0,3.0,42.17289733422784,conductor,trend_up,gap_go,day_before
+conductor,2026-11-03,13.0,7.0,-37.10473679016667,conductor,trend_up,gap_go,expiry
+conductor,2026-11-04,5.0,1.0,-28.51766451386929,conductor,trend_up,no_gap,other
+conductor,2026-11-05,1.0,0.0,-5.981999999999998,conductor,trend_up,gap_go,other
+conductor,2026-11-06,4.0,4.0,109.196908226631,conductor,trend_up,no_gap,other
+conductor,2026-11-09,22.0,11.0,43.370930198819146,conductor,V_up,gap_fill,expiry
+conductor,2026-11-11,4.0,2.0,12.0465560558344,conductor,V_down,gap_fade,other
+conductor,2026-11-12,4.0,1.0,-4.824585009746252,conductor,range,no_gap,other
+edge_bracket_only,2026-10-19,17.0,6.0,-10.744376905546035,edge,trend_down,no_gap,expiry
+edge_bracket_only,2026-10-21,6.0,2.0,-7.70025015185457,edge,trend_down,gap_fill,other
+edge_bracket_only,2026-10-22,4.0,2.0,17.453920670345614,edge,range,no_gap,other
+edge_bracket_only,2026-10-23,7.0,5.0,54.06924171625107,edge,range,gap_fill,other
+edge_bracket_only,2026-10-26,8.0,3.0,-0.7488945950615333,edge,trend_up,no_gap,day_before
+edge_bracket_only,2026-10-27,19.0,7.0,9.257165018703306,edge,range,no_gap,expiry
+edge_bracket_only,2026-10-28,6.0,2.0,-28.495954362682973,edge,V_up,gap_fill,other
+edge_bracket_only,2026-10-29,3.0,2.0,8.220209699646208,edge,trend_up,no_gap,other
+edge_bracket_only,2026-10-30,5.0,2.0,-7.704607284046794,edge,range,no_gap,other
+edge_bracket_only,2026-11-02,5.0,3.0,39.92812249266231,edge,trend_up,gap_go,day_before
+edge_bracket_only,2026-11-03,15.0,2.0,-68.51641068279781,edge,trend_up,gap_go,expiry
+edge_bracket_only,2026-11-04,1.0,1.0,19.178000000000004,edge,trend_up,no_gap,other
+edge_bracket_only,2026-11-05,4.0,1.0,-16.498738779327326,edge,trend_up,gap_go,other
+edge_bracket_only,2026-11-06,4.0,3.0,35.622485997904874,edge,trend_up,no_gap,other
+edge_bracket_only,2026-11-09,26.0,12.0,108.2591505907593,edge,V_up,gap_fill,expiry
+edge_bracket_only,2026-11-11,5.0,4.0,38.39964974285097,edge,V_down,gap_fade,other
+edge_bracket_only,2026-11-12,1.0,1.0,1.2369999999999992,edge,range,no_gap,other
+edge_breakout,2026-10-19,3.0,2.0,27.375431147795616,edge,trend_down,no_gap,expiry
+edge_breakout,2026-10-21,9.0,5.0,12.602657385956162,edge,trend_down,gap_fill,other
+edge_breakout,2026-10-22,3.0,0.0,-26.882175530924,edge,range,no_gap,other
+edge_breakout,2026-10-23,8.0,2.0,-24.70785042808561,edge,range,gap_fill,other
+edge_breakout,2026-10-26,10.0,4.0,14.801741890835808,edge,trend_up,no_gap,day_before
+edge_breakout,2026-10-27,1.0,1.0,22.685,edge,range,no_gap,expiry
+edge_breakout,2026-10-28,10.0,4.0,-25.0031754458314,edge,V_up,gap_fill,other
+edge_breakout,2026-10-29,5.0,3.0,13.175353303264314,edge,trend_up,no_gap,other
+edge_breakout,2026-10-30,12.0,5.0,19.266834884994783,edge,range,no_gap,other
+edge_breakout,2026-11-02,2.0,0.0,-19.245797599999992,edge,trend_up,gap_go,day_before
+edge_breakout,2026-11-03,1.0,0.0,-10.095,edge,trend_up,gap_go,expiry
+edge_breakout,2026-11-04,6.0,2.0,-14.451716744889309,edge,trend_up,no_gap,other
+edge_breakout,2026-11-05,6.0,2.0,-21.2887910462886,edge,trend_up,gap_go,other
+edge_breakout,2026-11-06,5.0,1.0,-22.36449124174905,edge,trend_up,no_gap,other
+edge_breakout,2026-11-09,1.0,0.0,-10.9,edge,V_up,gap_fill,expiry
+edge_breakout,2026-11-11,1.0,0.0,-3.2050000000000023,edge,V_down,gap_fade,other
+edge_breakout,2026-11-12,3.0,2.0,-1.2125497657743955,edge,range,no_gap,other
+edge_gate_only,2026-10-19,3.0,3.0,38.128891496163206,edge,trend_down,no_gap,expiry
+edge_gate_only,2026-10-21,5.0,4.0,41.30965992155913,edge,trend_down,gap_fill,other
+edge_gate_only,2026-10-22,4.0,2.0,0.4135743839873917,edge,range,no_gap,other
+edge_gate_only,2026-10-23,5.0,5.0,166.14806441186673,edge,range,gap_fill,other
+edge_gate_only,2026-10-26,3.0,1.0,-22.045508282007496,edge,trend_up,no_gap,day_before
+edge_gate_only,2026-10-27,1.0,1.0,6.943999999999995,edge,range,no_gap,expiry
+edge_gate_only,2026-10-28,3.0,0.0,-22.123449457664,edge,V_up,gap_fill,other
+edge_gate_only,2026-10-29,3.0,2.0,2.453010848506487,edge,trend_up,no_gap,other
+edge_gate_only,2026-10-30,4.0,1.0,-36.10571290350252,edge,range,no_gap,other
+edge_gate_only,2026-11-02,2.0,2.0,34.657204239999984,edge,trend_up,gap_go,day_before
+edge_gate_only,2026-11-03,1.0,1.0,0.1900000000000012,edge,trend_up,gap_go,expiry
+edge_gate_only,2026-11-04,1.0,1.0,20.144000000000005,edge,trend_up,no_gap,other
+edge_gate_only,2026-11-05,3.0,1.0,-23.026364004142,edge,trend_up,gap_go,other
+edge_gate_only,2026-11-06,3.0,1.0,-19.986011446000997,edge,trend_up,no_gap,other
+edge_gate_only,2026-11-09,1.0,0.0,-6.709999999999994,edge,V_up,gap_fill,expiry
+edge_gate_only,2026-11-11,3.0,3.0,24.1810263344,edge,V_down,gap_fade,other
+edge_gate_only,2026-11-12,1.0,0.0,-13.261999999999995,edge,range,no_gap,other
+edge_gate_trail,2026-10-19,3.0,3.0,38.128891496163206,edge,trend_down,no_gap,expiry
+edge_gate_trail,2026-10-21,5.0,4.0,52.28244766381409,edge,trend_down,gap_fill,other
+edge_gate_trail,2026-10-22,4.0,2.0,16.416402028652733,edge,range,no_gap,other
+edge_gate_trail,2026-10-23,7.0,5.0,101.35945383324211,edge,range,gap_fill,other
+edge_gate_trail,2026-10-26,4.0,1.0,-20.792891266338444,edge,trend_up,no_gap,day_before
+edge_gate_trail,2026-10-27,1.0,1.0,6.943999999999995,edge,range,no_gap,expiry
+edge_gate_trail,2026-10-28,5.0,1.0,-22.761351545286423,edge,V_up,gap_fill,other
+edge_gate_trail,2026-10-29,3.0,2.0,5.571130648362499,edge,trend_up,no_gap,other
+edge_gate_trail,2026-10-30,4.0,1.0,-20.635534594224502,edge,range,no_gap,other
+edge_gate_trail,2026-11-02,2.0,2.0,29.303655000000006,edge,trend_up,gap_go,day_before
+edge_gate_trail,2026-11-03,1.0,1.0,0.1900000000000012,edge,trend_up,gap_go,expiry
+edge_gate_trail,2026-11-04,1.0,1.0,24.374999999999996,edge,trend_up,no_gap,other
+edge_gate_trail,2026-11-05,3.0,1.0,-13.997417569642002,edge,trend_up,gap_go,other
+edge_gate_trail,2026-11-06,3.0,1.0,-0.5747089341719858,edge,trend_up,no_gap,other
+edge_gate_trail,2026-11-09,1.0,0.0,-6.709999999999994,edge,V_up,gap_fill,expiry
+edge_gate_trail,2026-11-11,3.0,3.0,24.1810263344,edge,V_down,gap_fade,other
+edge_gate_trail,2026-11-12,1.0,0.0,-10.448000000000002,edge,range,no_gap,other
+fade_switch,2026-10-19,55.0,32.0,110.37405422279814,burst fade,trend_down,no_gap,expiry
+fade_switch,2026-10-21,65.0,39.0,62.46476435224304,burst fade,trend_down,gap_fill,other
+fade_switch,2026-10-22,94.0,51.0,32.0304973541625,burst fade,range,no_gap,other
+fade_switch,2026-10-23,73.0,41.0,51.88693356001806,burst fade,range,gap_fill,other
+fade_switch,2026-10-26,80.0,43.0,-11.879271458005505,burst fade,trend_up,no_gap,day_before
+fade_switch,2026-10-27,53.0,16.0,-90.62072247725878,burst fade,range,no_gap,expiry
+fade_switch,2026-10-28,46.0,27.0,13.387934411692791,burst fade,V_up,gap_fill,other
+fade_switch,2026-10-29,35.0,11.0,-42.29436532083572,burst fade,trend_up,no_gap,other
+fade_switch,2026-10-30,35.0,17.0,13.246412186174904,burst fade,range,no_gap,other
+fade_switch,2026-11-02,27.0,13.0,20.40677271064282,burst fade,trend_up,gap_go,day_before
+fade_switch,2026-11-03,27.0,17.0,3.666981432732297,burst fade,trend_up,gap_go,expiry
+fade_switch,2026-11-04,52.0,26.0,-16.19505949696195,burst fade,trend_up,no_gap,other
+fade_switch,2026-11-05,30.0,13.0,-18.25743523496477,burst fade,trend_up,gap_go,other
+fade_switch,2026-11-06,85.0,38.0,-19.0558287478807,burst fade,trend_up,no_gap,other
+fade_switch,2026-11-09,78.0,33.0,-80.2460747922707,burst fade,V_up,gap_fill,expiry
+fade_switch,2026-11-11,65.0,25.0,-46.32526399668143,burst fade,V_down,gap_fade,other
+fade_switch,2026-11-12,55.0,25.0,-2.703321448764062,burst fade,range,no_gap,other
+fade_switch_r002,2026-10-19,55.0,32.0,110.37405422279814,burst fade,trend_down,no_gap,expiry
+fade_switch_r002,2026-10-21,39.0,19.0,12.190609648260107,burst fade,trend_down,gap_fill,other
+fade_switch_r002,2026-10-22,38.0,21.0,18.070787218544627,burst fade,range,no_gap,other
+fade_switch_r002,2026-10-23,41.0,25.0,49.243129908814986,burst fade,range,gap_fill,other
+fade_switch_r002,2026-10-26,29.0,15.0,1.1551033293803137,burst fade,trend_up,no_gap,day_before
+fade_switch_r002,2026-10-27,53.0,16.0,-90.62072247725878,burst fade,range,no_gap,expiry
+fade_switch_r002,2026-10-28,26.0,15.0,5.791553956957007,burst fade,V_up,gap_fill,other
+fade_switch_r002,2026-10-29,20.0,9.0,-2.607259506067794,burst fade,trend_up,no_gap,other
+fade_switch_r002,2026-10-30,28.0,14.0,27.88587648016332,burst fade,range,no_gap,other
+fade_switch_r002,2026-11-02,22.0,11.0,15.108002767258988,burst fade,trend_up,gap_go,day_before
+fade_switch_r002,2026-11-03,27.0,17.0,3.666981432732297,burst fade,trend_up,gap_go,expiry
+fade_switch_r002,2026-11-04,25.0,14.0,14.977799302828457,burst fade,trend_up,no_gap,other
+fade_switch_r002,2026-11-05,24.0,8.0,-25.248968347773992,burst fade,trend_up,gap_go,other
+fade_switch_r002,2026-11-06,42.0,16.0,-28.674835256821897,burst fade,trend_up,no_gap,other
+fade_switch_r002,2026-11-09,78.0,33.0,-80.2460747922707,burst fade,V_up,gap_fill,expiry
+fade_switch_r002,2026-11-11,36.0,16.0,-19.70965554755002,burst fade,V_down,gap_fade,other
+fade_switch_r002,2026-11-12,48.0,22.0,-4.9697985699877485,burst fade,range,no_gap,other
+fr_c20_9y,2026-10-19,14.0,7.0,103.83799895381358,c20 exit/re-entry twins,trend_down,no_gap,expiry
+fr_c20_9y,2026-10-21,4.0,1.0,53.242152586094285,c20 exit/re-entry twins,trend_down,gap_fill,other
+fr_c20_9y,2026-10-22,3.0,2.0,8.419075772484398,c20 exit/re-entry twins,range,no_gap,other
+fr_c20_9y,2026-10-23,3.0,2.0,57.52903596394301,c20 exit/re-entry twins,range,gap_fill,other
+fr_c20_9y,2026-10-26,4.0,4.0,232.03197061475728,c20 exit/re-entry twins,trend_up,no_gap,day_before
+fr_c20_9y,2026-10-27,13.0,10.0,479.83942559668026,c20 exit/re-entry twins,range,no_gap,expiry
+fr_c20_9y,2026-10-28,3.0,3.0,54.71473881572,c20 exit/re-entry twins,V_up,gap_fill,other
+fr_c20_9y,2026-10-29,4.0,2.0,28.06029602222413,c20 exit/re-entry twins,trend_up,no_gap,other
+fr_c20_9y,2026-10-30,2.0,0.0,-2.33674733,c20 exit/re-entry twins,range,no_gap,other
+fr_c20_9y,2026-11-02,4.0,3.0,42.17289733422784,c20 exit/re-entry twins,trend_up,gap_go,day_before
+fr_c20_9y,2026-11-03,9.0,6.0,8.332924382339947,c20 exit/re-entry twins,trend_up,gap_go,expiry
+fr_c20_9y,2026-11-04,5.0,1.0,-28.51766451386929,c20 exit/re-entry twins,trend_up,no_gap,other
+fr_c20_9y,2026-11-05,1.0,0.0,-5.981999999999998,c20 exit/re-entry twins,trend_up,gap_go,other
+fr_c20_9y,2026-11-06,3.0,3.0,98.40186286798398,c20 exit/re-entry twins,trend_up,no_gap,other
+fr_c20_9y,2026-11-09,20.0,10.0,64.01953860502387,c20 exit/re-entry twins,V_up,gap_fill,expiry
+fr_c20_9y,2026-11-11,3.0,1.0,-4.7885753309955925,c20 exit/re-entry twins,V_down,gap_fade,other
+fr_c20_9y,2026-11-12,4.0,1.0,-5.139211639017837,c20 exit/re-entry twins,range,no_gap,other
+futures_only,2026-10-19,18.0,4.0,-47.50985118009886,control,trend_down,no_gap,expiry
+futures_only,2026-10-21,20.0,6.0,-23.9419317080254,control,trend_down,gap_fill,other
+futures_only,2026-10-22,34.0,12.0,-29.802638768298028,control,range,no_gap,other
+futures_only,2026-10-23,22.0,6.0,-31.608696283866124,control,range,gap_fill,other
+futures_only,2026-10-26,26.0,11.0,-8.878333964168728,control,trend_up,no_gap,day_before
+futures_only,2026-10-27,13.0,9.0,128.18482821390532,control,range,no_gap,expiry
+futures_only,2026-10-28,6.0,3.0,2.1307580386494385,control,V_up,gap_fill,other
+futures_only,2026-10-29,4.0,2.0,15.270192070056998,control,trend_up,no_gap,other
+futures_only,2026-10-30,5.0,1.0,-15.573432852483991,control,range,no_gap,other
+futures_only,2026-11-02,3.0,1.0,2.947029164866,control,trend_up,gap_go,day_before
+futures_only,2026-11-03,2.0,1.0,-10.308664980000003,control,trend_up,gap_go,expiry
+futures_only,2026-11-04,10.0,6.0,11.53001087964176,control,trend_up,no_gap,other
+futures_only,2026-11-05,5.0,3.0,7.305328519927778,control,trend_up,gap_go,other
+futures_only,2026-11-06,19.0,9.0,4.054914319472203,control,trend_up,no_gap,other
+futures_only,2026-11-09,17.0,8.0,9.401193155212194,control,V_up,gap_fill,expiry
+futures_only,2026-11-11,10.0,5.0,8.22734750810865,control,V_down,gap_fade,other
+futures_only,2026-11-12,7.0,1.0,-12.171679359818132,control,range,no_gap,other
+fx_c20_9y,2026-10-19,14.0,7.0,103.83799895381358,c20 exit/re-entry twins,trend_down,no_gap,expiry
+fx_c20_9y,2026-10-21,4.0,1.0,53.242152586094285,c20 exit/re-entry twins,trend_down,gap_fill,other
+fx_c20_9y,2026-10-22,3.0,2.0,8.419075772484398,c20 exit/re-entry twins,range,no_gap,other
+fx_c20_9y,2026-10-23,3.0,2.0,57.52903596394301,c20 exit/re-entry twins,range,gap_fill,other
+fx_c20_9y,2026-10-26,4.0,4.0,232.03197061475728,c20 exit/re-entry twins,trend_up,no_gap,day_before
+fx_c20_9y,2026-10-27,26.0,20.0,231.52812670796175,c20 exit/re-entry twins,range,no_gap,expiry
+fx_c20_9y,2026-10-28,5.0,4.0,20.305208122327237,c20 exit/re-entry twins,V_up,gap_fill,other
+fx_c20_9y,2026-10-29,5.0,3.0,-2.5223431625015613,c20 exit/re-entry twins,trend_up,no_gap,other
+fx_c20_9y,2026-10-30,2.0,0.0,-2.33674733,c20 exit/re-entry twins,range,no_gap,other
+fx_c20_9y,2026-11-02,3.0,2.0,-8.741769857360005,c20 exit/re-entry twins,trend_up,gap_go,day_before
+fx_c20_9y,2026-11-03,15.0,10.0,-14.668938626835615,c20 exit/re-entry twins,trend_up,gap_go,expiry
+fx_c20_9y,2026-11-04,6.0,2.0,-27.10905845019298,c20 exit/re-entry twins,trend_up,no_gap,other
+fx_c20_9y,2026-11-05,2.0,1.0,-9.823375699999982,c20 exit/re-entry twins,trend_up,gap_go,other
+fx_c20_9y,2026-11-06,5.0,4.0,12.60145105224877,c20 exit/re-entry twins,trend_up,no_gap,other
+fx_c20_9y,2026-11-09,50.0,35.0,27.354811297879916,c20 exit/re-entry twins,V_up,gap_fill,expiry
+fx_c20_9y,2026-11-11,3.0,2.0,0.7322960470903972,c20 exit/re-entry twins,V_down,gap_fade,other
+fx_c20_9y,2026-11-12,5.0,3.0,-2.959897410324264,c20 exit/re-entry twins,range,no_gap,other
+gap3_s0.4,2026-10-19,0.0,0.0,0.0,basket gap,trend_down,no_gap,expiry
+gap3_s0.4,2026-10-21,1.0,0.0,-6.091999999999997,basket gap,trend_down,gap_fill,other
+gap3_s0.4,2026-10-22,1.0,1.0,7.303999999999999,basket gap,range,no_gap,other
+gap3_s0.4,2026-10-23,1.0,1.0,2.0669999999999966,basket gap,range,gap_fill,other
+gap3_s0.4,2026-10-26,0.0,0.0,0.0,basket gap,trend_up,no_gap,day_before
+gap3_s0.4,2026-10-27,2.0,2.0,16.2944164,basket gap,range,no_gap,expiry
+gap3_s0.4,2026-10-28,0.0,0.0,0.0,basket gap,V_up,gap_fill,other
+gap3_s0.4,2026-10-29,0.0,0.0,0.0,basket gap,trend_up,no_gap,other
+gap3_s0.4,2026-10-30,0.0,0.0,0.0,basket gap,range,no_gap,other
+gap3_s0.4,2026-11-02,1.0,0.0,-2.1120000000000028,basket gap,trend_up,gap_go,day_before
+gap3_s0.4,2026-11-03,0.0,0.0,0.0,basket gap,trend_up,gap_go,expiry
+gap3_s0.4,2026-11-04,0.0,0.0,0.0,basket gap,trend_up,no_gap,other
+gap3_s0.4,2026-11-05,0.0,0.0,0.0,basket gap,trend_up,gap_go,other
+gap3_s0.4,2026-11-06,0.0,0.0,0.0,basket gap,trend_up,no_gap,other
+gap3_s0.4,2026-11-09,4.0,2.0,10.78851282192479,basket gap,V_up,gap_fill,expiry
+gap3_s0.4,2026-11-11,0.0,0.0,0.0,basket gap,V_down,gap_fade,other
+gap3_s0.4,2026-11-12,0.0,0.0,0.0,basket gap,range,no_gap,other
+gap3_s0.4_r002,2026-10-19,0.0,0.0,0.0,basket gap,trend_down,no_gap,expiry
+gap3_s0.4_r002,2026-10-21,0.0,0.0,0.0,basket gap,trend_down,gap_fill,other
+gap3_s0.4_r002,2026-10-22,0.0,0.0,0.0,basket gap,range,no_gap,other
+gap3_s0.4_r002,2026-10-23,0.0,0.0,0.0,basket gap,range,gap_fill,other
+gap3_s0.4_r002,2026-10-26,0.0,0.0,0.0,basket gap,trend_up,no_gap,day_before
+gap3_s0.4_r002,2026-10-27,2.0,2.0,16.2944164,basket gap,range,no_gap,expiry
+gap3_s0.4_r002,2026-10-28,0.0,0.0,0.0,basket gap,V_up,gap_fill,other
+gap3_s0.4_r002,2026-10-29,0.0,0.0,0.0,basket gap,trend_up,no_gap,other
+gap3_s0.4_r002,2026-10-30,0.0,0.0,0.0,basket gap,range,no_gap,other
+gap3_s0.4_r002,2026-11-02,0.0,0.0,0.0,basket gap,trend_up,gap_go,day_before
+gap3_s0.4_r002,2026-11-03,0.0,0.0,0.0,basket gap,trend_up,gap_go,expiry
+gap3_s0.4_r002,2026-11-04,0.0,0.0,0.0,basket gap,trend_up,no_gap,other
+gap3_s0.4_r002,2026-11-05,0.0,0.0,0.0,basket gap,trend_up,gap_go,other
+gap3_s0.4_r002,2026-11-06,0.0,0.0,0.0,basket gap,trend_up,no_gap,other
+gap3_s0.4_r002,2026-11-09,4.0,2.0,10.78851282192479,basket gap,V_up,gap_fill,expiry
+gap3_s0.4_r002,2026-11-11,0.0,0.0,0.0,basket gap,V_down,gap_fade,other
+gap3_s0.4_r002,2026-11-12,0.0,0.0,0.0,basket gap,range,no_gap,other
+gap3_s0.4_r003,2026-10-19,0.0,0.0,0.0,basket gap,trend_down,no_gap,expiry
+gap3_s0.4_r003,2026-10-21,1.0,0.0,-6.091999999999997,basket gap,trend_down,gap_fill,other
+gap3_s0.4_r003,2026-10-22,1.0,1.0,7.303999999999999,basket gap,range,no_gap,other
+gap3_s0.4_r003,2026-10-23,1.0,1.0,2.0669999999999966,basket gap,range,gap_fill,other
+gap3_s0.4_r003,2026-10-26,0.0,0.0,0.0,basket gap,trend_up,no_gap,day_before
+gap3_s0.4_r003,2026-10-27,2.0,2.0,16.2944164,basket gap,range,no_gap,expiry
+gap3_s0.4_r003,2026-10-28,0.0,0.0,0.0,basket gap,V_up,gap_fill,other
+gap3_s0.4_r003,2026-10-29,0.0,0.0,0.0,basket gap,trend_up,no_gap,other
+gap3_s0.4_r003,2026-10-30,0.0,0.0,0.0,basket gap,range,no_gap,other
+gap3_s0.4_r003,2026-11-02,1.0,0.0,-2.1120000000000028,basket gap,trend_up,gap_go,day_before
+gap3_s0.4_r003,2026-11-03,0.0,0.0,0.0,basket gap,trend_up,gap_go,expiry
+gap3_s0.4_r003,2026-11-04,0.0,0.0,0.0,basket gap,trend_up,no_gap,other
+gap3_s0.4_r003,2026-11-05,0.0,0.0,0.0,basket gap,trend_up,gap_go,other
+gap3_s0.4_r003,2026-11-06,0.0,0.0,0.0,basket gap,trend_up,no_gap,other
+gap3_s0.4_r003,2026-11-09,4.0,2.0,10.78851282192479,basket gap,V_up,gap_fill,expiry
+gap3_s0.4_r003,2026-11-11,0.0,0.0,0.0,basket gap,V_down,gap_fade,other
+gap3_s0.4_r003,2026-11-12,0.0,0.0,0.0,basket gap,range,no_gap,other
+gap5_s0.4,2026-10-19,0.0,0.0,0.0,basket gap,trend_down,no_gap,expiry
+gap5_s0.4,2026-10-21,1.0,0.0,-6.091999999999997,basket gap,trend_down,gap_fill,other
+gap5_s0.4,2026-10-22,1.0,1.0,7.360999999999995,basket gap,range,no_gap,other
+gap5_s0.4,2026-10-23,1.0,0.0,-0.9279999999999956,basket gap,range,gap_fill,other
+gap5_s0.4,2026-10-26,0.0,0.0,0.0,basket gap,trend_up,no_gap,day_before
+gap5_s0.4,2026-10-27,2.0,2.0,23.1512116,basket gap,range,no_gap,expiry
+gap5_s0.4,2026-10-28,0.0,0.0,0.0,basket gap,V_up,gap_fill,other
+gap5_s0.4,2026-10-29,0.0,0.0,0.0,basket gap,trend_up,no_gap,other
+gap5_s0.4,2026-10-30,0.0,0.0,0.0,basket gap,range,no_gap,other
+gap5_s0.4,2026-11-02,1.0,0.0,-2.1120000000000028,basket gap,trend_up,gap_go,day_before
+gap5_s0.4,2026-11-03,0.0,0.0,0.0,basket gap,trend_up,gap_go,expiry
+gap5_s0.4,2026-11-04,0.0,0.0,0.0,basket gap,trend_up,no_gap,other
+gap5_s0.4,2026-11-05,0.0,0.0,0.0,basket gap,trend_up,gap_go,other
+gap5_s0.4,2026-11-06,0.0,0.0,0.0,basket gap,trend_up,no_gap,other
+gap5_s0.4,2026-11-09,2.0,1.0,15.323453360000006,basket gap,V_up,gap_fill,expiry
+gap5_s0.4,2026-11-11,0.0,0.0,0.0,basket gap,V_down,gap_fade,other
+gap5_s0.4,2026-11-12,0.0,0.0,0.0,basket gap,range,no_gap,other
+lvl_trail,2026-10-19,18.0,10.0,143.06005659836418,lvl_trail pullback,trend_down,no_gap,expiry
+lvl_trail,2026-10-21,5.0,4.0,52.28244766381409,lvl_trail pullback,trend_down,gap_fill,other
+lvl_trail,2026-10-22,4.0,2.0,16.416402028652733,lvl_trail pullback,range,no_gap,other
+lvl_trail,2026-10-23,7.0,5.0,101.35945383324211,lvl_trail pullback,range,gap_fill,other
+lvl_trail,2026-10-26,8.0,3.0,-7.403077557340265,lvl_trail pullback,trend_up,no_gap,day_before
+lvl_trail,2026-10-27,20.0,9.0,28.214663733841448,lvl_trail pullback,range,no_gap,expiry
+lvl_trail,2026-10-28,6.0,1.0,-29.837184130222727,lvl_trail pullback,V_up,gap_fill,other
+lvl_trail,2026-10-29,3.0,2.0,5.571130648362499,lvl_trail pullback,trend_up,no_gap,other
+lvl_trail,2026-10-30,5.0,2.0,-19.33237007226166,lvl_trail pullback,range,no_gap,other
+lvl_trail,2026-11-02,5.0,3.0,13.08720545118991,lvl_trail pullback,trend_up,gap_go,day_before
+lvl_trail,2026-11-03,14.0,5.0,-35.77659398932863,lvl_trail pullback,trend_up,gap_go,expiry
+lvl_trail,2026-11-04,1.0,1.0,24.374999999999996,lvl_trail pullback,trend_up,no_gap,other
+lvl_trail,2026-11-05,5.0,1.0,-21.84659549692004,lvl_trail pullback,trend_up,gap_go,other
+lvl_trail,2026-11-06,4.0,2.0,23.00996435955305,lvl_trail pullback,trend_up,no_gap,other
+lvl_trail,2026-11-09,27.0,13.0,71.76784383662063,lvl_trail pullback,V_up,gap_fill,expiry
+lvl_trail,2026-11-11,5.0,4.0,17.890035483772127,lvl_trail pullback,V_down,gap_fade,other
+lvl_trail,2026-11-12,1.0,0.0,-10.448000000000002,lvl_trail pullback,range,no_gap,other
+lvl_trail_be,2026-10-19,18.0,10.0,143.06005659836418,lvl_trail pullback,trend_down,no_gap,expiry
+lvl_trail_be,2026-10-21,7.0,2.0,-15.848451246077676,lvl_trail pullback,trend_down,gap_fill,other
+lvl_trail_be,2026-10-22,4.0,2.0,16.416402028652733,lvl_trail pullback,range,no_gap,other
+lvl_trail_be,2026-10-23,7.0,5.0,101.35945383324211,lvl_trail pullback,range,gap_fill,other
+lvl_trail_be,2026-10-26,9.0,5.0,30.85043170460964,lvl_trail pullback,trend_up,no_gap,day_before
+lvl_trail_be,2026-10-27,20.0,9.0,28.214663733841448,lvl_trail pullback,range,no_gap,expiry
+lvl_trail_be,2026-10-28,6.0,1.0,-29.837184130222727,lvl_trail pullback,V_up,gap_fill,other
+lvl_trail_be,2026-10-29,3.0,2.0,5.571130648362499,lvl_trail pullback,trend_up,no_gap,other
+lvl_trail_be,2026-10-30,5.0,2.0,-19.33237007226166,lvl_trail pullback,range,no_gap,other
+lvl_trail_be,2026-11-02,5.0,3.0,13.08720545118991,lvl_trail pullback,trend_up,gap_go,day_before
+lvl_trail_be,2026-11-03,14.0,5.0,-35.77659398932863,lvl_trail pullback,trend_up,gap_go,expiry
+lvl_trail_be,2026-11-04,1.0,1.0,24.374999999999996,lvl_trail pullback,trend_up,no_gap,other
+lvl_trail_be,2026-11-05,5.0,2.0,-12.50081084547745,lvl_trail pullback,trend_up,gap_go,other
+lvl_trail_be,2026-11-06,4.0,3.0,38.21295162043705,lvl_trail pullback,trend_up,no_gap,other
+lvl_trail_be,2026-11-09,27.0,13.0,71.76784383662063,lvl_trail pullback,V_up,gap_fill,expiry
+lvl_trail_be,2026-11-11,5.0,4.0,17.890035483772127,lvl_trail pullback,V_down,gap_fade,other
+lvl_trail_be,2026-11-12,1.0,0.0,-10.448000000000002,lvl_trail pullback,range,no_gap,other
+lvl_trail_re,2026-10-19,18.0,10.0,138.5919738430824,lvl_trail pullback,trend_down,no_gap,expiry
+lvl_trail_re,2026-10-21,4.0,3.0,46.57623484143696,lvl_trail pullback,trend_down,gap_fill,other
+lvl_trail_re,2026-10-22,4.0,2.0,16.416402028652733,lvl_trail pullback,range,no_gap,other
+lvl_trail_re,2026-10-23,7.0,5.0,101.35945383324211,lvl_trail pullback,range,gap_fill,other
+lvl_trail_re,2026-10-26,7.0,3.0,2.57546353538165,lvl_trail pullback,trend_up,no_gap,day_before
+lvl_trail_re,2026-10-27,18.0,9.0,47.970110116988415,lvl_trail pullback,range,no_gap,expiry
+lvl_trail_re,2026-10-28,6.0,1.0,-29.837184130222727,lvl_trail pullback,V_up,gap_fill,other
+lvl_trail_re,2026-10-29,3.0,2.0,5.571130648362499,lvl_trail pullback,trend_up,no_gap,other
+lvl_trail_re,2026-10-30,5.0,2.0,-19.33237007226166,lvl_trail pullback,range,no_gap,other
+lvl_trail_re,2026-11-02,4.0,3.0,25.35021719985138,lvl_trail pullback,trend_up,gap_go,day_before
+lvl_trail_re,2026-11-03,11.0,5.0,-9.81310291953318,lvl_trail pullback,trend_up,gap_go,expiry
+lvl_trail_re,2026-11-04,1.0,1.0,24.374999999999996,lvl_trail pullback,trend_up,no_gap,other
+lvl_trail_re,2026-11-05,5.0,1.0,-21.84659549692004,lvl_trail pullback,trend_up,gap_go,other
+lvl_trail_re,2026-11-06,4.0,2.0,23.00996435955305,lvl_trail pullback,trend_up,no_gap,other
+lvl_trail_re,2026-11-09,21.0,11.0,103.88135672410002,lvl_trail pullback,V_up,gap_fill,expiry
+lvl_trail_re,2026-11-11,5.0,4.0,17.890035483772127,lvl_trail pullback,V_down,gap_fade,other
+lvl_trail_re,2026-11-12,1.0,0.0,-10.448000000000002,lvl_trail pullback,range,no_gap,other
+lvl_trail_rx,2026-10-19,17.0,9.0,123.84926148188548,lvl_trail pullback,trend_down,no_gap,expiry
+lvl_trail_rx,2026-10-21,4.0,3.0,41.479103333284485,lvl_trail pullback,trend_down,gap_fill,other
+lvl_trail_rx,2026-10-22,4.0,2.0,16.416402028652733,lvl_trail pullback,range,no_gap,other
+lvl_trail_rx,2026-10-23,7.0,5.0,101.35945383324211,lvl_trail pullback,range,gap_fill,other
+lvl_trail_rx,2026-10-26,7.0,3.0,2.57546353538165,lvl_trail pullback,trend_up,no_gap,day_before
+lvl_trail_rx,2026-10-27,18.0,9.0,47.970110116988415,lvl_trail pullback,range,no_gap,expiry
+lvl_trail_rx,2026-10-28,6.0,1.0,-29.837184130222727,lvl_trail pullback,V_up,gap_fill,other
+lvl_trail_rx,2026-10-29,3.0,2.0,5.571130648362499,lvl_trail pullback,trend_up,no_gap,other
+lvl_trail_rx,2026-10-30,5.0,2.0,-19.33237007226166,lvl_trail pullback,range,no_gap,other
+lvl_trail_rx,2026-11-02,4.0,3.0,25.35021719985138,lvl_trail pullback,trend_up,gap_go,day_before
+lvl_trail_rx,2026-11-03,11.0,5.0,-9.81310291953318,lvl_trail pullback,trend_up,gap_go,expiry
+lvl_trail_rx,2026-11-04,1.0,1.0,24.374999999999996,lvl_trail pullback,trend_up,no_gap,other
+lvl_trail_rx,2026-11-05,5.0,1.0,-21.84659549692004,lvl_trail pullback,trend_up,gap_go,other
+lvl_trail_rx,2026-11-06,4.0,2.0,23.00996435955305,lvl_trail pullback,trend_up,no_gap,other
+lvl_trail_rx,2026-11-09,20.0,11.0,103.98644802391776,lvl_trail pullback,V_up,gap_fill,expiry
+lvl_trail_rx,2026-11-11,5.0,4.0,17.890035483772127,lvl_trail pullback,V_down,gap_fade,other
+lvl_trail_rx,2026-11-12,1.0,0.0,-10.448000000000002,lvl_trail pullback,range,no_gap,other
+lvl_trail_rx_be,2026-10-19,17.0,9.0,123.84926148188548,lvl_trail pullback,trend_down,no_gap,expiry
+lvl_trail_rx_be,2026-10-21,6.0,1.0,-19.001714500570465,lvl_trail pullback,trend_down,gap_fill,other
+lvl_trail_rx_be,2026-10-22,4.0,2.0,16.416402028652733,lvl_trail pullback,range,no_gap,other
+lvl_trail_rx_be,2026-10-23,7.0,5.0,101.35945383324211,lvl_trail pullback,range,gap_fill,other
+lvl_trail_rx_be,2026-10-26,8.0,5.0,44.95129354020031,lvl_trail pullback,trend_up,no_gap,day_before
+lvl_trail_rx_be,2026-10-27,18.0,9.0,47.970110116988415,lvl_trail pullback,range,no_gap,expiry
+lvl_trail_rx_be,2026-10-28,6.0,1.0,-29.837184130222727,lvl_trail pullback,V_up,gap_fill,other
+lvl_trail_rx_be,2026-10-29,3.0,2.0,5.571130648362499,lvl_trail pullback,trend_up,no_gap,other
+lvl_trail_rx_be,2026-10-30,5.0,2.0,-19.33237007226166,lvl_trail pullback,range,no_gap,other
+lvl_trail_rx_be,2026-11-02,4.0,3.0,25.35021719985138,lvl_trail pullback,trend_up,gap_go,day_before
+lvl_trail_rx_be,2026-11-03,11.0,5.0,-9.81310291953318,lvl_trail pullback,trend_up,gap_go,expiry
+lvl_trail_rx_be,2026-11-04,1.0,1.0,24.374999999999996,lvl_trail pullback,trend_up,no_gap,other
+lvl_trail_rx_be,2026-11-05,5.0,2.0,-12.50081084547745,lvl_trail pullback,trend_up,gap_go,other
+lvl_trail_rx_be,2026-11-06,4.0,3.0,38.21295162043705,lvl_trail pullback,trend_up,no_gap,other
+lvl_trail_rx_be,2026-11-09,20.0,11.0,103.98644802391776,lvl_trail pullback,V_up,gap_fill,expiry
+lvl_trail_rx_be,2026-11-11,5.0,4.0,17.890035483772127,lvl_trail pullback,V_down,gap_fade,other
+lvl_trail_rx_be,2026-11-12,1.0,0.0,-10.448000000000002,lvl_trail pullback,range,no_gap,other
+lvl_trail_rx_c10,2026-10-19,17.0,9.0,141.0259919969013,lvl_trail pullback,trend_down,no_gap,expiry
+lvl_trail_rx_c10,2026-10-21,4.0,3.0,41.479103333284485,lvl_trail pullback,trend_down,gap_fill,other
+lvl_trail_rx_c10,2026-10-22,4.0,2.0,16.416402028652733,lvl_trail pullback,range,no_gap,other
+lvl_trail_rx_c10,2026-10-23,7.0,5.0,101.35945383324211,lvl_trail pullback,range,gap_fill,other
+lvl_trail_rx_c10,2026-10-26,7.0,3.0,2.57546353538165,lvl_trail pullback,trend_up,no_gap,day_before
+lvl_trail_rx_c10,2026-10-27,18.0,9.0,47.970110116988415,lvl_trail pullback,range,no_gap,expiry
+lvl_trail_rx_c10,2026-10-28,6.0,1.0,-29.837184130222727,lvl_trail pullback,V_up,gap_fill,other
+lvl_trail_rx_c10,2026-10-29,3.0,2.0,5.571130648362499,lvl_trail pullback,trend_up,no_gap,other
+lvl_trail_rx_c10,2026-10-30,5.0,2.0,-19.33237007226166,lvl_trail pullback,range,no_gap,other
+lvl_trail_rx_c10,2026-11-02,4.0,3.0,25.35021719985138,lvl_trail pullback,trend_up,gap_go,day_before
+lvl_trail_rx_c10,2026-11-03,11.0,5.0,-9.81310291953318,lvl_trail pullback,trend_up,gap_go,expiry
+lvl_trail_rx_c10,2026-11-04,1.0,1.0,24.374999999999996,lvl_trail pullback,trend_up,no_gap,other
+lvl_trail_rx_c10,2026-11-05,5.0,1.0,-21.84659549692004,lvl_trail pullback,trend_up,gap_go,other
+lvl_trail_rx_c10,2026-11-06,4.0,2.0,23.00996435955305,lvl_trail pullback,trend_up,no_gap,other
+lvl_trail_rx_c10,2026-11-09,21.0,12.0,110.2665328849434,lvl_trail pullback,V_up,gap_fill,expiry
+lvl_trail_rx_c10,2026-11-11,5.0,4.0,17.890035483772127,lvl_trail pullback,V_down,gap_fade,other
+lvl_trail_rx_c10,2026-11-12,1.0,0.0,-10.448000000000002,lvl_trail pullback,range,no_gap,other
+m1.5_s0.4,2026-10-19,1.0,0.0,-4.906999999999995,impulse+basket m-grid,trend_down,no_gap,expiry
+m1.5_s0.4,2026-10-21,2.0,0.0,-11.924787680000003,impulse+basket m-grid,trend_down,gap_fill,other
+m1.5_s0.4,2026-10-22,2.0,1.0,0.305633120000004,impulse+basket m-grid,range,no_gap,other
+m1.5_s0.4,2026-10-23,3.0,2.0,4.247153732915199,impulse+basket m-grid,range,gap_fill,other
+m1.5_s0.4,2026-10-26,1.0,1.0,10.962000000000003,impulse+basket m-grid,trend_up,no_gap,day_before
+m1.5_s0.4,2026-10-27,3.0,3.0,38.25559659930799,impulse+basket m-grid,range,no_gap,expiry
+m1.5_s0.4,2026-10-28,0.0,0.0,0.0,impulse+basket m-grid,V_up,gap_fill,other
+m1.5_s0.4,2026-10-29,1.0,1.0,8.823000000000004,impulse+basket m-grid,trend_up,no_gap,other
+m1.5_s0.4,2026-10-30,1.0,1.0,4.40799999999999,impulse+basket m-grid,range,no_gap,other
+m1.5_s0.4,2026-11-02,2.0,0.0,-6.1147729500000025,impulse+basket m-grid,trend_up,gap_go,day_before
+m1.5_s0.4,2026-11-03,1.0,0.0,-11.497999999999998,impulse+basket m-grid,trend_up,gap_go,expiry
+m1.5_s0.4,2026-11-04,3.0,1.0,-4.404064671680008,impulse+basket m-grid,trend_up,no_gap,other
+m1.5_s0.4,2026-11-05,0.0,0.0,0.0,impulse+basket m-grid,trend_up,gap_go,other
+m1.5_s0.4,2026-11-06,0.0,0.0,0.0,impulse+basket m-grid,trend_up,no_gap,other
+m1.5_s0.4,2026-11-09,4.0,2.0,19.682950667633413,impulse+basket m-grid,V_up,gap_fill,expiry
+m1.5_s0.4,2026-11-11,2.0,1.0,-2.358498429999989,impulse+basket m-grid,V_down,gap_fade,other
+m1.5_s0.4,2026-11-12,0.0,0.0,0.0,impulse+basket m-grid,range,no_gap,other
+m1.5_s0.4_r002,2026-10-19,1.0,0.0,-4.906999999999995,impulse+basket m-grid,trend_down,no_gap,expiry
+m1.5_s0.4_r002,2026-10-21,1.0,0.0,-6.488000000000005,impulse+basket m-grid,trend_down,gap_fill,other
+m1.5_s0.4_r002,2026-10-22,0.0,0.0,0.0,impulse+basket m-grid,range,no_gap,other
+m1.5_s0.4_r002,2026-10-23,0.0,0.0,0.0,impulse+basket m-grid,range,gap_fill,other
+m1.5_s0.4_r002,2026-10-26,0.0,0.0,0.0,impulse+basket m-grid,trend_up,no_gap,day_before
+m1.5_s0.4_r002,2026-10-27,3.0,3.0,38.25559659930799,impulse+basket m-grid,range,no_gap,expiry
+m1.5_s0.4_r002,2026-10-28,0.0,0.0,0.0,impulse+basket m-grid,V_up,gap_fill,other
+m1.5_s0.4_r002,2026-10-29,0.0,0.0,0.0,impulse+basket m-grid,trend_up,no_gap,other
+m1.5_s0.4_r002,2026-10-30,0.0,0.0,0.0,impulse+basket m-grid,range,no_gap,other
+m1.5_s0.4_r002,2026-11-02,0.0,0.0,0.0,impulse+basket m-grid,trend_up,gap_go,day_before
+m1.5_s0.4_r002,2026-11-03,1.0,0.0,-11.497999999999998,impulse+basket m-grid,trend_up,gap_go,expiry
+m1.5_s0.4_r002,2026-11-04,0.0,0.0,0.0,impulse+basket m-grid,trend_up,no_gap,other
+m1.5_s0.4_r002,2026-11-05,0.0,0.0,0.0,impulse+basket m-grid,trend_up,gap_go,other
+m1.5_s0.4_r002,2026-11-06,0.0,0.0,0.0,impulse+basket m-grid,trend_up,no_gap,other
+m1.5_s0.4_r002,2026-11-09,4.0,2.0,19.682950667633413,impulse+basket m-grid,V_up,gap_fill,expiry
+m1.5_s0.4_r002,2026-11-11,0.0,0.0,0.0,impulse+basket m-grid,V_down,gap_fade,other
+m1.5_s0.4_r002,2026-11-12,0.0,0.0,0.0,impulse+basket m-grid,range,no_gap,other
+m1.5_s0.4_r003,2026-10-19,1.0,0.0,-4.906999999999995,impulse+basket m-grid,trend_down,no_gap,expiry
+m1.5_s0.4_r003,2026-10-21,2.0,0.0,-11.924787680000003,impulse+basket m-grid,trend_down,gap_fill,other
+m1.5_s0.4_r003,2026-10-22,2.0,1.0,0.305633120000004,impulse+basket m-grid,range,no_gap,other
+m1.5_s0.4_r003,2026-10-23,3.0,2.0,4.247153732915199,impulse+basket m-grid,range,gap_fill,other
+m1.5_s0.4_r003,2026-10-26,1.0,1.0,10.962000000000003,impulse+basket m-grid,trend_up,no_gap,day_before
+m1.5_s0.4_r003,2026-10-27,3.0,3.0,38.25559659930799,impulse+basket m-grid,range,no_gap,expiry
+m1.5_s0.4_r003,2026-10-28,0.0,0.0,0.0,impulse+basket m-grid,V_up,gap_fill,other
+m1.5_s0.4_r003,2026-10-29,1.0,1.0,8.823000000000004,impulse+basket m-grid,trend_up,no_gap,other
+m1.5_s0.4_r003,2026-10-30,1.0,1.0,4.40799999999999,impulse+basket m-grid,range,no_gap,other
+m1.5_s0.4_r003,2026-11-02,2.0,0.0,-6.1147729500000025,impulse+basket m-grid,trend_up,gap_go,day_before
+m1.5_s0.4_r003,2026-11-03,1.0,0.0,-11.497999999999998,impulse+basket m-grid,trend_up,gap_go,expiry
+m1.5_s0.4_r003,2026-11-04,3.0,1.0,-4.404064671680008,impulse+basket m-grid,trend_up,no_gap,other
+m1.5_s0.4_r003,2026-11-05,0.0,0.0,0.0,impulse+basket m-grid,trend_up,gap_go,other
+m1.5_s0.4_r003,2026-11-06,0.0,0.0,0.0,impulse+basket m-grid,trend_up,no_gap,other
+m1.5_s0.4_r003,2026-11-09,4.0,2.0,19.682950667633413,impulse+basket m-grid,V_up,gap_fill,expiry
+m1.5_s0.4_r003,2026-11-11,2.0,1.0,-2.358498429999989,impulse+basket m-grid,V_down,gap_fade,other
+m1.5_s0.4_r003,2026-11-12,0.0,0.0,0.0,impulse+basket m-grid,range,no_gap,other
+m1.5_s0.5,2026-10-19,0.0,0.0,0.0,impulse+basket m-grid,trend_down,no_gap,expiry
+m1.5_s0.5,2026-10-21,2.0,0.0,-12.11461704000001,impulse+basket m-grid,trend_down,gap_fill,other
+m1.5_s0.5,2026-10-22,2.0,1.0,1.0192047199999887,impulse+basket m-grid,range,no_gap,other
+m1.5_s0.5,2026-10-23,2.0,1.0,-4.856204610000015,impulse+basket m-grid,range,gap_fill,other
+m1.5_s0.5,2026-10-26,1.0,1.0,7.495000000000007,impulse+basket m-grid,trend_up,no_gap,day_before
+m1.5_s0.5,2026-10-27,3.0,3.0,43.40025636040998,impulse+basket m-grid,range,no_gap,expiry
+m1.5_s0.5,2026-10-28,0.0,0.0,0.0,impulse+basket m-grid,V_up,gap_fill,other
+m1.5_s0.5,2026-10-29,1.0,1.0,8.823000000000004,impulse+basket m-grid,trend_up,no_gap,other
+m1.5_s0.5,2026-10-30,0.0,0.0,0.0,impulse+basket m-grid,range,no_gap,other
+m1.5_s0.5,2026-11-02,1.0,0.0,-0.8970000000000034,impulse+basket m-grid,trend_up,gap_go,day_before
+m1.5_s0.5,2026-11-03,1.0,0.0,-9.914,impulse+basket m-grid,trend_up,gap_go,expiry
+m1.5_s0.5,2026-11-04,3.0,1.0,-4.404064671680008,impulse+basket m-grid,trend_up,no_gap,other
+m1.5_s0.5,2026-11-05,0.0,0.0,0.0,impulse+basket m-grid,trend_up,gap_go,other
+m1.5_s0.5,2026-11-06,0.0,0.0,0.0,impulse+basket m-grid,trend_up,no_gap,other
+m1.5_s0.5,2026-11-09,3.0,2.0,29.5073805566618,impulse+basket m-grid,V_up,gap_fill,expiry
+m1.5_s0.5,2026-11-11,2.0,1.0,-2.358498429999989,impulse+basket m-grid,V_down,gap_fade,other
+m1.5_s0.5,2026-11-12,0.0,0.0,0.0,impulse+basket m-grid,range,no_gap,other
+m1.5_s0.6,2026-10-19,0.0,0.0,0.0,impulse+basket m-grid,trend_down,no_gap,expiry
+m1.5_s0.6,2026-10-21,1.0,0.0,-6.488000000000005,impulse+basket m-grid,trend_down,gap_fill,other
+m1.5_s0.6,2026-10-22,2.0,1.0,-1.541484879999988,impulse+basket m-grid,range,no_gap,other
+m1.5_s0.6,2026-10-23,1.0,0.0,-1.4599999999999946,impulse+basket m-grid,range,gap_fill,other
+m1.5_s0.6,2026-10-26,1.0,1.0,9.932999999999993,impulse+basket m-grid,trend_up,no_gap,day_before
+m1.5_s0.6,2026-10-27,3.0,3.0,43.40025636040998,impulse+basket m-grid,range,no_gap,expiry
+m1.5_s0.6,2026-10-28,0.0,0.0,0.0,impulse+basket m-grid,V_up,gap_fill,other
+m1.5_s0.6,2026-10-29,1.0,1.0,8.823000000000004,impulse+basket m-grid,trend_up,no_gap,other
+m1.5_s0.6,2026-10-30,0.0,0.0,0.0,impulse+basket m-grid,range,no_gap,other
+m1.5_s0.6,2026-11-02,1.0,0.0,-2.1120000000000028,impulse+basket m-grid,trend_up,gap_go,day_before
+m1.5_s0.6,2026-11-03,1.0,0.0,-11.897000000000002,impulse+basket m-grid,trend_up,gap_go,expiry
+m1.5_s0.6,2026-11-04,2.0,1.0,-2.46766302,impulse+basket m-grid,trend_up,no_gap,other
+m1.5_s0.6,2026-11-05,0.0,0.0,0.0,impulse+basket m-grid,trend_up,gap_go,other
+m1.5_s0.6,2026-11-06,0.0,0.0,0.0,impulse+basket m-grid,trend_up,no_gap,other
+m1.5_s0.6,2026-11-09,3.0,2.0,29.5073805566618,impulse+basket m-grid,V_up,gap_fill,expiry
+m1.5_s0.6,2026-11-11,1.0,1.0,2.7470000000000105,impulse+basket m-grid,V_down,gap_fade,other
+m1.5_s0.6,2026-11-12,0.0,0.0,0.0,impulse+basket m-grid,range,no_gap,other
+m2.0_s0.4,2026-10-19,1.0,0.0,-4.906999999999995,impulse+basket m-grid,trend_down,no_gap,expiry
+m2.0_s0.4,2026-10-21,2.0,0.0,-11.924787680000003,impulse+basket m-grid,trend_down,gap_fill,other
+m2.0_s0.4,2026-10-22,2.0,1.0,0.305633120000004,impulse+basket m-grid,range,no_gap,other
+m2.0_s0.4,2026-10-23,3.0,2.0,4.247153732915199,impulse+basket m-grid,range,gap_fill,other
+m2.0_s0.4,2026-10-26,1.0,1.0,10.962000000000003,impulse+basket m-grid,trend_up,no_gap,day_before
+m2.0_s0.4,2026-10-27,3.0,3.0,38.25559659930799,impulse+basket m-grid,range,no_gap,expiry
+m2.0_s0.4,2026-10-28,0.0,0.0,0.0,impulse+basket m-grid,V_up,gap_fill,other
+m2.0_s0.4,2026-10-29,1.0,1.0,8.823000000000004,impulse+basket m-grid,trend_up,no_gap,other
+m2.0_s0.4,2026-10-30,1.0,1.0,4.40799999999999,impulse+basket m-grid,range,no_gap,other
+m2.0_s0.4,2026-11-02,2.0,0.0,-6.1147729500000025,impulse+basket m-grid,trend_up,gap_go,day_before
+m2.0_s0.4,2026-11-03,1.0,0.0,-11.497999999999998,impulse+basket m-grid,trend_up,gap_go,expiry
+m2.0_s0.4,2026-11-04,3.0,1.0,-4.404064671680008,impulse+basket m-grid,trend_up,no_gap,other
+m2.0_s0.4,2026-11-05,0.0,0.0,0.0,impulse+basket m-grid,trend_up,gap_go,other
+m2.0_s0.4,2026-11-06,0.0,0.0,0.0,impulse+basket m-grid,trend_up,no_gap,other
+m2.0_s0.4,2026-11-09,4.0,2.0,19.682950667633413,impulse+basket m-grid,V_up,gap_fill,expiry
+m2.0_s0.4,2026-11-11,2.0,1.0,-2.358498429999989,impulse+basket m-grid,V_down,gap_fade,other
+m2.0_s0.4,2026-11-12,0.0,0.0,0.0,impulse+basket m-grid,range,no_gap,other
+m2.0_s0.5,2026-10-19,0.0,0.0,0.0,impulse+basket m-grid,trend_down,no_gap,expiry
+m2.0_s0.5,2026-10-21,2.0,0.0,-12.11461704000001,impulse+basket m-grid,trend_down,gap_fill,other
+m2.0_s0.5,2026-10-22,2.0,1.0,1.0192047199999887,impulse+basket m-grid,range,no_gap,other
+m2.0_s0.5,2026-10-23,2.0,1.0,-4.856204610000015,impulse+basket m-grid,range,gap_fill,other
+m2.0_s0.5,2026-10-26,1.0,1.0,7.495000000000007,impulse+basket m-grid,trend_up,no_gap,day_before
+m2.0_s0.5,2026-10-27,3.0,3.0,43.40025636040998,impulse+basket m-grid,range,no_gap,expiry
+m2.0_s0.5,2026-10-28,0.0,0.0,0.0,impulse+basket m-grid,V_up,gap_fill,other
+m2.0_s0.5,2026-10-29,1.0,1.0,8.823000000000004,impulse+basket m-grid,trend_up,no_gap,other
+m2.0_s0.5,2026-10-30,0.0,0.0,0.0,impulse+basket m-grid,range,no_gap,other
+m2.0_s0.5,2026-11-02,1.0,0.0,-0.8970000000000034,impulse+basket m-grid,trend_up,gap_go,day_before
+m2.0_s0.5,2026-11-03,1.0,0.0,-9.914,impulse+basket m-grid,trend_up,gap_go,expiry
+m2.0_s0.5,2026-11-04,3.0,1.0,-4.404064671680008,impulse+basket m-grid,trend_up,no_gap,other
+m2.0_s0.5,2026-11-05,0.0,0.0,0.0,impulse+basket m-grid,trend_up,gap_go,other
+m2.0_s0.5,2026-11-06,0.0,0.0,0.0,impulse+basket m-grid,trend_up,no_gap,other
+m2.0_s0.5,2026-11-09,3.0,2.0,29.5073805566618,impulse+basket m-grid,V_up,gap_fill,expiry
+m2.0_s0.5,2026-11-11,2.0,1.0,-2.358498429999989,impulse+basket m-grid,V_down,gap_fade,other
+m2.0_s0.5,2026-11-12,0.0,0.0,0.0,impulse+basket m-grid,range,no_gap,other
+m2.0_s0.5_bookexit,2026-10-19,0.0,0.0,0.0,impulse+basket m-grid,trend_down,no_gap,expiry
+m2.0_s0.5_bookexit,2026-10-21,2.0,0.0,-6.671470470000007,impulse+basket m-grid,trend_down,gap_fill,other
+m2.0_s0.5_bookexit,2026-10-22,2.0,1.0,1.1560000000000017,impulse+basket m-grid,range,no_gap,other
+m2.0_s0.5_bookexit,2026-10-23,2.0,0.0,-7.588394880000004,impulse+basket m-grid,range,gap_fill,other
+m2.0_s0.5_bookexit,2026-10-26,1.0,1.0,0.6559999999999899,impulse+basket m-grid,trend_up,no_gap,day_before
+m2.0_s0.5_bookexit,2026-10-27,4.0,4.0,28.07081383276224,impulse+basket m-grid,range,no_gap,expiry
+m2.0_s0.5_bookexit,2026-10-28,0.0,0.0,0.0,impulse+basket m-grid,V_up,gap_fill,other
+m2.0_s0.5_bookexit,2026-10-29,1.0,1.0,1.3940000000000063,impulse+basket m-grid,trend_up,no_gap,other
+m2.0_s0.5_bookexit,2026-10-30,0.0,0.0,0.0,impulse+basket m-grid,range,no_gap,other
+m2.0_s0.5_bookexit,2026-11-02,1.0,0.0,-0.5519999999999969,impulse+basket m-grid,trend_up,gap_go,day_before
+m2.0_s0.5_bookexit,2026-11-03,1.0,0.0,-7.610000000000006,impulse+basket m-grid,trend_up,gap_go,expiry
+m2.0_s0.5_bookexit,2026-11-04,3.0,1.0,-3.787443396144019,impulse+basket m-grid,trend_up,no_gap,other
+m2.0_s0.5_bookexit,2026-11-05,0.0,0.0,0.0,impulse+basket m-grid,trend_up,gap_go,other
+m2.0_s0.5_bookexit,2026-11-06,0.0,0.0,0.0,impulse+basket m-grid,trend_up,no_gap,other
+m2.0_s0.5_bookexit,2026-11-09,3.0,2.0,17.4416020232651,impulse+basket m-grid,V_up,gap_fill,expiry
+m2.0_s0.5_bookexit,2026-11-11,2.0,0.0,-1.9477093,impulse+basket m-grid,V_down,gap_fade,other
+m2.0_s0.5_bookexit,2026-11-12,0.0,0.0,0.0,impulse+basket m-grid,range,no_gap,other
+m2.0_s0.5_d20,2026-10-19,0.0,0.0,0.0,impulse+basket m-grid,trend_down,no_gap,expiry
+m2.0_s0.5_d20,2026-10-21,2.0,0.0,-14.5346277,impulse+basket m-grid,trend_down,gap_fill,other
+m2.0_s0.5_d20,2026-10-22,2.0,1.0,4.274721439999984,impulse+basket m-grid,range,no_gap,other
+m2.0_s0.5_d20,2026-10-23,2.0,1.0,-4.9572509400000015,impulse+basket m-grid,range,gap_fill,other
+m2.0_s0.5_d20,2026-10-26,1.0,1.0,8.776000000000007,impulse+basket m-grid,trend_up,no_gap,day_before
+m2.0_s0.5_d20,2026-10-27,3.0,2.0,19.36933837218,impulse+basket m-grid,range,no_gap,expiry
+m2.0_s0.5_d20,2026-10-28,0.0,0.0,0.0,impulse+basket m-grid,V_up,gap_fill,other
+m2.0_s0.5_d20,2026-10-29,1.0,1.0,4.906999999999995,impulse+basket m-grid,trend_up,no_gap,other
+m2.0_s0.5_d20,2026-10-30,0.0,0.0,0.0,impulse+basket m-grid,range,no_gap,other
+m2.0_s0.5_d20,2026-11-02,1.0,0.0,-2.344999999999997,impulse+basket m-grid,trend_up,gap_go,day_before
+m2.0_s0.5_d20,2026-11-03,1.0,0.0,-15.915999999999997,impulse+basket m-grid,trend_up,gap_go,expiry
+m2.0_s0.5_d20,2026-11-04,3.0,1.0,-9.92143925497001,impulse+basket m-grid,trend_up,no_gap,other
+m2.0_s0.5_d20,2026-11-05,0.0,0.0,0.0,impulse+basket m-grid,trend_up,gap_go,other
+m2.0_s0.5_d20,2026-11-06,0.0,0.0,0.0,impulse+basket m-grid,trend_up,no_gap,other
+m2.0_s0.5_d20,2026-11-09,3.0,3.0,96.27296437271514,impulse+basket m-grid,V_up,gap_fill,expiry
+m2.0_s0.5_d20,2026-11-11,1.0,1.0,8.952999999999989,impulse+basket m-grid,V_down,gap_fade,other
+m2.0_s0.5_d20,2026-11-12,0.0,0.0,0.0,impulse+basket m-grid,range,no_gap,other
+m2.0_s0.5_ivinterp,2026-10-19,0.0,0.0,0.0,impulse+basket m-grid,trend_down,no_gap,expiry
+m2.0_s0.5_ivinterp,2026-10-21,2.0,0.0,-12.11461704000001,impulse+basket m-grid,trend_down,gap_fill,other
+m2.0_s0.5_ivinterp,2026-10-22,2.0,1.0,1.0192047199999887,impulse+basket m-grid,range,no_gap,other
+m2.0_s0.5_ivinterp,2026-10-23,2.0,1.0,-4.856204610000015,impulse+basket m-grid,range,gap_fill,other
+m2.0_s0.5_ivinterp,2026-10-26,1.0,1.0,7.495000000000007,impulse+basket m-grid,trend_up,no_gap,day_before
+m2.0_s0.5_ivinterp,2026-10-27,3.0,3.0,43.40025636040998,impulse+basket m-grid,range,no_gap,expiry
+m2.0_s0.5_ivinterp,2026-10-28,0.0,0.0,0.0,impulse+basket m-grid,V_up,gap_fill,other
+m2.0_s0.5_ivinterp,2026-10-29,1.0,1.0,8.823000000000004,impulse+basket m-grid,trend_up,no_gap,other
+m2.0_s0.5_ivinterp,2026-10-30,0.0,0.0,0.0,impulse+basket m-grid,range,no_gap,other
+m2.0_s0.5_ivinterp,2026-11-02,1.0,0.0,-0.8970000000000034,impulse+basket m-grid,trend_up,gap_go,day_before
+m2.0_s0.5_ivinterp,2026-11-03,1.0,0.0,-9.914,impulse+basket m-grid,trend_up,gap_go,expiry
+m2.0_s0.5_ivinterp,2026-11-04,3.0,1.0,-4.404064671680008,impulse+basket m-grid,trend_up,no_gap,other
+m2.0_s0.5_ivinterp,2026-11-05,0.0,0.0,0.0,impulse+basket m-grid,trend_up,gap_go,other
+m2.0_s0.5_ivinterp,2026-11-06,0.0,0.0,0.0,impulse+basket m-grid,trend_up,no_gap,other
+m2.0_s0.5_ivinterp,2026-11-09,4.0,3.0,44.04199387653596,impulse+basket m-grid,V_up,gap_fill,expiry
+m2.0_s0.5_ivinterp,2026-11-11,2.0,1.0,-2.358498429999989,impulse+basket m-grid,V_down,gap_fade,other
+m2.0_s0.5_ivinterp,2026-11-12,0.0,0.0,0.0,impulse+basket m-grid,range,no_gap,other
+m2.0_s0.5_novol,2026-10-19,4.0,1.0,-3.911627434633691,impulse+basket m-grid,trend_down,no_gap,expiry
+m2.0_s0.5_novol,2026-10-21,3.0,0.0,-13.7144759943424,impulse+basket m-grid,trend_down,gap_fill,other
+m2.0_s0.5_novol,2026-10-22,9.0,4.0,5.490471513593698,impulse+basket m-grid,range,no_gap,other
+m2.0_s0.5_novol,2026-10-23,5.0,3.0,7.708998947671297,impulse+basket m-grid,range,gap_fill,other
+m2.0_s0.5_novol,2026-10-26,3.0,2.0,4.667078558957605,impulse+basket m-grid,trend_up,no_gap,day_before
+m2.0_s0.5_novol,2026-10-27,3.0,3.0,38.25559659930799,impulse+basket m-grid,range,no_gap,expiry
+m2.0_s0.5_novol,2026-10-28,0.0,0.0,0.0,impulse+basket m-grid,V_up,gap_fill,other
+m2.0_s0.5_novol,2026-10-29,1.0,1.0,8.823000000000004,impulse+basket m-grid,trend_up,no_gap,other
+m2.0_s0.5_novol,2026-10-30,2.0,0.0,-8.885738499999995,impulse+basket m-grid,range,no_gap,other
+m2.0_s0.5_novol,2026-11-02,2.0,0.0,-6.1147729500000025,impulse+basket m-grid,trend_up,gap_go,day_before
+m2.0_s0.5_novol,2026-11-03,1.0,0.0,-14.135999999999992,impulse+basket m-grid,trend_up,gap_go,expiry
+m2.0_s0.5_novol,2026-11-04,3.0,1.0,-5.644049420480002,impulse+basket m-grid,trend_up,no_gap,other
+m2.0_s0.5_novol,2026-11-05,0.0,0.0,0.0,impulse+basket m-grid,trend_up,gap_go,other
+m2.0_s0.5_novol,2026-11-06,1.0,0.0,-5.369999999999997,impulse+basket m-grid,trend_up,no_gap,other
+m2.0_s0.5_novol,2026-11-09,4.0,3.0,22.68979988433828,impulse+basket m-grid,V_up,gap_fill,expiry
+m2.0_s0.5_novol,2026-11-11,3.0,1.0,-7.299158409441986,impulse+basket m-grid,V_down,gap_fade,other
+m2.0_s0.5_novol,2026-11-12,1.0,0.0,-1.488999999999996,impulse+basket m-grid,range,no_gap,other
+m2.0_s0.5_trend,2026-10-19,0.0,0.0,0.0,impulse+basket m-grid,trend_down,no_gap,expiry
+m2.0_s0.5_trend,2026-10-21,2.0,0.0,-12.11461704000001,impulse+basket m-grid,trend_down,gap_fill,other
+m2.0_s0.5_trend,2026-10-22,2.0,1.0,1.0192047199999887,impulse+basket m-grid,range,no_gap,other
+m2.0_s0.5_trend,2026-10-23,1.0,1.0,2.0669999999999966,impulse+basket m-grid,range,gap_fill,other
+m2.0_s0.5_trend,2026-10-26,1.0,1.0,7.495000000000007,impulse+basket m-grid,trend_up,no_gap,day_before
+m2.0_s0.5_trend,2026-10-27,3.0,3.0,24.819271802312,impulse+basket m-grid,range,no_gap,expiry
+m2.0_s0.5_trend,2026-10-28,0.0,0.0,0.0,impulse+basket m-grid,V_up,gap_fill,other
+m2.0_s0.5_trend,2026-10-29,1.0,1.0,8.823000000000004,impulse+basket m-grid,trend_up,no_gap,other
+m2.0_s0.5_trend,2026-10-30,0.0,0.0,0.0,impulse+basket m-grid,range,no_gap,other
+m2.0_s0.5_trend,2026-11-02,1.0,0.0,-0.8970000000000034,impulse+basket m-grid,trend_up,gap_go,day_before
+m2.0_s0.5_trend,2026-11-03,0.0,0.0,0.0,impulse+basket m-grid,trend_up,gap_go,expiry
+m2.0_s0.5_trend,2026-11-04,2.0,1.0,-1.8118988000000116,impulse+basket m-grid,trend_up,no_gap,other
+m2.0_s0.5_trend,2026-11-05,0.0,0.0,0.0,impulse+basket m-grid,trend_up,gap_go,other
+m2.0_s0.5_trend,2026-11-06,0.0,0.0,0.0,impulse+basket m-grid,trend_up,no_gap,other
+m2.0_s0.5_trend,2026-11-09,3.0,2.0,29.5073805566618,impulse+basket m-grid,V_up,gap_fill,expiry
+m2.0_s0.5_trend,2026-11-11,1.0,0.0,-4.969000000000001,impulse+basket m-grid,V_down,gap_fade,other
+m2.0_s0.5_trend,2026-11-12,0.0,0.0,0.0,impulse+basket m-grid,range,no_gap,other
+m2.0_s0.5_tvfast,2026-10-19,0.0,0.0,0.0,impulse+basket m-grid,trend_down,no_gap,expiry
+m2.0_s0.5_tvfast,2026-10-21,2.0,0.0,-6.805004049999996,impulse+basket m-grid,trend_down,gap_fill,other
+m2.0_s0.5_tvfast,2026-10-22,2.0,0.0,-0.3527835399999901,impulse+basket m-grid,range,no_gap,other
+m2.0_s0.5_tvfast,2026-10-23,3.0,0.0,-8.983430908229506,impulse+basket m-grid,range,gap_fill,other
+m2.0_s0.5_tvfast,2026-10-26,1.0,1.0,11.711000000000006,impulse+basket m-grid,trend_up,no_gap,day_before
+m2.0_s0.5_tvfast,2026-10-27,4.0,3.0,27.96700946645152,impulse+basket m-grid,range,no_gap,expiry
+m2.0_s0.5_tvfast,2026-10-28,0.0,0.0,0.0,impulse+basket m-grid,V_up,gap_fill,other
+m2.0_s0.5_tvfast,2026-10-29,1.0,1.0,1.7160000000000064,impulse+basket m-grid,trend_up,no_gap,other
+m2.0_s0.5_tvfast,2026-10-30,0.0,0.0,0.0,impulse+basket m-grid,range,no_gap,other
+m2.0_s0.5_tvfast,2026-11-02,1.0,0.0,-0.8970000000000034,impulse+basket m-grid,trend_up,gap_go,day_before
+m2.0_s0.5_tvfast,2026-11-03,1.0,0.0,-6.162999999999997,impulse+basket m-grid,trend_up,gap_go,expiry
+m2.0_s0.5_tvfast,2026-11-04,3.0,1.0,-2.873312173972009,impulse+basket m-grid,trend_up,no_gap,other
+m2.0_s0.5_tvfast,2026-11-05,0.0,0.0,0.0,impulse+basket m-grid,trend_up,gap_go,other
+m2.0_s0.5_tvfast,2026-11-06,0.0,0.0,0.0,impulse+basket m-grid,trend_up,no_gap,other
+m2.0_s0.5_tvfast,2026-11-09,3.0,2.0,16.515603056379824,impulse+basket m-grid,V_up,gap_fill,expiry
+m2.0_s0.5_tvfast,2026-11-11,2.0,0.0,-2.6265280000000057,impulse+basket m-grid,V_down,gap_fade,other
+m2.0_s0.5_tvfast,2026-11-12,0.0,0.0,0.0,impulse+basket m-grid,range,no_gap,other
+m2.0_s0.6,2026-10-19,0.0,0.0,0.0,impulse+basket m-grid,trend_down,no_gap,expiry
+m2.0_s0.6,2026-10-21,1.0,0.0,-6.488000000000005,impulse+basket m-grid,trend_down,gap_fill,other
+m2.0_s0.6,2026-10-22,2.0,1.0,-1.541484879999988,impulse+basket m-grid,range,no_gap,other
+m2.0_s0.6,2026-10-23,1.0,0.0,-1.4599999999999946,impulse+basket m-grid,range,gap_fill,other
+m2.0_s0.6,2026-10-26,1.0,1.0,9.932999999999993,impulse+basket m-grid,trend_up,no_gap,day_before
+m2.0_s0.6,2026-10-27,3.0,3.0,43.40025636040998,impulse+basket m-grid,range,no_gap,expiry
+m2.0_s0.6,2026-10-28,0.0,0.0,0.0,impulse+basket m-grid,V_up,gap_fill,other
+m2.0_s0.6,2026-10-29,1.0,1.0,8.823000000000004,impulse+basket m-grid,trend_up,no_gap,other
+m2.0_s0.6,2026-10-30,0.0,0.0,0.0,impulse+basket m-grid,range,no_gap,other
+m2.0_s0.6,2026-11-02,1.0,0.0,-2.1120000000000028,impulse+basket m-grid,trend_up,gap_go,day_before
+m2.0_s0.6,2026-11-03,1.0,0.0,-11.897000000000002,impulse+basket m-grid,trend_up,gap_go,expiry
+m2.0_s0.6,2026-11-04,2.0,1.0,-2.46766302,impulse+basket m-grid,trend_up,no_gap,other
+m2.0_s0.6,2026-11-05,0.0,0.0,0.0,impulse+basket m-grid,trend_up,gap_go,other
+m2.0_s0.6,2026-11-06,0.0,0.0,0.0,impulse+basket m-grid,trend_up,no_gap,other
+m2.0_s0.6,2026-11-09,3.0,2.0,29.5073805566618,impulse+basket m-grid,V_up,gap_fill,expiry
+m2.0_s0.6,2026-11-11,1.0,1.0,2.7470000000000105,impulse+basket m-grid,V_down,gap_fade,other
+m2.0_s0.6,2026-11-12,0.0,0.0,0.0,impulse+basket m-grid,range,no_gap,other
+m2.5_s0.4,2026-10-19,1.0,0.0,-4.906999999999995,impulse+basket m-grid,trend_down,no_gap,expiry
+m2.5_s0.4,2026-10-21,2.0,0.0,-11.924787680000003,impulse+basket m-grid,trend_down,gap_fill,other
+m2.5_s0.4,2026-10-22,2.0,1.0,0.305633120000004,impulse+basket m-grid,range,no_gap,other
+m2.5_s0.4,2026-10-23,3.0,2.0,4.247153732915199,impulse+basket m-grid,range,gap_fill,other
+m2.5_s0.4,2026-10-26,1.0,1.0,10.962000000000003,impulse+basket m-grid,trend_up,no_gap,day_before
+m2.5_s0.4,2026-10-27,3.0,3.0,38.25559659930799,impulse+basket m-grid,range,no_gap,expiry
+m2.5_s0.4,2026-10-28,0.0,0.0,0.0,impulse+basket m-grid,V_up,gap_fill,other
+m2.5_s0.4,2026-10-29,1.0,1.0,8.823000000000004,impulse+basket m-grid,trend_up,no_gap,other
+m2.5_s0.4,2026-10-30,1.0,1.0,4.40799999999999,impulse+basket m-grid,range,no_gap,other
+m2.5_s0.4,2026-11-02,2.0,0.0,-6.1147729500000025,impulse+basket m-grid,trend_up,gap_go,day_before
+m2.5_s0.4,2026-11-03,1.0,0.0,-11.497999999999998,impulse+basket m-grid,trend_up,gap_go,expiry
+m2.5_s0.4,2026-11-04,3.0,1.0,-4.404064671680008,impulse+basket m-grid,trend_up,no_gap,other
+m2.5_s0.4,2026-11-05,0.0,0.0,0.0,impulse+basket m-grid,trend_up,gap_go,other
+m2.5_s0.4,2026-11-06,0.0,0.0,0.0,impulse+basket m-grid,trend_up,no_gap,other
+m2.5_s0.4,2026-11-09,4.0,2.0,19.682950667633413,impulse+basket m-grid,V_up,gap_fill,expiry
+m2.5_s0.4,2026-11-11,2.0,1.0,-2.358498429999989,impulse+basket m-grid,V_down,gap_fade,other
+m2.5_s0.4,2026-11-12,0.0,0.0,0.0,impulse+basket m-grid,range,no_gap,other
+m2.5_s0.5,2026-10-19,0.0,0.0,0.0,impulse+basket m-grid,trend_down,no_gap,expiry
+m2.5_s0.5,2026-10-21,2.0,0.0,-12.11461704000001,impulse+basket m-grid,trend_down,gap_fill,other
+m2.5_s0.5,2026-10-22,2.0,1.0,1.0192047199999887,impulse+basket m-grid,range,no_gap,other
+m2.5_s0.5,2026-10-23,2.0,1.0,-4.856204610000015,impulse+basket m-grid,range,gap_fill,other
+m2.5_s0.5,2026-10-26,1.0,1.0,7.495000000000007,impulse+basket m-grid,trend_up,no_gap,day_before
+m2.5_s0.5,2026-10-27,3.0,3.0,43.40025636040998,impulse+basket m-grid,range,no_gap,expiry
+m2.5_s0.5,2026-10-28,0.0,0.0,0.0,impulse+basket m-grid,V_up,gap_fill,other
+m2.5_s0.5,2026-10-29,1.0,1.0,8.823000000000004,impulse+basket m-grid,trend_up,no_gap,other
+m2.5_s0.5,2026-10-30,0.0,0.0,0.0,impulse+basket m-grid,range,no_gap,other
+m2.5_s0.5,2026-11-02,1.0,0.0,-0.8970000000000034,impulse+basket m-grid,trend_up,gap_go,day_before
+m2.5_s0.5,2026-11-03,1.0,0.0,-9.914,impulse+basket m-grid,trend_up,gap_go,expiry
+m2.5_s0.5,2026-11-04,3.0,1.0,-4.404064671680008,impulse+basket m-grid,trend_up,no_gap,other
+m2.5_s0.5,2026-11-05,0.0,0.0,0.0,impulse+basket m-grid,trend_up,gap_go,other
+m2.5_s0.5,2026-11-06,0.0,0.0,0.0,impulse+basket m-grid,trend_up,no_gap,other
+m2.5_s0.5,2026-11-09,3.0,2.0,29.5073805566618,impulse+basket m-grid,V_up,gap_fill,expiry
+m2.5_s0.5,2026-11-11,2.0,1.0,-2.358498429999989,impulse+basket m-grid,V_down,gap_fade,other
+m2.5_s0.5,2026-11-12,0.0,0.0,0.0,impulse+basket m-grid,range,no_gap,other
+m2.5_s0.6,2026-10-19,0.0,0.0,0.0,impulse+basket m-grid,trend_down,no_gap,expiry
+m2.5_s0.6,2026-10-21,1.0,0.0,-6.488000000000005,impulse+basket m-grid,trend_down,gap_fill,other
+m2.5_s0.6,2026-10-22,2.0,1.0,-1.541484879999988,impulse+basket m-grid,range,no_gap,other
+m2.5_s0.6,2026-10-23,1.0,0.0,-1.4599999999999946,impulse+basket m-grid,range,gap_fill,other
+m2.5_s0.6,2026-10-26,1.0,1.0,9.932999999999993,impulse+basket m-grid,trend_up,no_gap,day_before
+m2.5_s0.6,2026-10-27,3.0,3.0,43.40025636040998,impulse+basket m-grid,range,no_gap,expiry
+m2.5_s0.6,2026-10-28,0.0,0.0,0.0,impulse+basket m-grid,V_up,gap_fill,other
+m2.5_s0.6,2026-10-29,1.0,1.0,8.823000000000004,impulse+basket m-grid,trend_up,no_gap,other
+m2.5_s0.6,2026-10-30,0.0,0.0,0.0,impulse+basket m-grid,range,no_gap,other
+m2.5_s0.6,2026-11-02,1.0,0.0,-2.1120000000000028,impulse+basket m-grid,trend_up,gap_go,day_before
+m2.5_s0.6,2026-11-03,1.0,0.0,-11.897000000000002,impulse+basket m-grid,trend_up,gap_go,expiry
+m2.5_s0.6,2026-11-04,2.0,1.0,-2.46766302,impulse+basket m-grid,trend_up,no_gap,other
+m2.5_s0.6,2026-11-05,0.0,0.0,0.0,impulse+basket m-grid,trend_up,gap_go,other
+m2.5_s0.6,2026-11-06,0.0,0.0,0.0,impulse+basket m-grid,trend_up,no_gap,other
+m2.5_s0.6,2026-11-09,3.0,2.0,29.5073805566618,impulse+basket m-grid,V_up,gap_fill,expiry
+m2.5_s0.6,2026-11-11,1.0,1.0,2.7470000000000105,impulse+basket m-grid,V_down,gap_fade,other
+m2.5_s0.6,2026-11-12,0.0,0.0,0.0,impulse+basket m-grid,range,no_gap,other
+n01_absorb,2026-10-19,0.0,0.0,0.0,new-idea books (n/p/s),trend_down,no_gap,expiry
+n01_absorb,2026-10-21,2.0,1.0,3.5622321600000006,new-idea books (n/p/s),trend_down,gap_fill,other
+n01_absorb,2026-10-22,2.0,1.0,0.3718936000000061,new-idea books (n/p/s),range,no_gap,other
+n01_absorb,2026-10-23,3.0,3.0,14.18424642383358,new-idea books (n/p/s),range,gap_fill,other
+n01_absorb,2026-10-26,1.0,0.0,-6.018999999999997,new-idea books (n/p/s),trend_up,no_gap,day_before
+n01_absorb,2026-10-27,4.0,0.0,-21.25227414124119,new-idea books (n/p/s),range,no_gap,expiry
+n01_absorb,2026-10-28,1.0,0.0,-2.8919999999999946,new-idea books (n/p/s),V_up,gap_fill,other
+n01_absorb,2026-10-29,1.0,0.0,-4.235999999999995,new-idea books (n/p/s),trend_up,no_gap,other
+n01_absorb,2026-10-30,1.0,0.0,-5.345999999999995,new-idea books (n/p/s),range,no_gap,other
+n01_absorb,2026-11-02,2.0,2.0,23.460241380000003,new-idea books (n/p/s),trend_up,gap_go,day_before
+n01_absorb,2026-11-03,2.0,0.0,-19.8611503,new-idea books (n/p/s),trend_up,gap_go,expiry
+n01_absorb,2026-11-04,0.0,0.0,0.0,new-idea books (n/p/s),trend_up,no_gap,other
+n01_absorb,2026-11-05,4.0,1.0,-5.362245222116502,new-idea books (n/p/s),trend_up,gap_go,other
+n01_absorb,2026-11-06,3.0,1.0,9.745508484502396,new-idea books (n/p/s),trend_up,no_gap,other
+n01_absorb,2026-11-09,2.0,1.0,0.3330986299999949,new-idea books (n/p/s),V_up,gap_fill,expiry
+n01_absorb,2026-11-11,1.0,1.0,5.831000000000008,new-idea books (n/p/s),V_down,gap_fade,other
+n01_absorb,2026-11-12,1.0,0.0,-1.810999999999996,new-idea books (n/p/s),range,no_gap,other
+n01_ctl_flow,2026-10-19,7.0,3.0,-12.709564627613243,new-idea controls (n/p/s ctl),trend_down,no_gap,expiry
+n01_ctl_flow,2026-10-21,15.0,8.0,8.13336791531809,new-idea controls (n/p/s ctl),trend_down,gap_fill,other
+n01_ctl_flow,2026-10-22,18.0,9.0,5.357163382578634,new-idea controls (n/p/s ctl),range,no_gap,other
+n01_ctl_flow,2026-10-23,13.0,6.0,-16.919840047303893,new-idea controls (n/p/s ctl),range,gap_fill,other
+n01_ctl_flow,2026-10-26,12.0,6.0,-3.3658546641235576,new-idea controls (n/p/s ctl),trend_up,no_gap,day_before
+n01_ctl_flow,2026-10-27,15.0,8.0,-18.96410565656477,new-idea controls (n/p/s ctl),range,no_gap,expiry
+n01_ctl_flow,2026-10-28,12.0,6.0,4.741119225004686,new-idea controls (n/p/s ctl),V_up,gap_fill,other
+n01_ctl_flow,2026-10-29,21.0,8.0,-5.959076095205129,new-idea controls (n/p/s ctl),trend_up,no_gap,other
+n01_ctl_flow,2026-10-30,17.0,5.0,-27.752935264857932,new-idea controls (n/p/s ctl),range,no_gap,other
+n01_ctl_flow,2026-11-02,13.0,6.0,-0.8982171876702028,new-idea controls (n/p/s ctl),trend_up,gap_go,day_before
+n01_ctl_flow,2026-11-03,17.0,7.0,-0.7549519324905885,new-idea controls (n/p/s ctl),trend_up,gap_go,expiry
+n01_ctl_flow,2026-11-04,18.0,7.0,-17.57438345609874,new-idea controls (n/p/s ctl),trend_up,no_gap,other
+n01_ctl_flow,2026-11-05,33.0,14.0,-20.09071357342817,new-idea controls (n/p/s ctl),trend_up,gap_go,other
+n01_ctl_flow,2026-11-06,17.0,5.0,-21.200332409043043,new-idea controls (n/p/s ctl),trend_up,no_gap,other
+n01_ctl_flow,2026-11-09,30.0,11.0,-54.68495096980752,new-idea controls (n/p/s ctl),V_up,gap_fill,expiry
+n01_ctl_flow,2026-11-11,13.0,4.0,-10.420522859906267,new-idea controls (n/p/s ctl),V_down,gap_fade,other
+n01_ctl_flow,2026-11-12,28.0,10.0,-12.125712823053602,new-idea controls (n/p/s ctl),range,no_gap,other
+n01_ctl_price,2026-10-19,30.0,11.0,-62.31454767452151,new-idea controls (n/p/s ctl),trend_down,no_gap,expiry
+n01_ctl_price,2026-10-21,80.0,38.0,11.56148835297788,new-idea controls (n/p/s ctl),trend_down,gap_fill,other
+n01_ctl_price,2026-10-22,94.0,44.0,-28.951935591335275,new-idea controls (n/p/s ctl),range,no_gap,other
+n01_ctl_price,2026-10-23,59.0,29.0,-5.479435368223173,new-idea controls (n/p/s ctl),range,gap_fill,other
+n01_ctl_price,2026-10-26,80.0,33.0,-42.15453669684939,new-idea controls (n/p/s ctl),trend_up,no_gap,day_before
+n01_ctl_price,2026-10-27,62.0,26.0,-51.306884699110775,new-idea controls (n/p/s ctl),range,no_gap,expiry
+n01_ctl_price,2026-10-28,57.0,24.0,-22.543104105700078,new-idea controls (n/p/s ctl),V_up,gap_fill,other
+n01_ctl_price,2026-10-29,47.0,19.0,-23.869729087605208,new-idea controls (n/p/s ctl),trend_up,no_gap,other
+n01_ctl_price,2026-10-30,49.0,24.0,15.8559216237097,new-idea controls (n/p/s ctl),range,no_gap,other
+n01_ctl_price,2026-11-02,41.0,20.0,0.7697907664158343,new-idea controls (n/p/s ctl),trend_up,gap_go,day_before
+n01_ctl_price,2026-11-03,51.0,18.0,-71.38753482542208,new-idea controls (n/p/s ctl),trend_up,gap_go,expiry
+n01_ctl_price,2026-11-04,67.0,34.0,16.03915371727187,new-idea controls (n/p/s ctl),trend_up,no_gap,other
+n01_ctl_price,2026-11-05,57.0,27.0,5.244482869563694,new-idea controls (n/p/s ctl),trend_up,gap_go,other
+n01_ctl_price,2026-11-06,97.0,43.0,-32.15413754855347,new-idea controls (n/p/s ctl),trend_up,no_gap,other
+n01_ctl_price,2026-11-09,100.0,46.0,-43.76768290813795,new-idea controls (n/p/s ctl),V_up,gap_fill,expiry
+n01_ctl_price,2026-11-11,82.0,38.0,-19.55426907101807,new-idea controls (n/p/s ctl),V_down,gap_fade,other
+n01_ctl_price,2026-11-12,78.0,41.0,20.95585954841628,new-idea controls (n/p/s ctl),range,no_gap,other
+n01_ctl_price_ind,2026-10-19,30.0,11.0,-62.31454767452151,new-idea controls (n/p/s ctl),trend_down,no_gap,expiry
+n01_ctl_price_ind,2026-10-21,80.0,38.0,11.56148835297788,new-idea controls (n/p/s ctl),trend_down,gap_fill,other
+n01_ctl_price_ind,2026-10-22,94.0,44.0,-28.951935591335275,new-idea controls (n/p/s ctl),range,no_gap,other
+n01_ctl_price_ind,2026-10-23,60.0,29.0,-9.412361392509228,new-idea controls (n/p/s ctl),range,gap_fill,other
+n01_ctl_price_ind,2026-10-26,80.0,33.0,-42.15453669684939,new-idea controls (n/p/s ctl),trend_up,no_gap,day_before
+n01_ctl_price_ind,2026-10-27,62.0,26.0,-51.306884699110775,new-idea controls (n/p/s ctl),range,no_gap,expiry
+n01_ctl_price_ind,2026-10-28,57.0,24.0,-22.543104105700078,new-idea controls (n/p/s ctl),V_up,gap_fill,other
+n01_ctl_price_ind,2026-10-29,47.0,19.0,-23.869729087605208,new-idea controls (n/p/s ctl),trend_up,no_gap,other
+n01_ctl_price_ind,2026-10-30,49.0,24.0,15.8559216237097,new-idea controls (n/p/s ctl),range,no_gap,other
+n01_ctl_price_ind,2026-11-02,41.0,20.0,0.7697907664158343,new-idea controls (n/p/s ctl),trend_up,gap_go,day_before
+n01_ctl_price_ind,2026-11-03,51.0,18.0,-71.38753482542208,new-idea controls (n/p/s ctl),trend_up,gap_go,expiry
+n01_ctl_price_ind,2026-11-04,67.0,34.0,16.03915371727187,new-idea controls (n/p/s ctl),trend_up,no_gap,other
+n01_ctl_price_ind,2026-11-05,57.0,27.0,5.244482869563694,new-idea controls (n/p/s ctl),trend_up,gap_go,other
+n01_ctl_price_ind,2026-11-06,98.0,43.0,-32.47383054123748,new-idea controls (n/p/s ctl),trend_up,no_gap,other
+n01_ctl_price_ind,2026-11-09,100.0,46.0,-43.76768290813795,new-idea controls (n/p/s ctl),V_up,gap_fill,expiry
+n01_ctl_price_ind,2026-11-11,82.0,38.0,-19.55426907101807,new-idea controls (n/p/s ctl),V_down,gap_fade,other
+n01_ctl_price_ind,2026-11-12,78.0,41.0,20.95585954841628,new-idea controls (n/p/s ctl),range,no_gap,other
+n01_release,2026-10-19,1.0,0.0,-1.7469999999999986,new-idea books (n/p/s),trend_down,no_gap,expiry
+n01_release,2026-10-21,0.0,0.0,0.0,new-idea books (n/p/s),trend_down,gap_fill,other
+n01_release,2026-10-22,2.0,1.0,7.56117998000001,new-idea books (n/p/s),range,no_gap,other
+n01_release,2026-10-23,0.0,0.0,0.0,new-idea books (n/p/s),range,gap_fill,other
+n01_release,2026-10-26,2.0,1.0,1.1676068899999947,new-idea books (n/p/s),trend_up,no_gap,day_before
+n01_release,2026-10-27,1.0,0.0,-5.991999999999997,new-idea books (n/p/s),range,no_gap,expiry
+n01_release,2026-10-28,0.0,0.0,0.0,new-idea books (n/p/s),V_up,gap_fill,other
+n01_release,2026-10-29,2.0,1.0,2.673539639999989,new-idea books (n/p/s),trend_up,no_gap,other
+n01_release,2026-10-30,3.0,1.0,-0.6131189401270221,new-idea books (n/p/s),range,no_gap,other
+n01_release,2026-11-02,0.0,0.0,0.0,new-idea books (n/p/s),trend_up,gap_go,day_before
+n01_release,2026-11-03,0.0,0.0,0.0,new-idea books (n/p/s),trend_up,gap_go,expiry
+n01_release,2026-11-04,0.0,0.0,0.0,new-idea books (n/p/s),trend_up,no_gap,other
+n01_release,2026-11-05,0.0,0.0,0.0,new-idea books (n/p/s),trend_up,gap_go,other
+n01_release,2026-11-06,1.0,0.0,-1.0870000000000046,new-idea books (n/p/s),trend_up,no_gap,other
+n01_release,2026-11-09,0.0,0.0,0.0,new-idea books (n/p/s),V_up,gap_fill,expiry
+n01_release,2026-11-11,1.0,0.0,-0.5659999999999998,new-idea books (n/p/s),V_down,gap_fade,other
+n01_release,2026-11-12,0.0,0.0,0.0,new-idea books (n/p/s),range,no_gap,other
+n02_ctl_mr,2026-10-19,37.0,22.0,81.39325691577088,new-idea controls (n/p/s ctl),trend_down,no_gap,expiry
+n02_ctl_mr,2026-10-21,86.0,44.0,40.79007769559191,new-idea controls (n/p/s ctl),trend_down,gap_fill,other
+n02_ctl_mr,2026-10-22,92.0,45.0,-15.36962176389136,new-idea controls (n/p/s ctl),range,no_gap,other
+n02_ctl_mr,2026-10-23,69.0,38.0,36.12498835141582,new-idea controls (n/p/s ctl),range,gap_fill,other
+n02_ctl_mr,2026-10-26,84.0,38.0,-16.38296551696601,new-idea controls (n/p/s ctl),trend_up,no_gap,day_before
+n02_ctl_mr,2026-10-27,80.0,43.0,48.69635829894652,new-idea controls (n/p/s ctl),range,no_gap,expiry
+n02_ctl_mr,2026-10-28,64.0,26.0,-13.998184615542575,new-idea controls (n/p/s ctl),V_up,gap_fill,other
+n02_ctl_mr,2026-10-29,58.0,27.0,-18.23925045199036,new-idea controls (n/p/s ctl),trend_up,no_gap,other
+n02_ctl_mr,2026-10-30,62.0,29.0,-1.5761245120782696,new-idea controls (n/p/s ctl),range,no_gap,other
+n02_ctl_mr,2026-11-02,45.0,22.0,0.9230356156956,new-idea controls (n/p/s ctl),trend_up,gap_go,day_before
+n02_ctl_mr,2026-11-03,52.0,21.0,-58.53757380990229,new-idea controls (n/p/s ctl),trend_up,gap_go,expiry
+n02_ctl_mr,2026-11-04,81.0,38.0,-21.841535293355086,new-idea controls (n/p/s ctl),trend_up,no_gap,other
+n02_ctl_mr,2026-11-05,61.0,30.0,3.3591917237159707,new-idea controls (n/p/s ctl),trend_up,gap_go,other
+n02_ctl_mr,2026-11-06,112.0,64.0,77.04181210857786,new-idea controls (n/p/s ctl),trend_up,no_gap,other
+n02_ctl_mr,2026-11-09,104.0,47.0,-40.46892191668437,new-idea controls (n/p/s ctl),V_up,gap_fill,expiry
+n02_ctl_mr,2026-11-11,98.0,46.0,-8.890222607141796,new-idea controls (n/p/s ctl),V_down,gap_fade,other
+n02_ctl_mr,2026-11-12,83.0,46.0,21.380370047872965,new-idea controls (n/p/s ctl),range,no_gap,other
+n02_relax,2026-10-19,6.0,3.0,-7.849622697270409,new-idea books (n/p/s),trend_down,no_gap,expiry
+n02_relax,2026-10-21,17.0,13.0,10.756890034245536,new-idea books (n/p/s),trend_down,gap_fill,other
+n02_relax,2026-10-22,19.0,14.0,6.518169233114035,new-idea books (n/p/s),range,no_gap,other
+n02_relax,2026-10-23,8.0,5.0,4.670195855483716,new-idea books (n/p/s),range,gap_fill,other
+n02_relax,2026-10-26,11.0,3.0,-9.484792253303551,new-idea books (n/p/s),trend_up,no_gap,day_before
+n02_relax,2026-10-27,12.0,6.0,-10.680143537845144,new-idea books (n/p/s),range,no_gap,expiry
+n02_relax,2026-10-28,9.0,7.0,6.433238288900078,new-idea books (n/p/s),V_up,gap_fill,other
+n02_relax,2026-10-29,14.0,8.0,4.342661035940143,new-idea books (n/p/s),trend_up,no_gap,other
+n02_relax,2026-10-30,10.0,6.0,11.116430862233084,new-idea books (n/p/s),range,no_gap,other
+n02_relax,2026-11-02,5.0,4.0,3.3176606788418272,new-idea books (n/p/s),trend_up,gap_go,day_before
+n02_relax,2026-11-03,14.0,7.0,-14.448501346733169,new-idea books (n/p/s),trend_up,gap_go,expiry
+n02_relax,2026-11-04,27.0,9.0,-23.756388002437635,new-idea books (n/p/s),trend_up,no_gap,other
+n02_relax,2026-11-05,14.0,7.0,-3.4309868589044945,new-idea books (n/p/s),trend_up,gap_go,other
+n02_relax,2026-11-06,19.0,11.0,2.424486655014668,new-idea books (n/p/s),trend_up,no_gap,other
+n02_relax,2026-11-09,30.0,13.0,-25.93909629879737,new-idea books (n/p/s),V_up,gap_fill,expiry
+n02_relax,2026-11-11,25.0,12.0,-2.42878389932224,new-idea books (n/p/s),V_down,gap_fade,other
+n02_relax,2026-11-12,47.0,29.0,-2.294195412306377,new-idea books (n/p/s),range,no_gap,other
+n06_ctl_breadth,2026-10-19,28.0,11.0,-63.01219609605712,new-idea controls (n/p/s ctl),trend_down,no_gap,expiry
+n06_ctl_breadth,2026-10-21,91.0,39.0,-53.67026284654308,new-idea controls (n/p/s ctl),trend_down,gap_fill,other
+n06_ctl_breadth,2026-10-22,88.0,46.0,14.700591197683275,new-idea controls (n/p/s ctl),range,no_gap,other
+n06_ctl_breadth,2026-10-23,63.0,37.0,59.64890755568511,new-idea controls (n/p/s ctl),range,gap_fill,other
+n06_ctl_breadth,2026-10-26,79.0,37.0,-24.50505293524102,new-idea controls (n/p/s ctl),trend_up,no_gap,day_before
+n06_ctl_breadth,2026-10-27,66.0,33.0,1.9254935805913087,new-idea controls (n/p/s ctl),range,no_gap,expiry
+n06_ctl_breadth,2026-10-28,62.0,24.0,-40.466034617366255,new-idea controls (n/p/s ctl),V_up,gap_fill,other
+n06_ctl_breadth,2026-10-29,65.0,38.0,11.457833787525828,new-idea controls (n/p/s ctl),trend_up,no_gap,other
+n06_ctl_breadth,2026-10-30,80.0,41.0,-30.776867756410677,new-idea controls (n/p/s ctl),range,no_gap,other
+n06_ctl_breadth,2026-11-02,64.0,33.0,-15.052030774010072,new-idea controls (n/p/s ctl),trend_up,gap_go,day_before
+n06_ctl_breadth,2026-11-03,63.0,26.0,-66.38130346553682,new-idea controls (n/p/s ctl),trend_up,gap_go,expiry
+n06_ctl_breadth,2026-11-04,76.0,40.0,0.1644915727539553,new-idea controls (n/p/s ctl),trend_up,no_gap,other
+n06_ctl_breadth,2026-11-05,66.0,31.0,-14.19759673683293,new-idea controls (n/p/s ctl),trend_up,gap_go,other
+n06_ctl_breadth,2026-11-06,87.0,49.0,43.30625648689717,new-idea controls (n/p/s ctl),trend_up,no_gap,other
+n06_ctl_breadth,2026-11-09,92.0,39.0,-87.94237616393818,new-idea controls (n/p/s ctl),V_up,gap_fill,expiry
+n06_ctl_breadth,2026-11-11,87.0,41.0,-31.677679862844972,new-idea controls (n/p/s ctl),V_down,gap_fade,other
+n06_ctl_breadth,2026-11-12,84.0,44.0,2.854324412080844,new-idea controls (n/p/s ctl),range,no_gap,other
+n06_lead,2026-10-19,2.0,1.0,7.623132679999989,new-idea books (n/p/s),trend_down,no_gap,expiry
+n06_lead,2026-10-21,6.0,2.0,-8.026501285083853,new-idea books (n/p/s),trend_down,gap_fill,other
+n06_lead,2026-10-22,4.0,2.0,7.651561906438564,new-idea books (n/p/s),range,no_gap,other
+n06_lead,2026-10-23,1.0,0.0,-4.369000000000001,new-idea books (n/p/s),range,gap_fill,other
+n06_lead,2026-10-26,2.0,1.0,0.4800447500000082,new-idea books (n/p/s),trend_up,no_gap,day_before
+n06_lead,2026-10-27,1.0,1.0,12.537,new-idea books (n/p/s),range,no_gap,expiry
+n06_lead,2026-10-28,3.0,1.0,0.2072771826559849,new-idea books (n/p/s),V_up,gap_fill,other
+n06_lead,2026-10-29,4.0,1.0,1.3748528657621994,new-idea books (n/p/s),trend_up,no_gap,other
+n06_lead,2026-10-30,1.0,0.0,-4.088000000000003,new-idea books (n/p/s),range,no_gap,other
+n06_lead,2026-11-02,3.0,0.0,-8.262031762302403,new-idea books (n/p/s),trend_up,gap_go,day_before
+n06_lead,2026-11-03,5.0,2.0,-5.494020580288628,new-idea books (n/p/s),trend_up,gap_go,expiry
+n06_lead,2026-11-04,2.0,1.0,-1.2844267600000014,new-idea books (n/p/s),trend_up,no_gap,other
+n06_lead,2026-11-05,2.0,0.0,-1.5836768000000112,new-idea books (n/p/s),trend_up,gap_go,other
+n06_lead,2026-11-06,1.0,0.0,-2.295999999999998,new-idea books (n/p/s),trend_up,no_gap,other
+n06_lead,2026-11-09,3.0,3.0,23.741460621209587,new-idea books (n/p/s),V_up,gap_fill,expiry
+n06_lead,2026-11-11,5.0,3.0,5.268087842061342,new-idea books (n/p/s),V_down,gap_fade,other
+n06_lead,2026-11-12,3.0,1.0,0.1908824931853958,new-idea books (n/p/s),range,no_gap,other
+p02_clock,2026-10-19,0.0,0.0,0.0,new-idea books (n/p/s),trend_down,no_gap,expiry
+p02_clock,2026-10-21,0.0,0.0,0.0,new-idea books (n/p/s),trend_down,gap_fill,other
+p02_clock,2026-10-22,0.0,0.0,0.0,new-idea books (n/p/s),range,no_gap,other
+p02_clock,2026-10-23,0.0,0.0,0.0,new-idea books (n/p/s),range,gap_fill,other
+p02_clock,2026-10-26,0.0,0.0,0.0,new-idea books (n/p/s),trend_up,no_gap,day_before
+p02_clock,2026-10-27,54.0,26.0,-30.24721102219893,new-idea books (n/p/s),range,no_gap,expiry
+p02_clock,2026-10-28,21.0,11.0,-1.9154053050620343,new-idea books (n/p/s),V_up,gap_fill,other
+p02_clock,2026-10-29,32.0,18.0,37.59407910410817,new-idea books (n/p/s),trend_up,no_gap,other
+p02_clock,2026-10-30,55.0,21.0,-50.04501612665832,new-idea books (n/p/s),range,no_gap,other
+p02_clock,2026-11-02,47.0,24.0,-10.092788042318068,new-idea books (n/p/s),trend_up,gap_go,day_before
+p02_clock,2026-11-03,75.0,45.0,148.3429012815481,new-idea books (n/p/s),trend_up,gap_go,expiry
+p02_clock,2026-11-04,19.0,11.0,3.419738755030721,new-idea books (n/p/s),trend_up,no_gap,other
+p02_clock,2026-11-05,16.0,6.0,-14.62806557476034,new-idea books (n/p/s),trend_up,gap_go,other
+p02_clock,2026-11-06,14.0,5.0,-27.379791855509197,new-idea books (n/p/s),trend_up,no_gap,other
+p02_clock,2026-11-09,67.0,31.0,-45.51338273664943,new-idea books (n/p/s),V_up,gap_fill,expiry
+p02_clock,2026-11-11,0.0,0.0,0.0,new-idea books (n/p/s),V_down,gap_fade,other
+p02_clock,2026-11-12,4.0,3.0,1.378982570367704,new-idea books (n/p/s),range,no_gap,other
+p02_ctl_mom,2026-10-19,0.0,0.0,0.0,new-idea controls (n/p/s ctl),trend_down,no_gap,expiry
+p02_ctl_mom,2026-10-21,0.0,0.0,0.0,new-idea controls (n/p/s ctl),trend_down,gap_fill,other
+p02_ctl_mom,2026-10-22,0.0,0.0,0.0,new-idea controls (n/p/s ctl),range,no_gap,other
+p02_ctl_mom,2026-10-23,0.0,0.0,0.0,new-idea controls (n/p/s ctl),range,gap_fill,other
+p02_ctl_mom,2026-10-26,0.0,0.0,0.0,new-idea controls (n/p/s ctl),trend_up,no_gap,day_before
+p02_ctl_mom,2026-10-27,29.0,17.0,68.89278259053957,new-idea controls (n/p/s ctl),range,no_gap,expiry
+p02_ctl_mom,2026-10-28,18.0,12.0,25.964210704232137,new-idea controls (n/p/s ctl),V_up,gap_fill,other
+p02_ctl_mom,2026-10-29,19.0,12.0,22.408089122891734,new-idea controls (n/p/s ctl),trend_up,no_gap,other
+p02_ctl_mom,2026-10-30,28.0,12.0,-21.384787928056404,new-idea controls (n/p/s ctl),range,no_gap,other
+p02_ctl_mom,2026-11-02,14.0,5.0,-12.34544819337573,new-idea controls (n/p/s ctl),trend_up,gap_go,day_before
+p02_ctl_mom,2026-11-03,15.0,9.0,27.690009260447425,new-idea controls (n/p/s ctl),trend_up,gap_go,expiry
+p02_ctl_mom,2026-11-04,36.0,20.0,-3.880005706297407,new-idea controls (n/p/s ctl),trend_up,no_gap,other
+p02_ctl_mom,2026-11-05,21.0,12.0,25.577732933210395,new-idea controls (n/p/s ctl),trend_up,gap_go,other
+p02_ctl_mom,2026-11-06,64.0,30.0,-32.49057256866155,new-idea controls (n/p/s ctl),trend_up,no_gap,other
+p02_ctl_mom,2026-11-09,77.0,38.0,19.69226439714169,new-idea controls (n/p/s ctl),V_up,gap_fill,expiry
+p02_ctl_mom,2026-11-11,38.0,16.0,-28.93912990975278,new-idea controls (n/p/s ctl),V_down,gap_fade,other
+p02_ctl_mom,2026-11-12,29.0,12.0,-11.47989422796436,new-idea controls (n/p/s ctl),range,no_gap,other
+p02_top1,2026-10-19,0.0,0.0,0.0,new-idea books (n/p/s),trend_down,no_gap,expiry
+p02_top1,2026-10-21,0.0,0.0,0.0,new-idea books (n/p/s),trend_down,gap_fill,other
+p02_top1,2026-10-22,0.0,0.0,0.0,new-idea books (n/p/s),range,no_gap,other
+p02_top1,2026-10-23,0.0,0.0,0.0,new-idea books (n/p/s),range,gap_fill,other
+p02_top1,2026-10-26,0.0,0.0,0.0,new-idea books (n/p/s),trend_up,no_gap,day_before
+p02_top1,2026-10-27,18.0,10.0,18.56050749763838,new-idea books (n/p/s),range,no_gap,expiry
+p02_top1,2026-10-28,2.0,1.0,-1.0541584600000098,new-idea books (n/p/s),V_up,gap_fill,other
+p02_top1,2026-10-29,8.0,5.0,12.969541460166,new-idea books (n/p/s),trend_up,no_gap,other
+p02_top1,2026-10-30,17.0,8.0,-8.200974168306596,new-idea books (n/p/s),range,no_gap,other
+p02_top1,2026-11-02,11.0,7.0,6.1454877831127686,new-idea books (n/p/s),trend_up,gap_go,day_before
+p02_top1,2026-11-03,36.0,20.0,32.11642593166464,new-idea books (n/p/s),trend_up,gap_go,expiry
+p02_top1,2026-11-04,4.0,4.0,13.417147061142565,new-idea books (n/p/s),trend_up,no_gap,other
+p02_top1,2026-11-05,7.0,2.0,-8.700354062765525,new-idea books (n/p/s),trend_up,gap_go,other
+p02_top1,2026-11-06,9.0,3.0,-25.083697608714814,new-idea books (n/p/s),trend_up,no_gap,other
+p02_top1,2026-11-09,19.0,13.0,62.10731974551411,new-idea books (n/p/s),V_up,gap_fill,expiry
+p02_top1,2026-11-11,0.0,0.0,0.0,new-idea books (n/p/s),V_down,gap_fade,other
+p02_top1,2026-11-12,0.0,0.0,0.0,new-idea books (n/p/s),range,no_gap,other
+p05_adaptive,2026-10-19,0.0,0.0,0.0,new-idea books (n/p/s),trend_down,no_gap,expiry
+p05_adaptive,2026-10-21,0.0,0.0,0.0,new-idea books (n/p/s),trend_down,gap_fill,other
+p05_adaptive,2026-10-22,0.0,0.0,0.0,new-idea books (n/p/s),range,no_gap,other
+p05_adaptive,2026-10-23,0.0,0.0,0.0,new-idea books (n/p/s),range,gap_fill,other
+p05_adaptive,2026-10-26,0.0,0.0,0.0,new-idea books (n/p/s),trend_up,no_gap,day_before
+p05_adaptive,2026-10-27,27.0,16.0,37.01578578072626,new-idea books (n/p/s),range,no_gap,expiry
+p05_adaptive,2026-10-28,10.0,6.0,-1.2858033388830292,new-idea books (n/p/s),V_up,gap_fill,other
+p05_adaptive,2026-10-29,54.0,24.0,12.721015415757453,new-idea books (n/p/s),trend_up,no_gap,other
+p05_adaptive,2026-10-30,42.0,20.0,-11.2680084570713,new-idea books (n/p/s),range,no_gap,other
+p05_adaptive,2026-11-02,14.0,8.0,12.238482464113698,new-idea books (n/p/s),trend_up,gap_go,day_before
+p05_adaptive,2026-11-03,76.0,36.0,-29.309204333464912,new-idea books (n/p/s),trend_up,gap_go,expiry
+p05_adaptive,2026-11-04,19.0,9.0,-5.260817810501994,new-idea books (n/p/s),trend_up,no_gap,other
+p05_adaptive,2026-11-05,9.0,2.0,-12.384684644662505,new-idea books (n/p/s),trend_up,gap_go,other
+p05_adaptive,2026-11-06,19.0,6.0,-24.455666147461898,new-idea books (n/p/s),trend_up,no_gap,other
+p05_adaptive,2026-11-09,37.0,19.0,0.6382031971102542,new-idea books (n/p/s),V_up,gap_fill,expiry
+p05_adaptive,2026-11-11,1.0,1.0,0.7749999999999924,new-idea books (n/p/s),V_down,gap_fade,other
+p05_adaptive,2026-11-12,10.0,5.0,3.634809509953052,new-idea books (n/p/s),range,no_gap,other
+premium_momentum,2026-10-19,29.0,11.0,-51.98957250739157,control,trend_down,no_gap,expiry
+premium_momentum,2026-10-21,13.0,5.0,-12.547197241713226,control,trend_down,gap_fill,other
+premium_momentum,2026-10-22,17.0,7.0,1.612605665729694,control,range,no_gap,other
+premium_momentum,2026-10-23,14.0,7.0,10.479033613791412,control,range,gap_fill,other
+premium_momentum,2026-10-26,29.0,9.0,-11.782104723591123,control,trend_up,no_gap,day_before
+premium_momentum,2026-10-27,29.0,12.0,-1.4990693976968616,control,range,no_gap,expiry
+premium_momentum,2026-10-28,8.0,1.0,-21.316418508037305,control,V_up,gap_fill,other
+premium_momentum,2026-10-29,6.0,3.0,0.8277531717027831,control,trend_up,no_gap,other
+premium_momentum,2026-10-30,18.0,3.0,-54.712155538738806,control,range,no_gap,other
+premium_momentum,2026-11-02,21.0,9.0,-37.48865695960397,control,trend_up,gap_go,day_before
+premium_momentum,2026-11-03,28.0,12.0,-83.51910469205744,control,trend_up,gap_go,expiry
+premium_momentum,2026-11-04,10.0,5.0,-3.615452253752083,control,trend_up,no_gap,other
+premium_momentum,2026-11-05,3.0,1.0,-8.2561018320352,control,trend_up,gap_go,other
+premium_momentum,2026-11-06,16.0,5.0,-6.902757562478268,control,trend_up,no_gap,other
+premium_momentum,2026-11-09,35.0,20.0,103.76111265375584,control,V_up,gap_fill,expiry
+premium_momentum,2026-11-11,4.0,4.0,8.67752193334308,control,V_down,gap_fade,other
+premium_momentum,2026-11-12,3.0,1.0,-5.965138809663984,control,range,no_gap,other
+random_entry,2026-10-19,6.0,3.0,23.74887638872876,control,trend_down,no_gap,expiry
+random_entry,2026-10-21,6.0,2.0,0.2864912638671946,control,trend_down,gap_fill,other
+random_entry,2026-10-22,6.0,3.0,3.0963924801053144,control,range,no_gap,other
+random_entry,2026-10-23,5.0,4.0,1.939678074188533,control,range,gap_fill,other
+random_entry,2026-10-26,6.0,4.0,12.068093703881068,control,trend_up,no_gap,day_before
+random_entry,2026-10-27,7.0,2.0,3.833931874630636,control,range,no_gap,expiry
+random_entry,2026-10-28,5.0,1.0,-13.330091342715434,control,V_up,gap_fill,other
+random_entry,2026-10-29,5.0,4.0,9.479111766345016,control,trend_up,no_gap,other
+random_entry,2026-10-30,8.0,1.0,-20.099442235110757,control,range,no_gap,other
+random_entry,2026-11-02,10.0,2.0,-41.51318009739283,control,trend_up,gap_go,day_before
+random_entry,2026-11-03,5.0,2.0,1.1199916085912642,control,trend_up,gap_go,expiry
+random_entry,2026-11-04,2.0,0.0,-5.824477840000009,control,trend_up,no_gap,other
+random_entry,2026-11-05,3.0,1.0,-6.68551082239961,control,trend_up,gap_go,other
+random_entry,2026-11-06,7.0,3.0,-2.6843005170589795,control,trend_up,no_gap,other
+random_entry,2026-11-09,2.0,0.0,-12.578828500000006,control,V_up,gap_fill,expiry
+random_entry,2026-11-11,10.0,7.0,24.08659447939729,control,V_down,gap_fade,other
+random_entry,2026-11-12,8.0,3.0,-5.312101660890079,control,range,no_gap,other
+rx_c20_9y,2026-10-19,14.0,7.0,103.83799895381358,c20 exit/re-entry twins,trend_down,no_gap,expiry
+rx_c20_9y,2026-10-21,4.0,1.0,53.242152586094285,c20 exit/re-entry twins,trend_down,gap_fill,other
+rx_c20_9y,2026-10-22,4.0,3.0,26.314728419490677,c20 exit/re-entry twins,range,no_gap,other
+rx_c20_9y,2026-10-23,3.0,2.0,57.52903596394301,c20 exit/re-entry twins,range,gap_fill,other
+rx_c20_9y,2026-10-26,4.0,4.0,232.03197061475728,c20 exit/re-entry twins,trend_up,no_gap,day_before
+rx_c20_9y,2026-10-27,13.0,10.0,541.8725810381759,c20 exit/re-entry twins,range,no_gap,expiry
+rx_c20_9y,2026-10-28,3.0,3.0,54.71473881572,c20 exit/re-entry twins,V_up,gap_fill,other
+rx_c20_9y,2026-10-29,4.0,2.0,28.06029602222413,c20 exit/re-entry twins,trend_up,no_gap,other
+rx_c20_9y,2026-10-30,2.0,0.0,-2.33674733,c20 exit/re-entry twins,range,no_gap,other
+rx_c20_9y,2026-11-02,4.0,3.0,42.17289733422784,c20 exit/re-entry twins,trend_up,gap_go,day_before
+rx_c20_9y,2026-11-03,9.0,6.0,-2.631064672538075,c20 exit/re-entry twins,trend_up,gap_go,expiry
+rx_c20_9y,2026-11-04,5.0,1.0,-28.51766451386929,c20 exit/re-entry twins,trend_up,no_gap,other
+rx_c20_9y,2026-11-05,1.0,0.0,-5.981999999999998,c20 exit/re-entry twins,trend_up,gap_go,other
+rx_c20_9y,2026-11-06,3.0,3.0,98.40186286798398,c20 exit/re-entry twins,trend_up,no_gap,other
+rx_c20_9y,2026-11-09,20.0,10.0,63.11249686618932,c20 exit/re-entry twins,V_up,gap_fill,expiry
+rx_c20_9y,2026-11-11,3.0,1.0,-4.7885753309955925,c20 exit/re-entry twins,V_down,gap_fade,other
+rx_c20_9y,2026-11-12,4.0,1.0,-5.139211639017837,c20 exit/re-entry twins,range,no_gap,other
+s01_ctl_cash,2026-10-19,14.0,10.0,10.474919366472513,new-idea controls (n/p/s ctl),trend_down,no_gap,expiry
+s01_ctl_cash,2026-10-21,6.0,2.0,-12.663717771195117,new-idea controls (n/p/s ctl),trend_down,gap_fill,other
+s01_ctl_cash,2026-10-22,25.0,12.0,-7.187360648071827,new-idea controls (n/p/s ctl),range,no_gap,other
+s01_ctl_cash,2026-10-23,11.0,7.0,14.81743432097966,new-idea controls (n/p/s ctl),range,gap_fill,other
+s01_ctl_cash,2026-10-26,18.0,10.0,4.786834615579783,new-idea controls (n/p/s ctl),trend_up,no_gap,day_before
+s01_ctl_cash,2026-10-27,8.0,6.0,54.80459874553198,new-idea controls (n/p/s ctl),range,no_gap,expiry
+s01_ctl_cash,2026-10-28,10.0,9.0,31.16883307438909,new-idea controls (n/p/s ctl),V_up,gap_fill,other
+s01_ctl_cash,2026-10-29,5.0,2.0,2.854469235956936,new-idea controls (n/p/s ctl),trend_up,no_gap,other
+s01_ctl_cash,2026-10-30,2.0,1.0,-4.3106095600000005,new-idea controls (n/p/s ctl),range,no_gap,other
+s01_ctl_cash,2026-11-02,2.0,1.0,5.713692260000003,new-idea controls (n/p/s ctl),trend_up,gap_go,day_before
+s01_ctl_cash,2026-11-03,3.0,2.0,0.1658894080542206,new-idea controls (n/p/s ctl),trend_up,gap_go,expiry
+s01_ctl_cash,2026-11-04,4.0,4.0,11.34103111227802,new-idea controls (n/p/s ctl),trend_up,no_gap,other
+s01_ctl_cash,2026-11-05,2.0,2.0,8.540454879999992,new-idea controls (n/p/s ctl),trend_up,gap_go,other
+s01_ctl_cash,2026-11-06,17.0,8.0,-9.277585238929364,new-idea controls (n/p/s ctl),trend_up,no_gap,other
+s01_ctl_cash,2026-11-09,25.0,14.0,-7.350884949239855,new-idea controls (n/p/s ctl),V_up,gap_fill,expiry
+s01_ctl_cash,2026-11-11,5.0,2.0,-5.69045355571488,new-idea controls (n/p/s ctl),V_down,gap_fade,other
+s01_ctl_cash,2026-11-12,4.0,1.0,-7.587852253870997,new-idea controls (n/p/s ctl),range,no_gap,other
+s01_ctl_sfut,2026-10-19,13.0,8.0,26.05662789207519,new-idea controls (n/p/s ctl),trend_down,no_gap,expiry
+s01_ctl_sfut,2026-10-21,10.0,3.0,-18.80501374544411,new-idea controls (n/p/s ctl),trend_down,gap_fill,other
+s01_ctl_sfut,2026-10-22,27.0,9.0,-24.893714673930837,new-idea controls (n/p/s ctl),range,no_gap,other
+s01_ctl_sfut,2026-10-23,15.0,4.0,-28.822359591680137,new-idea controls (n/p/s ctl),range,gap_fill,other
+s01_ctl_sfut,2026-10-26,20.0,7.0,-21.33261677473497,new-idea controls (n/p/s ctl),trend_up,no_gap,day_before
+s01_ctl_sfut,2026-10-27,4.0,3.0,26.35159992358565,new-idea controls (n/p/s ctl),range,no_gap,expiry
+s01_ctl_sfut,2026-10-28,11.0,9.0,27.399398038882737,new-idea controls (n/p/s ctl),V_up,gap_fill,other
+s01_ctl_sfut,2026-10-29,6.0,4.0,10.437740108713566,new-idea controls (n/p/s ctl),trend_up,no_gap,other
+s01_ctl_sfut,2026-10-30,5.0,0.0,-23.37307096301774,new-idea controls (n/p/s ctl),range,no_gap,other
+s01_ctl_sfut,2026-11-02,2.0,1.0,6.974955560000007,new-idea controls (n/p/s ctl),trend_up,gap_go,day_before
+s01_ctl_sfut,2026-11-03,8.0,2.0,-33.04153093662458,new-idea controls (n/p/s ctl),trend_up,gap_go,expiry
+s01_ctl_sfut,2026-11-04,5.0,4.0,8.934084727098002,new-idea controls (n/p/s ctl),trend_up,no_gap,other
+s01_ctl_sfut,2026-11-05,4.0,4.0,14.680669048468186,new-idea controls (n/p/s ctl),trend_up,gap_go,other
+s01_ctl_sfut,2026-11-06,21.0,10.0,-12.378656795642174,new-idea controls (n/p/s ctl),trend_up,no_gap,other
+s01_ctl_sfut,2026-11-09,21.0,9.0,-49.38862725824569,new-idea controls (n/p/s ctl),V_up,gap_fill,expiry
+s01_ctl_sfut,2026-11-11,10.0,5.0,-3.291598020492814,new-idea controls (n/p/s ctl),V_down,gap_fade,other
+s01_ctl_sfut,2026-11-12,2.0,0.0,-4.601997059999996,new-idea controls (n/p/s ctl),range,no_gap,other
+s01_transmit,2026-10-19,7.0,1.0,-35.31904066600976,new-idea books (n/p/s),trend_down,no_gap,expiry
+s01_transmit,2026-10-21,12.0,4.0,-10.92820471313225,new-idea books (n/p/s),trend_down,gap_fill,other
+s01_transmit,2026-10-22,7.0,3.0,-5.323545342880943,new-idea books (n/p/s),range,no_gap,other
+s01_transmit,2026-10-23,21.0,11.0,1.962712013372525,new-idea books (n/p/s),range,gap_fill,other
+s01_transmit,2026-10-26,17.0,8.0,-15.705336861072729,new-idea books (n/p/s),trend_up,no_gap,day_before
+s01_transmit,2026-10-27,7.0,6.0,44.61519927853246,new-idea books (n/p/s),range,no_gap,expiry
+s01_transmit,2026-10-28,13.0,6.0,1.4618483035188534,new-idea books (n/p/s),V_up,gap_fill,other
+s01_transmit,2026-10-29,9.0,5.0,5.043994327981616,new-idea books (n/p/s),trend_up,no_gap,other
+s01_transmit,2026-10-30,7.0,4.0,-4.187393685534069,new-idea books (n/p/s),range,no_gap,other
+s01_transmit,2026-11-02,13.0,7.0,-0.0436558300323852,new-idea books (n/p/s),trend_up,gap_go,day_before
+s01_transmit,2026-11-03,11.0,2.0,-12.54940148983048,new-idea books (n/p/s),trend_up,gap_go,expiry
+s01_transmit,2026-11-04,4.0,0.0,-10.319862668178192,new-idea books (n/p/s),trend_up,no_gap,other
+s01_transmit,2026-11-05,12.0,4.0,-8.212025671053524,new-idea books (n/p/s),trend_up,gap_go,other
+s01_transmit,2026-11-06,22.0,9.0,-11.62387763589291,new-idea books (n/p/s),trend_up,no_gap,other
+s01_transmit,2026-11-09,8.0,4.0,-10.951662414962083,new-idea books (n/p/s),V_up,gap_fill,expiry
+s01_transmit,2026-11-11,23.0,15.0,18.27239860729799,new-idea books (n/p/s),V_down,gap_fade,other
+s01_transmit,2026-11-12,4.0,2.0,2.13877117357939,new-idea books (n/p/s),range,no_gap,other
+s03_recruit,2026-10-19,45.0,15.0,-37.11903405114957,new-idea books (n/p/s),trend_down,no_gap,expiry
+s03_recruit,2026-10-21,98.0,43.0,32.977259837351845,new-idea books (n/p/s),trend_down,gap_fill,other
+s03_recruit,2026-10-22,99.0,43.0,17.16552534504927,new-idea books (n/p/s),range,no_gap,other
+s03_recruit,2026-10-23,79.0,30.0,-2.154102797596291,new-idea books (n/p/s),range,gap_fill,other
+s03_recruit,2026-10-26,90.0,44.0,31.032181082767927,new-idea books (n/p/s),trend_up,no_gap,day_before
+s03_recruit,2026-10-27,74.0,28.0,-10.309269375317154,new-idea books (n/p/s),range,no_gap,expiry
+s03_recruit,2026-10-28,92.0,41.0,-8.20315637140464,new-idea books (n/p/s),V_up,gap_fill,other
+s03_recruit,2026-10-29,83.0,33.0,-16.270381512732257,new-idea books (n/p/s),trend_up,no_gap,other
+s03_recruit,2026-10-30,99.0,47.0,26.466082785780888,new-idea books (n/p/s),range,no_gap,other
+s03_recruit,2026-11-02,85.0,37.0,6.844447226080308,new-idea books (n/p/s),trend_up,gap_go,day_before
+s03_recruit,2026-11-03,84.0,32.0,-10.799911152595032,new-idea books (n/p/s),trend_up,gap_go,expiry
+s03_recruit,2026-11-04,85.0,40.0,21.09494464988293,new-idea books (n/p/s),trend_up,no_gap,other
+s03_recruit,2026-11-05,81.0,42.0,3.2037775987942885,new-idea books (n/p/s),trend_up,gap_go,other
+s03_recruit,2026-11-06,88.0,34.0,6.680160908123112,new-idea books (n/p/s),trend_up,no_gap,other
+s03_recruit,2026-11-09,105.0,45.0,-4.482713190555265,new-idea books (n/p/s),V_up,gap_fill,expiry
+s03_recruit,2026-11-11,86.0,41.0,6.102419880128962,new-idea books (n/p/s),V_down,gap_fade,other
+s03_recruit,2026-11-12,103.0,39.0,-13.618324297746598,new-idea books (n/p/s),range,no_gap,other
+spot_dc12_t12,2026-10-19,17.0,9.0,139.49949678902888,spot retest,trend_down,no_gap,expiry
+spot_dc12_t12,2026-10-21,22.0,7.0,-1.6744281238859626,spot retest,trend_down,gap_fill,other
+spot_dc12_t12,2026-10-22,27.0,9.0,-25.869047699612867,spot retest,range,no_gap,other
+spot_dc12_t12,2026-10-23,20.0,7.0,42.84867449396255,spot retest,range,gap_fill,other
+spot_dc12_t12,2026-10-26,22.0,8.0,24.340394404646105,spot retest,trend_up,no_gap,day_before
+spot_dc12_t12,2026-10-27,20.0,9.0,3.784643966939116,spot retest,range,no_gap,expiry
+spot_dc12_t12,2026-10-28,26.0,8.0,-1.34734916490179,spot retest,V_up,gap_fill,other
+spot_dc12_t12,2026-10-29,16.0,5.0,3.324217723581402,spot retest,trend_up,no_gap,other
+spot_dc12_t12,2026-10-30,23.0,6.0,-25.26742184109796,spot retest,range,no_gap,other
+spot_dc12_t12,2026-11-02,22.0,5.0,-21.4182584978454,spot retest,trend_up,gap_go,day_before
+spot_dc12_t12,2026-11-03,14.0,5.0,-36.84314972830619,spot retest,trend_up,gap_go,expiry
+spot_dc12_t12,2026-11-04,20.0,10.0,22.260227454677818,spot retest,trend_up,no_gap,other
+spot_dc12_t12,2026-11-05,18.0,5.0,17.196845410542004,spot retest,trend_up,gap_go,other
+spot_dc12_t12,2026-11-06,24.0,13.0,55.51562588646441,spot retest,trend_up,no_gap,other
+spot_dc12_t12,2026-11-09,27.0,12.0,59.43940816575164,spot retest,V_up,gap_fill,expiry
+spot_dc12_t12,2026-11-11,21.0,7.0,6.741434853677197,spot retest,V_down,gap_fade,other
+spot_dc12_t12,2026-11-12,18.0,3.0,-26.322854204566205,spot retest,range,no_gap,other
+spot_dc12_t12_1130,2026-10-19,5.0,4.0,89.34950667443515,spot retest,trend_down,no_gap,expiry
+spot_dc12_t12_1130,2026-10-21,22.0,7.0,-1.6744281238859626,spot retest,trend_down,gap_fill,other
+spot_dc12_t12_1130,2026-10-22,27.0,9.0,-25.869047699612867,spot retest,range,no_gap,other
+spot_dc12_t12_1130,2026-10-23,20.0,7.0,42.84867449396255,spot retest,range,gap_fill,other
+spot_dc12_t12_1130,2026-10-26,22.0,8.0,24.340394404646105,spot retest,trend_up,no_gap,day_before
+spot_dc12_t12_1130,2026-10-27,8.0,4.0,18.85410114393935,spot retest,range,no_gap,expiry
+spot_dc12_t12_1130,2026-10-28,26.0,8.0,-1.34734916490179,spot retest,V_up,gap_fill,other
+spot_dc12_t12_1130,2026-10-29,16.0,5.0,3.324217723581402,spot retest,trend_up,no_gap,other
+spot_dc12_t12_1130,2026-10-30,23.0,6.0,-25.26742184109796,spot retest,range,no_gap,other
+spot_dc12_t12_1130,2026-11-02,22.0,5.0,-21.4182584978454,spot retest,trend_up,gap_go,day_before
+spot_dc12_t12_1130,2026-11-03,6.0,3.0,-5.842592522494483,spot retest,trend_up,gap_go,expiry
+spot_dc12_t12_1130,2026-11-04,20.0,10.0,22.260227454677818,spot retest,trend_up,no_gap,other
+spot_dc12_t12_1130,2026-11-05,18.0,5.0,17.196845410542004,spot retest,trend_up,gap_go,other
+spot_dc12_t12_1130,2026-11-06,24.0,13.0,55.51562588646441,spot retest,trend_up,no_gap,other
+spot_dc12_t12_1130,2026-11-09,8.0,2.0,-12.27754900182797,spot retest,V_up,gap_fill,expiry
+spot_dc12_t12_1130,2026-11-11,21.0,7.0,6.741434853677197,spot retest,V_down,gap_fade,other
+spot_dc12_t12_1130,2026-11-12,18.0,3.0,-26.322854204566205,spot retest,range,no_gap,other
+spot_dc12_t12_first,2026-10-19,32.0,16.0,94.88802642628784,spot first-touch,trend_down,no_gap,expiry
+spot_dc12_t12_first,2026-10-21,54.0,20.0,-25.281730349482466,spot first-touch,trend_down,gap_fill,other
+spot_dc12_t12_first,2026-10-22,52.0,21.0,-0.4148177281553589,spot first-touch,range,no_gap,other
+spot_dc12_t12_first,2026-10-23,43.0,16.0,8.610005244190155,spot first-touch,range,gap_fill,other
+spot_dc12_t12_first,2026-10-26,51.0,16.0,-14.094544482193772,spot first-touch,trend_up,no_gap,day_before
+spot_dc12_t12_first,2026-10-27,38.0,18.0,118.24315288551212,spot first-touch,range,no_gap,expiry
+spot_dc12_t12_first,2026-10-28,41.0,20.0,3.414170142426487,spot first-touch,V_up,gap_fill,other
+spot_dc12_t12_first,2026-10-29,43.0,11.0,-28.69437462968153,spot first-touch,trend_up,no_gap,other
+spot_dc12_t12_first,2026-10-30,44.0,14.0,-46.3140575669189,spot first-touch,range,no_gap,other
+spot_dc12_t12_first,2026-11-02,38.0,12.0,-4.568594409716342,spot first-touch,trend_up,gap_go,day_before
+spot_dc12_t12_first,2026-11-03,34.0,13.0,-58.21602982435119,spot first-touch,trend_up,gap_go,expiry
+spot_dc12_t12_first,2026-11-04,44.0,17.0,-1.9276438935021625,spot first-touch,trend_up,no_gap,other
+spot_dc12_t12_first,2026-11-05,42.0,18.0,29.430621972819736,spot first-touch,trend_up,gap_go,other
+spot_dc12_t12_first,2026-11-06,47.0,20.0,34.132197530854484,spot first-touch,trend_up,no_gap,other
+spot_dc12_t12_first,2026-11-09,47.0,17.0,53.02404844145328,spot first-touch,V_up,gap_fill,expiry
+spot_dc12_t12_first,2026-11-11,47.0,18.0,-6.703313001913269,spot first-touch,V_down,gap_fade,other
+spot_dc12_t12_first,2026-11-12,38.0,11.0,-31.29536293104971,spot first-touch,range,no_gap,other
+spot_dc12_t12_first_r002,2026-10-19,32.0,16.0,94.88802642628784,spot first-touch,trend_down,no_gap,expiry
+spot_dc12_t12_first_r002,2026-10-21,6.0,2.0,0.739702663710573,spot first-touch,trend_down,gap_fill,other
+spot_dc12_t12_first_r002,2026-10-22,2.0,0.0,-9.486075429999996,spot first-touch,range,no_gap,other
+spot_dc12_t12_first_r002,2026-10-23,2.0,1.0,0.434403019999996,spot first-touch,range,gap_fill,other
+spot_dc12_t12_first_r002,2026-10-26,0.0,0.0,0.0,spot first-touch,trend_up,no_gap,day_before
+spot_dc12_t12_first_r002,2026-10-27,38.0,18.0,118.24315288551212,spot first-touch,range,no_gap,expiry
+spot_dc12_t12_first_r002,2026-10-28,1.0,0.0,-0.048999999999999,spot first-touch,V_up,gap_fill,other
+spot_dc12_t12_first_r002,2026-10-29,3.0,0.0,-8.488051991482603,spot first-touch,trend_up,no_gap,other
+spot_dc12_t12_first_r002,2026-10-30,3.0,2.0,11.621057697845004,spot first-touch,range,no_gap,other
+spot_dc12_t12_first_r002,2026-11-02,4.0,0.0,-17.952025548216067,spot first-touch,trend_up,gap_go,day_before
+spot_dc12_t12_first_r002,2026-11-03,34.0,13.0,-58.21602982435119,spot first-touch,trend_up,gap_go,expiry
+spot_dc12_t12_first_r002,2026-11-04,2.0,1.0,8.701774089999992,spot first-touch,trend_up,no_gap,other
+spot_dc12_t12_first_r002,2026-11-05,2.0,2.0,37.592005270000016,spot first-touch,trend_up,gap_go,other
+spot_dc12_t12_first_r002,2026-11-06,2.0,2.0,17.550618920000005,spot first-touch,trend_up,no_gap,other
+spot_dc12_t12_first_r002,2026-11-09,47.0,17.0,53.02404844145328,spot first-touch,V_up,gap_fill,expiry
+spot_dc12_t12_first_r002,2026-11-11,3.0,1.0,1.4623256204360002,spot first-touch,V_down,gap_fade,other
+spot_dc12_t12_first_r002,2026-11-12,0.0,0.0,0.0,spot first-touch,range,no_gap,other
+spot_dc12_t12_first_r003,2026-10-19,32.0,16.0,72.31051326764053,spot first-touch,trend_down,no_gap,expiry
+spot_dc12_t12_first_r003,2026-10-21,49.0,18.0,-18.728959573677827,spot first-touch,trend_down,gap_fill,other
+spot_dc12_t12_first_r003,2026-10-22,51.0,20.0,3.1506477919123865,spot first-touch,range,no_gap,other
+spot_dc12_t12_first_r003,2026-10-23,43.0,16.0,5.204968602105442,spot first-touch,range,gap_fill,other
+spot_dc12_t12_first_r003,2026-10-26,50.0,15.0,-15.702875258978876,spot first-touch,trend_up,no_gap,day_before
+spot_dc12_t12_first_r003,2026-10-27,38.0,16.0,59.80349105442679,spot first-touch,range,no_gap,expiry
+spot_dc12_t12_first_r003,2026-10-28,39.0,19.0,5.324774500930696,spot first-touch,V_up,gap_fill,other
+spot_dc12_t12_first_r003,2026-10-29,39.0,11.0,-17.1086169964747,spot first-touch,trend_up,no_gap,other
+spot_dc12_t12_first_r003,2026-10-30,42.0,14.0,-47.89591451121132,spot first-touch,range,no_gap,other
+spot_dc12_t12_first_r003,2026-11-02,35.0,11.0,1.703232145097111,spot first-touch,trend_up,gap_go,day_before
+spot_dc12_t12_first_r003,2026-11-03,29.0,12.0,-42.79196068034621,spot first-touch,trend_up,gap_go,expiry
+spot_dc12_t12_first_r003,2026-11-04,44.0,15.0,-14.839669020605584,spot first-touch,trend_up,no_gap,other
+spot_dc12_t12_first_r003,2026-11-05,42.0,16.0,10.920943630005176,spot first-touch,trend_up,gap_go,other
+spot_dc12_t12_first_r003,2026-11-06,44.0,17.0,33.725422089290745,spot first-touch,trend_up,no_gap,other
+spot_dc12_t12_first_r003,2026-11-09,47.0,17.0,15.632757458999391,spot first-touch,V_up,gap_fill,expiry
+spot_dc12_t12_first_r003,2026-11-11,47.0,18.0,-11.068960411480177,spot first-touch,V_down,gap_fade,other
+spot_dc12_t12_first_r003,2026-11-12,35.0,11.0,-26.823438234900586,spot first-touch,range,no_gap,other
+spot_dc12_t12_nolock,2026-10-19,17.0,9.0,129.33549678584347,spot retest,trend_down,no_gap,expiry
+spot_dc12_t12_nolock,2026-10-21,22.0,7.0,-1.6744281238859626,spot retest,trend_down,gap_fill,other
+spot_dc12_t12_nolock,2026-10-22,27.0,9.0,-25.869047699612867,spot retest,range,no_gap,other
+spot_dc12_t12_nolock,2026-10-23,20.0,7.0,42.84867449396255,spot retest,range,gap_fill,other
+spot_dc12_t12_nolock,2026-10-26,22.0,8.0,24.340394404646105,spot retest,trend_up,no_gap,day_before
+spot_dc12_t12_nolock,2026-10-27,20.0,9.0,45.147831528637774,spot retest,range,no_gap,expiry
+spot_dc12_t12_nolock,2026-10-28,26.0,8.0,-1.34734916490179,spot retest,V_up,gap_fill,other
+spot_dc12_t12_nolock,2026-10-29,16.0,5.0,3.324217723581402,spot retest,trend_up,no_gap,other
+spot_dc12_t12_nolock,2026-10-30,23.0,6.0,-25.26742184109796,spot retest,range,no_gap,other
+spot_dc12_t12_nolock,2026-11-02,22.0,5.0,-21.4182584978454,spot retest,trend_up,gap_go,day_before
+spot_dc12_t12_nolock,2026-11-03,14.0,5.0,-36.44935850841796,spot retest,trend_up,gap_go,expiry
+spot_dc12_t12_nolock,2026-11-04,20.0,10.0,22.260227454677818,spot retest,trend_up,no_gap,other
+spot_dc12_t12_nolock,2026-11-05,18.0,5.0,17.196845410542004,spot retest,trend_up,gap_go,other
+spot_dc12_t12_nolock,2026-11-06,24.0,13.0,55.51562588646441,spot retest,trend_up,no_gap,other
+spot_dc12_t12_nolock,2026-11-09,27.0,12.0,52.56217037791031,spot retest,V_up,gap_fill,expiry
+spot_dc12_t12_nolock,2026-11-11,21.0,7.0,6.741434853677197,spot retest,V_down,gap_fade,other
+spot_dc12_t12_nolock,2026-11-12,18.0,3.0,-26.322854204566205,spot retest,range,no_gap,other
+spot_dc12_t12_r002,2026-10-19,17.0,9.0,139.49949678902888,spot retest,trend_down,no_gap,expiry
+spot_dc12_t12_r002,2026-10-21,5.0,2.0,4.768952121677872,spot retest,trend_down,gap_fill,other
+spot_dc12_t12_r002,2026-10-22,1.0,0.0,-4.398999999999997,spot retest,range,no_gap,other
+spot_dc12_t12_r002,2026-10-23,0.0,0.0,0.0,spot retest,range,gap_fill,other
+spot_dc12_t12_r002,2026-10-26,0.0,0.0,0.0,spot retest,trend_up,no_gap,day_before
+spot_dc12_t12_r002,2026-10-27,20.0,9.0,3.784643966939116,spot retest,range,no_gap,expiry
+spot_dc12_t12_r002,2026-10-28,0.0,0.0,0.0,spot retest,V_up,gap_fill,other
+spot_dc12_t12_r002,2026-10-29,0.0,0.0,0.0,spot retest,trend_up,no_gap,other
+spot_dc12_t12_r002,2026-10-30,1.0,1.0,16.822999999999986,spot retest,range,no_gap,other
+spot_dc12_t12_r002,2026-11-02,0.0,0.0,0.0,spot retest,trend_up,gap_go,day_before
+spot_dc12_t12_r002,2026-11-03,14.0,5.0,-36.84314972830619,spot retest,trend_up,gap_go,expiry
+spot_dc12_t12_r002,2026-11-04,0.0,0.0,0.0,spot retest,trend_up,no_gap,other
+spot_dc12_t12_r002,2026-11-05,1.0,0.0,-4.152999999999995,spot retest,trend_up,gap_go,other
+spot_dc12_t12_r002,2026-11-06,1.0,1.0,6.370000000000009,spot retest,trend_up,no_gap,other
+spot_dc12_t12_r002,2026-11-09,27.0,12.0,59.43940816575164,spot retest,V_up,gap_fill,expiry
+spot_dc12_t12_r002,2026-11-11,2.0,0.0,-5.44292463999999,spot retest,V_down,gap_fade,other
+spot_dc12_t12_r002,2026-11-12,0.0,0.0,0.0,spot retest,range,no_gap,other
+spot_dual,2026-10-19,17.0,9.0,139.49949678902888,spot 45-min pullback,trend_down,no_gap,expiry
+spot_dual,2026-10-21,4.0,3.0,63.26334158871423,spot 45-min pullback,trend_down,gap_fill,other
+spot_dual,2026-10-22,7.0,2.0,-57.33938212640294,spot 45-min pullback,range,no_gap,other
+spot_dual,2026-10-23,4.0,3.0,73.65459675034064,spot 45-min pullback,range,gap_fill,other
+spot_dual,2026-10-26,3.0,2.0,-5.542671838196911,spot 45-min pullback,trend_up,no_gap,day_before
+spot_dual,2026-10-27,20.0,9.0,3.784643966939116,spot 45-min pullback,range,no_gap,expiry
+spot_dual,2026-10-28,4.0,2.0,25.327956116825632,spot 45-min pullback,V_up,gap_fill,other
+spot_dual,2026-10-29,2.0,2.0,22.13448979999999,spot 45-min pullback,trend_up,no_gap,other
+spot_dual,2026-10-30,5.0,1.0,-48.29213725221088,spot 45-min pullback,range,no_gap,other
+spot_dual,2026-11-02,5.0,3.0,-9.552571214270122,spot 45-min pullback,trend_up,gap_go,day_before
+spot_dual,2026-11-03,14.0,5.0,-36.84314972830619,spot 45-min pullback,trend_up,gap_go,expiry
+spot_dual,2026-11-04,4.0,3.0,50.32760649817845,spot 45-min pullback,trend_up,no_gap,other
+spot_dual,2026-11-05,3.0,1.0,-8.149668308316993,spot 45-min pullback,trend_up,gap_go,other
+spot_dual,2026-11-06,4.0,2.0,15.350566319101569,spot 45-min pullback,trend_up,no_gap,other
+spot_dual,2026-11-09,27.0,12.0,59.43940816575164,spot 45-min pullback,V_up,gap_fill,expiry
+spot_dual,2026-11-11,3.0,2.0,34.5455909049194,spot 45-min pullback,V_down,gap_fade,other
+spot_dual,2026-11-12,2.0,0.0,-21.587980620000003,spot 45-min pullback,range,no_gap,other
+spot_dual_lvl,2026-10-19,18.0,10.0,143.06005659836418,spot 45-min pullback,trend_down,no_gap,expiry
+spot_dual_lvl,2026-10-21,5.0,4.0,41.30965992155913,spot 45-min pullback,trend_down,gap_fill,other
+spot_dual_lvl,2026-10-22,4.0,2.0,0.4135743839873917,spot 45-min pullback,range,no_gap,other
+spot_dual_lvl,2026-10-23,5.0,5.0,166.14806441186673,spot 45-min pullback,range,gap_fill,other
+spot_dual_lvl,2026-10-26,3.0,1.0,-22.045508282007496,spot 45-min pullback,trend_up,no_gap,day_before
+spot_dual_lvl,2026-10-27,20.0,9.0,10.720686248546516,spot 45-min pullback,range,no_gap,expiry
+spot_dual_lvl,2026-10-28,3.0,0.0,-22.123449457664,spot 45-min pullback,V_up,gap_fill,other
+spot_dual_lvl,2026-10-29,3.0,2.0,2.453010848506487,spot 45-min pullback,trend_up,no_gap,other
+spot_dual_lvl,2026-10-30,5.0,2.0,-35.05656870937802,spot 45-min pullback,range,no_gap,other
+spot_dual_lvl,2026-11-02,5.0,3.0,-16.065576821424067,spot 45-min pullback,trend_up,gap_go,day_before
+spot_dual_lvl,2026-11-03,14.0,5.0,-36.34404995110807,spot 45-min pullback,trend_up,gap_go,expiry
+spot_dual_lvl,2026-11-04,1.0,1.0,20.144000000000005,spot 45-min pullback,trend_up,no_gap,other
+spot_dual_lvl,2026-11-05,4.0,1.0,-23.383521675162772,spot 45-min pullback,trend_up,gap_go,other
+spot_dual_lvl,2026-11-06,4.0,2.0,15.350566319101569,spot 45-min pullback,trend_up,no_gap,other
+spot_dual_lvl,2026-11-09,27.0,13.0,71.41505022426264,spot 45-min pullback,V_up,gap_fill,expiry
+spot_dual_lvl,2026-11-11,5.0,4.0,17.890035483772127,spot 45-min pullback,V_down,gap_fade,other
+spot_dual_lvl,2026-11-12,1.0,0.0,-13.261999999999995,spot 45-min pullback,range,no_gap,other
+spot_dual_rg,2026-10-19,17.0,9.0,139.49949678902888,spot 45-min pullback,trend_down,no_gap,expiry
+spot_dual_rg,2026-10-21,4.0,3.0,63.26334158871423,spot 45-min pullback,trend_down,gap_fill,other
+spot_dual_rg,2026-10-22,4.0,2.0,-16.258013430877106,spot 45-min pullback,range,no_gap,other
+spot_dual_rg,2026-10-23,4.0,3.0,73.65459675034064,spot 45-min pullback,range,gap_fill,other
+spot_dual_rg,2026-10-26,3.0,2.0,-5.542671838196911,spot 45-min pullback,trend_up,no_gap,day_before
+spot_dual_rg,2026-10-27,20.0,9.0,3.784643966939116,spot 45-min pullback,range,no_gap,expiry
+spot_dual_rg,2026-10-28,3.0,1.0,-10.867756603897591,spot 45-min pullback,V_up,gap_fill,other
+spot_dual_rg,2026-10-29,2.0,2.0,22.13448979999999,spot 45-min pullback,trend_up,no_gap,other
+spot_dual_rg,2026-10-30,5.0,1.0,-48.29213725221088,spot 45-min pullback,range,no_gap,other
+spot_dual_rg,2026-11-02,5.0,3.0,-9.552571214270122,spot 45-min pullback,trend_up,gap_go,day_before
+spot_dual_rg,2026-11-03,14.0,5.0,-36.84314972830619,spot 45-min pullback,trend_up,gap_go,expiry
+spot_dual_rg,2026-11-04,1.0,1.0,20.144000000000005,spot 45-min pullback,trend_up,no_gap,other
+spot_dual_rg,2026-11-05,3.0,1.0,-8.149668308316993,spot 45-min pullback,trend_up,gap_go,other
+spot_dual_rg,2026-11-06,4.0,2.0,15.350566319101569,spot 45-min pullback,trend_up,no_gap,other
+spot_dual_rg,2026-11-09,27.0,12.0,59.43940816575164,spot 45-min pullback,V_up,gap_fill,expiry
+spot_dual_rg,2026-11-11,3.0,2.0,34.5455909049194,spot 45-min pullback,V_down,gap_fade,other
+spot_dual_rg,2026-11-12,1.0,0.0,-13.261999999999995,spot 45-min pullback,range,no_gap,other
+spot_ft_prem10,2026-10-19,54.0,26.0,-38.6621502677267,spot first-touch,trend_down,no_gap,expiry
+spot_ft_prem10,2026-10-21,26.0,14.0,2.546093355617152,spot first-touch,trend_down,gap_fill,other
+spot_ft_prem10,2026-10-22,30.0,17.0,42.18196066366893,spot first-touch,range,no_gap,other
+spot_ft_prem10,2026-10-23,29.0,17.0,37.50305327582721,spot first-touch,range,gap_fill,other
+spot_ft_prem10,2026-10-26,45.0,20.0,-47.91874246576453,spot first-touch,trend_up,no_gap,day_before
+spot_ft_prem10,2026-10-27,67.0,38.0,147.28668082379946,spot first-touch,range,no_gap,expiry
+spot_ft_prem10,2026-10-28,19.0,12.0,44.63247306531684,spot first-touch,V_up,gap_fill,other
+spot_ft_prem10,2026-10-29,18.0,11.0,46.45378509965359,spot first-touch,trend_up,no_gap,other
+spot_ft_prem10,2026-10-30,25.0,13.0,-6.38192430522394,spot first-touch,range,no_gap,other
+spot_ft_prem10,2026-11-02,37.0,18.0,-25.536022958973412,spot first-touch,trend_up,gap_go,day_before
+spot_ft_prem10,2026-11-03,44.0,21.0,-31.59711503047352,spot first-touch,trend_up,gap_go,expiry
+spot_ft_prem10,2026-11-04,22.0,13.0,21.50325601440544,spot first-touch,trend_up,no_gap,other
+spot_ft_prem10,2026-11-05,17.0,10.0,32.398305321432886,spot first-touch,trend_up,gap_go,other
+spot_ft_prem10,2026-11-06,34.0,20.0,48.889915523476525,spot first-touch,trend_up,no_gap,other
+spot_ft_prem10,2026-11-09,69.0,40.0,183.89848866308603,spot first-touch,V_up,gap_fill,expiry
+spot_ft_prem10,2026-11-11,13.0,6.0,-10.427032280903614,spot first-touch,V_down,gap_fade,other
+spot_ft_prem10,2026-11-12,11.0,3.0,-45.25611108316604,spot first-touch,range,no_gap,other
+spot_orb45,2026-10-19,1.0,1.0,19.543,opening range,trend_down,no_gap,expiry
+spot_orb45,2026-10-21,1.0,1.0,9.83400000000001,opening range,trend_down,gap_fill,other
+spot_orb45,2026-10-22,1.0,1.0,19.191000000000003,opening range,range,no_gap,other
+spot_orb45,2026-10-23,1.0,1.0,12.873,opening range,range,gap_fill,other
+spot_orb45,2026-10-26,1.0,1.0,19.75799999999999,opening range,trend_up,no_gap,day_before
+spot_orb45,2026-10-27,2.0,2.0,30.97778659999999,opening range,range,no_gap,expiry
+spot_orb45,2026-10-28,2.0,2.0,37.28495022,opening range,V_up,gap_fill,other
+spot_orb45,2026-10-29,1.0,1.0,15.487000000000004,opening range,trend_up,no_gap,other
+spot_orb45,2026-10-30,2.0,1.0,-3.662721250000012,opening range,range,no_gap,other
+spot_orb45,2026-11-02,2.0,1.0,-54.57748237,opening range,trend_up,gap_go,day_before
+spot_orb45,2026-11-03,1.0,1.0,12.064000000000007,opening range,trend_up,gap_go,expiry
+spot_orb45,2026-11-04,0.0,0.0,0.0,opening range,trend_up,no_gap,other
+spot_orb45,2026-11-05,1.0,1.0,20.998000000000005,opening range,trend_up,gap_go,other
+spot_orb45,2026-11-06,1.0,1.0,9.980000000000013,opening range,trend_up,no_gap,other
+spot_orb45,2026-11-09,1.0,1.0,5.83499999999999,opening range,V_up,gap_fill,expiry
+spot_orb45,2026-11-11,1.0,1.0,20.395000000000007,opening range,V_down,gap_fade,other
+spot_orb45,2026-11-12,1.0,0.0,-37.058,opening range,range,no_gap,other
+spot_orb45_r002,2026-10-19,1.0,1.0,19.543,opening range,trend_down,no_gap,expiry
+spot_orb45_r002,2026-10-21,0.0,0.0,0.0,opening range,trend_down,gap_fill,other
+spot_orb45_r002,2026-10-22,0.0,0.0,0.0,opening range,range,no_gap,other
+spot_orb45_r002,2026-10-23,0.0,0.0,0.0,opening range,range,gap_fill,other
+spot_orb45_r002,2026-10-26,0.0,0.0,0.0,opening range,trend_up,no_gap,day_before
+spot_orb45_r002,2026-10-27,2.0,2.0,30.97778659999999,opening range,range,no_gap,expiry
+spot_orb45_r002,2026-10-28,0.0,0.0,0.0,opening range,V_up,gap_fill,other
+spot_orb45_r002,2026-10-29,0.0,0.0,0.0,opening range,trend_up,no_gap,other
+spot_orb45_r002,2026-10-30,0.0,0.0,0.0,opening range,range,no_gap,other
+spot_orb45_r002,2026-11-02,1.0,0.0,-57.597,opening range,trend_up,gap_go,day_before
+spot_orb45_r002,2026-11-03,1.0,1.0,12.064000000000007,opening range,trend_up,gap_go,expiry
+spot_orb45_r002,2026-11-04,0.0,0.0,0.0,opening range,trend_up,no_gap,other
+spot_orb45_r002,2026-11-05,0.0,0.0,0.0,opening range,trend_up,gap_go,other
+spot_orb45_r002,2026-11-06,0.0,0.0,0.0,opening range,trend_up,no_gap,other
+spot_orb45_r002,2026-11-09,1.0,1.0,5.83499999999999,opening range,V_up,gap_fill,expiry
+spot_orb45_r002,2026-11-11,0.0,0.0,0.0,opening range,V_down,gap_fade,other
+spot_orb45_r002,2026-11-12,0.0,0.0,0.0,opening range,range,no_gap,other
+spot_orb45_r003,2026-10-19,1.0,1.0,19.543,opening range,trend_down,no_gap,expiry
+spot_orb45_r003,2026-10-21,1.0,1.0,9.83400000000001,opening range,trend_down,gap_fill,other
+spot_orb45_r003,2026-10-22,1.0,1.0,19.191000000000003,opening range,range,no_gap,other
+spot_orb45_r003,2026-10-23,1.0,1.0,12.873,opening range,range,gap_fill,other
+spot_orb45_r003,2026-10-26,0.0,0.0,0.0,opening range,trend_up,no_gap,day_before
+spot_orb45_r003,2026-10-27,2.0,2.0,30.97778659999999,opening range,range,no_gap,expiry
+spot_orb45_r003,2026-10-28,2.0,2.0,37.28495022,opening range,V_up,gap_fill,other
+spot_orb45_r003,2026-10-29,1.0,1.0,15.487000000000004,opening range,trend_up,no_gap,other
+spot_orb45_r003,2026-10-30,2.0,1.0,-3.662721250000012,opening range,range,no_gap,other
+spot_orb45_r003,2026-11-02,2.0,1.0,-54.57748237,opening range,trend_up,gap_go,day_before
+spot_orb45_r003,2026-11-03,1.0,1.0,12.064000000000007,opening range,trend_up,gap_go,expiry
+spot_orb45_r003,2026-11-04,0.0,0.0,0.0,opening range,trend_up,no_gap,other
+spot_orb45_r003,2026-11-05,1.0,1.0,20.998000000000005,opening range,trend_up,gap_go,other
+spot_orb45_r003,2026-11-06,1.0,1.0,9.980000000000013,opening range,trend_up,no_gap,other
+spot_orb45_r003,2026-11-09,1.0,1.0,5.83499999999999,opening range,V_up,gap_fill,expiry
+spot_orb45_r003,2026-11-11,1.0,1.0,20.395000000000007,opening range,V_down,gap_fade,other
+spot_orb45_r003,2026-11-12,1.0,0.0,-37.058,opening range,range,no_gap,other
+spot_orb45_r005,2026-10-19,1.0,1.0,19.543,opening range,trend_down,no_gap,expiry
+spot_orb45_r005,2026-10-21,1.0,1.0,9.83400000000001,opening range,trend_down,gap_fill,other
+spot_orb45_r005,2026-10-22,1.0,1.0,19.191000000000003,opening range,range,no_gap,other
+spot_orb45_r005,2026-10-23,1.0,1.0,12.873,opening range,range,gap_fill,other
+spot_orb45_r005,2026-10-26,1.0,1.0,19.75799999999999,opening range,trend_up,no_gap,day_before
+spot_orb45_r005,2026-10-27,2.0,2.0,30.97778659999999,opening range,range,no_gap,expiry
+spot_orb45_r005,2026-10-28,2.0,2.0,37.28495022,opening range,V_up,gap_fill,other
+spot_orb45_r005,2026-10-29,1.0,1.0,15.487000000000004,opening range,trend_up,no_gap,other
+spot_orb45_r005,2026-10-30,2.0,1.0,-3.662721250000012,opening range,range,no_gap,other
+spot_orb45_r005,2026-11-02,2.0,1.0,-54.57748237,opening range,trend_up,gap_go,day_before
+spot_orb45_r005,2026-11-03,1.0,1.0,12.064000000000007,opening range,trend_up,gap_go,expiry
+spot_orb45_r005,2026-11-04,0.0,0.0,0.0,opening range,trend_up,no_gap,other
+spot_orb45_r005,2026-11-05,1.0,1.0,20.998000000000005,opening range,trend_up,gap_go,other
+spot_orb45_r005,2026-11-06,1.0,1.0,9.980000000000013,opening range,trend_up,no_gap,other
+spot_orb45_r005,2026-11-09,1.0,1.0,5.83499999999999,opening range,V_up,gap_fill,expiry
+spot_orb45_r005,2026-11-11,1.0,1.0,20.395000000000007,opening range,V_down,gap_fade,other
+spot_orb45_r005,2026-11-12,1.0,0.0,-37.058,opening range,range,no_gap,other
+spot_pb45,2026-10-19,5.0,4.0,81.78663723204753,spot 45-min pullback,trend_down,no_gap,expiry
+spot_pb45,2026-10-21,4.0,3.0,63.26334158871423,spot 45-min pullback,trend_down,gap_fill,other
+spot_pb45,2026-10-22,7.0,2.0,-57.33938212640294,spot 45-min pullback,range,no_gap,other
+spot_pb45,2026-10-23,4.0,3.0,73.65459675034064,spot 45-min pullback,range,gap_fill,other
+spot_pb45,2026-10-26,3.0,2.0,-5.542671838196911,spot 45-min pullback,trend_up,no_gap,day_before
+spot_pb45,2026-10-27,4.0,0.0,-92.22349592302731,spot 45-min pullback,range,no_gap,expiry
+spot_pb45,2026-10-28,4.0,2.0,25.327956116825632,spot 45-min pullback,V_up,gap_fill,other
+spot_pb45,2026-10-29,2.0,2.0,22.13448979999999,spot 45-min pullback,trend_up,no_gap,other
+spot_pb45,2026-10-30,5.0,1.0,-48.29213725221088,spot 45-min pullback,range,no_gap,other
+spot_pb45,2026-11-02,5.0,3.0,-9.552571214270122,spot 45-min pullback,trend_up,gap_go,day_before
+spot_pb45,2026-11-03,3.0,3.0,34.53242847228803,spot 45-min pullback,trend_up,gap_go,expiry
+spot_pb45,2026-11-04,4.0,3.0,50.32760649817845,spot 45-min pullback,trend_up,no_gap,other
+spot_pb45,2026-11-05,3.0,1.0,-8.149668308316993,spot 45-min pullback,trend_up,gap_go,other
+spot_pb45,2026-11-06,4.0,2.0,15.350566319101569,spot 45-min pullback,trend_up,no_gap,other
+spot_pb45,2026-11-09,4.0,3.0,-49.77521882204354,spot 45-min pullback,V_up,gap_fill,expiry
+spot_pb45,2026-11-11,3.0,2.0,34.5455909049194,spot 45-min pullback,V_down,gap_fade,other
+spot_pb45,2026-11-12,2.0,0.0,-21.587980620000003,spot 45-min pullback,range,no_gap,other
+spot_pb45_r002,2026-10-19,5.0,4.0,81.78663723204753,spot 45-min pullback,trend_down,no_gap,expiry
+spot_pb45_r002,2026-10-21,0.0,0.0,0.0,spot 45-min pullback,trend_down,gap_fill,other
+spot_pb45_r002,2026-10-22,0.0,0.0,0.0,spot 45-min pullback,range,no_gap,other
+spot_pb45_r002,2026-10-23,0.0,0.0,0.0,spot 45-min pullback,range,gap_fill,other
+spot_pb45_r002,2026-10-26,0.0,0.0,0.0,spot 45-min pullback,trend_up,no_gap,day_before
+spot_pb45_r002,2026-10-27,4.0,0.0,-92.22349592302731,spot 45-min pullback,range,no_gap,expiry
+spot_pb45_r002,2026-10-28,0.0,0.0,0.0,spot 45-min pullback,V_up,gap_fill,other
+spot_pb45_r002,2026-10-29,0.0,0.0,0.0,spot 45-min pullback,trend_up,no_gap,other
+spot_pb45_r002,2026-10-30,0.0,0.0,0.0,spot 45-min pullback,range,no_gap,other
+spot_pb45_r002,2026-11-02,0.0,0.0,0.0,spot 45-min pullback,trend_up,gap_go,day_before
+spot_pb45_r002,2026-11-03,3.0,3.0,34.53242847228803,spot 45-min pullback,trend_up,gap_go,expiry
+spot_pb45_r002,2026-11-04,0.0,0.0,0.0,spot 45-min pullback,trend_up,no_gap,other
+spot_pb45_r002,2026-11-05,0.0,0.0,0.0,spot 45-min pullback,trend_up,gap_go,other
+spot_pb45_r002,2026-11-06,0.0,0.0,0.0,spot 45-min pullback,trend_up,no_gap,other
+spot_pb45_r002,2026-11-09,4.0,3.0,-49.77521882204354,spot 45-min pullback,V_up,gap_fill,expiry
+spot_pb45_r002,2026-11-11,0.0,0.0,0.0,spot 45-min pullback,V_down,gap_fade,other
+spot_pb45_r002,2026-11-12,0.0,0.0,0.0,spot 45-min pullback,range,no_gap,other
+straddle_spike,2026-10-19,13.0,4.0,-24.926511937011963,straddle spike,trend_down,no_gap,expiry
+straddle_spike,2026-10-21,0.0,0.0,0.0,straddle spike,trend_down,gap_fill,other
+straddle_spike,2026-10-22,0.0,0.0,0.0,straddle spike,range,no_gap,other
+straddle_spike,2026-10-23,2.0,1.0,3.1288097999999875,straddle spike,range,gap_fill,other
+straddle_spike,2026-10-26,3.0,1.0,-5.293727005559202,straddle spike,trend_up,no_gap,day_before
+straddle_spike,2026-10-27,14.0,6.0,-0.5499092735914979,straddle spike,range,no_gap,expiry
+straddle_spike,2026-10-28,0.0,0.0,0.0,straddle spike,V_up,gap_fill,other
+straddle_spike,2026-10-29,1.0,0.0,-2.4599999999999955,straddle spike,trend_up,no_gap,other
+straddle_spike,2026-10-30,0.0,0.0,0.0,straddle spike,range,no_gap,other
+straddle_spike,2026-11-02,4.0,2.0,-3.629627737686081,straddle spike,trend_up,gap_go,day_before
+straddle_spike,2026-11-03,8.0,0.0,-55.75031569878226,straddle spike,trend_up,gap_go,expiry
+straddle_spike,2026-11-04,0.0,0.0,0.0,straddle spike,trend_up,no_gap,other
+straddle_spike,2026-11-05,1.0,0.0,-5.198000000000002,straddle spike,trend_up,gap_go,other
+straddle_spike,2026-11-06,2.0,1.0,0.7138585000000086,straddle spike,trend_up,no_gap,other
+straddle_spike,2026-11-09,16.0,5.0,-54.02600185731541,straddle spike,V_up,gap_fill,expiry
+straddle_spike,2026-11-11,0.0,0.0,0.0,straddle spike,V_down,gap_fade,other
+straddle_spike,2026-11-12,0.0,0.0,0.0,straddle spike,range,no_gap,other
+t28_all,2026-10-19,18.0,10.0,138.5919738430824,t28 45-min pullback,trend_down,no_gap,expiry
+t28_all,2026-10-21,17.0,13.0,226.49515304230928,t28 45-min pullback,trend_down,gap_fill,other
+t28_all,2026-10-22,9.0,4.0,-4.817509677640031,t28 45-min pullback,range,no_gap,other
+t28_all,2026-10-23,17.0,12.0,109.62959098014224,t28 45-min pullback,range,gap_fill,other
+t28_all,2026-10-26,16.0,7.0,22.040181027556336,t28 45-min pullback,trend_up,no_gap,day_before
+t28_all,2026-10-27,18.0,9.0,47.970110116988415,t28 45-min pullback,range,no_gap,expiry
+t28_all,2026-10-28,14.0,5.0,-15.980196729784524,t28 45-min pullback,V_up,gap_fill,other
+t28_all,2026-10-29,12.0,5.0,-6.497505819814887,t28 45-min pullback,trend_up,no_gap,other
+t28_all,2026-10-30,19.0,7.0,-20.119842381791894,t28 45-min pullback,range,no_gap,other
+t28_all,2026-11-02,21.0,6.0,-38.31794515807236,t28 45-min pullback,trend_up,gap_go,day_before
+t28_all,2026-11-03,11.0,5.0,-9.81310291953318,t28 45-min pullback,trend_up,gap_go,expiry
+t28_all,2026-11-04,6.0,1.0,-24.197366461954097,t28 45-min pullback,trend_up,no_gap,other
+t28_all,2026-11-05,12.0,5.0,0.5615438589444688,t28 45-min pullback,trend_up,gap_go,other
+t28_all,2026-11-06,19.0,9.0,12.485551242353376,t28 45-min pullback,trend_up,no_gap,other
+t28_all,2026-11-09,21.0,11.0,103.88135672410002,t28 45-min pullback,V_up,gap_fill,expiry
+t28_all,2026-11-11,7.0,1.0,-31.69991487059276,t28 45-min pullback,V_down,gap_fade,other
+t28_all,2026-11-12,6.0,2.0,-10.619163340013582,t28 45-min pullback,range,no_gap,other
+t28_bidpile,2026-10-19,16.0,10.0,194.3387305393122,t28 45-min pullback,trend_down,no_gap,expiry
+t28_bidpile,2026-10-21,4.0,3.0,46.57623484143696,t28 45-min pullback,trend_down,gap_fill,other
+t28_bidpile,2026-10-22,4.0,2.0,16.416402028652733,t28 45-min pullback,range,no_gap,other
+t28_bidpile,2026-10-23,5.0,5.0,152.06627420773776,t28 45-min pullback,range,gap_fill,other
+t28_bidpile,2026-10-26,6.0,2.0,-18.71862982346657,t28 45-min pullback,trend_up,no_gap,day_before
+t28_bidpile,2026-10-27,18.0,9.0,47.970110116988415,t28 45-min pullback,range,no_gap,expiry
+t28_bidpile,2026-10-28,5.0,1.0,-22.573835652813123,t28 45-min pullback,V_up,gap_fill,other
+t28_bidpile,2026-10-29,3.0,2.0,5.571130648362499,t28 45-min pullback,trend_up,no_gap,other
+t28_bidpile,2026-10-30,5.0,2.0,-19.33237007226166,t28 45-min pullback,range,no_gap,other
+t28_bidpile,2026-11-02,4.0,3.0,25.35021719985138,t28 45-min pullback,trend_up,gap_go,day_before
+t28_bidpile,2026-11-03,11.0,5.0,-9.81310291953318,t28 45-min pullback,trend_up,gap_go,expiry
+t28_bidpile,2026-11-04,1.0,1.0,24.374999999999996,t28 45-min pullback,trend_up,no_gap,other
+t28_bidpile,2026-11-05,5.0,1.0,-21.84659549692004,t28 45-min pullback,trend_up,gap_go,other
+t28_bidpile,2026-11-06,4.0,2.0,23.00996435955305,t28 45-min pullback,trend_up,no_gap,other
+t28_bidpile,2026-11-09,21.0,11.0,103.88135672410002,t28 45-min pullback,V_up,gap_fill,expiry
+t28_bidpile,2026-11-11,3.0,3.0,18.74180531914737,t28 45-min pullback,V_down,gap_fade,other
+t28_bidpile,2026-11-12,1.0,0.0,-10.448000000000002,t28 45-min pullback,range,no_gap,other
+t28_cheap,2026-10-19,16.0,10.0,194.3387305393122,t28 45-min pullback,trend_down,no_gap,expiry
+t28_cheap,2026-10-21,4.0,3.0,46.57623484143696,t28 45-min pullback,trend_down,gap_fill,other
+t28_cheap,2026-10-22,4.0,2.0,16.416402028652733,t28 45-min pullback,range,no_gap,other
+t28_cheap,2026-10-23,6.0,5.0,124.02894252761114,t28 45-min pullback,range,gap_fill,other
+t28_cheap,2026-10-26,7.0,3.0,2.57546353538165,t28 45-min pullback,trend_up,no_gap,day_before
+t28_cheap,2026-10-27,16.0,8.0,72.3327577099089,t28 45-min pullback,range,no_gap,expiry
+t28_cheap,2026-10-28,2.0,1.0,-4.505338840000006,t28 45-min pullback,V_up,gap_fill,other
+t28_cheap,2026-10-29,2.0,1.0,-1.0959887499999987,t28 45-min pullback,trend_up,no_gap,other
+t28_cheap,2026-10-30,4.0,1.0,-20.635534594224502,t28 45-min pullback,range,no_gap,other
+t28_cheap,2026-11-02,4.0,3.0,25.35021719985138,t28 45-min pullback,trend_up,gap_go,day_before
+t28_cheap,2026-11-03,10.0,4.0,-16.82741632837982,t28 45-min pullback,trend_up,gap_go,expiry
+t28_cheap,2026-11-04,1.0,1.0,24.374999999999996,t28 45-min pullback,trend_up,no_gap,other
+t28_cheap,2026-11-05,3.0,1.0,-4.2726320056936,t28 45-min pullback,trend_up,gap_go,other
+t28_cheap,2026-11-06,4.0,2.0,23.00996435955305,t28 45-min pullback,trend_up,no_gap,other
+t28_cheap,2026-11-09,18.0,7.0,-14.858194981541216,t28 45-min pullback,V_up,gap_fill,expiry
+t28_cheap,2026-11-11,3.0,2.0,-0.5822503614861918,t28 45-min pullback,V_down,gap_fade,other
+t28_cheap,2026-11-12,0.0,0.0,0.0,t28 45-min pullback,range,no_gap,other
+t28_cheapK,2026-10-19,18.0,10.0,169.9735394870919,t28 45-min pullback,trend_down,no_gap,expiry
+t28_cheapK,2026-10-21,4.0,3.0,46.57623484143696,t28 45-min pullback,trend_down,gap_fill,other
+t28_cheapK,2026-10-22,4.0,2.0,16.416402028652733,t28 45-min pullback,range,no_gap,other
+t28_cheapK,2026-10-23,6.0,5.0,124.02894252761114,t28 45-min pullback,range,gap_fill,other
+t28_cheapK,2026-10-26,7.0,3.0,2.57546353538165,t28 45-min pullback,trend_up,no_gap,day_before
+t28_cheapK,2026-10-27,18.0,10.0,60.08622119153364,t28 45-min pullback,range,no_gap,expiry
+t28_cheapK,2026-10-28,5.0,1.0,-22.573835652813123,t28 45-min pullback,V_up,gap_fill,other
+t28_cheapK,2026-10-29,3.0,2.0,5.571130648362499,t28 45-min pullback,trend_up,no_gap,other
+t28_cheapK,2026-10-30,5.0,2.0,-19.33237007226166,t28 45-min pullback,range,no_gap,other
+t28_cheapK,2026-11-02,4.0,3.0,25.35021719985138,t28 45-min pullback,trend_up,gap_go,day_before
+t28_cheapK,2026-11-03,10.0,4.0,-0.5953437130694406,t28 45-min pullback,trend_up,gap_go,expiry
+t28_cheapK,2026-11-04,1.0,1.0,24.374999999999996,t28 45-min pullback,trend_up,no_gap,other
+t28_cheapK,2026-11-05,5.0,1.0,-21.84659549692004,t28 45-min pullback,trend_up,gap_go,other
+t28_cheapK,2026-11-06,4.0,2.0,23.00996435955305,t28 45-min pullback,trend_up,no_gap,other
+t28_cheapK,2026-11-09,20.0,11.0,73.8145508828083,t28 45-min pullback,V_up,gap_fill,expiry
+t28_cheapK,2026-11-11,4.0,3.0,3.850787094895125,t28 45-min pullback,V_down,gap_fade,other
+t28_cheapK,2026-11-12,1.0,0.0,-10.448000000000002,t28 45-min pullback,range,no_gap,other
+t28_core,2026-10-19,18.0,10.0,138.5919738430824,t28 45-min pullback,trend_down,no_gap,expiry
+t28_core,2026-10-21,4.0,3.0,47.54349899072734,t28 45-min pullback,trend_down,gap_fill,other
+t28_core,2026-10-22,3.0,1.0,-0.3478226131047979,t28 45-min pullback,range,no_gap,other
+t28_core,2026-10-23,3.0,2.0,16.87291663299999,t28 45-min pullback,range,gap_fill,other
+t28_core,2026-10-26,5.0,4.0,70.82870372030456,t28 45-min pullback,trend_up,no_gap,day_before
+t28_core,2026-10-27,18.0,9.0,47.970110116988415,t28 45-min pullback,range,no_gap,expiry
+t28_core,2026-10-28,4.0,1.0,-15.577574553656204,t28 45-min pullback,V_up,gap_fill,other
+t28_core,2026-10-29,2.0,0.0,-19.09541815,t28 45-min pullback,trend_up,no_gap,other
+t28_core,2026-10-30,2.0,0.0,-19.2635365,t28 45-min pullback,range,no_gap,other
+t28_core,2026-11-02,3.0,1.0,-5.829684851012507,t28 45-min pullback,trend_up,gap_go,day_before
+t28_core,2026-11-03,11.0,5.0,-9.81310291953318,t28 45-min pullback,trend_up,gap_go,expiry
+t28_core,2026-11-04,1.0,1.0,28.501,t28 45-min pullback,trend_up,no_gap,other
+t28_core,2026-11-05,2.0,1.0,-2.6668843299999967,t28 45-min pullback,trend_up,gap_go,other
+t28_core,2026-11-06,4.0,3.0,41.3007682969424,t28 45-min pullback,trend_up,no_gap,other
+t28_core,2026-11-09,21.0,11.0,103.88135672410002,t28 45-min pullback,V_up,gap_fill,expiry
+t28_core,2026-11-11,2.0,1.0,-5.809946200000016,t28 45-min pullback,V_down,gap_fade,other
+t28_core,2026-11-12,1.0,0.0,-9.655000000000005,t28 45-min pullback,range,no_gap,other
+t28_core_fill,2026-10-19,18.0,10.0,138.5919738430824,t28 45-min pullback,trend_down,no_gap,expiry
+t28_core_fill,2026-10-21,17.0,13.0,226.49515304230928,t28 45-min pullback,trend_down,gap_fill,other
+t28_core_fill,2026-10-22,9.0,4.0,-4.817509677640031,t28 45-min pullback,range,no_gap,other
+t28_core_fill,2026-10-23,17.0,12.0,131.16259606868294,t28 45-min pullback,range,gap_fill,other
+t28_core_fill,2026-10-26,16.0,7.0,22.040181027556336,t28 45-min pullback,trend_up,no_gap,day_before
+t28_core_fill,2026-10-27,18.0,9.0,47.970110116988415,t28 45-min pullback,range,no_gap,expiry
+t28_core_fill,2026-10-28,14.0,5.0,-15.980196729784524,t28 45-min pullback,V_up,gap_fill,other
+t28_core_fill,2026-10-29,12.0,5.0,-6.497505819814887,t28 45-min pullback,trend_up,no_gap,other
+t28_core_fill,2026-10-30,18.0,5.0,-43.173371698859896,t28 45-min pullback,range,no_gap,other
+t28_core_fill,2026-11-02,21.0,6.0,-38.31794515807236,t28 45-min pullback,trend_up,gap_go,day_before
+t28_core_fill,2026-11-03,11.0,5.0,-9.81310291953318,t28 45-min pullback,trend_up,gap_go,expiry
+t28_core_fill,2026-11-04,6.0,1.0,-24.197366461954097,t28 45-min pullback,trend_up,no_gap,other
+t28_core_fill,2026-11-05,12.0,5.0,1.9068796821913423,t28 45-min pullback,trend_up,gap_go,other
+t28_core_fill,2026-11-06,19.0,9.0,12.485551242353376,t28 45-min pullback,trend_up,no_gap,other
+t28_core_fill,2026-11-09,21.0,11.0,103.88135672410002,t28 45-min pullback,V_up,gap_fill,expiry
+t28_core_fill,2026-11-11,7.0,1.0,-31.69991487059276,t28 45-min pullback,V_down,gap_fade,other
+t28_core_fill,2026-11-12,6.0,2.0,-10.619163340013582,t28 45-min pullback,range,no_gap,other
+t28_d46,2026-10-19,18.0,10.0,138.5919738430824,t28 45-min pullback,trend_down,no_gap,expiry
+t28_d46,2026-10-21,4.0,3.0,64.50521734576652,t28 45-min pullback,trend_down,gap_fill,other
+t28_d46,2026-10-22,4.0,2.0,18.1107502042698,t28 45-min pullback,range,no_gap,other
+t28_d46,2026-10-23,7.0,4.0,46.60819074345346,t28 45-min pullback,range,gap_fill,other
+t28_d46,2026-10-26,8.0,4.0,25.43517209023449,t28 45-min pullback,trend_up,no_gap,day_before
+t28_d46,2026-10-27,18.0,9.0,47.970110116988415,t28 45-min pullback,range,no_gap,expiry
+t28_d46,2026-10-28,6.0,1.0,-31.78794219421204,t28 45-min pullback,V_up,gap_fill,other
+t28_d46,2026-10-29,4.0,1.0,-19.00363738722181,t28 45-min pullback,trend_up,no_gap,other
+t28_d46,2026-10-30,5.0,2.0,-18.269410067723392,t28 45-min pullback,range,no_gap,other
+t28_d46,2026-11-02,5.0,3.0,17.270437356692714,t28 45-min pullback,trend_up,gap_go,day_before
+t28_d46,2026-11-03,11.0,5.0,-9.81310291953318,t28 45-min pullback,trend_up,gap_go,expiry
+t28_d46,2026-11-04,1.0,1.0,28.501,t28 45-min pullback,trend_up,no_gap,other
+t28_d46,2026-11-05,5.0,1.0,-29.856331482474214,t28 45-min pullback,trend_up,gap_go,other
+t28_d46,2026-11-06,4.0,3.0,41.3007682969424,t28 45-min pullback,trend_up,no_gap,other
+t28_d46,2026-11-09,21.0,11.0,103.88135672410002,t28 45-min pullback,V_up,gap_fill,expiry
+t28_d46,2026-11-11,5.0,3.0,2.675624695287504,t28 45-min pullback,V_down,gap_fade,other
+t28_d46,2026-11-12,1.0,0.0,-9.655000000000005,t28 45-min pullback,range,no_gap,other
+t28_d46_fill,2026-10-19,18.0,10.0,138.5919738430824,t28 45-min pullback,trend_down,no_gap,expiry
+t28_d46_fill,2026-10-21,17.0,12.0,205.62193273268755,t28 45-min pullback,trend_down,gap_fill,other
+t28_d46_fill,2026-10-22,9.0,5.0,21.42457377703826,t28 45-min pullback,range,no_gap,other
+t28_d46_fill,2026-10-23,18.0,11.0,114.22438167143002,t28 45-min pullback,range,gap_fill,other
+t28_d46_fill,2026-10-26,19.0,8.0,6.381915940658978,t28 45-min pullback,trend_up,no_gap,day_before
+t28_d46_fill,2026-10-27,18.0,9.0,47.970110116988415,t28 45-min pullback,range,no_gap,expiry
+t28_d46_fill,2026-10-28,18.0,7.0,-21.12233958777045,t28 45-min pullback,V_up,gap_fill,other
+t28_d46_fill,2026-10-29,13.0,6.0,3.841064961688212,t28 45-min pullback,trend_up,no_gap,other
+t28_d46_fill,2026-10-30,18.0,6.0,-39.26281379919099,t28 45-min pullback,range,no_gap,other
+t28_d46_fill,2026-11-02,19.0,7.0,-12.440894293531455,t28 45-min pullback,trend_up,gap_go,day_before
+t28_d46_fill,2026-11-03,11.0,5.0,-9.81310291953318,t28 45-min pullback,trend_up,gap_go,expiry
+t28_d46_fill,2026-11-04,6.0,1.0,-24.197366461954097,t28 45-min pullback,trend_up,no_gap,other
+t28_d46_fill,2026-11-05,13.0,4.0,-29.956440136842343,t28 45-min pullback,trend_up,gap_go,other
+t28_d46_fill,2026-11-06,19.0,9.0,12.485551242353376,t28 45-min pullback,trend_up,no_gap,other
+t28_d46_fill,2026-11-09,21.0,11.0,103.88135672410002,t28 45-min pullback,V_up,gap_fill,expiry
+t28_d46_fill,2026-11-11,9.0,4.0,-9.46094551282971,t28 45-min pullback,V_down,gap_fade,other
+t28_d46_fill,2026-11-12,6.0,2.0,-10.619163340013582,t28 45-min pullback,range,no_gap,other
+t28_dur20,2026-10-19,18.0,10.0,138.5919738430824,t28 45-min pullback,trend_down,no_gap,expiry
+t28_dur20,2026-10-21,4.0,3.0,41.479103333284485,t28 45-min pullback,trend_down,gap_fill,other
+t28_dur20,2026-10-22,3.0,1.0,0.1414186669070005,t28 45-min pullback,range,no_gap,other
+t28_dur20,2026-10-23,4.0,3.0,49.69394063099266,t28 45-min pullback,range,gap_fill,other
+t28_dur20,2026-10-26,5.0,4.0,58.46887771887674,t28 45-min pullback,trend_up,no_gap,day_before
+t28_dur20,2026-10-27,18.0,9.0,47.970110116988415,t28 45-min pullback,range,no_gap,expiry
+t28_dur20,2026-10-28,4.0,1.0,-14.642408225088344,t28 45-min pullback,V_up,gap_fill,other
+t28_dur20,2026-10-29,2.0,0.0,-19.191596500000006,t28 45-min pullback,trend_up,no_gap,other
+t28_dur20,2026-10-30,2.0,0.0,-19.222225799999997,t28 45-min pullback,range,no_gap,other
+t28_dur20,2026-11-02,2.0,1.0,7.860022499999997,t28 45-min pullback,trend_up,gap_go,day_before
+t28_dur20,2026-11-03,11.0,5.0,-9.81310291953318,t28 45-min pullback,trend_up,gap_go,expiry
+t28_dur20,2026-11-04,1.0,1.0,24.374999999999996,t28 45-min pullback,trend_up,no_gap,other
+t28_dur20,2026-11-05,2.0,1.0,6.977077460000003,t28 45-min pullback,trend_up,gap_go,other
+t28_dur20,2026-11-06,4.0,2.0,23.00996435955305,t28 45-min pullback,trend_up,no_gap,other
+t28_dur20,2026-11-09,21.0,11.0,103.88135672410002,t28 45-min pullback,V_up,gap_fill,expiry
+t28_dur20,2026-11-11,3.0,3.0,15.685713622130605,t28 45-min pullback,V_down,gap_fade,other
+t28_dur20,2026-11-12,1.0,0.0,-10.448000000000002,t28 45-min pullback,range,no_gap,other
+t28_fill,2026-10-19,18.0,10.0,138.5919738430824,t28 45-min pullback,trend_down,no_gap,expiry
+t28_fill,2026-10-21,16.0,11.0,126.513859211989,t28 45-min pullback,trend_down,gap_fill,other
+t28_fill,2026-10-22,9.0,5.0,18.385367053807663,t28 45-min pullback,range,no_gap,other
+t28_fill,2026-10-23,16.0,10.0,65.46918078038819,t28 45-min pullback,range,gap_fill,other
+t28_fill,2026-10-26,17.0,7.0,-4.465589880279541,t28 45-min pullback,trend_up,no_gap,day_before
+t28_fill,2026-10-27,18.0,9.0,47.970110116988415,t28 45-min pullback,range,no_gap,expiry
+t28_fill,2026-10-28,15.0,7.0,0.1871133661243806,t28 45-min pullback,V_up,gap_fill,other
+t28_fill,2026-10-29,12.0,5.0,-7.759151031682099,t28 45-min pullback,trend_up,no_gap,other
+t28_fill,2026-10-30,18.0,8.0,-11.963816908430116,t28 45-min pullback,range,no_gap,other
+t28_fill,2026-11-02,16.0,6.0,-15.858786724943064,t28 45-min pullback,trend_up,gap_go,day_before
+t28_fill,2026-11-03,11.0,5.0,-9.81310291953318,t28 45-min pullback,trend_up,gap_go,expiry
+t28_fill,2026-11-04,6.0,1.0,-23.158214640395293,t28 45-min pullback,trend_up,no_gap,other
+t28_fill,2026-11-05,10.0,7.0,48.82839185972277,t28 45-min pullback,trend_up,gap_go,other
+t28_fill,2026-11-06,17.0,7.0,-2.8792443129923795,t28 45-min pullback,trend_up,no_gap,other
+t28_fill,2026-11-09,21.0,11.0,103.88135672410002,t28 45-min pullback,V_up,gap_fill,expiry
+t28_fill,2026-11-11,9.0,5.0,2.658117356739776,t28 45-min pullback,V_down,gap_fade,other
+t28_fill,2026-11-12,6.0,3.0,7.442904801790373,t28 45-min pullback,range,no_gap,other
+t28_fwd,2026-10-19,21.0,8.0,64.89471992198847,t28 45-min pullback,trend_down,no_gap,expiry
+t28_fwd,2026-10-21,6.0,4.0,52.2159039155879,t28 45-min pullback,trend_down,gap_fill,other
+t28_fwd,2026-10-22,3.0,1.0,-11.884107109407992,t28 45-min pullback,range,no_gap,other
+t28_fwd,2026-10-23,6.0,5.0,97.75866876292308,t28 45-min pullback,range,gap_fill,other
+t28_fwd,2026-10-26,9.0,5.0,53.41279889270747,t28 45-min pullback,trend_up,no_gap,day_before
+t28_fwd,2026-10-27,20.0,8.0,-24.50443657849137,t28 45-min pullback,range,no_gap,expiry
+t28_fwd,2026-10-28,5.0,2.0,-18.74305730744347,t28 45-min pullback,V_up,gap_fill,other
+t28_fwd,2026-10-29,4.0,1.0,-20.792795471165302,t28 45-min pullback,trend_up,no_gap,other
+t28_fwd,2026-10-30,6.0,5.0,37.229849168503,t28 45-min pullback,range,no_gap,other
+t28_fwd,2026-11-02,3.0,1.0,-0.4065690778191966,t28 45-min pullback,trend_up,gap_go,day_before
+t28_fwd,2026-11-03,12.0,4.0,-24.523841946191197,t28 45-min pullback,trend_up,gap_go,expiry
+t28_fwd,2026-11-04,1.0,1.0,21.05000000000001,t28 45-min pullback,trend_up,no_gap,other
+t28_fwd,2026-11-05,5.0,2.0,-23.39153191175495,t28 45-min pullback,trend_up,gap_go,other
+t28_fwd,2026-11-06,6.0,4.0,2.4172658413152748,t28 45-min pullback,trend_up,no_gap,other
+t28_fwd,2026-11-09,27.0,12.0,34.59643002966597,t28 45-min pullback,V_up,gap_fill,expiry
+t28_fwd,2026-11-11,6.0,3.0,-11.5160154131001,t28 45-min pullback,V_down,gap_fade,other
+t28_fwd,2026-11-12,3.0,2.0,22.994891739776,t28 45-min pullback,range,no_gap,other
+t28_gap,2026-10-19,18.0,10.0,138.5919738430824,t28 45-min pullback,trend_down,no_gap,expiry
+t28_gap,2026-10-21,4.0,3.0,46.57623484143696,t28 45-min pullback,trend_down,gap_fill,other
+t28_gap,2026-10-22,4.0,2.0,16.416402028652733,t28 45-min pullback,range,no_gap,other
+t28_gap,2026-10-23,6.0,5.0,124.02894252761114,t28 45-min pullback,range,gap_fill,other
+t28_gap,2026-10-26,7.0,3.0,2.57546353538165,t28 45-min pullback,trend_up,no_gap,day_before
+t28_gap,2026-10-27,18.0,9.0,47.970110116988415,t28 45-min pullback,range,no_gap,expiry
+t28_gap,2026-10-28,5.0,1.0,-22.573835652813123,t28 45-min pullback,V_up,gap_fill,other
+t28_gap,2026-10-29,3.0,2.0,5.571130648362499,t28 45-min pullback,trend_up,no_gap,other
+t28_gap,2026-10-30,5.0,2.0,-19.33237007226166,t28 45-min pullback,range,no_gap,other
+t28_gap,2026-11-02,4.0,3.0,25.35021719985138,t28 45-min pullback,trend_up,gap_go,day_before
+t28_gap,2026-11-03,11.0,5.0,-9.81310291953318,t28 45-min pullback,trend_up,gap_go,expiry
+t28_gap,2026-11-04,1.0,1.0,24.374999999999996,t28 45-min pullback,trend_up,no_gap,other
+t28_gap,2026-11-05,5.0,1.0,-21.84659549692004,t28 45-min pullback,trend_up,gap_go,other
+t28_gap,2026-11-06,4.0,2.0,23.00996435955305,t28 45-min pullback,trend_up,no_gap,other
+t28_gap,2026-11-09,21.0,11.0,103.88135672410002,t28 45-min pullback,V_up,gap_fill,expiry
+t28_gap,2026-11-11,4.0,3.0,3.850787094895125,t28 45-min pullback,V_down,gap_fade,other
+t28_gap,2026-11-12,1.0,0.0,-10.448000000000002,t28 45-min pullback,range,no_gap,other
+t28_gap_ts,2026-10-19,18.0,10.0,138.5919738430824,t28 45-min pullback,trend_down,no_gap,expiry
+t28_gap_ts,2026-10-21,4.0,3.0,46.57623484143696,t28 45-min pullback,trend_down,gap_fill,other
+t28_gap_ts,2026-10-22,4.0,2.0,16.416402028652733,t28 45-min pullback,range,no_gap,other
+t28_gap_ts,2026-10-23,6.0,4.0,108.49388237382853,t28 45-min pullback,range,gap_fill,other
+t28_gap_ts,2026-10-26,7.0,3.0,2.57546353538165,t28 45-min pullback,trend_up,no_gap,day_before
+t28_gap_ts,2026-10-27,18.0,9.0,47.970110116988415,t28 45-min pullback,range,no_gap,expiry
+t28_gap_ts,2026-10-28,5.0,1.0,-19.88507151190342,t28 45-min pullback,V_up,gap_fill,other
+t28_gap_ts,2026-10-29,3.0,2.0,5.571130648362499,t28 45-min pullback,trend_up,no_gap,other
+t28_gap_ts,2026-10-30,5.0,2.0,-10.676960143052517,t28 45-min pullback,range,no_gap,other
+t28_gap_ts,2026-11-02,4.0,3.0,25.35021719985138,t28 45-min pullback,trend_up,gap_go,day_before
+t28_gap_ts,2026-11-03,11.0,5.0,-9.81310291953318,t28 45-min pullback,trend_up,gap_go,expiry
+t28_gap_ts,2026-11-04,1.0,1.0,24.374999999999996,t28 45-min pullback,trend_up,no_gap,other
+t28_gap_ts,2026-11-05,5.0,1.0,-20.85686491462581,t28 45-min pullback,trend_up,gap_go,other
+t28_gap_ts,2026-11-06,4.0,2.0,23.00996435955305,t28 45-min pullback,trend_up,no_gap,other
+t28_gap_ts,2026-11-09,21.0,11.0,103.88135672410002,t28 45-min pullback,V_up,gap_fill,expiry
+t28_gap_ts,2026-11-11,5.0,4.0,20.32352840657281,t28 45-min pullback,V_down,gap_fade,other
+t28_gap_ts,2026-11-12,1.0,0.0,-0.873999999999997,t28 45-min pullback,range,no_gap,other
+t28_ivfall,2026-10-19,14.0,6.0,61.09766942716748,t28 45-min pullback,trend_down,no_gap,expiry
+t28_ivfall,2026-10-21,4.0,3.0,46.57623484143696,t28 45-min pullback,trend_down,gap_fill,other
+t28_ivfall,2026-10-22,4.0,2.0,16.416402028652733,t28 45-min pullback,range,no_gap,other
+t28_ivfall,2026-10-23,5.0,4.0,42.856468539042034,t28 45-min pullback,range,gap_fill,other
+t28_ivfall,2026-10-26,6.0,4.0,43.69436132811011,t28 45-min pullback,trend_up,no_gap,day_before
+t28_ivfall,2026-10-27,15.0,9.0,90.25709638181064,t28 45-min pullback,range,no_gap,expiry
+t28_ivfall,2026-10-28,4.0,1.0,-14.642408225088344,t28 45-min pullback,V_up,gap_fill,other
+t28_ivfall,2026-10-29,2.0,1.0,-4.013155750000008,t28 45-min pullback,trend_up,no_gap,other
+t28_ivfall,2026-10-30,5.0,2.0,-19.33237007226166,t28 45-min pullback,range,no_gap,other
+t28_ivfall,2026-11-02,2.0,2.0,29.303655000000006,t28 45-min pullback,trend_up,gap_go,day_before
+t28_ivfall,2026-11-03,10.0,5.0,-6.339224766108131,t28 45-min pullback,trend_up,gap_go,expiry
+t28_ivfall,2026-11-04,1.0,1.0,24.374999999999996,t28 45-min pullback,trend_up,no_gap,other
+t28_ivfall,2026-11-05,4.0,1.0,-12.66214686080197,t28 45-min pullback,trend_up,gap_go,other
+t28_ivfall,2026-11-06,3.0,2.0,36.6929262802012,t28 45-min pullback,trend_up,no_gap,other
+t28_ivfall,2026-11-09,10.0,4.0,-13.629313731680115,t28 45-min pullback,V_up,gap_fill,expiry
+t28_ivfall,2026-11-11,4.0,3.0,3.850787094895125,t28 45-min pullback,V_down,gap_fade,other
+t28_ivfall,2026-11-12,1.0,0.0,-10.448000000000002,t28 45-min pullback,range,no_gap,other
+t28_mh15,2026-10-19,18.0,10.0,138.5919738430824,t28 45-min pullback,trend_down,no_gap,expiry
+t28_mh15,2026-10-21,7.0,5.0,-1.2558212678993042,t28 45-min pullback,trend_down,gap_fill,other
+t28_mh15,2026-10-22,4.0,2.0,16.416402028652733,t28 45-min pullback,range,no_gap,other
+t28_mh15,2026-10-23,6.0,5.0,66.88442176591755,t28 45-min pullback,range,gap_fill,other
+t28_mh15,2026-10-26,7.0,4.0,18.594032412018045,t28 45-min pullback,trend_up,no_gap,day_before
+t28_mh15,2026-10-27,18.0,9.0,47.970110116988415,t28 45-min pullback,range,no_gap,expiry
+t28_mh15,2026-10-28,5.0,0.0,-22.290211345972143,t28 45-min pullback,V_up,gap_fill,other
+t28_mh15,2026-10-29,4.0,2.0,2.641699530578223,t28 45-min pullback,trend_up,no_gap,other
+t28_mh15,2026-10-30,5.0,2.0,-19.33237007226166,t28 45-min pullback,range,no_gap,other
+t28_mh15,2026-11-02,5.0,3.0,31.882490485728464,t28 45-min pullback,trend_up,gap_go,day_before
+t28_mh15,2026-11-03,11.0,5.0,-9.81310291953318,t28 45-min pullback,trend_up,gap_go,expiry
+t28_mh15,2026-11-04,1.0,1.0,27.913999999999994,t28 45-min pullback,trend_up,no_gap,other
+t28_mh15,2026-11-05,5.0,2.0,-7.791792686573307,t28 45-min pullback,trend_up,gap_go,other
+t28_mh15,2026-11-06,4.0,3.0,13.751838741927555,t28 45-min pullback,trend_up,no_gap,other
+t28_mh15,2026-11-09,21.0,11.0,103.88135672410002,t28 45-min pullback,V_up,gap_fill,expiry
+t28_mh15,2026-11-11,5.0,5.0,25.684657842031243,t28 45-min pullback,V_down,gap_fade,other
+t28_mh15,2026-11-12,1.0,0.0,-1.7059999999999964,t28 45-min pullback,range,no_gap,other
+t28_nohigh,2026-10-19,16.0,10.0,194.3387305393122,t28 45-min pullback,trend_down,no_gap,expiry
+t28_nohigh,2026-10-21,4.0,3.0,46.57623484143696,t28 45-min pullback,trend_down,gap_fill,other
+t28_nohigh,2026-10-22,4.0,2.0,16.416402028652733,t28 45-min pullback,range,no_gap,other
+t28_nohigh,2026-10-23,6.0,5.0,124.02894252761114,t28 45-min pullback,range,gap_fill,other
+t28_nohigh,2026-10-26,7.0,3.0,2.57546353538165,t28 45-min pullback,trend_up,no_gap,day_before
+t28_nohigh,2026-10-27,17.0,8.0,57.570733684478114,t28 45-min pullback,range,no_gap,expiry
+t28_nohigh,2026-10-28,4.0,1.0,-14.765503421232218,t28 45-min pullback,V_up,gap_fill,other
+t28_nohigh,2026-10-29,3.0,2.0,5.571130648362499,t28 45-min pullback,trend_up,no_gap,other
+t28_nohigh,2026-10-30,5.0,2.0,-19.33237007226166,t28 45-min pullback,range,no_gap,other
+t28_nohigh,2026-11-02,4.0,3.0,25.35021719985138,t28 45-min pullback,trend_up,gap_go,day_before
+t28_nohigh,2026-11-03,10.0,4.0,-16.82741632837982,t28 45-min pullback,trend_up,gap_go,expiry
+t28_nohigh,2026-11-04,1.0,1.0,24.374999999999996,t28 45-min pullback,trend_up,no_gap,other
+t28_nohigh,2026-11-05,5.0,1.0,-21.84659549692004,t28 45-min pullback,trend_up,gap_go,other
+t28_nohigh,2026-11-06,4.0,2.0,23.00996435955305,t28 45-min pullback,trend_up,no_gap,other
+t28_nohigh,2026-11-09,19.0,8.0,20.36411833654499,t28 45-min pullback,V_up,gap_fill,expiry
+t28_nohigh,2026-11-11,4.0,3.0,3.850787094895125,t28 45-min pullback,V_down,gap_fade,other
+t28_nohigh,2026-11-12,1.0,0.0,-10.448000000000002,t28 45-min pullback,range,no_gap,other
+t28_req,2026-10-19,18.0,10.0,138.5919738430824,t28 45-min pullback,trend_down,no_gap,expiry
+t28_req,2026-10-21,4.0,3.0,46.57623484143696,t28 45-min pullback,trend_down,gap_fill,other
+t28_req,2026-10-22,4.0,2.0,16.416402028652733,t28 45-min pullback,range,no_gap,other
+t28_req,2026-10-23,6.0,5.0,124.02894252761114,t28 45-min pullback,range,gap_fill,other
+t28_req,2026-10-26,7.0,3.0,2.57546353538165,t28 45-min pullback,trend_up,no_gap,day_before
+t28_req,2026-10-27,17.0,9.0,61.83269912394562,t28 45-min pullback,range,no_gap,expiry
+t28_req,2026-10-28,2.0,1.0,-4.505338840000006,t28 45-min pullback,V_up,gap_fill,other
+t28_req,2026-10-29,2.0,1.0,-1.0959887499999987,t28 45-min pullback,trend_up,no_gap,other
+t28_req,2026-10-30,4.0,1.0,-20.635534594224502,t28 45-min pullback,range,no_gap,other
+t28_req,2026-11-02,4.0,3.0,25.35021719985138,t28 45-min pullback,trend_up,gap_go,day_before
+t28_req,2026-11-03,11.0,5.0,-9.81310291953318,t28 45-min pullback,trend_up,gap_go,expiry
+t28_req,2026-11-04,1.0,1.0,24.374999999999996,t28 45-min pullback,trend_up,no_gap,other
+t28_req,2026-11-05,3.0,1.0,-4.2726320056936,t28 45-min pullback,trend_up,gap_go,other
+t28_req,2026-11-06,4.0,2.0,23.00996435955305,t28 45-min pullback,trend_up,no_gap,other
+t28_req,2026-11-09,21.0,10.0,20.909119422775667,t28 45-min pullback,V_up,gap_fill,expiry
+t28_req,2026-11-11,3.0,2.0,-0.5822503614861918,t28 45-min pullback,V_down,gap_fade,other
+t28_req,2026-11-12,0.0,0.0,0.0,t28 45-min pullback,range,no_gap,other
+t28_st20,2026-10-19,18.0,10.0,96.31037410461757,t28 45-min pullback,trend_down,no_gap,expiry
+t28_st20,2026-10-21,4.0,3.0,46.57623484143696,t28 45-min pullback,trend_down,gap_fill,other
+t28_st20,2026-10-22,4.0,2.0,16.416402028652733,t28 45-min pullback,range,no_gap,other
+t28_st20,2026-10-23,6.0,5.0,124.02894252761114,t28 45-min pullback,range,gap_fill,other
+t28_st20,2026-10-26,7.0,3.0,2.57546353538165,t28 45-min pullback,trend_up,no_gap,day_before
+t28_st20,2026-10-27,18.0,9.0,63.86240299061263,t28 45-min pullback,range,no_gap,expiry
+t28_st20,2026-10-28,5.0,1.0,-22.573835652813123,t28 45-min pullback,V_up,gap_fill,other
+t28_st20,2026-10-29,3.0,2.0,5.571130648362499,t28 45-min pullback,trend_up,no_gap,other
+t28_st20,2026-10-30,5.0,2.0,-19.33237007226166,t28 45-min pullback,range,no_gap,other
+t28_st20,2026-11-02,4.0,3.0,25.35021719985138,t28 45-min pullback,trend_up,gap_go,day_before
+t28_st20,2026-11-03,11.0,5.0,-28.89171612189525,t28 45-min pullback,trend_up,gap_go,expiry
+t28_st20,2026-11-04,1.0,1.0,24.374999999999996,t28 45-min pullback,trend_up,no_gap,other
+t28_st20,2026-11-05,5.0,1.0,-21.84659549692004,t28 45-min pullback,trend_up,gap_go,other
+t28_st20,2026-11-06,4.0,2.0,23.00996435955305,t28 45-min pullback,trend_up,no_gap,other
+t28_st20,2026-11-09,22.0,14.0,168.37296586374305,t28 45-min pullback,V_up,gap_fill,expiry
+t28_st20,2026-11-11,4.0,3.0,3.850787094895125,t28 45-min pullback,V_down,gap_fade,other
+t28_st20,2026-11-12,1.0,0.0,-10.448000000000002,t28 45-min pullback,range,no_gap,other
+t28_ts,2026-10-19,18.0,10.0,138.5919738430824,t28 45-min pullback,trend_down,no_gap,expiry
+t28_ts,2026-10-21,4.0,3.0,46.57623484143696,t28 45-min pullback,trend_down,gap_fill,other
+t28_ts,2026-10-22,4.0,2.0,16.416402028652733,t28 45-min pullback,range,no_gap,other
+t28_ts,2026-10-23,7.0,4.0,105.95025700886782,t28 45-min pullback,range,gap_fill,other
+t28_ts,2026-10-26,7.0,3.0,2.57546353538165,t28 45-min pullback,trend_up,no_gap,day_before
+t28_ts,2026-10-27,18.0,9.0,47.970110116988415,t28 45-min pullback,range,no_gap,expiry
+t28_ts,2026-10-28,6.0,1.0,-21.3335494189682,t28 45-min pullback,V_up,gap_fill,other
+t28_ts,2026-10-29,3.0,2.0,5.571130648362499,t28 45-min pullback,trend_up,no_gap,other
+t28_ts,2026-10-30,5.0,2.0,-10.676960143052517,t28 45-min pullback,range,no_gap,other
+t28_ts,2026-11-02,4.0,3.0,25.35021719985138,t28 45-min pullback,trend_up,gap_go,day_before
+t28_ts,2026-11-03,11.0,5.0,-9.81310291953318,t28 45-min pullback,trend_up,gap_go,expiry
+t28_ts,2026-11-04,1.0,1.0,24.374999999999996,t28 45-min pullback,trend_up,no_gap,other
+t28_ts,2026-11-05,5.0,1.0,-20.85686491462581,t28 45-min pullback,trend_up,gap_go,other
+t28_ts,2026-11-06,4.0,2.0,23.00996435955305,t28 45-min pullback,trend_up,no_gap,other
+t28_ts,2026-11-09,21.0,11.0,103.88135672410002,t28 45-min pullback,V_up,gap_fill,expiry
+t28_ts,2026-11-11,6.0,5.0,36.58967283918453,t28 45-min pullback,V_down,gap_fade,other
+t28_ts,2026-11-12,1.0,0.0,-0.873999999999997,t28 45-min pullback,range,no_gap,other
+t28_tt8,2026-10-19,18.0,10.0,138.5919738430824,t28 45-min pullback,trend_down,no_gap,expiry
+t28_tt8,2026-10-21,7.0,5.0,12.796181315116062,t28 45-min pullback,trend_down,gap_fill,other
+t28_tt8,2026-10-22,4.0,2.0,8.507906373271922,t28 45-min pullback,range,no_gap,other
+t28_tt8,2026-10-23,6.0,5.0,14.716661540039588,t28 45-min pullback,range,gap_fill,other
+t28_tt8,2026-10-26,8.0,6.0,29.126860171986845,t28 45-min pullback,trend_up,no_gap,day_before
+t28_tt8,2026-10-27,18.0,9.0,0.6915618014250224,t28 45-min pullback,range,no_gap,expiry
+t28_tt8,2026-10-28,5.0,1.0,-22.573835652813123,t28 45-min pullback,V_up,gap_fill,other
+t28_tt8,2026-10-29,3.0,2.0,5.571130648362499,t28 45-min pullback,trend_up,no_gap,other
+t28_tt8,2026-10-30,5.0,3.0,-5.259701225729996,t28 45-min pullback,range,no_gap,other
+t28_tt8,2026-11-02,5.0,4.0,25.584959361962124,t28 45-min pullback,trend_up,gap_go,day_before
+t28_tt8,2026-11-03,11.0,5.0,-8.586324761529596,t28 45-min pullback,trend_up,gap_go,expiry
+t28_tt8,2026-11-04,1.0,1.0,21.33099999999999,t28 45-min pullback,trend_up,no_gap,other
+t28_tt8,2026-11-05,5.0,2.0,-7.226906234443109,t28 45-min pullback,trend_up,gap_go,other
+t28_tt8,2026-11-06,4.0,3.0,26.533135125258237,t28 45-min pullback,trend_up,no_gap,other
+t28_tt8,2026-11-09,20.0,11.0,122.12857237713202,t28 45-min pullback,V_up,gap_fill,expiry
+t28_tt8,2026-11-11,5.0,5.0,30.098680396032183,t28 45-min pullback,V_down,gap_fade,other
+t28_tt8,2026-11-12,1.0,0.0,-10.448000000000002,t28 45-min pullback,range,no_gap,other

@@ -28,7 +28,7 @@ import time
 
 import numpy as np
 import uvicorn
-from fastapi import FastAPI, WebSocket, WebSocketDisconnect
+from fastapi import FastAPI, Request, WebSocket, WebSocketDisconnect
 from fastapi.responses import FileResponse, Response
 from fastapi.staticfiles import StaticFiles
 from starlette.middleware.trustedhost import TrustedHostMiddleware
@@ -272,6 +272,50 @@ def _n(x):
     return round(x, 2)
 
 
+_LIVE_RE = re.compile(r"^forecast_lab(_\d+)?\.json$")
+LAB_MEM = {}               # 13 Nov (R13 idea 3): name -> (bytes, wall time); the Forecast Lab posts here once a second
+LAB_FRESH_S = 30.0
+LAB_MAX_BYTES = 4_000_000
+
+
+@app.post("/api/lab/{name}")
+async def lab_put(name: str, request: Request):
+    """The Lab hands its dashboard payload over in memory, so no reader ever holds a file the Lab is swapping.
+    Host-checked like every route (127.0.0.1 / localhost only)."""
+    if not _LIVE_RE.match(name):
+        return Response(status_code=404)
+    body = await request.body()
+    if not body or len(body) > LAB_MAX_BYTES:
+        return Response(status_code=413)
+    LAB_MEM[name] = (body, time.time())
+    return Response(status_code=204)
+
+
+@app.get("/static/live/{name}")
+def live_file(name: str):
+    """13 Nov: the Forecast Lab rewrites its file every second. The static server sent the size first and then the
+    file, so a swap between the two raised "Response content shorter than Content-Length" (09:09 on 13 Nov). The
+    whole file is read first and sent as one body, so the size always matches."""
+    if not _LIVE_RE.match(name):
+        return Response(status_code=404)
+    hit = LAB_MEM.get(name)
+    if hit is not None and time.time() - hit[1] < LAB_FRESH_S:     # the fresh copy in memory: no disk, no lock
+        return Response(hit[0], media_type="application/json", headers={"Cache-Control": "no-store"})
+    data = None
+    for _ in range(4):                                              # a swap in flight: try again 5 ms later
+        try:
+            with open(os.path.join(config.STATIC_DIR, "live", name), "rb") as f:
+                data = f.read()
+            break
+        except FileNotFoundError:
+            return Response(status_code=404)
+        except OSError:
+            time.sleep(0.005)
+    if data is None:
+        return Response(status_code=503)
+    return Response(data, media_type="application/json", headers={"Cache-Control": "no-store"})
+
+
 app.mount("/static", StaticFiles(directory=config.STATIC_DIR), name="static")
 
 
@@ -283,8 +327,16 @@ def main():
     # AssertionError("waiter is None or waiter.cancelled()") inside websockets.legacy.protocol.
     # It doesn't crash the gateway (that one connection is just dropped) but floods the console
     # every time a client reconnects. wsproto is a sans-I/O implementation with no such race.
+    # 13 Nov (R13 idea 9): uvicorn's own errors (a traceback like 13 Nov 09:09) also go to data/logs/gateway.log
+    logcfg = {"version": 1, "disable_existing_loggers": False,
+              "formatters": {"f": {"format": "%(asctime)s gateway %(levelname)s %(name)s: %(message)s"}},
+              "handlers": {"console": {"class": "logging.StreamHandler", "formatter": "f"},
+                           "file": {"class": "logging.FileHandler", "formatter": "f", "encoding": "utf-8",
+                                    "filename": os.path.join(config.LOG_DIR, "gateway.log")}},
+              "loggers": {"uvicorn.error": {"handlers": ["console", "file"], "level": "WARNING", "propagate": False},
+                          "uvicorn": {"handlers": ["console", "file"], "level": "WARNING", "propagate": False}}}
     uvicorn.run(app, host=config.HOST, port=config.PORT, log_level="warning",
-                ws="wsproto", ws_ping_interval=20)
+                ws="wsproto", ws_ping_interval=20, log_config=logcfg)
 
 
 if __name__ == "__main__":

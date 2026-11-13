@@ -1,0 +1,9 @@
+pool_trades n 379 beam real 1.3 best [5.006, 8.831, 11.186]
+pool_trades perms 180 p {'single': 0.0055248618784530384, 'pair': 0.0055248618784530384, 'triple': 0.0055248618784530384} null95 [3.72, 5.385, 6.216]
+  singles [('with_vol_share300', '<', 0.6359999775886536)] 5.0064 264 0.689 | test {'n': 164, 'sr': 0.537, 'kept': 117, 'kept_sr': 0.504, 'dG': -3.0387, 'days_pos': 0, 'days_neg': 2}
+  singles [('atm_iv_day_pos', '<', 0.8878000140190125)] 4.8118 303 0.637 | test {'n': 164, 'sr': 0.537, 'kept': 160, 'kept_sr': 0.55, 'dG': 0.7282, 'days_pos': 1, 'days_neg': 0}
+  pairs [('with_vol_share300', '<', 0.6359999775886536), ('vwap_z', '>=', -1.8899999856948853)] 8.8314 229 0.769 | test {'n': 164, 'sr': 0.537, 'kept': 109, 'kept_sr': 0.486, 'dG': -3.2848, 'days_pos': 1, 'days_neg': 3}
+  pairs [('with_vol_share300', '<', 0.6359999775886536), ('day_move_vs_strad', '>=', -0.6470000147819519)] 8.7945 228 0.768 | test {'n': 164, 'sr': 0.537, 'kept': 106, 'kept_sr': 0.5, 'dG': -3.2293, 'days_pos': 0, 'days_neg': 2}
+  triples [('with_vol_share300', '<', 0.6359999775886536), ('day_move_share', '>=', -0.5), ('vwap_cross_n', '>=', 10.0)] 11.1861 175 0.869 | test {'n': 164, 'sr': 0.537, 'kept': 68, 'kept_sr': 0.456, 'dG': -4.6245, 'days_pos': 1, 'days_neg': 2}
+  triples [('with_vol_share300', '<', 0.6359999775886536), ('vwap_z', '>=', -1.8899999856948853), ('new_lows', '>=', 3.8000000000000043)] 11.0536 201 0.846 | test {'n': 164, 'sr': 0.537, 'kept': 109, 'kept_sr': 0.486, 'dG': -3.2848, 'days_pos': 1, 'days_neg': 3}
+done 162.7

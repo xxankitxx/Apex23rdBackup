@@ -1,0 +1,6 @@
+{"t": "09:18:20", "k": "SYSTEM", "x": "day 2026-11-13 \u00b7 champion conductor \u00b7 gates none \u00b7 capital \u20b9100,000", "mkt_t": 1794541700.0}
+{"t": "09:23:20", "k": "SPIKE", "x": "straddle 25200 +70.6 over theta in 5 min \u2014 CE leg carries it (202.2, delta 0.502\u21920.537, gamma 0.00087)", "mkt_t": 1794542000.7500002}
+{"t": "09:25:52", "k": "SPIKE", "x": "straddle 25200 +38.0 over theta in 5 min \u2014 CE leg carries it (183.1, delta 0.498\u21920.535, gamma 0.00096)", "mkt_t": 1794542152.7500002}
+{"t": "09:37:23", "k": "SPIKE", "x": "straddle 25200 +27.4 over theta in 5 min \u2014 PE leg carries it (163.9, delta -0.472\u2192-0.495, gamma 0.00096)", "mkt_t": 1794542843.5}
+{"t": "09:41:52", "k": "SPIKE", "x": "straddle 25200 +29.8 over theta in 5 min \u2014 PE leg carries it (175.2, delta -0.478\u2192-0.519, gamma 0.00097)", "mkt_t": 1794543112.5}
+{"t": "09:55:26", "k": "SHIFT", "x": "ATM rolled 25200 \u2192 25100: straddle 381.1 \u2192 377.9 (spot settled at the new strike)", "mkt_t": 1794543926.5}

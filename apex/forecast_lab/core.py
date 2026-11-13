@@ -37,9 +37,10 @@ from . import clock as CK
 
 VERSION = 3                                 # 11 Nov night: every sentence gated on its own checked record (earned())
 STATE_VERSION = 3                           # the saved learning state's own format, separate from the panel's VERSION
-KAPPA_OK = (0.5, 2.0)                       # a saved calibration outside these bounds is reset on load (a stall or a bug
+KAPPA_OK = (0.2, 6.0)                       # a saved calibration outside these bounds is reset on load (a stall or a bug
                                             # may have made it); 12 Nov: the rest of the learning is kept, never thrown away
-Z80_OK = (0.9, 2.0)
+Z80_OK = (0.6, 3.5)                         # 13 Nov (R13 idea 5): the SAME range the online update clips to, so a value the
+                                            # Lab learned live is never "out of bounds" the next morning (it reset daily)
 Z80_START = 1.2816
 SPY = 365.0 * 86400.0                       # calendar seconds a year: the engine's implied-volatility convention
 TRADE_S_YEAR = 252.0 * 22500.0              # trading seconds a year (252 sessions of 6 h 15 min)
@@ -259,6 +260,7 @@ class Lab:
         self.hw_px = deque(maxlen=61)
         self.hw_cum = [0.0, 0.0, 0.0]
         self.hw_syms = None                                      # the heavyweights' symbols, in the order of hw_px
+        self.sis_ring = deque(maxlen=121)                        # 13 Nov: (t, BANKNIFTY, FINNIFTY) per second (R09)
         self.events = deque(maxlen=50)                           # one-line notes for the runner's log
         self.restarts = 0                                        # same-day restarts (counted from the saved state)
         self.extra_state = {}                                    # other modules' persisted sums (saved with the state)
@@ -602,6 +604,7 @@ class Lab:
         self.ofi.clear()
         self.ofi_long.clear()
         self.imb_hist.clear()
+        self.sis_ring.clear()
         self.kf = B.Kalman()
         self.kf_slope = 0.0
         self.hw_ring.clear()
@@ -674,6 +677,9 @@ class Lab:
             self.prev_q = (fb, fa, bq, aq)
         self.kf_slope = self.kf.step(F, self.vol[600] if self.vol[600] else 1.0)
         self.imb_hist.append((bq - aq) / (bq + aq) if np.isfinite(bq) and np.isfinite(aq) and bq + aq > 0 else 0.0)
+        sis = inp.get("sis")
+        if sis is not None:
+            self.sis_ring.append((t, float(sis[0]), float(sis[1])))
         hw = inp.get("hw")
         if hw is not None:                                       # heavyweights: weighted cumulative log returns
             px = np.asarray(hw, float)
@@ -873,9 +879,9 @@ class Lab:
                 losses = crps_normal(o["m"][:, j] * s, s, y) / s
                 self.hedge[j].update(losses, w_ov * 6.0)           # half a full step per minute of new outcome
                 a = min(1.0, 12.0 * w_ov) / 300.0
-                self.kappa[j] = float(np.clip((1 - a) * self.kappa[j] + a * self.kappa[j] * (y / s) ** 2, 0.2, 6.0))
+                self.kappa[j] = float(np.clip((1 - a) * self.kappa[j] + a * self.kappa[j] * (y / s) ** 2, *KAPPA_OK))
                 miss = not (o["lo80"][j] <= y <= o["hi80"][j])
-                self.z80[j] = float(np.clip(self.z80[j] + 0.02 * (60.0 / h) * ((1.0 if miss else 0.0) - 0.2), 0.6, 3.5))
+                self.z80[j] = float(np.clip(self.z80[j] + 0.02 * (60.0 / h) * ((1.0 if miss else 0.0) - 0.2), *Z80_OK))
                 # score
                 sc["n"][j] += 1
                 sc["cov"][j] += 0.0 if miss else 1.0
@@ -1507,6 +1513,154 @@ class Lab:
         ok = se is not None and se <= abs(value)
         return dict(value=value, se=se, n=int(good.sum()), blocks=len(rates), gamma_pay=pay, ok=bool(ok))
 
+    # ── 13 Nov: the stand (owner point 4), a description of who is in control, not a forecast ─────────────────
+    STAND_ON, STAND_OFF, STAND_HOLD_S = 40.0, 20.0, 90.0
+    # Measured record of this exact rule (R11 strength_study.py, 16 days walk-forward): right 49.9 % at 15 min,
+    # better than half on 8 of 16 days; about 14.5 word changes a day. The banner says so beside the word.
+    STAND_RECORD = dict(hit15=49.9, days_better=8, days=16, changes_day=14.5)
+
+    def _F_ago(self, s):
+        k = self.n - 1 - int(s)
+        if k < max(0, self.n - RING):
+            return None
+        v = self.fm[k % RING]
+        return float(v) if np.isfinite(v) else None
+
+    SIS_LOOK_S = 10              # R09 sweet spot: look back 5 to 15 s, horizon 5 to 60 s, the two sisters equal weight
+
+    def sister_lead(self, t, F):
+        """BANKNIFTY and FINNIFTY over the last SIS_LOOK_S seconds, as Nifty points (equal weight), against the Nifty
+        future over the same seconds. R09: the sisters' futures mids lead the Nifty future by 1 to 2 s, so this is a
+        seconds-scale push, never a 5-minute view. None without fresh sister prices."""
+        if len(self.sis_ring) < self.SIS_LOOK_S + 1 or F is None:
+            return None
+        t1, b1, f1 = self.sis_ring[-1]
+        t0, b0, f0 = self.sis_ring[-1 - self.SIS_LOOK_S]
+        if t - t1 > 5 or t1 - t0 > self.SIS_LOOK_S + 5:
+            return None
+        rs = [math.log(a / b) for a, b in ((b1, b0), (f1, f0)) if np.isfinite(a) and np.isfinite(b) and a > 0 and b > 0]
+        F0 = self._F_ago(self.SIS_LOOK_S)
+        if not rs or F0 is None:
+            return None
+        sis_pts = F * sum(rs) / len(rs)
+        nf = F - F0
+        lead = sis_pts - nf
+        names = "BANKNIFTY and FINNIFTY" if len(rs) == 2 else "the sister index"
+        if abs(lead) < 1:
+            word = "in step with the Nifty future"
+        elif lead > 0:
+            word = f"{lead:.0f} pts stronger than the Nifty future (a push up may follow within a minute)"
+        else:
+            word = f"{-lead:.0f} pts weaker than the Nifty future (a push down may follow within a minute)"
+        return dict(sis_pts=round(sis_pts, 1), fut_pts=round(nf, 1), lead_pts=round(lead, 1),
+                    text=f"{names} {sis_pts:+.0f} Nifty pts in {self.SIS_LOOK_S} s ({word.split(' (')[0]})",
+                    say=f"Over the last {self.SIS_LOOK_S} seconds {names} moved like {sis_pts:+.0f} Nifty pts, {word}.")
+
+    def stand(self, t, F, out):
+        """S = 100 x (0.65 tanh(20-min move / 40) + 0.35 tanh(VWAP distance / 10-min vol)), smoothed; BULLISH at
+        S >= +40, BEARISH at S <= -40, SIDEWAYS again only when |S| < 20; a new word must hold 90 s (R11)."""
+        st = getattr(self, "_stand", None)
+        if st is None or st.get("day") != out.get("day"):
+            st = self._stand = dict(day=out.get("day"), S=0.0, t=None, word="SIDEWAYS", since=t, cand=None, cand_t=None)
+        F = float(F) if F is not None and np.isfinite(F) else None
+        F20 = self._F_ago(1200)
+        if F is None or F20 is None:
+            return dict(ok=False, why="needs 20 minutes of futures quotes")
+        m20 = F - F20
+        vw = out.get("vwap")
+        vs = self.v_sec()
+        sd10 = math.sqrt(vs * 600.0) if vs is not None and vs > 0 else None
+        dv = (F - vw) if vw is not None else 0.0
+        raw = 100.0 * (0.65 * math.tanh(m20 / 40.0) + 0.35 * (math.tanh(dv / sd10) if sd10 else 0.0))
+        first = st["t"] is None
+        if first or t - st["t"] >= 0.5:
+            st["S"] = raw if first else st["S"] + 0.25 * (raw - st["S"])
+            st["t"] = t
+        if first:                                    # a fresh start (or a restart) takes its word at once: no hold
+            st["word"] = "BULLISH" if raw >= self.STAND_ON else "BEARISH" if raw <= -self.STAND_ON else "SIDEWAYS"
+            st["since"] = t
+        S = st["S"]
+        want = "BULLISH" if S >= self.STAND_ON else "BEARISH" if S <= -self.STAND_ON else (
+            "SIDEWAYS" if abs(S) < self.STAND_OFF else st["word"])
+        if want != st["word"]:
+            if st["cand"] != want:
+                st["cand"], st["cand_t"] = want, t
+            elif t - st["cand_t"] >= self.STAND_HOLD_S:
+                st["word"], st["since"], st["cand"] = want, t, None
+        else:
+            st["cand"] = None
+        word = st["word"]
+        # facts in points, each marked for (True) or against (False) the word
+        tail = [self.fm[k % RING] for k in range(max(0, self.n - 3600), self.n, 5)]
+        tail = [x for x in tail if np.isfinite(x)]
+        hi60, lo60 = (float(max(tail)), float(min(tail))) if tail else (None, None)
+        t20 = np.array([x for x in (self.fm[k % RING] for k in range(max(0, self.n - 1200), self.n)) if np.isfinite(x)], float)
+        sgn = 1 if word == "BULLISH" else -1 if word == "BEARISH" else 0
+        facts = [dict(k="move20", text=f"futures {m20:+.0f} pts in 20 min", pro=(sgn * m20 > 0) if sgn else None)]
+        if vw is not None:
+            facts.append(dict(k="vwap", text=f"{abs(dv):.0f} pts {'above' if dv >= 0 else 'below'} VWAP {vw:,.0f}",
+                              pro=(sgn * dv > 0) if sgn else None))
+        if hi60 is not None:
+            facts.append(dict(k="range60", text=f"last hour {lo60:,.0f} to {hi60:,.0f} ({hi60 - lo60:.0f} pts)", pro=None))
+        b = out.get("breadth") or {}
+        hw = self.hw_tail(120)
+        hw_pts = None
+        if hw is not None:
+            idx = hw[0]
+            hw_pts = float((idx[-1] - idx[0]) * F)          # the weighted basket's 2-min move, in Nifty points
+            fut2 = self._F_ago(120)
+            f2 = (F - fut2) if fut2 is not None else None
+            if f2 is not None and hw_pts * f2 < 0 and abs(hw_pts) > 2:
+                lead = "against"
+            elif f2 is not None and abs(hw_pts) > abs(f2) + 2:
+                lead = "ahead of"
+            else:
+                lead = "with"
+            facts.append(dict(k="hw", text=f"heavyweights (Nifty-weighted) moved like {hw_pts:+.0f} Nifty pts in 2 min ({lead} futures), "
+                                           f"{100 * hw[3]:.0f} % of them up", pro=(sgn * hw_pts > 0) if sgn else None))
+        if b.get("bank120") is not None and abs(b["bank120"]) >= 1.0:
+            facts.append(dict(k="bank", text=f"banks {'stronger' if b['bank120'] > 0 else 'weaker'} than the rest "
+                                             f"(z {b['bank120']:+.1f})", pro=(sgn * b["bank120"] > 0) if sgn else None))
+        sl = self.sister_lead(t, F)
+        if sl is not None:
+            facts.append(dict(k="sisters", text=sl["text"], pro=(sgn * sl["lead_pts"] > 0) if sgn and abs(sl["lead_pts"]) >= 1 else None))
+        er = (out.get("regime") or {}).get("er")
+        if er is not None:
+            facts.append(dict(k="straight", text=f"straightness {er:.2f} ({'trending' if er >= 0.3 else 'choppy'})", pro=None))
+
+        def clock(ts):
+            return datetime.fromtimestamp(ts, config.IST).strftime("%H:%M")
+        # the behaviour sentence: push, fading or range
+        if word == "SIDEWAYS" or not len(t20):
+            span = f" and the last hour ran between {lo60:,.0f} and {hi60:,.0f}" if hi60 is not None else ""
+            side = ""
+            if vw is not None:
+                side = "; it sits on VWAP" if abs(dv) < 5 else f"; it sits {abs(dv):.0f} pts {'above' if dv > 0 else 'below'} VWAP"
+            say = f"Nobody is in control. Nifty futures moved {m20:+.0f} pts in 20 minutes{span}{side}."
+        else:
+            up = word == "BULLISH"
+            ext = float(t20.max() if up else t20.min())
+            give = (ext - F) if up else (F - ext)
+            who = "Buyers" if up else "Sellers"
+            if give > max(10.0, 0.4 * abs(m20)):
+                say = (f"The {'up' if up else 'down'} push is fading: futures {'peaked' if up else 'bottomed'} at {ext:,.0f} "
+                       f"and have given back {give:.0f} pts. {who} still hold the 20-minute picture ({m20:+.0f} pts).")
+            else:
+                say = (f"{who} are in control since {clock(st['since'])}: futures {m20:+.0f} pts in 20 minutes, "
+                       f"{abs(dv):.0f} pts {'above' if dv >= 0 else 'below'} VWAP.")
+        if hw_pts is not None and abs(hw_pts) >= 3:
+            say += (f" The heavyweights, weighted by their Nifty weight, moved like {hw_pts:+.0f} Nifty pts over 2 minutes"
+                    + (" while the futures went the other way." if any(f["k"] == "hw" and "against" in f["text"] for f in facts) else "."))
+        if sl is not None and abs(sl["lead_pts"]) >= 2:
+            say += f" {sl['say']}"
+        held = t - st["since"]
+        R = self.STAND_RECORD
+        return dict(ok=True, word=word, strength=int(round(S)), raw=int(round(raw)), since=clock(st["since"]),
+                    held_min=int(held // 60), pending=st["cand"], say=say, facts=facts, record=dict(R),
+                    m20=r1(m20, 1), vwap_dist=r1(dv, 1),
+                    note=(f"A description of who is in control, not a forecast: at 15 minutes this rule was right "
+                          f"{R['hit15']:.0f} % of the time ({R['days_better']} of {R['days']} days better than half)."))
+
     # ── what the panel shows ───────────────────────────────────────────────────────────────────────────────────
     def panel(self):
         t = self.last_t
@@ -1592,6 +1746,11 @@ class Lab:
                 dte = c["T"] * 365.0
                 sd = float(CK.iv_sd_at(max(ha.t - ha.t0, 0.0), CK.dte_bucket(dte), self._iv_sd_table()))
                 out["held_attr"] = ha.view(sd_iv=sd)
+        if not warm:
+            try:
+                out["stand"] = self.stand(t, F, out)            # 13 Nov (owner point 4): a clear stand, display only
+            except Exception as e:                               # never breaks the panel
+                out["stand"] = dict(ok=False, why=f"{type(e).__name__}: {e}")
         sim = self.last if self.last and self.last.get("_sim") else None
         if sim is not None and t - sim["t"] > STALE_SIM_S:
             sim = None                                           # an old simulation is not shown as a current forecast

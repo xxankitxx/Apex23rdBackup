@@ -1,0 +1,73 @@
+{
+ "v": 1,
+ "t": 1793938805.0,
+ "time": "09:50:05",
+ "lead": "c20_9y",
+ "capital": 100000,
+ "day": {
+  "trades": 0,
+  "won": 0,
+  "pnl_rs": 0
+ },
+ "recent": [],
+ "trigger": {
+  "mode": "normal",
+  "pb_entry": true,
+  "need_pts": 40.0,
+  "window_min": 20,
+  "vel_min": 20,
+  "fwd": 25024.5,
+  "t0": "09:16",
+  "t1": "15:00",
+  "hm": 590.0833333333334,
+  "hi": 25049.7,
+  "lo": 25000.0,
+  "range_pts": 49.7,
+  "move_pts": 24.5,
+  "gap_hi": 25.2,
+  "gap_lo": 24.5,
+  "warm": false,
+  "ready_at": "09:35",
+  "cool_left_s": 0,
+  "arm": {
+   "side": "CE",
+   "impulse_pts": 49.7,
+   "pullback_pts": 25.2,
+   "need_pts": 24.9,
+   "max_pts": 37.3,
+   "pullback_pct": 51.0,
+   "need_pct": 50,
+   "max_pct": 75,
+   "since": "09:44",
+   "age_s": 322,
+   "expires": "09:59",
+   "left_s": 578,
+   "resume_pts": 0.0,
+   "resume_need": 5.0,
+   "in_zone": true,
+   "fire_level": 25029.5,
+   "drop_level": 25012.4,
+   "printing": false
+  },
+  "p_fire": {
+   "m5": 0.74,
+   "m10": 0.74,
+   "m15": 0.78
+  },
+  "progress": 0.0
+ },
+ "mode": "ZONE",
+ "books": [
+  {
+   "book": "c20_9y",
+   "ready": true,
+   "veto": null,
+   "text": "ready"
+  }
+ ],
+ "would_buy": null,
+ "headline": "Ready to buy a CALL. The pullback is 25 pts (51 %). I buy the moment the forward turns up to 25,029.5.",
+ "lines": [
+  "From here I fired within 10 minutes about 7 times in 10 (normal days 19 Oct to 11 Nov; slower in the last week)."
+ ]
+}

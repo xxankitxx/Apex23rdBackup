@@ -85,7 +85,11 @@ def below_normal():
             k32 = ctypes.windll.kernel32
             k32.GetCurrentProcess.restype = ctypes.c_void_p          # a pseudo-handle: must not be truncated
             k32.SetPriorityClass.argtypes = [ctypes.c_void_p, ctypes.c_uint32]
-            k32.SetPriorityClass(k32.GetCurrentProcess(), 0x00004000)   # BELOW_NORMAL_PRIORITY_CLASS
+            # 13 Nov (R13 idea 1): below normal starved the Lab behind research jobs of the same class (29 % of its
+            # seconds lost). The engine and feed run ABOVE_NORMAL under run_apex.py, so NORMAL cannot delay them.
+            # APEX_LAB_PRIORITY=below keeps the old class (drills, or an engine started by hand at normal).
+            cls = 0x00004000 if os.environ.get("APEX_LAB_PRIORITY", "normal") == "below" else 0x00000020
+            k32.SetPriorityClass(k32.GetCurrentProcess(), cls)
         except Exception as e:
             return f"priority not lowered: {type(e).__name__}"
     else:
@@ -122,6 +126,114 @@ class Writer:
 
 
 _W = Writer()
+
+
+class DashWriter:
+    """13 Nov: the dashboard file is written off the loop. The loop hands over the newest text and goes on; this
+    thread writes it and waits out a Windows lock (Defender scanning the fresh file, the gateway reading it) for up to
+    DASH_BUDGET_S. A newer payload replaces one still waiting (latest wins), so a lock never delays the forecast and
+    never queues old seconds. 12 Nov: 1,726 refused writes, each holding the loop up to 150 ms; 13 Nov morning: 510
+    with a 0.25 s budget. What counts now is how old the file on disk is (stale_s), not each refused try."""
+
+    def __init__(self, budget_s=None, post=False):
+        self.budget_s = DASH_BUDGET_S if budget_s is None else budget_s
+        # 13 Nov (R13 idea 3): with post=True each payload goes to the gateway in memory (127.0.0.1 only); the file on
+        # disk is then rewritten only every DISK_EVERY_S, for a restart and for an older gateway. The gateway's
+        # reader was what held the file open while the Lab swapped it (965 refusals on 13 Nov).
+        self.post = post
+        self.posted = 0
+        self._disk_t = 0.0
+        self.cv = threading.Condition()
+        self.job = None
+        self.busy = False
+        self.landed_t = None        # the payload time (pv["t"]) of the last file that landed
+        self.landed_wall = None     # wall time it landed
+        self.refused = 0            # swaps refused past the budget (the next payload tries again)
+        self.superseded = 0         # payloads replaced by a newer one before they were written
+        self.writes = 0
+        self.last_err = None
+        self._k = 0
+        self.thread = threading.Thread(target=self._run, name="DashWriter", daemon=True)
+        self.thread.start()
+
+    def put(self, path, text, t=None):
+        with self.cv:
+            if self.job is not None:
+                self.superseded += 1
+            self.job = (path, text, t)
+            self.cv.notify_all()
+
+    def _run(self):
+        while True:
+            with self.cv:
+                while self.job is None:
+                    self.cv.wait()
+                path, text, t = self.job
+                self.job, self.busy = None, True
+            if self.post and self._post(path, text):
+                with self.cv:
+                    self.posted += 1
+                    self.landed_wall = time.time()
+                    if t is not None:
+                        self.landed_t = t
+                if time.time() - self._disk_t < DISK_EVERY_S:
+                    with self.cv:
+                        self.busy = False
+                        self.cv.notify_all()
+                    continue
+                self._disk_t = time.time()
+            try:
+                self._k ^= 1                                     # two temporary names: a scan holding one never
+                tmp = f"{path}.dash{self._k}.tmp"                # blocks the next write
+                with open(tmp, "w", encoding="utf-8") as f:
+                    f.write(text)
+                if fsutil.replace(tmp, path, budget_s=self.budget_s, must=False):
+                    with self.cv:
+                        self.writes += 1
+                        self.landed_wall = time.time()
+                        if t is not None:
+                            self.landed_t = t
+                else:
+                    with self.cv:
+                        self.refused += 1
+                        self.last_err = fsutil.STATS["last"]
+            except OSError as e:
+                with self.cv:
+                    self.refused += 1
+                    self.last_err = f"{os.path.basename(path)}: {type(e).__name__}"
+            finally:
+                with self.cv:
+                    self.busy = False
+                    self.cv.notify_all()
+
+    @staticmethod
+    def _post(path, text):
+        url = f"http://127.0.0.1:{config.PORT}/api/lab/{os.path.basename(path)}"
+        try:
+            req = urllib.request.Request(url, data=text.encode("utf-8"), method="POST",
+                                         headers={"Content-Type": "application/json"})
+            with urllib.request.urlopen(req, timeout=0.5) as r:
+                return r.status == 204
+        except Exception:
+            return False                                         # gateway down or older: the file path still works
+
+    def stale_s(self, now=None):
+        """Seconds since the dashboard file last changed on disk (None before the first write)."""
+        return None if self.landed_wall is None else round((now or time.time()) - self.landed_wall, 1)
+
+    def flush(self, timeout=3.0):
+        end = time.monotonic() + timeout
+        with self.cv:
+            while self.job is not None or self.busy:
+                left = end - time.monotonic()
+                if left <= 0:
+                    return False
+                self.cv.wait(min(left, 0.1))
+        return True
+
+
+DASH_BUDGET_S = 2.0
+DISK_EVERY_S = 15.0          # with the in-memory hand-off, the disk copy is refreshed this often
 
 
 def write_atomic(path, text, budget_s=fsutil.SNAPSHOT_BUDGET_S):
@@ -305,9 +417,14 @@ class Chain:
         hw_syms = tuple(str(it.get("sym") or it.get("key")) for it in eq)
         hw_w = np.array([float(it["wn"]) for it in eq], float)
         hw_bank = np.array([it.get("group") in ("bank", "nbfc") for it in eq], bool)
+        # 13 Nov (owner point 5, R09): the sister indices. BANKNIFTY from its futures mid (its last price changes in only
+        # 28 % of seconds), FINNIFTY from the index itself (its future is illiquid: 74 % of photographs read 0).
+        byk = {it["key"]: it["id"] for it in items}
+        sis_ids = (byk.get("BANKNIFTY|FUT"), byk.get("BANKNIFTY|SPOT"), byk.get("FINNIFTY|SPOT"))
         # complete: swap in (nothing above touched self, so a bad file leaves the previous chain whole)
         self.fut, self.expiry, self.K, self.ids = fut, expiry, K, ids
         self.hw_ids, self.hw_syms, self.hw_w, self.hw_bank = hw_ids, hw_syms, hw_w, hw_bank
+        self.sis_ids = sis_ids
         self.version, self.mtime, self.ready, self.why = ver, mtime, True, None
 
     def maybe_reload(self, reg_version):
@@ -332,6 +449,29 @@ class Chain:
             return self.why + ("; keeping the previous chain" if self.ready else "")
 
 
+SIS_STALE_S = 5.0            # a sister quote older than this is not used (R09)
+
+
+def sister_prices(snap, sis_ids, age):
+    """(BANKNIFTY, FINNIFTY) for the stand's sister lead: BANKNIFTY futures mid (else its index), FINNIFTY index; NaN
+    when missing or older than SIS_STALE_S."""
+    if not sis_ids:
+        return None
+    bf, bs, fs = sis_ids
+
+    def fresh(i):
+        return i is not None and float(age(np.array([i]))[0]) <= SIS_STALE_S
+    bn = np.nan
+    if fresh(bf):
+        b, a = float(snap["bid"][bf]), float(snap["ask"][bf])
+        if b > 0 and a >= b:
+            bn = 0.5 * (b + a)
+    if not np.isfinite(bn) and fresh(bs) and float(snap["ltp"][bs]) > 0:
+        bn = float(snap["ltp"][bs])
+    fn = float(snap["ltp"][fs]) if fresh(fs) and float(snap["ltp"][fs]) > 0 else np.nan
+    return (bn, fn)
+
+
 def build_inp(snap, ch, now_ns):
     f = ch.fut
     age = lambda ids: np.where(snap["recv_ns"][ids] > 0, (now_ns - snap["recv_ns"][ids].astype(float)) / 1e9, np.inf)
@@ -350,7 +490,8 @@ def build_inp(snap, ch, now_ns):
     if len(ch.hw_ids):
         hw = np.where(age(ch.hw_ids) <= 30.0, snap["ltp"][ch.hw_ids].astype(float), np.nan)
         hw = np.where(hw > 0, hw, np.nan)
-    return dict(hw=hw, hw_w=ch.hw_w, hw_bank=ch.hw_bank, hw_syms=ch.hw_syms, t=now_ns / 1e9,
+    sis = sister_prices(snap, getattr(ch, "sis_ids", None), age)
+    return dict(hw=hw, hw_w=ch.hw_w, hw_bank=ch.hw_bank, hw_syms=ch.hw_syms, t=now_ns / 1e9, sis=sis,
                 fb=np.nan if stale else float(snap["bid"][f]), fa=np.nan if stale else float(snap["ask"][f]),
                 fl=float(snap["ltp"][f]), fv=float(snap["ttq"][f]), fbq=bq, faq=aq, K=ch.K, ob=ob, oa=oa, og=og,
                 expiry=ch.expiry, fage=fage)
@@ -645,6 +786,7 @@ def main():
             f"updates {learning['updates']}; trained models: {brain_txt}; output {os.path.basename(out)}")
         eng = EngineReader()
         eng.start()
+        dash = DashWriter(post=True)                               # 13 Nov: the dashboard file is written off the loop
         ch = Chain()
         last_sec = None
         last_save = last_side = last_status = time.time()
@@ -672,7 +814,8 @@ def main():
                           learning=dict(learning, restarts=lab.restarts, updates=int(sum(h.n for h in lab.hedge))),
                           engine_read_err=eng.err, expiry=getattr(ch, "expiry", None),
                           strikes=len(getattr(ch, "K", ())), brain=("on" if lab.brain is not None else f"off: {off_why or (br.why if br is not None else 'none')}"),
-                          nightly=nightly, errors=log.errors, write_fails=_W.fails, output=os.path.basename(out))
+                          nightly=nightly, errors=log.errors, write_fails=_W.fails + dash.refused,
+                          dash_age_s=dash.stale_s(), output=os.path.basename(out))
             try:
                 r0 = time.perf_counter()
                 got, why = read_table()
@@ -681,7 +824,7 @@ def main():
                     if why != table_why:
                         log(f"shared table: {why}; trying again every {NO_TABLE_WAIT_S:.0f} s")
                         table_why = why
-                    write_atomic(out, dumps_payload(error_payload(why, wall, last_ok_t, log.errors, runner)))
+                    dash.put(out, dumps_payload(error_payload(why, wall, last_ok_t, log.errors, runner)))
                     time.sleep(NO_TABLE_WAIT_S - 1.0)
                     continue
                 if table_why is not None:
@@ -692,7 +835,7 @@ def main():
                 if note:
                     log(note)
                 if not ch.ready:
-                    write_atomic(out, dumps_payload(error_payload(ch.why, wall, last_ok_t, log.errors, runner)))
+                    dash.put(out, dumps_payload(error_payload(ch.why, wall, last_ok_t, log.errors, runner)))
                     continue
                 v = int(ctrl["now_ns"])
                 now_ns = v if v > 0 else time.time_ns()
@@ -725,8 +868,9 @@ def main():
                         REC.tick(lab, pv, wall)
                     except Exception as e:
                         log.error(e)
-                if write_atomic(out, dumps_payload(pv)):
-                    last_ok_t = pv.get("t")
+                dash.put(out, dumps_payload(pv), pv.get("t"))
+                if dash.landed_t is not None:
+                    last_ok_t = dash.landed_t
                 loop_ms.append((time.perf_counter() - c0) * 1e3)
                 do = ((pv.get("say") or {}).get("do") or [""])[0][:40]       # the decision, not its changing numbers
                 if do and do != last_do:
@@ -768,15 +912,16 @@ def main():
                     ei = eng.info
                     log(f"status: loop p50 {pctl(loop_ms, 50)} ms p95 {pctl(loop_ms, 95)} ms; table read p95 "
                         f"{pctl(read_ms, 95)} ms; skipped {skipped} s; stale {stale_s} s; errors {log.errors}; "
-                        f"write fails {_W.fails}; engine report "
+                        f"write fails {_W.fails}; dashboard handed over in memory {dash.posted}, file writes {dash.writes}, refused {dash.refused}, "
+                        f"superseded {dash.superseded}, file age {dash.stale_s()} s; engine report "
                         f"{(str(round(time.time() - ei['t'])) + ' s old') if ei else 'none (' + str(eng.err) + ')'}; "
                         f"learning {learning['source']}: {learning['why']}; updates {int(sum(h.n for h in lab.hedge))}; "
                         f"restarts {lab.restarts}")
                     last_status = time.time()
             except Exception as e:
                 log.error(e)
-                write_atomic(out, dumps_payload(error_payload(f"forecaster error: {type(e).__name__}: {e}"[:300], wall,
-                                                              last_ok_t, log.errors, runner)))
+                dash.put(out, dumps_payload(error_payload(f"forecaster error: {type(e).__name__}: {e}"[:300], wall,
+                                                          last_ok_t, log.errors, runner)))
                 time.sleep(1.0)
     except KeyboardInterrupt:
         log("stopped by Ctrl+C")
@@ -785,10 +930,13 @@ def main():
     finally:
         final_save("stop")
         try:
+            d = locals().get("dash")
+            if d is not None:
+                d.flush(3.0)                              # the last forecast lands before the "stopped" notice
             t = time.time()
             write_atomic(out, dumps_payload(error_payload(
                 f"Forecaster stopped at {datetime.fromtimestamp(t, config.IST).strftime('%H:%M on %d %b')}.",
-                t, last_ok_t, log.errors)))
+                t, last_ok_t, log.errors)), fsutil.DEFAULT_BUDGET_S)
         except Exception as e:
             log.error(e)
         lock.release()
