@@ -1,9 +1,0 @@
-fam:c20 n 739 beam real 2.7 best [10.75, 17.988, 22.215]
-fam:c20 perms 99 p {'single': 0.01, 'pair': 0.01, 'triple': 0.01} null95 [7.82, 9.575, 10.644]
-  singles [('atm_iv_day_pos', '<', 0.8930000066757202)] 10.7503 583 0.616 | test {'n': 319, 'sr': 0.533, 'kept': 311, 'kept_sr': 0.547, 'dG': 1.314, 'days_pos': 1, 'days_neg': 0}
-  singles [('with_vol_share300', '<', 0.6359999775886536)] 9.4813 506 0.642 | test {'n': 319, 'sr': 0.533, 'kept': 221, 'kept_sr': 0.493, 'dG': -5.5457, 'days_pos': 0, 'days_neg': 2}
-  pairs [('with_vol_share300', '<', 0.6359999775886536), ('pivot_dist', '>=', -168.1300048828125)] 17.9883 369 0.751 | test {'n': 319, 'sr': 0.533, 'kept': 165, 'kept_sr': 0.497, 'dG': -5.5223, 'days_pos': 1, 'days_neg': 3}
-  pairs [('with_vol_share300', '<', 0.6359999775886536), ('inside_pd', '>=', 0.5)] 17.8821 270 0.87 | test {'n': 319, 'sr': 0.533, 'kept': 170, 'kept_sr': 0.441, 'dG': -11.0807, 'days_pos': 1, 'days_neg': 4}
-  triples [('vwap_cross_n', '>=', 10.0), ('with_vol_share300', '<', 0.6359999775886536), ('day_move_share', '>=', -0.5)] 22.2145 331 0.81 | test {'n': 319, 'sr': 0.533, 'kept': 126, 'kept_sr': 0.452, 'dG': -8.3465, 'days_pos': 1, 'days_neg': 2}
-  triples [('vwap_cross_n', '>=', 10.0), ('opt_run', '<', 0.47200000286102295), ('day_move_share', '>=', -0.5)] 21.3892 414 0.756 | test {'n': 319, 'sr': 0.533, 'kept': 142, 'kept_sr': 0.486, 'dG': -3.701, 'days_pos': 2, 'days_neg': 1}
-done 164.4

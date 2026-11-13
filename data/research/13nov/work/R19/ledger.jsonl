@@ -1,6 +1,0 @@
-{"t": "2026-11-13 14:48:30", "name": "mornings only (R-004 style), all pool books", "kind": "filter", "expr": "time_in < '12:00:00'", "apply_to": ["c20_9y", "c20_9s", "c20_9v", "c20_9x", "c20_9t"], "split": "2026-11-05", "p_test": 0.7866666666666666, "pass_W2": false}
-{"t": "2026-11-13 14:50:08", "name": "R-019 family vote, c20_9y only", "kind": "filter", "expr": "wx_agree_same >= 7", "apply_to": ["c20_9y"], "split": "2026-11-05", "p_test": 1.0, "pass_W2": false}
-{"t": "2026-11-13 14:50:51", "name": "cut a loser at 5 min if below -8 pct", "kind": "exit@300s", "expr": "h300_gain_pct < -8", "apply_to": ["c20_9y", "c20_9s", "c20_9v", "c20_9x", "c20_9t"], "split": "2026-11-05", "p_test": 1.0, "pass_W2": false}
-{"t": "2026-11-13 14:55:24", "name": "t28_gap: cut at 5 min if below -5 pct", "kind": "exit@300s", "expr": "h300_gain_pct < -5", "apply_to": ["t28_gap"], "split": "2026-11-05", "p_test": 1.0, "pass_W2": false}
-{"t": "2026-11-13 16:00:09", "name": "hb300_ret < -6", "kind": "exit@300s", "expr": "hb300_ret < -6", "apply_to": ["c20_9y", "c20_9s", "c20_9v", "c20_9x", "c20_9t"], "split": "2026-11-05", "p_test": 1.0, "pass_W2": false}
-{"t": "2026-11-13 23:08:56", "name": "hb300_ret < -6", "kind": "exit@300s", "expr": "hb300_ret < -6", "apply_to": ["c20_9y", "c20_9s", "c20_9v", "c20_9x", "c20_9t"], "split": "2026-11-05", "p_test": 1.0, "pass_W2": false}

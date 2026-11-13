@@ -1,6 +1,0 @@
-day,time_in,rr,ret_real,ret_vwap_exit,vwap_exit_s,in_wrong_side_at_entry,vwap_src
-2026-11-04,10:34:58,PE,-2.722,-2.722,,False,TWAP
-2026-11-04,10:54:25,CE,-11.147,-4.266334844135322,30.0,True,TWAP
-2026-11-04,11:11:10,PE,-10.084,-10.084,,False,TWAP
-2026-11-04,11:27:55,CE,-8.875,-0.4425823674622964,30.0,True,TWAP
-2026-11-04,12:04:24,PE,0.934,0.934,,False,TWAP

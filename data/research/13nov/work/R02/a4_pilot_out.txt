@@ -1,3 +1,0 @@
-D:\ApexOptions\data\research\13nov\work\R02\pathlib_r02.py:80: RuntimeWarning: All-NaN slice encountered
-  F = np.nanmedian(cand, 1)
-2026-11-06 trades 16 elapsed 50.9

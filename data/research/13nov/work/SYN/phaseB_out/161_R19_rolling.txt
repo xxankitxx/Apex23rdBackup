@@ -1,4 +1,0 @@
-usage: phaseB_rolling.py [-h] [--apply-to [APPLY_TO ...]] [--first FIRST]
-                         [--min-keep MIN_KEEP]
-                         factors [factors ...]
-phaseB_rolling.py: error: the following arguments are required: factors

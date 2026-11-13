@@ -1,9 +1,0 @@
-fam:spot_dc12 n 1905 beam real 10.9 best [8.057, 12.772, 16.207]
-fam:spot_dc12 perms 16 p {'single': 0.11764705882352941, 'pair': 0.058823529411764705, 'triple': 0.058823529411764705} null95 [7.877, 9.774, 11.036]
-  singles [('oi_other_chg5', '>=', -176410.0)] 8.0567 1613 0.389 | test {'n': 826, 'sr': 0.373, 'kept': 722, 'kept_sr': 0.366, 'dG': -2.2411, 'days_pos': 2, 'days_neg': 3}
-  singles [('all_last_same_s', '<', 156.6999969482422)] 7.7687 1031 0.403 | test {'n': 826, 'sr': 0.373, 'kept': 482, 'kept_sr': 0.407, 'dG': 0.9064, 'days_pos': 3, 'days_neg': 2}
-  pairs [('oi_net_help5', '>=', 139100.0), ('gex_regime=AMPLIFY', '<', 0.5)] 12.7715 856 0.457 | test {'n': 826, 'sr': 0.373, 'kept': 430, 'kept_sr': 0.367, 'dG': -0.3855, 'days_pos': 3, 'days_neg': 2}
-  pairs [('oi_other_chg5', '>=', -176410.0), ('held_other', '<', 7.0)] 12.4002 1293 0.424 | test {'n': 826, 'sr': 0.373, 'kept': 572, 'kept_sr': 0.353, 'dG': -2.2527, 'days_pos': 3, 'days_neg': 2}
-  triples [('oi_other_chg5', '>=', -176410.0), ('held_other', '<', 7.0), ('gex_regime=AMPLIFY', '<', 0.5)] 16.2067 1195 0.433 | test {'n': 826, 'sr': 0.373, 'kept': 572, 'kept_sr': 0.353, 'dG': -2.2527, 'days_pos': 3, 'days_neg': 2}
-  triples [('oi_other_chg5', '>=', -176410.0), ('held_other', '<', 7.0), ('to_pdl', '>=', -426.1000061035156)] 16.0335 1136 0.438 | test {'n': 826, 'sr': 0.373, 'kept': 182, 'kept_sr': 0.368, 'dG': -4.0096, 'days_pos': 2, 'days_neg': 3}
-done 170.1

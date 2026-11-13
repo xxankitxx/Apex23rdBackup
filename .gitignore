@@ -19,3 +19,10 @@ assets/*.mp3
 # 11 Nov: the Forecast Lab writes its live panel file here once a second
 apex/static/live/
 .pytest_cache/
+
+# 13 Nov (owner: "Don't push unnecessary stuff"): research scratch, derived tables, replay runs, locks, tool settings
+data/research/*/work/
+data/research/*/*.parquet
+data/sim/2*/
+*.lock
+.claude/
