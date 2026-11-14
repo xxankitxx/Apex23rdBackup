@@ -77,6 +77,32 @@ def _day_ret(trades):
     return 100.0 * sum(math.log(max(1e-4, 1.0 + _r(t) / 100.0)) for t in trades)
 
 
+SHADOW_ACCOUNTS = ("conductor", "conductor_fd", "conductor_fo", "conductor_d1", "conductor_sl", "conductor_wp60")
+SHADOW_BOOKS = ("fade20", "fade60", "orbfade", "fade60x", "thr_sis", "thr_hw", "st15_c20_9y", "tp_c20_9y", "pgb_c20_9y", "pm_c20_9y")
+SHADOW_FROM = "2026-11-16"     # the first session with every 13 and 14 Nov shadow loaded (docs/59)
+
+
+def shadow_lines(days, since=SHADOW_FROM):
+    """14 Nov (owner: "Yes, do all of that", docs/59 section 5 item 4): the live Conductor and the shadow accounts
+    side by side, day by day, from the first session they all ran. Report only: it changes no decision."""
+    rows = [b for b in SHADOW_ACCOUNTS + SHADOW_BOOKS if b in config.VARIANTS]
+    ds = sorted({d for b in rows for d in days.get(b, {}) if d >= since})
+    out = ["", f"## Shadow accounts beside the live Conductor (from {since}; report only)", ""]
+    if not ds:
+        return out + ["No session since then yet."]
+    show = ds[-8:]
+    out += ["| account / book | days | trades | winners | day % (compounded, all-in) " + " ".join(f"| {d[5:]}" for d in show) + " |",
+            "|---|---|---|---|---" + "|---" * len(show) + "|"]
+    for b in rows:
+        per = {d: days.get(b, {}).get(d) or [] for d in ds}
+        tr = [t for d in ds for t in per[d]]
+        tot = 100.0 * (math.exp(sum(_day_ret(per[d]) for d in ds) / 100.0) - 1.0)
+        cells = " ".join(f"| {100.0 * (math.exp(_day_ret(per[d]) / 100.0) - 1.0):+.1f}" if per[d] else "| ." for d in show)
+        name = f"**{b}** (live)" if b == "conductor" else b
+        out.append(f"| {name} | {sum(1 for d in ds if per[d])} | {len(tr)} | {sum(1 for t in tr if _r(t) > 0)} | {tot:+.1f} {cells} |")
+    return out
+
+
 def sprt_lines(n):
     k = config.SPRT_SIGMA_PCT ** 2 / config.SPRT_DELTA_PCT
     a, b = config.SPRT_ALPHA, config.SPRT_BETA
@@ -510,11 +536,27 @@ def _lodo_ok(day_vals):
     return all((tot - v) / (n - 1) > 0 for v in day_vals)
 
 
-def paired_test(days, a, b, since, alpha):
-    """Daily compounded return of book a minus book b on the days both traded since `since`.
-    Returns (n_days, mean_diff, t, t_needed, lodo_ok, passed)."""
-    da = {d: _day_ret(tr) for d, tr in days.get(a, {}).items() if d > since}
-    db = {d: _day_ret(tr) for d, tr in days.get(b, {}).items() if d > since}
+def _first_counted(s):
+    """14 Nov (docs/59): the first day a champion's record counts. A champion promoted in the evening starts the
+    next session (days > champion_since); one the owner declares for a date (config.CHAMPION_OWNER) trades that
+    day, so its record starts ON that date. Before this the Conductor's first live day, 9 Nov, was left out."""
+    oc = getattr(config, "CHAMPION_OWNER", None)
+    if oc and s.get("champion") == oc[0] and s.get("champion_since") == oc[1]:
+        return oc[1]
+    return None
+
+
+def _counts(d, s):
+    f = _first_counted(s)
+    return d >= f if f else d > s["champion_since"]
+
+
+def paired_test(days, a, b, since, alpha, first=None):
+    """Daily compounded return of book a minus book b on the days both traded since `since` (from `first`
+    inclusive when given). Returns (n_days, mean_diff, t, t_needed, lodo_ok, passed)."""
+    keep = (lambda d: d >= first) if first else (lambda d: d > since)
+    da = {d: _day_ret(tr) for d, tr in days.get(a, {}).items() if keep(d)}
+    db = {d: _day_ret(tr) for d, tr in days.get(b, {}).items() if keep(d)}
     common = sorted(set(da) & set(db))
     diff = [da[d] - db[d] for d in common]
     n = len(diff)
@@ -592,7 +634,7 @@ def learn(today: str = None):
     champ = s["champion"]
 
     # 1. scoreboard for the champion
-    ctr = [_r(t) for d, tr in sorted(days.get(champ, {}).items()) if d > s["champion_since"] for t in tr]
+    ctr = [_r(t) for d, tr in sorted(days.get(champ, {}).items()) if _counts(d, s) for t in tr]
     n, tot = len(ctr), sum(ctr)
     go, kill = sprt_lines(n)
     if n < config.SPRT_MIN_TRADES:              # O-8: no verdict either way before the minimum
@@ -624,7 +666,7 @@ def learn(today: str = None):
               "| variant | days | mean diff/day % | t | t needed | LODO | passing evenings |",
               "|---|---|---|---|---|---|---|"]
     for v in chal:
-        nd, m, t, need, lodo, ok = paired_test(days, v, champ, s["champion_since"], alpha)
+        nd, m, t, need, lodo, ok = paired_test(days, v, champ, s["champion_since"], alpha, first=_first_counted(s))
         if first_look:
             s["streak"][v] = s["streak"].get(v, 0) + 1 if ok else 0
         lines.append(f"| {v} | {nd} | {m:+.2f} | {t:.2f} | {need:.2f} | {'yes' if lodo else 'no'} | {s['streak'].get(v, 0)} |")
@@ -761,6 +803,10 @@ def learn(today: str = None):
     lines += ["", f"Champion for the next session: **`{s['champion']}`** · gates: {', '.join(s['gates']) or 'none'} · "
                   f"candidates: {', '.join(cands) or 'none'}"]
     lines += _integrity_lines(days, filled, fill_problems, s.get("registered", REGISTERED))
+    try:
+        lines += shadow_lines(days)
+    except Exception as e:                     # report only: never let it stop the evening
+        lines += ["", f"(shadow accounts section failed: {e})"]
     save_state(s)
     _write_report(today, lines)
     _RECORD_BAD[0] = 0

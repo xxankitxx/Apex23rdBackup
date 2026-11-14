@@ -266,3 +266,15 @@ not a forecast.
 
 **Owner's decision, 14 Nov:** asked whether the live champion should stand down on expiry days from Tuesday 17 Nov,
 the owner answered "Keep it live". The live Conductor and its expiry-day mode are unchanged.
+
+## Correction (14 Nov, after an independent review)
+
+Two faults in the sections above, found by `docs/57_SYSTEM_PROFITABILITY_REVIEW.md` (another tool working in this
+repository) and confirmed: (1) "What all-in compounding does" carried capital across the whole year, but the live
+account starts at ₹1,00,000 every day, so its "100 becomes 0" rows describe a different account; (2) the one-account
+merges (`s38_year_summary.one_account`) added a 60-second pause after every exit, which the live Conductor does not
+have. Recomputed in `s48_parity.py` (daily reset, no pause, ties in pool order), year before the recorded window:
+champion normal days +249 % summed over 135 days; champion expiry days -579 % over 48; the champion on every day as
+live -331 % (-1.45 % a day); champion + three fades on normal days +550 %; fade60 + orbfade alone +620 %. The
+conclusions stand in direction (expiry days decide the year; the fades add), not in the sizes printed above.
+See docs/59 section 4.3.

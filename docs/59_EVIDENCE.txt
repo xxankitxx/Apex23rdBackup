@@ -1,0 +1,114 @@
+docs/59 evidence, generated 2026-11-14 12:50
+
+E1. LIVE RECORD of the Conductor (data/paper/<day>.json, START_CAPITAL 100,000 fresh each day)
+  2026-11-09  trades 12  winners  6  end capital    159,664  day  +59.7 %
+  2026-11-11  trades  4  winners  2  end capital    107,439  day   +7.4 %
+  2026-11-12  trades  3  winners  1  end capital    103,676  day   +3.7 %
+  2026-11-13  trades  3  winners  0  end capital     72,898  day  -27.1 %
+
+E2. LIVE STEP TIME (data/logs/perf_<day>.jsonl, 09:15-15:30, budget 100 ms a step at 10 Hz)
+  2026-11-11: median step 31.1 ms, 95th pct 105 ms, steps over 300 ms 458, over 1 s 0, steps a minute 583 of 600
+  2026-11-12: median step 41.6 ms, 95th pct 150 ms, steps over 300 ms 1728, over 1 s 8, steps a minute 552 of 600
+  2026-11-13: median step 72.2 ms, 95th pct 216 ms, steps over 300 ms 5038, over 1 s 21, steps a minute 483 of 600
+
+E3. FASTLAB FIDELITY: the champion books' recorded trades re-walked per second (s02_fidelity.py)
+c20_9x normal n 47 entry price same within 1%: 1.0 | ret corr 0.999 | mean rec 9.8 sim 9.16 | sr rec 0.489 sim 0.489 | within 3 pts: 0.91 | my strike pick same: 0.98
+c20_9x expiry n 62 entry price same within 1%: 0.85 | ret corr 0.986 | mean rec 5.18 sim 4.82 | sr rec 0.532 sim 0.484 | within 3 pts: 0.95 | my strike pick same: 0.94
+c20_9y normal n 43 entry price same within 1%: 1.0 | ret corr 0.999 | mean rec 10.69 sim 10.09 | sr rec 0.535 sim 0.512 | within 3 pts: 0.91 | my strike pick same: 0.98
+c20_9y expiry n 56 entry price same within 1%: 0.88 | ret corr 0.986 | mean rec 7.53 sim 7.01 | sr rec 0.589 sim 0.536 | within 3 pts: 0.96 | my strike pick same: 0.93
+
+E4. FOUR YEARS, 1-minute bars (h1/four_years.parquet; s22): the pullback pattern, normal days, model option
+                                    set  sessions  trades  winners_pct  per_trade_pct    t days_up  median_day_pct  total_pts
+              hl_pb0.4: recorded window        14      75           49           5.69  2.4   11/14            15.3        427
+            hl_pb0.4: four years before       634    2214           33          -0.01 -0.0 256/634            -5.0        -31
+                    hl: recorded window        14      62           40           1.97  1.3    8/14             2.0        122
+                  hl: four years before       559    1586           33          -0.12 -0.3 210/559            -5.5       -186
+                hl_v35: recorded window        14      70           44           3.88  3.4   10/14            10.1        272
+              hl_v35: four years before       626    1919           34          -0.01 -0.0 241/626            -4.8        -19
+hl: REAL option bars, Nov 2024-Jun 2025       105     385           28          -0.64 -0.7  33/105           -11.4       -248
+
+E5. FOUR YEARS, 65 entry ideas, found 2022-24 / judged 2025-26 (h1/search4y.parquet; s23)
+  ideas positive in both halves: 20 of 65; of those with t >= 1.4 in both: 3
+                        idea  n_found  mean_found  t_found  n_judged  mean_judged  t_judged
+      opening range 60m FADE      317       -0.05     -0.1       280         2.62       2.3
+fade a 20m move of 0.4 sigma      838        0.08      0.1       694         1.23       1.7
+fade a 20m move of 0.6 sigma      245        3.53      2.0       199         2.20       1.5
+      opening range 15m FADE      400        1.50      1.7       356         1.46       1.4
+ back to VWAP from 0.7 sigma      254       -0.32     -0.3       210         1.97       1.4
+fade a 60m move of 0.7 sigma      305        1.88      1.7       261         1.79       1.4
+  ...momentum / breakout ideas on 2025-26: [-0.41, -0.52, 0.28, -0.8, -0.35, -0.56, -0.27, -0.08, 0.61, -0.05, 0.07, -0.53, -0.33, -0.2, -0.18, -1.25, -1.46, 0.3, -0.48, 0.18]
+
+E6. FOUR YEARS, one account (h1/composite.parquet; s34)
+                              set  sessions  trades  winners_pct  per_trade_pct   t days_up  median_day_pct  total_pts
+            pattern alone 2022-24       371    1319           35           0.44 0.9 152/371            -4.8        584
+            pattern alone 2025-26       333    1309           34           0.23 0.5 138/333            -3.1        295
+          the three fades 2022-24       401     810           37           1.99 2.8 170/401            -0.1       1614
+          the three fades 2025-26       358     681           36           1.81 2.4 151/358            -2.0       1234
+pattern + fade20 + fade60 2022-24       380    1557           36           0.89 1.9 164/380            -3.1       1384
+pattern + fade20 + fade60 2025-26       338    1488           34           0.38 0.9 130/338            -4.6        561
+pattern + the three fades 2022-24       404    1787           37           1.21 2.9 186/404            -2.3       2154
+pattern + the three fades 2025-26       361    1681           33           0.38 1.0 147/361            -4.8        636
+          fade20 + fade60 2022-24       191     457           37           2.59 2.4  84/191            -0.1       1183
+          fade20 + fade60 2025-26       172     370           36           2.07 1.9  76/172            -1.6        765
+
+E7. THE YEAR PER SECOND, real strategy classes, normal days (hist1s/classes_run.parquet; s32, s38)
+  broker 1-second sessions on disk: 229; days in this file: 194 (2025-11-14 to 2026-11-13)
+                            set  sessions  trades  winners_pct  per_trade_pct    t days_up  median_day_pct  total_pts
+     c20_9x: year before window       135     393           38           0.65  0.9  56/135            -4.4        257
+        c20_9x: recorded window        14      49           47           7.75  2.2   10/14            18.5        380
+c20_9y_st15: year before window       135     419           38           0.14  0.2  51/135            -2.8         59
+   c20_9y_st15: recorded window        14      56           46           6.24  2.0   10/14            10.0        350
+     fade20: year before window        56      98           37           0.06  0.0   20/56            -7.3          6
+        fade20: recorded window         4       6            0          -7.63 -3.0     0/4           -11.8        -46
+     fade60: year before window        79     124           35           1.92  1.0   29/79            -2.7        238
+        fade60: recorded window         7      10           60           4.96  1.2     4/7             8.6         50
+    orbfade: year before window       179     179           44           2.07  1.9  78/179            -0.9        370
+       orbfade: recorded window        14      14           21          -4.99 -2.3    3/14            -6.3        -70
+
+E8. EXPIRY DAYS, real class + real option seconds (hist1s/expiry_class.parquet; s40) and fades (s41)
+                                set  sessions  trades  winners_pct  per_trade_pct    t days_up  median_day_pct  total_pts
+c20_9x expiry breakout, 48 sessions        48     639           31          -0.62 -0.8   11/48           -33.0       -394
+                       fade 10m 0.3        32     129           29          -1.13 -0.6   13/32           -10.2       -146
+                       fade 20m 0.4        28      86           34          -0.80 -0.3   10/28            -9.5        -69
+                       fade 20m 0.6        15      26           27           2.89  0.5    4/15           -14.0         75
+                       fade 60m 0.7        18      28           57           7.55  1.9   10/18             6.3        211
+                       orb fade 15m        48      48           29          -0.68 -0.3   14/48            -7.3        -33
+                       orb fade 60m        43      43           40           0.87  0.3   17/43            -0.7         38
+  expiry days below -50 %: 14; above +100 %: 2; best +430 %, worst -84 %
+
+E9. ACCOUNT PARITY (s48_parity.py, corrected 14 Nov): fresh Rs 1,00,000 EVERY day as the live account, no pause
+    between trades (the live Conductor has none), ties in pool order; continuous compounding beside it
+Year before the recorded window (14 Nov 2025 to 16 Oct 2026); normal days on a model option, expiry days on real option seconds
+                                            account  trades  winners  per_trade  daily_reset_sum_pct  daily_reset_mean_day days_up  worst_day    t  continuous_100_becomes
+                 champion alone (no pause, as live)     393       38       0.65                  249                  1.38  56/135        -45  0.8                    25.2
+              champion + fade60 (no pause, as live)     484       38       1.01                  387                  2.15  62/148        -54  1.1                    45.8
+             champion + orbfade (no pause, as live)     531       39       0.97                  420                  2.33  79/179        -42  1.3                    86.9
+    champion + fade60 + orbfade (no pause, as live)     621       39       1.21                  589                  3.27  75/180        -43  1.6                   163.4
+         champion + three fades (no pause, as live)     662       39       1.07                  550                  3.06  78/180        -47  1.4                    75.4
+champion + three fades (with the 60-s pause of s38)     647       39       1.16                  577                  3.20  78/180        -43  1.5                   124.7
+       three fades, no champion (no pause, as live)     354       40       1.49                  591                  3.28  82/180        -64  1.8                   259.6
+  fade60 + orbfade, no champion (no pause, as live)     299       40       2.04                  620                  3.44  82/180        -39  2.0                  1019.1
+   expiry days: champion class, real option seconds     639       31      -0.62                 -579                -12.07   11/48        -84 -1.1                     0.0
+   champion on every day (normal + expiry), as live    1032       34      -0.13                 -331                 -1.45  67/183        -84 -0.5                     0.0
+
+E10. ONE-SECOND HISTORY CHECK on 6 Nov (s27): broker future vs tape
+2026-11-06: broker seconds with a trade 14831 of 22500; tape futures mid against broker last trade: mean diff -0.21 pts, mean abs 2.87, 95th pct abs 7.30, correlation of 60-s changes 0.8893
+pattern fired from the TAPE forward:   [('10:27', 10, 'CE'), ('10:33', 48, 'CE'), ('10:46', 28, 'PE'), ('11:05', 11, 'PE'), ('14:09', 28, 'CE')]
+pattern fired from the BROKER future:  [('10:27', 3, 'CE'), ('10:33', 48, 'CE'), ('10:47', 33, 'PE'), ('11:04', 31, 'PE'), ('13:03', 20, 'PE'), ('14:06', 48, 'CE')]
+trades (tape signals):   10:27C+10 10:46P+5 11:05P-5 14:09C+71
+trades (broker signals): 10:27C+11 10:47P+7 11:04P-6 13:03P-10 14:06C+62
+
+SOURCE FILES (relative path, bytes, modified, sha256 prefix)
+  data\paper\2026-11-09.json  7,700,987  2026-11-09 14:43  dcd99f0ec8f6
+  data\paper\2026-11-11.json  17,111,525  2026-11-11 15:54  43f643d7727f
+  data\paper\2026-11-12.json  14,449,419  2026-11-12 15:51  ddc38f212d87
+  data\paper\2026-11-13.json  11,599,528  2026-11-13 15:45  400b97413802
+  data\logs\perf_2026-11-11.jsonl  744,427  2026-11-11 15:54  4bc09943b70d
+  data\logs\perf_2026-11-12.jsonl  695,963  2026-11-12 15:50  ae99b5b4358e
+  data\logs\perf_2026-11-13.jsonl  659,604  2026-11-13 15:44  d3b2b2bf8bcb
+  data\research\14nov\work\h1\four_years.parquet  337,717  2026-11-14 01:42  c28e570edbad
+  data\research\14nov\work\h1\search4y.parquet  1,765,628  2026-11-14 01:46  745b82b0f8a5
+  data\research\14nov\work\h1\composite.parquet  206,213  2026-11-14 03:32  d151f42945f3
+  data\research\hist1s\classes_run.parquet  76,337  2026-11-14 04:43  ca686e2ed0cd
+  data\research\hist1s\expiry_class.parquet  24,981  2026-11-14 04:53  d7c45e19075b
+  data\research\hist1s\expiry_fades.parquet  22,636  2026-11-14 04:57  dbaaabc45a21

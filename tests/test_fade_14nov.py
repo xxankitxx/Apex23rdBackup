@@ -9,7 +9,7 @@ import numpy as np
 sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 from apex import config  # noqa: E402
 from apex.engine import conductor as cond  # noqa: E402
-from apex.engine.council import LiveDay, fade, fade20, fade60, orbfade  # noqa: E402
+from apex.engine.council import LiveDay, fade, fade20, fade60, fade60x, orbfade  # noqa: E402
 
 NEW = ["fade20", "fade60", "conductor_fd"]
 
@@ -35,7 +35,7 @@ def test_day_sigma_needs_ten_returns_and_reads_only_earlier_days(tmp_path):
 def test_registered_last_and_only_the_shadow_account_pools_them():
     names = list(config.VARIANTS)
     i = names.index(NEW[0])
-    assert names[i:i + 3] == NEW and names[-2:] == ["orbfade", "conductor_fo"] and config.validate() == []
+    assert names[i:i + 3] == NEW and names[names.index("orbfade"):names.index("orbfade") + 3] == ["orbfade", "conductor_fo", "fade60x"] and config.validate() == []
     assert all(config.VARIANTS[n].get("twin") for n in NEW)
     live = cond.Conductor("2026-11-16", names)
     assert not {m["book"] for m in live.members} & set(NEW)
@@ -147,3 +147,54 @@ def test_opening_range_fade_buys_against_the_first_break_once_on_normal_days():
     assert out == []
     s, out = _buys(_orb_day("2026-11-17", "2026-11-17", 25080.0), orbfade.Strategy, 3000)       # expiry day: off
     assert out == [] and s.of_dte == 0
+
+
+def test_sidelock_tape_takes_the_latest_trades_across_books_in_time_order():
+    """14 Nov review: the engine tape must agree with offline_admit (latest SIDE_N closed trades by exit time)."""
+    class B:
+        def __init__(self, trades):
+            self.trades = trades
+    old_wins = [{"rr": "CE", "pnl_rs": 100.0, "t_out": 1000.0 + k} for k in range(12)]
+    new_losses = [{"rr": "CE", "pnl_rs": -100.0, "t_out": 5000.0 + k} for k in range(12)]
+    books = {"c20_8x": B(new_losses), "rx_c20_9y": B(old_wins)}
+    sl = cond.AdaptiveConductor("2026-11-16", list(config.VARIANTS), "sidelock", "conductor_sl")
+    why = sl.admit(sl.members[0], {"key": "NIFTY|OPT|2026-11-17|25000|CE"}, None, books, {"now_s": 9000.0})
+    off = cond.offline_admit("sidelock")(9000.0, None, {"rr": "CE"}, [], {k: {"trades": v.trades} for k, v in books.items()})
+    assert why is not None and "0 won, 12 lost" in why and off is not None and "0 won, 12 lost" in off
+
+
+def test_a_bad_expiry_faults_once_not_all_day():
+    from apex.engine.council import thr_sis
+    for cls in (thr_sis.Strategy, fade20.Strategy, orbfade.Strategy):
+        D = _day("2026-11-16", "", 0.0, n=2500)
+        s = cls()
+        errs = []
+        for i in range(3):
+            D.i = i
+            try:
+                s.on_second(i, D, None)
+            except Exception as e:
+                errs.append(type(e).__name__)
+        assert errs and set(errs) == {"ValueError"}, (cls, errs)        # the same clear error each time, never AttributeError
+
+
+def test_expiry_fade_trades_expiry_days_only(tmp_path):
+    p = _levels(tmp_path)
+
+    class X(fade60x.Strategy):
+        LEVELS = p
+
+    class N(fade.Fade60):
+        LEVELS = p
+    up = 400.0
+    s, out = _buys(_day("2026-11-17", "2026-11-17", up, n=5000), X, 4900)        # expiry day: fades the rise
+    assert len(out) == 1 and out[0][1][2] == "PE" and s.fd_dte == 0 and "in 60 min" in out[0][1][3], out
+    s, out = _buys(_day("2026-11-16", "2026-11-17", up, n=5000), X, 4900)        # a normal day: off
+    assert out == []
+    s, out = _buys(_day("2026-11-17", "2026-11-17", up, n=5000), N, 4900)        # and fade60 stays off on expiry
+    assert out == []
+    assert config.VARIANTS["fade60x"].get("twin") and "fade60x" not in [m["book"] for m in cond.Conductor("2026-11-17", list(config.VARIANTS)).members]
+
+
+def test_the_heavy_old_book_is_off_and_nothing_names_it():
+    assert "spot_dc12_t12_first_r002" not in config.VARIANTS and "spot_dc12_t12_first_r003" in config.VARIANTS

@@ -52,8 +52,8 @@ class _FadeMixin:
     LEVELS = None                                       # a test may point this at its own file
 
     def _fd_reset(self, D):
+        self.fd_dte = days_to_expiry(D.day, D.expiry)   # raises on a bad expiry: the marker below stays unset
         self._fd_day = D.day
-        self.fd_dte = days_to_expiry(D.day, D.expiry)
         self.fd_rs = day_sigma(D.day, self.LEVELS)      # daily sigma as a fraction, from the prior closes
         self.fd_em = None                               # the day's sigma in points, fixed at the first forward
         self._fd_last = {"CE": -10 ** 9, "PE": -10 ** 9}
@@ -80,7 +80,7 @@ class _FadeMixin:
         sig = super().on_second(i, D, pos)              # the champion: its own state and, while holding, its exits
         if getattr(self, "_fd_day", None) != D.day:
             self._fd_reset(D)
-        if self.fd_dte < 1:
+        if (self.fd_dte < 1) != bool(getattr(self, "EXPIRY_ONLY", False)):    # normal days, or expiry days only
             return sig if pos is not None else None
         em = self._fd_points(i, D)
         edge = None
@@ -117,3 +117,11 @@ class Fade20(_FadeMixin, _y.Strategy):
 
 class Fade60(_FadeMixin, _y.Strategy):
     W_MIN, Z = 60, 0.7
+
+
+class Fade60Expiry(_FadeMixin, _y.Strategy):
+    """fade60x (14 Nov, docs/59): the same 60-minute 0.7-sigma fade on EXPIRY days only, with the champion's expiry
+    ladder (15-minute clock, 25-point trail). A year of real option seconds: 28 trades, 57 % winners, +7.6 % a
+    trade (t 1.9) - a lead on few trades."""
+    W_MIN, Z = 60, 0.7
+    EXPIRY_ONLY = True

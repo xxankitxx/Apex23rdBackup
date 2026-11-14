@@ -109,5 +109,5 @@ def test_family_rules_expand_to_their_restricted_books():
     assert "R-002/spot_pb45" in ids and "R-005/spot_orb45" in ids and "R-001" in ids
     r = next(x for x in reg["rules"] if x["id"] == "R-004/c20_9x")
     assert r["restricted_book"] == "c20_9x_r004" and r["free_book"] == "c20_9x"
-    assert sum(1 for i in ids if i.startswith("R-00") and "/" in i) == 14      # spot_pb45_r003 off 8 Nov
+    assert sum(1 for i in ids if i.startswith("R-00") and "/" in i) == 13      # spot_pb45_r003 off 8 Nov; spot_dc12_t12_first_r002 off 14 Nov
     assert "R-003/spot_pb45" not in ids

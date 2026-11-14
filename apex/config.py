@@ -431,10 +431,12 @@ VARIANTS["c20_9y"] = dict(_G, council="c20_9y")      # 4 Nov night (owner): c20_
 # apex/rules/register.json): each family's representative with one rule switched on (apex/engine/rules.py), traded
 # beside its free book from Mon 9 Nov. Name = representative + "_r00N". Shadow books only; nothing else changes.
 RESTRICTED = {
-    "R-002": ("spot_dc12_t12", "spot_dc12_t12_first", "spot_pb45", "spot_orb45", "m1.5_s0.4", "gap3_s0.4",
+    "R-002": ("spot_dc12_t12", "spot_pb45", "spot_orb45", "m1.5_s0.4", "gap3_s0.4",
               "fade_switch", "c20_9x"),
     # spot_pb45_r003 switched off 8 Nov (owner): a pullback enters after minutes against the trend, so 5-min
     # breadth our way is never >= 60 % there (14-day replay: 0 of 57 entries, max 57 %). Status "off" in status.jsonl.
+    # spot_dc12_t12_first_r002 switched off 14 Nov (owner: "Yes, do all of that", docs/59 section 5): 3.1 ms a step
+    # on 12 Nov live, a quarter of the whole book phase; outside the pool, so no Conductor trade changes.
     "R-003": ("spot_dc12_t12_first", "spot_orb45", "m1.5_s0.4", "gap3_s0.4"),
     "R-004": ("c20_9x",),
     "R-005": ("spot_orb45",),
@@ -489,6 +491,9 @@ VARIANTS["conductor_fd"] = dict(_G, conductor=True, shadow_policy="fade", twin=T
 # the three on real option bars, a shadow book in no pool.
 VARIANTS["orbfade"] = dict(_G, council="orbfade", twin=True)
 VARIANTS["conductor_fo"] = dict(_G, conductor=True, shadow_policy="fadeonly", twin=True, raw_of="c20_9x")
+# 14 Nov (owner: "Yes, do all of that", docs/59 decision 11): the 60-minute fade on EXPIRY days, the one expiry entry
+# that held on a year of real option seconds (28 trades, 57 % winners, +7.6 % a trade). Shadow only, in no pool.
+VARIANTS["fade60x"] = dict(_G, council="fade60x", twin=True)
 CHAMPION_DEFAULT = "c20_9x"  # 1 Nov (owner): back from c20_9t after its 8-day replay; before: c20_9t (31 Oct, never live), t28_gap (29 Oct 11:40), t28_cheap (29 Oct morning), t28_gap (28 Oct evening), lvl_trail_re (28 Oct), edge_gate_trail and edge_gate_only (27 Oct), spot_dual_lvl (D-142), edge_gate_trail and edge_gate_only (27 Oct), spot_dual_lvl (D-142)
 # D-124 (owner, 20 Oct 16:16: "Apply spot_dc12_t12 thoroughly on my code"): the champion is the owner's choice.
 # learning.load_state applies it ONCE to an existing state (the champion lives in data/learning/state.json,

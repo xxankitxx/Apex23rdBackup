@@ -371,7 +371,8 @@ class AdaptiveConductor(Conductor):
         self._tape = {"CE": collections.deque(maxlen=SIDE_N), "PE": collections.deque(maxlen=SIDE_N)}
 
     def _read_tape(self, books):
-        for name in SIDE_TAPE_BOOKS:
+        new = []                                        # 14 Nov (review): all books' new trades, then ONE time order,
+        for name in SIDE_TAPE_BOOKS:                    # so the tape holds the latest SIDE_N trades as offline_admit does
             b = books.get(name)
             if b is None:
                 continue
@@ -379,14 +380,12 @@ class AdaptiveConductor(Conductor):
             ts = b.trades
             if k > len(ts):                             # a new day or a reload: start again
                 k = 0
-            new = sorted(ts[k:], key=lambda t: t.get("t_out") or 0.0)
-            for t in new:
-                if t.get("adjustment"):
-                    continue
-                sd = _side_of(t)
-                if sd in self._tape:
-                    self._tape[sd].append(1 if (t.get("pnl_rs") or 0.0) > 0 else 0)
+            new += [t for t in ts[k:] if not t.get("adjustment")]
             self._ptr[name] = len(ts)
+        for t in sorted(new, key=lambda t: t.get("t_out") or 0.0):
+            sd = _side_of(t)
+            if sd in self._tape:
+                self._tape[sd].append(1 if (t.get("pnl_rs") or 0.0) > 0 else 0)
 
     def admit(self, m, pe, cb, books, ctx):
         if self.policy in EXTRA_POOL or self.policy in ONLY_POOL:

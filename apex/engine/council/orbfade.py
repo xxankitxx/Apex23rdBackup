@@ -20,8 +20,8 @@ O = dict(RANGE_S=900, UNTIL_S=150 * 60)
 
 class _OrbFadeMixin:
     def _of_reset(self, D):
+        self.of_dte = days_to_expiry(D.day, D.expiry)   # raises on a bad expiry: the marker below stays unset
         self._of_day = D.day
-        self.of_dte = days_to_expiry(D.day, D.expiry)
         self.of_hi = self.of_lo = None
         self.of_done = False
         self.of_log = []

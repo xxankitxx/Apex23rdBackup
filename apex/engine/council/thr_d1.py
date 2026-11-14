@@ -80,8 +80,8 @@ class _ThrustMixin:
     KIND = "sis"
 
     def _thr_reset(self, D):
+        self.thr_dte = days_to_expiry(D.day, D.expiry)  # raises on a bad expiry: the marker below stays unset
         self._thr_day = D.day
-        self.thr_dte = days_to_expiry(D.day, D.expiry)
         self._thr_prev = {"CE": False, "PE": False}
         self._thr_last = {"CE": -10 ** 9, "PE": -10 ** 9}
         self.thr_log = []                               # (row, side, value 1, value 2, taken)

@@ -21,8 +21,15 @@ apex/static/live/
 .pytest_cache/
 
 # 13 Nov (owner: "Don't push unnecessary stuff"): research scratch, derived tables, replay runs, locks, tool settings
-data/research/*/work/
+data/research/*/work/**
 data/research/*/*.parquet
+# 14 Nov (owner: "Yes, do all of that", docs/59 decision 12): the research CODE behind docs/57-59 is kept (no data)
+!data/research/14nov/work/*.py
+# downloaded broker history and its run logs (rebuildable with hist1s.py / hist_wx.py)
+data/research/hist1s/
+data/research/hist_wx/
+data/research/hist_wx_q*.txt
+data/research/hist_wx_queue.txt
 data/sim/2*/
 *.lock
 .claude/
