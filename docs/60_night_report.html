@@ -1,0 +1,195 @@
+<title>Night Desk Report</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;600&display=swap">
+<style>
+/* Layout: one reading column of evidence sections; each section = claim line, then its proof (table or chart). */
+:root{
+  --bg:#f5f7f6; --surface:#ffffff; --ink:#14201d; --muted:#5b6b66; --line:#d9e1de;
+  --accent:#0f6b5c; --accent-soft:#e2f0ec;
+  --up:#1d7a46; --down:#b4362b; --warn:#a86a00;
+  --s-champ:#b4362b; --s-fade:#6a7d8c; --s-switch:#0f6b5c;
+  --display:"Space Grotesk",system-ui,sans-serif; --body:"Inter",system-ui,sans-serif; --mono:"JetBrains Mono",ui-monospace,Consolas,monospace;
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
+  --bg:#0f1514; --surface:#161e1c; --ink:#e4ece9; --muted:#93a39e; --line:#2a3633;
+  --accent:#4fc3a8; --accent-soft:#1b2d29; --up:#5ccf8a; --down:#f07a6e; --warn:#e3a941;
+  --s-champ:#f07a6e; --s-fade:#9aabb8; --s-switch:#4fc3a8; color-scheme:dark}}
+:root[data-theme="dark"]{
+  --bg:#0f1514; --surface:#161e1c; --ink:#e4ece9; --muted:#93a39e; --line:#2a3633;
+  --accent:#4fc3a8; --accent-soft:#1b2d29; --up:#5ccf8a; --down:#f07a6e; --warn:#e3a941;
+  --s-champ:#f07a6e; --s-fade:#9aabb8; --s-switch:#4fc3a8; color-scheme:dark}
+*{box-sizing:border-box}
+body{background:var(--bg);color:var(--ink);font:15px/1.6 var(--body);margin:0}
+.wrap{max-width:980px;margin:0 auto;padding-block:40px 64px;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));display:grid;gap:44px}
+header{display:grid;gap:14px}
+.eyebrow{font:600 12px/1 var(--mono);letter-spacing:.08em;text-transform:uppercase;color:var(--accent)}
+h1{font:700 clamp(30px,5vw,46px)/1.08 var(--display);margin:0;text-wrap:balance;letter-spacing:-.01em}
+h2{font:600 22px/1.25 var(--display);margin:0;text-wrap:balance}
+p{margin:0;max-width:68ch}
+.lede{font-size:17px;color:var(--ink)}
+.muted{color:var(--muted)}
+section{display:grid;gap:16px;min-width:0}
+.verdict{background:var(--surface);border:1px solid var(--line);border-left:4px solid var(--accent);border-radius:6px;padding:18px 20px;display:grid;gap:8px}
+.verdict b{font-family:var(--display);font-size:17px}
+.kpis{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:12px}
+.kpi{background:var(--surface);border:1px solid var(--line);border-radius:6px;padding:14px 16px;display:grid;gap:2px}
+.kpi .v{font:600 28px/1.1 var(--mono);font-variant-numeric:tabular-nums}
+.kpi .l{font-size:13px;color:var(--muted)}
+.tbl{overflow-x:auto;background:var(--surface);border:1px solid var(--line);border-radius:6px}
+table{border-collapse:collapse;width:100%;font-size:14px;min-width:560px}
+th,td{padding:9px 12px;text-align:right;border-bottom:1px solid var(--line);white-space:nowrap}
+th:first-child,td:first-child,th.l,td.l{text-align:left}
+td.l{white-space:normal}
+thead th{font:600 12px/1.2 var(--mono);text-transform:uppercase;letter-spacing:.05em;color:var(--muted);background:var(--accent-soft)}
+tbody tr:last-child td{border-bottom:0}
+td.n{font-family:var(--mono);font-variant-numeric:tabular-nums}
+.pos{color:var(--up)} .neg{color:var(--down)}
+.pill{display:inline-block;font:600 11px/1 var(--mono);padding:4px 7px;border-radius:99px;letter-spacing:.04em}
+.pill.fail{background:color-mix(in srgb,var(--down) 15%,transparent);color:var(--down)}
+.pill.fixed{background:color-mix(in srgb,var(--up) 15%,transparent);color:var(--up)}
+.pill.lead{background:color-mix(in srgb,var(--warn) 18%,transparent);color:var(--warn)}
+.funnel{display:grid;gap:8px}
+.frow{display:grid;grid-template-columns:minmax(0,230px) 1fr 56px;gap:12px;align-items:center;font-size:14px}
+.bar{height:18px;background:var(--accent);border-radius:3px;min-width:3px}
+.frow .c{font:600 14px var(--mono);text-align:right;font-variant-numeric:tabular-nums}
+.chart{background:var(--surface);border:1px solid var(--line);border-radius:6px;padding:14px 10px 6px;overflow-x:auto}
+.chart svg{display:block;width:100%;min-width:560px;height:auto}
+.legend{display:flex;flex-wrap:wrap;gap:16px;font-size:13px;color:var(--muted);padding:0 6px 8px}
+.legend i{display:inline-block;width:14px;height:3px;border-radius:2px;margin-right:6px;vertical-align:middle}
+ul{margin:0;padding-left:20px;display:grid;gap:8px;max-width:72ch}
+code{font:13px var(--mono);background:var(--accent-soft);padding:1px 5px;border-radius:3px}
+footer{font-size:13px;color:var(--muted);border-top:1px solid var(--line);padding-top:16px}
+@media (max-width:520px){.frow{grid-template-columns:1fr 48px}.frow .bar{grid-column:1/-1;order:3}}
+</style>
+
+<div class="wrap">
+<header>
+  <div class="eyebrow">ApexOptions · night of 14 to 15 Nov 2026 · paper, buy only, all-in</div>
+  <h1>Thirty agents, 4,217 ideas, one honest answer</h1>
+  <p class="lede">The search ran for about 12 hours over two years of per-second Nifty history, priced on real option prices. No new entry passed the bar fixed before the search began, so the live pool stays as it is on Monday. One lead came out of it: switch the expiry-day style by recent results. It needs a shadow run before anything goes live.</p>
+</header>
+
+<section>
+  <div class="verdict">
+    <b>Verdict: no change to the live Conductor pool.</b>
+    <p>Every finalist that held on the three splits the agents could see lost money on the holdout year, which nobody looked at until the end. The bar did its job: without it, two of these would be trading on Monday.</p>
+  </div>
+  <div class="kpis">
+    <div class="kpi"><span class="v">84</span><span class="l">agents run, 0 errors</span></div>
+    <div class="kpi"><span class="v">4,217</span><span class="l">variants logged and counted</span></div>
+    <div class="kpi"><span class="v">491</span><span class="l">sessions, holdout year included</span></div>
+    <div class="kpi"><span class="v">0</span><span class="l">entries passed the bar</span></div>
+  </div>
+</section>
+
+<section>
+  <h2>The live system, priced on real option IV</h2>
+  <p class="muted">The five pool books' own strategy classes stepped each second on a chain priced from the broker's real minute bars, merged the way the Conductor merges them. On the 18 recorded sessions this matches the tape with day-result correlation 0.963. Sum of daily results in %, fresh capital every day.</p>
+  <div class="tbl"><table>
+    <thead><tr><th>Split</th><th>Dates</th><th>Normal days</th><th>Expiry days</th><th>Trades</th></tr></thead>
+    <tbody>
+      <tr><td>Found</td><td class="l">7 May to 16 Oct 2026</td><td class="n neg">−335</td><td class="n neg">−291</td><td class="n">371</td></tr>
+      <tr><td>Judged</td><td class="l">14 Nov 2025 to 6 May 2026</td><td class="n pos">+136</td><td class="n neg">−521</td><td class="n">633</td></tr>
+      <tr><td>Recorded window</td><td class="l">19 Oct to 13 Nov 2026</td><td class="n pos">+437</td><td class="n pos">+437</td><td class="n">130</td></tr>
+    </tbody>
+  </table></div>
+  <p>The weeks we have watched live are the system's best stretch. Outside them it loses, and expiry days do most of the damage.</p>
+</section>
+
+<section>
+  <h2>How the 30 themes were narrowed</h2>
+  <p class="muted">Themes covered time-of-day regimes, the opening, gaps, VWAP, mean reversion, volatility-scaled momentum, gamma rent, IV dynamics, open-interest flow, the heavyweights, BANKNIFTY and FINNIFTY, boosted trees, ridge models, HMM regimes, Kalman and CUSUM change points, expiry days, days to expiry, exits, re-entries, failed breakouts, levels, squeezes, one-second microstructure, calculus, greek-based strike choice, ensembles, trend days and scalps.</p>
+  <div class="funnel" id="funnel"></div>
+</section>
+
+<section>
+  <h2>The final scoring, on causal prices</h2>
+  <p class="muted">Sum of daily results in %, trades in brackets. Option prices use the IV of the last completed minute, so nothing sees ahead. The holdout year was opened once, at the end.</p>
+  <div class="tbl"><table>
+    <thead><tr><th class="l">Book</th><th class="l">Days</th><th>Found</th><th>Judged</th><th>Window</th><th>Holdout</th><th class="l">Bar</th></tr></thead>
+    <tbody>
+      <tr><td class="l">Champion (reference)</td><td class="l">normal</td><td class="n neg">−438 (183)</td><td class="n pos">+54 (246)</td><td class="n pos">+330 (56)</td><td class="n neg">−271 (442)</td><td class="l muted">live</td></tr>
+      <tr><td class="l">Champion (reference)</td><td class="l">expiry</td><td class="n neg">−926 (267)</td><td class="n neg">−873 (444)</td><td class="n neg">−82 (90)</td><td class="n pos">+1,247 (344)</td><td class="l muted">live</td></tr>
+      <tr><td class="l">Late opening-range fade</td><td class="l">normal</td><td class="n pos">+125 (85)</td><td class="n pos">+231 (87)</td><td class="n neg">−1 (11)</td><td class="n neg">−178 (180)</td><td class="l"><span class="pill fail">FAIL</span></td></tr>
+      <tr><td class="l">Three fades</td><td class="l">expiry</td><td class="n pos">+98 (48)</td><td class="n neg">−46 (46)</td><td class="n pos">+63 (6)</td><td class="n neg">−164 (60)</td><td class="l"><span class="pill fail">FAIL</span></td></tr>
+      <tr><td class="l">Champion's seconds, 60-min fade side</td><td class="l">normal</td><td class="n neg">−119</td><td class="n pos">+279</td><td class="n pos">+175</td><td class="n neg">−431</td><td class="l"><span class="pill fail">FAIL</span></td></tr>
+      <tr><td class="l">Champion's seconds, 60-min fade side</td><td class="l">expiry</td><td class="n neg">−347</td><td class="n neg">−8</td><td class="n neg">−66</td><td class="n neg">−165</td><td class="l"><span class="pill fail">FAIL</span></td></tr>
+    </tbody>
+  </table></div>
+  <p>On expiry days the champion swings from −873 on the judged half to +1,247 on the holdout year. Each finalist failed on a different split. The market changes regime between years, and no fixed entry rule rode through all of them.</p>
+</section>
+
+<section>
+  <h2>The lead: switch expiry style by recent results</h2>
+  <p class="muted">On each expiry day, trade the champion's breakout if its last 6 expiry days added up to at least what the three fades made over the same days; otherwise trade the fades. 83 expiry days with real option bars, causal prices. Cumulative sum of daily results in %.</p>
+  <div class="chart">
+    <div class="legend"><span><i style="background:var(--s-switch)"></i>Switch on the last 6 expiries</span><span><i style="background:var(--s-champ)"></i>Champion's expiry breakout</span><span><i style="background:var(--s-fade)"></i>Three fades</span></div>
+    <svg id="sw" viewBox="0 0 900 340" role="img" aria-label="Cumulative expiry-day results: the switch ends at +1,186, the champion at −634, the fades at −50"></svg>
+  </div>
+  <div class="tbl"><table>
+    <thead><tr><th class="l">Expiry days</th><th>Found</th><th>Judged</th><th>Window</th><th>Holdout</th><th>All 83</th></tr></thead>
+    <tbody>
+      <tr><td class="l">Champion</td><td class="n neg">−926</td><td class="n neg">−873</td><td class="n neg">−82</td><td class="n pos">+1,247</td><td class="n neg">−634</td></tr>
+      <tr><td class="l">Three fades</td><td class="n pos">+98</td><td class="n neg">−46</td><td class="n pos">+63</td><td class="n neg">−164</td><td class="n neg">−50</td></tr>
+      <tr><td class="l">Switch, last 6 <span class="pill lead">LEAD</span></td><td class="n pos">+98</td><td class="n neg">−233</td><td class="n pos">+63</td><td class="n pos">+1,259</td><td class="n pos">+1,186</td></tr>
+    </tbody>
+  </table></div>
+  <ul>
+    <li>Lookbacks of 4 and 8 expiries give +1,178 and +1,153, so the result does not hang on the choice of 6.</li>
+    <li>Its gain over the champion has t 4.23 on the daily difference. It beats 99.9 % of random switches with the same share of fade days, and all 2,000 shuffles of the day order. The edge is persistence: an expiry style that has been working keeps working for weeks.</li>
+    <li>Why it is not live: I found it after the agents finished, on all the data, so it was not pre-registered. It still loses on the judged half. It replaces rather than adds on expiry days, and you chose to keep the champion trading them.</li>
+    <li>Next step: a shadow account that runs a three-fade expiry book next to the champion and applies the switch, so it builds a live record before you decide.</li>
+  </ul>
+</section>
+
+<section>
+  <h2>Faults the agents found in my own harness</h2>
+  <p class="muted">The search spent part of its effort auditing the scorer. These corrections changed the verdicts, mostly against the ideas.</p>
+  <div class="tbl"><table>
+    <thead><tr><th class="l">Fault</th><th class="l">Effect</th><th class="l">Status</th></tr></thead>
+    <tbody>
+      <tr><td class="l">Option price leaned on the current minute's closing IV, up to 59 s ahead</td><td class="l">+0.22 % a trade on normal days, +1.35 % on expiry days, flattering every idea</td><td class="l"><span class="pill fixed">FIXED</span> causal IV</td></tr>
+      <tr><td class="l">Champion cache built before the downloads finished</td><td class="l">pooled numbers on judged expiry days treated the champion as flat</td><td class="l"><span class="pill fixed">FIXED</span> rebuilt</td></tr>
+      <tr><td class="l">No minute features on the 18 recorded sessions</td><td class="l">ideas on captured data got no window test</td><td class="l"><span class="pill fixed">FIXED</span></td></tr>
+      <tr><td class="l">An idea's open trade blocked champion trades</td><td class="l">pooled gain partly came from displaced champion losers</td><td class="l"><span class="pill fixed">FIXED</span> champion priority</td></tr>
+      <tr><td class="l">Signals dropped when the strike had no downloaded bars</td><td class="l">368 silent drops</td><td class="l"><span class="pill fixed">FIXED</span> model fallback</td></tr>
+      <tr><td class="l">Raw future levels mixed with the spot-like forward</td><td class="l">gap off by up to 1.5 day-sigmas on roll days</td><td class="l"><span class="pill fixed">FIXED</span></td></tr>
+    </tbody>
+  </table></div>
+</section>
+
+<section>
+  <h2>What the night established</h2>
+  <ul>
+    <li>Price-only entries (fades, breakouts, opening ranges, regimes, models) showed no edge that held from one year to the next. Several looked strong on one or two splits; none held on all four.</li>
+    <li>The account is decided by expiry days, and the right expiry style flips between breakout and fade as the market changes regime.</li>
+    <li>Time-of-day structure is real. 09:15 to 09:45 loses for every entry. On normal days ATM IV falls 5 to 10 % through the session; on expiry afternoons it rises 12 to 27 %. No rule built on this made money out of sample.</li>
+    <li>Fade trades want different exits: a 25 % stop, no forward trail and a 45-minute clock. On random entries the champion's exit ladder alone costs about 1 % a trade.</li>
+  </ul>
+</section>
+
+<footer>Sources: <code>docs/60_THIRTY_AGENT_SEARCH_14NOV.md</code> (the pre-registered bar and full results), <code>data/research/14nov/agents/</code> (every theme's code and trials.jsonl), <code>work/s50_live_chain.py</code>, <code>work/s53_fixed_verdict.py</code>, <code>agents/_finalists/fixed_verdict.csv</code>, <code>agents/r2_harness_fix/arena_fixed.py</code>.</footer>
+</div>
+
+<script>
+const SW = {"d": ["2024-11-14", "2024-11-21", "2024-11-28", "2024-12-05", "2024-12-12", "2024-12-19", "2024-12-26", "2025-01-02", "2025-01-09", "2025-01-16", "2025-01-23", "2025-01-30", "2025-02-06", "2025-02-13", "2025-02-20", "2025-02-27", "2025-03-06", "2025-03-13", "2025-03-20", "2025-03-27", "2025-04-03", "2025-04-09", "2025-04-17", "2025-04-24", "2025-04-30", "2025-05-08", "2025-05-15", "2025-05-22", "2025-05-29", "2025-06-05", "2025-06-12", "2025-11-18", "2025-11-25", "2025-12-02", "2025-12-09", "2025-12-16", "2025-12-23", "2025-12-30", "2026-01-06", "2026-01-13", "2026-01-20", "2026-01-27", "2026-02-03", "2026-02-10", "2026-02-17", "2026-02-24", "2026-03-02", "2026-03-10", "2026-03-17", "2026-03-24", "2026-03-30", "2026-04-07", "2026-04-13", "2026-04-21", "2026-04-28", "2026-05-05", "2026-05-12", "2026-05-19", "2026-05-26", "2026-06-02", "2026-06-09", "2026-06-16", "2026-06-23", "2026-06-30", "2026-07-07", "2026-07-14", "2026-07-21", "2026-07-28", "2026-08-04", "2026-08-11", "2026-08-18", "2026-08-25", "2026-09-01", "2026-09-08", "2026-09-15", "2026-09-22", "2026-09-29", "2026-10-06", "2026-10-13", "2026-10-19", "2026-10-27", "2026-11-03", "2026-11-09"], "c": [-70.1, -144.6, 139.7, 177.8, 146.3, 128.6, 66.4, 3.2, 9.4, 8.1, 52.3, 17.5, 23.4, 13.3, -46.1, -45.4, 74.4, 75.9, 70.8, 77.2, 77.4, 74.4, 682.8, 633.2, 603.3, 554.9, 1130.8, 1127.0, 1082.8, 1195.9, 1246.5, 1187.9, 1117.7, 1081.3, 1028.0, 998.2, 1010.2, 990.1, 999.6, 932.5, 932.7, 858.9, 793.7, 779.5, 749.8, 690.0, 634.9, 567.9, 508.2, 679.5, 679.0, 665.5, 583.1, 543.4, 460.7, 373.9, 324.2, 245.1, 157.3, 109.0, 53.0, -15.7, -81.0, -62.7, -106.5, -172.8, -127.3, -178.7, -254.3, -269.8, -305.5, -335.5, -370.5, -386.1, -417.9, -396.2, -465.8, -546.9, -552.3, -546.0, -503.9, -570.6, -634.4], "f": [57.6, 88.5, 145.2, 144.2, 145.4, 152.1, 138.7, 100.4, 99.9, 144.0, 103.5, 88.9, 77.2, 37.4, 21.0, 7.1, -28.2, -51.3, -52.3, -65.2, -62.8, -65.4, -81.4, -99.5, -115.0, -115.8, -143.6, -158.4, -157.4, -174.2, -164.4, -181.9, -198.6, -214.1, -228.7, -225.5, -243.4, -199.8, -231.2, -245.0, -261.1, -292.9, -253.7, -267.4, -281.9, -295.9, -286.3, -295.2, -207.0, -180.7, -186.5, -184.2, -200.1, -208.2, -208.7, -210.4, -208.9, -141.3, -133.0, -158.2, -134.2, -136.5, -144.4, -113.8, -65.9, -61.9, -78.3, -83.9, -69.8, -86.8, -86.8, -61.8, -120.0, -120.7, -132.5, -115.0, -141.2, -155.0, -112.7, -113.6, -127.1, -129.1, -49.6], "s": [-70.1, -144.6, 139.7, 177.8, 146.3, 128.6, 115.3, 52.1, 58.2, 102.3, 61.9, 47.3, 35.6, 25.5, -34.0, -33.3, 86.5, 88.0, 83.0, 89.3, 89.6, 86.6, 694.9, 645.3, 615.4, 567.1, 1142.9, 1139.1, 1094.9, 1208.1, 1258.6, 1200.0, 1129.8, 1093.4, 1040.1, 1010.4, 992.5, 1036.1, 1004.7, 990.9, 974.8, 943.0, 982.2, 968.5, 954.0, 940.0, 949.6, 940.7, 1028.9, 1055.2, 1049.4, 1051.7, 1035.7, 1027.7, 1027.2, 1025.4, 1027.0, 1094.6, 1102.9, 1077.7, 1101.7, 1099.4, 1091.5, 1122.1, 1170.0, 1174.0, 1157.6, 1152.0, 1166.1, 1149.1, 1149.1, 1174.1, 1115.9, 1115.2, 1103.4, 1120.9, 1094.7, 1080.9, 1123.2, 1122.3, 1108.8, 1106.8, 1186.3]};
+const F = [["30 research themes",30],["candidates sent to a skeptic",23],["confirmed by the skeptic",7],["held on 3 splits, corrected data",2],["held on the holdout year",0]];
+const fz = document.getElementById("funnel");
+F.forEach(([l,n])=>{const r=document.createElement("div");r.className="frow";r.innerHTML=`<span>${l}</span><div class="bar" style="width:${Math.max(0.6,n/30*100)}%"></div><span class="c">${n}</span>`;fz.appendChild(r);});
+(function(){
+  const s=document.getElementById("sw"),W=900,H=340,L=60,R=20,T=16,B=44,n=SW.d.length;
+  const all=[...SW.c,...SW.f,...SW.s,0],lo=Math.floor(Math.min(...all)/500)*500,hi=Math.ceil(Math.max(...all)/500)*500;
+  const x=i=>L+(W-L-R)*i/(n-1),y=v=>T+(H-T-B)*(hi-v)/(hi-lo);
+  const css=k=>getComputedStyle(document.documentElement).getPropertyValue(k).trim();
+  let g="";
+  for(let v=lo;v<=hi;v+=500){g+=`<line x1="${L}" x2="${W-R}" y1="${y(v)}" y2="${y(v)}" stroke="var(--line)" stroke-width="${v===0?1.5:1}"/><text x="${L-8}" y="${y(v)+4}" text-anchor="end" font-family="var(--mono)" font-size="11" fill="var(--muted)">${v>0?"+":""}${v}</text>`;}
+  let last="";SW.d.forEach((d,i)=>{const yr=d.slice(0,7);if(i===0||d.slice(5,7)==="01"&&last.slice(5,7)!=="01"||i===n-1){g+=`<text x="${x(i)}" y="${H-B+18}" text-anchor="${i===0?"start":i===n-1?"end":"middle"}" font-family="var(--mono)" font-size="11" fill="var(--muted)">${d.slice(0,7)}</text>`;}last=d;});
+  const sp=[["2024-11-14","2025-11-13","holdout"],["2025-11-14","2026-05-06","judged"],["2026-05-07","2026-10-16","found"],["2026-10-19","2026-11-13","window"]];
+  sp.forEach(([a,b,lab])=>{const i0=SW.d.findIndex(d=>d>=a);let i1=-1;SW.d.forEach((d,i)=>{if(d<=b)i1=i});if(i0<0||i1<i0)return;g+=`<line x1="${x(i0)}" x2="${x(i0)}" y1="${T}" y2="${H-B}" stroke="var(--line)" stroke-dasharray="3 4"/><text x="${x(i0)+5}" y="${T+11}" font-family="var(--mono)" font-size="10" fill="var(--muted)">${lab}</text>`;});
+  const path=(a,c,w)=>`<polyline fill="none" stroke="${c}" stroke-width="${w}" stroke-linejoin="round" points="${a.map((v,i)=>x(i).toFixed(1)+","+y(v).toFixed(1)).join(" ")}"/>`;
+  g+=path(SW.f,"var(--s-fade)",1.8)+path(SW.c,"var(--s-champ)",2)+path(SW.s,"var(--s-switch)",3);
+  [["s","var(--s-switch)"],["c","var(--s-champ)"],["f","var(--s-fade)"]].forEach(([k,c])=>{const v=SW[k][n-1];g+=`<circle cx="${x(n-1)}" cy="${y(v)}" r="4" fill="${c}"/><text x="${x(n-1)-8}" y="${y(v)-8}" text-anchor="end" font-family="var(--mono)" font-size="12" font-weight="600" fill="${c}">${v>0?"+":""}${Math.round(v)}</text>`;});
+  s.innerHTML=g;
+})();
+</script>

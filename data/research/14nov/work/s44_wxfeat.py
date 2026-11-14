@@ -89,7 +89,11 @@ def one(day):
         if os.path.exists(p):
             return day, "have"
         D = lab1s.session(day)
-        if D is None or D["dte0"]:
+        if D is None:
+            import arena                                   # a recorded session: the forward comes from its tape
+            if day in arena.REC:
+                D = lab1s.session(day, fwd=FL.load_day(day)["fwd"].copy())
+        if D is None:
             return day, "skip"
         wx = pd.read_parquet(os.path.join(WX, f"{day}.parquet"))
         meta = lab1s.meta()[day]
@@ -185,8 +189,10 @@ def one(day):
         X["o_iv5"] = X.o_iv - X.o_iv.shift(5); X["o_iv15"] = X.o_iv - X.o_iv.shift(15); X["o_iv_rich"] = X.o_iv - X.o_iv.expanding(10).median()
         vv = pd.Series(vol); X["o_vol_pace"] = vv / vv.expanding(10).mean()
         # VWAP of the future from its own 1-second volume
-        df1 = pd.read_parquet(os.path.join(hist1s.OUT, f"fut_{json.load(open(os.path.join(hist1s.OUT, 'fut_expiry.json')))[day]}_x_0_{day}.parquet"))
-        px = hist1s.grid(df1, day) - meta["basis"]
+        fx = json.load(open(os.path.join(hist1s.OUT, 'fut_expiry.json'))).get(day)
+        fp = os.path.join(hist1s.OUT, f"fut_{fx}_x_0_{day}.parquet")
+        df1 = pd.read_parquet(fp) if fx and os.path.exists(fp) else pd.DataFrame()   # recorded sessions: no VWAP
+        px = hist1s.grid(df1, day) - meta["basis"] if len(df1) else np.full(N, np.nan)
         vv1 = np.zeros(N)
         if "volume" in df1:
             t = pd.to_datetime(df1.datetime); ii = ((t - pd.Timestamp(day + " 09:15:00")).dt.total_seconds()).to_numpy().astype(int)
@@ -196,8 +202,8 @@ def one(day):
         # context
         X["c_dte"] = D["dte"]; X["c_rv20"] = meta["rv20"]; X["c_em"] = meta["em"]
         X["c_gap"] = (meta["o"][0] - meta["pc"]) / meta["em"] if meta["pc"] and meta["em"] else np.nan
-        # labels
-        L = labels(D, rows)
+        # labels (normal days only: the learner's target uses the normal-day ladder)
+        L = labels(D, rows) if not D["dte0"] else {k: np.full(len(rows), np.nan) for k in ("CE", "PE", "CE_hold", "PE_hold")}
         for k, v in L.items():
             X["y_" + k] = v
         os.makedirs(FE, exist_ok=True)
