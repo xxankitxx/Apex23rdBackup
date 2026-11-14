@@ -340,6 +340,44 @@ EXTRA_POOL = {"prexp": ("thr_sis", "thr_hw"),
 # 14 Nov night (docs/58): policy "fadeonly" REPLACES the pool for its own shadow account: the fade books and nothing
 # else (four years: the fades alone +2.6 / +2.1 % a trade; pooled with the pullback pattern +0.9 / +0.4 %).
 ONLY_POOL = {"fadeonly": ("fade20", "fade60")}
+# 15 Nov (owner: "Yes, build the shadow"; docs/60 section 7): policy "xswitch" keeps the live pool on normal days and
+# on expiry days hands the account to ONE expiry style: the pool (the champion's breakout) when its last XS_N expiry
+# days summed at least as much as fade3x's, otherwise fade3x alone. 83 research expiry days, causal prices: +1,186
+# against the pool's -634 (t 4.23 on the daily difference; selected after the fact, so a shadow). The history is
+# <LEARN_DIR>/expiry_switch.json, seeded from the research and extended each evening by apex/engine/learning.py.
+XS_BOOK, XS_N = "fade3x", 6
+
+
+def xs_path():
+    """the switch's history file, read at call time so the test fence (tests/conftest.py) redirects it."""
+    return os.path.join(config.LEARN_DIR, "expiry_switch.json")
+
+
+def _expiry_of(e):
+    """the option's expiry date: the entry's own field, else the key NIFTY|OPT|<expiry>|<strike>|<side>."""
+    x = e.get("expiry")
+    if x:
+        return str(x)
+    parts = str(e.get("key") or "").split("|")
+    return parts[2] if len(parts) >= 5 else ""
+
+
+def xswitch_mode(day, path=None, n=XS_N):
+    """("pool" | "fade", why) for expiry day `day`, from the expiry days BEFORE it. Under n days of history: the pool."""
+    try:
+        with open(path or xs_path(), encoding="utf-8") as fh:
+            H = json.load(fh)
+    except Exception:
+        H = {}
+    rows = [H[d] for d in sorted(H) if d < day and isinstance(H[d], dict)
+            and H[d].get("champ") is not None and H[d].get("fade") is not None][-n:]
+    if len(rows) < n:
+        return "pool", f"expiry switch: {len(rows)} of {n} expiry days of history, the pool trades"
+    c = sum(float(r["champ"]) for r in rows)
+    f = sum(float(r["fade"]) for r in rows)
+    if c >= f:
+        return "pool", f"expiry switch: last {n} expiry days pool {c:+.0f} % >= {XS_BOOK} {f:+.0f} %"
+    return "fade", f"expiry switch: last {n} expiry days {XS_BOOK} {f:+.0f} % > pool {c:+.0f} %"
 
 
 def _side_of(t):
@@ -354,13 +392,17 @@ class AdaptiveConductor(Conductor):
 
     def __init__(self, day, book_order, policy, name, **kw):
         super().__init__(day, book_order, name=name, **kw)
-        if policy not in ("sidelock", "whipsaw", "prexp", "fade", "fadeonly"):
+        if policy not in ("sidelock", "whipsaw", "prexp", "fade", "fadeonly", "xswitch"):
             raise ValueError(f"unknown shadow Conductor policy {policy!r}")
         self.policy = policy
         if policy in ONLY_POOL:
             self.members = [{"book": b, "rule": None, "standing": "low", "ret_per_trade": 0.0, "from": day,
                              "note": f"{name}: shadow pool only (docs/58)"} for b in ONLY_POOL[policy] if b in self.order]
             self.reason = "flat: no eligible trigger" if self.members else "pool empty"
+        if policy == "xswitch" and XS_BOOK in self.order and all(m.get("book") != XS_BOOK for m in self.members):
+            self.members.append({"book": XS_BOOK, "rule": None, "standing": "low", "ret_per_trade": 0.0, "from": day,
+                                 "note": f"{name}: expiry days in fade mode only (docs/60)"})
+        self.xs_mode = None                             # decided at the day's first expiry trigger
         for b in EXTRA_POOL.get(policy, ()):            # after the sort: the extra books come last on a same-tick tie
             if b in self.order and all(m.get("book") != b for m in self.members):
                 self.members.append({"book": b, "rule": None, "standing": "low", "ret_per_trade": 0.0, "from": day,
@@ -389,6 +431,15 @@ class AdaptiveConductor(Conductor):
 
     def admit(self, m, pe, cb, books, ctx):
         if self.policy in EXTRA_POOL or self.policy in ONLY_POOL:
+            return None
+        if self.policy == "xswitch":
+            if _expiry_of(pe) != self.day:                          # a normal day: the pool, as live
+                return None if m.get("book") != XS_BOOK else f"expiry switch: {XS_BOOK} trades expiry days only"
+            if self.xs_mode is None:
+                self.xs_mode, why = xswitch_mode(self.day)
+                self._log(ctx, "xswitch", mode=self.xs_mode, why=why)
+            if (m.get("book") == XS_BOOK) != (self.xs_mode == "fade"):
+                return f"expiry switch: {self.xs_mode} mode today"
             return None
         if self.policy == "sidelock":
             self._read_tape(books)
@@ -433,6 +484,17 @@ def offline_admit(policy):
             if a["pnl_rs"] < 0 and b["pnl_rs"] < 0 and _side_of(a) != _side_of(b) and trig - float(b["t_out"]) < WHIPSAW_S:
                 return "whipsaw pause"
         return None
+
+    xs = {}
+
+    def xswitch(trig, m, t, taken, books):
+        from datetime import datetime
+        day = datetime.fromtimestamp(float(trig), config.IST).date().isoformat()
+        if _expiry_of(t) != day:
+            return None if m.get("book") != XS_BOOK else f"expiry switch: {XS_BOOK} trades expiry days only"
+        if day not in xs:
+            xs[day] = xswitch_mode(day)[0]
+        return None if (m.get("book") == XS_BOOK) == (xs[day] == "fade") else f"expiry switch: {xs[day]} mode today"
     return {"sidelock": sidelock, "whipsaw": whipsaw, "prexp": lambda trig, m, t, taken, books: None,
             "fade": lambda trig, m, t, taken, books: None,
-            "fadeonly": lambda trig, m, t, taken, books: None}[policy]
+            "fadeonly": lambda trig, m, t, taken, books: None, "xswitch": xswitch}[policy]

@@ -77,8 +77,8 @@ def _day_ret(trades):
     return 100.0 * sum(math.log(max(1e-4, 1.0 + _r(t) / 100.0)) for t in trades)
 
 
-SHADOW_ACCOUNTS = ("conductor", "conductor_fd", "conductor_fo", "conductor_d1", "conductor_sl", "conductor_wp60")
-SHADOW_BOOKS = ("fade20", "fade60", "orbfade", "fade60x", "thr_sis", "thr_hw", "st15_c20_9y", "tp_c20_9y", "pgb_c20_9y", "pm_c20_9y")
+SHADOW_ACCOUNTS = ("conductor", "conductor_fd", "conductor_fo", "conductor_d1", "conductor_sl", "conductor_wp60", "conductor_xs")
+SHADOW_BOOKS = ("fade20", "fade60", "orbfade", "fade60x", "fade3x", "thr_sis", "thr_hw", "st15_c20_9y", "tp_c20_9y", "pgb_c20_9y", "pm_c20_9y")
 SHADOW_FROM = "2026-11-16"     # the first session with every 13 and 14 Nov shadow loaded (docs/59)
 
 
@@ -101,6 +101,34 @@ def shadow_lines(days, since=SHADOW_FROM):
         name = f"**{b}** (live)" if b == "conductor" else b
         out.append(f"| {name} | {sum(1 for d in ds if per[d])} | {len(tr)} | {sum(1 for t in tr if _r(t) > 0)} | {tot:+.1f} {cells} |")
     return out
+
+
+def xswitch_record(days, path=None, since=SHADOW_FROM):
+    """15 Nov (docs/60 section 7): extend the expiry-style switch's history with each expiry day since `since`: the
+    live Conductor's compounded day % ("champ") and fade3x's ("fade"). A day counts as an expiry day when a trade that
+    day is in an option expiring that day. Returns the days written. Research rows (src "research") are kept."""
+    from .conductor import xs_path, XS_BOOK, _expiry_of
+    path = path or xs_path()
+    try:
+        with open(path, encoding="utf-8") as fh:
+            H = json.load(fh)
+    except Exception:
+        H = {}
+    pct = lambda tr: 100.0 * (math.exp(_day_ret(tr) / 100.0) - 1.0)
+    alld = sorted({d for b in days for d in days.get(b, {}) if d >= since})
+    put = []
+    for d in alld:
+        tr_all = [t for b in days for t in (days.get(b, {}).get(d) or [])]
+        if not any(_expiry_of(t) == d for t in tr_all):
+            continue
+        row = {"champ": round(pct(days.get("conductor", {}).get(d) or []), 3),
+               "fade": round(pct(days.get(XS_BOOK, {}).get(d) or []), 3), "src": "live"}
+        if H.get(d) != row:
+            H[d] = row
+            put.append(d)
+    if put:
+        fsutil.write_text(path, json.dumps(H, indent=1, sort_keys=True))
+    return put
 
 
 def sprt_lines(n):
@@ -807,6 +835,12 @@ def learn(today: str = None):
         lines += shadow_lines(days)
     except Exception as e:                     # report only: never let it stop the evening
         lines += ["", f"(shadow accounts section failed: {e})"]
+    try:
+        put = xswitch_record(days)
+        if put:
+            lines += ["", f"Expiry switch history extended: {', '.join(put)} (data/learning/expiry_switch.json)."]
+    except Exception as e:                     # the shadow's own record: never let it stop the evening
+        lines += ["", f"(expiry switch history failed: {e})"]
     save_state(s)
     _write_report(today, lines)
     _RECORD_BAD[0] = 0

@@ -131,3 +131,21 @@ in the Conductor), and let the owner decide after it has run live.
    expiry afternoons see IV rise 12-27 %), but no rule built on it made money out of sample.
 4. Fade exits want a 25 % stop, no forward trail and a 45-minute clock; the champion's ladder costs about 1 % a trade
    on random entries. Useful for any future fade book.
+
+## 9. The shadow is built (15 Nov, owner: "Yes, build the shadow")
+
+| Piece | Where | What it does |
+|---|---|---|
+| fade3x | `apex/engine/council/fade3x.py`, `VARIANTS["fade3x"]` | the three fades (20 min / 0.6 sigma, 60 min / 0.7 sigma, first break of the 15-minute opening range until 11:45) on expiry days only; champion's picker; champion's expiry ladder with a 45-minute clock |
+| conductor_xs | policy `xswitch` in `apex/engine/conductor.py`, `VARIANTS["conductor_xs"]` | its own all-in account: the live pool on normal days; on expiry days, at the first trigger, it reads the history and takes only the pool's triggers or only fade3x's for the rest of the day |
+| history | `data/learning/expiry_switch.json` | 83 research expiry days (src "research", causal prices) seeded; each evening `learning.xswitch_record` adds the day's live Conductor and fade3x results when the day is an expiry day (src "live") |
+| report | nightly report, shadow section | conductor_xs and fade3x appear beside the live Conductor from 16 Nov |
+
+Both are shadows registered last (122 variants). The live Conductor and `apex/rules/pool.json` are unchanged.
+
+Checks: on 52 expiry days (judged, found, window) the engine class stepped per second on the real-IV chain reproduced
+97 of 98 research entries (99 %), with day sums +372 % against +376 %; its strategy step costs 0.42 ms a second
+(`work/s54_fade3x_fidelity.py`). Tests: `tests/test_xswitch_15nov.py` (6), full suite passes.
+
+On the next expiry day the switch starts in fade mode: over the last 6 research expiry days fade3x made +92 % and the
+pool's champion pattern -169 %. Remove both shadows by deleting the two VARIANTS lines; nothing else depends on them.

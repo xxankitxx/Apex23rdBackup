@@ -494,6 +494,12 @@ VARIANTS["conductor_fo"] = dict(_G, conductor=True, shadow_policy="fadeonly", tw
 # 14 Nov (owner: "Yes, do all of that", docs/59 decision 11): the 60-minute fade on EXPIRY days, the one expiry entry
 # that held on a year of real option seconds (28 trades, 57 % winners, +7.6 % a trade). Shadow only, in no pool.
 VARIANTS["fade60x"] = dict(_G, council="fade60x", twin=True)
+# 15 Nov (owner: "Yes, build the shadow"; docs/60 section 7): the expiry-style switch. fade3x = the three fades on
+# expiry days (45-minute clock); conductor_xs = a shadow account with the live pool on normal days and, on expiry days,
+# the pool or fade3x alone, whichever did better over the last 6 expiry days (data/learning/expiry_switch.json).
+# Shadow only, registered LAST.
+VARIANTS["fade3x"] = dict(_G, council="fade3x", twin=True)
+VARIANTS["conductor_xs"] = dict(_G, conductor=True, shadow_policy="xswitch", twin=True, raw_of="c20_9x")
 CHAMPION_DEFAULT = "c20_9x"  # 1 Nov (owner): back from c20_9t after its 8-day replay; before: c20_9t (31 Oct, never live), t28_gap (29 Oct 11:40), t28_cheap (29 Oct morning), t28_gap (28 Oct evening), lvl_trail_re (28 Oct), edge_gate_trail and edge_gate_only (27 Oct), spot_dual_lvl (D-142), edge_gate_trail and edge_gate_only (27 Oct), spot_dual_lvl (D-142)
 # D-124 (owner, 20 Oct 16:16: "Apply spot_dc12_t12 thoroughly on my code"): the champion is the owner's choice.
 # learning.load_state applies it ONCE to an existing state (the champion lives in data/learning/state.json,
