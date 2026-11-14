@@ -332,7 +332,14 @@ SIDE_N, SIDE_MIN = 12, 3
 WHIPSAW_S = 3600.0
 # 14 Nov (docs/57): policy "prexp" refuses nothing; its account pools the live pool PLUS the pre-expiry thrust books
 # (lowest priority, this shadow account only; the pool file and the live Conductor are untouched).
-EXTRA_POOL = {"prexp": ("thr_sis", "thr_hw")}
+EXTRA_POOL = {"prexp": ("thr_sis", "thr_hw"),
+              "fade": ("fade20", "fade60", "orbfade")}   # 14 Nov night (docs/58): the champion's pool plus the three
+#                                                        fades. One per-second account, 13 months, real classes: 708 trades,
+#                                                        +1.4 % a trade, 9 of 13 months up, against 442, +1.4 %, 7 of 13 alone
+#                                                        (the year before the recorded window: +749 against +257 points).
+# 14 Nov night (docs/58): policy "fadeonly" REPLACES the pool for its own shadow account: the fade books and nothing
+# else (four years: the fades alone +2.6 / +2.1 % a trade; pooled with the pullback pattern +0.9 / +0.4 %).
+ONLY_POOL = {"fadeonly": ("fade20", "fade60")}
 
 
 def _side_of(t):
@@ -347,9 +354,13 @@ class AdaptiveConductor(Conductor):
 
     def __init__(self, day, book_order, policy, name, **kw):
         super().__init__(day, book_order, name=name, **kw)
-        if policy not in ("sidelock", "whipsaw", "prexp"):
+        if policy not in ("sidelock", "whipsaw", "prexp", "fade", "fadeonly"):
             raise ValueError(f"unknown shadow Conductor policy {policy!r}")
         self.policy = policy
+        if policy in ONLY_POOL:
+            self.members = [{"book": b, "rule": None, "standing": "low", "ret_per_trade": 0.0, "from": day,
+                             "note": f"{name}: shadow pool only (docs/58)"} for b in ONLY_POOL[policy] if b in self.order]
+            self.reason = "flat: no eligible trigger" if self.members else "pool empty"
         for b in EXTRA_POOL.get(policy, ()):            # after the sort: the extra books come last on a same-tick tie
             if b in self.order and all(m.get("book") != b for m in self.members):
                 self.members.append({"book": b, "rule": None, "standing": "low", "ret_per_trade": 0.0, "from": day,
@@ -378,7 +389,7 @@ class AdaptiveConductor(Conductor):
             self._ptr[name] = len(ts)
 
     def admit(self, m, pe, cb, books, ctx):
-        if self.policy == "prexp":
+        if self.policy in EXTRA_POOL or self.policy in ONLY_POOL:
             return None
         if self.policy == "sidelock":
             self._read_tape(books)
@@ -423,4 +434,6 @@ def offline_admit(policy):
             if a["pnl_rs"] < 0 and b["pnl_rs"] < 0 and _side_of(a) != _side_of(b) and trig - float(b["t_out"]) < WHIPSAW_S:
                 return "whipsaw pause"
         return None
-    return {"sidelock": sidelock, "whipsaw": whipsaw, "prexp": lambda trig, m, t, taken, books: None}[policy]
+    return {"sidelock": sidelock, "whipsaw": whipsaw, "prexp": lambda trig, m, t, taken, books: None,
+            "fade": lambda trig, m, t, taken, books: None,
+            "fadeonly": lambda trig, m, t, taken, books: None}[policy]

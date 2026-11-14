@@ -479,6 +479,16 @@ VARIANTS["thr_sis"] = dict(_G, council="thr_sis", twin=True)
 VARIANTS["thr_hw"] = dict(_G, council="thr_hw", twin=True)
 VARIANTS["st15_c20_9y"] = dict(_G, council="c20_9y_st15", twin=True)
 VARIANTS["conductor_d1"] = dict(_G, conductor=True, shadow_policy="prexp", twin=True, raw_of="c20_9x")
+# 14 Nov night (owner: "Build the fade shadow"; docs/58, the four-year test): buying AGAINST a stretched move is the only
+# family positive both before 2025 and on 2025-2026. A lean, not an edge: shadow only, registered LAST.
+VARIANTS["fade20"] = dict(_G, council="fade20", twin=True)
+VARIANTS["fade60"] = dict(_G, council="fade60", twin=True)
+VARIANTS["conductor_fd"] = dict(_G, conductor=True, shadow_policy="fade", twin=True, raw_of="c20_9x")
+# 14 Nov night (docs/58): on four years the fades ALONE beat the pullback pattern and pooling them with it dilutes
+# them. conductor_fo: a shadow account whose pool is fade20 + fade60 only. orbfade: the opening-range fade, weakest of
+# the three on real option bars, a shadow book in no pool.
+VARIANTS["orbfade"] = dict(_G, council="orbfade", twin=True)
+VARIANTS["conductor_fo"] = dict(_G, conductor=True, shadow_policy="fadeonly", twin=True, raw_of="c20_9x")
 CHAMPION_DEFAULT = "c20_9x"  # 1 Nov (owner): back from c20_9t after its 8-day replay; before: c20_9t (31 Oct, never live), t28_gap (29 Oct 11:40), t28_cheap (29 Oct morning), t28_gap (28 Oct evening), lvl_trail_re (28 Oct), edge_gate_trail and edge_gate_only (27 Oct), spot_dual_lvl (D-142), edge_gate_trail and edge_gate_only (27 Oct), spot_dual_lvl (D-142)
 # D-124 (owner, 20 Oct 16:16: "Apply spot_dc12_t12 thoroughly on my code"): the champion is the owner's choice.
 # learning.load_state applies it ONCE to an existing state (the champion lives in data/learning/state.json,

@@ -38,8 +38,9 @@ def _held(day, exp, bids, cls):
 
 def test_registration_keeps_the_old_order_and_the_pool():
     names = list(config.VARIANTS)
-    assert names[-9:-4] == ["tp_c20_9y", "pgb_c20_9y", "pm_c20_9y", "conductor_sl", "conductor_wp60"]      # 14 Nov: four more shadows follow (docs/57)
-    assert all(config.VARIANTS[n].get("twin") for n in names[-9:-4])
+    i = names.index("tp_c20_9y")
+    assert names[i:i + 5] == ["tp_c20_9y", "pgb_c20_9y", "pm_c20_9y", "conductor_sl", "conductor_wp60"]      # 14 Nov: four more shadows follow (docs/57)
+    assert all(config.VARIANTS[n].get("twin") for n in names[i:i + 5])
     assert "tp_c20_9y" not in [e["book"] for e in cond.active_entries(cond.load_pool(), "2026-11-16")]
 
 

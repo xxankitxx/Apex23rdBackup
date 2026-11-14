@@ -25,7 +25,8 @@ def test_sessions_to_expiry_uses_the_trading_calendar():
 
 def test_registered_last_as_twins_and_not_in_the_live_pool():
     names = list(config.VARIANTS)
-    assert names[-4:] == NEW and config.validate() == []
+    i = names.index(NEW[0])
+    assert names[i:i + 4] == NEW and config.validate() == []      # later shadows may follow (docs/58)
     assert all(config.VARIANTS[n].get("twin") for n in NEW)
     pool = [e["book"] for e in cond.active_entries(cond.load_pool(), "2026-11-16")]
     assert not set(NEW) & set(pool)
