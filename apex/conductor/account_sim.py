@@ -102,12 +102,16 @@ def simulate_day(day, books, members, order, reg=None, admit=None):
 
 
 def simulate(days_books, pool, asof="", order=None, policy=None):
-    """{day: record} over several days; the pool as of each day (asof='all': every entry on every day)."""
+    """{day: record} over several days; the pool as of each day (asof='all': every entry on every day).
+    policy: a shadow Conductor's policy (conductor_sl "sidelock", conductor_xs "xswitch", ...): its admit rule AND
+    its own pool (the extra or replacement books), so the result is that shadow account's, not the live one's."""
     out = {}
     for day in sorted(days_books):
         books = days_books[day]
         order_ = order or {n: i for i, n in enumerate(books)}
         members = sorted(cond.active_entries(pool, day, asof), key=lambda e: cond.priority_key(e, order_))
+        if policy:                             # 15 Nov (review): the shadow account's own pool, as the engine builds it
+            members = cond.shadow_members(policy, members, order_, day, f"policy {policy}")
         out[day] = simulate_day(day, books, members, order_,
                                 admit=cond.offline_admit(policy) if policy else None)
         out[day]["pool_n"] = len(members)

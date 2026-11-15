@@ -30,3 +30,25 @@ def test_shadow_side_by_side_compounds_each_day():
     assert "| **conductor** (live) | 1 | 2 | 1 | +4.5 " in out and "| fade20 | 1 | 1 | 1 | +4.0 " in out
     assert "11-13" not in out                                                      # before the shadows ran: left out
     assert L.shadow_lines({})[-1] == "No session since then yet."
+
+
+def test_shadow_total_adds_the_days_because_capital_is_fresh_every_day():
+    """15 Nov review: +50 % then -50 % is 0 over two fresh-capital days, not the -25 % of one compounding account."""
+    days = {"conductor": {"2026-11-16": [{"ret_pct": 50.0}], "2026-11-17": [{"ret_pct": -50.0}]}}
+    out = chr(10).join(L.shadow_lines(days))
+    assert "| **conductor** (live) | 2 | 2 | 1 | +0.0 | +50.0 | -50.0 |" in out and "sum of day %" in out
+
+
+def test_observers_and_the_gate_test_count_the_declared_first_day():
+    book, since = config.CHAMPION_OWNER
+    s = {"champion": book, "champion_since": since, "registered": "2026-10-01", "log": []}
+    from datetime import date, timedelta
+    d0 = date.fromisoformat(since)
+    before, after = (d0 - timedelta(days=3)).isoformat(), (d0 + timedelta(days=2)).isoformat()
+    days = {book: {since: [{"ret_pct": 1.0}], after: [{"ret_pct": 2.0}], before: [{"ret_pct": 9.0}]}}
+    text = chr(10).join(L.observer_lines(s, days, [1.0, 2.0]))
+    assert "evening looks: 2 for this champion" in text, text[:300]      # the declared day and the later one
+    promoted = dict(s, champion_since=before)                              # an evening promotion: its own day is out
+    promoted["champion"] = "c20_9x"
+    days["c20_9x"] = days[book]
+    assert "evening looks: 2 for this champion" in chr(10).join(L.observer_lines(promoted, days, [1.0, 2.0]))

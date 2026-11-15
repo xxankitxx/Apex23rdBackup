@@ -196,5 +196,46 @@ def test_expiry_fade_trades_expiry_days_only(tmp_path):
     assert config.VARIANTS["fade60x"].get("twin") and "fade60x" not in [m["book"] for m in cond.Conductor("2026-11-17", list(config.VARIANTS)).members]
 
 
+def _buys_skipping(D, cls, upto, skip):
+    """as _buys, but the engine never steps row `skip` (a slow step, or the book's own fill wait)."""
+    s = cls()
+    out = []
+    for i in range(upto):
+        if i == skip:
+            continue
+        D.i = i
+        a = s.on_second(i, D, None)
+        if a and a[0] == "BUY":
+            out.append((i, a))
+    return s, out
+
+
+def test_minute_clock_fires_once_a_minute_and_waits_out_a_start_inside_a_minute():
+    """15 Nov review: the once-a-minute rules survive a missed second 59 and never read twice in a minute."""
+    c = fade._MinuteClock()
+    assert [i for i in range(200) if c._minute_due(i)] == [59, 119, 179]              # no miss: exactly the research rows
+    c = fade._MinuteClock()
+    assert [i for i in (0, 30, 58, 61, 62, 119, 125, 300) if c._minute_due(i)] == [61, 119, 300]
+    c = fade._MinuteClock()
+    assert [i for i in range(5000, 5100) if c._minute_due(i)] == [5039, 5099]         # a restart inside minute 83 waits
+
+
+def test_a_missed_minute_close_is_read_once_at_the_next_row(tmp_path):
+    p = _levels(tmp_path)
+
+    class F(fade.Fade20):
+        LEVELS = p
+
+    s, base = _buys(_day("2026-11-16", "2026-11-17", +200.0), F, 2400)
+    i0 = base[0][0]
+    assert len(base) == 1 and i0 % 60 == 59
+    s, out = _buys_skipping(_day("2026-11-16", "2026-11-17", +200.0), F, 2400, i0)
+    assert [i for i, _ in out] == [i0 + 1] and out[0][1][2] == "PE"                 # not lost, not twice
+    s, base = _buys(_orb_day("2026-11-16", "2026-11-17", 25080.0), orbfade.Strategy, 3000)
+    j0 = base[0][0]
+    s, out = _buys_skipping(_orb_day("2026-11-16", "2026-11-17", 25080.0), orbfade.Strategy, 3000, j0)
+    assert [i for i, _ in out] == [j0 + 1] and s.of_done
+
+
 def test_the_heavy_old_book_is_off_and_nothing_names_it():
     assert "spot_dc12_t12_first_r002" not in config.VARIANTS and "spot_dc12_t12_first_r003" in config.VARIANTS

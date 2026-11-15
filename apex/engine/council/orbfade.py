@@ -13,18 +13,20 @@ a CALL. One signal a day. Strike: the champion's picker. Exits: c20_9y's ladder 
 import numpy as np
 
 from . import c20_9y as _y
+from .fade import _MinuteClock
 from .thr_d1 import days_to_expiry
 
 O = dict(RANGE_S=900, UNTIL_S=150 * 60)
 
 
-class _OrbFadeMixin:
+class _OrbFadeMixin(_MinuteClock):
     def _of_reset(self, D):
         self.of_dte = days_to_expiry(D.day, D.expiry)   # raises on a bad expiry: the marker below stays unset
         self._of_day = D.day
         self.of_hi = self.of_lo = None
         self.of_done = False
         self.of_log = []
+        self._mn = None                                  # the minute clock starts again each day
 
     def on_second(self, i, D, pos):
         sig = super().on_second(i, D, pos)               # the champion: its own state and, while holding, its exits
@@ -34,11 +36,12 @@ class _OrbFadeMixin:
             return sig if pos is not None else None
         f = self.fs[i]
         edge = None
+        due = self._minute_due(i)                        # every second: a missed minute close is read once, late
         if np.isfinite(f):
             if i < O["RANGE_S"]:
                 self.of_hi = f if self.of_hi is None else max(self.of_hi, f)
                 self.of_lo = f if self.of_lo is None else min(self.of_lo, f)
-            elif not self.of_done and self.of_hi is not None and i < O["UNTIL_S"] and i % 60 == 59:
+            elif not self.of_done and self.of_hi is not None and i < O["UNTIL_S"] and due:
                 if f > self.of_hi:
                     edge = "PE"
                 elif f < self.of_lo:

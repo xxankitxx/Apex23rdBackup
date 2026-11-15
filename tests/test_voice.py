@@ -93,3 +93,95 @@ def test_holding_shows_the_real_exit_ladder_and_a_held_level():
     cb.pos["pending"] = {"why": "COUNCIL FWD_TRAIL"}
     out = Voice().view(eng, dict(ctx, now_s=ctx["now_s"] + 1))
     assert out["mode"] == "EXITING" and "selling at the next print" in out["lines"][0]
+
+
+# ── 15 Nov review: the card never states an old price as "now", and says plainly when it cannot act ──
+KEY = f"NIFTY|OPT|{EXP}|25000|CE"
+
+
+def _held(eng, t_in=1.0, **rules):
+    r = {"mode": "normal", "sl_pct": 15.0, "sl_px": 170.0, "trail_px": 25010.0, "trail_pts": 40.0, "trail_give": 12.0,
+         "fwd_now": 25038.0, "peak_pct": 8.0, "held_s": 600, "clock_left_s": 4800, "flat_at": "15:20", "floor_px": None,
+         "be_arm_pct": 15.0}
+    r.update(rules)
+    eng.books["conductor"].pos = {"key": KEY, "rr": "CE", "strike": 25000.0, "lots": 6, "entry": 200.0, "t_in": t_in,
+                                  "time_in": "11:02:03", "src": "c20_9y", "rules": r}
+
+
+def test_a_held_price_that_is_old_is_never_called_now():
+    D, s, eng = _rig()
+    _held(eng)
+    q = {"bid": 210.0, "delta": 0.6, "age": 0.4}
+    ctx = {"now_s": D.t_open + 7000, "by_key": {KEY: q}, "w0": EXP, "blackout": {"on": False}}
+    out = Voice().view(eng, ctx)
+    assert "+5.0 % now" in out["headline"] and out["hold"]["stale"] is None and "Nothing says sell yet. I hold." in out["lines"]
+    out = Voice().view(eng, dict(ctx, blackout={"on": True}))                       # a feed gap while holding
+    assert out["hold"]["stale"] == "gap" and " now" not in out["headline"] and "at the last price I have" in out["headline"]
+    assert out["lines"][0].startswith("The data has a gap") and not any("Nothing says sell" in x for x in out["lines"])
+    out = Voice().view(eng, dict(ctx, by_key={KEY: dict(q, age=120.0)}))            # a quote two minutes old
+    assert out["hold"]["stale"] == "old" and out["hold"]["quote_age_s"] == 120 and "120 s old" in out["lines"][0]
+    assert " now" not in out["headline"]
+    out = Voice().view(eng, dict(ctx, by_key={}))                                   # no quote at all
+    assert out["hold"]["stale"] == "no_bid" and " now" not in out["headline"] and "no bid" in out["lines"][0]
+    assert out["hold"]["ret_pct"] is None
+
+
+def test_the_clock_is_named_when_the_clock_is_the_near_exit_and_a_new_trade_starts_clean():
+    D, s, eng = _rig()
+    _held(eng, clock_left_s=200)                                                    # price exits far, 200 s on the clock
+    ctx = {"now_s": D.t_open + 7000, "by_key": {KEY: {"bid": 210.0, "delta": 0.6}}, "w0": EXP}
+    v = Voice()
+    out = v.view(eng, ctx)
+    assert out["hold"]["level"] == "NEAR" and out["hold"]["nearest"] == "CLOCK"
+    assert any("Nearest exit: the hold clock" in x for x in out["lines"]) and not any("FWD_TRAIL" in x for x in out["lines"])
+    eng.books["conductor"].pos["pending"] = {"why": "COUNCIL TIME"}
+    assert v.view(eng, dict(ctx, now_s=ctx["now_s"] + 1))["mode"] == "EXITING"
+    _held(eng, t_in=2.0)                                                            # another book takes over on the same step
+    out = v.view(eng, dict(ctx, now_s=ctx["now_s"] + 2))
+    assert out["mode"] == "HOLDING" and out["hold"]["level"] == "HOLD", out["hold"]["level"]
+
+
+def test_kill_switch_session_edges_and_a_restart_are_said_plainly():
+    import time
+    from apex.engine import voice as voice_mod
+    assert voice_mod._mins(150) == 2.5 and voice_mod._mins(1200) == 20 and voice_mod._mins(600) == 10
+    D, s, eng = _rig()
+    for i in range(1300):
+        D.fwd[i] = 25000.0
+        D.i = i
+        s.on_second(i, D, None)
+    assert Voice().view(eng, _ctx(D, 1299))["mode"] == "WAITING"
+    out = Voice().view(eng, dict(_ctx(D, 1299), kill=True))
+    assert out["mode"] == "PAUSED" and "kill switch" in out["headline"]
+    out = Voice().view(eng, {"now_s": D.t_open + len(D.hm) + 5, "by_key": {}, "w0": EXP})
+    assert out["mode"] == "STOOD_DOWN" and "session is over" in out["headline"]      # not "warming up" after 15:30
+    out = Voice().view(eng, {"now_s": D.t_open - 60, "by_key": {}, "w0": EXP})
+    assert out["mode"] == "STOOD_DOWN" and "not open yet" in out["headline"]
+    D, s, eng = _rig()                                                              # a restart at row 5000
+    for i in range(5000, 5100):
+        D.fwd[i] = 25000.0
+        D.i = i
+        s.on_second(i, D, None)
+    out = Voice().view(eng, _ctx(D, 5099))
+    ready = time.strftime("%H:%M", time.localtime(D.t_open + 5000 + 1200))
+    assert out["trigger"]["warm"] and out["mode"] == "WAITING" and ready in out["headline"], out["headline"]
+    assert "learning the 20-min range" in out["headline"] and "p_fire" not in out["trigger"]
+
+
+def test_a_fault_leaves_no_card_instead_of_the_last_seconds_card():
+    D, s, eng = _rig()
+    _held(eng)
+    ctx = {"now_s": D.t_open + 7000, "by_key": {KEY: {"bid": 210.0, "delta": 0.6}}, "w0": EXP}
+    v = Voice()
+    assert v.view(eng, ctx)["mode"] == "HOLDING"
+
+    def boom(*a, **k):
+        raise RuntimeError("x")
+    v._hold = boom
+    nxt = dict(ctx, now_s=ctx["now_s"] + 1)
+    try:
+        v.view(eng, nxt)
+        raise AssertionError("the fault must reach engine._safe")
+    except RuntimeError:
+        pass
+    assert v.v is None and v.view(eng, nxt) is None                                 # once a second, no stale card

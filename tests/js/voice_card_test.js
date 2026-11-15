@@ -10,7 +10,10 @@ vm.createContext(ctx);
 vm.runInContext(fs.readFileSync(src, "utf8") + "\nthis.renderVoice = renderVoice;", ctx);
 let n = 0, bad = 0;
 const want = { waiting: ["WAIT", "I am flat"], armed: ["GET READY", "pullback"], zone: ["READY TO BUY", "turn back"],
-               impulse: ["WATCHING THE IMPULSE", "impulse"], holding: ["HOLD", "v-ladder"] };
+               impulse: ["WATCHING THE IMPULSE", "impulse"], holding: ["HOLD", "v-ladder"],
+               // 15 Nov (review): an old price is dimmed, labelled, and never under a confident pill
+               holding_stale: ["HOLD · OLD PRICE", "v-ladder stale", "an old price (120 s)"],
+               holding_gap: ["HOLD · OLD PRICE", "v-ladder stale", "The data has a gap"] };
 for (const f of fs.readdirSync(dir).filter(f => f.endsWith(".json") && !f.startsWith("stand"))) {
   const v = JSON.parse(fs.readFileSync(path.join(dir, f), "utf8"));
   const k = f.replace(".json", "");
@@ -19,6 +22,8 @@ for (const f of fs.readdirSync(dir).filter(f => f.endsWith(".json") && !f.starts
     const h = el.innerHTML;
     for (const w of want[k] || []) if (!h.includes(w)) { bad++; console.log(`FAIL ${k}: missing "${w}"`); }
     if (el.hidden || !h.includes("What I would do now") || h.includes("undefined") || h.includes("NaN")) { bad++; console.log(`FAIL ${k}: bad render`); }
+    if (k.startsWith("holding_") && !el.className.includes("v-wait")) { bad++; console.log(`FAIL ${k}: an old price under a confident pill`); }
+    if (k === "holding" && (h.includes("OLD PRICE") || h.includes("v-ladder stale"))) { bad++; console.log("FAIL holding: a fresh price marked old"); }
     n++;
   } catch (e) { bad++; console.log(`FAIL ${k}: ${e.message}`); }
 }

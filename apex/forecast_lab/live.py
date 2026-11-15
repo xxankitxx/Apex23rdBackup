@@ -453,8 +453,10 @@ SIS_STALE_S = 5.0            # a sister quote older than this is not used (R09)
 
 
 def sister_prices(snap, sis_ids, age):
-    """(BANKNIFTY, FINNIFTY) for the stand's sister lead: BANKNIFTY futures mid (else its index), FINNIFTY index; NaN
-    when missing or older than SIS_STALE_S."""
+    """(BANKNIFTY, FINNIFTY) for the stand's sister lead: BANKNIFTY futures mid, FINNIFTY index; NaN when missing or
+    older than SIS_STALE_S. 15 Nov (review): BANKNIFTY comes from ONE source all session. It used to fall back to the
+    index whenever the futures quote was stale or crossed for a sample, and the futures-index basis (about 150 pts)
+    then read as a 10-second move. The index is used only when the table has no BANKNIFTY future at all."""
     if not sis_ids:
         return None
     bf, bs, fs = sis_ids
@@ -466,7 +468,7 @@ def sister_prices(snap, sis_ids, age):
         b, a = float(snap["bid"][bf]), float(snap["ask"][bf])
         if b > 0 and a >= b:
             bn = 0.5 * (b + a)
-    if not np.isfinite(bn) and fresh(bs) and float(snap["ltp"][bs]) > 0:
+    if bf is None and fresh(bs) and float(snap["ltp"][bs]) > 0:
         bn = float(snap["ltp"][bs])
     fn = float(snap["ltp"][fs]) if fresh(fs) and float(snap["ltp"][fs]) > 0 else np.nan
     return (bn, fn)

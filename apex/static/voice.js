@@ -33,7 +33,7 @@ function voiceTrigger(v) {
       (a.in_zone ? voiceGauge("turn back", Math.max(0, a.resume_pts || 0), a.resume_need, null, `pts · fires at ${vnum(a.fire_level, 1)}`) : "");
   }
   return voiceGauge(`move in ${t.vel_min} min`, t.move_pts, t.need_pts, null, "pts") +
-    (t.range_pts !== null && t.range_pts !== undefined ? `<p class="vt-note">20-min range ${vnum(t.range_pts)} pts · ${vnum(t.gap_hi)} under the high · ${vnum(t.gap_lo)} over the low</p>` : "");
+    (t.range_pts !== null && t.range_pts !== undefined ? `<p class="vt-note">${vesc(t.window_min ?? 20)}-min range ${vnum(t.range_pts)} pts · ${vnum(t.gap_hi)} under the high · ${vnum(t.gap_lo)} over the low</p>` : "");
 }
 
 function voiceLadder(h) {
@@ -44,7 +44,10 @@ function voiceLadder(h) {
       x.px !== undefined ? `bid ${vnum(x.px, 2)}` : "";
     return `<li class="${x.kind === h.nearest ? "nearest" : ""}"><span>${vesc(x.label)}</span><span>${lvl}</span><b>${away}</b></li>`;
   }).join("");
-  return `<ul class="v-ladder">${rows}</ul>`;
+  // 15 Nov (review): distances worked from an old price are dimmed and say so (h.stale: gap | old | no_bid)
+  const old = h.stale ? `<p class="vt-note v-stale">These distances use ${h.stale === "no_bid" ? "no live bid" : "an old price" +
+    (h.quote_age_s !== null && h.quote_age_s !== undefined && h.stale === "old" ? ` (${vnum(h.quote_age_s)} s)` : "")}.</p>` : "";
+  return `<ul class="v-ladder${h.stale ? " stale" : ""}">${rows}</ul>${old}`;
 }
 
 function voiceBooks(bs) {
@@ -60,7 +63,8 @@ function renderVoice(s) {
   if (!v) { el.hidden = true; return; }
   el.hidden = false;
   const h = v.hold;
-  const [word, cls] = h ? (HOLD_PILL[h.level] || HOLD_PILL.HOLD) : (VOICE_PILL[v.mode] || VOICE_PILL.WAITING);
+  let [word, cls] = h ? (HOLD_PILL[h.level] || HOLD_PILL.HOLD) : (VOICE_PILL[v.mode] || VOICE_PILL.WAITING);
+  if (h && h.stale && h.level !== "EXITING") [word, cls] = [word + " · OLD PRICE", "v-wait"];   // never a confident pill on an old price
   const d = v.day || {};
   const side = h ? h.rr : v.trigger && v.trigger.arm ? v.trigger.arm.side : null;
   const wb = v.would_buy;

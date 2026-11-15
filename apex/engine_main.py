@@ -58,6 +58,24 @@ from .table import StateBlob, Table, clean, FEED_STATES
 
 EXIT_SAVE_MIN_S = 10.0     # 13 Nov: least time between two exit-state saves (trail / best moved, no trade)
 PUBLISH_EVERY_S = 0.5      # 13 Nov: the dashboard's state, twice a second (was 4 times; display only, ~650 s CPU a day)
+START_RETRY_S = 30.0       # 15 Nov: a day that failed to start is retried this often; the engine does not trade meanwhile
+END_DAY_TRIES, END_DAY_RETRY_S = 5, 30.0   # 15 Nov: the close (save, record) is retried when a part of it fails
+NO_PRICE_SAY_S = 60.0      # 15 Nov: "no futures and no index price" is said this often while it lasts
+
+
+class DayNotStarted(RuntimeError):
+    """The trading day could not be started (15 Nov). The engine refuses to run until it can: the step raises this, so
+    the heartbeat does not advance, and the loop reports it once a minute instead of a traceback twice a second."""
+
+
+def forward_ref(spot, fut_px, spot_bad):
+    """The reference price of the parity forward: the index when it is finite AND trusted, else the future, else NaN.
+    15 Nov (review): an index print the spot guard had rejected stayed the reference, and greeks.synthetic_forward's
+    150-point sanity bound then REPLACED a sound parity forward by that print (the vendor index has printed +501
+    points while its receive time stayed fresh). The forward is the champion family's only signal."""
+    if np.isfinite(spot) and not spot_bad:
+        return float(spot)
+    return float(fut_px) if np.isfinite(fut_px) else float("nan")
 
 try:                                       # C-34: the decision tape groups reasons like the report does
     from .engine.diagnostics import reason_class as _reason_class
@@ -299,6 +317,19 @@ class Engine:
 
     # ── day lifecycle ──────────────────────────────────────────────────────
     def start_day(self, day):
+        """15 Nov (review): a day that fails to start is NOT a started day. The body sets self.day first and can raise
+        later (the photograph check: "refusing to run"); the next step then saw the day as started and carried on, with
+        books but with no ledger and no commentary. Now the day and its books are dropped and the start is retried
+        every START_RETRY_S; until it succeeds the step raises DayNotStarted and nothing trades."""
+        try:
+            self._start_day(day)
+        except Exception as e:
+            self.day, self.books = None, {}
+            self._start_fail = (day, time.monotonic() + START_RETRY_S, f"{type(e).__name__}: {e}")
+            raise
+        self._start_fail = None
+
+    def _start_day(self, day):
         self.day = day
         self.armed_ep = None
         self.eplog = EpisodeLog(day)
@@ -345,6 +376,12 @@ class Engine:
             log(f"CONDUCTOR pool as of {day}: {len(self.conductor.members)} pair(s)"
                 + (f" (APEX_POOL_ASOF={self.conductor.asof})" if self.conductor.asof else "")
                 + "".join(f" · {m['book']}+{m.get('rule') or 'free'}/{m.get('standing')}" for m in self.conductor.members))
+            if not self.conductor.members:           # 15 Nov (review): never silent. An unreadable pool file read as empty
+                why = (self.conductor.pool or {}).get("error")
+                self._pool_warn = ("CONDUCTOR HAS NO POOL: "
+                                   + (f"the pool file is unreadable ({why})" if why else "no entry is active today")
+                                   + ". The live account will not trade")
+                log(self._pool_warn)
         self._photo_checked = False
         self.gates = list(self.lstate.get("gates", []))
         self.guard.new_day()
@@ -388,6 +425,9 @@ class Engine:
         self._dec_cls, self._dec_n = None, 0
         self.ev("SYSTEM", f"day {day} · champion {champ} · gates {', '.join(self.gates) or 'none'} · "
                           f"capital ₹{books[champ].capital:,.0f}")
+        if getattr(self, "_pool_warn", None):
+            self.ev("SYSTEM", self._pool_warn)
+            self._pool_warn = None
 
     # ── D-120 (council 4, m06/m25): warm state across a same-day restart ──────────
     # Each restart on 19 Oct rebuilt the regime (10 min WARMING, empty VWAP/percentiles) and emptied the
@@ -449,18 +489,38 @@ class Engine:
         except Exception:
             log("warm state restore: " + traceback.format_exc().strip().splitlines()[-1])
 
-    def end_day(self):
+    def end_day(self, force=False):
+        """Close the day: books, trades, levels, the day's record, then the learning step.
+        15 Nov (review): the day is marked done only AFTER its record is on disk. It used to be marked first, so one
+        failed save or record (a locked file) was never retried and the day's record could be lost. Every part of the
+        close is idempotent, so a failure is retried: END_DAY_TRIES attempts, END_DAY_RETRY_S apart (force: now)."""
         if not self.books or getattr(self, "_learned", "") == self.day:
             return
-        self._learned = self.day
-        paper.save_books(self.books, self.day, full=True)    # 10 Nov: the day's last file never comes from the cache
-        paper.write_trades_csv(self.books[self.champion], self.day)
-        save_day(self.day_state)                 # D-141: tomorrow's prior-day levels
-        self._safe("strike levels save", lambda: sl_mod.save_day(getattr(self, "strike_lv", None)))
-        self.ledger.close()                      # unresolved candidates are written before learning reads them
-        if getattr(self, "missed", None) is not None:   # 7 Nov: every missed-signal episode is written
-            self._safe("missed close", self.missed.close)
-        learning.record_day(self.day, self.books)   # always: the day's record must never be lost
+        k, now = getattr(self, "_end_try", None), time.monotonic()
+        n = 1
+        if k and k[0] == self.day:
+            if k[1] >= END_DAY_TRIES or (now < k[2] and not force):
+                return
+            n = k[1] + 1
+        self._end_try = (self.day, n, now + END_DAY_RETRY_S)
+        try:
+            paper.save_books(self.books, self.day, full=True)    # 10 Nov: the day's last file never comes from the cache
+            paper.write_trades_csv(self.books[self.champion], self.day)
+            save_day(self.day_state)                 # D-141: tomorrow's prior-day levels
+            self._safe("strike levels save", lambda: sl_mod.save_day(getattr(self, "strike_lv", None)))
+            self.ledger.close()                      # unresolved candidates are written before learning reads them
+            if getattr(self, "missed", None) is not None:   # 7 Nov: every missed-signal episode is written
+                self._safe("missed close", self.missed.close)
+            learning.record_day(self.day, self.books)   # always: the day's record must never be lost
+        except Exception:
+            last = n >= END_DAY_TRIES
+            log(f"END OF DAY {self.day}: attempt {n} of {END_DAY_TRIES} failed; "
+                + ("the day is NOT recorded. Run `py -3.13 run_apex.py learn` once the cause is fixed"
+                   if last else f"it is retried in {END_DAY_RETRY_S:.0f} s") + "\n" + traceback.format_exc())
+            if last:
+                self.ev("SYSTEM", f"day {self.day} could not be closed and recorded after {n} attempts: see the engine log")
+            return
+        self._learned = self.day                     # the record is on disk: never repeated
         if learning.already_learned(self.day):
             log(f"day {self.day} was already learned — recorded, decisions not repeated")
             return
@@ -488,6 +548,9 @@ class Engine:
         MKT["dt"] = self.now_dt
         day = self.now_dt.date().isoformat()
         if self.day is None:
+            f = getattr(self, "_start_fail", None)
+            if f and f[0] == day and time.monotonic() < f[1]:
+                raise DayNotStarted(f[2])                # the last start failed: wait, do not trade, do not beat
             self.start_day(day)
         elif day != self.day:
             self.end_day()
@@ -618,6 +681,16 @@ class Engine:
                                                       K_up if d > 0 else K_dn, now_s))
         self._lap("observers")
         if not np.isfinite(fut):
+            # 15 Nov (review): with neither a futures nor an index price nothing can be priced, so no book is stepped
+            # and no exit is checked, time exits included. That was silent. It is now said while it lasts in session.
+            if in_session(self.now_dt) and now_s - getattr(self, "_noprice_t", -1e9) >= NO_PRICE_SAY_S:
+                self._noprice_t = now_s
+                held = [n for n, b in self.books.items() if b.pos]
+                msg = "no futures and no index price: no book is stepped and no exit is checked" + (
+                    f"; {len(held)} open position(s) wait for data ({', '.join(held[:6])}{' ...' if len(held) > 6 else ''})"
+                    if held else "")
+                self.ev("DATA", msg)
+                log(msg)
             return
         spot_rng = self._spot_range()
         spot_age = self._spot_age(snap)
@@ -799,7 +872,7 @@ class Engine:
 
     def compute_greeks(self, spot, fut):
         self.atm_iv = getattr(self, "atm_iv", None)
-        ref = spot if np.isfinite(spot) else fut
+        ref = forward_ref(spot, self.px(self.fut_id), self._spot_bad)   # 15 Nov: never an index print the guard rejected
         if not np.isfinite(ref):
             return
         snap = self.m.snap
@@ -2279,7 +2352,7 @@ class Engine:
                 log(f"stop: closing and learning day {self.day}")
                 self.t.set("engine_hb_ns", time.time_ns())
                 try:                                 # the stop path must always reach "stopped"
-                    self.end_day()
+                    self.end_day(force=True)
                 except Exception:
                     log("end_day at stop: " + traceback.format_exc())
             else:
@@ -2294,6 +2367,12 @@ class Engine:
         try:
             self.load_registry()
             self.step()
+        except DayNotStarted as e:                   # 15 Nov: said once a minute, never as a healthy heartbeat
+            if time.monotonic() - getattr(self, "_dns_said", -1e9) >= 60.0:
+                self._dns_said = time.monotonic()
+                log(f"ENGINE NOT RUNNING: the day could not be started ({e}). Nothing trades; "
+                    f"the start is retried every {START_RETRY_S:.0f} s")
+            return False
         except Exception:
             log(traceback.format_exc())
             return False

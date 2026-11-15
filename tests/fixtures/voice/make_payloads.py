@@ -21,6 +21,9 @@ cb.pos = {"key": key, "rr": "CE", "strike": 25000.0, "lots": 6, "entry": 200.0, 
           "rules": {"mode": "normal", "sl_pct": 15.0, "sl_px": 170.0, "trail_px": 25010.0, "trail_pts": 40.0, "trail_give": 12.0,
                     "fwd_now": 25038.0, "peak_pct": 8.0, "held_s": 600, "clock_left_s": 4800, "flat_at": "15:20", "be_arm_pct": 15.0}}
 out["HOLDING"] = json.loads(json.dumps(Voice().view(eng, {"now_s": D.t_open + 7000, "by_key": {key: {"bid": 210.0, "delta": 0.6}}, "w0": T.EXP}), default=float))
+# 15 Nov (review): the same position with a quote two minutes old, and in a feed gap
+out["HOLDING_STALE"] = json.loads(json.dumps(Voice().view(eng, {"now_s": D.t_open + 7000, "by_key": {key: {"bid": 210.0, "delta": 0.6, "age": 120.0}}, "w0": T.EXP}), default=float))
+out["HOLDING_GAP"] = json.loads(json.dumps(Voice().view(eng, {"now_s": D.t_open + 7000, "by_key": {key: {"bid": 210.0, "delta": 0.6}}, "w0": T.EXP, "blackout": {"on": True}}), default=float))
 for k, p in out.items():
     json.dump(p, open(os.path.join(HERE, f"{k.lower()}.json"), "w"), indent=1)
 print(sorted(out))

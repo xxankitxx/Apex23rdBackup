@@ -109,3 +109,38 @@ def test_fade3x_trades_the_three_fades_on_expiry_days_only(tmp_path):
     s, out = _buys(_orb_day("2026-11-17", "2026-11-17", 25080.0), X, 3000)      # the opening-range break, faded once
     assert len(out) == 1 and out[0][1][2] == "PE" and "ORB" in out[0][1][3] and s.f3_orb_done
     assert issubclass(X, fade._FadeMixin)
+    from test_fade_14nov import _buys_skipping                                   # 15 Nov review: a missed second 59
+    i0 = out[0][0]
+    s, late = _buys_skipping(_orb_day("2026-11-17", "2026-11-17", 25080.0), X, 3000, i0)
+    assert i0 % 60 == 59 and [i for i, _ in late] == [i0 + 1] and s.f3_orb_done  # read once, one row late
+
+
+def test_offline_account_pools_the_shadow_books_like_the_engine():
+    """15 Nov review: account_sim.simulate(policy=...) left the shadow accounts' own books out of the pool."""
+    from apex.conductor import account_sim as sim
+    days = [f"2026-10-{k:02d}" for k in range(1, 7)]
+    _hist({d: {"champ": -10.0, "fade": 5.0} for d in days})                  # fade mode
+    t0 = 1794887400.0                                                        # 2026-11-17 09:20 IST, an expiry day
+
+    def tr(t, key, a, b):
+        return {"t_in": t, "t_out": t + 600.0, "entry": a, "exit": b, "key": key, "ret_pct": 100.0 * (b / a - 1.0)}
+    names = NAMES()
+    books = {n: {"trades": []} for n in names}
+    books["c20_9y"]["trades"] = [tr(t0, "NIFTY|OPT|2026-11-17|25000|CE", 100.0, 90.0)]
+    books["fade3x"]["trades"] = [tr(t0 + 60.0, "NIFTY|OPT|2026-11-17|25000|PE", 100.0, 120.0)]
+    pool = cond.load_pool()
+    live = sim.simulate({"2026-11-17": books}, pool)["2026-11-17"]
+    assert [x["src"] for x in live["trades"]] == ["c20_9y"]
+    xs = sim.simulate({"2026-11-17": books}, pool, policy="xswitch")["2026-11-17"]
+    assert [x["src"] for x in xs["trades"]] == ["fade3x"] and xs["counts"]["rule_block"] == 1 and xs["pool_n"] == live["pool_n"] + 1
+    books["fade20"]["trades"] = [tr(t0, "NIFTY|OPT|2026-11-17|25000|PE", 100.0, 110.0)]    # the same tick as the pool book
+    fd = sim.simulate({"2026-11-17": books}, pool, policy="fade")["2026-11-17"]
+    assert fd["trades"][0]["src"] == "c20_9y" and fd["pool_n"] == live["pool_n"] + 3      # the extra books come last
+    assert fd["counts"]["lost_priority"] == 1
+    fo = sim.simulate({"2026-11-17": books}, pool, policy="fadeonly")["2026-11-17"]
+    assert [x["src"] for x in fo["trades"]] == ["fade20"] and fo["pool_n"] == 2
+    eng = cond.AdaptiveConductor("2026-11-17", names, "fade", "conductor_fd")           # the same books, the same order
+    off = cond.shadow_members("fade", sorted(cond.active_entries(pool, "2026-11-17", ""),
+                                             key=lambda e: cond.priority_key(e, eng.order)), eng.order, "2026-11-17", "x")
+    assert [m["book"] for m in off] == [m["book"] for m in eng.members]
+    assert sorted(off, key=lambda e: cond.priority_key(e, eng.order)) == off             # the extras sort last offline too

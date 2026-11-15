@@ -1730,6 +1730,7 @@ body.holding .heldcard:not([hidden]) { height: 96px; }
 .v-ladder li { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.2fr) auto; gap: var(--sp-2); padding: 5px 0; border-bottom: 1px solid var(--hair); color: var(--ink-2); }
 .v-ladder li b { font-family: var(--num); font-variant-numeric: tabular-nums; color: var(--ink); }
 .v-ladder li.nearest { color: var(--beacon); } .v-ladder li.nearest b { color: var(--beacon); }
+.v-ladder.stale { opacity: .55; } .vt-note.v-stale { color: var(--ink-2); }   /* 15 Nov: distances from an old price */
 .v-books { display: flex; flex-wrap: wrap; gap: 6px; margin-top: var(--sp-2); }
 .v-book { font: 600 11px/1 var(--num); letter-spacing: .06em; padding: 5px 8px; border-radius: var(--r-pill); border: 1px solid var(--hair-2); color: var(--mist); }
 .v-book.ready { color: var(--up); border-color: var(--up-line); }

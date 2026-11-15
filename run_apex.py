@@ -106,24 +106,55 @@ def spawn_flags(module, mode):
     return 0
 
 
-def busy_python(own_pids=()):
-    """Other Python processes on this machine (replays, research, tests), as (pid, command line) pairs. Used once at
-    a live start to warn. Never raises: an unreadable process list is an empty list."""
-    try:
-        out = subprocess.run(["wmic", "process", "where", "name like 'py%'", "get", "ProcessId,CommandLine", "/format:csv"],
-                             capture_output=True, text=True, timeout=15).stdout
-    except Exception:
-        return []
+def parse_ps_processes(out):
+    """[(pid, command line)] from lines of "pid|command line" (the PowerShell query of busy_python)."""
+    rows = []
+    for line in out.splitlines():
+        pid, sep, cmd = line.strip().partition("|")
+        if sep and pid.strip().isdigit():
+            rows.append((int(pid), cmd))
+    return rows
+
+
+def parse_wmic_processes(out):
+    """[(pid, command line)] from `wmic ... /format:csv` (node,command line,pid)."""
     rows = []
     for line in out.splitlines():
         parts = line.strip().split(",")
-        if len(parts) < 3 or not parts[-1].isdigit():
-            continue
-        pid, cmd = int(parts[-1]), ",".join(parts[1:-1])
-        if pid in own_pids or pid == os.getpid() or "run_apex" in cmd:
-            continue
-        rows.append((pid, cmd[:160]))
+        if len(parts) >= 3 and parts[-1].isdigit():
+            rows.append((int(parts[-1]), ",".join(parts[1:-1])))
     return rows
+
+
+PS_PROCESSES = ("Get-CimInstance Win32_Process -Filter \"Name like 'py%'\" | "
+                "ForEach-Object { '{0}|{1}' -f $_.ProcessId, $_.CommandLine }")
+
+
+def busy_python(own_pids=(), run=None):
+    """Other Python processes on this machine (replays, research, tests), as (pid, command line) pairs. Used once at
+    a live start to warn. Never raises. Returns None when the process list cannot be read.
+    15 Nov (review): it asked `wmic`, which newer Windows no longer ships, and read its absence as "nothing is running",
+    so the warning could never show. PowerShell is asked first, wmic second; "could not look" is said, not hidden."""
+    run = subprocess.run if run is None else run
+    rows = None
+    try:
+        r = run(["powershell", "-NoProfile", "-NonInteractive", "-Command", PS_PROCESSES],
+                capture_output=True, text=True, errors="replace", timeout=30)   # a byte the code page lacks is not a failure
+        if r.returncode == 0:
+            rows = parse_ps_processes(r.stdout)
+    except Exception:
+        rows = None
+    if rows is None:
+        try:
+            r = run(["wmic", "process", "where", "name like 'py%'", "get", "ProcessId,CommandLine", "/format:csv"],
+                    capture_output=True, text=True, errors="replace", timeout=15)
+            if r.returncode != 0:
+                return None
+            rows = parse_wmic_processes(r.stdout)
+        except Exception:
+            return None
+    return [(pid, cmd[:160]) for pid, cmd in rows
+            if pid not in own_pids and pid != os.getpid() and "run_apex" not in cmd]
 
 
 def spawn(module, args, mode, data_dir=None):
@@ -134,6 +165,26 @@ def spawn(module, args, mode, data_dir=None):
 STALE_S = 10.0          # a heartbeat older than this in market hours is reported (C-08)
 STALE_GRACE_S = 60.0    # a process that has not beaten at all yet gets this long (login, registry)
 STALE_EVERY_S = 60.0    # ... and each warning repeats at most once a minute
+ENGINE_HUNG_S = 120.0   # 15 Nov: an engine whose heartbeat stood still this long in market hours is stopped and restarted
+ENGINE_RESET_S = 600.0  # 15 Nov: engine restarts are counted inside this window ...
+
+
+def engine_wait(n):
+    """... and the n-th restart inside it waits this many seconds: the first is immediate, then 5, 10, ... up to 60.
+    15 Nov (review): a crashing engine used to be restarted every second, for ever, with no pause."""
+    return 0.0 if n <= 1 else min(5.0 * (n - 1), 60.0)
+
+
+def engine_hung(now_ns, hb_ns, spawned_ns, hung_s=None):
+    """Seconds the engine has been hung, or None. Hung = it HAS beaten since this engine process was started and has
+    then stood still for ENGINE_HUNG_S. An engine that never beat since its start (still loading, or refusing to start
+    the day) is not restarted: a restart would not help it, and the STALE warning already says so.
+    15 Nov (review): the supervisor only warned on a stale heartbeat, so a hung engine stayed hung with trades open."""
+    hb = int(hb_ns or 0)
+    if hb <= int(spawned_ns or 0):
+        return None
+    age = (int(now_ns) - hb) / 1e9
+    return age if age >= (ENGINE_HUNG_S if hung_s is None else hung_s) else None
 
 
 def stale_report(now_ns, engine_hb_ns, feed_hb_ns, started_ns):
@@ -287,6 +338,20 @@ def supervise(mode, feed_args, speed=1.0, open_browser=True, data_dir=None):
     t, b = create_shared(Table, StateBlob, data_dir)
     t.set("speed", speed)
     feed_mod = {"live": "apex.feed_breeze", "sim": "apex.feed_sim", "replay": "apex.feed_replay"}[mode]
+
+    def cred_mtime():
+        """the credentials file's modified time (a stat only: the file is never opened or printed here), live only."""
+        if mode != "live":
+            return None
+        try:
+            from apex import feed_breeze as _fb
+            return _fb.credentials_mtime(feed_args[0] if feed_args else "")
+        except Exception:
+            return None
+    # 15 Nov (review): the time on the file just BEFORE each feed start. A refused login then waits for a change
+    # against THAT time. It used to take the baseline after the feed had already died, so a token saved in those few
+    # seconds became the baseline and the supervisor waited for a change that never came.
+    feed_cred = {"m": cred_mtime()}
     procs = {
         "feed": spawn(feed_mod, feed_args, mode, data_dir),
         "engine": spawn("apex.engine_main", [mode], mode, data_dir),
@@ -294,7 +359,10 @@ def supervise(mode, feed_args, speed=1.0, open_browser=True, data_dir=None):
     }
     if mode == "live":                                   # 10 Nov: other heavy work on this machine slows the engine
         others = busy_python({p.pid for p in procs.values()})
-        heavy = [c for _, c in others if any(k in c for k in ("replay", "pytest", "research", "batch"))]
+        if others is None:
+            print("\n  NOTE: the list of other processes could not be read, so the check for heavy jobs "
+                  "(replays, tests, research) did not run.\n", flush=True)
+        heavy = [c for _, c in others or [] if any(k in c for k in ("replay", "pytest", "research", "batch"))]
         if heavy:
             print(f"\n  WARNING: {len(heavy)} replay / test / research process(es) are running on this machine. On 10 Nov "
                   "such jobs made the engine step 3 to 4 times slower. Stop them before the open:", flush=True)
@@ -327,55 +395,73 @@ def supervise(mode, feed_args, speed=1.0, open_browser=True, data_dir=None):
             pass
     restarts = 0
     login_wait = {}                              # 13 Nov: state while the feed waits for a fresh session token
+    eng = {"n": 0, "last": 0.0, "due": None, "spawned_ns": time.time_ns()}   # 15 Nov: the engine's restarts and its start
     try:
         while True:
             time.sleep(1.0)
             if procs["engine"].poll() is not None:
                 if mode == "live":
-                    say(f"ENGINE exited (code {procs['engine'].returncode}) — restarting (books are on disk)")
-                    procs["engine"] = spawn("apex.engine_main", [mode], mode, data_dir)
+                    if eng["due"] is None:      # 15 Nov: the first restart is at once; a crash loop backs off
+                        eng["n"] = eng["n"] + 1 if time.time() - eng["last"] < ENGINE_RESET_S else 1
+                        wait = engine_wait(eng["n"])
+                        eng["due"] = time.time() + wait
+                        say(f"ENGINE exited (code {procs['engine'].returncode}) — restarting"
+                            + (f" in {wait:.0f} s (restart {eng['n']} within {ENGINE_RESET_S / 60:.0f} minutes)" if wait else "")
+                            + " (books are on disk)")
+                    if time.time() >= eng["due"]:
+                        procs["engine"] = spawn("apex.engine_main", [mode], mode, data_dir)
+                        eng.update(due=None, last=time.time(), spawned_ns=time.time_ns())
                 else:
                     break                       # sim/replay finished and learned
             if procs["gateway"].poll() is not None:
                 procs["gateway"] = spawn("apex.gateway", [], mode, data_dir)
             if mode == "live" and restarts and time.time() - feed_started >= FEED_RESET_S:
                 restarts = 0                    # a feed that has stayed up 10 min starts afresh
+            waiting_token = False
             if procs["feed"].poll() is not None and mode == "live" and procs["feed"].returncode == 3:
+                waiting_token = True
                 # 13 Nov (R13 idea 8): the broker refused today's session token. Restarting cannot help until the
                 # owner saves a fresh one, so wait for the credentials file to change (stat only, never read here).
-                from apex import feed_breeze as _fb
-                prof = feed_args[0] if feed_args else ""
                 if login_wait.get("m0", "unset") == "unset":
-                    login_wait["m0"] = _fb.credentials_mtime(prof)
+                    login_wait["m0"] = feed_cred["m"]            # as it stood when the refused feed was started
                     say("FEED login refused: save a fresh session token in the secrets file; the feed restarts by itself "
                         "when the file changes (checked every 10 s)")
                 if time.time() - login_wait.get("t", 0.0) >= 10.0:
                     login_wait["t"] = time.time()
-                    if _fb.credentials_mtime(prof) != login_wait["m0"]:
+                    if cred_mtime() != login_wait["m0"]:
                         login_wait.clear()
                         say("FEED credentials changed: starting the feed")
+                        feed_cred["m"] = cred_mtime()
                         procs["feed"] = spawn(feed_mod, feed_args, mode, data_dir)
                         feed_started = time.time()
-                continue
-            if procs["feed"].poll() is not None and mode == "live":
+            # 15 Nov (review): the token wait used to `continue` here, which also skipped the ENGINE heartbeat warnings
+            # below for as long as it lasted. Now only the feed restart and the FEED stale line are skipped.
+            if procs["feed"].poll() is not None and mode == "live" and not waiting_token:
                 restarts += 1
                 if restarts > 20:
                     say("FEED keeps dying — see data/logs/feed.log")
                     time.sleep(30)
                 say(f"FEED exited (code {procs['feed'].returncode}) — restarting")
                 time.sleep(min(5 * restarts, 60))
+                feed_cred["m"] = cred_mtime()
                 procs["feed"] = spawn(feed_mod, feed_args, mode, data_dir)
                 feed_started = time.time()
             if mode == "live":
-                # warn only (C-08): no auto-restart on a stale heartbeat yet
+                # C-08: a stale heartbeat is warned about. 15 Nov: an engine hung for ENGINE_HUNG_S is also restarted
                 try:
                     if in_market_hours(config, config.now_ist()):
+                        hung = engine_hung(time.time_ns(), t.c("engine_hb_ns"), eng["spawned_ns"])
+                        if hung is not None and procs["engine"].poll() is None:
+                            say(f"ENGINE HUNG: no heartbeat for {hung:.0f} s. Stopping it; it restarts from the books on disk")
+                            procs["engine"].terminate()
                         p = pause_report(pause, time.time_ns(), t.c("engine_hb_ns"))
                         if p is not None:
                             say(f"ENGINE heartbeat paused {p:.1f} s and resumed — the engine stood still that long "
                                 f"(see the SLOW TICK lines in data/logs/engine.log)")
                         for name, age in stale_report(time.time_ns(), t.c("engine_hb_ns"),
                                                       t.c("feed_hb_ns"), started_ns):
+                            if name == "FEED" and waiting_token:       # already said: waiting for a fresh token
+                                continue
                             if time.time() - last_warn.get(name, 0.0) >= STALE_EVERY_S:
                                 last_warn[name] = time.time()
                                 fs = int(t.c("feed_state"))
@@ -414,6 +500,30 @@ def port_busy(port):
 
 
 # ── session ────────────────────────────────────────────────────────────────
+def config_gate(validate=None, env=None, out=print):
+    """True when a live session may start. 15 Nov (review): config.validate() ran only in the optional `preflight`
+    command, so `live` could start on a mistyped parameter or an unreadable pool file. `live` now runs it first and
+    does not start on a problem. APEX_ALLOW_BAD_CONFIG=1 starts anyway; the problems are printed either way."""
+    if validate is None:
+        from apex import config
+        validate = config.validate
+    env = os.environ if env is None else env
+    try:
+        probs = list(validate())
+    except Exception as e:                       # the check itself failing is a problem, not a pass
+        probs = [f"the configuration check failed: {type(e).__name__}: {e}"]
+    if not probs:
+        return True
+    out("\n  CONFIGURATION PROBLEMS:")
+    for p in probs:
+        out(f"    - {p}")
+    if env.get("APEX_ALLOW_BAD_CONFIG") == "1":
+        out("  APEX_ALLOW_BAD_CONFIG=1 is set: starting anyway.\n")
+        return True
+    out("  Not starting. Fix the above, or set APEX_ALLOW_BAD_CONFIG=1 to start anyway.\n")
+    return False
+
+
 def cmd_session(profile):
     from apex import config
     name = f"breeze_{profile}.json" if profile else "breeze.json"
@@ -707,6 +817,8 @@ def main():
             sys.exit(f"--dir {a.dir}: no such folder")
         cmd_report(a.mode, a.dir or None)
     elif a.cmd == "live":
+        if not config_gate():                    # 15 Nov: the self-check at every live start, not only in preflight
+            sys.exit(2)
         supervise("live", [a.profile] if a.profile else [], 1.0, not a.no_browser)
     elif a.cmd == "sim":
         args = ["--speed", str(a.speed), "--days", str(a.days), "--seed", str(a.seed)] + (["--record"] if a.record else [])

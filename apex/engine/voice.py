@@ -53,6 +53,16 @@ def _clock(t_open, i):
     return time.strftime("%H:%M", time.localtime(t_open + i)) if _fin(t_open) else None
 
 
+def _mins(s):
+    """seconds as minutes for a label: 1200 -> 20, 150 -> 2.5 (15 Nov review: 150 s was shown as "2 min")."""
+    m = s / 60.0
+    return int(m) if m == int(m) else round(m, 1)
+
+
+EXIT_WORDS = {"SL": "my premium stop", "FWD_TRAIL": "my forward trail", "FLOOR": "my profit floor",
+              "PREM_TRAIL": "my premium trail", "CLOCK": "the hold clock"}
+
+
 def _hm(m):
     """minutes since midnight -> HH:MM"""
     m = int(round(m))
@@ -85,6 +95,7 @@ class Voice:
         self._last_i = None
         self._med = (None, None)          # (second, median of c20_9y's IV series) cached every 10 s
         self._level = (None, None, 0.0)   # (shown level, candidate, candidate since) for the exit ladder
+        self._level_pk = None             # the position that level belongs to (key, t_in)
         self._closed = None               # the last closed trade, said for 2 minutes after the exit
 
     # ── reading the strategy objects (read only) ────────────────────────────────
@@ -110,7 +121,7 @@ class Voice:
         x = getattr(s, "x", None) or {}
         W, L, vmin = int(p.get("W", 1200)), int(p.get("L", 1200)), float(p.get("vmin", 40.0))
         tr = {"mode": "expiry" if D.dte0 else "normal", "pb_entry": float(p.get("pb", 0)) > 0,
-              "need_pts": vmin, "window_min": round(W / 60), "vel_min": round(L / 60),
+              "need_pts": vmin, "window_min": _mins(W), "vel_min": _mins(L),
               "fwd": _f(fs), "t0": _hm(p.get("t0", 556)), "t1": _hm(p.get("t1", 900)),
               "hm": float(D.hm[i])}
         if not math.isfinite(fs):
@@ -122,10 +133,18 @@ class Voice:
         v = None
         if i >= L and math.isfinite(fs_arr[i - L]):
             v = fs - float(fs_arr[i - L])
+        # 15 Nov (review): the strategy also needs a forward W seconds back. After a restart inside the session it has
+        # none, so it cannot fire for W seconds: that is warming up too, and the range shown would be the range since
+        # the restart. Ready when the first known forward in the window is W seconds old.
+        cold = i >= W + 2 and not math.isfinite(fs_arr[i - W])
+        ready_i = W + 2
+        if cold:
+            seg = np.isfinite(np.asarray(fs_arr[i - W:i + 1], dtype=float))
+            ready_i = i + (int(np.argmax(seg)) if seg.any() else W)
         tr.update(hi=_f(hi), lo=_f(lo), range_pts=_f(hi - lo) if hi is not None and lo is not None else None,
                   move_pts=_f(v), gap_hi=_f(hi - fs) if hi is not None else None,
                   gap_lo=_f(fs - lo) if lo is not None else None,
-                  warm=i < W + 2, ready_at=_clock(D.t_open, W + 2))
+                  warm=i < W + 2 or cold, ready_at=_clock(D.t_open, ready_i))
         cool = int(p.get("cool", 60)) - (i - int(getattr(s, "last_exit", -10 ** 9)))
         tr["cool_left_s"] = cool if cool > 0 else 0
         a = getattr(s, "arm", None)
@@ -232,6 +251,20 @@ class Voice:
         r = pos.get("rules") or {}
         o = (ctx.get("by_key") or {}).get(pos.get("key")) or {}
         bid = o.get("bid")
+        age = o.get("age")
+        # 15 Nov (review): the held price can be old (a feed gap, a stale quote). The card says so and never calls an
+        # old price "now"; a sale needs a fresh quote (paper.request_exit waits for one).
+        if (ctx.get("blackout") or {}).get("on"):
+            stale = "gap"
+        elif not bid:
+            stale = "no_bid"
+        elif _fin(age) and float(age) > config.EXIT_QUOTE_STALE_S:
+            stale = "old"
+        else:
+            stale = None
+        pk = (pos.get("key"), pos.get("t_in"))
+        if self._level_pk != pk:                 # a new position never inherits the last one's level
+            self._level_pk, self._level = pk, (None, None, 0.0)
         e = float(pos["entry"])
         dl = abs(o.get("delta") or 0.5)
         ret = 100.0 * (bid / e - 1.0) if bid else None
@@ -257,11 +290,14 @@ class Voice:
         near = [x for x in ex if x.get("away_px") is not None]
         nearest = min(near, key=lambda x: x["away_px"]) if near else None
         pending = bool(pos.get("pending"))
+        near_px = nearest is not None and nearest["away_px"] <= 0.04 * e
+        near_clock = bool(_fin(r.get("clock_left_s")) and r["clock_left_s"] < 300)
+        # the exit that is actually close: a price exit within 4 % of the entry, else the clock when it has under
+        # 5 minutes left (15 Nov review: the clock used to be announced under the nearest price exit's name)
+        near_kind = nearest["kind"] if near_px else ("CLOCK" if near_clock else (nearest["kind"] if nearest else None))
         if pending:
             cand = "EXITING"
-        elif nearest is not None and nearest["away_px"] <= 0.04 * e:
-            cand = "NEAR"
-        elif _fin(r.get("clock_left_s")) and r["clock_left_s"] < 300:
+        elif near_px or near_clock:
             cand = "NEAR"
         elif _fin(r.get("floor_px")) and r["floor_px"] >= e:
             cand = "PROTECTED"
@@ -281,7 +317,8 @@ class Voice:
         return {"key": pos.get("key"), "rr": pos.get("rr"), "strike": pos.get("strike"), "lots": pos.get("lots"),
                 "entry": _f(e, 2), "bid": _f(bid, 2), "ret_pct": _f(ret), "peak_pct": _f(r.get("peak_pct")),
                 "since": pos.get("time_in"), "src": pos.get("src"), "held_s": _f(r.get("held_s"), 0),
-                "exits": ex, "nearest": nearest["kind"] if nearest else None, "level": self._level[0],
+                "exits": ex, "nearest": near_kind, "level": self._level[0],
+                "stale": stale, "quote_age_s": _f(age, 0) if _fin(age) else None,
                 "floor_arms_pct": _f(floor_arm, 0) if not _fin(r.get("floor_px")) else None,
                 "mode": r.get("mode")}
 
@@ -289,8 +326,10 @@ class Voice:
     @staticmethod
     def _say_hold(h):
         side = "CALL" if h["rr"] == "CE" else "PUT"
+        stale = h.get("stale")
+        when = "now" if not stale else "at the last price I have"
         head = (f"I hold {h['lots']} lots of the {h['strike']:.0f} {h['rr']} ({side}), "
-                f"{h['ret_pct']:+.1f} % now" if h["ret_pct"] is not None else
+                f"{h['ret_pct']:+.1f} % {when}" if h["ret_pct"] is not None else
                 f"I hold {h['lots']} lots of the {h['strike']:.0f} {h['rr']}")
         if h["peak_pct"] is not None:
             head += f", best {h['peak_pct']:+.1f} %"
@@ -317,11 +356,17 @@ class Voice:
         if h["level"] == "EXITING":
             lines.insert(0, "An exit rule has fired. I am selling at the next print.")
         elif h["level"] == "NEAR":
-            lines.append(f"Nearest exit: {h['nearest'] or 'the clock'}. I am close to selling.")
+            lines.append(f"Nearest exit: {EXIT_WORDS.get(h['nearest'], 'the hold clock')}. I am close to selling.")
         elif h["level"] == "PROTECTED":
             lines.append("My floor is above my entry: this trade can no longer lose much.")
-        else:
+        elif not stale:
             lines.append("Nothing says sell yet. I hold.")
+        if stale == "gap":
+            lines.insert(0, "The data has a gap. The price I show is old, and I can sell only on a fresh one.")
+        elif stale == "old":
+            lines.insert(0, f"The last price is {h.get('quote_age_s') or 0:.0f} s old. I can sell only on a fresh one.")
+        elif stale == "no_bid":
+            lines.insert(0, "I have no bid for it right now. I can sell only on a fresh price.")
         return head, lines
 
     @staticmethod
@@ -360,7 +405,8 @@ class Voice:
                 up = mv >= 0
                 gap = tr.get("gap_hi") if up else tr.get("gap_lo")
                 lines.append(f"The forward has moved {mv:+.0f} pts and sits {max(gap or 0, 0):.0f} pts "
-                             f"{'under its high' if up else 'over its low'}. 20-min range {tr.get('range_pts') or 0:.0f} pts.")
+                             f"{'under its high' if up else 'over its low'}. "
+                             f"{tr['window_min']}-min range {tr.get('range_pts') or 0:.0f} pts.")
         if wb and mode in ("ZONE", "ARMED"):
             lines.append(f"I would buy the {wb['strike']} {wb['rr']} at about {wb['ask']:.2f}, {wb['lots']} lots "
                          f"(Rs {wb['cost_rs']:,}). I would sell at -15 %, on a "
@@ -386,9 +432,11 @@ class Voice:
             return self.v
         D, s = ad.D, ad.strat
         i = int(now - D.t_open)
-        if self._last_i == i and self.v is not None:
+        if self._last_i == i:
             return self.v
         self._last_i = i
+        self.v = None                            # 15 Nov (review): a fault below leaves NO card for this second, never
+        #                                          the last second's card with its old time (engine._safe logs the fault)
         out = {"v": 1, "t": now, "time": time.strftime("%H:%M:%S", time.localtime(now)), "lead": name,
                "capital": round(float(cb.capital)), "day": self._day(cb)}
         c = eng.conductor
@@ -401,6 +449,7 @@ class Voice:
             self._closed = None
         elif cb.ctl.get("owner"):
             own = cb.ctl["owner"]
+            self._level = (None, None, 0.0)
             out["mode"] = "PENDING"
             out["headline"] = f"My trigger fired at {own.get('time') or ''} via {own.get('book')}. I am buying at the next print."
             out["lines"] = [str(own.get("why") or "")]
@@ -412,10 +461,17 @@ class Voice:
             tr = self._trigger(s, D, i) if 0 <= i else None
             out["trigger"] = tr
             bo = (ctx.get("blackout") or {}).get("on")
-            if tr is None:
+            if i >= len(D.hm):                   # 15 Nov (review): past the last row (15:30) the day is over
+                out["mode"], out["headline"], out["lines"] = "STOOD_DOWN", "The session is over. I am done for today.", []
+            elif i < 0:
+                out["mode"], out["headline"], out["lines"] = "STOOD_DOWN", "The market is not open yet.", []
+            elif tr is None:
                 out["mode"], out["headline"], out["lines"] = "OFF", "My trigger is warming up.", []
             elif bo:
                 out["mode"], out["headline"] = "PAUSED", "The data has a gap. I take no entry until it is clean."
+                out["lines"] = []
+            elif ctx.get("kill"):                # 15 Nov (review): the kill switch refuses every buy (Adapter.step)
+                out["mode"], out["headline"] = "PAUSED", "The kill switch is on. I take no entries."
                 out["lines"] = []
             elif tr["hm"] < (9 * 60 + 16):
                 out["mode"], out["headline"], out["lines"] = "STOOD_DOWN", f"I start watching at {tr['t0']}.", []

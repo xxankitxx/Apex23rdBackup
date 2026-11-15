@@ -1520,11 +1520,37 @@ class Lab:
     STAND_RECORD = dict(hit15=49.9, days_better=8, days=16, changes_day=14.5)
 
     def _F_ago(self, s):
-        k = self.n - 1 - int(s)
-        if k < max(0, self.n - RING):
+        """The future's mid s SECONDS before the last sample: the sample nearest that time, when it is within
+        max(2 s, 2 % of s) of it. 15 Nov (review): this counted SAMPLES, so after skipped seconds (a restart, a
+        missing table) a "20-minute" base could be 28 minutes old and the move was overstated."""
+        if self.n == 0:
             return None
-        v = self.fm[k % RING]
-        return float(v) if np.isfinite(v) else None
+        lo, hi = max(0, self.n - RING), self.n - 1
+        target = float(self.ft[hi % RING]) - float(s)
+        a, b = lo, hi
+        while a < b:                                 # the last sample at or before the target time
+            m = (a + b + 1) // 2
+            if self.ft[m % RING] <= target:
+                a = m
+            else:
+                b = m - 1
+        best = None
+        for k in (a, a + 1):
+            if lo <= k <= hi and np.isfinite(self.fm[k % RING]):
+                d = abs(float(self.ft[k % RING]) - target)
+                if np.isfinite(d) and (best is None or d < best[0]):
+                    best = (d, float(self.fm[k % RING]))
+        return best[1] if best is not None and best[0] <= max(2.0, 0.02 * float(s)) else None
+
+    def _fm_since(self, s, step=1):
+        """mids of the samples in the last s SECONDS (every step-th), finite only. At most one sample a second is
+        stored, so the last s seconds are never more than s samples back."""
+        if self.n == 0:
+            return []
+        t0 = float(self.ft[(self.n - 1) % RING]) - float(s)
+        lo = max(0, self.n - RING, self.n - int(s))
+        return [float(self.fm[k % RING]) for k in range(lo, self.n, step)
+                if self.ft[k % RING] >= t0 and np.isfinite(self.fm[k % RING])]
 
     SIS_LOOK_S = 10              # R09 sweet spot: look back 5 to 15 s, horizon 5 to 60 s, the two sisters equal weight
 
@@ -1536,14 +1562,16 @@ class Lab:
             return None
         t1, b1, f1 = self.sis_ring[-1]
         t0, b0, f0 = self.sis_ring[-1 - self.SIS_LOOK_S]
-        if t - t1 > 5 or t1 - t0 > self.SIS_LOOK_S + 5:
+        # 15 Nov (review): the two ends must really be SIS_LOOK_S apart (skipped seconds stretched the window to 15 s
+        # under a "10 s" label), and the Nifty future is read at the SAME two times, not "10 samples back"
+        if t - t1 > 5 or not (self.SIS_LOOK_S - 1 <= t1 - t0 <= self.SIS_LOOK_S + 2):
             return None
         rs = [math.log(a / b) for a, b in ((b1, b0), (f1, f0)) if np.isfinite(a) and np.isfinite(b) and a > 0 and b > 0]
-        F0 = self._F_ago(self.SIS_LOOK_S)
-        if not rs or F0 is None:
+        F1, F0 = self.F_at(t1), self.F_at(t0)
+        if not rs or F0 is None or F1 is None:
             return None
         sis_pts = F * sum(rs) / len(rs)
-        nf = F - F0
+        nf = F1 - F0
         lead = sis_pts - nf
         names = "BANKNIFTY and FINNIFTY" if len(rs) == 2 else "the sister index"
         if abs(lead) < 1:
@@ -1591,10 +1619,9 @@ class Lab:
             st["cand"] = None
         word = st["word"]
         # facts in points, each marked for (True) or against (False) the word
-        tail = [self.fm[k % RING] for k in range(max(0, self.n - 3600), self.n, 5)]
-        tail = [x for x in tail if np.isfinite(x)]
+        tail = self._fm_since(3600, 5)               # 15 Nov (review): by the clock, not by a count of samples
         hi60, lo60 = (float(max(tail)), float(min(tail))) if tail else (None, None)
-        t20 = np.array([x for x in (self.fm[k % RING] for k in range(max(0, self.n - 1200), self.n)) if np.isfinite(x)], float)
+        t20 = np.array(self._fm_since(1200), float)
         sgn = 1 if word == "BULLISH" else -1 if word == "BEARISH" else 0
         facts = [dict(k="move20", text=f"futures {m20:+.0f} pts in 20 min", pro=(sgn * m20 > 0) if sgn else None)]
         if vw is not None:
@@ -1762,6 +1789,8 @@ class Lab:
             out["stale"] = (f"the futures quote is {fa:.0f} s old" if np.isfinite(fa) else "no futures quote has arrived")
             for kk in ("path", "path_F", "regime", "volx", "breadth", "experts", "signals"):
                 out.pop(kk, None)
+            if "stand" in out:                       # 15 Nov (review): a stand worked from an old quote is not a stand:
+                out["stand"] = dict(ok=False, why=out["stale"])   # the banner said BULLISH on a 45-s-old future
             sim = None
         if sim is not None and not warm:
             opts = []

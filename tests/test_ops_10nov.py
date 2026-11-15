@@ -177,9 +177,9 @@ def test_stopped_flat_after_the_flatten_time_closes_and_learns_the_day(monkeypat
         assert live.day_is_over()
         live.now_dt = day
         closed = []
-        monkeypatch.setattr(live, "end_day", lambda: closed.append(live.day))
+        monkeypatch.setattr(live, "end_day", lambda force=False: closed.append((live.day, force)))
         live.stop_path()
-        assert closed == ["2026-10-21"]
+        assert closed == [("2026-10-21", True)]        # 15 Nov: the stop makes one last attempt whatever the retry clock says
         text = "\n".join(lines)
         assert "stop requested: saving the books" in text and "stop: books saved" in text
         assert "stop: closing and learning day 2026-10-21" in text and lines[-1].startswith("stopped (")
@@ -217,5 +217,33 @@ def test_the_live_feed_and_engine_run_above_normal_priority_and_nothing_else_doe
     hi = getattr(subprocess, "ABOVE_NORMAL_PRIORITY_CLASS", 0)
     assert seen == [("apex.feed_breeze", hi), ("apex.engine_main", hi), ("apex.gateway", 0), ("apex.engine_main", 0),
                     ("apex.feed_sim", 0)]
-    assert isinstance(run_apex.busy_python(), list)                          # never raises
+    got = run_apex.busy_python()                                             # never raises
+    assert got is None or isinstance(got, list)                              # 15 Nov: None = the list could not be read
 
+
+
+# ── 15 Nov review: a reconnect round stays RECONNECTING, so the supervisor's "FEED reconnecting" line can print ──
+def test_a_reconnect_round_stays_reconnecting_and_the_first_connect_is_connecting(monkeypatch):
+    from apex import feed_breeze as FB
+
+    class T:
+        def __init__(self):
+            self.d = {"stop": 0, "reconnects": 0, "feed_state": 0}
+
+        def set(self, k, v):
+            self.d[k] = v
+
+        def c(self, k):
+            return self.d.get(k, 0)
+    f = object.__new__(FB.BreezeFeed)
+    f.t, f.breeze, f.subscribed = T(), None, set()
+    seen = []
+    monkeypatch.setattr(FB, "drop_stream", lambda b: None)
+    monkeypatch.setattr(FB, "connect_stream", lambda b: seen.append(f.t.d["feed_state"]))   # the state while connecting
+    monkeypatch.setattr(FB.time, "sleep", lambda s: None)
+    monkeypatch.setattr(FB, "log", lambda m: None)
+    f.subscribe_all = lambda: True
+    assert f.connect() and seen == [1] and f.t.d["feed_state"] == 2          # the day's first connect: CONNECTING, then LIVE
+    seen.clear()
+    assert f.reconnect() and seen == [3] and f.t.d["feed_state"] == 2        # after a drop: RECONNECTING all through
+    assert f._down_since is None and f.t.d["reconnects"] == 1

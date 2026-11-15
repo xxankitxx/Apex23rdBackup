@@ -40,11 +40,17 @@ STANDINGS = ("full", "low")
 
 
 def load_pool(path=POOL):
+    """The pool file. An unreadable file is an EMPTY pool that says why ("error"): pool_problems reports it, so
+    config.validate() sees it, and the engine says at the day's start that the live account has no pool (15 Nov
+    review: it used to read as a quiet empty pool that no check could tell from a deliberate one)."""
     try:
         with open(path, encoding="utf-8") as fh:
-            return json.load(fh)
-    except (OSError, ValueError):
-        return {"entries": []}
+            pool = json.load(fh)
+        if not isinstance(pool, dict):
+            raise ValueError("the file is not a JSON object")
+        return pool
+    except (OSError, ValueError) as e:
+        return {"entries": [], "error": f"{type(e).__name__}: {e}"}
 
 
 def pool_problems(pool, variants=None, reg=None):
@@ -53,6 +59,8 @@ def pool_problems(pool, variants=None, reg=None):
     variants = config.VARIANTS if variants is None else variants
     reg = rules.register_rules() if reg is None else reg
     bad = []
+    if pool.get("error"):
+        bad.append(f"the file is unreadable ({pool['error']}): the live account would have no pool")
     for i, e in enumerate(pool.get("entries") or []):
         b = e.get("book")
         if b not in variants or b in config.CONTROLS or b == BOOK:
@@ -94,8 +102,10 @@ def active_entries(pool, day, asof=None):
 
 
 def priority_key(e, order):
-    """Same-tick priority (docs/28 §7): full standing first, higher test-day return per trade, then book order."""
-    return (0 if e.get("standing") == "full" else 1, -float(e.get("ret_per_trade") or 0.0),
+    """Same-tick priority (docs/28 §7): full standing first, higher test-day return per trade, then book order.
+    15 Nov (review): a shadow account's own extra books (shadow_members, never a pool.json row) always come last,
+    as the engine account lists them, so apex/conductor/account_sim orders a same-tick tie the same way."""
+    return (0 if e.get("standing") == "full" else (2 if e.get("shadow") else 1), -float(e.get("ret_per_trade") or 0.0),
             order.get(e.get("book"), 10 ** 6), str(e.get("rule") or ""))
 
 
@@ -384,6 +394,24 @@ def _side_of(t):
     return t.get("rr") or str(t.get("key") or "").rsplit("|", 1)[-1]
 
 
+def shadow_members(policy, members, order, day, name):
+    """The pool of a shadow account: the live members (already in priority order), replaced (ONLY_POOL) or followed
+    by the account's own extra books (xswitch's expiry book, EXTRA_POOL). 15 Nov (review): one place, so the engine
+    account (AdaptiveConductor) and the offline one (apex/conductor/account_sim.simulate) pool the same books."""
+    def row(b, doc):
+        return {"book": b, "rule": None, "standing": "low", "ret_per_trade": 0.0, "from": day, "shadow": True,
+                "note": f"{name}: {doc}"}
+    ms = list(members)
+    if policy in ONLY_POOL:
+        ms = [row(b, "shadow pool only (docs/58)") for b in ONLY_POOL[policy] if b in order]
+    if policy == "xswitch" and XS_BOOK in order and all(m.get("book") != XS_BOOK for m in ms):
+        ms.append(row(XS_BOOK, "expiry days in fade mode only (docs/60)"))
+    for b in EXTRA_POOL.get(policy, ()):                # after the sort: the extra books come last on a same-tick tie
+        if b in order and all(m.get("book") != b for m in ms):
+            ms.append(row(b, "shadow pool only (docs/57)"))
+    return ms
+
+
 class AdaptiveConductor(Conductor):
     """policy "sidelock" (R20 E6, conductor_sl): refuse a trigger on side s when today's last SIDE_N closed c20-family
     trades on s number at least SIDE_MIN and losses exceed wins. It lifts by itself when wins catch up.
@@ -395,20 +423,9 @@ class AdaptiveConductor(Conductor):
         if policy not in ("sidelock", "whipsaw", "prexp", "fade", "fadeonly", "xswitch"):
             raise ValueError(f"unknown shadow Conductor policy {policy!r}")
         self.policy = policy
-        if policy in ONLY_POOL:
-            self.members = [{"book": b, "rule": None, "standing": "low", "ret_per_trade": 0.0, "from": day,
-                             "note": f"{name}: shadow pool only (docs/58)"} for b in ONLY_POOL[policy] if b in self.order]
-            self.reason = "flat: no eligible trigger" if self.members else "pool empty"
-        if policy == "xswitch" and XS_BOOK in self.order and all(m.get("book") != XS_BOOK for m in self.members):
-            self.members.append({"book": XS_BOOK, "rule": None, "standing": "low", "ret_per_trade": 0.0, "from": day,
-                                 "note": f"{name}: expiry days in fade mode only (docs/60)"})
+        self.members = shadow_members(policy, self.members, self.order, day, name)
+        self.reason = "flat: no eligible trigger" if self.members else "pool empty"
         self.xs_mode = None                             # decided at the day's first expiry trigger
-        for b in EXTRA_POOL.get(policy, ()):            # after the sort: the extra books come last on a same-tick tie
-            if b in self.order and all(m.get("book") != b for m in self.members):
-                self.members.append({"book": b, "rule": None, "standing": "low", "ret_per_trade": 0.0, "from": day,
-                                     "note": f"{name}: shadow pool only (docs/57)"})
-        if self.members and self.reason == "pool empty":
-            self.reason = "flat: no eligible trigger"
         self._ptr = {}                                  # book -> trades already read (O(new trades) a step)
         self._tape = {"CE": collections.deque(maxlen=SIDE_N), "PE": collections.deque(maxlen=SIDE_N)}
 

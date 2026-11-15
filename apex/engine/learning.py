@@ -91,15 +91,52 @@ def shadow_lines(days, since=SHADOW_FROM):
     if not ds:
         return out + ["No session since then yet."]
     show = ds[-8:]
-    out += ["| account / book | days | trades | winners | day % (compounded, all-in) " + " ".join(f"| {d[5:]}" for d in show) + " |",
+    # 15 Nov (review): every day starts with fresh capital, so the total is the SUM of the days' all-in returns (it was
+    # compounded across days, which no account here does). A day's own figure still compounds that day's trades.
+    out += ["Each day's figure compounds that day's all-in trades. The total adds the days: capital is fresh every day.", "",
+            "| account / book | days | trades | winners | sum of day % " + " ".join(f"| {d[5:]}" for d in show) + " |",
             "|---|---|---|---|---" + "|---" * len(show) + "|"]
     for b in rows:
         per = {d: days.get(b, {}).get(d) or [] for d in ds}
         tr = [t for d in ds for t in per[d]]
-        tot = 100.0 * (math.exp(sum(_day_ret(per[d]) for d in ds) / 100.0) - 1.0)
-        cells = " ".join(f"| {100.0 * (math.exp(_day_ret(per[d]) / 100.0) - 1.0):+.1f}" if per[d] else "| ." for d in show)
+        dpc = {d: 100.0 * (math.exp(_day_ret(per[d]) / 100.0) - 1.0) for d in ds}
+        tot = sum(dpc.values())
+        cells = " ".join(f"| {dpc[d]:+.1f}" if per[d] else "| ." for d in show)
         name = f"**{b}** (live)" if b == "conductor" else b
         out.append(f"| {name} | {sum(1 for d in ds if per[d])} | {len(tr)} | {sum(1 for t in tr if _r(t) > 0)} | {tot:+.1f} {cells} |")
+    return out
+
+
+def _net_pct(t):
+    """15 Nov (review): the trade's return had it been bought at the ask and sold at the bid recorded at its two fills;
+    None when either quote is missing. Record only. The books fill at the last traded price (owner, 17 Oct), and on the
+    four live days of 9 to 13 Nov that price was an older trade than the trigger on 10 of 22 entries: crossing the
+    spread instead cost 0.40 % a trade (+59.7, +7.4, +3.7, -27.1 % became +54.2, +6.7, +3.2, -28.4 %)."""
+    try:
+        a, b = float(t.get("entry_ask")), float(t.get("exit_bid"))
+    except (TypeError, ValueError):
+        return None
+    return round(100.0 * (b / a - 1.0), 3) if a > 0 and b > 0 else None
+
+
+def net_lines(days, book, last=8):
+    """15 Nov: the live account at the last traded price beside the same trades at the ask and the bid, day by day
+    (days whose record carries the quotes: from 16 Nov). Report only: it changes no fill and no decision."""
+    out = ["", f"## `{book}` net of the spread (report only)", ""]
+    rows = []
+    for d, tr in sorted(days.get(book, {}).items()):
+        got = [t for t in tr if t.get("net_pct") is not None]
+        if not got:
+            continue
+        comp = lambda xs: 100.0 * (math.exp(sum(math.log(max(1e-4, 1.0 + x / 100.0)) for x in xs)) - 1.0)
+        rows.append((d, len(tr), len(got), comp([_r(t) for t in got]), comp([float(t["net_pct"]) for t in got])))
+    if not rows:
+        return out + ["No day with recorded quotes yet (the record carries them from 16 Nov)."]
+    out += ["Fills are at the last traded price (owner's rule). The right-hand column prices the same trades at the "
+            "ask going in and the bid coming out.", "",
+            "| day | trades | with both quotes | day % at the last price | day % at the ask and the bid |",
+            "|---|---|---|---|---|"]
+    out += [f"| {d} | {n} | {g} | {a:+.1f} | {b:+.1f} |" for d, n, g, a, b in rows[-last:]]
     return out
 
 
@@ -383,6 +420,7 @@ def record_day(day, books):
                            "trade_age_in": t.get("trade_age_in"), "trade_age_out": t.get("trade_age_out"),
                            "exit_quote_age": t.get("exit_quote_age"),
                            "quote_defect": defects.quote_defect(t),
+                           "net_pct": _net_pct(t),          # 15 Nov: at the ask and the bid (record only)
                            "reason": t["reason"], "time_in": t["time_in"]} for t in b.trades]}
         if getattr(b, "pos", None):
             row["unclosed"] = True
@@ -781,7 +819,9 @@ def learn(today: str = None):
         elif a in cands:
             book = GATED_PREFIX + a
             since = max(cands[a], s["champion_since"])
-            nd, m, t, need, lodo, ok = paired_test(days, book, s["champion"], since, ga)
+            f0 = _first_counted(s)             # 15 Nov (review): a declared champion's first day counts here too
+            nd, m, t, need, lodo, ok = paired_test(days, book, s["champion"], since, ga,
+                                                   first=f0 if f0 and cands[a] < f0 else None)
             if first_look:
                 s["gate_streak"][a] = s["gate_streak"].get(a, 0) + 1 if ok else 0
             gate_rows.append(f"| {book} | {nd} | {m:+.2f} | {t:.2f} | {need:.2f} | {'yes' if lodo else 'no'} | {s['gate_streak'].get(a, 0)} |")
@@ -835,6 +875,10 @@ def learn(today: str = None):
         lines += shadow_lines(days)
     except Exception as e:                     # report only: never let it stop the evening
         lines += ["", f"(shadow accounts section failed: {e})"]
+    try:
+        lines += net_lines(days, s["champion"])
+    except Exception as e:                     # report only: never let it stop the evening
+        lines += ["", f"(net-of-spread section failed: {e})"]
     try:
         put = xswitch_record(days)
         if put:
@@ -906,7 +950,7 @@ def _would_be(total, n, go, kill):
 
 
 def observer_lines(s, days, ctr):
-    champ, since = s["champion"], s["champion_since"]
+    champ = s["champion"]
     reg = s.get("registered", REGISTERED)
     n, tot = len(ctr), sum(ctr)
     d = config.SPRT_DELTA_PCT
@@ -915,7 +959,7 @@ def observer_lines(s, days, ctr):
 
     # (iv) how many champions and looks this GO line has had (C-02, C-25)
     k = 1 + sum(1 for e in s.get("log", []) if e.get("event") == "champion")
-    looks_c = sum(1 for x in days.get(champ, {}) if x > since)
+    looks_c = sum(1 for x in days.get(champ, {}) if _counts(x, s))   # 15 Nov (review): as the scoreboard counts
     looks_all = len({x for bd in days.values() for x in bd if x > reg})
     out.append(f"- Champion #{k} since registration ({reg}); evening looks: {looks_c} for this champion, "
                f"{looks_all} since registration. Every new champion and every look is another chance at a false GO.")
@@ -942,9 +986,9 @@ def observer_lines(s, days, ctr):
                f"{', '.join(str(x) for x in EVALUE_LAMBDAS)}): **{e:.2f}** — ≥ 20 would reject at 5 % under any number of looks.")
 
     # (v) the design's own day-level bar for GO (§9.2 / §6.1, C-26), as a checklist
-    dv = [sum(_r(t) for t in tr) for x, tr in sorted(days.get(champ, {}).items()) if x > since]
+    dv = [sum(_r(t) for t in tr) for x, tr in sorted(days.get(champ, {}).items()) if _counts(x, s)]
     dsum = sum(dv)
-    n_exp = sum(1 for x in days.get(champ, {}) if x > since and _is_weekly_expiry(x))
+    n_exp = sum(1 for x in days.get(champ, {}) if _counts(x, s) and _is_weekly_expiry(x))
     ca = config.CHALLENGER_ALPHA / max(1, len(config.CONTROLS))
     beats = [paired_test(days, champ, c, reg, ca)[5] for c in config.CONTROLS]
     checks = [

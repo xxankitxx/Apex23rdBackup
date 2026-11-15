@@ -50,6 +50,8 @@
   ],
   "nearest": "FWD_TRAIL",
   "level": "HOLD",
+  "stale": null,
+  "quote_age_s": null,
   "floor_arms_pct": 15.0,
   "mode": "normal"
  },

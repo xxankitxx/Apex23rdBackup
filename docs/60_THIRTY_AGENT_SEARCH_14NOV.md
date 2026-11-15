@@ -149,3 +149,13 @@ Checks: on 52 expiry days (judged, found, window) the engine class stepped per s
 
 On the next expiry day the switch starts in fade mode: over the last 6 research expiry days fade3x made +92 % and the
 pool's champion pattern -169 %. Remove both shadows by deleting the two VARIANTS lines; nothing else depends on them.
+
+## 10. Correction (15 Nov review, docs/61)
+
+Two figures in this document were produced with the simulator's time decay in the wrong unit (per calendar minute; the
+engine uses per trading minute, 3.84 times larger). They were not rerun and should not be quoted until they are:
+
+* section 4, the expiry column of the live system's baseline repriced on real option IV;
+* section 9, the +372 % day sum of the fade3x check. Its 97 of 98 entry times stand: entries do not read time decay.
+
+The holdout verdict (sections 5 to 7) and the switch's seeded history do not use that value and stand as written.

@@ -11,6 +11,16 @@ exit decision (the engine's own delay), strikes come from the parity forward, ex
 expiry day: -15 %, 25-pt trail, +15 % -> entry / +60 % -> 70 % of peak, premium trail after +70 %, 15-min clock).
 Anything that passes here still has to run in the engine as a shadow book before it can be believed.
 
+15 Nov (review, four faults that could make a wrong number; results from before this date are affected):
+  1. greeks() gave theta per CALENDAR minute; the engine and the council classes use per TRADING minute (3.84 times
+     larger). The champion's "seq" veto and expiry "tie" picker read it, so every expiry day of play() was wrong
+     (9 Nov c20_9y: -12.2 % here, +27.8 % with the engine's unit, +30.9 % in the live record). Now the engine's unit.
+  2. A feed gap was bridged with the last price and nothing else. Now: no entry in a blackout (the feed silent over
+     GAP_S, or back under RESUME_S, as engine/guard.py), a sale fills at the first LIVE bid, every trade carries
+     blind_s / wait_s / stale_exit, and a short look-back feature is NaN when a gap fills over a quarter of its window.
+  3. exit_ladder left out the champion's delta-scaled trail on normal days ("dtr"); 13 of 50 trail exits differed.
+  4. stats()["sum"] is a plain sum of trade %; it now also gives day_sum, the all-in figure (fresh capital each day).
+
     from apex import fastlab as FL
     D = FL.load_day("2026-11-06")                 # cached under data/research/fastlab/
     tr = FL.run(D, [(row, "CE", "why"), ...])     # one position at a time, the ladder exits
@@ -28,10 +38,16 @@ SIS = os.path.join(ROOT, "data", "research", "13nov", "work", "R09", "sister")
 CACHE = os.path.join(ROOT, "data", "research", "fastlab")
 IST = 19800
 N = 6 * 3600 + 15 * 60 + 1            # rows 09:15:00 .. 15:30:00
-T_FLAT = 365 * 60                     # 15:20, forced flat
+T_FLAT = 365 * 60                     # 15:20, forced flat (normal days)
+T_FLAT_EXP = 345 * 60                 # 15:00, forced flat on expiry days (Adapter.step; 15 Nov review: was 15:20 here)
 YEAR_S = 365.0 * 86400.0
+TRADING_MIN_YEAR = 365.0 * 375.0      # the engine's theta clock: apex/greeks.py theta_min = theta_year / 365 / 375
+GAP_S, RESUME_S = 10.0, 20.0          # engine/guard.py FUT_QUIET_S and RESUME_S: the blackout the live engine keeps
+FILL_MAX_S = 3                        # config.ENTRY_FILL_MAX_S: a buy with no live quote for this long lapses
+BUILD_V = 2                           # raise when _build changes: every cached day is then rebuilt
 
-NORM = dict(sl=0.15, trail=40.0, hold=5400, floor="ramp", ptrail=False, t0=60, t1=345 * 60, dt=0.52, cool=60)
+NORM = dict(sl=0.15, trail=40.0, hold=5400, floor="ramp", ptrail=False, t0=60, t1=345 * 60, dt=0.52, cool=60,
+            dtr=(0.8, 1.0))               # c20_9x "dtr" (R9_20): trail x clip(|delta at entry| / |delta now|, 0.8, 1.0)
 EXP = dict(sl=0.15, trail=25.0, hold=900, floor="pex", ptrail=True, t0=60, t1=325 * 60, dt=0.65, cool=60)
 RAMP = dict(R_ARM=0.15, R0=0.25, R1=0.50, K0=0.45, K1=0.70)
 PEX = dict(BE_ARM=0.15, GB_ARM=0.60, GB_KEEP=0.70)
@@ -109,13 +125,14 @@ def iv_of(F, K, T, px, call):
 
 
 def greeks(F, K, T, s, call):
-    """delta, gamma (per forward point), theta (premium points per minute of calendar time, negative)."""
+    """delta, gamma (per forward point), theta in the ENGINE's unit: premium points per TRADING minute, negative
+    (apex/greeks.py theta_min). 15 Nov (review): it was per calendar minute, 3.84 times too small for the classes."""
     sq = s * np.sqrt(T)
     d1 = (np.log(F / K) + 0.5 * sq * sq) / sq
     pdf = np.exp(-0.5 * d1 * d1) / np.sqrt(2 * np.pi)
     delta = np.where(call, ndtr(d1), ndtr(d1) - 1.0)
     gamma = pdf / (F * sq)
-    theta = -F * pdf * s / (2 * np.sqrt(T)) / (YEAR_S / 60.0)
+    theta = -F * pdf * s / (2 * np.sqrt(T)) / TRADING_MIN_YEAR
     return delta, gamma, theta
 
 
@@ -199,22 +216,68 @@ class Day(dict):
     __getattr__ = dict.__getitem__
 
 
+def _sig(day):
+    """what a cached day was built from: the build version and every source part's name, size and time. None when no
+    source part is on disk (a machine that holds only the cache)."""
+    ps = sorted(glob.glob(os.path.join(DS, day + "*.npz"))) + sorted(glob.glob(os.path.join(SIS, day + "*.npz")))
+    if not ps:
+        return None
+    rows = []
+    for q in ps:
+        st = os.stat(q)
+        rows.append([os.path.basename(q), int(st.st_size), int(st.st_mtime)])
+    return json.dumps([BUILD_V, rows])
+
+
+def blackout(lag):
+    """rows where the live engine takes no entry: the feed silent over GAP_S, or back for under RESUME_S."""
+    gap = np.asarray(lag, float) > GAP_S
+    last = np.maximum.accumulate(np.where(gap, np.arange(len(gap)), -10 ** 9))
+    return gap | (np.arange(len(gap)) - last <= RESUME_S)
+
+
 def load_day(day, rebuild=False):
+    """A recorded session on the 1-second grid, cached. 15 Nov (review): the cache was keyed by the day alone, so a
+    day built before all its parts (or its sister panel) existed was served for ever; it now remembers what it was
+    built from and is rebuilt when that changes."""
     os.makedirs(CACHE, exist_ok=True)
     p = os.path.join(CACHE, day + ".npz")
+    sig = _sig(day)
+    if not rebuild and os.path.exists(p) and sig is not None:
+        try:
+            with np.load(p, allow_pickle=False) as z0:
+                old = str(z0["sig"]) if "sig" in z0.files else None
+        except Exception:
+            old = None
+        rebuild = old != sig
     if rebuild or not os.path.exists(p):
         d = _build(day)
         if d is None:
             return None
+        d["sig"] = np.array(sig or "")
         np.savez(p + ".tmp.npz", **d)
         os.replace(p + ".tmp.npz", p)
-    z = np.load(p, allow_pickle=False)
-    D = Day({k: z[k] for k in z.files})
+    with np.load(p, allow_pickle=False) as z:                  # closed at once: a later rebuild can replace the file
+        D = Day({k: z[k] for k in z.files if k != "sig"})
     D["day"] = str(D["day"]); D["expiry"] = str(D["expiry"]); D["dte0"] = bool(D["dte0"]); D["t_open"] = int(D["t_open"])
     D["fs"] = ema(D["fwd"], 5.0)                               # the champion's smoothed forward
     D["T"] = np.maximum(_expiry_s(D) - (D["t_open"] + np.arange(N)), 60.0) / YEAR_S
     D["P"] = EXP if D["dte0"] else NORM
+    D["black"] = blackout(D["lag"])                            # 15 Nov: no entry here, as the live engine
     return D
+
+
+def delta_of(D, j, c):
+    """|delta| of one contract for every second, built exactly as live_day builds the classes' delta (IV carried
+    forward, 15 % when there is none yet). Cached on the day."""
+    memo = D.setdefault("_delta", {})
+    if (j, c) not in memo:
+        k = float(D["K"][j])
+        q = D["opt"][:, j, c].astype(float)
+        with np.errstate(all="ignore"):
+            iv = _ffill0(iv_of(D["fwd"], k, D["T"], 0.5 * (q[:, 0] + q[:, 1]), c == 0))
+            memo[(j, c)] = np.abs(greeks(D["fwd"], k, D["T"], np.where(np.isfinite(iv), iv, 0.15), c == 0)[0])
+    return memo[(j, c)]
 
 
 def _expiry_s(D):
@@ -268,9 +331,11 @@ def _floor(e, g, kind):
 
 
 def exit_ladder(D, i, side, j, P=None, extra=None):
-    """Buy at the ask of row i+1, walk the ladder, sell at the bid one row after the decision.
+    """Buy at the ask of row i+1, walk the ladder, sell at the first LIVE bid from one row after the decision.
     extra: optional f(ctx) -> row offsets (bool array over the hold) of an added exit rule, or None.
-    Returns dict(i_in, i_out, ret, why, peak, e) or None when there is no fill."""
+    Returns dict(i_in, i_out, ret, why, peak, e, blind_s, wait_s, stale_exit) or None when there is no fill.
+    blind_s = seconds of the hold with no live bid (the ladder saw a carried price, as the engine does in a gap);
+    wait_s = seconds the sale waited for a live bid; stale_exit = no live bid came, sold at the carried one."""
     P = D["P"] if P is None else P
     c = 0 if side == "CE" else 1
     a = i + 1
@@ -279,8 +344,10 @@ def exit_ladder(D, i, side, j, P=None, extra=None):
     e = float(D["opt"][a, j, c, 1])
     if not (e == e and e > 0):
         return None
-    b_end = min(N - 2, a + P["hold"], max(T_FLAT, a))
-    bid = _ffill0(D["opt"][a:b_end + 2, j, c, 0].astype(float))
+    t_flat = T_FLAT_EXP if D["dte0"] else T_FLAT
+    b_end = min(N - 2, a + P["hold"], max(t_flat, a))
+    raw = D["opt"][a:b_end + 2, j, c, 0].astype(float)
+    bid = _ffill0(raw)
     bid = np.where(np.isfinite(bid), bid, e)                     # no bid yet: carry the entry (rare, first seconds)
     fs = D["fs"][a:b_end + 2]
     sg = 1.0 if c == 0 else -1.0
@@ -292,7 +359,16 @@ def exit_ladder(D, i, side, j, P=None, extra=None):
     g = pk / e - 1.0
     fl = _floor(e, g, P["floor"])
     conds = [("SL", b <= e * (1 - P["sl"])), ("FLOOR", np.isfinite(fl) & (b <= fl))]
-    tr = (best - f) >= P["trail"]
+    trail = P["trail"]
+    if P.get("dtr") and not D["dte0"]:                           # 15 Nov (review): the champion's delta-scaled trail
+        ad = delta_of(D, j, c)[a:a + L]
+        de = ad[0]
+        if np.isfinite(de) and de > 0:
+            with np.errstate(all="ignore"):
+                fac = np.where(np.isfinite(ad) & (ad > 0), np.clip(de / ad, P["dtr"][0], P["dtr"][1]), np.nan)
+            fac = _ffill0(fac)                                   # no delta this second: the last factor stays
+            trail = trail * np.where(np.isfinite(fac), fac, 1.0)
+    tr = (best - f) >= trail
     if P.get("ptrail"):
         on = g >= PT["PA"]
         conds.append(("PREM_TRAIL", on & (b <= pk * (1 - PT["PQ"]))))
@@ -304,24 +380,36 @@ def exit_ladder(D, i, side, j, P=None, extra=None):
         x = extra(dict(D=D, i=i, a=a, side=side, sg=sg, e=e, b=b, f=f, g=g, pk=pk, best=best, L=L, j=j, c=c))
         if x is not None:
             conds.append(x)
-    k, why = L - 1, ("FLAT" if b_end >= T_FLAT else "TIME")
+    k, why = L - 1, ("FLAT" if b_end >= t_flat else "TIME")
     for name, m in conds:
         w = np.flatnonzero(m)
         if len(w) and w[0] < k:
             k, why = int(w[0]), name
-    xb = float(bid[min(k + 1, len(bid) - 1)])
-    return dict(i_in=a, i_out=a + k + 1, side=side, K=int(D["K"][j]), e=e, x=xb, ret=100.0 * (xb / e - 1.0), why=why,
-                peak=100.0 * (float(pk[k]) / e - 1.0), hold_s=k + 1)
+    # 15 Nov (review): the sale fills at the first LIVE bid from the row after the decision (the engine waits for a
+    # fresh quote; this used to sell at a carried bid in the middle of a feed gap)
+    o = min(k + 1, len(bid) - 1)
+    rest = D["opt"][a + o:N, j, c, 0].astype(float)
+    lv = np.flatnonzero(np.isfinite(rest) & (rest > 0))
+    wait = int(lv[0]) if len(lv) else None
+    xb = float(rest[wait]) if wait is not None else float(bid[o])
+    i_out = a + o + (wait or 0)
+    return dict(i_in=a, i_out=i_out, side=side, K=int(D["K"][j]), e=e, x=xb, ret=100.0 * (xb / e - 1.0), why=why,
+                peak=100.0 * (float(pk[k]) / e - 1.0), hold_s=i_out - a,
+                blind_s=int((~np.isfinite(raw[:k + 1])).sum()), wait_s=int(wait or 0), stale_exit=wait is None)
 
 
 def run(D, signals, P=None, extra=None, cool=None, dt=None):
-    """One position at a time. signals: iterable of (row, side, tag) sorted by row. Returns the trades."""
+    """One position at a time. signals: iterable of (row, side, tag) sorted by row. Returns the trades.
+    15 Nov (review): a signal in a feed blackout (D["black"]) is not taken, as in the live engine."""
     P = D["P"] if P is None else P
     cool = P["cool"] if cool is None else cool
     out = []
     free = P["t0"]
+    black = D.get("black")
     for i, side, tag in signals:
         if i < free or i < P["t0"] or i > P["t1"]:
+            continue
+        if black is not None and black[i]:
             continue
         j = pick(D, i, side, dt)
         if j is None:
@@ -357,11 +445,25 @@ def roll_sum(x, W):
     return o
 
 
+def day_pct(trades):
+    """{day: the all-in day %}: a day's trades compound (all of the capital on every trade), capital is fresh each day."""
+    by = {}
+    for t in trades:
+        by.setdefault(t.get("day"), []).append(float(t["ret"]))
+    return {d: 100.0 * (float(np.prod(1.0 + np.array(v) / 100.0)) - 1.0) for d, v in by.items()}
+
+
 def stats(trades):
+    """n, winners' share, mean trade %, and two totals that must not be confused:
+      sum      the plain sum of the trades' % (a per-trade measure; NOT what an all-in account earns)
+      day_sum  the sum over days of each day's all-in compounded % (what the account earns), over `days` days.
+    15 Nov (review): only `sum` existed; on 9 Nov it read +24.0 % where the all-in day was -12.2 %."""
     r = np.array([t["ret"] for t in trades], float)
     if not len(r):
-        return dict(n=0, sr=float("nan"), mean=float("nan"), sum=0.0)
-    return dict(n=len(r), sr=float((r > 0).mean()), mean=float(r.mean()), sum=float(r.sum()))
+        return dict(n=0, sr=float("nan"), mean=float("nan"), sum=0.0, day_sum=0.0, days=0)
+    dp = day_pct(trades)
+    return dict(n=len(r), sr=float((r > 0).mean()), mean=float(r.mean()), sum=float(r.sum()),
+                day_sum=float(sum(dp.values())), days=len(dp))
 
 
 # ── features: one value per second, row i reads rows <= i only ──────────────────────────────────────────────────────
@@ -383,8 +485,21 @@ def features(D):
     fs = D["fs"]
     fm = _ffill0(D["fmid"])
     X["tod"] = np.arange(N) / 60.0
+    lag = D["lag"].astype(float)
+
+    def unseen(L):
+        """True where a feed gap longer than a quarter of the look-back (at least GAP_S) lies inside rows i-L .. i:
+        the "move in L seconds" is then mostly the move of the outage, not a reading (15 Nov review: after the 13 Nov
+        53-minute gap the 60-second momentum read -69 points with the gap flag off)."""
+        c = np.cumsum(lag > max(GAP_S, L / 4.0))
+        o = c > 0
+        o[L:] = (c[L:] - c[:-L]) > 0
+        return o
+
+    def seen(x, L):
+        return np.where(unseen(L), np.nan, x)
     for L in (30, 60, 180, 300, 450, 600, 750, 900, 1200, 1800, 2400, 3600):
-        X[f"mom{L}"] = lagdiff(fs, L)
+        X[f"mom{L}"] = seen(lagdiff(fs, L), L)
     for W in (300, 450, 600, 750, 900, 1200, 1800, 3600):
         hi, lo = roll_ext(fs, W)
         X[f"hi{W}"], X[f"lo{W}"] = hi, lo
@@ -420,7 +535,7 @@ def features(D):
     X["imb10"] = im.rolling(10, min_periods=3).mean().to_numpy()
     X["imb60"] = im.rolling(60, min_periods=10).mean().to_numpy()
     for L in (10, 60, 300):
-        X[f"nf{L}"] = lagdiff(fm, L)
+        X[f"nf{L}"] = seen(lagdiff(fm, L), L)
     # heavyweights, weighted by Nifty weight, in Nifty points
     w = D["w"]
     lc = np.log(_ffill0(D["hw"].astype(float)))
@@ -429,18 +544,18 @@ def features(D):
     F0 = np.where(np.isfinite(fs), fs, np.nan)
     for L in (10, 60, 300, 1200):
         b, d = _wbasket(lc, w, L)
-        X[f"hw{L}"] = F0 * b
+        X[f"hw{L}"] = seen(F0 * b, L)
         if L in (60, 300, 1200):
             ok = np.isfinite(d)
             den = np.where(ok, w, 0.0).sum(1)
-            X[f"brd{L}"] = (np.sign(np.where(ok, d, 0.0)) * w).sum(1) / np.where(den > 0, den, np.nan)
+            X[f"brd{L}"] = seen((np.sign(np.where(ok, d, 0.0)) * w).sum(1) / np.where(den > 0, den, np.nan), L)
         if L in (60, 300):
             bb, _ = _wbasket(lc, w, L, bank)
             bn, _ = _wbasket(lc, w, L, 1.0 - bank)
-            X[f"bank_x{L}"] = F0 * (bb - bn)                                             # banks ahead of the rest
+            X[f"bank_x{L}"] = seen(F0 * (bb - bn), L)                                    # banks ahead of the rest
     for L in (10, 60):
         b, _ = _wbasket(ls, w, L)
-        X[f"sfb{L}"] = F0 * b
+        X[f"sfb{L}"] = seen(F0 * b, L)
     X["hw_gap10"] = X["hw10"] - X["nf10"]
     X["hw_gap60"] = X["hw60"] - X["nf60"]
     X["hw_gap300"] = X["hw300"] - X["nf300"]
@@ -451,11 +566,11 @@ def features(D):
     with np.errstate(all="ignore"):
         lb, lf = np.log(sis[:, 0]), np.log(sis[:, 1])
     for L in (10, 60, 300):
-        X[f"bn{L}"] = F0 * lagdiff(lb, L)
-        X[f"fin{L}"] = F0 * lagdiff(lf, L)
+        X[f"bn{L}"] = seen(F0 * lagdiff(lb, L), L)
+        X[f"fin{L}"] = seen(F0 * lagdiff(lf, L), L)
         X[f"sis_gap{L}"] = 0.5 * (X[f"bn{L}"] + X[f"fin{L}"]) - X[f"nf{L}"]
     X["vix"] = sis[:, 3]
-    X["vix300"] = lagdiff(sis[:, 3], 300)
+    X["vix300"] = seen(lagdiff(sis[:, 3], 300), 300)
     # at-the-money implied volatility from the straddle at the two strikes around the forward
     K = D["K"].astype(float)
     cm = 0.5 * (D["opt"][:, :, 0, 0] + D["opt"][:, :, 0, 1]).astype(float)
@@ -470,12 +585,15 @@ def features(D):
     iv = sa / (0.7979 * fs * np.sqrt(D["T"]))
     iv = pd.Series(iv).rolling(30, min_periods=5).mean().to_numpy()
     X["iv"] = 100.0 * iv
-    X["iv300"] = lagdiff(X["iv"], 300)
+    X["iv300"] = seen(lagdiff(X["iv"], 300), 300)
     X["iv_rich"] = X["iv"] - pd.Series(X["iv"]).expanding(min_periods=300).median().to_numpy()
     em15 = fs * iv * np.sqrt(900.0 / YEAR_S)                                             # implied 15-minute move, points
     X["em15"] = em15
     X["rent"] = (X["rv900"] / np.where(em15 > 0, em15, np.nan)) ** 2                     # realised / implied variance
     X["gap"] = (D["lag"] > 5).astype(float)
+    X["black"] = blackout(lag).astype(float)                                             # the engine takes no entry here
+    g = lag > GAP_S
+    X["since_gap"] = (np.arange(N) - np.maximum.accumulate(np.where(g, np.arange(N), -10 ** 6))).astype(float)
     return X
 
 
@@ -520,49 +638,62 @@ def live_day(D):
 def play(D, L, council):
     """Step the council strategy module `council` (e.g. "c20_9y") through the session: a BUY fills at the ask of the
     next second, a SELL at the bid of the next second, forced flat as the adapter does. Open interest is not in the
-    recorded set, so a rule that reads it (c20_9y's wall veto) does not fire here. Returns the trades."""
+    recorded set, so a rule that reads it (c20_9y's wall veto) does not fire here. Returns the trades.
+    15 Nov (review), as the adapter in a feed gap: no BUY in a blackout (D["black"]); a fill needs a LIVE quote (a buy
+    lapses after FILL_MAX_S without one, a sale waits for the first one: wait_s on the trade); blind_s = seconds held
+    with no live bid."""
     import importlib
     s = importlib.import_module(f"apex.engine.council.{council}").Strategy()
     pos = None
     pend = None
     trades = []
     flat = (15 * 60) if L.dte0 else (15 * 60 + 20)
+    black = D.get("black")
     for i in range(N - 2):
         L.i = i
+        if pos is not None and not L.age[i, pos["j"]] < 9e9:
+            pos["blind_s"] += 1
         if pend is not None:                                   # the fill second: the strategy is not stepped
-            kind, a = pend
-            pend = None
+            kind, a, i0 = pend
             if kind == "BUY":
                 k, rr, why = a
                 j = L.col.get((int(k), rr))
                 ask = L.ask[i, j] if j is not None else np.nan
-                if np.isfinite(ask) and ask > 0:
+                live = j is not None and L.age[i, j] < 9e9
+                if live and np.isfinite(ask) and ask > 0:
                     b = L.bid[i, j]
                     pos = {"rr": rr, "strike": float(k), "j": j, "i_in": i, "entry": float(ask), "qty": 65,
-                           "peak_bid": float(b) if np.isfinite(b) else float(ask), "st": {}, "why": why}
-            else:
+                           "peak_bid": float(b) if np.isfinite(b) else float(ask), "st": {}, "why": why, "blind_s": 0}
+                    pend = None
+                elif j is None or i - i0 >= FILL_MAX_S:        # no live quote in time: the entry lapses
+                    pend = None
+            elif L.age[i, pos["j"]] < 9e9 or i >= N - 3:       # a sale waits for a live bid (the day's end takes any)
                 bid = float(L.bid[i, pos["j"]])
                 trades.append(dict(day=D["day"], i_in=pos["i_in"], i_out=i, t_in=hm(pos["i_in"]), t_out=hm(i), side=pos["rr"],
                                    K=pos["strike"], e=pos["entry"], x=bid, ret=100.0 * (bid / pos["entry"] - 1.0), why=a,
-                                   tag=pos["why"], peak=100.0 * (pos["peak_bid"] / pos["entry"] - 1.0)))
+                                   tag=pos["why"], peak=100.0 * (pos["peak_bid"] / pos["entry"] - 1.0),
+                                   blind_s=pos["blind_s"], wait_s=i - i0, stale_exit=not L.age[i, pos["j"]] < 9e9))
                 pos = None
+                pend = None
             continue
         if pos is not None:
             b = L.bid[i, pos["j"]]
             if np.isfinite(b):
                 pos["peak_bid"] = max(pos["peak_bid"], float(b))
             if L.hm[i] >= flat:
-                pend = ("SELL", "TIME (forced flat)")
+                pend = ("SELL", "TIME (forced flat)", i + 1)
                 continue
         act = s.on_second(i, L, pos)
         if not act:
             continue
         if act[0] == "BUY" and pos is None:
+            if black is not None and black[i]:                 # the adapter refuses a buy in a data blackout
+                continue
             j = L.col.get((int(act[1]), act[2]))
             if j is not None and abs(L.delta[i, j]) >= 0.5:
-                pend = ("BUY", (act[1], act[2], act[3] if len(act) > 3 else ""))
+                pend = ("BUY", (act[1], act[2], act[3] if len(act) > 3 else ""), i + 1)
         elif act[0] == "SELL" and pos is not None:
-            pend = ("SELL", act[1] if len(act) > 1 else "")
+            pend = ("SELL", act[1] if len(act) > 1 else "", i + 1)
     return trades
 
 

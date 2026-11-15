@@ -46,7 +46,24 @@ def day_sigma(day, path=None):
     return s if s > 0 else None
 
 
-class _FadeMixin:
+class _MinuteClock:
+    """15 Nov (review): the once-a-minute rules read at each minute's last second (rows 59, 119, ...). The engine can
+    miss that second (13 Nov live: 21 steps took over a second) and a book is not stepped while its own fill waits, so
+    the reading is taken at the first row stepped at or after it: once a minute, never twice. With no missed second this
+    is exactly rows 59, 119, ... as in the research."""
+    _mn = None
+
+    def _minute_due(self, i):
+        if self._mn is None:
+            self._mn = i // 60                          # a start inside a minute waits for that minute's last second
+        m = (i + 1) // 60
+        if m > self._mn:
+            self._mn = m
+            return True
+        return False
+
+
+class _FadeMixin(_MinuteClock):
     W_MIN = 20
     Z = 0.6
     LEVELS = None                                       # a test may point this at its own file
@@ -58,6 +75,7 @@ class _FadeMixin:
         self.fd_em = None                               # the day's sigma in points, fixed at the first forward
         self._fd_last = {"CE": -10 ** 9, "PE": -10 ** 9}
         self.fd_log = []                                # (row, side, move, threshold, taken)
+        self._mn = None                                 # the minute clock starts again each day
 
     def _fd_points(self, i, D):
         if self.fd_em is not None:
@@ -85,7 +103,8 @@ class _FadeMixin:
         em = self._fd_points(i, D)
         edge = None
         W = self.W_MIN * 60
-        if em and i % 60 == 59 and i >= W + 59:
+        due = self._minute_due(i)                       # every second, so a missed minute close is read once, late
+        if em and due and i >= W + 59:
             a, b = self.fs[i], self.fs[i - W]
             if np.isfinite(a) and np.isfinite(b):
                 mv = float(a - b)

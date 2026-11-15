@@ -549,8 +549,11 @@ class BreezeFeed:
         return True
 
     def connect(self):
-        self.t.set("feed_state", 1)
         t_down = getattr(self, "_down_since", None)
+        # 15 Nov (review): a round that follows a drop stays RECONNECTING (3). It used to go back to CONNECTING (1) a
+        # second after reconnect() set 3, so the supervisor's "FEED reconnecting" line never printed and the dashboard
+        # said CONNECTING through an outage. The engine treats 1 and 3 alike (neither is in guard.LIVE_STATES).
+        self.t.set("feed_state", 3 if t_down is not None else 1)
         for attempt, wait in enumerate((2, 4, 8, 16, 30, 30, 30), 1):
             if int(self.t.c("stop")):
                 return False

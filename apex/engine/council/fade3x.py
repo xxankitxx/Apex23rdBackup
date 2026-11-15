@@ -41,7 +41,7 @@ class Strategy(_FadeMixin, _y.Strategy):
         if np.isfinite(f) and i < _ORB["RANGE_S"]:
             self.f3_hi = f if self.f3_hi is None else max(self.f3_hi, f)
             self.f3_lo = f if self.f3_lo is None else min(self.f3_lo, f)
-        if i % 60 != 59:
+        if not self._minute_due(i):                     # each minute's last second, or the first row after a missed one
             return None
         edge = None
         if em:
