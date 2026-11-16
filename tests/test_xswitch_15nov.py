@@ -26,7 +26,8 @@ def _hist(rows, path=None):
 
 def test_registered_last_as_shadows_and_the_live_pool_is_untouched():
     names = NAMES()
-    assert names[-2:] == ["fade3x", "conductor_xs"] and config.validate() == []
+    k = names.index("fade3x")
+    assert names[k:k + 2] == ["fade3x", "conductor_xs"] and config.validate() == []     # 15 Nov: conductor_rt follows them
     assert config.VARIANTS["fade3x"].get("twin") and config.VARIANTS["conductor_xs"].get("shadow_policy") == "xswitch"
     live = cond.Conductor("2026-11-17", names)
     assert "fade3x" not in [m["book"] for m in live.members]

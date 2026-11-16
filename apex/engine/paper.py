@@ -1300,8 +1300,33 @@ def request_entry(book, ctx, opt, reason):
 ENGINE_STALL_S = 1.0        # a step this long (market seconds) while an entry waited is the engine's delay, not the market's
 
 
+def entry_wait_s(book, pe, ctx):
+    """How long this book's pending entry may wait for a print: config.ENTRY_FILL_MAX_S for every book. A shadow twin
+    with entry_wait_exp waits that long on the option's OWN expiry day (15 Nov, docs/64 section 6; no live book has
+    the key, config.validate requires twin=True)."""
+    ew = book.p.get("entry_wait_exp")
+    if ew:
+        try:
+            if str(pe["key"]).split("|")[2] == ctx["now_dt"].strftime("%Y-%m-%d"):
+                return max(config.ENTRY_FILL_MAX_S, float(ew))
+        except (KeyError, IndexError, AttributeError, TypeError, ValueError):
+            pass
+    return config.ENTRY_FILL_MAX_S
+
+
 def try_fill_entry(book, ctx):
-    """D-126: fill a pending entry on the first print after its trigger. Returns (pos|None, reason)."""
+    """D-126: fill a pending entry on the first print after its trigger. Returns (pos|None, reason).
+
+    15 Nov (owner: "Yes, change it"; docs/64 section 6.6): the window (entry_wait_s, 3 s) is how long the option may
+    stay silent. A look that comes after it BECAUSE THE ENGINE'S OWN STEP WAS SLOW (a step gap of ENGINE_STALL_S or
+    more while the entry waited) still fills when the option has printed since the trigger, at the price then on the
+    screen, with late_entry on the trade, up to config.ENTRY_LATE_LOOK_MAX_S after the trigger. Before this an entry
+    older than the window was dropped unseen: on 9 Nov that cost 36 of 48 chosen entries, each with a fresh price
+    inside one second.
+    16 Nov (independent review before the first live session): the first version filled on ANY print since the
+    trigger, so with an engine that keeps up an option silent for 3 s and printing at 3.5 s was still bought at the
+    next look (the champion-family books look once a second). The late fill now needs the engine's own delay; with an
+    engine that keeps up the rule is D-126 as it was. The kill switch also ends a waiting entry."""
     pe = book.ctl.get("pending_entry")
     if not pe:
         return None, ""
@@ -1312,23 +1337,36 @@ def try_fill_entry(book, ctx):
     gap = ctx.get("step_gap") or 0.0                  # 10 Nov: the longest engine step while this entry waited
     if gap > pe.get("max_gap", 0.0):
         pe["max_gap"] = gap
-    if bo.get("on") or waited > config.ENTRY_FILL_MAX_S or (ctx.get("now_dt") is not None and
-                                                             config.hm(ctx["now_dt"]) >= config.mins(config.LAST_ENTRY)):
+    max_s = entry_wait_s(book, pe, ctx)
+    late_cap = max(max_s, config.ENTRY_LATE_LOOK_MAX_S)
+    printed = bool(o is not None and o.get("ltp") and o.get("age") is not None and o["age"] < waited)
+    stalled = pe.get("max_gap", 0.0) >= ENGINE_STALL_S   # the engine's own step was slow while this entry waited
+    too_late = waited > late_cap                      # even a printed option is not bought this long after its signal
+    kill = bool(ctx.get("kill"))                      # D-117: the kill switch stops an entry that has not filled yet
+    if bo.get("on") or kill or too_late or (waited > max_s and not (printed and stalled)) or (
+            ctx.get("now_dt") is not None and config.hm(ctx["now_dt"]) >= config.mins(config.LAST_ENTRY)):
         book.ctl.pop("pending_entry", None)
         for k in ("fire_id", "ep_type", "dir", "leg", "pb_trade", "orb_trade", "trig_str", "trig_unit"):
             book.ctl.pop(k, None)
-        why = "data gap" if bo.get("on") else f"no print on {pe['key'].split('|')[-2]} {pe['key'].split('|')[-1]} within {config.ENTRY_FILL_MAX_S:.0f} s"
-        if not bo.get("on") and pe.get("max_gap", 0.0) >= ENGINE_STALL_S:
+        if bo.get("on"):
+            why = "data gap"
+        elif kill:
+            why = "kill switch"
+        elif too_late and printed and stalled:
+            why = f"the engine looked {waited:.1f} s after the trigger, over the {late_cap:.0f} s limit"
+        else:
+            why = f"no print on {pe['key'].split('|')[-2]} {pe['key'].split('|')[-1]} within {max_s:.0f} s"
+        if not bo.get("on") and not kill and pe.get("max_gap", 0.0) >= ENGINE_STALL_S:
             # 10 Nov: on 9 Nov 27 of 36 lapses came while the engine itself stood still for seconds; the reason said
             # "no print", which blamed the market. A lapse during a stalled step now says so (a tag, the fill rule is unchanged).
             why += f" [engine stalled {pe['max_gap']:.1f} s]"
-        if not bo.get("on"):                          # 10 Nov (photo item 120): a lapsed request is remembered until the
+        if not bo.get("on") and not kill:             # 10 Nov (photo item 120): a lapsed request is remembered until the
             rl = book.ctl.setdefault("req_log", [])   # book next fills, so a retry is known to be a retry
             rl.append([pe["t"], pe.get("d")])
             del rl[:-50]
         book.blocked = f"entry lapsed: {why}"
         return None, f"entry lapsed: {why}"
-    if o is None or not o.get("ltp") or o.get("age") is None or o["age"] >= waited:
+    if not printed:
         return None, f"entry pending: waiting for a print on {pe['key'].split('|')[-2]} {pe['key'].split('|')[-1]} ({waited:.1f} s)"
     for k, v in pe["ctl"].items():                    # the direction / fire id the trigger set
         if v is not None:
@@ -1357,6 +1395,9 @@ def try_fill_entry(book, ctx):
         pos["weather_trig"] = pe.get("weather_trig")   # 7 Nov (stage 2): the eight factors at the trigger
         pos["trigger_ltp"] = pe["trigger_ltp"]
         pos["fill_delay_s"] = round(waited, 2)
+        if waited > config.ENTRY_FILL_MAX_S:           # 15 Nov: a look that came after the window (the engine was
+            pos["late_entry"] = True                   # late), or a twin with a longer wait and a quiet option
+            pos["late_gap_s"] = round(pe.get("max_gap", 0.0), 2)   # the longest engine step while it waited
         pos["fill_slip"] = round(pos["entry"] - pe["trigger_ltp"], 2) if pe.get("trigger_ltp") else None
         try:                                           # 10 Nov (photo item 122): how the fill was observed
             from .weather5 import fill_evidence

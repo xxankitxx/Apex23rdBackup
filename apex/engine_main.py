@@ -681,16 +681,20 @@ class Engine:
                                                       K_up if d > 0 else K_dn, now_s))
         self._lap("observers")
         if not np.isfinite(fut):
-            # 15 Nov (review): with neither a futures nor an index price nothing can be priced, so no book is stepped
-            # and no exit is checked, time exits included. That was silent. It is now said while it lasts in session.
+            # 15 Nov (review): with neither a futures nor an index price the normal step cannot run: there is no
+            # forward, no signal and no context for the older books. That was silent; it is said while it lasts.
+            # 15 Nov (docs/63 section 2.4): a held OPTION may still be quoted, so the champion-family books that hold a
+            # position still run the rules that need no forward (_risk_step). Older books wait for data, as before.
             if in_session(self.now_dt) and now_s - getattr(self, "_noprice_t", -1e9) >= NO_PRICE_SAY_S:
                 self._noprice_t = now_s
                 held = [n for n, b in self.books.items() if b.pos]
-                msg = "no futures and no index price: no book is stepped and no exit is checked" + (
-                    f"; {len(held)} open position(s) wait for data ({', '.join(held[:6])}{' ...' if len(held) > 6 else ''})"
+                msg = ("no futures and no index price: no entry and no forward-based exit. Champion-family positions "
+                       "keep their premium stop, hold clock and forced flat on the option's own quote; other books wait") + (
+                    f"; {len(held)} open position(s) ({', '.join(held[:6])}{' ...' if len(held) > 6 else ''})"
                     if held else "")
                 self.ev("DATA", msg)
                 log(msg)
+            self._safe("risk step", lambda: self._risk_step(now_s, snap))
             return
         spot_rng = self._spot_range()
         spot_age = self._spot_age(snap)
@@ -780,6 +784,48 @@ class Engine:
         if self.ideas is not None:                 # 29 Oct: after the books, observers only
             self._safe("ideas", lambda: self.ideas.step(self, ctx, snap))
         self._lap("post-books")
+
+    def _risk_step(self, now_s, snap):
+        """15 Nov (owner: "Yes, start"; docs/63 section 2.4, docs/64): the exits that need no underlying price.
+
+        Called only from the step's "no futures and no index price" branch. The normal step cannot run there, but a
+        held option may still be quoted. For every champion-family (council) book that holds a position or waits for a
+        fill, its own adapter is stepped on a minimal context: the strategy's premium stop and hold clock run without
+        a forward (c20_9x "l2"), the adapter forces flat at 15:00 / 15:20, and an exit already requested is filled by
+        the usual rule (a clock exit at once; a price exit after at most EXIT_DEFER_MAX_S, tagged stale_exit in a
+        blackout). The Conductor accounts then follow their owner book. Nothing can be BOUGHT: this runs only while
+        the data guard is in blackout, and the adapter refuses every buy in a blackout. True if a book changed."""
+        if not self.guard.on:
+            return False                                 # never outside a blackout: no entry is possible in here
+        held = [(n, b) for n, b in self.books.items()
+                if b.p.get("council") and (b.pos or b.ctl.get("pending_entry"))]
+        accts = [n for n, b in self.books.items() if b.p.get("conductor") and (b.pos or b.ctl.get("owner"))]
+        if not held and not accts:
+            return False
+        opts = self.option_rows(snap)
+        ctx = {"now_s": now_s, "now_dt": self.now_dt, "fut": None, "fut_mid": None, "spot": None, "w0": self.w0,
+               "options": opts, "by_key": {o["key"]: o for o in opts}, "by_id": {o["id"]: o for o in opts},
+               "blackout": self.guard.view(now_s), "kill": self._kill_on(), "fut_age": None, "episode": None,
+               "advisors": {}, "risk_only": True}
+        changed = False
+        for name, b in held:
+            try:
+                changed = self._council(name, b, ctx) or changed
+            except Exception:
+                self._fault(f"risk council {name}")
+        if self.conductor is not None and accts:
+            try:
+                changed = self._conductor_step(ctx) or changed
+            except Exception:
+                self._fault("risk conductor")
+            for sn, sc in (getattr(self, "shadow_conductors", None) or {}).items():
+                try:
+                    changed = (sc.step(self.books[sn], self.books, ctx) is not None) or changed
+                except Exception:
+                    self._fault(f"risk conductor {sn}")
+        if changed:
+            paper.save_books_async(self.books, self.day)
+        return changed
 
     def _strike_levels(self, ctx):
         """27 Oct: feed every fresh option print to the per-strike levels; tape the breaks of near-ATM strikes and of

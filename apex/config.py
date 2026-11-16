@@ -119,6 +119,14 @@ FILL_AT = "ltp"
 # Still LTP (owner), only the timing changes. An entry waits at most ENTRY_FILL_MAX_S for a print, then lapses.
 FILL_NEXT_PRINT = True
 ENTRY_FILL_MAX_S = 3.0
+# 15 Nov (owner: "Yes, change it"; docs/64 section 6.6): the 3 s above is the time the OPTION has to print, not the time
+# the ENGINE has to look. On 9 Nov the engine's own step took 3 to 7 s, every look came after the window, and 36 entries
+# were dropped although each option had printed within a second of its trigger. A look that comes late BECAUSE THE
+# ENGINE'S OWN STEP WAS SLOW (a step gap of paper.ENGINE_STALL_S, 1 s, or more while the entry waited) now still fills
+# when the option has printed since the trigger: at the price then on the screen, tagged late_entry, and only up to
+# this many seconds after the trigger (the limit an exit already waits, EXIT_DEFER_MAX_S). With an engine that keeps
+# up nothing changes: the entry lapses after ENTRY_FILL_MAX_S as before (16 Nov review, paper.try_fill_entry).
+ENTRY_LATE_LOOK_MAX_S = 10.0
 
 # ── v1 trigger (D-033): four tunables ────────────────────────────────────────
 TRIGGER = {
@@ -500,6 +508,18 @@ VARIANTS["fade60x"] = dict(_G, council="fade60x", twin=True)
 # Shadow only, registered LAST.
 VARIANTS["fade3x"] = dict(_G, council="fade3x", twin=True)
 VARIANTS["conductor_xs"] = dict(_G, conductor=True, shadow_policy="xswitch", twin=True, raw_of="c20_9x")
+# 15 Nov (owner: "Yes, start"; docs/63 section 6.2, docs/64): conductor_rt = a shadow account with the live pool and
+# the rent-trail book c20_9t FIRST on a same-tick tie (apex/engine/conductor.py FIRST_BOOK). The live account's exits
+# are those of the book that wins the tie, which was c20_9y on 18 of 22 live trades. Shadow only, registered LAST.
+VARIANTS["conductor_rt"] = dict(_G, conductor=True, shadow_policy="rtfirst", twin=True, raw_of="c20_9x")
+# 15 Nov (owner: "Yes, build it"; docs/64 section 6): lw_c20_9y = c20_9y whose entry waits up to 10 s for a print on the
+# option's own expiry day (3 s on every other day, as every book). On 9 Nov the live account chose 48 entries and 36
+# lapsed; the recorded ticks show all 36 options had a fresh row within 1 s, and the engine first LOOKED 3.0 to 7.4 s
+# after the trigger (its own step was that slow), past the window. A fill later than ENTRY_FILL_MAX_S is tagged
+# late_entry. Since ENTRY_LATE_LOOK_MAX_S (the same evening) every book keeps an entry the ENGINE looked at late, so
+# this twin now differs only when the OPTION is quiet: its first print comes later than the 3 s window. Shadow twin,
+# in no pool, registered LAST.
+VARIANTS["lw_c20_9y"] = dict(_G, council="c20_9y", twin=True, entry_wait_exp=10.0)
 CHAMPION_DEFAULT = "c20_9x"  # 1 Nov (owner): back from c20_9t after its 8-day replay; before: c20_9t (31 Oct, never live), t28_gap (29 Oct 11:40), t28_cheap (29 Oct morning), t28_gap (28 Oct evening), lvl_trail_re (28 Oct), edge_gate_trail and edge_gate_only (27 Oct), spot_dual_lvl (D-142), edge_gate_trail and edge_gate_only (27 Oct), spot_dual_lvl (D-142)
 # D-124 (owner, 20 Oct 16:16: "Apply spot_dc12_t12 thoroughly on my code"): the champion is the owner's choice.
 # learning.load_state applies it ONCE to an existing state (the champion lives in data/learning/state.json,
@@ -724,7 +744,7 @@ def holiday_coverage_gaps(now: datetime) -> list:
 
 
 # ── self-check (D-073): a mis-typed number fails preflight, not the session ─────
-VARIANT_KEYS = frozenset(("twin", "shadow_policy", "fc_exit", "fc_hold", "hold_exit", "reenter", "m_star", "s_star", "L_star", "d_star", "s_exit", "iv_interp",
+VARIANT_KEYS = frozenset(("twin", "entry_wait_exp", "shadow_policy", "fc_exit", "fc_hold", "hold_exit", "reenter", "m_star", "s_star", "L_star", "d_star", "s_exit", "iv_interp",
                           "gap_star", "exit_book", "spike", "random", "momentum", "novol", "trend",
                           "spot_dc", "spot_trail", "swing", "cooldown_s", "no_streak_pause", "spot_expiry_end",
                           "no_trade_cap", "expiry_window_exempt", "tv_novol", "tv_hold_s",
@@ -822,6 +842,12 @@ def validate() -> list:
         bad.append("SPOT_BASIS_MAX / SPOT_FLAT_S / SPOT_FLAT_FUT_PTS out of range")
     if not (ENTRY_FILL_MAX_S > 0):
         bad.append("ENTRY_FILL_MAX_S must be > 0")
+    if not (ENTRY_FILL_MAX_S <= ENTRY_LATE_LOOK_MAX_S <= 30.0):
+        bad.append("ENTRY_LATE_LOOK_MAX_S must be between ENTRY_FILL_MAX_S and 30 s")
+    for name, p in VARIANTS.items():                 # 15 Nov: a longer entry wait is a shadow twin's, and bounded
+        ew = p.get("entry_wait_exp")
+        if ew is not None and not (p.get("twin") and isinstance(ew, (int, float)) and ENTRY_FILL_MAX_S < ew <= 30.0):
+            bad.append(f"variant {name}: entry_wait_exp needs twin=True and {ENTRY_FILL_MAX_S:.0f} s < value <= 30 s")
     if CHAMPION_OWNER and (CHAMPION_OWNER[0] not in VARIANTS or CHAMPION_OWNER[0] in CONTROLS):
         bad.append(f"CHAMPION_OWNER {CHAMPION_OWNER[0]!r} is not a registered non-control variant")
     for name, p in VARIANTS.items():                    # 8 Nov: the Conductor's RAW base and its pool file

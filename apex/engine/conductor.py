@@ -356,6 +356,13 @@ ONLY_POOL = {"fadeonly": ("fade20", "fade60")}
 # against the pool's -634 (t 4.23 on the daily difference; selected after the fact, so a shadow). The history is
 # <LEARN_DIR>/expiry_switch.json, seeded from the research and extended each evening by apex/engine/learning.py.
 XS_BOOK, XS_N = "fade3x", 6
+# 15 Nov (owner: "Yes, start"; docs/63 section 6.2, docs/64): policy "rtfirst" keeps the live pool and puts ONE of its
+# books first on a same-tick tie. All five pool books share the entry, so the live account's exits are those of whichever
+# book wins the tie: c20_9y owned 18 of its 22 live trades, and the rent-trail book c20_9t (last in priority) owned 1.
+# On 13 Nov 12:36 every pool book bought the same put; the account, copying c20_9y, lost 7.1 % on the forward trail and
+# c20_9t's rent trail sold the same entry at +5.0 %. Four live days in rupees: c20_9t +64.6 %, c20_9y +1.7 %, the
+# Conductor +43.7 %. A lead on four days, against an in-sample priority that ranks c20_9t last: a shadow account.
+FIRST_BOOK = {"rtfirst": "c20_9t"}
 
 
 def xs_path():
@@ -402,6 +409,11 @@ def shadow_members(policy, members, order, day, name):
         return {"book": b, "rule": None, "standing": "low", "ret_per_trade": 0.0, "from": day, "shadow": True,
                 "note": f"{name}: {doc}"}
     ms = list(members)
+    if policy in FIRST_BOOK:                            # the same pool, one book first (its standing "full" in this
+        hit = [m for m in ms if m.get("book") == FIRST_BOOK[policy] and not m.get("rule")]   # shadow account only)
+        if hit:
+            first = dict(hit[0], standing="full", note=f"{name}: first on a same-tick tie (docs/64)")
+            ms = [first] + [m for m in ms if m is not hit[0]]
     if policy in ONLY_POOL:
         ms = [row(b, "shadow pool only (docs/58)") for b in ONLY_POOL[policy] if b in order]
     if policy == "xswitch" and XS_BOOK in order and all(m.get("book") != XS_BOOK for m in ms):
@@ -420,7 +432,7 @@ class AdaptiveConductor(Conductor):
 
     def __init__(self, day, book_order, policy, name, **kw):
         super().__init__(day, book_order, name=name, **kw)
-        if policy not in ("sidelock", "whipsaw", "prexp", "fade", "fadeonly", "xswitch"):
+        if policy not in ("sidelock", "whipsaw", "prexp", "fade", "fadeonly", "xswitch", "rtfirst"):
             raise ValueError(f"unknown shadow Conductor policy {policy!r}")
         self.policy = policy
         self.members = shadow_members(policy, self.members, self.order, day, name)
@@ -447,7 +459,7 @@ class AdaptiveConductor(Conductor):
                 self._tape[sd].append(1 if (t.get("pnl_rs") or 0.0) > 0 else 0)
 
     def admit(self, m, pe, cb, books, ctx):
-        if self.policy in EXTRA_POOL or self.policy in ONLY_POOL:
+        if self.policy in EXTRA_POOL or self.policy in ONLY_POOL or self.policy in FIRST_BOOK:
             return None
         if self.policy == "xswitch":
             if _expiry_of(pe) != self.day:                          # a normal day: the pool, as live
@@ -514,4 +526,5 @@ def offline_admit(policy):
         return None if (m.get("book") == XS_BOOK) == (xs[day] == "fade") else f"expiry switch: {xs[day]} mode today"
     return {"sidelock": sidelock, "whipsaw": whipsaw, "prexp": lambda trig, m, t, taken, books: None,
             "fade": lambda trig, m, t, taken, books: None,
-            "fadeonly": lambda trig, m, t, taken, books: None, "xswitch": xswitch}[policy]
+            "fadeonly": lambda trig, m, t, taken, books: None, "xswitch": xswitch,
+            "rtfirst": lambda trig, m, t, taken, books: None}[policy]

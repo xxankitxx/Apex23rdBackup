@@ -77,8 +77,10 @@ def _day_ret(trades):
     return 100.0 * sum(math.log(max(1e-4, 1.0 + _r(t) / 100.0)) for t in trades)
 
 
-SHADOW_ACCOUNTS = ("conductor", "conductor_fd", "conductor_fo", "conductor_d1", "conductor_sl", "conductor_wp60", "conductor_xs")
-SHADOW_BOOKS = ("fade20", "fade60", "orbfade", "fade60x", "fade3x", "thr_sis", "thr_hw", "st15_c20_9y", "tp_c20_9y", "pgb_c20_9y", "pm_c20_9y")
+SHADOW_ACCOUNTS = ("conductor", "conductor_rt", "conductor_fd", "conductor_fo", "conductor_d1", "conductor_sl", "conductor_wp60",
+                   "conductor_xs")
+SHADOW_BOOKS = ("fade20", "fade60", "orbfade", "fade60x", "fade3x", "thr_sis", "thr_hw", "st15_c20_9y", "tp_c20_9y", "pgb_c20_9y", "pm_c20_9y",
+                "lw_c20_9y")
 SHADOW_FROM = "2026-11-16"     # the first session with every 13 and 14 Nov shadow loaded (docs/59)
 
 
@@ -879,6 +881,11 @@ def learn(today: str = None):
         lines += net_lines(days, s["champion"])
     except Exception as e:                     # report only: never let it stop the evening
         lines += ["", f"(net-of-spread section failed: {e})"]
+    try:                                       # 15 Nov (docs/63, docs/64): where the day went and what became of each trigger
+        from ..conductor import funnel as _funnel
+        lines += _funnel.lines(today, s["champion"])
+    except Exception as e:
+        lines += ["", f"(opportunity funnel section failed: {e})"]
     try:
         put = xswitch_record(days)
         if put:

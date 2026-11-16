@@ -41,7 +41,7 @@ These are choices, not findings. You may argue against them, but treat them as t
 | 19 and 20 | Known weaknesses, then the questions we most want answered |
 | 21 | File map and glossary |
 
-The brief describes the code as it stands on 15 Nov 2026, including fixes made that day. File paths are relative to the repository root. The `secrets/` folder is outside the review: do not open it.
+The brief describes the code at commit c489e61 of 15 Nov 2026, including fixes made that day. Four additions, one correction and one change to a live fill rule made later that evening are noted at the top of section 18. File paths are relative to the repository root. The `secrets/` folder is outside the review: do not open it.
 
 ## 2. The system in one page
 
@@ -187,7 +187,7 @@ From 15:41 the engine saves the books, writes the champion's trades, updates the
 - Fixed on 15 Nov: greeks were computed from the raw index price, so an index print the guard had rejected could become the forward's reference. The reference is now the trusted index, else the future.
 - `start_day` marked the day as started before a check that can refuse to run, so the next step could carry on without the ledger. Fixed on 15 Nov: a failed start is dropped and retried every 30 s, and nothing trades meanwhile.
 - `end_day` marked the day as done before its work. Fixed on 15 Nov: done only after the day's record is on disk, with up to 5 retries.
-- With no futures and no index price, the step returns before any exit is checked, time exits included. Since 15 Nov this is said once a minute with the positions that wait; the behaviour is unchanged, because nothing can be priced.
+- With no futures and no index price, the step returns before any exit is checked, time exits included. Since 15 Nov this is said once a minute, and champion-family positions still run their premium stop, hold clock and forced flat on the option's own quote (docs/64). Older books still wait for data.
 - The option's expiry is taken as 15:30 for greeks; `config.py` says derivatives close at 15:40.
 - Engine and fill code hold 50 `except` handlers, 41 of them broad. A spot-guard error counts as "trusted".
 
@@ -200,7 +200,7 @@ The mechanics live in `apex/engine/paper.py` (2,060 lines).
 | Step | Rule |
 | --- | --- |
 | Entry | A trigger stores a pending entry. It fills at the last traded price on the first update of that option's row after the trigger |
-| Entry lapses | After 3.0 s with no update, on a blackout, or at 15:15 |
+| Entry lapses | After 3.0 s with no update, on a blackout, or at 15:15. Changed on the night of 15 Nov: when the engine itself looks late, an option that has printed since the trigger still fills, at the price then on the screen, up to 10 s after the trigger, and the trade is tagged late\_entry (docs/64 section 6.6) |
 | Price exit (stop, trail, floor) | The decision is committed, then fills on the first row update after it |
 | Exit with no update | After 10 s it fills at the last price and the trade is tagged `stale_exit` |
 | Time exit | Fills at once; tagged stale when the quote is over 5 s old |
@@ -678,7 +678,7 @@ Before 15 Nov the simulator fed the strategy classes time decay per calendar min
 
 ## 18. What changed from 5 to 15 Nov 2026
 
-The source grew 85 % in eleven days, from 20,600 to 38,100 lines over 32 commits, and the tests more than doubled. The pool file last changed on 9 Nov, and the pool books' strategy files between 30 Oct and 7 Nov. Later commits were meant to add only shadows, measurement, display and fixes.
+The source grew 85 % in eleven days, from 20,600 to 38,100 lines over 32 commits, and the tests more than doubled. The pool file last changed on 9 Nov, and the pool books' strategy files between 30 Oct and 7 Nov. Later commits were meant to add only shadows, measurement, display and fixes. After this brief was written, the same evening added four things, none of which changes a live entry: a seventh shadow account (conductor\_rt, which copies the rent-trail book first; 123 books at that point), a shadow twin of c20\_9y whose entry waits up to 10 s for a print on an expiry day (lw\_c20\_9y; 124 books), a nightly count of where the account's day went and what became of each trigger, and exits that still run when the futures and index prices are missing. They are recorded in docs/64. The same check found that the 9 Nov freeze cost the live account every entry after 11:57: 36 of its 48 chosen entries lapsed while the option had a fresh price, because the engine looked 3 to 7 s late. The four live days are three days and a morning. Later still the owner changed one live fill rule: an entry is no longer dropped because the engine itself looked late (docs/64 section 6.6). A speed check on a recorded tape found that the 124 books cost almost nothing on an ordinary step (median 7.9 ms against 7.7 ms for the 13 Nov code); the slow steps of 13 Nov came from other load on the machine (docs/64 section 6.5).
 
 | Date | Change | Touches a live trade? |
 | --- | --- | --- |
